@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-29 Tue 16:36 -->
+<!-- 2022-03-29 Tue 16:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vedanta (वेदान्त)</title>
@@ -260,11 +260,11 @@ denoted as \((S, \bigoplus)\) (just an <i>abstract tuple</i>).
 <div class="outline-text-3" id="text-org8bad245">
 <p>
 A Set \(S\) has a <i>binary</i> operation \(\bigoplus\) if and only if
-\(\forall x, y \in S \exists\) a <i>unique</i> \(z \in S \mid x \bigoplus y = z\)
+\[\forall x, y \in S \exists! z \in S \mid x \bigoplus y = z\]
 </p>
 
 <p>
-Anything that satisfies the conditions is an <i>operation</i>.
+Anything that satisfies the conditions <i>is an operation</i>.
 </p>
 </div>
 </div>
@@ -276,7 +276,7 @@ Anything that satisfies the conditions is an <i>operation</i>.
 For a <i>system</i> \((S, \bigoplus)\), a subset \(T\) of \(S\) is <i>closed under
 \(\bigoplus\)</i> if and only if
 \[\forall t, u \in T, t \bigoplus u \in T\]
-That is, \(\bigoplus\) is an operation for \(T\).
+That is, \(\bigoplus\) is an operation for \(T\). Identity is <i>not</i> required.
 </p>
 </div>
 </div>
@@ -312,9 +312,9 @@ An operation \(\bigoplus\) on Set \(S\) is <i>associative</i> if and only if
 </p>
 </div>
 </div>
-<div id="outline-container-org223ddca" class="outline-3">
-<h3 id="org223ddca">Monoid</h3>
-<div class="outline-text-3" id="text-org223ddca">
+<div id="outline-container-org6d370d8" class="outline-3">
+<h3 id="org6d370d8">Monoid</h3>
+<div class="outline-text-3" id="text-org6d370d8">
 <p>
 \((S, \bigoplus, e)\) such that \(\forall x, y, z \in S\) <i>identity</i> and
 <i>associativity</i> laws hold:
@@ -356,9 +356,9 @@ If \((S, \bigoplus, e)\) is <i>associative</i> and has an <i>identity</i> \(e\) 
 <h4 id="org874ed22">inverse distibutes over \(\bigoplus\)</h4>
 <div class="outline-text-4" id="text-org874ed22">
 <ul class="org-ul">
-<li><i>symmetry</i>: \[(x^{-1})^{-1} = x\]</li>
-<li><i>distributive law</i>: \[(x \bigoplus y)^{-1} = x^{-1} \bigoplus
-  y^{-1}\].</li>
+<li><i>symmetry</i>: \((x^{-1})^{-1} = x\)</li>
+<li><i>distributive law</i>: \((x \bigoplus y)^{-1} = x^{-1} \bigoplus
+  y^{-1}\)</li>
 </ul>
 </div>
 </div>
@@ -366,12 +366,12 @@ If \((S, \bigoplus, e)\) is <i>associative</i> and has an <i>identity</i> \(e\) 
 <div id="outline-container-org365f949" class="outline-3">
 <h3 id="org365f949">Number systems</h3>
 <div class="outline-text-3" id="text-org365f949">
-<p>
-\(\mathbb{N}\) has no inverses, \(+\) and \(*\) form a <i>Monoid</i>.
-\(\mathbb{Z}\) has only <i>additive inverses</i> (it must be \(\forall x\))
-\(\mathbb{Q}\) has additive and <i>multiplicative inverses</i> (\(a \div b = a * \frac{1}{b}\))
-\(\mathbb{R}\) has it all
-</p>
+<ul class="org-ul">
+<li>\(\mathbb{N}\) has no inverses, \(+\) and \(*\) form a <i>Monoid</i>.</li>
+<li>\(\mathbb{Z}\) has only <i>additive inverses</i> (it must be \(\forall x\))</li>
+<li>\(\mathbb{Q}\) has additive and <i>multiplicative inverses</i> (\(a \div b = a * \frac{1}{b}\))</li>
+<li>\(\mathbb{R}\) has it all</li>
+</ul>
 </div>
 </div>
 <div id="outline-container-org676a59d" class="outline-3">
@@ -388,16 +388,16 @@ A system \((G, \bigoplus, e)\) is a <i>Group</i> if and only if
 </p>
 </div>
 </div>
-<div id="outline-container-org715171d" class="outline-3">
-<h3 id="org715171d">Semi-group</h3>
-<div class="outline-text-3" id="text-org715171d">
+<div id="outline-container-org1097be5" class="outline-3">
+<h3 id="org1097be5">Semi-group</h3>
+<div class="outline-text-3" id="text-org1097be5">
 <p>
 A <i>Group</i> without <i>inverses</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org99c5208" class="outline-3">
-<h3 id="org99c5208">Functor</h3>
+<div id="outline-container-orgcc5b248" class="outline-3">
+<h3 id="orgcc5b248">Functor</h3>
 </div>
 </div>
 <div id="outline-container-org7f859dd" class="outline-2">
@@ -407,20 +407,20 @@ A <i>Group</i> without <i>inverses</i>.
 <div id="outline-container-orgadd994a" class="outline-3">
 <h3 id="orgadd994a">Types are Sets</h3>
 </div>
-<div id="outline-container-org6d370d8" class="outline-3">
-<h3 id="org6d370d8">Monoid</h3>
+<div id="outline-container-org0e06b8b" class="outline-3">
+<h3 id="org0e06b8b">Monoid</h3>
 </div>
-<div id="outline-container-org1097be5" class="outline-3">
-<h3 id="org1097be5">Semi-group</h3>
+<div id="outline-container-org1f712e6" class="outline-3">
+<h3 id="org1f712e6">Semi-group</h3>
 </div>
-<div id="outline-container-orgcc5b248" class="outline-3">
-<h3 id="orgcc5b248">Functor</h3>
+<div id="outline-container-orge08f709" class="outline-3">
+<h3 id="orge08f709">Functor</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-<p class="date">Created: 2022-03-29 Tue 16:36</p>
+<p class="date">Created: 2022-03-29 Tue 16:49</p>
 </div>
 </body>
 </html>
