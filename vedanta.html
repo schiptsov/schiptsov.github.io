@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-29 Tue 19:47 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vedanta (वेदान्त)</title>
-<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
-<meta name="description" content="End of Knowledge for a Functional Programmer" />
-<meta name="generator" content="Org Mode" />
-<style>
+  <!-- 2022-03-29 Tue 20:59 -->
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1" />
+  <title>Vedanta (वेदान्त)</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+  <meta name="description" content=
+  "End of Knowledge for a Functional Programmer" />
+  <meta name="generator" content="Org Mode" />
+  <style>
+  <![CDATA[
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -193,9 +197,11 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-</style>
-<link rel='stylesheet' type='text/css' href='css/main.css'/>
-<script type="text/x-mathjax-config">
+  ]]>
+  </style>
+  <link rel='stylesheet' type='text/css' href='css/main.css' />
+  <script type="text/x-mathjax-config">
+  <![CDATA[
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "0em",
@@ -213,465 +219,522 @@
                TagSide: "right",
                TagIndent: ".8em"
              }
-});
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+  });
+  ]]>
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href=""> UP </a>
- |
- <a accesskey="H" href="index.html"> HOME </a>
-</div><div id="content" class="content">
-<h1 class="title">Vedanta (वेदान्त)</h1>
-<p>
-In Mathematics we study abstract patterns (abstracting away
-any possible representation or actual implementation of an algorithm or
-a structure.
-</p>
-
-<p>
-In CS every value <i>implies</i> some representation and it is usualy
-a part of some <i>Abstract Data Type</i>, which, in turn, <i>implies</i> some
-(usualy there is more than one) <i>actual implementation</i>,
-based on some particular <i>data-structure</i>.
-</p>
-
-<p>
-Math is untyped, too abstract and actually easy.
-</p>
-
-<div id="outline-container-org3ceafd3" class="outline-2">
-<h2 id="org3ceafd3">Math</h2>
-<div class="outline-text-2" id="text-org3ceafd3">
-</div>
-<div id="outline-container-orge6b2e15" class="outline-3">
-<h3 id="orge6b2e15">Algebraic System</h3>
-<div class="outline-text-3" id="text-orge6b2e15">
-<p>
-A Set \(S\) together with an <i>operation</i> \(\bigoplus\) is an algebraic system
-denoted as \((S, \bigoplus)\) (just an <i>abstract tuple</i>).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org8bad245" class="outline-3">
-<h3 id="org8bad245">Operation</h3>
-<div class="outline-text-3" id="text-org8bad245">
-<p>
-A Set \(S\) has a <i>binary</i> operation \(\bigoplus\) if and only if
-\[\forall x, y \in S \exists! z \in S \mid x \bigoplus y = z\]
-</p>
-
-<p>
-Anything that satisfies the conditions <i>is an operation</i>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org7d78be1" class="outline-3">
-<h3 id="org7d78be1">Closure</h3>
-<div class="outline-text-3" id="text-org7d78be1">
-<p>
-For a <i>system</i> \((S, \bigoplus)\), a subset \(T\) of \(S\) is <i>closed under
-\(\bigoplus\)</i> if and only if
-\[\forall t, u \in T, t \bigoplus u \in T\]
-That is, \(\bigoplus\) is an operation for \(T\). Identity is <i>not</i> required.
-</p>
-</div>
-</div>
-<div id="outline-container-org80be165" class="outline-3">
-<h3 id="org80be165">Identity</h3>
-<div class="outline-text-3" id="text-org80be165">
-<p>
-A system \((S, \bigoplus)\) has an <i>indentity</i> element \(e \in S\) if and only if
-\[\forall x \in S, x \bigoplus e = x = e \bigoplus x\]
-</p>
-
-<p>
-Each <i>binary operation</i> may or may not have <i>its own identity</i>.
-</p>
-
-<p>
-If \((S, \bigoplus)\) has an identity, the identity is <i>unique</i>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgc887795" class="outline-3">
-<h3 id="orgc887795">Associative</h3>
-<div class="outline-text-3" id="text-orgc887795">
-<p>
-An operation \(\bigoplus\) on Set \(S\) is <i>associative</i> if and only if
-\(\forall a, b, c \in S\) we have
-\[(a \bigoplus b) \bigoplus c = a \bigoplus (b \bigoplus c)\]
-</p>
-
-<p>
-<i>Identity</i> is a separate notion and is not required.
-</p>
-</div>
-</div>
-<div id="outline-container-orge19d041" class="outline-3">
-<h3 id="orge19d041">Monoid</h3>
-<div class="outline-text-3" id="text-orge19d041">
-<p>
-\((S, \bigoplus, e)\) such that \(\forall x, y, z \in S\) <i>identity</i> and
-<i>associativity</i> laws hold:
-\[x \bigoplus e = x = e \bigoplus x\]
-\[x \bigoplus (y \bigoplus z) = (x \bigoplus y) \bigoplus z\]
-<i>Commutativity</i> is not required for a <i>Monoid</i>, given that \(+\) and \(*\) are <i>commutative</i>. \[\]
-</p>
-</div>
-</div>
-<div id="outline-container-org4c62663" class="outline-3">
-<h3 id="org4c62663">Inverse</h3>
-<div class="outline-text-3" id="text-org4c62663">
-<p>
-For \((S, \bigoplus, e)\) with identity \(e\), an <i>inverse of</i> \(x \in S\)
-is some \(y \in S\) such that:
-\[x \bigoplus y = e = y \bigoplus x\].
-</p>
-
-<p>
-This implies that \(\bigoplus\) is <i>commutative</i>, eg \(a \bigoplus b = b \bigoplus a\).
-</p>
-
-<p>
-For example, \(a - b = a + (-b)\) where \(+\) is <i>commutative</i> and
-\(-b\) is an <i>additive inverse</i> of \(b\).
-</p>
-</div>
-
-<div id="outline-container-org5e7aa8e" class="outline-4">
-<h4 id="org5e7aa8e">Uniqueness of an inverse</h4>
-<div class="outline-text-4" id="text-org5e7aa8e">
-<p>
-If \((S, \bigoplus, e)\) is <i>associative</i> and has an <i>identity</i> \(e\) and an element \(x\) has an
-<i>inverse</i>, then the inverse is <i>unique</i>.
-</p>
-</div>
-</div>
-<div id="outline-container-org874ed22" class="outline-4">
-<h4 id="org874ed22">inverse distibutes over \(\bigoplus\)</h4>
-<div class="outline-text-4" id="text-org874ed22">
-<ul class="org-ul">
-<li><i>symmetry</i>: \((x^{-1})^{-1} = x\)</li>
-<li><i>distributive law</i>: \((x \bigoplus y)^{-1} = x^{-1} \bigoplus
-  y^{-1}\)</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org365f949" class="outline-3">
-<h3 id="org365f949">Number systems</h3>
-<div class="outline-text-3" id="text-org365f949">
-<ul class="org-ul">
-<li>\(\mathbb{N}\) has no inverses, \(+\) and \(*\) form a <i>Monoid</i>.</li>
-<li>\(\mathbb{Z}\) has only <i>additive inverses</i> (it must be \(\forall x\))</li>
-<li>\(\mathbb{Q}\) has additive and <i>multiplicative inverses</i> (\(a \div b = a * \frac{1}{b}\))</li>
-<li>\(\mathbb{R}\) has it all</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org676a59d" class="outline-3">
-<h3 id="org676a59d">Group</h3>
-<div class="outline-text-3" id="text-org676a59d">
-<p>
-<i>Associativiy</i>, <i>Identity</i>, <i>Inverses \(\forall x\)</i>.
-</p>
-
-<p>
-A system \((G, \bigoplus, e)\) is a <i>Group</i> if and only if
-\(\bigoplus\) is <i>associative</i>, has an identity \(e\), and
-<i>every</i> element has an <i>inverse</i>.
-</p>
-</div>
-</div>
-<div id="outline-container-org9681ad2" class="outline-3">
-<h3 id="org9681ad2">Semi-group</h3>
-<div class="outline-text-3" id="text-org9681ad2">
-<p>
-A <i>Group</i> without <i>inverses</i>.
-</p>
-</div>
-</div>
-<div id="outline-container-orgf79590b" class="outline-3">
-<h3 id="orgf79590b">Functor</h3>
-<div class="outline-text-3" id="text-orgf79590b">
-<p>
-Originally defined on <i>graphs</i> as a transformation that <i>preserves the
-structure</i> of a graph.
-</p>
-
-<p>
-Traditionally in mathematics graphs are defined as a <i>tuple of Sets</i> -
-\(N\) as a Set of <i>Nodes</i> and \(E\) as a Set of <i>Edges</i>, where each <i>Edge</i> is
-itself a <i>tuple</i> which contains a <i>pair of Nodes</i> (so it is <i>ordered</i>).
-</p>
-
-<p>
-<i>Structure-preserving</i> mappings are called <i>homomorphisms</i> (of the same
-form).
-</p>
-
-<p>
-For <i>simple graphs</i> <code>h</code> is a <i>total function</i> \(h: (N, E) \rightarrow (N',
-E')\) such that:
-\[\forall (A, B) \in E, \exists (h(A), h(B)) \in E\]
-Homomorphisms are <i>structure-preserving</i> as they map  <i>Edges to Edges</i>
-(<i>Nodes</i> are preserved implicitly).
-</p>
-
-<p>
-There is another, more precise and detailed formulation of a <code>Functor</code>
-for <i>labeled graphs</i> which is irrelevant.
-</p>
-
-<p>
-A <code>Functor</code> is just a generalized <i>homomorphism</i>, that is a
-<i>structure-preserving transformation</i>, whatever it might be.
-</p>
-</div>
-
-<div id="outline-container-org82067d9" class="outline-4">
-<h4 id="org82067d9">Category theory</h4>
-<div class="outline-text-4" id="text-org82067d9">
-<p>
-Here the notion of a <code>Functor</code> has been generalized as a mapping between
-<i>Categories</i> which are abstract algebraic structures of <i>objects</i> and
-<i>arrows</i>.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgcdbf34b" class="outline-3">
-<h3 id="orgcdbf34b">Constraints of Sets</h3>
-<div class="outline-text-3" id="text-orgcdbf34b">
-<p>
-We use <i>set comprehension</i> notation to specify constraints on subsets
-(using guards, which are <i>predicates</i>).
-\[\{ x \mid x \leftarrow S, x \geq 0\}\]
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org7f859dd" class="outline-2">
-<h2 id="org7f859dd">CS</h2>
-<div class="outline-text-2" id="text-org7f859dd">
-</div>
-<div id="outline-container-orgadd994a" class="outline-3">
-<h3 id="orgadd994a">Types are Sets</h3>
-</div>
-<div id="outline-container-orgd5b2454" class="outline-3">
-<h3 id="orgd5b2454">Monoid</h3>
-<div class="outline-text-3" id="text-orgd5b2454">
-<ul class="org-ul">
-<li>List concatenation (<code>++</code>)</li>
-<li>Logical conjunction (\(\land\)) and disjunction (\(\lor\))</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf65588e" class="outline-3">
-<h3 id="orgf65588e">Semi-group</h3>
-</div>
-<div id="outline-container-org433a7e9" class="outline-3">
-<h3 id="org433a7e9">Functor</h3>
-<div class="outline-text-3" id="text-org433a7e9">
-<p>
-Generalized notion of <i>mapping over a value which preserves the
-structure</i> (whatever it may be).
-</p>
-
-<p>
-Generalized mapping on <code>Lists</code> dates back to the early Lisps.
-</p>
-<div class="org-src-container">
-<pre class="src src-scheme">(<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">map</span> (<span style="color: #81A1C1;">lambda</span> (f xs)
-              (<span style="color: #81A1C1;">if</span> (null? xs) xs
-                  (cons (f (car xs)) (<span style="color: #81A1C1;">map</span> f (cdr xs))))))
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <h1 class="title">Vedanta (वेदान्त)</h1>
+    <p>In Mathematics we study abstract patterns (abstracting away
+    any possible representation or actual implementation of an
+    algorithm or a structure.</p>
+    <p>In CS every value <i>implies</i> some representation and it
+    is usualy a part of some <i>Abstract Data Type</i>, which, in
+    turn, <i>implies</i> some (usualy there is more than one)
+    <i>actual implementation</i>, based on some particular
+    <i>data-structure</i>.</p>
+    <p>Math is untyped, too abstract and actually easy.</p>
+    <div id="outline-container-org3ceafd3" class="outline-2">
+      <h2 id="org3ceafd3">Math</h2>
+      <div class="outline-text-2" id="text-org3ceafd3"></div>
+      <div id="outline-container-orge6b2e15" class="outline-3">
+        <h3 id="orge6b2e15">Algebraic System</h3>
+        <div class="outline-text-3" id="text-orge6b2e15">
+          <p>A Set \(S\) together with an <i>operation</i>
+          \(\bigoplus\) is an algebraic system denoted as \((S,
+          \bigoplus)\) (just an <i>abstract tuple</i>).</p>
+        </div>
+      </div>
+      <div id="outline-container-org8bad245" class="outline-3">
+        <h3 id="org8bad245">Operation</h3>
+        <div class="outline-text-3" id="text-org8bad245">
+          <p>A Set \(S\) has a <i>binary</i> operation
+          \(\bigoplus\) if and only if \[\forall x, y \in S
+          \exists! z \in S \mid x \bigoplus y = z\]</p>
+          <p>Anything that satisfies the conditions <i>is an
+          operation</i>.</p>
+        </div>
+      </div>
+      <div id="outline-container-org7d78be1" class="outline-3">
+        <h3 id="org7d78be1">Closure</h3>
+        <div class="outline-text-3" id="text-org7d78be1">
+          <p>For a <i>system</i> \((S, \bigoplus)\), a subset \(T\)
+          of \(S\) is <i>closed under \(\bigoplus\)</i> if and only
+          if \[\forall t, u \in T, t \bigoplus u \in T\] That is,
+          \(\bigoplus\) is an operation for \(T\). Identity is
+          <i>not</i> required.</p>
+        </div>
+      </div>
+      <div id="outline-container-org80be165" class="outline-3">
+        <h3 id="org80be165">Identity</h3>
+        <div class="outline-text-3" id="text-org80be165">
+          <p>A system \((S, \bigoplus)\) has an <i>indentity</i>
+          element \(e \in S\) if and only if \[\forall x \in S, x
+          \bigoplus e = x = e \bigoplus x\]</p>
+          <p>Each <i>binary operation</i> may or may not have
+          <i>its own identity</i>.</p>
+          <p>If \((S, \bigoplus)\) has an identity, the identity is
+          <i>unique</i>.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgc887795" class="outline-3">
+        <h3 id="orgc887795">Associative</h3>
+        <div class="outline-text-3" id="text-orgc887795">
+          <p>An operation \(\bigoplus\) on Set \(S\) is
+          <i>associative</i> if and only if \(\forall a, b, c \in
+          S\) we have \[(a \bigoplus b) \bigoplus c = a \bigoplus
+          (b \bigoplus c)\]</p>
+          <p><i>Identity</i> is a separate notion and is not
+          required.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgd5b2454" class="outline-3">
+        <h3 id="orgd5b2454">Monoid</h3>
+        <div class="outline-text-3" id="text-orgd5b2454">
+          <p>\((S, \bigoplus, e)\) such that \(\forall x, y, z \in
+          S\) <i>identity</i> and <i>associativity</i> laws hold:
+          \[x \bigoplus e = x = e \bigoplus x\] \[x \bigoplus (y
+          \bigoplus z) = (x \bigoplus y) \bigoplus z\]
+          <i>Commutativity</i> is not required for a <i>Monoid</i>,
+          given that \(+\) and \(*\) are <i>commutative</i>.
+          \[\]</p>
+        </div>
+      </div>
+      <div id="outline-container-org4c62663" class="outline-3">
+        <h3 id="org4c62663">Inverse</h3>
+        <div class="outline-text-3" id="text-org4c62663">
+          <p>For \((S, \bigoplus, e)\) with identity \(e\), an
+          <i>inverse of</i> \(x \in S\) is some \(y \in S\) such
+          that: \[x \bigoplus y = e = y \bigoplus x\].</p>
+          <p>This implies that \(\bigoplus\) is <i>commutative</i>,
+          eg \(a \bigoplus b = b \bigoplus a\).</p>
+          <p>For example, \(a - b = a + (-b)\) where \(+\) is
+          <i>commutative</i> and \(-b\) is an <i>additive
+          inverse</i> of \(b\).</p>
+        </div>
+        <div id="outline-container-org5e7aa8e" class="outline-4">
+          <h4 id="org5e7aa8e">Uniqueness of an inverse</h4>
+          <div class="outline-text-4" id="text-org5e7aa8e">
+            <p>If \((S, \bigoplus, e)\) is <i>associative</i> and
+            has an <i>identity</i> \(e\) and an element \(x\) has
+            an <i>inverse</i>, then the inverse is
+            <i>unique</i>.</p>
+          </div>
+        </div>
+        <div id="outline-container-org874ed22" class="outline-4">
+          <h4 id="org874ed22">inverse distibutes over
+          \(\bigoplus\)</h4>
+          <div class="outline-text-4" id="text-org874ed22">
+            <ul class="org-ul">
+              <li><i>symmetry</i>: \((x^{-1})^{-1} = x\)</li>
+              <li><i>distributive law</i>: \((x \bigoplus y)^{-1} =
+              x^{-1} \bigoplus y^{-1}\)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-org365f949" class="outline-3">
+        <h3 id="org365f949">Number systems</h3>
+        <div class="outline-text-3" id="text-org365f949">
+          <ul class="org-ul">
+            <li>\(\mathbb{N}\) has no inverses, \(+\) and \(*\)
+            form a <i>Monoid</i>.</li>
+            <li>\(\mathbb{Z}\) has only <i>additive inverses</i>
+            (it must be \(\forall x\))</li>
+            <li>\(\mathbb{Q}\) has additive and <i>multiplicative
+            inverses</i> (\(a \div b = a * \frac{1}{b}\))</li>
+            <li>\(\mathbb{R}\) has it all</li>
+          </ul>
+        </div>
+      </div>
+      <div id="outline-container-org676a59d" class="outline-3">
+        <h3 id="org676a59d">Group</h3>
+        <div class="outline-text-3" id="text-org676a59d">
+          <p><i>Associativiy</i>, <i>Identity</i>, <i>Inverses
+          \(\forall x\)</i>.</p>
+          <p>A system \((G, \bigoplus, e)\) is a <i>Group</i> if
+          and only if \(\bigoplus\) is <i>associative</i>, has an
+          identity \(e\), and <i>every</i> element has an
+          <i>inverse</i>.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgf65588e" class="outline-3">
+        <h3 id="orgf65588e">Semi-group</h3>
+        <div class="outline-text-3" id="text-orgf65588e">
+          <p>A <i>Group</i> without <i>inverses</i>.</p>
+        </div>
+      </div>
+      <div id="outline-container-org433a7e9" class="outline-3">
+        <h3 id="org433a7e9">Functor</h3>
+        <div class="outline-text-3" id="text-org433a7e9">
+          <p>Originally defined on <i>graphs</i> as a
+          transformation that <i>preserves the structure</i> of a
+          graph.</p>
+          <p>Traditionally in mathematics graphs are defined as a
+          <i>tuple of Sets</i> - \(N\) as a Set of <i>Nodes</i> and
+          \(E\) as a Set of <i>Edges</i>, where each <i>Edge</i> is
+          itself a <i>tuple</i> which contains a <i>pair of
+          Nodes</i> (so it is <i>ordered</i>).</p>
+          <p><i>Structure-preserving</i> mappings are called
+          <i>homomorphisms</i> (of the same form).</p>
+          <p>For <i>simple graphs</i> <code>h</code> is a <i>total
+          function</i> \(h: (N, E) \rightarrow (N', E')\) such
+          that: \[\forall (A, B) \in E, \exists (h(A), h(B)) \in
+          E\] Homomorphisms are <i>structure-preserving</i> as they
+          map <i>Edges to Edges</i> (<i>Nodes</i> are preserved
+          implicitly).</p>
+          <p>There is another, more precise and detailed
+          formulation of a <code>Functor</code> for <i>labeled
+          graphs</i> which is irrelevant.</p>
+          <p>A <code>Functor</code> is just a generalized
+          <i>homomorphism</i>, that is a <i>structure-preserving
+          transformation</i>, whatever it might be.</p>
+        </div>
+        <div id="outline-container-org82067d9" class="outline-4">
+          <h4 id="org82067d9">Category theory</h4>
+          <div class="outline-text-4" id="text-org82067d9">
+            <p>Here the notion of a <code>Functor</code> has been
+            generalized as a mapping between <i>Categories</i>
+            which are abstract algebraic structures of
+            <i>objects</i> and <i>arrows</i>.</p>
+            <p>When it maps <i>arrows</i> <i>associativity</i> and
+            <i>identity</i> has to be preserved (these are
+            properties af an algebraic “structure”): \[\forall f: A
+            \rightarrow B \exists! Ff: FA \rightarrow FB \land
+            \forall f: A \rightarrow B, g: B \rightarrow C \mid F(f
+            \circ g) = Fg \circ Ff\]</p>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-orgcdbf34b" class="outline-3">
+        <h3 id="orgcdbf34b">Constraints of Sets</h3>
+        <div class="outline-text-3" id="text-orgcdbf34b">
+          <p>We use <i>set comprehension</i> notation to specify
+          constraints on subsets (using guards, which are
+          <i>predicates</i>). \[\{ x \mid x \leftarrow S, x \geq
+          0\}\]</p>
+        </div>
+      </div>
+    </div>
+    <div id="outline-container-org7f859dd" class="outline-2">
+      <h2 id="org7f859dd">CS</h2>
+      <div class="outline-text-2" id="text-org7f859dd"></div>
+      <div id="outline-container-orgadd994a" class="outline-3">
+        <h3 id="orgadd994a">Types are Sets</h3>
+      </div>
+      <div id="outline-container-orgdf6c0db" class="outline-3">
+        <h3 id="orgdf6c0db">Monoid</h3>
+        <div class="outline-text-3" id="text-orgdf6c0db">
+          <ul class="org-ul">
+            <li>List concatenation (<code>++</code>)</li>
+            <li>Logical conjunction (\(\land\)) and disjunction
+            (\(\lor\))</li>
+          </ul>
+        </div>
+      </div>
+      <div id="outline-container-org4d6e7be" class="outline-3">
+        <h3 id="org4d6e7be">Semi-group</h3>
+      </div>
+      <div id="outline-container-orgd6b0a0b" class="outline-3">
+        <h3 id="orgd6b0a0b">Functor</h3>
+        <div class="outline-text-3" id="text-orgd6b0a0b">
+          <p>Generalized notion of <i>mapping over a value which
+          preserves the structure</i> (whatever it may be).</p>
+          <p>Generalized mapping on <code>Lists</code> dates back
+          to the early Lisps.</p>
+          <div class="org-src-container">
+            <pre class="src src-scheme">(<span style=
+            "color: #81A1C1;">define</span> <span style=
+            "color: #88C0D0;">map</span> (<span style=
+            "color: #81A1C1;">lambda</span> (f xs)
+              (<span style=
+"color: #81A1C1;">if</span> (null? xs) xs
+                  (cons (f (car xs)) (<span style=
+"color: #81A1C1;">map</span> f (cdr xs))))))
 </pre>
-</div>
-<p>
-To be a <code>Functor</code> (<i>for a type</i>) is to have the <code>fmap</code> function implemented.
-</p>
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #81A1C1;">where</span>
-  fmap <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> f a <span style="color: #D8DEE9;">-&gt;</span> f b
+          </div>
+          <p>To be a <code>Functor</code> (<i>for a type</i>) is to
+          have the <code>fmap</code> function implemented.</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">class</span> <span style=
+            "color: #8FBCBB;">Functor</span> f <span style=
+            "color: #81A1C1;">where</span>
+  fmap <span style="color: #D8DEE9;">::</span> (a <span style=
+"color: #D8DEE9;">-&gt;</span> b) <span style=
+"color: #D8DEE9;">-&gt;</span> f a <span style=
+"color: #D8DEE9;">-&gt;</span> f b
 </pre>
-</div>
-<p>
-No additional constraints, except the <i>arity</i> of a function which <code>fmap</code> takes.
-</p>
-</div>
-<div id="outline-container-org32aa927" class="outline-4">
-<h4 id="org32aa927">Ocaml modules</h4>
-<div class="outline-text-4" id="text-org32aa927">
-<p>
-Application of one <i>structure</i> to another (yielding a new structure <i>of
-the same shape</i>).
-</p>
+          </div>
+          <p>No additional constraints, except the <i>arity</i> of
+          a function which <code>fmap</code> takes.</p>
+        </div>
+        <div id="outline-container-org32aa927" class="outline-4">
+          <h4 id="org32aa927">Ocaml modules</h4>
+          <div class="outline-text-4" id="text-org32aa927">
+            <p>Application of one <i>structure</i> to another
+            (yielding a new structure <i>of the same
+            shape</i>).</p>
+            <p>It is used for <i>specialization</i> and for
+            <i>extension</i> of existent modules.</p>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-org93140c4" class="outline-3">
+        <h3 id="org93140c4">Constraint on Types</h3>
+        <div class="outline-text-3" id="text-org93140c4">
+          <p>We define <i>classes of parameterized types</i>
+          (similar to Sets of Sets with constraints (Boolean
+          guards) and the <i>subset relation</i>).</p>
+        </div>
+      </div>
+      <div id="outline-container-orgee600b9" class="outline-3">
+        <h3 id="orgee600b9">Type-classes</h3>
+        <div class="outline-text-3" id="text-orgee600b9">
+          <p><i>Duck-typing</i> - to <i>be</i> an <code>X</code> is
+          to <i>implement</i> a particular <i>interface</i> (a set
+          of <i>names</i> with certain <i>type-signatures</i>)
+          subject to <i>formally defined constraints</i> (and
+          <i>invariants</i>) , stated elsewhere.</p>
+          <p>With a <i>Class-subclass relations</i> (type-level
+          constraints) - in order to <i>be</i> (an instance of) an
+          <code>X</code> it is required to (already) be (an
+          instance of) an <code>Y</code>.</p>
+        </div>
+        <div id="outline-container-orgc348efa" class="outline-4">
+          <h4 id="orgc348efa">Eq (Equality)</h4>
+          <div class="outline-text-4" id="text-orgc348efa">
+            <div class="org-src-container">
+              <pre class="src src-haskell"><span style=
+              "color: #81A1C1;">class</span> <span style=
+              "color: #8FBCBB;">Eq</span> a <span style=
+              "color: #81A1C1;">where</span>
+  (<span style="color: #D8DEE9;">==</span>), (<span style=
+"color: #D8DEE9;">/=</span>) <span style=
+"color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #8FBCBB;">Bool</span>
+  x <span style="color: #D8DEE9;">/=</span> y <span style=
+"color: #D8DEE9;">=</span> not (x <span style=
+"color: #D8DEE9;">==</span> y)          <span style=
+"color: #6f7787;">-- </span><span style=
+"color: #6f7787;">default implementation</span>
+</pre>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-orgd3cfc57" class="outline-4">
+          <h4 id="orgd3cfc57">Ord (Ordered)</h4>
+          <div class="outline-text-4" id="text-orgd3cfc57">
+            <div class="org-src-container">
+              <pre class="src src-haskell"><span style=
+              "color: #81A1C1;">class</span> <span style=
+              "color: #8FBCBB;">Eq</span> a <span style=
+              "color: #D8DEE9;">=&gt;</span> <span style=
+              "color: #8FBCBB;">Ord</span> a <span style=
+              "color: #81A1C1;">where</span>
+  (<span style="color: #D8DEE9;">&lt;</span>), (<span style=
+"color: #D8DEE9;">&lt;=</span>), (<span style=
+"color: #D8DEE9;">&gt;</span>), (<span style=
+"color: #D8DEE9;">&gt;=</span>) <span style=
+"color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #8FBCBB;">Bool</span>
+  min, max             <span style=
+"color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
 
-<p>
-It is used for <i>specialization</i> and for <i>extension</i> of existent modules.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org93140c4" class="outline-3">
-<h3 id="org93140c4">Constraint on Types</h3>
-<div class="outline-text-3" id="text-org93140c4">
-<p>
-We define <i>classes of parameterized types</i> (similar to Sets of Sets with
-constraints (Boolean guards) and the <i>subset relation</i>).
-</p>
-</div>
-</div>
+  min x y <span style="color: #D8DEE9;">|</span> x <span style=
+"color: #D8DEE9;">&lt;=</span> y    <span style=
+"color: #D8DEE9;">=</span> x
+          <span style=
+"color: #D8DEE9;">|</span> otherwise <span style=
+"color: #D8DEE9;">=</span> y
+  max x y <span style="color: #D8DEE9;">|</span> x <span style=
+"color: #D8DEE9;">&lt;=</span> y    <span style=
+"color: #D8DEE9;">=</span> y
+          <span style=
+"color: #D8DEE9;">|</span> otherwise <span style=
+"color: #D8DEE9;">=</span> x
+</pre>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org37b7ce6" class="outline-4">
+          <h4 id="org37b7ce6">Num (Numbers)</h4>
+          <div class="outline-text-4" id="text-org37b7ce6">
+            <p>This corresponds to a <i>Group</i> with 3
+            operations.</p>
+            <p><code>-</code> is not a Monoid (<i>not
+            associative</i> - order is relevant)</p>
+            <div class="org-src-container">
+              <pre class="src src-haskell"><span style=
+              "color: #81A1C1;">class</span> <span style=
+              "color: #8FBCBB;">Num</span> a <span style=
+              "color: #81A1C1;">where</span>
+   (<span style="color: #D8DEE9;">+</span>), (<span style=
+"color: #D8DEE9;">-</span>), (<span style=
+"color: #D8DEE9;">*</span>)       <span style=
+"color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
+   negate, abs, signum <span style=
+"color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
+</pre>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-orgb9c63fe" class="outline-4">
+          <h4 id="orgb9c63fe">Integral (Z - Integers)</h4>
+          <div class="outline-text-4" id="text-orgb9c63fe">
+            <p>A constraint on <code>Num</code> (a specialization,
+            a subset)</p>
+            <div class="org-src-container">
+              <pre class="src src-haskell"><span style=
+              "color: #81A1C1;">class</span> <span style=
+              "color: #8FBCBB;">Num</span> a <span style=
+              "color: #D8DEE9;">=&gt;</span> <span style=
+              "color: #8FBCBB;">Integral</span> a <span style=
+              "color: #81A1C1;">where</span>
+    div, mod <span style="color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
+</pre>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org17c1d2a" class="outline-4">
+          <h4 id="org17c1d2a">Fractional (R - Rational)</h4>
+          <div class="outline-text-4" id="text-org17c1d2a">
+            <div class="org-src-container">
+              <pre class="src src-haskell"><span style=
+              "color: #81A1C1;">class</span> <span style=
+              "color: #8FBCBB;">Num</span> a <span style=
+              "color: #D8DEE9;">=&gt;</span> <span style=
+              "color: #8FBCBB;">Fractional</span> a <span style=
+              "color: #81A1C1;">where</span>
+   (<span style="color: #D8DEE9;">/</span>) <span style=
+"color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
+   recip <span style="color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
 
-<div id="outline-container-orgee600b9" class="outline-3">
-<h3 id="orgee600b9">Type-classes</h3>
-<div class="outline-text-3" id="text-orgee600b9">
-<p>
-<i>Duck-typing</i> - to <i>be</i> an <code>X</code> is to <i>implement</i> a particular <i>interface</i> (a set of <i>names</i>
-with certain <i>type-signatures</i>) subject to <i>formally defined
-constraints</i> (and <i>invariants</i>) , stated elsewhere.
-</p>
-
-<p>
-With a <i>Class-subclass relations</i> (type-level constraints) - in order to
-<i>be</i> (an instance of) an <code>X</code> it is required to (already) be (an instance
-of) an <code>Y</code>.
-</p>
-</div>
-
-<div id="outline-container-orgc348efa" class="outline-4">
-<h4 id="orgc348efa">Eq (Equality)</h4>
-<div class="outline-text-4" id="text-orgc348efa">
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Eq</span> a <span style="color: #81A1C1;">where</span>
-  (<span style="color: #D8DEE9;">==</span>), (<span style="color: #D8DEE9;">/=</span>) <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Bool</span>
-  x <span style="color: #D8DEE9;">/=</span> y <span style="color: #D8DEE9;">=</span> not (x <span style="color: #D8DEE9;">==</span> y)          <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">default implementation</span>
+   recip n <span style="color: #D8DEE9;">=</span> <span style=
+"color: #B48EAD; font-weight: bold;">1</span><span style=
+"color: #D8DEE9;">/</span>n
 </pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd3cfc57" class="outline-4">
-<h4 id="orgd3cfc57">Ord (Ordered)</h4>
-<div class="outline-text-4" id="text-orgd3cfc57">
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Eq</span> a <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Ord</span> a <span style="color: #81A1C1;">where</span>
-  (<span style="color: #D8DEE9;">&lt;</span>), (<span style="color: #D8DEE9;">&lt;=</span>), (<span style="color: #D8DEE9;">&gt;</span>), (<span style="color: #D8DEE9;">&gt;=</span>) <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Bool</span>
-  min, max             <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-
-  min x y <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;=</span> y    <span style="color: #D8DEE9;">=</span> x
-          <span style="color: #D8DEE9;">|</span> otherwise <span style="color: #D8DEE9;">=</span> y
-  max x y <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;=</span> y    <span style="color: #D8DEE9;">=</span> y
-          <span style="color: #D8DEE9;">|</span> otherwise <span style="color: #D8DEE9;">=</span> x
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org5e03ae8" class="outline-4">
+          <h4 id="org5e03ae8">Bool (Boolean values)</h4>
+          <div class="outline-text-4" id="text-org5e03ae8">
+            <div class="org-src-container">
+              <pre class="src src-haskell"><span style=
+              "color: #81A1C1;">data</span> <span style=
+              "color: #8FBCBB;">Bool</span> <span style=
+              "color: #D8DEE9;">=</span> <span style=
+              "color: #8FBCBB;">False</span> <span style=
+              "color: #D8DEE9;">|</span> <span style=
+              "color: #8FBCBB;">True</span>
+         <span style=
+"color: #81A1C1;">deriving</span> (<span style="color: #8FBCBB;">Eq</span>, <span style="color: #8FBCBB;">Ord</span>, <span style="color: #8FBCBB;">Show</span>, <span style="color: #8FBCBB;">Read</span>)
 </pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org37b7ce6" class="outline-4">
-<h4 id="org37b7ce6">Num (Numbers)</h4>
-<div class="outline-text-4" id="text-org37b7ce6">
-<p>
-This corresponds to a <i>Group</i> with 3 operations.
-</p>
-
-<p>
-<code>-</code> is not a Monoid (<i>not associative</i> - order is relevant)
-</p>
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Num</span> a <span style="color: #81A1C1;">where</span>
-   (<span style="color: #D8DEE9;">+</span>), (<span style="color: #D8DEE9;">-</span>), (<span style="color: #D8DEE9;">*</span>)       <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-   negate, abs, signum <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-orgddc4b11" class="outline-3">
+        <h3 id="orgddc4b11">Classic Logic</h3>
+        <div class="outline-text-3" id="text-orgddc4b11">
+          <p>Logical conjunction:</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell">(<span style=
+            "color: #88C0D0;">&amp;&amp;</span>) <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #8FBCBB;">Bool</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> <span style=
+            "color: #8FBCBB;">Bool</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> <span style=
+            "color: #8FBCBB;">Bool</span>
+<span style="color: #8FBCBB;">False</span> <span style=
+"color: #88C0D0;">&amp;&amp;</span> <span style=
+"color: #81A1C1;">_</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">False</span>
+<span style="color: #8FBCBB;">True</span> <span style=
+"color: #88C0D0;">&amp;&amp;</span> b <span style=
+"color: #D8DEE9;">=</span> b
 </pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb9c63fe" class="outline-4">
-<h4 id="orgb9c63fe">Integral (Z - Integers)</h4>
-<div class="outline-text-4" id="text-orgb9c63fe">
-<p>
-A constraint on <code>Num</code> (a specialization, a subset)
-</p>
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Num</span> a <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Integral</span> a <span style="color: #81A1C1;">where</span>
-    div, mod <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
+          </div>
+          <p>Logical disjunction:</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell">(<span style=
+            "color: #88C0D0;">||</span>) <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #8FBCBB;">Bool</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> <span style=
+            "color: #8FBCBB;">Bool</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> <span style=
+            "color: #8FBCBB;">Bool</span>
+<span style="color: #8FBCBB;">False</span> <span style=
+"color: #88C0D0;">||</span> b <span style=
+"color: #D8DEE9;">=</span> b
+<span style="color: #8FBCBB;">True</span> <span style=
+"color: #88C0D0;">||</span> <span style=
+"color: #81A1C1;">_</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">True</span>
 </pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org17c1d2a" class="outline-4">
-<h4 id="org17c1d2a">Fractional (R - Rational)</h4>
-<div class="outline-text-4" id="text-org17c1d2a">
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Num</span> a <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Fractional</span> a <span style="color: #81A1C1;">where</span>
-   (<span style="color: #D8DEE9;">/</span>) <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-   recip <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-
-   recip n <span style="color: #D8DEE9;">=</span> <span style="color: #B48EAD; font-weight: bold;">1</span><span style="color: #D8DEE9;">/</span>n
+          </div>
+          <p>Logical negation:</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #88C0D0;">not</span> <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #8FBCBB;">Bool</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> <span style=
+            "color: #8FBCBB;">Bool</span>
+<span style="color: #88C0D0;">not</span> <span style=
+"color: #8FBCBB;">True</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">False</span>
+<span style="color: #88C0D0;">not</span> <span style=
+"color: #8FBCBB;">False</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">True</span>
 </pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org5e03ae8" class="outline-4">
-<h4 id="org5e03ae8">Bool (Boolean values)</h4>
-<div class="outline-text-4" id="text-org5e03ae8">
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">False</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">True</span>
-         <span style="color: #81A1C1;">deriving</span> (<span style="color: #8FBCBB;">Eq</span>, <span style="color: #8FBCBB;">Ord</span>, <span style="color: #8FBCBB;">Show</span>, <span style="color: #8FBCBB;">Read</span>)
+          </div>
+          <p>Guard that always succeeds:</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #88C0D0;">otherwise</span> <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #8FBCBB;">Bool</span>
+<span style="color: #88C0D0;">otherwise</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">True</span>
 </pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgddc4b11" class="outline-3">
-<h3 id="orgddc4b11">Classic Logic</h3>
-<div class="outline-text-3" id="text-orgddc4b11">
-<p>
-Logical conjunction:
-</p>
-<div class="org-src-container">
-<pre class="src src-haskell">(<span style="color: #88C0D0;">&amp;&amp;</span>) <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Bool</span>
-<span style="color: #8FBCBB;">False</span> <span style="color: #88C0D0;">&amp;&amp;</span> <span style="color: #81A1C1;">_</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">False</span>
-<span style="color: #8FBCBB;">True</span> <span style="color: #88C0D0;">&amp;&amp;</span> b <span style="color: #D8DEE9;">=</span> b
-</pre>
-</div>
-<p>
-Logical disjunction:
-</p>
-<div class="org-src-container">
-<pre class="src src-haskell">(<span style="color: #88C0D0;">||</span>) <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Bool</span>
-<span style="color: #8FBCBB;">False</span> <span style="color: #88C0D0;">||</span> b <span style="color: #D8DEE9;">=</span> b
-<span style="color: #8FBCBB;">True</span> <span style="color: #88C0D0;">||</span> <span style="color: #81A1C1;">_</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">True</span>
-</pre>
-</div>
-<p>
-Logical negation:
-</p>
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">not</span> <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Bool</span>
-<span style="color: #88C0D0;">not</span> <span style="color: #8FBCBB;">True</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">False</span>
-<span style="color: #88C0D0;">not</span> <span style="color: #8FBCBB;">False</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">True</span>
-</pre>
-</div>
-<p>
-Guard that always succeeds:
-</p>
-<div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">otherwise</span> <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Bool</span>
-<span style="color: #88C0D0;">otherwise</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">True</span>
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-<p class="date">Created: 2022-03-29 Tue 19:47</p>
-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-03-29 Tue 20:59</p>
+  </div>
 </body>
 </html>
