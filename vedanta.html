@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-29 Tue 16:15 -->
+<!-- 2022-03-29 Tue 16:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vedanta</title>
@@ -210,7 +210,7 @@
         NativeMML: {scale: 100},
         TeX: { equationNumbers: {autoNumber: "AMS"},
                MultLineWidth: "85%",
-               TagSide: "right",
+               TagSide: "left",
                TagIndent: ".8em"
              }
 });
@@ -250,7 +250,7 @@ Math is untyped, too abstract and actually easy.
 <div class="outline-text-3" id="text-orge6b2e15">
 <p>
 A Set \(S\) together with an <i>operation</i> \(\bigoplus\) is an algebraic system
-denoted as \[(S, \bigoplus)\] (just an <i>abstract tuple</i>).
+denoted as \((S, \bigoplus)\) (just an <i>abstract tuple</i>).
 </p>
 </div>
 </div>
@@ -259,8 +259,8 @@ denoted as \[(S, \bigoplus)\] (just an <i>abstract tuple</i>).
 <h3 id="org8bad245">Operation</h3>
 <div class="outline-text-3" id="text-org8bad245">
 <p>
-A Set \(S\) has a <i>binary</i> operation \(\bigoplus\) <i>if and only if</i>
-\[\forall x, y \in S \exists\] a <i>unique</i> \[z \in S \mid x \bigoplus y = z\]
+A Set \(S\) has a <i>binary</i> operation \(\bigoplus\) if and only if
+\(\forall x, y \in S \exists\) a <i>unique</i> \(z \in S \mid x \bigoplus y = z\)
 </p>
 
 <p>
@@ -274,7 +274,9 @@ Anything that satisfies the conditions is an <i>operation</i>.
 <div class="outline-text-3" id="text-org7d78be1">
 <p>
 For a <i>system</i> \((S, \bigoplus)\), a subset \(T\) of \(S\) is <i>closed under
-\(\bigoplus\)</i> if and only if \[\forall t, u \in T, t \bigoplus u \in T\]. That is, \(\bigoplus\) is an operation for \(T\).
+\(\bigoplus\)</i> if and only if
+\[\forall t, u \in T, t \bigoplus u \in T\]
+That is, \(\bigoplus\) is an operation for \(T\).
 </p>
 </div>
 </div>
@@ -282,7 +284,7 @@ For a <i>system</i> \((S, \bigoplus)\), a subset \(T\) of \(S\) is <i>closed und
 <h3 id="org80be165">Identity</h3>
 <div class="outline-text-3" id="text-org80be165">
 <p>
-A system \[(S, \bigoplus)\] has an <i>indentity</i> element \(e \in S\) if and only if
+A system \((S, \bigoplus)\) has an <i>indentity</i> element \(e \in S\) if and only if
 \[\forall x \n S, x \bigoplus e = x = e \bigoplus x\]
 </p>
 
@@ -291,7 +293,7 @@ Each <i>binary operation</i> may or may not have <i>its own identity</i>.
 </p>
 
 <p>
-If \[(S, \bigoplus)\] has an identity, the identity is <i>unique</i>.
+If \((S, \bigoplus)\) has an identity, the identity is <i>unique</i>.
 </p>
 </div>
 </div>
@@ -301,8 +303,8 @@ If \[(S, \bigoplus)\] has an identity, the identity is <i>unique</i>.
 <div class="outline-text-3" id="text-orgc887795">
 <p>
 An operation \(\bigoplus\) on Set \(S\) is <i>associative</i> if and only if
-\[\]\[\forall a, b, c \in S\] we have \[(a \bigoplus b) \bigoplus c = a
-\bigoplus (b \bigoplus c)\].
+\(\forall a, b, c \in S\) we have
+\[(a \bigoplus b) \bigoplus c = a \bigoplus (b \bigoplus c)\]
 </p>
 
 <p>
@@ -310,18 +312,14 @@ An operation \(\bigoplus\) on Set \(S\) is <i>associative</i> if and only if
 </p>
 </div>
 </div>
-<div id="outline-container-org473ff2e" class="outline-3">
-<h3 id="org473ff2e">Monoid</h3>
-<div class="outline-text-3" id="text-org473ff2e">
+<div id="outline-container-org8455a01" class="outline-3">
+<h3 id="org8455a01">Monoid</h3>
+<div class="outline-text-3" id="text-org8455a01">
 <p>
-\[(S, \bigoplus, e)\] such that \[\forall x, y, z \in S\] <i>identity</i> and <i>associativity</i>
-laws hold:
-</p>
-<ul class="org-ul">
-<li>\[x \bigoplus e = x = e \bigoplus x\]</li>
-<li>\[x \bigoplus (y \bigoplus z) = (x \bigoplus y) \bigoplus z\]</li>
-</ul>
-<p>
+\((S, \bigoplus, e)\) such that \(\forall x, y, z \in S\) <i>identity</i> and
+<i>associativity</i> laws hold:
+\[x \bigoplus e = x = e \bigoplus x\]
+\[x \bigoplus (y \bigoplus z) = (x \bigoplus y) \bigoplus z\]
 <i>Commutativity</i> is not required for a <i>Monoid</i>, given that \(+\) and \(*\) are <i>commutative</i>. \[\]
 </p>
 </div>
@@ -330,16 +328,17 @@ laws hold:
 <h3 id="org4c62663">Inverse</h3>
 <div class="outline-text-3" id="text-org4c62663">
 <p>
-For \[(S, \bigoplus, e)\] with identity \(e\), an <i>inverse of</i> \(x \in S\)
-is some \[y \in S\] such that \[x \bigoplus y = e = y \bigoplus x\].
+For \((S, \bigoplus, e)\) with identity \(e\), an <i>inverse of</i> \(x \in S\)
+is some \(y \in S\) such that:
+\[x \bigoplus y = e = y \bigoplus x\].
 </p>
 
 <p>
-This implies that \(\bigoplus\) is <i>commutative</i> \[a \bigoplus b = b \bigoplus a\].
+This implies that \(\bigoplus\) is <i>commutative</i>, eg \(a \bigoplus b = b \bigoplus a\).
 </p>
 
 <p>
-For example, \[a - b = a + (-b)\] where \(+\) is <i>commutative</i> and
+For example, \(a - b = a + (-b)\) where \(+\) is <i>commutative</i> and
 \(-b\) is an <i>additive inverse</i> of \(b\).
 </p>
 </div>
@@ -368,10 +367,10 @@ If \((S, \bigoplus, e)\) is <i>associative</i> and has an <i>identity</i> \(e\) 
 <h3 id="org365f949">Number systems</h3>
 <div class="outline-text-3" id="text-org365f949">
 <p>
-\[N\] has no inverses, \(+\) and \(*\) form a <i>Monoid</i>.
-\[Z\] has only <i>additive inverses</i> (it must be \(\forall x\))
-\[Q\] has additive and <i>multiplicative inverses</i> (\(a \div b = a * \frac{1}{b}\))
-\[R\] has it all
+\(\mathbb{N}\) has no inverses, \(+\) and \(*\) form a <i>Monoid</i>.
+\(\mathbb{Z}\) has only <i>additive inverses</i> (it must be \(\forall x\))
+\(\mathbb{Q}\) has additive and <i>multiplicative inverses</i> (\(a \div b = a * \frac{1}{b}\))
+\(\mathbb{R}\) has it all
 </p>
 </div>
 </div>
@@ -389,16 +388,16 @@ A system \((G, \bigoplus, e)\) is a <i>Group</i> if and only if
 </p>
 </div>
 </div>
-<div id="outline-container-org8fddc47" class="outline-3">
-<h3 id="org8fddc47">Semi-group</h3>
-<div class="outline-text-3" id="text-org8fddc47">
+<div id="outline-container-orgb4ea6a4" class="outline-3">
+<h3 id="orgb4ea6a4">Semi-group</h3>
+<div class="outline-text-3" id="text-orgb4ea6a4">
 <p>
 A <i>Group</i> without <i>inverses</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org8f1e039" class="outline-3">
-<h3 id="org8f1e039">Functor</h3>
+<div id="outline-container-org728f2e5" class="outline-3">
+<h3 id="org728f2e5">Functor</h3>
 </div>
 </div>
 <div id="outline-container-org7f859dd" class="outline-2">
@@ -408,20 +407,20 @@ A <i>Group</i> without <i>inverses</i>.
 <div id="outline-container-orgadd994a" class="outline-3">
 <h3 id="orgadd994a">Types are Sets</h3>
 </div>
-<div id="outline-container-org8455a01" class="outline-3">
-<h3 id="org8455a01">Monoid</h3>
+<div id="outline-container-org223ddca" class="outline-3">
+<h3 id="org223ddca">Monoid</h3>
 </div>
-<div id="outline-container-orgb4ea6a4" class="outline-3">
-<h3 id="orgb4ea6a4">Semi-group</h3>
+<div id="outline-container-org715171d" class="outline-3">
+<h3 id="org715171d">Semi-group</h3>
 </div>
-<div id="outline-container-org728f2e5" class="outline-3">
-<h3 id="org728f2e5">Functor</h3>
+<div id="outline-container-org99c5208" class="outline-3">
+<h3 id="org99c5208">Functor</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-<p class="date">Created: 2022-03-29 Tue 16:15</p>
+<p class="date">Created: 2022-03-29 Tue 16:30</p>
 </div>
 </body>
 </html>
