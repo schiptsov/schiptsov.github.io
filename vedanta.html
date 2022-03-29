@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-29 Tue 18:27 -->
+<!-- 2022-03-29 Tue 19:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vedanta (वेदान्त)</title>
@@ -312,9 +312,9 @@ An operation \(\bigoplus\) on Set \(S\) is <i>associative</i> if and only if
 </p>
 </div>
 </div>
-<div id="outline-container-org869342a" class="outline-3">
-<h3 id="org869342a">Monoid</h3>
-<div class="outline-text-3" id="text-org869342a">
+<div id="outline-container-orge19d041" class="outline-3">
+<h3 id="orge19d041">Monoid</h3>
+<div class="outline-text-3" id="text-orge19d041">
 <p>
 \((S, \bigoplus, e)\) such that \(\forall x, y, z \in S\) <i>identity</i> and
 <i>associativity</i> laws hold:
@@ -388,17 +388,64 @@ A system \((G, \bigoplus, e)\) is a <i>Group</i> if and only if
 </p>
 </div>
 </div>
-<div id="outline-container-org8ee0ec2" class="outline-3">
-<h3 id="org8ee0ec2">Semi-group</h3>
-<div class="outline-text-3" id="text-org8ee0ec2">
+<div id="outline-container-org9681ad2" class="outline-3">
+<h3 id="org9681ad2">Semi-group</h3>
+<div class="outline-text-3" id="text-org9681ad2">
 <p>
 A <i>Group</i> without <i>inverses</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb6d2486" class="outline-3">
-<h3 id="orgb6d2486">Functor</h3>
+<div id="outline-container-orgf79590b" class="outline-3">
+<h3 id="orgf79590b">Functor</h3>
+<div class="outline-text-3" id="text-orgf79590b">
+<p>
+Originally defined on <i>graphs</i> as a transformation that <i>preserves the
+structure</i> of a graph.
+</p>
+
+<p>
+Traditionally in mathematics graphs are defined as a <i>tuple of Sets</i> -
+\(N\) as a Set of <i>Nodes</i> and \(E\) as a Set of <i>Edges</i>, where each <i>Edge</i> is
+itself a <i>tuple</i> which contains a <i>pair of Nodes</i> (so it is <i>ordered</i>).
+</p>
+
+<p>
+<i>Structure-preserving</i> mappings are called <i>homomorphisms</i> (of the same
+form).
+</p>
+
+<p>
+For <i>simple graphs</i> <code>h</code> is a <i>total function</i> \(h: (N, E) \rightarrow (N',
+E')\) such that:
+\[\forall (A, B) \in E, \exists (h(A), h(B)) \in E\]
+Homomorphisms are <i>structure-preserving</i> as they map  <i>Edges to Edges</i>
+(<i>Nodes</i> are preserved implicitly).
+</p>
+
+<p>
+There is another, more precise and detailed formulation of a <code>Functor</code>
+for <i>labeled graphs</i> which is irrelevant.
+</p>
+
+<p>
+A <code>Functor</code> is just a generalized <i>homomorphism</i>, that is a
+<i>structure-preserving transformation</i>, whatever it might be.
+</p>
 </div>
+
+<div id="outline-container-org82067d9" class="outline-4">
+<h4 id="org82067d9">Category theory</h4>
+<div class="outline-text-4" id="text-org82067d9">
+<p>
+Here the notion of a <code>Functor</code> has been generalized as a mapping between
+<i>Categories</i> which are abstract algebraic structures of <i>objects</i> and
+<i>arrows</i>.
+</p>
+</div>
+</div>
+</div>
+
 <div id="outline-container-orgcdbf34b" class="outline-3">
 <h3 id="orgcdbf34b">Constraints of Sets</h3>
 <div class="outline-text-3" id="text-orgcdbf34b">
@@ -417,20 +464,60 @@ We use <i>set comprehension</i> notation to specify constraints on subsets
 <div id="outline-container-orgadd994a" class="outline-3">
 <h3 id="orgadd994a">Types are Sets</h3>
 </div>
-<div id="outline-container-orge19d041" class="outline-3">
-<h3 id="orge19d041">Monoid</h3>
-<div class="outline-text-3" id="text-orge19d041">
+<div id="outline-container-orgd5b2454" class="outline-3">
+<h3 id="orgd5b2454">Monoid</h3>
+<div class="outline-text-3" id="text-orgd5b2454">
 <ul class="org-ul">
 <li>List concatenation (<code>++</code>)</li>
 <li>Logical conjunction (\(\land\)) and disjunction (\(\lor\))</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9681ad2" class="outline-3">
-<h3 id="org9681ad2">Semi-group</h3>
+<div id="outline-container-orgf65588e" class="outline-3">
+<h3 id="orgf65588e">Semi-group</h3>
 </div>
-<div id="outline-container-orgf79590b" class="outline-3">
-<h3 id="orgf79590b">Functor</h3>
+<div id="outline-container-org433a7e9" class="outline-3">
+<h3 id="org433a7e9">Functor</h3>
+<div class="outline-text-3" id="text-org433a7e9">
+<p>
+Generalized notion of <i>mapping over a value which preserves the
+structure</i> (whatever it may be).
+</p>
+
+<p>
+Generalized mapping on <code>Lists</code> dates back to the early Lisps.
+</p>
+<div class="org-src-container">
+<pre class="src src-scheme">(<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">map</span> (<span style="color: #81A1C1;">lambda</span> (f xs)
+              (<span style="color: #81A1C1;">if</span> (null? xs) xs
+                  (cons (f (car xs)) (<span style="color: #81A1C1;">map</span> f (cdr xs))))))
+</pre>
+</div>
+<p>
+To be a <code>Functor</code> (<i>for a type</i>) is to have the <code>fmap</code> function implemented.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #81A1C1;">where</span>
+  fmap <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> f a <span style="color: #D8DEE9;">-&gt;</span> f b
+</pre>
+</div>
+<p>
+No additional constraints, except the <i>arity</i> of a function which <code>fmap</code> takes.
+</p>
+</div>
+<div id="outline-container-org32aa927" class="outline-4">
+<h4 id="org32aa927">Ocaml modules</h4>
+<div class="outline-text-4" id="text-org32aa927">
+<p>
+Application of one <i>structure</i> to another (yielding a new structure <i>of
+the same shape</i>).
+</p>
+
+<p>
+It is used for <i>specialization</i> and for <i>extension</i> of existent modules.
+</p>
+</div>
+</div>
 </div>
 <div id="outline-container-org93140c4" class="outline-3">
 <h3 id="org93140c4">Constraint on Types</h3>
@@ -584,7 +671,7 @@ Guard that always succeeds:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-<p class="date">Created: 2022-03-29 Tue 18:27</p>
+<p class="date">Created: 2022-03-29 Tue 19:47</p>
 </div>
 </body>
 </html>
