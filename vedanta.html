@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2022-03-29 Tue 20:59 -->
+  <!-- 2022-03-30 Wed 09:49 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
@@ -236,8 +236,8 @@
     any possible representation or actual implementation of an
     algorithm or a structure.</p>
     <p>In CS every value <i>implies</i> some representation and it
-    is usualy a part of some <i>Abstract Data Type</i>, which, in
-    turn, <i>implies</i> some (usualy there is more than one)
+    is usually a part of some <i>Abstract Data Type</i>, which, in
+    turn, <i>implies</i> some (usually there is more than one)
     <i>actual implementation</i>, based on some particular
     <i>data-structure</i>.</p>
     <p>Math is untyped, too abstract and actually easy.</p>
@@ -295,9 +295,9 @@
           required.</p>
         </div>
       </div>
-      <div id="outline-container-orgd5b2454" class="outline-3">
-        <h3 id="orgd5b2454">Monoid</h3>
-        <div class="outline-text-3" id="text-orgd5b2454">
+      <div id="outline-container-orgdf6c0db" class="outline-3">
+        <h3 id="orgdf6c0db">Monoid</h3>
+        <div class="outline-text-3" id="text-orgdf6c0db">
           <p>\((S, \bigoplus, e)\) such that \(\forall x, y, z \in
           S\) <i>identity</i> and <i>associativity</i> laws hold:
           \[x \bigoplus e = x = e \bigoplus x\] \[x \bigoplus (y
@@ -365,15 +365,15 @@
           <i>inverse</i>.</p>
         </div>
       </div>
-      <div id="outline-container-orgf65588e" class="outline-3">
-        <h3 id="orgf65588e">Semi-group</h3>
-        <div class="outline-text-3" id="text-orgf65588e">
+      <div id="outline-container-org4d6e7be" class="outline-3">
+        <h3 id="org4d6e7be">Semi-group</h3>
+        <div class="outline-text-3" id="text-org4d6e7be">
           <p>A <i>Group</i> without <i>inverses</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org433a7e9" class="outline-3">
-        <h3 id="org433a7e9">Functor</h3>
-        <div class="outline-text-3" id="text-org433a7e9">
+      <div id="outline-container-orgd6b0a0b" class="outline-3">
+        <h3 id="orgd6b0a0b">Functor</h3>
+        <div class="outline-text-3" id="text-orgd6b0a0b">
           <p>Originally defined on <i>graphs</i> as a
           transformation that <i>preserves the structure</i> of a
           graph.</p>
@@ -429,9 +429,65 @@
       <div id="outline-container-orgadd994a" class="outline-3">
         <h3 id="orgadd994a">Types are Sets</h3>
       </div>
-      <div id="outline-container-orgdf6c0db" class="outline-3">
-        <h3 id="orgdf6c0db">Monoid</h3>
-        <div class="outline-text-3" id="text-orgdf6c0db">
+      <div id="outline-container-org3ce42b8" class="outline-3">
+        <h3 id="org3ce42b8">Semi-group</h3>
+        <div class="outline-text-3" id="text-org3ce42b8">
+          <p>No notion of an <i>inverse</i>. No notion of an
+          <i>identity</i>.</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">class</span> <span style=
+            "color: #8FBCBB;">Semigroup</span> a <span style=
+            "color: #81A1C1;">where</span>
+  (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style=
+"color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
+  GHC.Base.sconcat <span style=
+"color: #D8DEE9;">::</span> <span style=
+"color: #8FBCBB;">GHC.Base.NonEmpty</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #6f7787;">-- </span><span style="color: #6f7787;">+</span>
+  GHC.Base.stimes <span style=
+"color: #D8DEE9;">::</span> <span style=
+"color: #8FBCBB;">Integral</span> b <span style=
+"color: #D8DEE9;">=&gt;</span> b <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #78808f;">-- *</span>
+  <span style=
+"color: #81A1C1; font-weight: bold;">{-# MINIMAL (&lt;&gt;) #-}</span>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-org94b8e40" class="outline-3">
+        <h3 id="org94b8e40">Monoid</h3>
+        <div class="outline-text-3" id="text-org94b8e40">
+          <p>Here a <code>Monoid</code> is a (subclass of a)
+          <code>Semigroup</code></p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">class</span> <span style=
+            "color: #8FBCBB;">Semigroup</span> a <span style=
+            "color: #D8DEE9;">=&gt;</span> <span style=
+            "color: #8FBCBB;">Monoid</span> a <span style=
+            "color: #81A1C1;">where</span>
+  mempty <span style=
+"color: #D8DEE9;">::</span> a               <span style=
+"color: #6f7787;">-- </span><span style=
+"color: #6f7787;">an identity</span>
+  mappend <span style="color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a    <span style=
+"color: #6f7787;">-- </span><span style=
+"color: #6f7787;">an assosiative operation</span>
+  mconcat <span style="color: #D8DEE9;">::</span> [a] <span style=
+"color: #D8DEE9;">-&gt;</span> a
+  <span style=
+"color: #81A1C1; font-weight: bold;">{-# MINIMAL mempty #-}</span>
+</pre>
+          </div>
           <ul class="org-ul">
             <li>List concatenation (<code>++</code>)</li>
             <li>Logical conjunction (\(\land\)) and disjunction
@@ -439,12 +495,9 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org4d6e7be" class="outline-3">
-        <h3 id="org4d6e7be">Semi-group</h3>
-      </div>
-      <div id="outline-container-orgd6b0a0b" class="outline-3">
-        <h3 id="orgd6b0a0b">Functor</h3>
-        <div class="outline-text-3" id="text-orgd6b0a0b">
+      <div id="outline-container-org7283ae5" class="outline-3">
+        <h3 id="org7283ae5">Functor</h3>
+        <div class="outline-text-3" id="text-org7283ae5">
           <p>Generalized notion of <i>mapping over a value which
           preserves the structure</i> (whatever it may be).</p>
           <p>Generalized mapping on <code>Lists</code> dates back
@@ -734,7 +787,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-03-29 Tue 20:59</p>
+    <p class="date">Created: 2022-03-30 Wed 09:49</p>
   </div>
 </body>
 </html>
