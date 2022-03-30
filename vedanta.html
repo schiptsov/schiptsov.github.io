@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2022-03-30 Wed 14:37 -->
+  <!-- 2022-03-30 Wed 16:17 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
@@ -272,6 +272,67 @@
           <i>not</i> required.</p>
         </div>
       </div>
+      <div id="outline-container-org87e5387" class="outline-3">
+        <h3 id="org87e5387">Commutative</h3>
+        <div class="outline-text-3" id="text-org87e5387">
+          <p>An operation \(\bigoplus\) is <i>commutative</i> on
+          \(S\) if and only if \[\forall a, b \in S, a \bigoplus b
+          = b \bigoplus a\]</p>
+          <p>This is a property of an <i>operation</i> itself. The
+          meaning is that the <i>order of arguments</i> does not
+          matter.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgc887795" class="outline-3">
+        <h3 id="orgc887795">Associative</h3>
+        <div class="outline-text-3" id="text-orgc887795">
+          <p>An operation \(\bigoplus\) on Set \(S\) is
+          <i>associative</i> if and only if \(\forall a, b, c \in
+          S\) we have \[(a \bigoplus b) \bigoplus c = a \bigoplus
+          (b \bigoplus c)\]</p>
+          <p>This is a property of a <i>composition</i> of two or
+          more of the same operations. The meaning is that <i>the
+          order</i> (which will be the first) does not matter, due
+          of the <code>Closure</code> property.</p>
+          <p><i>Identity</i> is a separate notion and is not
+          required.</p>
+        </div>
+      </div>
+      <div id="outline-container-org19cd0c5" class="outline-3">
+        <h3 id="org19cd0c5">Distributive</h3>
+        <div class="outline-text-3" id="text-org19cd0c5">
+          <p>An operation \(\bigotimes\) on \(S\) <i>distributes
+          over</i> \(+\) on \(S\) if and only if \[\forall a, b, c
+          \in S, a \bigotimes (b + c) = (a \bigotimes b) + (a
+          \bigotimes c) \land (b + c) \bigotimes a = (b \bigotimes
+          a) + (c \bigotimes a)\]</p>
+          <p>This is a property of a <i>pair of operations</i>.</p>
+          <p>This is not just <i>scaling of a sum</i>. <i>Logical
+          connectives</i> distribute over each other.</p>
+        </div>
+      </div>
+      <div id="outline-container-org79e2b53" class="outline-3">
+        <h3 id="org79e2b53">FOIL</h3>
+        <div class="outline-text-3" id="text-org79e2b53">
+          <p>Suppose in \((S, +, *)\) that \(+\) is
+          <i>associative</i> and \(*\) /distributes over \(+\) and
+          \(a, b, c, d \in S\) Then \[(a + b) * (c + d) = (a * c) +
+          (a * d) + (b * c) + (b * d)\]</p>
+          <p>This is a <i>lemma</i> that follows for the
+          <i>distributive law</i>.</p>
+        </div>
+      </div>
+      <div id="outline-container-org0e017dd" class="outline-3">
+        <h3 id="org0e017dd">Ring</h3>
+        <div class="outline-text-3" id="text-org0e017dd">
+          <p>A <i>Set</i> with two operations \((S, +, *)\) is a
+          <i>ring</i> if and only if \((S, +)\) is an <i>abelian
+          group</i> with identity \(0\), \(*\) is associative, and
+          \(*\) distributes over \(+\).</p>
+          <p><i>Albelian group</i> means that <i>both operations
+          are commutative</i>.</p>
+        </div>
+      </div>
       <div id="outline-container-org80be165" class="outline-3">
         <h3 id="org80be165">Identity</h3>
         <div class="outline-text-3" id="text-org80be165">
@@ -284,27 +345,15 @@
           <i>unique</i>.</p>
         </div>
       </div>
-      <div id="outline-container-orgc887795" class="outline-3">
-        <h3 id="orgc887795">Associative</h3>
-        <div class="outline-text-3" id="text-orgc887795">
-          <p>An operation \(\bigoplus\) on Set \(S\) is
-          <i>associative</i> if and only if \(\forall a, b, c \in
-          S\) we have \[(a \bigoplus b) \bigoplus c = a \bigoplus
-          (b \bigoplus c)\]</p>
-          <p><i>Identity</i> is a separate notion and is not
-          required.</p>
-        </div>
-      </div>
-      <div id="outline-container-org94b8e40" class="outline-3">
-        <h3 id="org94b8e40">Monoid</h3>
-        <div class="outline-text-3" id="text-org94b8e40">
+      <div id="outline-container-orgec7c163" class="outline-3">
+        <h3 id="orgec7c163">Monoid</h3>
+        <div class="outline-text-3" id="text-orgec7c163">
           <p>\((S, \bigoplus, e)\) such that \(\forall x, y, z \in
           S\) <i>identity</i> and <i>associativity</i> laws hold:
           \[x \bigoplus e = x = e \bigoplus x\] \[x \bigoplus (y
           \bigoplus z) = (x \bigoplus y) \bigoplus z\]
           <i>Commutativity</i> is not required for a <i>Monoid</i>,
-          given that \(+\) and \(*\) are <i>commutative</i>.
-          \[\]</p>
+          however \(+\) and \(*\) are <i>commutative</i>. \[\]</p>
         </div>
       </div>
       <div id="outline-container-org4c62663" class="outline-3">
@@ -365,15 +414,15 @@
           <i>inverse</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org3ce42b8" class="outline-3">
-        <h3 id="org3ce42b8">Semi-group</h3>
-        <div class="outline-text-3" id="text-org3ce42b8">
+      <div id="outline-container-orgfde3669" class="outline-3">
+        <h3 id="orgfde3669">Semi-group</h3>
+        <div class="outline-text-3" id="text-orgfde3669">
           <p>A <i>Group</i> without <i>inverses</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org7283ae5" class="outline-3">
-        <h3 id="org7283ae5">Functor</h3>
-        <div class="outline-text-3" id="text-org7283ae5">
+      <div id="outline-container-orgce3c5ce" class="outline-3">
+        <h3 id="orgce3c5ce">Functor</h3>
+        <div class="outline-text-3" id="text-orgce3c5ce">
           <p>Originally defined on <i>graphs</i> as a
           transformation that <i>preserves the structure</i> of a
           graph.</p>
@@ -429,9 +478,9 @@
       <div id="outline-container-orgadd994a" class="outline-3">
         <h3 id="orgadd994a">Types are Sets</h3>
       </div>
-      <div id="outline-container-orgd1a6652" class="outline-3">
-        <h3 id="orgd1a6652">Semi-group</h3>
-        <div class="outline-text-3" id="text-orgd1a6652">
+      <div id="outline-container-org0a7df27" class="outline-3">
+        <h3 id="org0a7df27">Semi-group</h3>
+        <div class="outline-text-3" id="text-org0a7df27">
           <p>No notion of an <i>inverse</i>. No notion of an
           <i>identity</i>.</p>
           <div class="org-src-container">
@@ -461,9 +510,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-org7f28eb7" class="outline-3">
-        <h3 id="org7f28eb7">Monoid</h3>
-        <div class="outline-text-3" id="text-org7f28eb7">
+      <div id="outline-container-org9a6b281" class="outline-3">
+        <h3 id="org9a6b281">Monoid</h3>
+        <div class="outline-text-3" id="text-org9a6b281">
           <p>Here a <code>Monoid</code> is a (subclass of a)
           <code>Semigroup</code></p>
           <div class="org-src-container">
@@ -495,9 +544,9 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org087d066" class="outline-3">
-        <h3 id="org087d066">Functor</h3>
-        <div class="outline-text-3" id="text-org087d066">
+      <div id="outline-container-orgce03489" class="outline-3">
+        <h3 id="orgce03489">Functor</h3>
+        <div class="outline-text-3" id="text-orgce03489">
           <p>Generalized notion of <i>mapping over a value which
           preserves the structure</i> (whatever it may be).</p>
           <p>Generalized mapping on <code>Lists</code> dates back
@@ -787,7 +836,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-03-30 Wed 14:37</p>
+    <p class="date">Created: 2022-03-30 Wed 16:17</p>
   </div>
 </body>
 </html>
