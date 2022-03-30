@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2022-03-30 Wed 16:29 -->
+  <!-- 2022-03-30 Wed 18:49 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
@@ -244,6 +244,61 @@
     <div id="outline-container-org3ceafd3" class="outline-2">
       <h2 id="org3ceafd3">Math</h2>
       <div class="outline-text-2" id="text-org3ceafd3"></div>
+      <div id="outline-container-orgfda7f78" class="outline-3">
+        <h3 id="orgfda7f78">Function</h3>
+        <div class="outline-text-3" id="text-orgfda7f78">
+          <p>A <i>function</i> \(f ∶ A \rightarrow B\) from a
+          <i>Set</i> \(A\) (the domain) to a <i>Set</i> \(B\) (the
+          codomain or a range) is a <i>rule</i> \(f\) (defined
+          formally) so that \(\forall x \in A, \exists! y \in B
+          \mid f(x) = y\).</p>
+          <p>We call \(f(x)\) the <i>image</i> of \(x\) (in
+          \(B\)).</p>
+        </div>
+        <div id="outline-container-orgee8da44" class="outline-4">
+          <h4 id="orgee8da44">One-to-one</h4>
+          <div class="outline-text-4" id="text-orgee8da44">
+            <p>The <i>function</i> \(f\) is <i>one-to-one</i> (or
+            an <i>injection</i>) if and only if \(\forall x_1, x_2
+            \in A, f(x_1) = f(x_2) \Rightarrow x_1 = x_2\).</p>
+          </div>
+        </div>
+        <div id="outline-container-org823cddd" class="outline-4">
+          <h4 id="org823cddd">Surjection</h4>
+          <div class="outline-text-4" id="text-org823cddd">
+            <p>The <i>function</i> \(f\) is <i>onto</i> (or a
+            <i>surjection</i>) if and only if \(\forall x \in A
+            \exists y \in B \mid f(y) = x\)</p>
+          </div>
+        </div>
+        <div id="outline-container-org5cbfd1f" class="outline-4">
+          <h4 id="org5cbfd1f">Bijection</h4>
+          <div class="outline-text-4" id="text-org5cbfd1f">
+            <p>A <i>function</i> is a <i>bigection</i> if and only
+            if it is <i>both one-to-one</i> and <i>onto</i>.</p>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-orgc142989" class="outline-3">
+        <h3 id="orgc142989">Composition</h3>
+        <div class="outline-text-3" id="text-orgc142989">
+          <p>If \(f: A \rightarrow B \land g: B \rightarrow C\) are
+          <i>functions</i>, their <i>composition</i> \(g \circ f :
+          A \rightarrow C\) is given by \[g \circ f(x) =
+          g(f(x))\].</p>
+          <p><i>Nesting</i> is the natural and the only way to
+          define an <i>order of evaluation</i> for a
+          <i>composition</i> of two functions.</p>
+        </div>
+        <div id="outline-container-orgaf3f1b7" class="outline-4">
+          <h4 id="orgaf3f1b7">Equality</h4>
+          <div class="outline-text-4" id="text-orgaf3f1b7">
+            <p>Two <i>functions</i> \(f : A \rightarrow B\) and \(g
+            : A \rightarrow B\) are <i>equal</i> if and only if
+            \[\forall x \in A, f(x) = g(x)\].</p>
+          </div>
+        </div>
+      </div>
       <div id="outline-container-orge6b2e15" class="outline-3">
         <h3 id="orge6b2e15">Algebraic System</h3>
         <div class="outline-text-3" id="text-orge6b2e15">
@@ -334,9 +389,9 @@
           <i>unique</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org9a6b281" class="outline-3">
-        <h3 id="org9a6b281">Monoid</h3>
-        <div class="outline-text-3" id="text-org9a6b281">
+      <div id="outline-container-org3ea2cb0" class="outline-3">
+        <h3 id="org3ea2cb0">Monoid</h3>
+        <div class="outline-text-3" id="text-org3ea2cb0">
           <p>\((S, \bigoplus, e)\) such that \(\forall x, y, z \in
           S\) <i>identity</i> and <i>associativity</i> laws hold:
           \[x \bigoplus e = x = e \bigoplus x\] \[x \bigoplus (y
@@ -424,15 +479,15 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org0a7df27" class="outline-3">
-        <h3 id="org0a7df27">Semi-group</h3>
-        <div class="outline-text-3" id="text-org0a7df27">
+      <div id="outline-container-org2d078a2" class="outline-3">
+        <h3 id="org2d078a2">Semi-group</h3>
+        <div class="outline-text-3" id="text-org2d078a2">
           <p>A <i>Group</i> without <i>inverses</i>.</p>
         </div>
       </div>
-      <div id="outline-container-orgce03489" class="outline-3">
-        <h3 id="orgce03489">Functor</h3>
-        <div class="outline-text-3" id="text-orgce03489">
+      <div id="outline-container-org5ad62bc" class="outline-3">
+        <h3 id="org5ad62bc">Functor</h3>
+        <div class="outline-text-3" id="text-org5ad62bc">
           <p>Originally defined on <i>graphs</i> as a
           transformation that <i>preserves the structure</i> of a
           graph.</p>
@@ -488,9 +543,9 @@
       <div id="outline-container-orgadd994a" class="outline-3">
         <h3 id="orgadd994a">Types are Sets</h3>
       </div>
-      <div id="outline-container-org2d078a2" class="outline-3">
-        <h3 id="org2d078a2">Semi-group</h3>
-        <div class="outline-text-3" id="text-org2d078a2">
+      <div id="outline-container-org39023a0" class="outline-3">
+        <h3 id="org39023a0">Semi-group</h3>
+        <div class="outline-text-3" id="text-org39023a0">
           <p>No notion of an <i>inverse</i>. No notion of an
           <i>identity</i>.</p>
           <div class="org-src-container">
@@ -520,9 +575,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-org3ea2cb0" class="outline-3">
-        <h3 id="org3ea2cb0">Monoid</h3>
-        <div class="outline-text-3" id="text-org3ea2cb0">
+      <div id="outline-container-orgc017c51" class="outline-3">
+        <h3 id="orgc017c51">Monoid</h3>
+        <div class="outline-text-3" id="text-orgc017c51">
           <p>Here a <code>Monoid</code> is a (subclass of a)
           <code>Semigroup</code></p>
           <div class="org-src-container">
@@ -554,9 +609,9 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org5ad62bc" class="outline-3">
-        <h3 id="org5ad62bc">Functor</h3>
-        <div class="outline-text-3" id="text-org5ad62bc">
+      <div id="outline-container-orgb0c428a" class="outline-3">
+        <h3 id="orgb0c428a">Functor</h3>
+        <div class="outline-text-3" id="text-orgb0c428a">
           <p>Generalized notion of <i>mapping over a value which
           preserves the structure</i> (whatever it may be).</p>
           <p>Generalized mapping on <code>Lists</code> dates back
@@ -846,7 +901,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-03-30 Wed 16:29</p>
+    <p class="date">Created: 2022-03-30 Wed 18:49</p>
   </div>
 </body>
 </html>
