@@ -8,8 +8,10 @@
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
   "width=device-width, initial-scale=1" />
-  <title>Org Notes</title>
-  <meta name="author" content="schiptsov@gmail.com" />
+  <title>Monadic Vedanta</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+  <meta name="description" content=
+  "End of Knowledge about Monads in Haskell" />
   <meta name="generator" content="Org Mode" />
   <style>
   <![CDATA[
@@ -205,16 +207,119 @@
     "index.html">HOME</a>
   </div>
   <div id="content" class="content">
-    <h1 class="title">Org Notes</h1>
-    <ul class="org-ul">
-      <li><a href="monadic_vedanta.html">Monadic Vedanta</a></li>
-      <li><a href="books.html">Books</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="vedanta.html">Vedanta</a></li>
-    </ul>
+    <h1 class="title">Monadic Vedanta</h1>
+    <p>The problem why <code>Monads</code> in Haskell are so
+    confusing is that we (at least I) are trying to understand it
+    <i>bottom-up</i>, from what we see in some crappy code. Not
+    just that, but when we search for an explanation, shitposts by
+    narcissistic imposers is what Google Search will give you
+    first.</p>
+    <p>I might take years (at least for me) to sort everything out,
+    and reduce everything back to <i>What Is</i>.</p>
+    <p>It took so long because I have to went through piles and
+    piles of bullshit, including the Category Theory, to <i>make
+    sure</i> that <i>it is completely irrelevant</i> in this
+    context.</p>
+    <div id="outline-container-org53878de" class="outline-2">
+      <h2 id="org53878de">The Proper Philosophy</h2>
+      <div class="outline-text-2" id="text-org53878de">
+        <p><i>Life Itself</i> has been evolved upon certain
+        molecular structures, which are made out of <i>Atoms</i>.
+        Life does not know anything about its nature, it is just
+        using them as <i>given</i>.</p>
+        <p>If it could make any assumptions, that would be, as we
+        assume, that they are <i>indivisible</i> and
+        <i>indestructible</i>, and <i>some</i> particular molecular
+        structures such as <i>aminoacids</i> or RNAs are
+        <i>immutable</i>.</p>
+        <p>The <i>fact</i> that atoms can actually be broken in
+        certain conditions (created by humans on this planet) is
+        <i>irrelevant</i>, because in the actual environment in
+        which Life has been evolved <i>such conditions do not
+        arise</i>.</p>
+        <p>What we have here is a <i>very real, not imaginary,
+        abstraction barrier</i>, so real an actual, that literally
+        everything within you and around you is made upon it.</p>
+        <p>And <i>this</i> is the <i>Reality First Principle</i>
+        for functional programming - atomicity and immutability of
+        base structures, which is only apparent.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgda06192" class="outline-2">
+      <h2 id="orgda06192">The Highest level</h2>
+      <div class="outline-text-2" id="text-orgda06192">
+        <p>At a <i>highest, most abstract level</i> a Monad <i>in
+        Haskell</i> is a generalization of an <i>abstraction
+        barrier</i> similar to that one which holds <i>Life
+        Itself</i>.</p>
+        <p>Functions on <i>Monadic Values</i> (of a particular
+        type) are as pure as mathematical functions (could be
+        calculated by pure substitution with pen an paper),
+        <i>referential transparency</i> is preserved.</p>
+        <p><i>What is going on inside these values is beyond the
+        abstraction barrier</i> and <i>literally cannot be seen</i>
+        by pure Haskell code (the code only declare what to do with
+        these values, including pattern matching on value’s
+        structure).</p>
+        <p>These are <i>the same notions (of an impenetrable
+        abstraction barrier)</i>, and it <i>is not</i> “abstract”
+        or imaginary. Everything is real.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgcc92000" class="outline-2">
+      <h2 id="orgcc92000">&gt;&gt;=</h2>
+      <div class="outline-text-2" id="text-orgcc92000">
+        <p>The (&gt;&gt;=) function (called bind) which does
+        <i>re-binding</i> and <i>sequencing</i> should be
+        considered <i>impure</i>, because it (and only it) has
+        access to the <i>internal state</i> and <i>actual
+        representations</i>.</p>
+        <p>However, the <i>code that uses</i> (&gt;&gt;=) is as
+        pure as math or logic.</p>
+        <p>The type system guarantees that no code could “see” or
+        access any value behind the monad interface (abstraction
+        barrier). (&gt;&gt;=) and only (&gt;&gt;=) can access and
+        pattern-match (but not “see”, because Haskell is
+        <i>declarative</i>.).</p>
+        <p>This is exactly how Haskell code is pure (as math or
+        logic) in the presence of IO, State transformation and
+        side-effects. All these are beyond the abstraction barrier
+        with the Monad type-class establishes, and the type system
+        <i>enforses</i>.</p>
+        <p>Each <i>instance</i> of a Monad (an actual type) hides
+        all its “stuff” behind a standardized interface, which
+        separates the pure code from impure.</p>
+        <p>And that is really it. No more, no less.</p>
+      </div>
+    </div>
+    <div id="outline-container-org3b2f824" class="outline-2">
+      <h2 id="org3b2f824">an ADT</h2>
+      <div class="outline-text-2" id="text-org3b2f824">
+        <p>Technically, it is an ADT as defined by Barbara Liskov.
+        There is an interface, which is what the <i>pure code</i>
+        “sees” and uses. There is an <i>actual implementation</i>,
+        based on some <i>particular representation</i> (actual
+        <i>data structure</i>) hidden behind the <i>interface</i>,
+        exactly as intended.</p>
+        <p>All the most fundamental concepts of programming are
+        there in play.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgadfade9" class="outline-2">
+      <h2 id="orgadfade9">Actual representation</h2>
+      <div class="outline-text-2" id="text-orgadfade9">
+        <p>At the lowest level there is an impure code which
+        manipulates data in memory, like everything else.</p>
+        <p>The purity ends when the <i>main</i> function of a
+        Haskell program returns a <i>pure expression</i> (to be
+        <i>eventually</i> evaluated by the runtime), which is a
+        type-checked <i>specialized state machine, defined in pure
+        logic</i>.</p>
+      </div>
+    </div>
   </div>
   <div id="postamble" class="status">
-    <p class="author">Author: schiptsov@gmail.com</p>
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
     <p class="date">Created: 2022-03-31 Thu 21:01</p>
   </div>
 </body>

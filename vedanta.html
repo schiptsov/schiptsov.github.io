@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2022-03-30 Wed 18:49 -->
+  <!-- 2022-03-31 Thu 21:01 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
@@ -196,7 +196,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
   ]]>
   </style>
   <link rel='stylesheet' type='text/css' href='css/main.css' />
@@ -234,7 +234,8 @@
     <h1 class="title">Vedanta (वेदान्त)</h1>
     <p>In Mathematics we study abstract patterns (abstracting away
     any possible representation or actual implementation of an
-    algorithm or a structure.</p>
+    algorithm or a structure. Algorithms are procedures and a
+    computer is a person.</p>
     <p>In CS every value <i>implies</i> some representation and it
     is usually a part of some <i>Abstract Data Type</i>, which, in
     turn, <i>implies</i> some (usually there is more than one)
@@ -389,9 +390,9 @@
           <i>unique</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org3ea2cb0" class="outline-3">
-        <h3 id="org3ea2cb0">Monoid</h3>
-        <div class="outline-text-3" id="text-org3ea2cb0">
+      <div id="outline-container-orgc017c51" class="outline-3">
+        <h3 id="orgc017c51">Monoid</h3>
+        <div class="outline-text-3" id="text-orgc017c51">
           <p>\((S, \bigoplus, e)\) such that \(\forall x, y, z \in
           S\) <i>identity</i> and <i>associativity</i> laws hold:
           \[x \bigoplus e = x = e \bigoplus x\] \[x \bigoplus (y
@@ -407,7 +408,7 @@
           <i>inverse of</i> \(x \in S\) is some \(y \in S\) such
           that: \[x \bigoplus y = e = y \bigoplus x\].</p>
           <p>This implies that \(\bigoplus\) is <i>commutative</i>,
-          eg \(a \bigoplus b = b \bigoplus a\).</p>
+          e.g. \(a \bigoplus b = b \bigoplus a\).</p>
           <p>For example, \(a - b = a + (-b)\) where \(+\) is
           <i>commutative</i> and \(-b\) is an <i>additive
           inverse</i> of \(b\).</p>
@@ -479,15 +480,15 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org2d078a2" class="outline-3">
-        <h3 id="org2d078a2">Semi-group</h3>
-        <div class="outline-text-3" id="text-org2d078a2">
+      <div id="outline-container-org39023a0" class="outline-3">
+        <h3 id="org39023a0">Semi-group</h3>
+        <div class="outline-text-3" id="text-org39023a0">
           <p>A <i>Group</i> without <i>inverses</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org5ad62bc" class="outline-3">
-        <h3 id="org5ad62bc">Functor</h3>
-        <div class="outline-text-3" id="text-org5ad62bc">
+      <div id="outline-container-orgb0c428a" class="outline-3">
+        <h3 id="orgb0c428a">Functor</h3>
+        <div class="outline-text-3" id="text-orgb0c428a">
           <p>Originally defined on <i>graphs</i> as a
           transformation that <i>preserves the structure</i> of a
           graph.</p>
@@ -527,13 +528,17 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-orgcdbf34b" class="outline-3">
-        <h3 id="orgcdbf34b">Constraints of Sets</h3>
-        <div class="outline-text-3" id="text-orgcdbf34b">
+      <div id="outline-container-org1fcf972" class="outline-3">
+        <h3 id="org1fcf972">Constraints on Sets</h3>
+        <div class="outline-text-3" id="text-org1fcf972">
           <p>We use <i>set comprehension</i> notation to specify
           constraints on subsets (using guards, which are
           <i>predicates</i>). \[\{ x \mid x \leftarrow S, x \geq
           0\}\]</p>
+          <p>Defining subsets is partitioning on a property or a
+          constraint.</p>
+          <p>Intersections of such partitions (subsets) is where
+          all the “typing” is.</p>
         </div>
       </div>
     </div>
@@ -543,9 +548,9 @@
       <div id="outline-container-orgadd994a" class="outline-3">
         <h3 id="orgadd994a">Types are Sets</h3>
       </div>
-      <div id="outline-container-org39023a0" class="outline-3">
-        <h3 id="org39023a0">Semi-group</h3>
-        <div class="outline-text-3" id="text-org39023a0">
+      <div id="outline-container-org08e9910" class="outline-3">
+        <h3 id="org08e9910">Semi-group</h3>
+        <div class="outline-text-3" id="text-org08e9910">
           <p>No notion of an <i>inverse</i>. No notion of an
           <i>identity</i>.</p>
           <div class="org-src-container">
@@ -575,9 +580,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-orgc017c51" class="outline-3">
-        <h3 id="orgc017c51">Monoid</h3>
-        <div class="outline-text-3" id="text-orgc017c51">
+      <div id="outline-container-org2f841e0" class="outline-3">
+        <h3 id="org2f841e0">Monoid</h3>
+        <div class="outline-text-3" id="text-org2f841e0">
           <p>Here a <code>Monoid</code> is a (subclass of a)
           <code>Semigroup</code></p>
           <div class="org-src-container">
@@ -609,22 +614,40 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-orgb0c428a" class="outline-3">
-        <h3 id="orgb0c428a">Functor</h3>
-        <div class="outline-text-3" id="text-orgb0c428a">
+      <div id="outline-container-org7e2735a" class="outline-3">
+        <h3 id="org7e2735a">Functor</h3>
+        <div class="outline-text-3" id="text-org7e2735a">
           <p>Generalized notion of <i>mapping over a value which
           preserves the structure</i> (whatever it may be).</p>
           <p>Generalized mapping on <code>Lists</code> dates back
           to the early Lisps.</p>
           <div class="org-src-container">
-            <pre class="src src-scheme">(<span style=
+            <pre class="src src-scheme"><span style=
+            "color: #81A1C1;">(</span><span style=
             "color: #81A1C1;">define</span> <span style=
-            "color: #88C0D0;">map</span> (<span style=
-            "color: #81A1C1;">lambda</span> (f xs)
-              (<span style=
-"color: #81A1C1;">if</span> (null? xs) xs
-                  (cons (f (car xs)) (<span style=
-"color: #81A1C1;">map</span> f (cdr xs))))))
+            "color: #88C0D0;">map</span> <span style=
+            "color: #B48EAD;">(</span><span style=
+            "color: #81A1C1;">lambda</span> <span style=
+            "color: #A3BE8C;">(</span>f xs<span style=
+            "color: #A3BE8C;">)</span>
+              <span style="color: #A3BE8C;">(</span><span style=
+"color: #81A1C1;">if</span> <span style=
+"color: #5D80AE;">(</span>null? xs<span style=
+"color: #5D80AE;">)</span> xs
+                  <span style=
+"color: #5D80AE;">(</span>cons <span style=
+"color: #81A1C1;">(</span>f <span style=
+"color: #B48EAD;">(</span>car xs<span style=
+"color: #B48EAD;">)</span><span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #81A1C1;">(</span><span style=
+"color: #81A1C1;">map</span> f <span style=
+"color: #B48EAD;">(</span>cdr xs<span style=
+"color: #B48EAD;">)</span><span style=
+"color: #81A1C1;">)</span><span style=
+"color: #5D80AE;">)</span><span style=
+"color: #A3BE8C;">)</span><span style=
+"color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
 </pre>
           </div>
           <p>To be a <code>Functor</code> (<i>for a type</i>) is to
@@ -901,7 +924,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-03-30 Wed 18:49</p>
+    <p class="date">Created: 2022-03-31 Thu 21:01</p>
   </div>
 </body>
 </html>
