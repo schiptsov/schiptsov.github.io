@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2022-03-31 Thu 21:01 -->
+  <!-- 2022-03-31 Thu 21:19 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
@@ -317,10 +317,36 @@
         logic</i>.</p>
       </div>
     </div>
+    <div id="outline-container-org10608f6" class="outline-2">
+      <h2 id="org10608f6">State Monad</h2>
+      <div class="outline-text-2" id="text-org10608f6">
+        <p>It is just a lambda which returns a <i>pair</i> of
+        values. Lambda, so that they can be composed sequentially
+        (yes, just <i>nested lambdas</i>) by
+        <code>&gt;&gt;=</code>.</p>
+        <p>The two values of a <i>pair</i> are at the different
+        sides of an <i>abstraction barrier</i>. The
+        <code>State</code> cannot be seen or accessed outside of
+        the Monad.</p>
+        <p>The lambda (which is called a <i>State Transformer</i>)
+        captures the value, and it is <i>lifted</i> into this
+        particular <i>Monadic context</i> “forever”.</p>
+        <p>The actual <code>State</code> <i>type</i> and how
+        exactly the <i>values of that type</i> are actually handled
+        is encapsulated inside a particular instance of a
+        <code>Monad</code> <i>type-class</i> and it does not
+        pollute the pure code.</p>
+        <p>Moreover, the code is still <i>declarative</i> and will
+        be evaluated <i>eventually</i>, so it is literally a pure
+        logical expression which declares <i>what is to be done
+        with Monadic values</i>. Referential transparency still
+        holds.</p>
+      </div>
+    </div>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-03-31 Thu 21:01</p>
+    <p class="date">Created: 2022-03-31 Thu 21:19</p>
   </div>
 </body>
 </html>
