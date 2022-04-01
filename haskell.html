@@ -8,7 +8,7 @@
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
   "width=device-width, initial-scale=1" />
-  <title>Org Notes</title>
+  <title>Haskell</title>
   <meta name="author" content="schiptsov@gmail.com" />
   <meta name="generator" content="Org Mode" />
   <style>
@@ -205,14 +205,49 @@
     "index.html">HOME</a>
   </div>
   <div id="content" class="content">
-    <h1 class="title">Org Notes</h1>
-    <ul class="org-ul">
-      <li><a href="haskell.html">Haskell</a></li>
-      <li><a href="monadic_vedanta.html">Monadic Vedanta</a></li>
-      <li><a href="books.html">Books</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="vedanta.html">Vedanta</a></li>
-    </ul>
+    <h1 class="title">Haskell</h1>
+    <p>The result of any function call is <i>fully determined</i>
+    by its argument. Same input - same output. Always.</p>
+    <p>Technically, every function has exactly one argument and
+    <i>currying</i> (nesting of <i>closures</i> which capture their
+    arguments) is used to construct multi-argument functions.
+    <i>Partial application</i> naturally follows.</p>
+    <p>Like in mathematics, <i>any function call can be replaced by
+    the result of a previous call with the same parameters</i>.
+    This property is called the <i>referential transparency</i>
+    principle and is at the core of pure mathematics - substituting
+    a value for an expression to which it <i>reduces</i> to.</p>
+    <p><i>Equational reasoning</i> follows, based on the premise
+    that two <i>expressions</i> at each side of the <i>equal
+    sing</i> are indeed equal, and can be <i>substituted for one
+    another</i> (substitution of <i>lets</i> and <i>lambdas</i>
+    employs distinct special rules).</p>
+    <p>Those principles are used by the compiler, which re-arranges
+    and re-writes expressions without breaking their semantics -
+    pure mathematical transformations (which, in theory, can be
+    done with a pen and paper).</p>
+    <p>These properties are common for any pure-functional subset
+    of a <i>mostly-functional</i> language, such as Standard ML, or
+    Ocaml, or Erlang or Scala.</p>
+    <p>Haskell is special in that it uses the <i>call-by-need</i>
+    evaluation strategy (or a <i>Normal Order</i> of evaluation, as
+    intended by God. Or, at least, by <i>Church</i>). The original
+    <i>Lambda Calculus</i> and most of <i>systems of logic</i> use
+    same strategy for application of a set of rules for
+    <i>reductions</i>.</p>
+    <p>Remarkably, Haskell uses the <i>System F Omega</i> under the
+    hood as compiler’s <i>intermediate representation or IR</i>,
+    so, technically, <i>it is a pure logic</i> until compilation of
+    <code>main</code> ends and execution by the runtime begins.</p>
+    <p>This means, among other things, that only so-called “Domain
+    logic” or <i>domain-driven core types</i> should be implemented
+    in Haskell (and it is indeed the best possible choice - to
+    define your <i>domain</i> in pure logic) and everything else
+    should be <i>degelgated</i> to the system by FFI’ing or using
+    calls to an OS.</p>
+    <p>Otherwise one will end up with something like Eterprise Java
+    (J2EE) with Monads and unnecessary, redundant abstractions
+    based on esoteric stuff, which is what we already have.</p>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: schiptsov@gmail.com</p>
