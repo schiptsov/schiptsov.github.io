@@ -8,7 +8,7 @@
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
   "width=device-width, initial-scale=1" />
-  <title>Haskell</title>
+  <title>Org Mode</title>
   <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
   <meta name="generator" content="Org Mode" />
   <style>
@@ -205,58 +205,61 @@
     "index.html">HOME</a>
   </div>
   <div id="content" class="content">
-    <h1 class="title">Haskell</h1>
-    <div id="outline-container-orgee1a605" class="outline-2">
-      <h2 id="orgee1a605">Pure functional</h2>
-      <div class="outline-text-2" id="text-orgee1a605">
-        <p>The result of any function call is <i>fully
-        determined</i> by its argument. Same input - same output.
-        Always.</p>
-        <p>Technically, every function has exactly one argument and
-        <i>currying</i> (nesting of <i>closures</i> which capture
-        their arguments) is used to construct multi-argument
-        functions. <i>Partial application</i> naturally
-        follows.</p>
-        <p>Like in mathematics, <i>any function call can be
-        replaced by the result of a previous call with the same
-        parameters</i>. This property is called the <i>referential
-        transparency</i> principle and is at the core of pure
-        mathematics - substituting a value for an expression to
-        which it <i>reduces</i> to.</p>
-        <p><i>Equational reasoning</i> follows, based on the
-        premise that two <i>expressions</i> at each side of the
-        <i>equal sing</i> are indeed equal, and can be
-        <i>substituted for one another</i> (substitution of
-        <i>lets</i> and <i>lambdas</i> employs distinct special
-        rules).</p>
-        <p>Those principles are used by the compiler, which
-        re-arranges and re-writes expressions without breaking
-        their semantics - pure mathematical transformations (which,
-        in theory, can be done with a pen and paper).</p>
-        <p>These properties are common for any pure-functional
-        subset of a <i>mostly-functional</i> language, such as
-        Standard ML, or Ocaml, or Erlang or Scala.</p>
-        <p>Haskell is special in that it uses the
-        <i>call-by-need</i> evaluation strategy (or a <i>Normal
-        Order</i> of evaluation, as intended by God. Or, at least,
-        by <i>Church</i>). The original <i>Lambda Calculus</i> and
-        most of <i>systems of logic</i> use same strategy for
-        application of a set of rules for <i>reductions</i>.</p>
-        <p>Remarkably, Haskell uses the <i>System F Omega</i> under
-        the hood as compiler’s <i>intermediate representation or
-        IR</i>, so, technically, <i>it is a pure logic</i> until
-        compilation of <code>main</code> ends and execution by the
-        runtime begins.</p>
-        <p>This means, among other things, that only so-called
-        “Domain logic” or <i>domain-driven core types</i> should be
-        implemented in Haskell (and it is indeed the best possible
-        choice - to define your <i>domain</i> in pure logic) and
-        everything else should be <i>degelgated</i> to the system
-        by FFI’ing or using calls to an OS.</p>
-        <p>Otherwise one will end up with something like Eterprise
-        Java (J2EE) with Monads and unnecessary, redundant
-        abstractions based on esoteric stuff, which is what we
-        already have.</p>
+    <h1 class="title">Org Mode</h1>
+    <div id="outline-container-orgc761c0b" class="outline-2">
+      <h2 id="orgc761c0b">Better focusing</h2>
+      <div class="outline-text-2" id="text-orgc761c0b">
+        <p>Nothing clarifies the mind better that writing.</p>
+        <p>Lamport’s quote about writing goes here.</p>
+        <p>Plain text is good medium, but it does not have enough
+        structure. Words, sentences, paragraphs and whole articles
+        are enough for a prose, but technical writing requires more
+        structure.</p>
+        <p><i>Lists</i> are the most fundamental way in which a
+        human mind (a mind of an external observer) arranges its
+        concepts. By writing down a list of items the mind focuses
+        itself, and by comprehending a whole list at once the mind
+        could see a bigger picture.</p>
+        <p>A simple list <i>sorted by implicit priorities</i> is a
+        half of any planing system. A single glance over it tells a
+        lot. The ability to quickly re-arrange such a list
+        according to the current circumstances (changing
+        priorities) is another <i>third</i>.</p>
+        <p><code>Org-mode</code> is about nesting and folding.</p>
+        <p>Deeply <i>nested lists</i> reflect the structure of
+        knowledge (from the most abstract and general, to more
+        detailed and specialized and all the way down to
+        particulars). It allows the mind to easily traverse any
+        selected branch of the whole hierarchy up and down.</p>
+        <p>Folding allows the mind to <i>focus at a particular
+        level</i> - to narrow it down to a necessary level of
+        abstraction.</p>
+        <p><code>Org-mode</code> improves one’s writing, because it
+        prompts the mind to arrange their concepts in
+        <i>natural</i> hierarchical, tree-like structures
+        (remember, that <i>evolution is a tree</i>, and a <i>deeply
+        nested list</i> is a tree).</p>
+        <p>There is no rigorous thinking (or writing) without
+        founding the reasoning on an appropriate branch of
+        mathematics. Without formal mathematical models (however
+        simple) any thinking is sloppy, <i>biased towards your
+        naive assumptions</i> and wishful.</p>
+        <p>Math is easy to write in <code>Org-mode</code> - it
+        allows to embed the standard LaTeX syntax almost
+        everywhere. To see the result one has to render the
+        resulting document using LaTeX or any other tool (such as
+        MathJax).</p>
+        <p><code>Org-mode</code> allows embedding of <i>source code
+        blocks</i> in almost any language, and even to evaluate
+        these code blocks within a document. The most important
+        aspect is that the code is an <i>additional, refined
+        structure</i> for domain knowledge.</p>
+        <p>You can <i>export</i> your structured writing into all
+        the reasonable formats - HTML, Makrdown, LaTex, PDF.</p>
+        <p>Just use the structural and folding features and leave
+        the time planing aspect to useless managers. You will see
+        improvements in a couple of weeks, if not days. Everything
+        that disciplines mind is good for you.</p>
       </div>
     </div>
   </div>
