@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2022-03-31 Thu 21:22 -->
+  <!-- 2022-04-01 Fri 12:10 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
@@ -292,6 +292,42 @@
         <p>And that is really it. No more, no less.</p>
       </div>
     </div>
+    <div id="outline-container-org648e3b6" class="outline-2">
+      <h2 id="org648e3b6">Passing the Whole World</h2>
+      <div class="outline-text-2" id="text-org648e3b6">
+        <p>This <i>metaphor</i> is both philosophically funny and
+        useful. In an abstract theory, a function <i>is indeed
+        pure</i> if it takes a <i>snapshot of the whole
+        universe</i> and returns a value together with the <i>whole
+        universe modified by itself</i>.</p>
+        <p>In reality this is a form of an explicit
+        <i>serialization</i> (via nesting of calls and explicit
+        passing of a value - nested <code>lets</code>, which are
+        semantically equivalent to <i>nested lambdas</i>) which is
+        required for <i>sequencing of</i> <code>IO</code> actions,
+        since Haskell is a <i>call-by-need</i> language.</p>
+        <p>Nested function calls and implicit passing of a values
+        <i>inside a Monadic context</i> (behind the abstraction
+        barrier) is the most common idiom.</p>
+        <p>Nesting of expressions is the <i>natural</i> way to
+        establish an evaluation order in a language with <i>lazy
+        semantics</i>.</p>
+        <p>Passing of “RealWorld” values ensures “threading”- than
+        <i>no two IO contexts ever overlap</i>.</p>
+        <p><code>IO</code> is a <i>type synonym</i> defined in the
+        following way:</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">type</span> <span style=
+          "color: #8FBCBB;">IO</span> a  <span style=
+          "color: #D8DEE9;">=</span>  <span style=
+          "color: #8FBCBB;">RealWorld</span> <span style=
+          "color: #D8DEE9;">-&gt;</span> (a, <span style=
+          "color: #8FBCBB;">RealWorld</span>)
+</pre>
+        </div>
+      </div>
+    </div>
     <div id="outline-container-org3b2f824" class="outline-2">
       <h2 id="org3b2f824">an ADT</h2>
       <div class="outline-text-2" id="text-org3b2f824">
@@ -346,7 +382,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-03-31 Thu 21:22</p>
+    <p class="date">Created: 2022-04-01 Fri 12:10</p>
   </div>
 </body>
 </html>
