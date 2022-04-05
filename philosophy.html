@@ -8,8 +8,10 @@
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
   "width=device-width, initial-scale=1" />
-  <title>Haskell</title>
+  <title>Philosophy</title>
   <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+  <meta name="description" content=
+  "Eastern philosophy for a Functional Programmer" />
   <meta name="generator" content="Org Mode" />
   <style>
   <![CDATA[
@@ -205,58 +207,102 @@
     "index.html">HOME</a>
   </div>
   <div id="content" class="content">
-    <h1 class="title">Haskell</h1>
-    <div id="outline-container-orgfb239ac" class="outline-2">
-      <h2 id="orgfb239ac">Pure functional</h2>
-      <div class="outline-text-2" id="text-orgfb239ac">
-        <p>The result of any function call is <i>fully
-        determined</i> by its argument. Same input - same output.
-        Always.</p>
-        <p>Technically, every function has exactly one argument and
-        <i>currying</i> (nesting of <i>closures</i> which capture
-        their arguments) is used to construct multi-argument
-        functions. <i>Partial application</i> naturally
-        follows.</p>
-        <p>Like in mathematics, <i>any function call can be
-        replaced by the result of a previous call with the same
-        parameters</i>. This property is called the <i>referential
-        transparency</i> principle and is at the core of pure
-        mathematics - substituting a value for an expression to
-        which it <i>reduces</i> to.</p>
-        <p><i>Equational reasoning</i> follows, based on the
-        premise that two <i>expressions</i> at each side of the
-        <i>equal sing</i> are indeed equal, and can be
-        <i>substituted for one another</i> (substitution of
-        <i>lets</i> and <i>lambdas</i> employs distinct special
-        rules).</p>
-        <p>Those principles are used by the compiler, which
-        re-arranges and re-writes expressions without breaking
-        their semantics - pure mathematical transformations (which,
-        in theory, can be done with a pen and paper).</p>
-        <p>These properties are common for any pure-functional
-        subset of a <i>mostly-functional</i> language, such as
-        Standard ML, or Ocaml, or Erlang or Scala.</p>
-        <p>Haskell is special in that it uses the
-        <i>call-by-need</i> evaluation strategy (or a <i>Normal
-        Order</i> of evaluation, as intended by God. Or, at least,
-        by <i>Church</i>). The original <i>Lambda Calculus</i> and
-        most of <i>systems of logic</i> use same strategy for
-        application of a set of rules for <i>reductions</i>.</p>
-        <p>Remarkably, Haskell uses the <i>System F Omega</i> under
-        the hood as compiler’s <i>intermediate representation or
-        IR</i>, so, technically, <i>it is a pure logic</i> until
-        compilation of <code>main</code> ends and execution by the
-        runtime begins.</p>
-        <p>This means, among other things, that only so-called
-        “Domain logic” or <i>domain-driven core types</i> should be
-        implemented in Haskell (and it is indeed the best possible
-        choice - to define your <i>domain</i> in pure logic) and
-        everything else should be <i>degelgated</i> to the system
-        by FFI’ing or using calls to an OS.</p>
-        <p>Otherwise one will end up with something like Eterprise
-        Java (J2EE) with Monads and unnecessary, redundant
-        abstractions based on esoteric stuff, which is what we
-        already have.</p>
+    <h1 class="title">Philosophy</h1>
+    <p>The only question of a proper philosophy, since the times of
+    the earliest <i>Upanishads</i> is <i>What Is Real?</i> or -
+    discarding some redundancy - <i>What Is?</i>.</p>
+    <p>The biggest achievement of the ancient Eastern philosophy,
+    which is philosophy of the mind, was postulating the principle
+    of primacy of “Reality” - that <i>it comes before the mind</i>
+    (and everything living) and <i>reduction of everything</i> to
+    that “Real”, defining everything as different aspects of the
+    One.</p>
+    <p>Nowadays we would call it localized <i>sub-processes</i> of
+    the single one Universe, which itself is a one single
+    process.</p>
+    <p>The notions of a <i>process</i> and of a physical
+    <i>locality</i> are the most fundamental and everything else
+    could be derived from these.</p>
+    <p>A cell, localized in its particular environment (subject to
+    a set particular physical constraints) is a process, which has
+    distinct boundaries - a membrane which is required for a
+    process to sustain itself.</p>
+    <p>Every process has its own locality and physical boundaries
+    (which separate it from the rest of the Universe), and this,
+    again, is a fundamental, universal notion (a universal
+    pattern).</p>
+    <p>It is not arbitrary or due to a chance that what we call
+    “fundamental laws of physics” are based on the notion of an
+    <i>inverse square of distance</i>.</p>
+    <p>The notion of a <i>distance</i> thus is the basis of the
+    notion of being <i>unrelated</i>, which is operationally means
+    <i>“too distant to have any effect”</i>.</p>
+    <p>Ultimately, everything in Universe is related and unfolds
+    due to the <i>Causality Principle</i>, and this realization
+    goes back to <i>Upanishads</i>.</p>
+    <p>The Causality Principle itself is beautifully captured with
+    the famous <i>Modus Ponens</i>, which states that “when what is
+    <i>necessary and sufficient</i> is present (in a given
+    locality) <i>and</i> <i>the process</i> is here (in the same
+    locality), then the results will follow inevitably”.</p>
+    <p>No wonder that expressed symbolically with an <i>evolved
+    notation</i>.</p>
+    <div class="org-src-container">
+      <pre class="src src-haskell"><span style=
+      "color: #81A1C1;">(</span><span style=
+      "color: #88C0D0;">$</span><span style=
+      "color: #81A1C1;">)</span> <span style=
+      "color: #D8DEE9;">::</span> <span style=
+      "color: #81A1C1;">(</span>a <span style=
+      "color: #D8DEE9;">-&gt;</span> b<span style=
+      "color: #81A1C1;">)</span> <span style=
+      "color: #D8DEE9;">-&gt;</span> a <span style=
+      "color: #D8DEE9;">-&gt;</span> b
+</pre>
+    </div>
+    <p>it corresponds to (or actually <i>is</i>) an application of
+    a function to an argument, which is a <i>captured universal
+    notion of a single step of a process</i>.</p>
+    <p>Everything is related and consistent, as it indeed must
+    be.</p>
+    <p>The Hilbert system of logic, in which there is only one rule
+    - this <i>Modus Ponens</i> - is not a coincidence, it is the
+    only way.</p>
+    <p>Not surprisingly, what we call a <i>pipeline</i> is just an
+    <i>application</i> with arguments reversed.</p>
+    <div class="org-src-container">
+      <pre class="src src-haskell"><span style=
+      "color: #81A1C1;">(</span><span style=
+      "color: #88C0D0;">|&gt;</span><span style=
+      "color: #81A1C1;">)</span> <span style=
+      "color: #D8DEE9;">::</span> a <span style=
+      "color: #D8DEE9;">-&gt;</span> <span style=
+      "color: #81A1C1;">(</span>a <span style=
+      "color: #D8DEE9;">-&gt;</span> b<span style=
+      "color: #81A1C1;">)</span> <span style=
+      "color: #D8DEE9;">-&gt;</span> b
+</pre>
+    </div>
+    <p>Still the same <i>Modus Ponens</i>.</p>
+    <p>In <i>Lambda Calculus</i> an application is so fundamental
+    that it is almost overlooked, while it is the only way to take
+    <i>a single step of computation</i>.</p>
+    <p>The other fundamental notion, also overlooked, is of
+    <i>nesiting</i> which is the only way to establish an order of
+    evaluation in <i>Lambda Calculus</i>.</p>
+    <p>And, of course, <i>partitioning, application</i> and
+    <i>nesting</i> have corresponding <i>universal notions</i>
+    (which they are capture).</p>
+    <p>Again, nothing is arbitrary here. The mind of an external
+    observer captures actual patterns and evolve corresponding
+    symbolic notations and formalized notions.</p>
+    <div id="outline-container-orgabcae9d" class="outline-2">
+      <h2 id="orgabcae9d">TODO</h2>
+      <div class="outline-text-2" id="text-orgabcae9d">
+        <p>Partitioning, nesting, branching (and joining).</p>
+        <p>Cells, membranes, abstraction boundaries.</p>
+        <p>Events</p>
+        <p>Message passing.</p>
       </div>
     </div>
   </div>
