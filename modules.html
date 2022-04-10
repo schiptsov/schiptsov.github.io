@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-04-10 Sun 19:10 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Modules</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "Modules for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <link crossorigin="anonymous" media="all" integrity=
+  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
+  rel="stylesheet" href=
+  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Modules</h1>
+    </header>
+    <p>The most important principle in whole Computer Science is
+    about how (and why) <a href="ADTs.html">Abstract Data Types</a>
+    should be defined.</p>
+    <p>One of the fundamental advantages is that an <i>underlying
+    representation</i> (and related algorithms) could be changed
+    and improved <i>without breaking the public interfaces</i>.</p>
+    <p>Remember - <i>data dominates</i>. This implies that there is
+    no need to recompile the code if it uses dynamic (shared)
+    libraries, so the exising system could be improved without a
+    re-install.</p>
+    <p>This is exactly what pragmatic UNIX systems got right by
+    introducing shared libraries.</p>
+    <p>And this is precisely what delusional purists advocating
+    “reproducible builds” got absolutely wrong. Focus on
+    <i>stability of interfaces</i> and you won’t need to hash every
+    single build like Haskell tools do.</p>
+    <p>Modules are abstractions closely related to ADTs, with the
+    core principle of <i>being a separate (independent) units of
+    compilation and linking</i>. While <i>intefaces establish
+    abstraction barriers which partition and hook together</i> the
+    code, modules are about <i>compilation units</i>.</p>
+    <p>Modules are larger scale the building blocks, while the
+    ultimate building blocks of any software are <i>interfaces</i>
+    and <i>ADTs</i> (which encapsulate actual implementations.)</p>
+    <p>Standard ML (and Ocaml) perfected its module system defining
+    modules as having sertain structure (similar to graphs in
+    mathematics) and providing a DSL for <i>application</i> of one
+    module to another (yelding a new <i>related</i> structure)
+    similar to what mathematical <i>Functors</i> do (they are
+    <i>structure-preserving</i> transformations).</p>
+    <p>To summarize, modules are about standardized interfaces,
+    exactly as ADTs, and compilation is of second importance. ML
+    guys got it right, others missed the point.</p>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-04-10 Sun 19:10</p>
+  </div>
+</body>
+</html>

@@ -1,203 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- 2022-04-05 Tue 13:04 -->
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
+  <!-- 2022-04-10 Sun 19:11 -->
+  <meta charset="utf-8">
   <meta name="viewport" content=
-  "width=device-width, initial-scale=1" />
+  "width=device-width, initial-scale=1">
   <title>Principles</title>
-  <meta name="author" content="schiptsov@gmail.com" />
-  <meta name="generator" content="Org Mode" />
-  <style>
-  <![CDATA[
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "The fundamental principles for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <link crossorigin="anonymous" media="all" integrity=
+  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
+  rel="stylesheet" href=
+  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
 
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-  ]]>
-  </style>
-  <link rel='stylesheet' type='text/css' href='css/main.css' />
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
   <div id="org-div-home-and-up">
@@ -205,19 +44,252 @@
     "index.html">HOME</a>
   </div>
   <div id="content" class="content">
-    <h1 class="title">Principles</h1>
-    <p>Topologically, so to speak, all we need is sequences, forks
-    (branchs) and loops (or rather spirals).</p>
-    <p>A loop is a circular process, which keeps its state in
-    variables.</p>
-    <p>A recursive process is a <i>spiral-shaped</i> which unfolds
-    (by passing its state along). Its termination is guaranteeed by
-    the base case and reduced coils of a spieral, whcih converge at
-    the base case.</p>
+    <header>
+      <h1 class="title">Principles</h1>
+    </header>
+    <p>Molecular biology, however, is all about particular
+    “concrete structures”. It does not operate on abstract
+    entities.</p>
+    <p>Mother Nature does not count. It has no abstract notion of a
+    Number. (I does not have any abstract notions whatsoever). It
+    does <i>structural pattern matching</i> and <i>structural
+    information encoding</i>.</p>
+    <p>Mother Nature, that part of it which we call Molecular
+    Biology, uses <i>explict structural markers</i> which we could
+    call <i>tags</i>. Tagging (or marking with a distinct pattern)
+    is a <i>universal concept</i>. It has been <i>discovered</i> by
+    the process of evolution.</p>
+    <p>For us, like for the holy LISP and ML old-timers, typing is
+    implicit type-tagging. and (a set of) data-constructors are
+    considered as tags.</p>
+    <div id="outline-container-org348f7c7" class="outline-2">
+      <h2 id="org348f7c7">Topology (sort of)</h2>
+      <div class="outline-text-2" id="text-org348f7c7">
+        <p>There is an old principle, which comes from algorithm
+        charting techniques (in the great times they chart the
+        control flow).</p>
+        <p>Topologically, so to speak, all we need is sequences,
+        branches (forks) and loops (or rather recursive
+        spirals).</p>
+        <p>Loops are, basically, jumping back to the <i>conditional
+        expression</i> (a test) which branches the control, avoidng
+        arbitrary gotos.</p>
+        <p>So, imperative loops have <i>explicit branching</i> in
+        them. A loop yields a circular process, which keeps its
+        state in variables.</p>
+        <p>Recursive procedures branch on the required test for a
+        <i>base-case</i>.</p>
+        <p>A recursive process is a <i>spiral-shaped</i> one, which
+        unfolds by passing its <i>reduced</i> state along to each
+        new recursive function call.</p>
+        <p>Its termination is guaranteeed by the base case and
+        reduced coils of a spieral, whcih converge at the base
+        case.</p>
+        <p>Recursion could be <i>double</i> (a function called
+        itself <i>twice</i>) or <i>mutual</i> (two functions call
+        each other), resulting in different “topologies”.</p>
+        <p>Notice that as <i>a binary teee is just a list with two
+        tails per node</i>, a dobule recursion, like in
+        <code>quicksort</code>, produces a tree-shaped process.</p>
+        <p>This is a big finding. The meaning is that <i>every
+        computable program</i> is reducible to just these 3
+        “shapes” or “topologies” of a <i>control flow</i>.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgd5e1285" class="outline-2">
+      <h2 id="orgd5e1285">Sets</h2>
+      <div class="outline-text-2" id="text-orgd5e1285">
+        <p>Mathematically, both a <i>sum-type</i> and a
+        <i>product-type</i> is a set of possible values. Here a set
+        is a prtition. The difference is in their <i>algebraic
+        structure</i> or topological shape of the type. Yes, types
+        are sets of values plus some algebraic structure <i>and
+        also</i> nested structure of values.</p>
+      </div>
+    </div>
+    <div id="outline-container-org8304192" class="outline-2">
+      <h2 id="org8304192">Sum-types</h2>
+      <div class="outline-text-2" id="text-org8304192">
+        <p>a finite set of tags for values of the type.</p>
+        <ul class="org-ul">
+          <li>multiple constructors.</li>
+          <li>multiple distinct patterns to match.</li>
+        </ul>
+        <p>a sum-type has \(n\) constructors and corresponding
+        \(n\) distinct patterns (selectors), wehere \(n &gt;=
+        2\)</p>
+      </div>
+    </div>
+    <div id="outline-container-org10cef0c" class="outline-2">
+      <h2 id="org10cef0c">Product types</h2>
+      <div class="outline-text-2" id="text-org10cef0c">
+        <p>a single implicit tag for all values of the type</p>
+        <ul class="org-ul">
+          <li>a single implicit or explicit constructor</li>
+          <li>a single <i>nested</i> pattern</li>
+        </ul>
+        <p>In other languages each particular structure is <i>of
+        its own type</i> with an implicit tag.</p>
+        <p>a product-type has single constructor and a single
+        pattern (selector) on which netsted patterns can be
+        matched</p>
+        <p>Product types have values with its own particular
+        structure. The set of all possible values corresponds to a
+        <i>Cartesian Product of Sets</i> of its components.</p>
+      </div>
+      <div id="outline-container-org76f4373" class="outline-3">
+        <h3 id="org76f4373">any-of</h3>
+      </div>
+      <div id="outline-container-org56b9c51" class="outline-3">
+        <h3 id="org56b9c51">either-of</h3>
+        <div class="outline-text-3" id="text-org56b9c51">
+          <p>A <i>Set</i> of <i>all</i> possible outcomes
+          (<i>any-of</i>) \(\{ True, False \}\) A <i>either-of
+          Type</i></p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #8FBCBB;">True</span> <span style=
+            "color: #88C0D0;">|</span> <span style=
+            "color: #8FBCBB;">False</span>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-org4c7bd69" class="outline-3">
+        <h3 id="org4c7bd69">and-also</h3>
+        <div class="outline-text-3" id="text-org4c7bd69">
+          <p>Abstract: <code>A</code> <i>and-also</i>
+          <code>B</code>, <code>A &amp;& B</code> (without any
+          representation) A a pair: explicit ordering, position
+          based selection</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #88C0D0;">f</span> <span style=
+            "color: #D8DEE9;">::</span> a <span style=
+            "color: #D8DEE9;">-&gt;</span> b <span style=
+            "color: #D8DEE9;">-&gt;</span> <span style=
+            "color: #81A1C1;">(</span>a, b<span style=
+            "color: #81A1C1;">)</span> 
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span>a <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #D8DEE9;">\</span>b <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #81A1C1;">(</span>a, b<span style=
+"color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p><i>Pattern-matching</i> on a particular structure</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #88C0D0;">f</span> <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #81A1C1;">(</span>a, b<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> a
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span><span style=
+"color: #81A1C1;">(</span>a, <span style=
+"color: #81A1C1;">_</span><span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">-&gt;</span> a
+</pre>
+          </div>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #88C0D0;">f</span> <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #81A1C1;">(</span>a, b<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> b
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span><span style=
+"color: #81A1C1;">(</span><span style=
+"color: #81A1C1;">_</span><span style=
+"color: #D8DEE9;">.</span> b<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">-&gt;</span> b
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="outline-container-org8f4ce23" class="outline-2">
+      <h2 id="org8f4ce23">A shape of a type</h2>
+      <div class="outline-text-2" id="text-org8f4ce23"></div>
+      <div id="outline-container-orgfdf6a68" class="outline-3">
+        <h3 id="orgfdf6a68">A product-type, any-of-type,
+        and-also-type</h3>
+        <div class="outline-text-3" id="text-orgfdf6a68">
+          <p>a tuple</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">(</span> <span style=
+            "color: #81A1C1;">_</span> , <span style=
+            "color: #81A1C1;">_</span> <span style=
+            "color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p>a record</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">{</span> <span style=
+            "color: #81A1C1;">_</span> , <span style=
+            "color: #81A1C1;">_</span> <span style=
+            "color: #81A1C1;">}</span>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-org2aa9eb0" class="outline-3">
+        <h3 id="org2aa9eb0">A sum-type, either-of-type</h3>
+        <div class="outline-text-3" id="text-org2aa9eb0">
+          <p>a variant</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">_</span> <span style=
+            "color: #88C0D0;">|</span> <span style=
+            "color: #81A1C1;">_</span>
+</pre>
+          </div>
+          <p>records</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">data</span> <span style=
+            "color: #8FBCBB;">AB</span> <span style=
+            "color: #D8DEE9;">=</span> <span style=
+            "color: #8FBCBB;">AB</span> <span style=
+            "color: #81A1C1;">{</span>a <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #8FBCBB;">Int</span>, b <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #8FBCBB;">Int</span><span style=
+            "color: #81A1C1;">}</span>
+
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span>ab <span style=
+"color: #D8DEE9;">-&gt;</span> ab<span style=
+"color: #D8DEE9;">.</span>a 
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span>ab <span style=
+"color: #D8DEE9;">-&gt;</span> ab<span style=
+"color: #D8DEE9;">.</span>b
+</pre>
+          </div>
+          <p>tuples usually implemented and records with fields
+          1,2,3…</p>
+        </div>
+      </div>
+    </div>
   </div>
   <div id="postamble" class="status">
-    <p class="author">Author: schiptsov@gmail.com</p>
-    <p class="date">Created: 2022-04-05 Tue 13:04</p>
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-04-10 Sun 19:11</p>
   </div>
 </body>
 </html>

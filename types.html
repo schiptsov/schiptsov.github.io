@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-04-10 Sun 19:02 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Types</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "Types for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <link crossorigin="anonymous" media="all" integrity=
+  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
+  rel="stylesheet" href=
+  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Types</h1>
+    </header>
+    <p>Algebraic types can be nested.</p>
+    <p>When we think of “structured values” we imply <i>nesting</i>
+    of types.</p>
+    <div id="outline-container-org7746856" class="outline-2">
+      <h2 id="org7746856">Sets of values</h2>
+      <div class="outline-text-2" id="text-org7746856">
+        <p>Types are based on a formally defined mathematical
+        notion of a <code>Set</code>. Types are <i>sets of
+        values</i>, defined by sets of <i>constraints</i>
+        (corresponding to particual properties).</p>
+        <p>An optional <i>set-subset relation</i> for types is
+        formally defined using the notion of <i>type-class</i>.</p>
+        <p>Constraints on type are of various kinds, most notably -
+        <i>structural</i> (when values have a particular structure)
+        and those defined by so-called <i>duck-typing</i>, which
+        means to have a set of <i>signatures</i> to be implemented
+        (<i>to be an</i> <code>X</code> is to exibit such and such
+        <i>behaviors</i>), along with <i>additional
+        constraints</i>, sometimes called “laws”, formally defined
+        elsewhere.</p>
+        <p>The <i>set-subset</i> relation is used to
+        <i>specialize</i> the resulting types or to define a
+        <i>family of types</i>, using the formal notion of a
+        <i>type-class</i>.</p>
+      </div>
+    </div>
+    <div id="outline-container-org52aef83" class="outline-2">
+      <h2 id="org52aef83">Type-classes</h2>
+      <div class="outline-text-2" id="text-org52aef83">
+        <p>First of all, a <i>type-class</i> is a <i>higer-level
+        abstraction over types</i>, and each particular
+        <i>instance</i> of a type-class is <i>type</i>. The
+        mathematical analogy is a <i>Set of Sets</i> while members
+        (types) have an additional strucure (a set of required
+        <i>signatures</i>).</p>
+        <p><i>Type-classes</i> are defined by specifying a set of
+        <i>function signatures</i> which are required to be
+        implemented. Together all the <i>signatures</i> corresponds
+        to a <i>module singnature</i> in ML or Ocaml. It is a
+        closely related idea, but instead of being a <i>Module</i>
+        an type-class is a <i>type-level</i> abstraction.</p>
+        <p>A <i>class-constraint</i> is modeled after a
+        <i>set-subset relation</i> and implies that all the
+        <i>required signatures</i> (for an instance of a particular
+        type-class) are <i>already implemented</i> for a type.</p>
+        <p>Basically, a type-class defines a <i>family of types</i>
+        using a <i>set of required signatures</i> together with an
+        <i>optional class-constraint</i>.</p>
+        <p>Signatures act as “<i>such that</i>” selectors in
+        mathematical logic.</p>
+        <p>It can be read as: “a subset of <code>X</code>, <i>such
+        that</i> (list of specific constraints)” - which is very
+        similar in its nature to <i>declarative list comprehensions
+        with generators and boolean guards</i>.</p>
+      </div>
+    </div>
+    <div id="outline-container-org6672dcd" class="outline-2">
+      <h2 id="org6672dcd">Overloaded functions</h2>
+      <div class="outline-text-2" id="text-org6672dcd">
+        <p>This <i>type signature</i> implies that <code>(+)</code>
+        is <i>overloaded</i>, which means could be applied to
+        different types (provided both aguments are of the same
+        type).</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">(</span><span style=
+          "color: #88C0D0;">+</span><span style=
+          "color: #81A1C1;">)</span> <span style=
+          "color: #D8DEE9;">::</span> <span style=
+          "color: #8FBCBB;">Num</span> a <span style=
+          "color: #D8DEE9;">=&gt;</span> a <span style=
+          "color: #D8DEE9;">-&gt;</span> a <span style=
+          "color: #D8DEE9;">-&gt;</span> a
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-04-10 Sun 19:02</p>
+  </div>
+</body>
+</html>
