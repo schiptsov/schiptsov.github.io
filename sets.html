@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-04-14 Thu 07:47 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Sets</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "Sets for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <link crossorigin="anonymous" media="all" integrity=
+  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
+  rel="stylesheet" href=
+  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Sets</h1>
+    </header>
+    <p>Sets are rigorously defined generalization of <i>mental
+    concepts</i>. It is more abstract and general than any
+    particular <i>collection</i>, or a <i>sequence</i> or a
+    <i>list</i> (which is a particular kind of a sequence).</p>
+    <p>This is canonical example of how mathematics does not
+    consider any <i>representation</i> of its abstract concepts, so
+    it could abstract out any representation-related notions
+    whatsoever (and add <i>non-existent</i>, imaginary ones, such
+    as \(\emptyset\) and to consider <i>properties</i> of something
+    that does not exist).</p>
+    <p>When we say <i>“there is an empty set \(\emptyset\)”</i> we
+    imply <i>“in the context of this particular axiomatic
+    system”</i>. It does not “exist” outside of it (or outside your
+    head).</p>
+    <p>The lack of a <i>type-discipline</i> messes everything up
+    very quickly.</p>
+    <div id="outline-container-orgaeaad8a" class="outline-2">
+      <h2 id="orgaeaad8a">No ordering</h2>
+      <div class="outline-text-2" id="text-orgaeaad8a">
+        <p>There is no notion of a <i>particular ordering</i> of
+        elements, as in a heap inside a bag, and no notion of
+        <i>duplicate</i> - each mentioning refers to the same
+        <i>unique</i> element.</p>
+        <p>The only valid notion for elements <i>membership</i> \(x
+        \in X\).</p>
+      </div>
+    </div>
+    <div id="outline-container-org4af8cf6" class="outline-2">
+      <h2 id="org4af8cf6">Partitioning</h2>
+      <div class="outline-text-2" id="text-org4af8cf6">
+        <p>There is the universal notion of <i>partitioning</i> of
+        a Set based on some common <i>property</i> defined by a
+        <i>predicate</i> on elements. \[ X' = \{x \in X\ \mid
+        P(x)\}\]</p>
+        <p>Such <i>partition</i> is a <i>subset</i> \(X'\) of a
+        <i>Set</i> \(X\).</p>
+        <p>The explicit quantifier \(x \in X\) corresponds to the
+        notion <code>x : X</code> (x has the type of X) and implies
+        \(P(x)\) <i>is defined</i> \(\forall x \in X\) (or that
+        <code>P(x)</code> is <i>well-typed</i>).</p>
+        <p>This very notion <i>of “such that”</i> is the basis of
+        <i>sub-typing</i>, <i>selection</i>, <i>filtering</i> and
+        <i>specialization</i>.</p>
+        <p>The <i>set comprehension notation</i> is
+        well-established in Haskell.</p>
+      </div>
+    </div>
+    <div id="outline-container-org6e8f65e" class="outline-2">
+      <h2 id="org6e8f65e">Typing</h2>
+      <div class="outline-text-2" id="text-org6e8f65e">
+        <p>In <i>Mathematics</i> a <i>Set</i> and its <i>Subset</i>
+        are <i>the same kind of an object</i> (of the same
+        <i>type</i>), and therefore <i>every set is a subset of
+        itself</i> \(A \subset A\). This leads to nonsensical
+        paradoxes, like the notion that <i>the set of all sets is a
+        subset of itself</i>.</p>
+        <p>In CS a <i>Set</i> and its <i>Subsets</i> are of the
+        same <i>type</i> (of a container), but the notion of
+        <i>inclusion in itself</i> is rejected - they are distinct
+        objects with unique identities. This solves the Russell
+        paradox.</p>
+        <p>The <i>relation</i> \(\in\) is of an <i>Element</i> and
+        a <i>Set</i>.</p>
+        <p>The <i>relation</i> \(\subset\) is of an <i>Subset</i>
+        and a <i>Set</i>.</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-04-14 Thu 07:47</p>
+  </div>
+</body>
+</html>
