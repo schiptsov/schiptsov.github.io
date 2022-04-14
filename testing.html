@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-04-14 Thu 16:32 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Testing</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "Testing for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <link crossorigin="anonymous" media="all" integrity=
+  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
+  rel="stylesheet" href=
+  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Testing</h1>
+    </header>
+    <p>~“Program testing can be used to show the presence of bugs,
+    but never to show their absence!”/</p>
+    <p>― Edsger W. Dijkstra~</p>
+    <p>Every serious discussion about testing absolutely must begin
+    with this quote. It is like <i>priming</i> of a religious
+    ritual. It also captures the essence of software engineering -
+    that complexity is so overwhelming that we cannot even know how
+    many bugs are there.</p>
+    <div id="outline-container-org47b7569" class="outline-2">
+      <h2 id="org47b7569">The law of big numbers</h2>
+      <div class="outline-text-2" id="text-org47b7569">
+        <p>There is, however, “natural experiments” (exactly as
+        they occur in Nature) which could give us <i>some</i>
+        confidence. This, by the way, is the same heuristic which
+        allow animals to avoid poisonous foods or water.</p>
+        <p>When, lets say, a certain version of <code>clang</code>
+        is used to compile produce official builds (available for
+        millions to download) of vastly complex project such as
+        Google Chrome and the traffic of bug-repports is low and
+        has no mentioning of <i>segfaults</i>, we may conclude that
+        this particular versions of <code>clang</code> is correct
+        and stable?</p>
+        <p>How so? Because even if we obviously cannot do proper
+        coverage testing for each an every code path (which won’t
+        be enough anyway) millions of users go through these code
+        patches eventually. If there is no complains then we could
+        assume that not just browser itself, but the underlying
+        compiler works well.</p>
+        <p>This is a hypothetical example, but it can be
+        generalized very well. Find out the most common distro on
+        major public cloud platforms (that would be some or another
+        version <i>Ubuntu</i>) and you will see <i>a stable set of
+        packages with dependencies resolved</i>. The particular
+        version of the Linux kernel together with a set of applied
+        vendor patches. Compiler, used to build this kernel for the
+        most common architecture (with default optimizations),
+        etc.</p>
+        <p>This is how testing works. It is the same notion as
+        number of hours certain model of an aircraft flew so far.
+        It does not guarantee anything, but it shows that the
+        designs and implementations are stable.</p>
+      </div>
+    </div>
+    <div id="outline-container-orge2f7d4e" class="outline-2">
+      <h2 id="orge2f7d4e">Formal verification</h2>
+      <div class="outline-text-2" id="text-orge2f7d4e">
+        <p>One definitely would not try to formally verify all ones
+        code, even in a pure functional language - it is just too
+        much time consuming and too much of highly focused effort
+        (you math must be solid, otherwise it is waste of
+        time).</p>
+        <p>There is, however, a <i>poorman’s formalism</i> that
+        comes for free, provided you know what you do.</p>
+        <p>Haskell has some set of unique properties which
+        qualifies it as <i>a system of logic</i>. Its
+        <i>intermediate representation</i> or IR <i>is</i> an
+        actual implementation of the <i>System F Omega</i> (which
+        is a system of logic).</p>
+        <p>Being <i>pure</i> it has certain properties, such as its
+        expression could be evaluated mechanically with a paper and
+        pencil by pure substitution (enhanced with the notion of
+        <i>frames of environment</i>). It is as pure as algebra of
+        polynomials (or any algebra).</p>
+        <p>When one expresses one’s <i>problem domain</i> and
+        related <i>domain logic</i> (yes, DDD and TTD) in
+        <i>pure</i> Haskell one will produce as set of pure
+        expressions which, after type-checking and testing using
+        specialized frameworks, will be weakly verified (remember,
+        Haskell, and logic, are purely <i>declarative</i> and
+        <i>timeless</i> - once a pattern is captured it is valid
+        forever).</p>
+        <p>So, write your logic in Haskell, it will also be an
+        order of magnitude less LOC, if you know what you do and
+        reduce everything to the most fundamental forms (data
+        dominates!)and related standard idioms.</p>
+        <p>.</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-04-14 Thu 16:32</p>
+  </div>
+</body>
+</html>
