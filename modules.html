@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-04-10 Sun 19:10 -->
+  <!-- 2022-04-16 Sat 21:48 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
     and improved <i>without breaking the public interfaces</i>.</p>
     <p>Remember - <i>data dominates</i>. This implies that there is
     no need to recompile the code if it uses dynamic (shared)
-    libraries, so the exising system could be improved without a
+    libraries, so the existing system could be improved without a
     re-install.</p>
     <p>This is exactly what pragmatic UNIX systems got right by
     introducing shared libraries.</p>
@@ -46,22 +46,28 @@
     compilation and linking</i>. While <i>intefaces establish
     abstraction barriers which partition and hook together</i> the
     code, modules are about <i>compilation units</i>.</p>
+    <p>They also solve <i>name clashing</i> (conflict) by providing
+    <i>fully qualified</i> symbols (names). When we head about
+    “Modular programming” as a paradigm, it implies ADTs and
+    Modules with <i>name-spaces</i>.</p>
     <p>Modules are larger scale the building blocks, while the
     ultimate building blocks of any software are <i>interfaces</i>
     and <i>ADTs</i> (which encapsulate actual implementations.)</p>
     <p>Standard ML (and Ocaml) perfected its module system defining
-    modules as having sertain structure (similar to graphs in
-    mathematics) and providing a DSL for <i>application</i> of one
-    module to another (yelding a new <i>related</i> structure)
+    modules as having certain <i>structure</i> (similar to graphs
+    in mathematics) and providing a DSL for <i>application</i> of
+    one module to another (yielding a new <i>related</i> structure)
     similar to what mathematical <i>Functors</i> do (they are
     <i>structure-preserving</i> transformations).</p>
     <p>To summarize, modules are about standardized interfaces,
-    exactly as ADTs, and compilation is of second importance. ML
-    guys got it right, others missed the point.</p>
+    exactly as ADTs (of which they provide actual data
+    representations and implementations), while compilation units
+    are of second importance. ML guys got it right, others missed
+    the point.</p>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-04-10 Sun 19:10</p>
+    <p class="date">Created: 2022-04-16 Sat 21:48</p>
   </div>
 </body>
 </html>
