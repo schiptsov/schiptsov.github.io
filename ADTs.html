@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-04-19 Tue 18:04 -->
+  <!-- 2022-04-28 Thu 12:17 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -25,8 +25,46 @@
     <p>#+TITLE Abstract Data Types</p>
     <p>This is by far the most important concept (and related
     methodology) in programming.</p>
-    <p>This is a fundamental result, originally by Barbara Liskov
-    (for which she received a Turing Award).</p>
+    <p>This is a fundamental result, originally by <i>Barbara
+    Liskov</i> (for which she received the Turing Award).</p>
+    <p>What she did, however, is <i>clearly articulated and grouped
+    together</i> related concepts, while the original totions came
+    from abstract mathematics.</p>
+    <p>The first well-known <i>Abstract Data Type</i>, so to speak,
+    is what underlies the <i>Set Theory</i> - the formalized notion
+    of a <i>Set</i>.</p>
+    <p>Abstract mathematics in general deliberately ignored
+    (abstracted out) any notions of <i>actual representation</i> or
+    even <i>possible existence</i> of abstract “objects” it
+    considers.</p>
+    <p>To formalize notions form a Domain in pure mathematics first
+    (using Sets and Logic) is an excellent strategy, and this is
+    what any serious programmers of the Golden Age (70s, 80s)
+    advocate.</p>
+    <p>However, classic mathematics is <i>untyped</i> or
+    <i>implicitly weakly typed</i>, which means that <i>the
+    properties</i> which constitute an abstract structure, or a
+    <i>whole family (or a class)</i> of such structures, while
+    stated precisely and formally, do not constitute a formal
+    definition of a particular type (<i>ADTs</i> and
+    <i>Type-classes</i> of Wadler are attempts to do typing
+    systemically).</p>
+    <p>The abstract notion of a Set is defined <i>only</i> in terms
+    of <i>operations</i> (which itself is a set of
+    <i>operators</i>), deliberately leaving out everything
+    else.</p>
+    <p>This is the same principle underlies any proper ADT - it is
+    defined in terms of operations on the corresponding Set of
+    <i>values</i> (which can be seen as an abstract
+    <i>partition</i> on a Universe of all possible values).</p>
+    <p>So <i>ADTs are Sets of values</i>, but defined (<i>such
+    that</i>) in terms of <i>operations</i>.</p>
+    <p><i>Type-classes</i> extends this notion with <i>nesting</i>
+    and <i>extension</i> or <i>specialization</i> by defining a Set
+    of required <i>interfaces</i> to be implemented. It thus
+    formalizes the notion of a <i>Duck-typing</i>.</p>
+    <p>To be a <i>duck</i> is to exhibit this and that behavior -
+    to quack like a duck and walk like a duck.</p>
     <p>The principle behind Abstract Data Types is clear and
     well-defined separation of</p>
     <ul class="org-ul">
@@ -71,7 +109,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-04-19 Tue 18:04</p>
+    <p class="date">Created: 2022-04-28 Thu 12:17</p>
   </div>
 </body>
 </html>
