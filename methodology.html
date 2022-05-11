@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-05-11 Wed 10:30 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Programming methodologies</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "Methodology for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <link crossorigin="anonymous" media="all" integrity=
+  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
+  rel="stylesheet" href=
+  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Programming methodologies</h1>
+    </header>
+    <p>All the research on high-level programming methodologies
+    could be summarized in jut a couple of sentences</p>
+    <p><code>Write declarative, mostly functional specialized DSLs,
+    package them as libraries of higher-order functions and design
+    layers of these DLSs</code>. And that is, literally, it.</p>
+    <p>Ideally, one strives to have almost exactly <i>declarative
+    mathematical notation at the use side</i>, like the list
+    comprehensions of Haskell:</p>
+    <div class="org-src-container">
+      <pre class="src src-hasekll">map f xs = [f x | x &lt;- xs]
+-- or
+filter p xs = [x | x &lt;-xs, p x]
+</pre>
+    </div>
+    <p>The Hutton’s dialect of Haskell has <i>monad
+    comprehensions</i> too. The infamous <i>do-notation</i> is
+    another example of a <i>declarative DSL</i> which hides
+    ugliness of implementation details.</p>
+    <p>The most successful applications, such as TeX or Rails are
+    sets of specialized DSLs.</p>
+    <p>The only relevant recent development worth mentioning is
+    so-called DDD - Domain Driven Design, which is a high-level
+    framework of organizing domain knowledge and extracting
+    knowledge from the <i>slang</i> of professionals in the
+    field.</p>
+    <p>The main point is that the <i>evolved</i> vocabulary and
+    standard idioms should be <i>incorporated into</i> and
+    <i>directly expressed</i> in code in code. There should not be
+    any translation of terms (nouns and verbs) and, ideally, no
+    introduction of unnecessary, redundant abstractions, which is
+    the root of all evil.</p>
+    <p>And that is really it.</p>
+    <p>One <i>models</i> actual domain knowledge with math (sets,
+    relations and logic), then expresses it as a set of <i>core
+    types</i> and implements a <i>declarative DSL</i> around these
+    <i>core types</i>.</p>
+    <p>This is how a single person (Knuth) or a small team (Rails)
+    could bootstrap a really sophisticated project using very
+    limited resources (both time and manpower). Getting the
+    principles right is the key.</p>
+    <p>Notice, how successful <code>Rails</code>, while being
+    implemented in a crappy language, and how <code>TeX</code> is
+    manageable and virtually bug-free, being a huge collection of
+    specialized packages. This is where a <i>proper theory</i>
+    works.</p>
+    <p>Imagine using better <a href="tools.html">tools</a> for the
+    job. It is a well-known, experimentally established fact that a
+    solution in Haskell could be a <i>factor of 10</i> less lines
+    of code (due to <i>sum-types</i> and <i>pattern-matching on
+    them</i>).</p>
+    <p>So, FP (Milner, Wadler, Cardelli), modularity (ADTs of
+    Lisov) and also the right tools together could guarantee, that
+    one <i>at least would not fail miserably</i> and that even a
+    partial solution would be <i>reusable</i> and worth time and
+    effort spent.</p>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-05-11 Wed 10:30</p>
+  </div>
+</body>
+</html>
