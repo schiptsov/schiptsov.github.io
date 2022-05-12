@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-11 Wed 10:48 -->
+  <!-- 2022-05-12 Thu 14:30 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -11,10 +11,6 @@
   "Type-classes for a Functional Programmer">
   <meta name="generator" content="Org Mode">
   <link rel='stylesheet' type='text/css' href='css/main.css'>
-  <link crossorigin="anonymous" media="all" integrity=
-  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
-  rel="stylesheet" href=
-  "https://github.githubassets.com/assets/light-92c7d381038e.css">
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
@@ -94,13 +90,13 @@
         <i>filtering</i>, and indeed, we have this universal notion
         captured in a function:</p>
         <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #88C0D0;">filter</span> p xs <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #81A1C1;">[</span>x <span style=
-          "color: #D8DEE9;">|</span> x <span style=
-          "color: #D8DEE9;">&lt;-</span> xs, p x<span style=
-          "color: #81A1C1;">]</span>
+          <pre class="src src-haskell"><span class=
+          "org-haskell-definition">filter</span> p xs <span class=
+          "org-haskell-operator">=</span> <span class=
+          "org-rainbow-delimiters-depth-1">[</span>x <span class=
+          "org-haskell-operator">|</span> x <span class=
+          "org-haskell-operator">&lt;-</span> xs, p x<span class=
+          "org-rainbow-delimiters-depth-1">]</span>
 </pre>
         </div>
         <p>which is just a different notation for the <i>set
@@ -165,35 +161,36 @@
         <i>specialization</i> or more <i>filtering</i>.</p>
         <p>So, when we see something like</p>
         <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">class</span>  <span style=
-          "color: #8FBCBB;">Num</span> a  <span style=
-          "color: #81A1C1;">where</span>
-    <span style="color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">+</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">-</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">*</span><span style=
-"color: #81A1C1;">)</span>       <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-    negate              <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-    abs                 <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-    signum              <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-    fromInteger         <span style=
-"color: #D8DEE9;">::</span> <span style=
-"color: #8FBCBB;">Integer</span> <span style=
-"color: #D8DEE9;">-&gt;</span> a
+          <pre class="src src-haskell"><span class=
+          "org-haskell-keyword">class</span>  <span class=
+          "org-haskell-type">Num</span> a  <span class=
+          "org-haskell-keyword">where</span>
+    <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">+</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>, <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">-</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>, <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">*</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>       <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-haskell-operator">-&gt;</span> a
+    negate              <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a
+    abs                 <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a
+    signum              <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a
+    fromInteger         <span class=
+"org-haskell-operator">::</span> <span class=
+"org-haskell-type">Integer</span> <span class=
+"org-haskell-operator">-&gt;</span> a
 </pre>
         </div>
         <p>(which, by the way, corresponds to another mathematical
@@ -216,7 +213,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-11 Wed 10:48</p>
+    <p class="date">Created: 2022-05-12 Thu 14:30</p>
   </div>
 </body>
 </html>

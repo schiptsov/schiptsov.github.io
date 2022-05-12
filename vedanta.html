@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-11 Wed 10:30 -->
+  <!-- 2022-05-12 Thu 14:30 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -11,10 +11,6 @@
   "End of Knowledge for a Functional Programmer">
   <meta name="generator" content="Org Mode">
   <link rel='stylesheet' type='text/css' href='css/main.css'>
-  <link crossorigin="anonymous" media="all" integrity=
-  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
-  rel="stylesheet" href=
-  "https://github.githubassets.com/assets/light-92c7d381038e.css">
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
@@ -205,9 +201,9 @@
           <i>unique</i>.</p>
         </div>
       </div>
-      <div id="outline-container-orge602eb1" class="outline-3">
-        <h3 id="orge602eb1">Monoid</h3>
-        <div class="outline-text-3" id="text-orge602eb1">
+      <div id="outline-container-org65868ae" class="outline-3">
+        <h3 id="org65868ae">Monoid</h3>
+        <div class="outline-text-3" id="text-org65868ae">
           <p>\((S, \bigoplus, e)\) such that \(\forall x, y, z \in
           S\) <i>identity</i> and <i>associativity</i> laws hold:
           \[x \bigoplus e = x = e \bigoplus x\] \[x \bigoplus (y
@@ -295,15 +291,15 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-orga2aa295" class="outline-3">
-        <h3 id="orga2aa295">Semi-group</h3>
-        <div class="outline-text-3" id="text-orga2aa295">
+      <div id="outline-container-org395b3bf" class="outline-3">
+        <h3 id="org395b3bf">Semi-group</h3>
+        <div class="outline-text-3" id="text-org395b3bf">
           <p>A <i>Group</i> without <i>inverses</i>.</p>
         </div>
       </div>
-      <div id="outline-container-orgb36b0ec" class="outline-3">
-        <h3 id="orgb36b0ec">Functor</h3>
-        <div class="outline-text-3" id="text-orgb36b0ec">
+      <div id="outline-container-orga03c99b" class="outline-3">
+        <h3 id="orga03c99b">Functor</h3>
+        <div class="outline-text-3" id="text-orga03c99b">
           <p>Originally defined on <i>graphs</i> as a
           transformation that <i>preserves the structure</i> of a
           graph.</p>
@@ -363,67 +359,68 @@
       <div id="outline-container-org46e3001" class="outline-3">
         <h3 id="org46e3001">Types are Sets</h3>
       </div>
-      <div id="outline-container-org395b3bf" class="outline-3">
-        <h3 id="org395b3bf">Semi-group</h3>
-        <div class="outline-text-3" id="text-org395b3bf">
+      <div id="outline-container-orgfc117d9" class="outline-3">
+        <h3 id="orgfc117d9">Semi-group</h3>
+        <div class="outline-text-3" id="text-orgfc117d9">
           <p>No notion of an <i>inverse</i>. No notion of an
           <i>identity</i>.</p>
           <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">class</span> <span style=
-            "color: #8FBCBB;">Semigroup</span> a <span style=
-            "color: #81A1C1;">where</span>
-  <span style="color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">&lt;&gt;</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-  GHC.Base.sconcat <span style=
-"color: #D8DEE9;">::</span> <span style=
-"color: #8FBCBB;">GHC.Base.NonEmpty</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #6f7787;">-- </span><span style="color: #6f7787;">+</span>
-  GHC.Base.stimes <span style=
-"color: #D8DEE9;">::</span> <span style=
-"color: #8FBCBB;">Integral</span> b <span style=
-"color: #D8DEE9;">=&gt;</span> b <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #78808f;">-- *</span>
-  <span style=
-"color: #81A1C1; font-weight: bold;">{-# MINIMAL (&lt;&gt;) #-}</span>
+            <pre class="src src-haskell"><span class=
+            "org-haskell-keyword">class</span> <span class=
+            "org-haskell-type">Semigroup</span> a <span class=
+            "org-haskell-keyword">where</span>
+  <span class="org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">&lt;&gt;</span><span class=
+"org-rainbow-delimiters-depth-1">)</span> <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-haskell-operator">-&gt;</span> a
+  GHC.Base.sconcat <span class=
+"org-haskell-operator">::</span> <span class=
+"org-haskell-type">GHC.Base.NonEmpty</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-comment-delimiter">-- </span><span class=
+"org-comment">+</span>
+  GHC.Base.stimes <span class=
+"org-haskell-operator">::</span> <span class=
+"org-haskell-type">Integral</span> b <span class=
+"org-haskell-operator">=&gt;</span> b <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-doc">-- *</span>
+  <span class=
+"org-haskell-pragma">{-# MINIMAL (&lt;&gt;) #-}</span>
 </pre>
           </div>
         </div>
       </div>
-      <div id="outline-container-org65868ae" class="outline-3">
-        <h3 id="org65868ae">Monoid</h3>
-        <div class="outline-text-3" id="text-org65868ae">
+      <div id="outline-container-org03202b8" class="outline-3">
+        <h3 id="org03202b8">Monoid</h3>
+        <div class="outline-text-3" id="text-org03202b8">
           <p>Here a <code>Monoid</code> is a (subclass of a)
           <code>Semigroup</code></p>
           <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">class</span> <span style=
-            "color: #8FBCBB;">Semigroup</span> a <span style=
-            "color: #D8DEE9;">=&gt;</span> <span style=
-            "color: #8FBCBB;">Monoid</span> a <span style=
-            "color: #81A1C1;">where</span>
-  mempty <span style=
-"color: #D8DEE9;">::</span> a               <span style=
-"color: #6f7787;">-- </span><span style=
-"color: #6f7787;">an identity</span>
-  mappend <span style="color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a    <span style=
-"color: #6f7787;">-- </span><span style=
-"color: #6f7787;">an assosiative operation</span>
-  mconcat <span style="color: #D8DEE9;">::</span> <span style=
-"color: #81A1C1;">[</span>a<span style=
-"color: #81A1C1;">]</span> <span style=
-"color: #D8DEE9;">-&gt;</span> a
-  <span style=
-"color: #81A1C1; font-weight: bold;">{-# MINIMAL mempty #-}</span>
+            <pre class="src src-haskell"><span class=
+            "org-haskell-keyword">class</span> <span class=
+            "org-haskell-type">Semigroup</span> a <span class=
+            "org-haskell-operator">=&gt;</span> <span class=
+            "org-haskell-type">Monoid</span> a <span class=
+            "org-haskell-keyword">where</span>
+  mempty <span class=
+"org-haskell-operator">::</span> a               <span class=
+"org-comment-delimiter">-- </span><span class=
+"org-comment">an identity</span>
+  mappend <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-haskell-operator">-&gt;</span> a    <span class=
+"org-comment-delimiter">-- </span><span class=
+"org-comment">an assosiative operation</span>
+  mconcat <span class="org-haskell-operator">::</span> <span class=
+"org-rainbow-delimiters-depth-1">[</span>a<span class=
+"org-rainbow-delimiters-depth-1">]</span> <span class=
+"org-haskell-operator">-&gt;</span> a
+  <span class="org-haskell-pragma">{-# MINIMAL mempty #-}</span>
 </pre>
           </div>
           <ul class="org-ul">
@@ -433,55 +430,57 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-orga03c99b" class="outline-3">
-        <h3 id="orga03c99b">Functor</h3>
-        <div class="outline-text-3" id="text-orga03c99b">
+      <div id="outline-container-org9d0a256" class="outline-3">
+        <h3 id="org9d0a256">Functor</h3>
+        <div class="outline-text-3" id="text-org9d0a256">
           <p>Generalized notion of <i>mapping over a value which
           preserves the structure</i> (whatever it may be).</p>
           <p>Generalized mapping on <code>Lists</code> dates back
           to the early Lisps.</p>
           <div class="org-src-container">
-            <pre class="src src-scheme"><span style=
-            "color: #81A1C1;">(</span><span style=
-            "color: #81A1C1;">define</span> <span style=
-            "color: #88C0D0;">map</span> <span style=
-            "color: #B48EAD;">(</span><span style=
-            "color: #81A1C1;">lambda</span> <span style=
-            "color: #A3BE8C;">(</span>f xs<span style=
-            "color: #A3BE8C;">)</span>
-              <span style="color: #A3BE8C;">(</span><span style=
-"color: #81A1C1;">if</span> <span style=
-"color: #5D80AE;">(</span>null? xs<span style=
-"color: #5D80AE;">)</span> xs
-                  <span style=
-"color: #5D80AE;">(</span>cons <span style=
-"color: #81A1C1;">(</span>f <span style=
-"color: #B48EAD;">(</span>car xs<span style=
-"color: #B48EAD;">)</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #81A1C1;">map</span> f <span style=
-"color: #B48EAD;">(</span>cdr xs<span style=
-"color: #B48EAD;">)</span><span style=
-"color: #81A1C1;">)</span><span style=
-"color: #5D80AE;">)</span><span style=
-"color: #A3BE8C;">)</span><span style=
-"color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+            <pre class="src src-scheme"><span class=
+            "org-rainbow-delimiters-depth-1">(</span><span class=
+            "org-keyword">define</span> <span class=
+            "org-function-name">map</span> <span class=
+            "org-rainbow-delimiters-depth-2">(</span><span class=
+            "org-keyword">lambda</span> <span class=
+            "org-rainbow-delimiters-depth-3">(</span>f xs<span class=
+            "org-rainbow-delimiters-depth-3">)</span>
+              <span class=
+"org-rainbow-delimiters-depth-3">(</span><span class=
+"org-keyword">if</span> <span class=
+"org-rainbow-delimiters-depth-4">(</span>null? xs<span class=
+"org-rainbow-delimiters-depth-4">)</span> xs
+                  <span class=
+"org-rainbow-delimiters-depth-4">(</span>cons <span class=
+"org-rainbow-delimiters-depth-1">(</span>f <span class=
+"org-rainbow-delimiters-depth-2">(</span>car xs<span class=
+"org-rainbow-delimiters-depth-2">)</span><span class=
+"org-rainbow-delimiters-depth-1">)</span> <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-keyword">map</span> f <span class=
+"org-rainbow-delimiters-depth-2">(</span>cdr xs<span class=
+"org-rainbow-delimiters-depth-2">)</span><span class=
+"org-rainbow-delimiters-depth-1">)</span><span class=
+"org-rainbow-delimiters-depth-4">)</span><span class=
+"org-rainbow-delimiters-depth-3">)</span><span class=
+"org-rainbow-delimiters-depth-2">)</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>
 </pre>
           </div>
           <p>To be a <code>Functor</code> (<i>for a type</i>) is to
           have the <code>fmap</code> function implemented.</p>
           <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">class</span> <span style=
-            "color: #8FBCBB;">Functor</span> f <span style=
-            "color: #81A1C1;">where</span>
-  fmap <span style="color: #D8DEE9;">::</span> <span style=
-"color: #81A1C1;">(</span>a <span style=
-"color: #D8DEE9;">-&gt;</span> b<span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">-&gt;</span> f a <span style=
-"color: #D8DEE9;">-&gt;</span> f b
+            <pre class="src src-haskell"><span class=
+            "org-haskell-keyword">class</span> <span class=
+            "org-haskell-type">Functor</span> f <span class=
+            "org-haskell-keyword">where</span>
+  fmap <span class="org-haskell-operator">::</span> <span class=
+"org-rainbow-delimiters-depth-1">(</span>a <span class=
+"org-haskell-operator">-&gt;</span> b<span class=
+"org-rainbow-delimiters-depth-1">)</span> <span class=
+"org-haskell-operator">-&gt;</span> f a <span class=
+"org-haskell-operator">-&gt;</span> f b
 </pre>
           </div>
           <p>No additional constraints, except the <i>arity</i> of
@@ -523,27 +522,27 @@
           <h4 id="org53f2190">Eq (Equality)</h4>
           <div class="outline-text-4" id="text-org53f2190">
             <div class="org-src-container">
-              <pre class="src src-haskell"><span style=
-              "color: #81A1C1;">class</span> <span style=
-              "color: #8FBCBB;">Eq</span> a <span style=
-              "color: #81A1C1;">where</span>
-  <span style="color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">==</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">/=</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> <span style=
-"color: #8FBCBB;">Bool</span>
-  x <span style="color: #D8DEE9;">/=</span> y <span style=
-"color: #D8DEE9;">=</span> not <span style=
-"color: #81A1C1;">(</span>x <span style=
-"color: #D8DEE9;">==</span> y<span style=
-"color: #81A1C1;">)</span>          <span style=
-"color: #6f7787;">-- </span><span style=
-"color: #6f7787;">default implementation</span>
+              <pre class="src src-haskell"><span class=
+              "org-haskell-keyword">class</span> <span class=
+              "org-haskell-type">Eq</span> a <span class=
+              "org-haskell-keyword">where</span>
+  <span class="org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">==</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>, <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">/=</span><span class=
+"org-rainbow-delimiters-depth-1">)</span> <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-haskell-operator">-&gt;</span> <span class=
+"org-haskell-type">Bool</span>
+  x <span class="org-haskell-operator">/=</span> y <span class=
+"org-haskell-operator">=</span> not <span class=
+"org-rainbow-delimiters-depth-1">(</span>x <span class=
+"org-haskell-operator">==</span> y<span class=
+"org-rainbow-delimiters-depth-1">)</span>          <span class=
+"org-comment-delimiter">-- </span><span class=
+"org-comment">default implementation</span>
 </pre>
             </div>
           </div>
@@ -552,45 +551,43 @@
           <h4 id="org5aaed21">Ord (Ordered)</h4>
           <div class="outline-text-4" id="text-org5aaed21">
             <div class="org-src-container">
-              <pre class="src src-haskell"><span style=
-              "color: #81A1C1;">class</span> <span style=
-              "color: #8FBCBB;">Eq</span> a <span style=
-              "color: #D8DEE9;">=&gt;</span> <span style=
-              "color: #8FBCBB;">Ord</span> a <span style=
-              "color: #81A1C1;">where</span>
-  <span style="color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">&lt;</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">&lt;=</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">&gt;</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">&gt;=</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> <span style=
-"color: #8FBCBB;">Bool</span>
-  min, max             <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
+              <pre class="src src-haskell"><span class=
+              "org-haskell-keyword">class</span> <span class=
+              "org-haskell-type">Eq</span> a <span class=
+              "org-haskell-operator">=&gt;</span> <span class=
+              "org-haskell-type">Ord</span> a <span class=
+              "org-haskell-keyword">where</span>
+  <span class="org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">&lt;</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>, <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">&lt;=</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>, <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">&gt;</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>, <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-operator">&gt;=</span><span class=
+"org-rainbow-delimiters-depth-1">)</span> <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-haskell-operator">-&gt;</span> <span class=
+"org-haskell-type">Bool</span>
+  min, max             <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-haskell-operator">-&gt;</span> a
 
-  min x y <span style="color: #D8DEE9;">|</span> x <span style=
-"color: #D8DEE9;">&lt;=</span> y    <span style=
-"color: #D8DEE9;">=</span> x
-          <span style=
-"color: #D8DEE9;">|</span> otherwise <span style=
-"color: #D8DEE9;">=</span> y
-  max x y <span style="color: #D8DEE9;">|</span> x <span style=
-"color: #D8DEE9;">&lt;=</span> y    <span style=
-"color: #D8DEE9;">=</span> y
-          <span style=
-"color: #D8DEE9;">|</span> otherwise <span style=
-"color: #D8DEE9;">=</span> x
+  min x y <span class=
+"org-haskell-operator">|</span> x <span class="org-haskell-operator">&lt;=</span> y    <span class="org-haskell-operator">=</span> x
+          <span class=
+"org-haskell-operator">|</span> otherwise <span class=
+"org-haskell-operator">=</span> y
+  max x y <span class=
+"org-haskell-operator">|</span> x <span class="org-haskell-operator">&lt;=</span> y    <span class="org-haskell-operator">=</span> y
+          <span class=
+"org-haskell-operator">|</span> otherwise <span class=
+"org-haskell-operator">=</span> x
 </pre>
             </div>
           </div>
@@ -603,25 +600,15 @@
             <p><code>-</code> is not a Monoid (<i>not
             associative</i> - order is relevant)</p>
             <div class="org-src-container">
-              <pre class="src src-haskell"><span style=
-              "color: #81A1C1;">class</span> <span style=
-              "color: #8FBCBB;">Num</span> a <span style=
-              "color: #81A1C1;">where</span>
-   <span style="color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">+</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">-</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">*</span><span style=
-"color: #81A1C1;">)</span>       <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-   negate, abs, signum <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
+              <pre class="src src-haskell"><span class=
+              "org-haskell-keyword">class</span> <span class=
+              "org-haskell-type">Num</span> a <span class=
+              "org-haskell-keyword">where</span>
+   <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class="org-haskell-operator">+</span><span class="org-rainbow-delimiters-depth-1">)</span>, <span class="org-rainbow-delimiters-depth-1">(</span><span class="org-haskell-operator">-</span><span class="org-rainbow-delimiters-depth-1">)</span>, <span class="org-rainbow-delimiters-depth-1">(</span><span class="org-haskell-operator">*</span><span class="org-rainbow-delimiters-depth-1">)</span>       <span class="org-haskell-operator">::</span> a <span class="org-haskell-operator">-&gt;</span> a <span class="org-haskell-operator">-&gt;</span> a
+   negate, abs, signum <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a
 </pre>
             </div>
           </div>
@@ -632,15 +619,16 @@
             <p>A constraint on <code>Num</code> (a specialization,
             a subset)</p>
             <div class="org-src-container">
-              <pre class="src src-haskell"><span style=
-              "color: #81A1C1;">class</span> <span style=
-              "color: #8FBCBB;">Num</span> a <span style=
-              "color: #D8DEE9;">=&gt;</span> <span style=
-              "color: #8FBCBB;">Integral</span> a <span style=
-              "color: #81A1C1;">where</span>
-    div, mod <span style="color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
+              <pre class="src src-haskell"><span class=
+              "org-haskell-keyword">class</span> <span class=
+              "org-haskell-type">Num</span> a <span class=
+              "org-haskell-operator">=&gt;</span> <span class=
+              "org-haskell-type">Integral</span> a <span class=
+              "org-haskell-keyword">where</span>
+    div, mod <span class=
+"org-haskell-operator">::</span> a <span class=
+"org-haskell-operator">-&gt;</span> a <span class=
+"org-haskell-operator">-&gt;</span> a
 </pre>
             </div>
           </div>
@@ -649,24 +637,20 @@
           <h4 id="org568594f">Fractional (R - Rational)</h4>
           <div class="outline-text-4" id="text-org568594f">
             <div class="org-src-container">
-              <pre class="src src-haskell"><span style=
-              "color: #81A1C1;">class</span> <span style=
-              "color: #8FBCBB;">Num</span> a <span style=
-              "color: #D8DEE9;">=&gt;</span> <span style=
-              "color: #8FBCBB;">Fractional</span> a <span style=
-              "color: #81A1C1;">where</span>
-   <span style="color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">/</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-   recip <span style="color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
+              <pre class="src src-haskell"><span class=
+              "org-haskell-keyword">class</span> <span class=
+              "org-haskell-type">Num</span> a <span class=
+              "org-haskell-operator">=&gt;</span> <span class=
+              "org-haskell-type">Fractional</span> a <span class=
+              "org-haskell-keyword">where</span>
+   <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class="org-haskell-operator">/</span><span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-haskell-operator">::</span> a <span class="org-haskell-operator">-&gt;</span> a <span class="org-haskell-operator">-&gt;</span> a
+   recip <span class=
+"org-haskell-operator">::</span> a <span class="org-haskell-operator">-&gt;</span> a
 
-   recip n <span style="color: #D8DEE9;">=</span> <span style=
-"color: #B48EAD; font-weight: bold;">1</span><span style=
-"color: #D8DEE9;">/</span>n
+   recip n <span class="org-haskell-operator">=</span> <span class=
+"org-highlight-numbers-number">1</span><span class=
+"org-haskell-operator">/</span>n
 </pre>
             </div>
           </div>
@@ -675,19 +659,21 @@
           <h4 id="orga45f86e">Bool (Boolean values)</h4>
           <div class="outline-text-4" id="text-orga45f86e">
             <div class="org-src-container">
-              <pre class="src src-haskell"><span style=
-              "color: #81A1C1;">data</span> <span style=
-              "color: #8FBCBB;">Bool</span> <span style=
-              "color: #D8DEE9;">=</span> <span style=
-              "color: #8FBCBB;">False</span> <span style=
-              "color: #D8DEE9;">|</span> <span style=
-              "color: #8FBCBB;">True</span>
-         <span style="color: #81A1C1;">deriving</span> <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #8FBCBB;">Eq</span>, <span style=
-"color: #8FBCBB;">Ord</span>, <span style=
-"color: #8FBCBB;">Show</span>, <span style=
-"color: #8FBCBB;">Read</span><span style="color: #81A1C1;">)</span>
+              <pre class="src src-haskell"><span class=
+              "org-haskell-keyword">data</span> <span class=
+              "org-haskell-type">Bool</span> <span class=
+              "org-haskell-operator">=</span> <span class=
+              "org-haskell-constructor">False</span> <span class=
+              "org-haskell-operator">|</span> <span class=
+              "org-haskell-constructor">True</span>
+         <span class=
+"org-haskell-keyword">deriving</span> <span class=
+"org-rainbow-delimiters-depth-1">(</span><span class=
+"org-haskell-constructor">Eq</span>, <span class=
+"org-haskell-constructor">Ord</span>, <span class=
+"org-haskell-constructor">Show</span>, <span class=
+"org-haskell-constructor">Read</span><span class=
+"org-rainbow-delimiters-depth-1">)</span>
 </pre>
             </div>
           </div>
@@ -698,75 +684,75 @@
         <div class="outline-text-3" id="text-org7969252">
           <p>Logical conjunction:</p>
           <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">(</span><span style=
-            "color: #88C0D0;">&amp;&</span><span style=
-            "color: #81A1C1;">)</span> <span style=
-            "color: #D8DEE9;">::</span> <span style=
-            "color: #8FBCBB;">Bool</span> <span style=
-            "color: #D8DEE9;">-&gt;</span> <span style=
-            "color: #8FBCBB;">Bool</span> <span style=
-            "color: #D8DEE9;">-&gt;</span> <span style=
-            "color: #8FBCBB;">Bool</span>
-<span style="color: #8FBCBB;">False</span> <span style=
-"color: #88C0D0;">&amp;&</span> <span style=
-"color: #81A1C1;">_</span> <span style=
-"color: #D8DEE9;">=</span> <span style=
-"color: #8FBCBB;">False</span>
-<span style="color: #8FBCBB;">True</span> <span style=
-"color: #88C0D0;">&amp;&</span> b <span style=
-"color: #D8DEE9;">=</span> b
+            <pre class="src src-haskell"><span class=
+            "org-rainbow-delimiters-depth-1">(</span><span class=
+            "org-haskell-definition">&amp;&</span><span class=
+            "org-rainbow-delimiters-depth-1">)</span> <span class=
+            "org-haskell-operator">::</span> <span class=
+            "org-haskell-type">Bool</span> <span class=
+            "org-haskell-operator">-&gt;</span> <span class=
+            "org-haskell-type">Bool</span> <span class=
+            "org-haskell-operator">-&gt;</span> <span class=
+            "org-haskell-type">Bool</span>
+<span class="org-haskell-constructor">False</span> <span class=
+"org-haskell-definition">&amp;&</span> <span class=
+"org-haskell-keyword">_</span> <span class=
+"org-haskell-operator">=</span> <span class=
+"org-haskell-constructor">False</span>
+<span class="org-haskell-constructor">True</span> <span class=
+"org-haskell-definition">&amp;&</span> b <span class=
+"org-haskell-operator">=</span> b
 </pre>
           </div>
           <p>Logical disjunction:</p>
           <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">(</span><span style=
-            "color: #88C0D0;">||</span><span style=
-            "color: #81A1C1;">)</span> <span style=
-            "color: #D8DEE9;">::</span> <span style=
-            "color: #8FBCBB;">Bool</span> <span style=
-            "color: #D8DEE9;">-&gt;</span> <span style=
-            "color: #8FBCBB;">Bool</span> <span style=
-            "color: #D8DEE9;">-&gt;</span> <span style=
-            "color: #8FBCBB;">Bool</span>
-<span style="color: #8FBCBB;">False</span> <span style=
-"color: #88C0D0;">||</span> b <span style=
-"color: #D8DEE9;">=</span> b
-<span style="color: #8FBCBB;">True</span> <span style=
-"color: #88C0D0;">||</span> <span style=
-"color: #81A1C1;">_</span> <span style=
-"color: #D8DEE9;">=</span> <span style=
-"color: #8FBCBB;">True</span>
+            <pre class="src src-haskell"><span class=
+            "org-rainbow-delimiters-depth-1">(</span><span class=
+            "org-haskell-definition">||</span><span class=
+            "org-rainbow-delimiters-depth-1">)</span> <span class=
+            "org-haskell-operator">::</span> <span class=
+            "org-haskell-type">Bool</span> <span class=
+            "org-haskell-operator">-&gt;</span> <span class=
+            "org-haskell-type">Bool</span> <span class=
+            "org-haskell-operator">-&gt;</span> <span class=
+            "org-haskell-type">Bool</span>
+<span class="org-haskell-constructor">False</span> <span class=
+"org-haskell-definition">||</span> b <span class=
+"org-haskell-operator">=</span> b
+<span class="org-haskell-constructor">True</span> <span class=
+"org-haskell-definition">||</span> <span class=
+"org-haskell-keyword">_</span> <span class=
+"org-haskell-operator">=</span> <span class=
+"org-haskell-constructor">True</span>
 </pre>
           </div>
           <p>Logical negation:</p>
           <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #88C0D0;">not</span> <span style=
-            "color: #D8DEE9;">::</span> <span style=
-            "color: #8FBCBB;">Bool</span> <span style=
-            "color: #D8DEE9;">-&gt;</span> <span style=
-            "color: #8FBCBB;">Bool</span>
-<span style="color: #88C0D0;">not</span> <span style=
-"color: #8FBCBB;">True</span> <span style=
-"color: #D8DEE9;">=</span> <span style=
-"color: #8FBCBB;">False</span>
-<span style="color: #88C0D0;">not</span> <span style=
-"color: #8FBCBB;">False</span> <span style=
-"color: #D8DEE9;">=</span> <span style=
-"color: #8FBCBB;">True</span>
+            <pre class="src src-haskell"><span class=
+            "org-haskell-definition">not</span> <span class=
+            "org-haskell-operator">::</span> <span class=
+            "org-haskell-type">Bool</span> <span class=
+            "org-haskell-operator">-&gt;</span> <span class=
+            "org-haskell-type">Bool</span>
+<span class="org-haskell-definition">not</span> <span class=
+"org-haskell-constructor">True</span> <span class=
+"org-haskell-operator">=</span> <span class=
+"org-haskell-constructor">False</span>
+<span class="org-haskell-definition">not</span> <span class=
+"org-haskell-constructor">False</span> <span class=
+"org-haskell-operator">=</span> <span class=
+"org-haskell-constructor">True</span>
 </pre>
           </div>
           <p>Guard that always succeeds:</p>
           <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #88C0D0;">otherwise</span> <span style=
-            "color: #D8DEE9;">::</span> <span style=
-            "color: #8FBCBB;">Bool</span>
-<span style="color: #88C0D0;">otherwise</span> <span style=
-"color: #D8DEE9;">=</span> <span style=
-"color: #8FBCBB;">True</span>
+            <pre class="src src-haskell"><span class=
+            "org-haskell-definition">otherwise</span> <span class=
+            "org-haskell-operator">::</span> <span class=
+            "org-haskell-type">Bool</span>
+<span class="org-haskell-definition">otherwise</span> <span class=
+"org-haskell-operator">=</span> <span class=
+"org-haskell-constructor">True</span>
 </pre>
           </div>
         </div>
@@ -775,7 +761,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-11 Wed 10:30</p>
+    <p class="date">Created: 2022-05-12 Thu 14:30</p>
   </div>
 </body>
 </html>
