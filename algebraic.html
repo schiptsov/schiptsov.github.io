@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-15 Sun 17:15 -->
+  <!-- 2022-05-15 Sun 17:47 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -56,8 +56,9 @@
     Codomain.</p>
     <p>A <i>type</i> is an <i>instance of a particular class</i>
     iff it <i>implements a required set of type-signatures (an
-    interface)</i> for all values in a Set (and respects
-    <i>corresponding laws</i> stated formally elsewhere).</p>
+    interface)</i> for all values in a <code>Set</code> (and
+    respects <i>corresponding laws</i> stated formally
+    elsewhere).</p>
     <div id="outline-container-org61742d9" class="outline-2">
       <h2 id="org61742d9">Closure</h2>
       <div class="outline-text-2" id="text-org61742d9">
@@ -127,6 +128,14 @@
 "color: #81A1C1;">(</span><span style=
 "color: #D8DEE9;">&lt;&gt;</span><span style=
 "color: #81A1C1;">)</span>
+  <span style="color: #6f7787;">-- </span><span style=
+"color: #6f7787;">This is not required, folding</span>
+  mconcat <span style="color: #D8DEE9;">::</span> <span style=
+"color: #81A1C1;">[</span>a<span style=
+"color: #81A1C1;">]</span> <span style=
+"color: #D8DEE9;">-&gt;</span> a
+  mconcat <span style=
+"color: #D8DEE9;">=</span> foldr mappend mempty
 </pre>
         </div>
       </div>
@@ -252,11 +261,53 @@
           <i>distributing</i> <code>f</code> over</p>
         </div>
       </div>
+      <div id="outline-container-orgd8de7dd" class="outline-3">
+        <h3 id="orgd8de7dd">Lists</h3>
+        <div class="outline-text-3" id="text-orgd8de7dd">
+          <p>Concatenation is, indeed, associative, and the
+          <i>empty list</i> is an orthogonal to it.</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #8FBCBB;">Semigroup</span> <span style=
+            "color: #81A1C1;">[</span>a<span style=
+            "color: #81A1C1;">]</span> <span style=
+            "color: #81A1C1;">where</span>
+  <span style="color: #81A1C1;">(</span><span style=
+"color: #D8DEE9;">&lt;&gt;</span><span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span><span style=
+"color: #D8DEE9;">++</span><span style="color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p>With <code>[]</code> it will form a <i>Monoid</i>.</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #8FBCBB;">Monoid</span> <span style=
+            "color: #81A1C1;">[</span>a<span style=
+            "color: #81A1C1;">]</span> <span style=
+            "color: #81A1C1;">where</span>
+  mempty  <span style="color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">[]</span>
+  <span style="color: #6f7787;">-- </span><span style=
+"color: #6f7787;">This is not required, folding</span>
+  mconcat xss <span style="color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">[</span>x <span style=
+"color: #D8DEE9;">|</span> xs <span style=
+"color: #D8DEE9;">&lt;-</span> xss, x <span style=
+"color: #D8DEE9;">&lt;-</span> xs<span style=
+"color: #81A1C1;">]</span>
+</pre>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-15 Sun 17:15</p>
+    <p class="date">Created: 2022-05-15 Sun 17:47</p>
   </div>
 </body>
 </html>
