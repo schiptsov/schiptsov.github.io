@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-15 Sun 17:47 -->
+  <!-- 2022-05-15 Sun 18:28 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -186,6 +186,49 @@
       <div id="outline-container-org487205f" class="outline-3">
         <h3 id="org487205f">Tuples</h3>
         <div class="outline-text-3" id="text-org487205f">
+          <p>Distributive law (over a structure)</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #81A1C1;">(</span><span style=
+            "color: #8FBCBB;">Semigroup</span> a, <span style=
+            "color: #8FBCBB;">Semigroup</span> b<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #D8DEE9;">=&gt;</span> <span style=
+            "color: #8FBCBB;">Semigroup</span> <span style=
+            "color: #81A1C1;">(</span>a, b<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #81A1C1;">where</span>
+  <span style="color: #81A1C1;">(</span>a, b<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">&lt;&gt;</span> <span style=
+"color: #81A1C1;">(</span>a', b'<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span>a<span style=
+"color: #D8DEE9;">&lt;&gt;</span>a', b<span style=
+"color: #D8DEE9;">&lt;&gt;</span>b'<span style=
+"color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p>Identity</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #81A1C1;">(</span><span style=
+            "color: #8FBCBB;">Monoid</span> a, <span style=
+            "color: #8FBCBB;">Monoid</span> b<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #D8DEE9;">=&gt;</span> <span style=
+            "color: #8FBCBB;">Monoid</span> <span style=
+            "color: #81A1C1;">(</span>a,b<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #81A1C1;">where</span>
+  mempty <span style="color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span>mempty, mempty<span style=
+"color: #81A1C1;">)</span>
+</pre>
+          </div>
           <p>First comes from a “defining Set” (in a Cartesian
           Product), a function can be viewed as a <i>Set of Ordered
           Pairs</i>.</p>
@@ -236,6 +279,49 @@
       <div id="outline-container-org21f9869" class="outline-3">
         <h3 id="org21f9869">Maybe</h3>
         <div class="outline-text-3" id="text-org21f9869">
+          <p>Distributive law (over a structure)</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #8FBCBB;">Semigroup</span> a <span style=
+            "color: #D8DEE9;">=&gt;</span> <span style=
+            "color: #8FBCBB;">Semigroup</span> <span style=
+            "color: #81A1C1;">(</span><span style=
+            "color: #8FBCBB;">Maybe</span> a<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #81A1C1;">where</span>
+    <span style="color: #8FBCBB;">Nothing</span> <span style=
+"color: #D8DEE9;">&lt;&gt;</span> b       <span style=
+"color: #D8DEE9;">=</span> b
+    a       <span style=
+"color: #D8DEE9;">&lt;&gt;</span> <span style=
+"color: #8FBCBB;">Nothing</span> <span style=
+"color: #D8DEE9;">=</span> a
+    <span style="color: #8FBCBB;">Just</span> a  <span style=
+"color: #D8DEE9;">&lt;&gt;</span> <span style=
+"color: #8FBCBB;">Just</span> b  <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">Just</span> <span style=
+"color: #81A1C1;">(</span>a <span style=
+"color: #D8DEE9;">&lt;&gt;</span> b<span style=
+"color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p>the Identity element</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #8FBCBB;">Semigroup</span> a <span style=
+            "color: #D8DEE9;">=&gt;</span> <span style=
+            "color: #8FBCBB;">Monoid</span> <span style=
+            "color: #81A1C1;">(</span><span style=
+            "color: #8FBCBB;">Maybe</span> a<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #81A1C1;">where</span>
+    mempty <span style="color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">Nothing</span>
+</pre>
+          </div>
           <p><code>Empty | non-empty</code> aspect of a List. Two
           distinct data-constructors. It is not a recursive
           structure.</p>
@@ -307,7 +393,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-15 Sun 17:47</p>
+    <p class="date">Created: 2022-05-15 Sun 18:28</p>
   </div>
 </body>
 </html>
