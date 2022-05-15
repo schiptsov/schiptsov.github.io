@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- 2022-05-12 Thu 17:45 -->
-    <meta charset="utf-8">
-    <meta name="viewport" content=
-    "width=device-width, initial-scale=1">
-    <title>Principles</title>
-    <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-    <meta name="description" content=
-    "The fundamental principles for a Functional Programmer">
-    <meta name="generator" content="Org Mode">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-    rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira Code"
-    rel="stylesheet">
-    <link rel='stylesheet' type='text/css' href='css/main.css'>
-    <link crossorigin="anonymous" media="all" integrity=
-    "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
-    rel="stylesheet" href=
-    "https://github.githubassets.com/assets/light-92c7d381038e.css">
-
-    <script type="text/x-mathjax-config">
+  <!-- 2022-05-15 Sun 17:15 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Principles</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "The fundamental principles for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <link crossorigin="anonymous" media="all" integrity=
+  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
+  rel="stylesheet" href=
+  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+  <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -39,277 +38,263 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-    });
-    </script>
-    <script src=
-    "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-    <div id="org-div-home-and-up">
-        <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-        "index.html">HOME</a>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Principles</h1>
+    </header>
+    <p>Molecular biology, however, is all about particular
+    “concrete structures”. It does not operate on abstract
+    entities.</p>
+    <p>Mother Nature does not count. It has no abstract notion of a
+    Number. (I does not have any abstract notions whatsoever). It
+    does <i>structural pattern matching</i> and <i>structural
+    information encoding</i>.</p>
+    <p>Mother Nature, that part of it which we call Molecular
+    Biology, uses <i>explict structural markers</i> which we could
+    call <i>tags</i>. Tagging (or marking with a distinct pattern)
+    is a <i>universal concept</i>. It has been <i>discovered</i> by
+    the process of evolution.</p>
+    <p>For us, like for the holy LISP and ML old-timers, typing is
+    implicit type-tagging. and (a set of) data-constructors are
+    considered as tags.</p>
+    <div id="outline-container-org23fbb3e" class="outline-2">
+      <h2 id="org23fbb3e">Topology (sort of)</h2>
+      <div class="outline-text-2" id="text-org23fbb3e">
+        <p>There is an old principle, which comes from algorithm
+        charting techniques (in the great times they chart the
+        control flow).</p>
+        <p>Topologically, so to speak, all we need is sequences,
+        branches (forks) and loops (or rather recursive
+        spirals).</p>
+        <p>Loops are, basically, jumping back to the <i>conditional
+        expression</i> (a test) which branches the control, avoidng
+        arbitrary gotos.</p>
+        <p>So, imperative loops have <i>explicit branching</i> in
+        them. A loop yields a circular process, which keeps its
+        state in variables.</p>
+        <p>Recursive procedures branch on the required test for a
+        <i>base-case</i>.</p>
+        <p>A recursive process is a <i>spiral-shaped</i> one, which
+        unfolds by passing its <i>reduced</i> state along to each
+        new recursive function call.</p>
+        <p>Its termination is guaranteeed by the base case and
+        reduced coils of a spieral, whcih converge at the base
+        case.</p>
+        <p>Recursion could be <i>double</i> (a function called
+        itself <i>twice</i>) or <i>mutual</i> (two functions call
+        each other), resulting in different “topologies”.</p>
+        <p>Notice that as <i>a binary teee is just a list with two
+        tails per node</i>, a dobule recursion, like in
+        <code>quicksort</code>, produces a tree-shaped process.</p>
+        <p>This is a big finding. The meaning is that <i>every
+        computable program</i> is reducible to just these 3
+        “shapes” or “topologies” of a <i>control flow</i>.</p>
+      </div>
     </div>
-    <div id="content" class="content">
-        <header>
-            <h1 class="title">Principles</h1>
-        </header>
-        <p>Molecular biology, however, is all about particular
-        “concrete structures”. It does not operate on abstract
-        entities.</p>
-        <p>Mother Nature does not count. It has no abstract notion
-        of a Number. (I does not have any abstract notions
-        whatsoever). It does <i>structural pattern matching</i> and
-        <i>structural information encoding</i>.</p>
-        <p>Mother Nature, that part of it which we call Molecular
-        Biology, uses <i>explict structural markers</i> which we
-        could call <i>tags</i>. Tagging (or marking with a distinct
-        pattern) is a <i>universal concept</i>. It has been
-        <i>discovered</i> by the process of evolution.</p>
-        <p>For us, like for the holy LISP and ML old-timers, typing
-        is implicit type-tagging. and (a set of) data-constructors
-        are considered as tags.</p>
-        <div id="outline-container-org04134bb" class="outline-2">
-            <h2 id="org04134bb">Topology (sort of)</h2>
-            <div class="outline-text-2" id="text-org04134bb">
-                <p>There is an old principle, which comes from
-                algorithm charting techniques (in the great times
-                they chart the control flow).</p>
-                <p>Topologically, so to speak, all we need is
-                sequences, branches (forks) and loops (or rather
-                recursive spirals).</p>
-                <p>Loops are, basically, jumping back to the
-                <i>conditional expression</i> (a test) which
-                branches the control, avoidng arbitrary gotos.</p>
-                <p>So, imperative loops have <i>explicit
-                branching</i> in them. A loop yields a circular
-                process, which keeps its state in variables.</p>
-                <p>Recursive procedures branch on the required test
-                for a <i>base-case</i>.</p>
-                <p>A recursive process is a <i>spiral-shaped</i>
-                one, which unfolds by passing its <i>reduced</i>
-                state along to each new recursive function
-                call.</p>
-                <p>Its termination is guaranteeed by the base case
-                and reduced coils of a spieral, whcih converge at
-                the base case.</p>
-                <p>Recursion could be <i>double</i> (a function
-                called itself <i>twice</i>) or <i>mutual</i> (two
-                functions call each other), resulting in different
-                “topologies”.</p>
-                <p>Notice that as <i>a binary teee is just a list
-                with two tails per node</i>, a dobule recursion,
-                like in <code>quicksort</code>, produces a
-                tree-shaped process.</p>
-                <p>This is a big finding. The meaning is that
-                <i>every computable program</i> is reducible to
-                just these 3 “shapes” or “topologies” of a
-                <i>control flow</i>.</p>
-            </div>
+    <div id="outline-container-org0780646" class="outline-2">
+      <h2 id="org0780646">Sets</h2>
+      <div class="outline-text-2" id="text-org0780646">
+        <p>Mathematically, both a <i>sum-type</i> and a
+        <i>product-type</i> is a set of possible values. Here a set
+        is a prtition. The difference is in their <i>algebraic
+        structure</i> or topological shape of the type. Yes, types
+        are sets of values plus some algebraic structure <i>and
+        also</i> nested structure of values.</p>
+      </div>
+    </div>
+    <div id="outline-container-org88be813" class="outline-2">
+      <h2 id="org88be813">Sum-types</h2>
+      <div class="outline-text-2" id="text-org88be813">
+        <p>a finite set of tags for values of the type.</p>
+        <ul class="org-ul">
+          <li>multiple constructors.</li>
+          <li>multiple distinct patterns to match.</li>
+        </ul>
+        <p>a sum-type has \(n\) constructors and corresponding
+        \(n\) distinct patterns (selectors), wehere \(n &gt;=
+        2\)</p>
+      </div>
+    </div>
+    <div id="outline-container-orgd52a925" class="outline-2">
+      <h2 id="orgd52a925">Product types</h2>
+      <div class="outline-text-2" id="text-orgd52a925">
+        <p>a single implicit tag for all values of the type</p>
+        <ul class="org-ul">
+          <li>a single implicit or explicit constructor</li>
+          <li>a single <i>nested</i> pattern</li>
+        </ul>
+        <p>In other languages each particular structure is <i>of
+        its own type</i> with an implicit tag.</p>
+        <p>a product-type has single constructor and a single
+        pattern (selector) on which netsted patterns can be
+        matched</p>
+        <p>Product types have values with its own particular
+        structure. The set of all possible values corresponds to a
+        <i>Cartesian Product of Sets</i> of its components.</p>
+      </div>
+      <div id="outline-container-orga2237a3" class="outline-3">
+        <h3 id="orga2237a3">any-of</h3>
+      </div>
+      <div id="outline-container-org1b09448" class="outline-3">
+        <h3 id="org1b09448">either-of</h3>
+        <div class="outline-text-3" id="text-org1b09448">
+          <p>A <i>Set</i> of <i>all</i> possible outcomes
+          (<i>any-of</i>) \(\{ True, False \}\) A <i>either-of
+          Type</i></p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #8FBCBB;">True</span> <span style=
+            "color: #88C0D0;">|</span> <span style=
+            "color: #8FBCBB;">False</span>
+</pre>
+          </div>
         </div>
-        <div id="outline-container-org2f2b594" class="outline-2">
-            <h2 id="org2f2b594">Sets</h2>
-            <div class="outline-text-2" id="text-org2f2b594">
-                <p>Mathematically, both a <i>sum-type</i> and a
-                <i>product-type</i> is a set of possible values.
-                Here a set is a prtition. The difference is in
-                their <i>algebraic structure</i> or topological
-                shape of the type. Yes, types are sets of values
-                plus some algebraic structure <i>and also</i>
-                nested structure of values.</p>
-            </div>
+      </div>
+      <div id="outline-container-org6d78b34" class="outline-3">
+        <h3 id="org6d78b34">and-also</h3>
+        <div class="outline-text-3" id="text-org6d78b34">
+          <p>Abstract: <code>A</code> <i>and-also</i>
+          <code>B</code>, <code>A &amp;& B</code> (without any
+          representation) A a pair: explicit ordering, position
+          based selection</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #88C0D0;">f</span> <span style=
+            "color: #D8DEE9;">::</span> a <span style=
+            "color: #D8DEE9;">-&gt;</span> b <span style=
+            "color: #D8DEE9;">-&gt;</span> <span style=
+            "color: #81A1C1;">(</span>a, b<span style=
+            "color: #81A1C1;">)</span> 
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span>a <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #D8DEE9;">\</span>b <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #81A1C1;">(</span>a, b<span style=
+"color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p><i>Pattern-matching</i> on a particular structure</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #88C0D0;">f</span> <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #81A1C1;">(</span>a, b<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> a
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span><span style=
+"color: #81A1C1;">(</span>a, <span style=
+"color: #81A1C1;">_</span><span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">-&gt;</span> a
+</pre>
+          </div>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #88C0D0;">f</span> <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #81A1C1;">(</span>a, b<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #D8DEE9;">-&gt;</span> b
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span><span style=
+"color: #81A1C1;">(</span><span style=
+"color: #81A1C1;">_</span><span style=
+"color: #D8DEE9;">.</span> b<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">-&gt;</span> b
+</pre>
+          </div>
         </div>
-        <div id="outline-container-org3ecbd6f" class="outline-2">
-            <h2 id="org3ecbd6f">Sum-types</h2>
-            <div class="outline-text-2" id="text-org3ecbd6f">
-                <p>a finite set of tags for values of the type.</p>
-                <ul class="org-ul">
-                    <li>multiple constructors.</li>
-                    <li>multiple distinct patterns to match.</li>
-                </ul>
-                <p>a sum-type has \(n\) constructors and
-                corresponding \(n\) distinct patterns (selectors),
-                wehere \(n &gt;= 2\)</p>
-            </div>
+      </div>
+    </div>
+    <div id="outline-container-orgffef739" class="outline-2">
+      <h2 id="orgffef739">A shape of a type</h2>
+      <div class="outline-text-2" id="text-orgffef739"></div>
+      <div id="outline-container-orgeefafcf" class="outline-3">
+        <h3 id="orgeefafcf">A product-type, any-of-type,
+        and-also-type</h3>
+        <div class="outline-text-3" id="text-orgeefafcf">
+          <p>a tuple</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">(</span> <span style=
+            "color: #81A1C1;">_</span> , <span style=
+            "color: #81A1C1;">_</span> <span style=
+            "color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p>a record</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">{</span> <span style=
+            "color: #81A1C1;">_</span> , <span style=
+            "color: #81A1C1;">_</span> <span style=
+            "color: #81A1C1;">}</span>
+</pre>
+          </div>
         </div>
-        <div id="outline-container-orga75aad9" class="outline-2">
-            <h2 id="orga75aad9">Product types</h2>
-            <div class="outline-text-2" id="text-orga75aad9">
-                <p>a single implicit tag for all values of the
-                type</p>
-                <ul class="org-ul">
-                    <li>a single implicit or explicit
-                    constructor</li>
-                    <li>a single <i>nested</i> pattern</li>
-                </ul>
-                <p>In other languages each particular structure is
-                <i>of its own type</i> with an implicit tag.</p>
-                <p>a product-type has single constructor and a
-                single pattern (selector) on which netsted patterns
-                can be matched</p>
-                <p>Product types have values with its own
-                particular structure. The set of all possible
-                values corresponds to a <i>Cartesian Product of
-                Sets</i> of its components.</p>
-            </div>
-            <div id="outline-container-orgc2bd025" class=
-            "outline-3">
-                <h3 id="orgc2bd025">any-of</h3>
-            </div>
-            <div id="outline-container-org7484177" class=
-            "outline-3">
-                <h3 id="org7484177">either-of</h3>
-                <div class="outline-text-3" id="text-org7484177">
-                    <p>A <i>Set</i> of <i>all</i> possible outcomes
-                    (<i>any-of</i>) \(\{ True, False \}\) A
-                    <i>either-of Type</i></p>
-                    <div class="org-src-container">
-                        <pre class="src src-haskell"><span class=
-                        "org-haskell-constructor">True</span> <span class=
-                        "org-haskell-definition">|</span> <span class=
-                        "org-haskell-constructor">False</span>
+      </div>
+      <div id="outline-container-org56dcf31" class="outline-3">
+        <h3 id="org56dcf31">A sum-type, either-of-type</h3>
+        <div class="outline-text-3" id="text-org56dcf31">
+          <p>a variant</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">_</span> <span style=
+            "color: #88C0D0;">|</span> <span style=
+            "color: #81A1C1;">_</span>
 </pre>
-                    </div>
-                </div>
-            </div>
-            <div id="outline-container-org280f8d3" class=
-            "outline-3">
-                <h3 id="org280f8d3">and-also</h3>
-                <div class="outline-text-3" id="text-org280f8d3">
-                    <p>Abstract: <code>A</code> <i>and-also</i>
-                    <code>B</code>, <code>A &amp;& B</code>
-                    (without any representation) A a pair: explicit
-                    ordering, position based selection</p>
-                    <div class="org-src-container">
-                        <pre class="src src-haskell"><span class=
-                        "org-haskell-definition">f</span> <span class=
-                        "org-haskell-operator">::</span> a <span class=
-                        "org-haskell-operator">-&gt;</span> b <span class=
-                        "org-haskell-operator">-&gt;</span> <span class=
-                        "org-rainbow-delimiters-depth-1">(</span>a, b<span class=
-                        "org-rainbow-delimiters-depth-1">)</span> 
-<span class="org-haskell-definition">f</span> <span class=
-"org-haskell-operator">=</span> <span class=
-"org-haskell-operator">\</span>a <span class=
-"org-haskell-operator">-&gt;</span> <span class=
-"org-haskell-operator">\</span>b <span class=
-"org-haskell-operator">-&gt;</span> <span class=
-"org-rainbow-delimiters-depth-1">(</span>a, b<span class=
-"org-rainbow-delimiters-depth-1">)</span>
-</pre>
-                    </div>
-                    <p><i>Pattern-matching</i> on a particular
-                    structure</p>
-                    <div class="org-src-container">
-                        <pre class="src src-haskell"><span class=
-                        "org-haskell-definition">f</span> <span class=
-                        "org-haskell-operator">::</span> <span class=
-                        "org-rainbow-delimiters-depth-1">(</span>a, b<span class=
-                        "org-rainbow-delimiters-depth-1">)</span> <span class=
-                        "org-haskell-operator">-&gt;</span> a
-<span class="org-haskell-definition">f</span> <span class=
-"org-haskell-operator">=</span> <span class=
-"org-haskell-operator">\</span><span class=
-"org-rainbow-delimiters-depth-1">(</span>a, <span class=
-"org-haskell-keyword">_</span><span class=
-"org-rainbow-delimiters-depth-1">)</span> <span class=
-"org-haskell-operator">-&gt;</span> a
-</pre>
-                    </div>
-                    <div class="org-src-container">
-                        <pre class="src src-haskell"><span class=
-                        "org-haskell-definition">f</span> <span class=
-                        "org-haskell-operator">::</span> <span class=
-                        "org-rainbow-delimiters-depth-1">(</span>a, b<span class=
-                        "org-rainbow-delimiters-depth-1">)</span> <span class=
-                        "org-haskell-operator">-&gt;</span> b
-<span class="org-haskell-definition">f</span> <span class=
-"org-haskell-operator">=</span> <span class=
-"org-haskell-operator">\</span><span class=
-"org-rainbow-delimiters-depth-1">(</span><span class=
-"org-haskell-keyword">_</span><span class=
-"org-haskell-operator">.</span> b<span class=
-"org-rainbow-delimiters-depth-1">)</span> <span class=
-"org-haskell-operator">-&gt;</span> b
-</pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="outline-container-org0740927" class="outline-2">
-            <h2 id="org0740927">A shape of a type</h2>
-            <div class="outline-text-2" id="text-org0740927"></div>
-            <div id="outline-container-org2e296cb" class=
-            "outline-3">
-                <h3 id="org2e296cb">A product-type, any-of-type,
-                and-also-type</h3>
-                <div class="outline-text-3" id="text-org2e296cb">
-                    <p>a tuple</p>
-                    <div class="org-src-container">
-                        <pre class="src src-haskell"><span class=
-                        "org-rainbow-delimiters-depth-1">(</span> <span class=
-                        "org-haskell-keyword">_</span> , <span class=
-                        "org-haskell-keyword">_</span> <span class=
-                        "org-rainbow-delimiters-depth-1">)</span>
-</pre>
-                    </div>
-                    <p>a record</p>
-                    <div class="org-src-container">
-                        <pre class="src src-haskell"><span class=
-                        "org-rainbow-delimiters-depth-1">{</span> <span class=
-                        "org-haskell-keyword">_</span> , <span class=
-                        "org-haskell-keyword">_</span> <span class=
-                        "org-rainbow-delimiters-depth-1">}</span>
-</pre>
-                    </div>
-                </div>
-            </div>
-            <div id="outline-container-org9e21c95" class=
-            "outline-3">
-                <h3 id="org9e21c95">A sum-type, either-of-type</h3>
-                <div class="outline-text-3" id="text-org9e21c95">
-                    <p>a variant</p>
-                    <div class="org-src-container">
-                        <pre class="src src-haskell"><span class=
-                        "org-haskell-keyword">_</span> <span class=
-                        "org-haskell-definition">|</span> <span class=
-                        "org-haskell-keyword">_</span>
-</pre>
-                    </div>
-                    <p>records</p>
-                    <div class="org-src-container">
-                        <pre class="src src-haskell"><span class=
-                        "org-haskell-keyword">data</span> <span class=
-                        "org-haskell-type">AB</span> <span class=
-                        "org-haskell-operator">=</span> <span class=
-                        "org-haskell-constructor">AB</span> <span class=
-                        "org-rainbow-delimiters-depth-1">{</span>a <span class=
-                        "org-haskell-operator">::</span> <span class=
-                        "org-haskell-type">Int</span>, b <span class=
-                        "org-haskell-operator">::</span> <span class=
-                        "org-haskell-type">Int</span><span class=
-                        "org-rainbow-delimiters-depth-1">}</span>
+          </div>
+          <p>records</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">data</span> <span style=
+            "color: #8FBCBB;">AB</span> <span style=
+            "color: #D8DEE9;">=</span> <span style=
+            "color: #8FBCBB;">AB</span> <span style=
+            "color: #81A1C1;">{</span>a <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #8FBCBB;">Int</span>, b <span style=
+            "color: #D8DEE9;">::</span> <span style=
+            "color: #8FBCBB;">Int</span><span style=
+            "color: #81A1C1;">}</span>
 
-<span class="org-haskell-definition">f</span> <span class=
-"org-haskell-operator">=</span> <span class=
-"org-haskell-operator">\</span>ab <span class=
-"org-haskell-operator">-&gt;</span> ab<span class=
-"org-haskell-operator">.</span>a 
-<span class="org-haskell-definition">f</span> <span class=
-"org-haskell-operator">=</span> <span class=
-"org-haskell-operator">\</span>ab <span class=
-"org-haskell-operator">-&gt;</span> ab<span class=
-"org-haskell-operator">.</span>b
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span>ab <span style=
+"color: #D8DEE9;">-&gt;</span> ab<span style=
+"color: #D8DEE9;">.</span>a 
+<span style="color: #88C0D0;">f</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #D8DEE9;">\</span>ab <span style=
+"color: #D8DEE9;">-&gt;</span> ab<span style=
+"color: #D8DEE9;">.</span>b
 </pre>
-                    </div>
-                    <p>tuples usually implemented and records with
-                    fields 1,2,3…</p>
-                </div>
-            </div>
+          </div>
+          <p>tuples usually implemented and records with fields
+          1,2,3…</p>
         </div>
+      </div>
     </div>
-    <div id="postamble" class="status">
-        <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-        <p class="date">Created: 2022-05-12 Thu 17:45</p>
-    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-05-15 Sun 17:15</p>
+  </div>
 </body>
 </html>

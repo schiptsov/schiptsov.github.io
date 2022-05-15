@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-05-15 Sun 17:15 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Algebraic abstractions</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "Algerbaic structures for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Algebraic abstractions</h1>
+    </header>
+    <p>A <i>type</i> is a <code>Set</code> of all possible values
+    (may be an <i>infinite</i> <code>Set</code>).</p>
+    <p>Within this view a function \(f: A \rightarrow B\) is just a
+    <code>Set</code> of <i>Ordered Pairs</i> which is a result of a
+    <i>Cartesian Product</i> \(A \times B\) between Domain and
+    Codomain.</p>
+    <p>A <i>type</i> is an <i>instance of a particular class</i>
+    iff it <i>implements a required set of type-signatures (an
+    interface)</i> for all values in a Set (and respects
+    <i>corresponding laws</i> stated formally elsewhere).</p>
+    <div id="outline-container-org61742d9" class="outline-2">
+      <h2 id="org61742d9">Closure</h2>
+      <div class="outline-text-2" id="text-org61742d9">
+        <p>\((S, \bigoplus)\), a Set <code>S</code> is <i>closed
+        under an operation</i> \(\bigoplus\) <i>iff</i> \[\forall
+        a, b \in S, a \bigoplus b \in S\]</p>
+        <p>A <i>same-set</i> (type-preserving) binary
+        operation.</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #88C0D0;">op</span> <span style=
+          "color: #D8DEE9;">::</span> a <span style=
+          "color: #D8DEE9;">-&gt;</span> a <span style=
+          "color: #D8DEE9;">-&gt;</span> a
+</pre>
+        </div>
+        <p>Associativity is not required.</p>
+      </div>
+    </div>
+    <div id="outline-container-org538fc08" class="outline-2">
+      <h2 id="org538fc08">Semigroup</h2>
+      <div class="outline-text-2" id="text-org538fc08">
+        <p>\((S, \bigoplus)\), an <i>associative binary
+        operation</i> \(\bigoplus\) with a <i>Closure</i> property.
+        Closure is implicit and “natural” due to <i>multiple
+        applications of the same operator</i>, such that \[\forall
+        a, b, c \in S, (a \bigoplus b) \bigoplus c = a \bigoplus (b
+        \bigoplus c)\] Identity is not required.</p>
+        <p>An <i>order-independent</i> (in a chain) operation.</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">class</span> <span style=
+          "color: #8FBCBB;">Semigroup</span> a <span style=
+          "color: #81A1C1;">where</span>
+  <span style="color: #81A1C1;">(</span><span style=
+"color: #D8DEE9;">&lt;&gt;</span><span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
+</pre>
+        </div>
+      </div>
+    </div>
+    <div id="outline-container-orgc23252c" class="outline-2">
+      <h2 id="orgc23252c">Monoid</h2>
+      <div class="outline-text-2" id="text-orgc23252c">
+        <p>\((S, \bigoplus, e)\), an <i>associative operation</i>
+        which has an <i>identity element</i> <code>e</code>
+        (value). Implicit <i>closure</i> or required by already
+        being a Semigroup. \[x \bigoplus e = x = e \bigoplus x\]
+        \[x \bigoplus (y \bigoplus z) = (x \bigoplus y) \bigoplus
+        z\] An <i>identity-preserving</i> operation.</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">class</span> <span style=
+          "color: #8FBCBB;">Semigroup</span> a <span style=
+          "color: #D8DEE9;">=&gt;</span> <span style=
+          "color: #8FBCBB;">Monoid</span> a <span style=
+          "color: #81A1C1;">where</span>
+  mempty  <span style="color: #D8DEE9;">::</span> a
+
+  mappend <span style="color: #D8DEE9;">::</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> a
+  mappend <span style="color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span><span style=
+"color: #D8DEE9;">&lt;&gt;</span><span style=
+"color: #81A1C1;">)</span>
+</pre>
+        </div>
+      </div>
+    </div>
+    <div id="outline-container-org018e574" class="outline-2">
+      <h2 id="org018e574">Functor</h2>
+      <div class="outline-text-2" id="text-org018e574">
+        <p>A homomorphism (of the same form). Just like a Closure,
+        but for “shapes” (forms).</p>
+        <p><code>h</code> is a <i>total function</i> \(h: (N, E)
+        \rightarrow (N', E')\), such that: \[\forall (A, B) \in E,
+        \exists (h(A), h(B)) \in E\]</p>
+        <p><code>h</code> is thus distributes over a structure,
+        just like \(*\) over \(+\).</p>
+        <p>A higher-level <i>structure-preserving</i>
+        transformation.</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">class</span> <span style=
+          "color: #8FBCBB;">Functor</span> f <span style=
+          "color: #81A1C1;">where</span>
+  fmap <span style="color: #D8DEE9;">::</span> <span style=
+"color: #81A1C1;">(</span>a <span style=
+"color: #D8DEE9;">-&gt;</span> b<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">-&gt;</span> f a <span style=
+"color: #D8DEE9;">-&gt;</span> f b
+</pre>
+        </div>
+        <p>Can be an <i>Endofunctor</i> - a <i>same-category</i>
+        operation.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgd2770d9" class="outline-2">
+      <h2 id="orgd2770d9">Distributive</h2>
+      <div class="outline-text-2" id="text-orgd2770d9">
+        <p>\(\bigotimes\) on \(S\) <i>distributes over</i> \(+\) on
+        \(S\) if and only if \[\forall a, b, c \in S, a \bigotimes
+        (b + c) = (a \bigotimes b) + (a \bigotimes c) \land (b + c)
+        \bigotimes a = (b \bigotimes a) + (c \bigotimes a)\]</p>
+        <p>This is a property of a <i>pair of operations</i> \((S,
+        (\bigotimes, \bigoplus))\).</p>
+      </div>
+    </div>
+    <div id="outline-container-org92d6303" class="outline-2">
+      <h2 id="org92d6303">Instances</h2>
+      <div class="outline-text-2" id="text-org92d6303"></div>
+      <div id="outline-container-org487205f" class="outline-3">
+        <h3 id="org487205f">Tuples</h3>
+        <div class="outline-text-3" id="text-org487205f">
+          <p>First comes from a “defining Set” (in a Cartesian
+          Product), a function can be viewed as a <i>Set of Ordered
+          Pairs</i>.</p>
+          <p>Assuming this is an <i>ordered (by the first element)
+          Pair</i> \(x -&gt; y\), part of a <i>function space</i>
+          (image).</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #8FBCBB;">Functor</span> <span style=
+            "color: #81A1C1;">(</span><span style=
+            "color: #8FBCBB;">,</span><span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #81A1C1;">where</span>
+  fmap f <span style="color: #81A1C1;">(</span>x, y<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span>x, f y<span style=
+"color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p>So this is equivalent to mapping <code>f</code> over
+          the result of \(x -&gt; y\).</p>
+        </div>
+      </div>
+      <div id="outline-container-org9e6665c" class="outline-3">
+        <h3 id="org9e6665c">Functions</h3>
+        <div class="outline-text-3" id="text-org9e6665c">
+          <p>A function is viewed as a “container” for its
+          result.</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #8FBCBB;">Functor</span> <span style=
+            "color: #81A1C1;">(</span><span style=
+            "color: #B48EAD;">(</span><span style=
+            "color: #8FBCBB;">-&gt;</span><span style=
+            "color: #B48EAD;">)</span> r<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #81A1C1;">where</span>
+    fmap <span style="color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span><span style=
+"color: #D8DEE9;">.</span><span style="color: #81A1C1;">)</span>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-org21f9869" class="outline-3">
+        <h3 id="org21f9869">Maybe</h3>
+        <div class="outline-text-3" id="text-org21f9869">
+          <p><code>Empty | non-empty</code> aspect of a List. Two
+          distinct data-constructors. It is not a recursive
+          structure.</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span>  <span style=
+            "color: #8FBCBB;">Functor</span> <span style=
+            "color: #8FBCBB;">Maybe</span>  <span style=
+            "color: #81A1C1;">where</span>
+    fmap <span style="color: #81A1C1;">_</span> <span style=
+"color: #8FBCBB;">Nothing</span>       <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">Nothing</span>
+    fmap f <span style="color: #81A1C1;">(</span><span style=
+"color: #8FBCBB;">Just</span> a<span style=
+"color: #81A1C1;">)</span>      <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">Just</span> <span style=
+"color: #81A1C1;">(</span>f a<span style="color: #81A1C1;">)</span>
+</pre>
+          </div>
+          <p><i>Propagating</i> Nothingness (emptiness),
+          <i>distributing</i> <code>f</code> over</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-05-15 Sun 17:15</p>
+  </div>
+</body>
+</html>
