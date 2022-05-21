@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-15 Sun 18:28 -->
+  <!-- 2022-05-21 Sat 19:20 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -252,6 +252,42 @@
           </div>
           <p>So this is equivalent to mapping <code>f</code> over
           the result of \(x -&gt; y\).</p>
+          <p>An applicative is always a mess. Values merge with
+          <code>(&lt;&gt;)</code> and a function applied.</p>
+          <div class="org-src-container">
+            <pre class="src src-haskell"><span style=
+            "color: #81A1C1;">instance</span> <span style=
+            "color: #8FBCBB;">Monoid</span> a <span style=
+            "color: #D8DEE9;">=&gt;</span> <span style=
+            "color: #8FBCBB;">Applicative</span> <span style=
+            "color: #81A1C1;">(</span><span style=
+            "color: #B48EAD;">(</span><span style=
+            "color: #8FBCBB;">,</span><span style=
+            "color: #B48EAD;">)</span> a<span style=
+            "color: #81A1C1;">)</span> <span style=
+            "color: #81A1C1;">where</span>
+  pure x <span style="color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span>mempty, x<span style=
+"color: #81A1C1;">)</span>
+  <span style="color: #81A1C1;">(</span>u, f<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">&lt;*&gt;</span> <span style=
+"color: #81A1C1;">(</span>v, x<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span>u <span style=
+"color: #D8DEE9;">&lt;&gt;</span> v, f x<span style=
+"color: #81A1C1;">)</span>
+  liftA2 f <span style="color: #81A1C1;">(</span>u, x<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #81A1C1;">(</span>v, y<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span>u <span style=
+"color: #D8DEE9;">&lt;&gt;</span> v, f x y<span style=
+"color: #81A1C1;">)</span>
+</pre>
+          </div>
         </div>
       </div>
       <div id="outline-container-org9e6665c" class="outline-3">
@@ -393,7 +429,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-15 Sun 18:28</p>
+    <p class="date">Created: 2022-05-21 Sat 19:20</p>
   </div>
 </body>
 </html>
