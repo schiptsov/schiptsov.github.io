@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-15 Sun 17:15 -->
+  <!-- 2022-05-24 Tue 19:41 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -67,9 +67,9 @@
     <p>For us, like for the holy LISP and ML old-timers, typing is
     implicit type-tagging. and (a set of) data-constructors are
     considered as tags.</p>
-    <div id="outline-container-org23fbb3e" class="outline-2">
-      <h2 id="org23fbb3e">Topology (sort of)</h2>
-      <div class="outline-text-2" id="text-org23fbb3e">
+    <div id="outline-container-org8f4c0d1" class="outline-2">
+      <h2 id="org8f4c0d1">Topology (sort of)</h2>
+      <div class="outline-text-2" id="text-org8f4c0d1">
         <p>There is an old principle, which comes from algorithm
         charting techniques (in the great times they chart the
         control flow).</p>
@@ -101,9 +101,9 @@
         “shapes” or “topologies” of a <i>control flow</i>.</p>
       </div>
     </div>
-    <div id="outline-container-org0780646" class="outline-2">
-      <h2 id="org0780646">Sets</h2>
-      <div class="outline-text-2" id="text-org0780646">
+    <div id="outline-container-org7097109" class="outline-2">
+      <h2 id="org7097109">Sets</h2>
+      <div class="outline-text-2" id="text-org7097109">
         <p>Mathematically, both a <i>sum-type</i> and a
         <i>product-type</i> is a set of possible values. Here a set
         is a prtition. The difference is in their <i>algebraic
@@ -112,9 +112,9 @@
         also</i> nested structure of values.</p>
       </div>
     </div>
-    <div id="outline-container-org88be813" class="outline-2">
-      <h2 id="org88be813">Sum-types</h2>
-      <div class="outline-text-2" id="text-org88be813">
+    <div id="outline-container-org0758ee1" class="outline-2">
+      <h2 id="org0758ee1">Sum-types</h2>
+      <div class="outline-text-2" id="text-org0758ee1">
         <p>a finite set of tags for values of the type.</p>
         <ul class="org-ul">
           <li>multiple constructors.</li>
@@ -125,9 +125,9 @@
         2\)</p>
       </div>
     </div>
-    <div id="outline-container-orgd52a925" class="outline-2">
-      <h2 id="orgd52a925">Product types</h2>
-      <div class="outline-text-2" id="text-orgd52a925">
+    <div id="outline-container-orgf14a9b1" class="outline-2">
+      <h2 id="orgf14a9b1">Product types</h2>
+      <div class="outline-text-2" id="text-orgf14a9b1">
         <p>a single implicit tag for all values of the type</p>
         <ul class="org-ul">
           <li>a single implicit or explicit constructor</li>
@@ -142,12 +142,12 @@
         structure. The set of all possible values corresponds to a
         <i>Cartesian Product of Sets</i> of its components.</p>
       </div>
-      <div id="outline-container-orga2237a3" class="outline-3">
-        <h3 id="orga2237a3">any-of</h3>
+      <div id="outline-container-orgf21b7f6" class="outline-3">
+        <h3 id="orgf21b7f6">any-of</h3>
       </div>
-      <div id="outline-container-org1b09448" class="outline-3">
-        <h3 id="org1b09448">either-of</h3>
-        <div class="outline-text-3" id="text-org1b09448">
+      <div id="outline-container-org46690f7" class="outline-3">
+        <h3 id="org46690f7">either-of</h3>
+        <div class="outline-text-3" id="text-org46690f7">
           <p>A <i>Set</i> of <i>all</i> possible outcomes
           (<i>any-of</i>) \(\{ True, False \}\) A <i>either-of
           Type</i></p>
@@ -160,9 +160,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-org6d78b34" class="outline-3">
-        <h3 id="org6d78b34">and-also</h3>
-        <div class="outline-text-3" id="text-org6d78b34">
+      <div id="outline-container-org2b38467" class="outline-3">
+        <h3 id="org2b38467">and-also</h3>
+        <div class="outline-text-3" id="text-org2b38467">
           <p>Abstract: <code>A</code> <i>and-also</i>
           <code>B</code>, <code>A &amp;& B</code> (without any
           representation) A a pair: explicit ordering, position
@@ -222,13 +222,13 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-orgffef739" class="outline-2">
-      <h2 id="orgffef739">A shape of a type</h2>
-      <div class="outline-text-2" id="text-orgffef739"></div>
-      <div id="outline-container-orgeefafcf" class="outline-3">
-        <h3 id="orgeefafcf">A product-type, any-of-type,
+    <div id="outline-container-orga9a3e4f" class="outline-2">
+      <h2 id="orga9a3e4f">A shape of a type</h2>
+      <div class="outline-text-2" id="text-orga9a3e4f"></div>
+      <div id="outline-container-orgdfdf6ee" class="outline-3">
+        <h3 id="orgdfdf6ee">A product-type, any-of-type,
         and-also-type</h3>
-        <div class="outline-text-3" id="text-orgeefafcf">
+        <div class="outline-text-3" id="text-orgdfdf6ee">
           <p>a tuple</p>
           <div class="org-src-container">
             <pre class="src src-haskell"><span style=
@@ -249,9 +249,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-org56dcf31" class="outline-3">
-        <h3 id="org56dcf31">A sum-type, either-of-type</h3>
-        <div class="outline-text-3" id="text-org56dcf31">
+      <div id="outline-container-org6ee87b9" class="outline-3">
+        <h3 id="org6ee87b9">A sum-type, either-of-type</h3>
+        <div class="outline-text-3" id="text-org6ee87b9">
           <p>a variant</p>
           <div class="org-src-container">
             <pre class="src src-haskell"><span style=
@@ -294,7 +294,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-15 Sun 17:15</p>
+    <p class="date">Created: 2022-05-24 Tue 19:41</p>
   </div>
 </body>
 </html>

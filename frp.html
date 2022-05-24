@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-15 Sun 17:15 -->
+  <!-- 2022-05-24 Tue 19:41 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -63,9 +63,9 @@
     <p>It takes time and very careful, precise wording to explain
     (without usual narcissistic verbiage so prevailed within
     Haskell community).</p>
-    <div id="outline-container-orgc900c40" class="outline-2">
-      <h2 id="orgc900c40">What exactly is wrong.</h2>
-      <div class="outline-text-2" id="text-orgc900c40">
+    <div id="outline-container-orge739d64" class="outline-2">
+      <h2 id="orge739d64">What exactly is wrong.</h2>
+      <div class="outline-text-2" id="text-orge739d64">
         <p>When we view a function as a set of ordered pairs and
         the whole <i>functional space</i> as a result of a
         <i>Cartesian Product of Domain and Codomain</i> we have a
@@ -82,9 +82,9 @@
         <p>Again, <code>Time -&gt; a</code> is just wrong.</p>
       </div>
     </div>
-    <div id="outline-container-org643d198" class="outline-2">
-      <h2 id="org643d198">Partial function</h2>
-      <div class="outline-text-2" id="text-org643d198">
+    <div id="outline-container-org88a7acc" class="outline-2">
+      <h2 id="org88a7acc">Partial function</h2>
+      <div class="outline-text-2" id="text-org88a7acc">
         <p>If <i>partial function</i> from an <i>abstract</i>
         <code>Time</code> is what they want, that would mean
         getting <code>Nothing</code> most of the time, which is
@@ -99,9 +99,9 @@
         <code>f</code> over its <code>Just x</code>.</p>
       </div>
     </div>
-    <div id="outline-container-org3832885" class="outline-2">
-      <h2 id="org3832885">Number Line</h2>
-      <div class="outline-text-2" id="text-org3832885">
+    <div id="outline-container-orge4ea52b" class="outline-2">
+      <h2 id="orge4ea52b">Number Line</h2>
+      <div class="outline-text-2" id="text-orge4ea52b">
         <p>A Number Line is an <i>imaginary mental construction</i>
         (a generalized abstraction of the mind of an external
         observer) which is used to <i>visualize</i> (and imagine)
@@ -125,9 +125,9 @@
         counted (summed up or added together).</p>
       </div>
     </div>
-    <div id="outline-container-org2af9016" class="outline-2">
-      <h2 id="org2af9016">Math</h2>
-      <div class="outline-text-2" id="text-org2af9016">
+    <div id="outline-container-org7257732" class="outline-2">
+      <h2 id="org7257732">Math</h2>
+      <div class="outline-text-2" id="text-org7257732">
         <p>In abstract mathematics the notion of counting is
         exactly this - superimpose an imaginary Number Line and
         associate each “whatever” with a Number.</p>
@@ -142,9 +142,9 @@ count xs = fst . last $ zip [1 ..] xs
 </pre>
       </div>
     </div>
-    <div id="outline-container-org607cbae" class="outline-2">
-      <h2 id="org607cbae">Time</h2>
-      <div class="outline-text-2" id="text-org607cbae">
+    <div id="outline-container-orge65a694" class="outline-2">
+      <h2 id="orge65a694">Time</h2>
+      <div class="outline-text-2" id="text-orge65a694">
         <p>Time is modeled as discrete (ticks) or continuous (a
         Real line).</p>
         <p>Continuous time is mathematically more convenient and
@@ -157,16 +157,16 @@ count xs = fst . last $ zip [1 ..] xs
         imagination, however sophisticated.</p>
       </div>
     </div>
-    <div id="outline-container-orgad15589" class="outline-2">
-      <h2 id="orgad15589">Change in Time</h2>
-      <div class="outline-text-2" id="text-orgad15589">
+    <div id="outline-container-org14edcb8" class="outline-2">
+      <h2 id="org14edcb8">Change in Time</h2>
+      <div class="outline-text-2" id="text-org14edcb8">
         <p>Once you have superimposed time you have a change over
         time, or \[\frac{dy}{dt}\]</p>
       </div>
     </div>
-    <div id="outline-container-orge0a878b" class="outline-2">
-      <h2 id="orge0a878b">FRP</h2>
-      <div class="outline-text-2" id="text-orge0a878b">
+    <div id="outline-container-org799c74b" class="outline-2">
+      <h2 id="org799c74b">FRP</h2>
+      <div class="outline-text-2" id="text-org799c74b">
         <p>We associate a continuous <i>time-line</i> with a
         discrete event “flow” (stream).</p>
         <p>So we get a “log” (ledger) - such event occurred at such
@@ -179,9 +179,9 @@ count xs = fst . last $ zip [1 ..] xs
         timestamps result in the same <code>a</code>.</p>
       </div>
     </div>
-    <div id="outline-container-org0135f10" class="outline-2">
-      <h2 id="org0135f10">Monoids</h2>
-      <div class="outline-text-2" id="text-org0135f10">
+    <div id="outline-container-orged86d4e" class="outline-2">
+      <h2 id="orged86d4e">Monoids</h2>
+      <div class="outline-text-2" id="text-orged86d4e">
         <p>Obviously, a time-line, just as a number-line, have
         associative “addition” or “concatenation”.</p>
         <p>Associativity of concatenation and distribution of
@@ -195,9 +195,9 @@ count xs = fst . last $ zip [1 ..] xs
         (with corresponding “laws”) are there.</p>
       </div>
     </div>
-    <div id="outline-container-orgeb7deb3" class="outline-2">
-      <h2 id="orgeb7deb3">Length</h2>
-      <div class="outline-text-2" id="text-orgeb7deb3">
+    <div id="outline-container-org332718b" class="outline-2">
+      <h2 id="org332718b">Length</h2>
+      <div class="outline-text-2" id="text-org332718b">
         <p>Length is counting of “ticks”</p>
         <div class="org-src-container">
           <pre class="src src-haskell"><span style=
@@ -230,26 +230,26 @@ count xs = fst . last $ zip [1 ..] xs
         </div>
       </div>
     </div>
-    <div id="outline-container-org734c930" class="outline-2">
-      <h2 id="org734c930">Blocking (waiting for an event to occur)
+    <div id="outline-container-org5ab7e86" class="outline-2">
+      <h2 id="org5ab7e86">Blocking (waiting for an event to occur)
       is inevitable</h2>
-      <div class="outline-text-2" id="text-org734c930">
+      <div class="outline-text-2" id="text-org5ab7e86">
         <p>Busy-waiting is energy-inefficient, unless it is
         “sleeping”.</p>
       </div>
     </div>
-    <div id="outline-container-orgb2eddd8" class="outline-2">
-      <h2 id="orgb2eddd8">Triggering (with an interruption) is only
+    <div id="outline-container-org6fabc84" class="outline-2">
+      <h2 id="org6fabc84">Triggering (with an interruption) is only
       natural</h2>
-      <div class="outline-text-2" id="text-orgb2eddd8">
+      <div class="outline-text-2" id="text-org6fabc84">
         <p>Arrival of a necessary condition (in a locality). A
         required molecular structure within a reach (same
         locality). A threshold (temperature, energy, etc).</p>
       </div>
     </div>
-    <div id="outline-container-org5c8a986" class="outline-2">
-      <h2 id="org5c8a986">Already observed</h2>
-      <div class="outline-text-2" id="text-org5c8a986">
+    <div id="outline-container-orge593089" class="outline-2">
+      <h2 id="orge593089">Already observed</h2>
+      <div class="outline-text-2" id="text-orge593089">
         <p>A time marker (tag) implies that a value (event) <i>has
         already been</i> observed by someone who superimposed a
         ruler and put a tag.</p>
@@ -261,7 +261,7 @@ count xs = fst . last $ zip [1 ..] xs
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-15 Sun 17:15</p>
+    <p class="date">Created: 2022-05-24 Tue 19:41</p>
   </div>
 </body>
 </html>

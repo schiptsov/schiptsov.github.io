@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-05-24 Tue 19:42 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Data and structures</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "Some more abstract math for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Data and structures</h1>
+    </header>
+    <p>There is some journey from higher abstractions down to
+    Earth</p>
+    <div id="outline-container-org9e7a1a3" class="outline-2">
+      <h2 id="org9e7a1a3">Cartesian product</h2>
+      <div class="outline-text-2" id="text-org9e7a1a3">
+        <ul class="org-ul">
+          <li>Arbitrary chosen “Origin” (this is a philosophically
+          important principle)</li>
+          <li>Axies are <i>equally-spaced</i> “rulers”, or
+          abstractly - <i>Number Lines</i></li>
+          <li>Every Number on a line is a <i>distance</i> from the
+          “Origin” (distances are “real”, numbers are not)</li>
+          <li>2 Coordinate axis (superimposed by the mind “rulers”)
+          cover an <i>abstract plane</i></li>
+          <li>All possible <i>pairs</i> cover every single point on
+          a plane</li>
+          <li>3 mutually orthogonal (or perpendicular) cover a
+          whole Space (it happens that a motion can be factored
+          into 3 <i>independent</i> components)</li>
+          <li>Cartesian Product \(x \times y \times z\) covers
+          every point in a Space</li>
+        </ul>
+      </div>
+    </div>
+    <div id="outline-container-org106c43e" class="outline-2">
+      <h2 id="org106c43e">Abstract N-dimensional spaces</h2>
+      <div class="outline-text-2" id="text-org106c43e">
+        <ul class="org-ul">
+          <li>Dimensions are products of the mind and does not
+          exist</li>
+          <li>However it is useful to apply these abstractions
+          <i>in a systematic way</i></li>
+          <li>Just as within an Abstract Plane (or a Number Line)
+          other <i>abstract axis</i> (rulers) can be imagined.</li>
+          <li>A “ruler” or an axis can be superimposed on any
+          attribute (aspect)</li>
+          <li>This is how we get <i>n-tuples</i> to define (and
+          represent) almost everything</li>
+          <li>Each value <i>ranges over</i> a certain finite Set -
+          with certain <i>bounds</i></li>
+        </ul>
+      </div>
+    </div>
+    <div id="outline-container-orgc5ca230" class="outline-2">
+      <h2 id="orgc5ca230">Labeled Cartesian Product</h2>
+      <div class="outline-text-2" id="text-orgc5ca230">
+        <ul class="org-ul">
+          <li>Once we label components of a <i>tuple</i> with
+          symbols we get a <i>record</i></li>
+        </ul>
+        <p>(here a tuple or a record defines a whole set of
+        possible values)</p>
+        <ul class="org-ul">
+          <li>Just as a tuple, a record “covers” (ranges over) a
+          <i>whole space</i> of “points”</li>
+        </ul>
+      </div>
+    </div>
+    <div id="outline-container-org256bc0b" class="outline-2">
+      <h2 id="org256bc0b">Generalized labeled Product Type</h2>
+      <div class="outline-text-2" id="text-org256bc0b">
+        <p>When we say <code>{ name = "" }</code> we cover a linear
+        (1D) space of <i>all people ever lived, who had a name</i>.
+        Socrates is here, and George W. Bush.</p>
+        <p>Notice that this is a <i>Type</i> (a Set of all possible
+        values) not the individual names (values).</p>
+        <p>If we add a <code>{ social_security_number = "" }</code>
+        slot to out type we will <i>restrict</i> the <i>subset</i>
+        (and will get a different <i>image</i> on a Universe of
+        discourse), disqualifying Socrates and many others.</p>
+        <p>This is how we select (or filter) a particular
+        <i>sub-spaces</i> (subsets) from the “whole”.</p>
+      </div>
+    </div>
+    <div id="outline-container-org0a3ccd5" class="outline-2">
+      <h2 id="org0a3ccd5">Structure or a Table</h2>
+      <div class="outline-text-2" id="text-org0a3ccd5">
+        <ul class="org-ul">
+          <li>By defining a <i>type</i> we <i>partition</i> the
+          “Universe of Discourse”.</li>
+          <li>When we specialize a <i>record</i> we get a
+          <i>table</i> (or a <i>structure</i>) which is a
+          <i>type</i> of its own <i>together with an actual
+          implementation</i></li>
+          <li>It is an actual <i>representation</i> for a subset of
+          individual values.</li>
+        </ul>
+      </div>
+    </div>
+    <div id="outline-container-orgb67b726" class="outline-2">
+      <h2 id="orgb67b726">A table is an Ordered Sequence of
+      Rows</h2>
+      <div class="outline-text-2" id="text-orgb67b726">
+        <ul class="org-ul">
+          <li>It is a <i>representation</i> of an <i>abstract
+          sub-space</i> (of a subset).</li>
+          <li>Rows <i>represent</i> individual “points” in a
+          sub-space.</li>
+          <li>Table is used to <i>store</i> a collection of rows
+          (in a particular order)</li>
+        </ul>
+      </div>
+    </div>
+    <div id="outline-container-orgc7823c9" class="outline-2">
+      <h2 id="orgc7823c9">Product-types</h2>
+      <div class="outline-text-2" id="text-orgc7823c9">
+        <p>And that is basically it. We <i>superimpose rulers</i>,
+        group together “coordinates” or “distances” and
+        <i>partition “points” into sub-spaces</i> using what we
+        call <i>product types</i>.</p>
+        <p>This is how we <i>categorize and group “things”</i> in
+        our minds (Sets are the most general abstraction).</p>
+        <p>We also need <a href="sum-types.html">Sum-types</a>
+        (<i>disjoint unions</i>) to systematically represent
+        <i>possible distinct outcomes</i> (which form a Set
+        too).</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-05-24 Tue 19:42</p>
+  </div>
+</body>
+</html>
