@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-24 Tue 19:42 -->
+  <!-- 2022-05-25 Wed 21:01 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -166,10 +166,60 @@
         too).</p>
       </div>
     </div>
+    <div id="outline-container-orgacb4457" class="outline-2">
+      <h2 id="orgacb4457">Relations</h2>
+      <div class="outline-text-2" id="text-orgacb4457">
+        <p>An entity can be described as a set of its
+        <i>attributes</i>.</p>
+        <p>A relation can be viewed as a set of <i>arrows</i>
+        (ordered pairs) from an <i>id</i> to each of the
+        <i>values</i>.</p>
+        <p>So, mathematically, a relation is just a set of ordered
+        pairs represented as an <i>n-tuple</i>.</p>
+        <ul class="org-ul">
+          <li>Each attribute is a set of values - has its
+          particular <i>domain</i>.</li>
+          <li>The order of attributes is immaterial (as it should
+          be)</li>
+        </ul>
+        <p>A <i>table</i> is a <i>representation</i> for some
+        <i>type of particular relation</i>.</p>
+        <p>Each row of a table is a <i>record</i> or an instance of
+        a particular <i>type of relation</i>.</p>
+        <p>All rows (records) in a table from a Set, while each
+        field ranges over a set of possible values. So everything
+        is <i>typed</i>.</p>
+      </div>
+    </div>
+    <div id="outline-container-orge696896" class="outline-2">
+      <h2 id="orge696896">Schemas</h2>
+      <div class="outline-text-2" id="text-orge696896">
+        <p>When we define a <i>schema</i> for a <i>table</i> we
+        establish a higher-kinded <i>structural typing</i> for what
+        is itself a <i>type</i> (a Set of all possible values).</p>
+        <p>Only tables <i>of the same kind</i> (same structure) can
+        be used \(\cup,\cap\) operations.</p>
+      </div>
+    </div>
+    <div id="outline-container-org96ed6db" class="outline-2">
+      <h2 id="org96ed6db">“Select”</h2>
+      <div class="outline-text-2" id="text-org96ed6db">
+        <p>Select corresponds to the notion of <i>“such that”</i>
+        and <i>filtering</i>.</p>
+        <p>Can be <i>nested</i>.</p>
+        <ul class="org-ul">
+          <li>Selects <i>commute</i> under <i>composition</i>
+          (order in a composition is irrelevant) (this is an
+          instance of a “universal construction”)</li>
+          <li>Select distributes over \(\cup, \cap\) (this is an
+          intuitive property)</li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-24 Tue 19:42</p>
+    <p class="date">Created: 2022-05-25 Wed 21:01</p>
   </div>
 </body>
 </html>
