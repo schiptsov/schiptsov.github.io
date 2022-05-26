@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-26 Thu 15:49 -->
+  <!-- 2022-05-26 Thu 17:00 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -52,6 +52,16 @@
     <div id="outline-container-org777a1c1" class="outline-2">
       <h2 id="org777a1c1">Proper philosophy first</h2>
       <div class="outline-text-2" id="text-org777a1c1"></div>
+      <div id="outline-container-orgbc3734f" class="outline-3">
+        <h3 id="orgbc3734f">Why arrows?</h3>
+        <div class="outline-text-3" id="text-orgbc3734f">
+          <p>Because they imply a <i>direction</i> - an
+          <i>order</i> for a ordered pair.</p>
+          <p>Why directed? Because of the <i>Causality
+          Principle</i>. Causality (it and only it) establishes a
+          direction and <i>an order</i>.</p>
+        </div>
+      </div>
       <div id="outline-container-orgadc297f" class="outline-3">
         <h3 id="orgadc297f">A single “step”</h3>
         <div class="outline-text-3" id="text-orgadc297f">
@@ -64,16 +74,6 @@
           application (which sounds almost the same), or it may be
           a single leg of a path.</p>
           <p>Is it really a minimal?</p>
-        </div>
-      </div>
-      <div id="outline-container-orgbc3734f" class="outline-3">
-        <h3 id="orgbc3734f">Why arrows?</h3>
-        <div class="outline-text-3" id="text-orgbc3734f">
-          <p>Because they imply a <i>direction</i> - an
-          <i>order</i> for a ordered pair.</p>
-          <p>Why directed? Because of the <i>Causality
-          Principle</i>. Causality (it and only it) establishes a
-          direction and <i>an order</i>.</p>
         </div>
       </div>
       <div id="outline-container-orgb998819" class="outline-3">
@@ -126,12 +126,28 @@
           <i>of an arity one</i> (takes <i>exactly one</i>
           argument) - it is <i>minimal</i> and <i>enough for
           everything</i>.</p>
-          <p>Now we “compose” these steps (or lambdas).</p>
+        </div>
+        <div id="outline-container-org5e26b82" class="outline-4">
+          <h4 id="org5e26b82">Currying</h4>
+          <div class="outline-text-4" id="text-org5e26b82">
+            <p><i>Currying</i> is a technique to take one (and only
+            one) argument to a function at a time <i>by returning a
+            “next step” function</i> for a “next argument” for
+            multi-argument operators, such as \(+\).</p>
+            <p>It corresponds exactly to the \[\cdot \rightarrow
+            \cdot \rightarrow \cdot\] “individual steps” pattern
+            (at a <i>type-level</i>), and this is not an arbitrary
+            coincidence.</p>
+            <p><i>Partial application</i> (supplying a fewer
+            arguments and using the resulting <i>closure</i>) -
+            like <code>(+1)</code> - naturally follows.</p>
+            <p>Now we “compose” these steps (or lambdas).</p>
+          </div>
         </div>
       </div>
-      <div id="outline-container-orgb81b9e8" class="outline-3">
-        <h3 id="orgb81b9e8">Composition</h3>
-        <div class="outline-text-3" id="text-orgb81b9e8">
+      <div id="outline-container-org62014a3" class="outline-3">
+        <h3 id="org62014a3">Composition</h3>
+        <div class="outline-text-3" id="text-org62014a3">
           <p>We describe “steps” as mappings \(x \mapsto x^{2}\),
           lets say, and give them <i>names</i>, like \(f\) and
           types, like \(f: N^{+} \rightarrow N^{+}\).</p>
@@ -157,9 +173,9 @@
           together</i>.</p>
         </div>
       </div>
-      <div id="outline-container-orge1da17a" class="outline-3">
-        <h3 id="orge1da17a">Identity</h3>
-        <div class="outline-text-3" id="text-orge1da17a">
+      <div id="outline-container-org7432252" class="outline-3">
+        <h3 id="org7432252">Identity</h3>
+        <div class="outline-text-3" id="text-org7432252">
           <p>There has to be an <i>arrow</i> from any “dot” <i>to
           itself</i>, which corresponds to an <i>identity
           function</i> for a set (or an <i>identity element</i> for
@@ -284,9 +300,9 @@
         <i>one-to-one</i>, so different <i>patterns</i> emerge.</p>
       </div>
     </div>
-    <div id="outline-container-org62014a3" class="outline-2">
-      <h2 id="org62014a3">Composition</h2>
-      <div class="outline-text-2" id="text-org62014a3">
+    <div id="outline-container-org168dec5" class="outline-2">
+      <h2 id="org168dec5">Composition</h2>
+      <div class="outline-text-2" id="text-org168dec5">
         <p>Associativity of composition (of functions or
         “morphisms”) \(\forall f: A \rightarrow B, g: B \rightarrow
         C, h: C \rightarrow D\) \[ h \circ (g \circ f) = (h \circ
@@ -325,9 +341,9 @@
         (directed graph) the arrows from.</p>
       </div>
     </div>
-    <div id="outline-container-org7432252" class="outline-2">
-      <h2 id="org7432252">Identity</h2>
-      <div class="outline-text-2" id="text-org7432252">
+    <div id="outline-container-org496ffff" class="outline-2">
+      <h2 id="org496ffff">Identity</h2>
+      <div class="outline-text-2" id="text-org496ffff">
         <p>For every “object” an “identity morphism” (an arrow to
         itself) is required.</p>
         <p>An arrow is a <i>mapping</i> - a particular
@@ -347,7 +363,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-26 Thu 15:49</p>
+    <p class="date">Created: 2022-05-26 Thu 17:00</p>
   </div>
 </body>
 </html>
