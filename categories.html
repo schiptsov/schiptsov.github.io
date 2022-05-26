@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-05-26 Thu 11:22 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Category theory</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "Virtue signaling for a Functional Programmer">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Category theory</h1>
+    </header>
+    <p>The best <i>virtue signaling</i> vehicle out there.</p>
+    <p>We are going there (into the higher and more abstract
+    realms) only to be sure that <i>nothing is there</i>.</p>
+    <p>The most important thing about <i>categories</i> is that
+    they are nowhere to be found.</p>
+    <div id="outline-container-orgf2cd284" class="outline-2">
+      <h2 id="orgf2cd284">One more generalization</h2>
+      <div class="outline-text-2" id="text-orgf2cd284">
+        <p>A <i>category</i> is a higher level
+        <i>generalization</i> from the Set Theory.</p>
+        <p>Within Set Theory functions from \(A\) to \(B\) are
+        viewed as a <i>Set of Ordered Pairs</i>, just as a
+        <i>Cartesian Product</i>.</p>
+        <p>So \(f: A \rightarrow B\) is \(\{(a, b)\}\) (a set of
+        <i>all</i> ordered pairs), just like <code>[(a, b)]</code>
+        which is a <i>table</i>, and a valid <i>type</i> in
+        Haskell, by the way.</p>
+        <p>A function \(f\) has its <i>image</i> in a set \(S\)
+        such that \(B \subset S\)</p>
+        <p>And \(x \rightarrow x^2\) (\(N^{+} \rightarrow
+        N^{+}\))can be viewed as (in a pseudo-code)</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">{</span> <span style=
+          "color: #B48EAD;">(</span><span style=
+          "color: #B48EAD; font-weight: bold;">1</span>, <span style=
+          "color: #B48EAD; font-weight: bold;">1</span><span style=
+          "color: #B48EAD;">)</span>,
+  <span style="color: #B48EAD;">(</span><span style=
+"color: #B48EAD; font-weight: bold;">2</span>, <span style=
+"color: #B48EAD; font-weight: bold;">4</span><span style=
+"color: #B48EAD;">)</span>,
+  <span style="color: #B48EAD;">(</span><span style=
+"color: #B48EAD; font-weight: bold;">3</span>, <span style=
+"color: #B48EAD; font-weight: bold;">9</span><span style=
+"color: #B48EAD;">)</span>,
+<span style="color: #D8DEE9;">...</span>
+<span style="color: #81A1C1;">}</span>
+</pre>
+        </div>
+        <p>The ordering of pairs (<i>not</i> within a single pair)
+        is immaterial.</p>
+        <p>They generalized ordered pairs as <i>“arrows”</i> (which
+        are convenient for <i>directed graphs</i>) and values as
+        mere <i>“dots”</i> (which they call “objects”).</p>
+        <p>So we have something even more abstract, like</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"> <span style=
+          "color: #D8DEE9;">*</span> <span style=
+          "color: #D8DEE9;">-&gt;</span> <span style=
+          "color: #D8DEE9;">*</span>
+ <span style="color: #D8DEE9;">*</span> <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #D8DEE9;">*</span>
+ <span style="color: #D8DEE9;">*</span> <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #D8DEE9;">*</span>
+ <span style="color: #D8DEE9;">...</span>
+</pre>
+        </div>
+        <p>and particular <i>strucures</i> (directed graphs) they
+        form when <i>being composed</i>.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgb35810a" class="outline-2">
+      <h2 id="orgb35810a">Structure</h2>
+      <div class="outline-text-2" id="text-orgb35810a">
+        <p>So, structurally, there are a “collection” (a set) of
+        “objects” (“dots”) <i>together with</i> a “collection” (a
+        set) of “arrows” (“morphisms”).</p>
+        <p>While a set is just a “collection”, a category is a pair
+        of “collections”. Actually it is a <i>triple</i>.</p>
+        <p>Structurally, there must be <i>at least one</i> “object”
+        and <i>at least one</i> “arrow” (to itself) in a category.
+        And a trivial <i>composition with itself</i>.</p>
+        <p>One of the most important notions is to show that some
+        structure of “dots” and “arrows” <i>is all that is
+        there</i>.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgc3f9b02" class="outline-2">
+      <h2 id="orgc3f9b02">Nesting</h2>
+      <div class="outline-text-2" id="text-orgc3f9b02">
+        <p>Just like sets, these abstract entities could be
+        <i>nested</i>, given that they have <i>the same
+        structure</i> of composed arrows.</p>
+      </div>
+    </div>
+    <div id="outline-container-org3e0d36a" class="outline-2">
+      <h2 id="org3e0d36a">All the individual arrows</h2>
+      <div class="outline-text-2" id="text-org3e0d36a">
+        <p>Lets say we have augmented a set of values with an
+        explicit set of <i>all</i> “arrows”, which means adding
+        <i>more structure</i>.</p>
+        <p>Not just one arrow, as in \(A \rightarrow B\), but all
+        the <i>individual arrows</i>, which form different
+        <i>patterns</i> (structures, or <i>directed
+        graphs</i>).</p>
+        <p>Sadly, not all functions (morphisms) are
+        <i>one-to-one</i>, so different <i>patterns</i> emerge.</p>
+      </div>
+    </div>
+    <div id="outline-container-org5bbec3c" class="outline-2">
+      <h2 id="org5bbec3c">Structural patterns</h2>
+      <div class="outline-text-2" id="text-org5bbec3c">
+        <p>It is not enough to specify (list) every single
+        individual arrow, we have to realize <i>which pattern</i>
+        they form.</p>
+        <p>Some patterns are common, and we give the a name.</p>
+        <p>Each particular <i>structural pattern</i> is its own
+        kind or a <i>structual type</i>.</p>
+        <p>So, a set of dots, a set of arrows and a pattern
+        (directed graph) the arrows from.</p>
+      </div>
+    </div>
+    <div id="outline-container-org90e16af" class="outline-2">
+      <h2 id="org90e16af">Identity</h2>
+      <div class="outline-text-2" id="text-org90e16af">
+        <p>For every “object” an “identity morphism” (an arrow to
+        itself) is required.</p>
+        <p>An arrow is a <i>mapping</i> - a particular
+        <i>function</i> with its domain and range.</p>
+      </div>
+    </div>
+    <div id="outline-container-org427c3e3" class="outline-2">
+      <h2 id="org427c3e3">Composition</h2>
+      <div class="outline-text-2" id="text-org427c3e3">
+        <p>Associativity of composition (of functions or
+        “morphisms”) \(\forall f: A \rightarrow B, g: B \rightarrow
+        C, h: C \rightarrow D\) \[ h \circ (g \circ f) = (h \circ
+        g) \circ f\] The resulting function (morphism) will be \(A
+        \rightarrow D\).</p>
+        <p>This means, that it is irrelevant which two you “chain”
+        first, just as if one is wielding pieces of a pipe together
+        into a single one.</p>
+        <p>Yes, this is a pipeline of functions (or morphisms). It
+        is <i>typed</i> (a <i>domain</i> and a <i>range</i> must be
+        consistent), so it is not the case that anything can be
+        composed to anything else (as in naive systems).</p>
+        <p>Obviously, not every <i>implication</i> can be composed
+        with every other.</p>
+        <p>There is nothing magical about <i>associative
+        property</i> of a composition of <i>arrows</i>.</p>
+        <p>And if \(A = B = C = D\) and \(f = g = h\) we have a
+        <i>Monoid</i> (just a single <i>arrow</i> and a
+        <i>closure</i>).</p>
+      </div>
+    </div>
+    <div id="outline-container-org757769d" class="outline-2">
+      <h2 id="org757769d">Structure-preserving mappings</h2>
+      <div class="outline-text-2" id="text-org757769d">
+        <p>Some mappings of <i>structured objects (values)</i> are
+        <i>structure-preserving</i>, some are not.</p>
+        <p>Obviously, different kind of mappings belong to distinct
+        <i>categories</i>, and here you have categories all the way
+        down.</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-05-26 Thu 11:22</p>
+  </div>
+</body>
+</html>
