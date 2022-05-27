@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-24 Tue 19:41 -->
+  <!-- 2022-05-27 Fri 17:31 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -16,10 +16,28 @@
   <link href="https://fonts.googleapis.com/css?family=Fira Code"
   rel="stylesheet">
   <link rel='stylesheet' type='text/css' href='css/main.css'>
-  <link crossorigin="anonymous" media="all" integrity=
-  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
-  rel="stylesheet" href=
-  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
   <div id="org-div-home-and-up">
@@ -30,20 +48,76 @@
     <header>
       <h1 class="title">Types</h1>
     </header>
-    <p>Algebraic types can be nested.</p>
-    <p>When we think of “structured values” we imply <i>nesting</i>
-    of types.</p>
-    <p>Interfaces are as fundamental as cell membranes - they
-    establish penetrable partitions.</p>
-    <p>Parametric polymorphism is “on” types with the same
-    <i>nested structures</i>. This is, of course, how different
-    molecules with same parts can be used.</p>
-    <p>Sub-typing polymorphism is “on” types with same <i>nested
-    interfaces</i>. This is “duck-typing” and the essence of
-    message-passing (what goes in and when).</p>
-    <p>In general, abstracting out and formalizing some
-    <i>Universal mechanisms</i> (found in reality) is the best
-    strategy.</p>
+    <div id="outline-container-org1798e91" class="outline-2">
+      <h2 id="org1798e91">Notes</h2>
+      <div class="outline-text-2" id="text-org1798e91"></div>
+      <div id="outline-container-orgf743f9c" class="outline-3">
+        <h3 id="orgf743f9c">Strings</h3>
+        <div class="outline-text-3" id="text-orgf743f9c">
+          <p>A <i>sequence</i> of elements from the same set (an
+          alphabet) is called a <i>String</i> and it is a “natural”
+          <i>type</i>. A sequence of words from the same set (a
+          shared vocabulary) is another one.</p>
+          <p><i>All</i> Strings of length \(n\) denoted as
+          \(S^{n}\) are \(S\times S \times S \times ... \times S\)
+          taken \(n\) times.</p>
+        </div>
+      </div>
+      <div id="outline-container-org218ad24" class="outline-3">
+        <h3 id="org218ad24">Algebraic types</h3>
+        <div class="outline-text-3" id="text-org218ad24">
+          <p><code>-&gt;</code> a set of all <i>ordered pairs</i>
+          (arrows) - a <i>function space</i> <code>{ , }</code>
+          records are <i>labeled</i> Cartesian Products (a
+          \(\times\)) <code>{ | }</code> variants are
+          <i>labeled</i> Disjoint Unions (an <code>XOR</code>) It
+          is said that these two a “structural” <i>dual</i> to each
+          other (all arrows being flipped).</p>
+          <p>Labeled means <i>name-based selection</i> (unordered
+          in theory). There is always some particular order in an
+          actual implementation.</p>
+        </div>
+      </div>
+      <div id="outline-container-org9616cfe" class="outline-3">
+        <h3 id="org9616cfe">Type-classes</h3>
+        <div class="outline-text-3" id="text-org9616cfe">
+          <p><code>Num a =&gt; [a] -&gt; a</code> This type states
+          that for any <i>type <code>a</code> of Numbers</i>, sum
+          is a function that <i>maps a list of such numbers to a
+          single such number</i>.</p>
+        </div>
+      </div>
+      <div id="outline-container-org10211dd" class="outline-3">
+        <h3 id="org10211dd">Nesting</h3>
+        <div class="outline-text-3" id="text-org10211dd">
+          <p>When we think of “structured values” we imply
+          <i>nesting</i> of types.</p>
+          <p>Algebraic types can be nested, just as
+          expressions.</p>
+        </div>
+      </div>
+      <div id="outline-container-org4d90148" class="outline-3">
+        <h3 id="org4d90148">Interfaces</h3>
+        <div class="outline-text-3" id="text-org4d90148">
+          <p>Interfaces are as fundamental as cell membranes - they
+          establish penetrable partitions.</p>
+        </div>
+      </div>
+      <div id="outline-container-org7a72eff" class="outline-3">
+        <h3 id="org7a72eff">Polymorphism</h3>
+        <div class="outline-text-3" id="text-org7a72eff">
+          <p>Parametric polymorphism is “on” types with the same
+          <i>nested structures</i>. This is, of course, how
+          different molecules with same parts can be used.</p>
+          <p>Sub-typing polymorphism is “on” types with same
+          <i>nested interfaces</i>. This is “duck-typing” and the
+          essence of message-passing (what goes in and when).</p>
+          <p>In general, abstracting out and formalizing some
+          <i>Universal mechanisms</i> (found in reality) is the
+          best strategy.</p>
+        </div>
+      </div>
+    </div>
     <div id="outline-container-orgcc9a9ea" class="outline-2">
       <h2 id="orgcc9a9ea">Sets of values</h2>
       <div class="outline-text-2" id="text-orgcc9a9ea">
@@ -67,9 +141,9 @@
         <i>type-class</i>.</p>
       </div>
     </div>
-    <div id="outline-container-org9616cfe" class="outline-2">
-      <h2 id="org9616cfe">Type-classes</h2>
-      <div class="outline-text-2" id="text-org9616cfe">
+    <div id="outline-container-orgfce31be" class="outline-2">
+      <h2 id="orgfce31be">Type-classes</h2>
+      <div class="outline-text-2" id="text-orgfce31be">
         <p>First of all, a <i>type-class</i> is a <i>higer-level
         abstraction over types</i>, and each particular
         <i>instance</i> of a type-class is <i>type</i>. The
@@ -121,7 +195,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-24 Tue 19:41</p>
+    <p class="date">Created: 2022-05-27 Fri 17:31</p>
   </div>
 </body>
 </html>
