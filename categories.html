@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-26 Thu 17:00 -->
+  <!-- 2022-05-28 Sat 09:56 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -145,9 +145,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-org62014a3" class="outline-3">
-        <h3 id="org62014a3">Composition</h3>
-        <div class="outline-text-3" id="text-org62014a3">
+      <div id="outline-container-org0a19bfa" class="outline-3">
+        <h3 id="org0a19bfa">Composition</h3>
+        <div class="outline-text-3" id="text-org0a19bfa">
           <p>We describe “steps” as mappings \(x \mapsto x^{2}\),
           lets say, and give them <i>names</i>, like \(f\) and
           types, like \(f: N^{+} \rightarrow N^{+}\).</p>
@@ -173,9 +173,9 @@
           together</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org7432252" class="outline-3">
-        <h3 id="org7432252">Identity</h3>
-        <div class="outline-text-3" id="text-org7432252">
+      <div id="outline-container-orgc28880d" class="outline-3">
+        <h3 id="orgc28880d">Identity</h3>
+        <div class="outline-text-3" id="text-orgc28880d">
           <p>There has to be an <i>arrow</i> from any “dot” <i>to
           itself</i>, which corresponds to an <i>identity
           function</i> for a set (or an <i>identity element</i> for
@@ -207,18 +207,30 @@
       <h2 id="orgf2cd284">One more generalization</h2>
       <div class="outline-text-2" id="text-orgf2cd284">
         <p>A <i>category</i> is a higher level
-        <i>generalization</i> from the Set Theory.</p>
+        <i>generalization</i> from (and defined in terms of) the
+        Set Theory.</p>
+        <ul class="org-ul">
+          <li>“collections” are sets (or classes)</li>
+          <li>“morphisms” are <i>set-theoretic</i> functions (sets
+          of ordered pairs)</li>
+          <li>“equality” is also <i>set-theoretic</i> (all the same
+          members)</li>
+        </ul>
         <p>Within Set Theory functions from \(A\) to \(B\) are
         viewed as a <i>Set of Ordered Pairs</i>, just as a
         <i>Cartesian Product</i>.</p>
+        <p>These functions are single <i>“composite arrows”</i> at
+        the type level - \(f: A\rightarrow B\).</p>
         <p>So \(f: A \rightarrow B\) is \(\{(a, b)\}\) (a set of
         <i>all</i> ordered pairs), just like <code>[(a, b)]</code>
         which is a <i>table</i>, and a valid <i>type</i> in
         Haskell, by the way.</p>
         <p>A function \(f\) has its <i>image</i> in a set \(S\)
         such that \(B \subset S\)</p>
-        <p>And \(x \rightarrow x^2\) (\(N^{+} \rightarrow
-        N^{+}\))can be viewed as (in a pseudo-code)</p>
+        <p>There are also <i>“individual arrows”</i> which
+        represent each <i>ordered pair</i>. And \(x \rightarrow
+        x^2\) (\(N^{+} \rightarrow N^{+}\))can be viewed as (in a
+        pseudo-code)</p>
         <div class="org-src-container">
           <pre class="src src-haskell"><span style=
           "color: #81A1C1;">{</span> <span style=
@@ -240,10 +252,11 @@
         </div>
         <p>The ordering of pairs (<i>not</i> within a single pair)
         is immaterial.</p>
-        <p>They generalized ordered pairs as <i>“arrows”</i> (which
-        are convenient for <i>directed graphs</i>) and values as
-        mere <i>“dots”</i> (which they call “objects”).</p>
-        <p>So we have something even more abstract, like</p>
+        <p>So, ordered pairs were generalized as <i>“arrows”</i>
+        (which are convenient for <i>directed graphs</i>) and
+        values as mere <i>“dots”</i> (which they call
+        “objects”).</p>
+        <p>Thus we have something even more abstract, like</p>
         <div class="org-src-container">
           <pre class="src src-haskell"> <span style=
           "color: #D8DEE9;">*</span> <span style=
@@ -260,6 +273,8 @@
         </div>
         <p>and particular <i>strucures</i> (directed graphs) they
         form when <i>being composed</i>.</p>
+        <p>Not only we generalize <i>structure</i>, we also
+        generalize <i>associative composition</i> of “arrows”.</p>
       </div>
     </div>
     <div id="outline-container-orgb35810a" class="outline-2">
@@ -267,15 +282,19 @@
       <div class="outline-text-2" id="text-orgb35810a">
         <p>So, structurally, there are a “collection” (a set) of
         “objects” (“dots”) <i>together with</i> a “collection” (a
-        set) of “arrows” (“morphisms”).</p>
-        <p>While a set is just a “collection”, a category is a pair
-        of “collections”. Actually it is a <i>triple</i>.</p>
+        set) of “arrows” (“morphisms”). \[(O, A,...)\] While a set
+        is just a “collection”, a category is a pair of
+        “collections”. Actually it is a <i>triple</i>.</p>
         <p>Structurally, there must be <i>at least one</i> “object”
         and <i>at least one</i> “arrow” (to itself) in a category.
         And a trivial <i>composition with itself</i>.</p>
         <p>One of the most important notions is to show that some
         structure of “dots” and “arrows” <i>is all that is
         there</i>.</p>
+        <p>This has philosophical correlation to the fact, that
+        there is no such thing as randomness, only “possible paths”
+        and “forks” (which, in turn, corresponds to
+        <i>sum-types</i> and <i>pattern-matching</i> on them).</p>
       </div>
     </div>
     <div id="outline-container-orgc3f9b02" class="outline-2">
@@ -296,14 +315,21 @@
         the <i>individual arrows</i>, which form different
         <i>patterns</i> (structures, or <i>directed
         graphs</i>).</p>
+        <p>Usually a collection of all <i>arrows</i> (within a
+        category) is denoted as \(C(A,B)\).</p>
+        <p>All the “individual arrows” have the same <i>domain</i>
+        \(A\) and <i>codomain</i> \(B\).</p>
         <p>Sadly, not all functions (morphisms) are
         <i>one-to-one</i>, so different <i>patterns</i> emerge.</p>
       </div>
     </div>
-    <div id="outline-container-org168dec5" class="outline-2">
-      <h2 id="org168dec5">Composition</h2>
-      <div class="outline-text-2" id="text-org168dec5">
-        <p>Associativity of composition (of functions or
+    <div id="outline-container-org3a2b2f0" class="outline-2">
+      <h2 id="org3a2b2f0">Composition</h2>
+      <div class="outline-text-2" id="text-org3a2b2f0">
+        <p>The <i>composition</i> operator \(\circ\) for <i>total
+        functions</i> is defined as \(\forall f: A\rightarrow B, g:
+        B\rightarrow C, c = g(f(a))| a\in A,c\in C\)</p>
+        <p><i>Associativity</i> of composition (of functions or
         “morphisms”) \(\forall f: A \rightarrow B, g: B \rightarrow
         C, h: C \rightarrow D\) \[ h \circ (g \circ f) = (h \circ
         g) \circ f\] The resulting function (morphism) will be \(A
@@ -328,26 +354,36 @@
         composable (properly chain-able).</p>
       </div>
     </div>
+    <div id="outline-container-org1ed7005" class="outline-2">
+      <h2 id="org1ed7005">Identity</h2>
+      <div class="outline-text-2" id="text-org1ed7005">
+        <p>For every “object” (a “dot”) an “identity morphism” (an
+        arrow to itself) is required.</p>
+        <p>An arrow is a <i>mapping</i> - a particular
+        <i>function</i> with its domain and range. \[\forall f:A
+        \rightarrow B\] \[f \circ id_{A} = f\] \[id_{B} \circ f =
+        f\] For a single “dot” and for <i>Monoids</i> \(A=B\), of
+        course.</p>
+        <p>Identities are <i>important</i> for “at the ends” of a
+        sequence.</p>
+        <p>Just as with <i>identity values</i> (for an
+        <i>associative operation</i>) these <i>identity
+        functions</i> (identity arrows) are used in
+        <i>composition</i> - at “both ends” of a chain of composed
+        functions.</p>
+      </div>
+    </div>
     <div id="outline-container-org5bbec3c" class="outline-2">
       <h2 id="org5bbec3c">Structural patterns</h2>
       <div class="outline-text-2" id="text-org5bbec3c">
         <p>It is not enough to specify (list) every single
         individual arrow, we have to realize <i>which pattern</i>
-        they form when bein <i>composed</i>.</p>
+        they form when being <i>composed</i>.</p>
         <p>Some patterns are common, and we give them a name.</p>
         <p>Each particular <i>structural pattern</i> is its own
         kind or a <i>structual type</i>.</p>
         <p>So, a set of dots, a set of arrows and a pattern
         (directed graph) the arrows from.</p>
-      </div>
-    </div>
-    <div id="outline-container-org496ffff" class="outline-2">
-      <h2 id="org496ffff">Identity</h2>
-      <div class="outline-text-2" id="text-org496ffff">
-        <p>For every “object” an “identity morphism” (an arrow to
-        itself) is required.</p>
-        <p>An arrow is a <i>mapping</i> - a particular
-        <i>function</i> with its domain and range.</p>
       </div>
     </div>
     <div id="outline-container-org757769d" class="outline-2">
@@ -363,7 +399,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-26 Thu 17:00</p>
+    <p class="date">Created: 2022-05-28 Sat 09:56</p>
   </div>
 </body>
 </html>
