@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-28 Sat 16:28 -->
+  <!-- 2022-05-28 Sat 18:42 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -153,9 +153,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-org553dffd" class="outline-3">
-        <h3 id="org553dffd">Composition</h3>
-        <div class="outline-text-3" id="text-org553dffd">
+      <div id="outline-container-orgfe40b49" class="outline-3">
+        <h3 id="orgfe40b49">Composition</h3>
+        <div class="outline-text-3" id="text-orgfe40b49">
           <p>We describe “steps” as mappings \(x \mapsto x^{2}\),
           lets say, and give them <i>names</i>, like \(f\) and
           types, like \(f: N^{+} \rightarrow N^{+}\).</p>
@@ -181,9 +181,9 @@
           together</i>.</p>
         </div>
       </div>
-      <div id="outline-container-orgaeb6f67" class="outline-3">
-        <h3 id="orgaeb6f67">Identity</h3>
-        <div class="outline-text-3" id="text-orgaeb6f67">
+      <div id="outline-container-org77dead9" class="outline-3">
+        <h3 id="org77dead9">Identity</h3>
+        <div class="outline-text-3" id="text-org77dead9">
           <p>There has to be an <i>arrow</i> from any “dot” <i>to
           itself</i>, which corresponds to an <i>identity
           function</i> for a set (or an <i>identity element</i> for
@@ -331,9 +331,9 @@
         <i>one-to-one</i>, so different <i>patterns</i> emerge.</p>
       </div>
     </div>
-    <div id="outline-container-orgc746df0" class="outline-2">
-      <h2 id="orgc746df0">Composition</h2>
-      <div class="outline-text-2" id="text-orgc746df0">
+    <div id="outline-container-org290716a" class="outline-2">
+      <h2 id="org290716a">Composition</h2>
+      <div class="outline-text-2" id="text-org290716a">
         <p>The <i>composition</i> operator \(\circ\) for <i>total
         functions</i> is defined as \(\forall f: A\rightarrow B, g:
         B\rightarrow C, c = g(f(a))| a\in A,c\in C\)</p>
@@ -362,9 +362,9 @@
         composable (properly chain-able).</p>
       </div>
     </div>
-    <div id="outline-container-org485c40b" class="outline-2">
-      <h2 id="org485c40b">Identity</h2>
-      <div class="outline-text-2" id="text-org485c40b">
+    <div id="outline-container-org5e33425" class="outline-2">
+      <h2 id="org5e33425">Identity</h2>
+      <div class="outline-text-2" id="text-org5e33425">
         <p>For every “object” (a “dot”) an “identity morphism” (an
         arrow to itself) is required.</p>
         <p>An arrow is a <i>mapping</i> - a particular
@@ -413,6 +413,12 @@
         (S',\cdot',e')\mid f(e)=e', \forall x,y\in S,f(x\cdot y)=
         f(x)\cdot' f(y)\] Composition of two homomorphisms yields a
         homororphism.</p>
+        <p>So it is a category with only one object: \(Ob_{C} =
+        \{S\}\) and \(Hom_{C} = \{id, \cdot\}\)</p>
+        <p>By the way, the identity function is a <i>partially
+        applied</i> \(e\) <code>(e.)</code>, for example
+        <code>(+0)</code> or <code>(*1)</code> or <code>(++
+        "")</code></p>
       </div>
     </div>
     <div id="outline-container-org24f0cf1" class="outline-2">
@@ -426,17 +432,18 @@
     <div id="outline-container-org02cad5c" class="outline-2">
       <h2 id="org02cad5c">Complications</h2>
       <div class="outline-text-2" id="text-org02cad5c">
-        <p>\[Ob_{C}=\{A,B\}, Hom_{C}(A,A)=id_{A},
-        Hom_{C}(B,B)=id_{B}, Hom_{C}(A,B)=\emptyset,
-        Hom_{C}(B,A)=\emptyset\] No arrows between \(A\) and \(B\),
-        which means they are <i>unrelated</i>. <i>Identities</i>
-        must always be there.</p>
+        <p>\[\forall A,B \in Ob_{C},\exists Hom_{C}(A,B)\]
+        \[Ob_{C}=\{A,B\}, Hom_{C}(A,A)=id_{A}, Hom_{C}(B,B)=id_{B},
+        Hom_{C}(A,B)=\emptyset, Hom_{C}(B,A)=\emptyset\] No arrows
+        between \(A\) and \(B\), which means they are
+        <i>unrelated</i>. <i>Identities</i> must always be
+        there.</p>
       </div>
     </div>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-28 Sat 16:28</p>
+    <p class="date">Created: 2022-05-28 Sat 18:42</p>
   </div>
 </body>
 </html>
