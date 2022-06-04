@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-06-04 Sat 16:27 -->
+  <!-- 2022-06-04 Sat 18:08 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -92,6 +92,8 @@
     <div id="outline-container-org2b97870" class="outline-2">
       <h2 id="org2b97870">partitions</h2>
       <div class="outline-text-2" id="text-org2b97870">
+        <p>These are <i>type-level</i> notions, not an instance
+        (value) level.</p>
         <p><i>either</i> True or False</p>
         <div class="org-src-container">
           <pre class="src src-haskell"><span style=
@@ -114,13 +116,13 @@
           "color: #8FBCBB;">Just</span> a
 </pre>
         </div>
-        <p><i>Recursive</i> disjoint sum</p>
+        <p><i>Recursive</i> disjoint sum (<i>of tuples</i>)</p>
         <div class="org-src-container">
           <pre class="src src-haskell"><span style=
           "color: #81A1C1;">data</span> <span style=
           "color: #8FBCBB;">List</span> a <span style=
           "color: #D8DEE9;">=</span> <span style=
-          "color: #8FBCBB;">Nul</span> <span style=
+          "color: #8FBCBB;">Nil</span> <span style=
           "color: #D8DEE9;">|</span> <span style=
           "color: #8FBCBB;">Cons</span> a <span style=
           "color: #81A1C1;">(</span><span style=
@@ -128,6 +130,9 @@
           "color: #81A1C1;">)</span>
 </pre>
         </div>
+        <p>a List is <i>either</i> empty, or it is a singleton, or
+        a pair, or a triple or an n-tuple, made out of
+        <i>Conses</i>, which are nested Pairs.</p>
       </div>
     </div>
     <div id="outline-container-orgb910104" class="outline-2">
@@ -145,7 +150,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-06-04 Sat 16:27</p>
+    <p class="date">Created: 2022-06-04 Sat 18:08</p>
   </div>
 </body>
 </html>
