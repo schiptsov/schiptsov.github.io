@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-06-04 Sat 13:37 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>‎</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content="Nesting.">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <p>#+title Nesting</p>
+    <p>Nesting is the fundamental notion for any structures -
+    arrangements of atoms or actual <i>representations</i> of data
+    in biology.</p>
+    <div id="outline-container-org5151fec" class="outline-2">
+      <h2 id="org5151fec">Abstractions</h2>
+      <div class="outline-text-2" id="text-org5151fec">
+        <p>Of the mind.</p>
+      </div>
+      <div id="outline-container-orgecff2f6" class="outline-3">
+        <h3 id="orgecff2f6">Unordered</h3>
+        <div class="outline-text-3" id="text-orgecff2f6">
+          <p>A <i>set</i> is an idealized, abstract concept - no
+          notion of an ordering of elements \[\{1, 2\}\]</p>
+          <p>A <i>product</i> of sets is another set. \[\{1\}
+          \times \{2\} \times \{3\} = \{\{1, 2, 3\}\}\]</p>
+        </div>
+      </div>
+      <div id="outline-container-org8c38703" class="outline-3">
+        <h3 id="org8c38703">Ordered</h3>
+        <div class="outline-text-3" id="text-org8c38703">
+          <p>As long as a particular ordering is present (in
+          <i>any</i> representation) we suddenly have the notions
+          of a <i>symmetry</i> and <i>rotations</i>.</p>
+          <p>The <i>pure abstraction</i> is traditionally called a
+          <i>tuple</i>, while its <i>representation</i> is called a
+          <i>Pair</i> (and it is a fundamental <i>type</i>).</p>
+          <p>The same information, different <i>ordering</i> of
+          elements \[(1, 2) \cong (2, 1)\] This can be seen as just
+          rotation of a structure (or of an <i>observer</i>!)
+          around the vertical axis.</p>
+          <p>And this is where the notion of an <i>isomorphic</i>
+          “objects” comes from.</p>
+          <p>Whether or not these are 2 “images” of <i>the same
+          “object”</i> is another question, which, in principle,
+          requires additional knowledge.</p>
+          <p>Ideally, it is just matter of where an observer is
+          located.</p>
+        </div>
+      </div>
+      <div id="outline-container-org1584f9b" class="outline-3">
+        <h3 id="org1584f9b">n-tuples</h3>
+        <div class="outline-text-3" id="text-org1584f9b">
+          <p><i>Another kind of an isomorprhism</i> is when we
+          (external observers) ignore (or abstract out) actual
+          structure and consider only “information”.</p>
+          <p>Yes, it is basically irrelevant how exactly the
+          information in an RNA is represented (aside of being a
+          <i>string</i> of a certain set of symbols (an alphabet)
+          with explicit <i>begin-</i> and <i>end-makers</i> - which
+          is a <i>universal pattern</i>.)</p>
+          <p>This is not a rotation, but a <i>re-nesting</i> \[((1,
+          2), 3) \cong (1, (2, 3))\]</p>
+          <p>Abstractly, different kinds of nesting are
+          <i>isomorphic to each other</i> (same information,
+          different representations).</p>
+          <p>Thus nested pairs are isomorphic to n-tuples \[((1,
+          2), 3) \cong (1, 2, 3)\]</p>
+          <p>In this view (which abstracts out any
+          <i>representations</i>) \(()\) is a <i>unit</i> for a
+          <i>Product</i> (which, structurally, is a particular
+          arrangement) which is what an <i>n-tuple</i> is.</p>
+          <p>\[\{1\} \times \{2\} \times \{3\} = (1, 2, 3)\]</p>
+          <p>When we consider a <i>Product</i> of \(n\) sets as a
+          set of <i>all</i> ordered <i>n-tuples</i>, we usually
+          ignore (abstract out) any representation whatsoever.</p>
+        </div>
+      </div>
+      <div id="outline-container-org73f2113" class="outline-3">
+        <h3 id="org73f2113">Lists</h3>
+        <div class="outline-text-3" id="text-org73f2113">
+          <p>Lists can be represented as <i>deeply-nested</i>
+          pairs.</p>
+          <p>\[(1 . (2 . (3 . '()))) \cong '(1 2 3)\] or in another
+          classical language \[(1 : (2 : (3 : []))) \cong '[1, 2,
+          3]\]</p>
+        </div>
+      </div>
+      <div id="outline-container-org8f41470" class="outline-3">
+        <h3 id="org8f41470">2</h3>
+        <div class="outline-text-3" id="text-org8f41470">
+          <p>2 is not just a number, it is a minimal <i>compound
+          structure</i> - <i>one more than one</i>.</p>
+          <p>It could be viewed as (or represent something)
+          <i>structurally different</i> from “ones” which are
+          <i>parts</i> of it.</p>
+          <p>For instance, a product of two coordinates is
+          <i>structurally different</i> from coordinates themselves
+          (and naturally requires a <i>data-structure</i> to
+          represent it).</p>
+          <p>The same stuff is going on in underlying Reality, and
+          this is where the <i>patterns</i> and observer’s
+          <i>generalizations</i> came from.</p>
+        </div>
+      </div>
+    </div>
+    <div id="outline-container-orga61b7fa" class="outline-2">
+      <h2 id="orga61b7fa">Pairs</h2>
+      <div class="outline-text-2" id="text-orga61b7fa">
+        <p>This is <i>not a coincedene</i> that an ordered pair is
+        being used as the fundamental building block of literally
+        everything - tuples, lists, paths, graphs, or even mappings
+        (functions).</p>
+        <p>A <code>Pair</code> is thus <i>either</i></p>
+        <ul class="org-ul">
+          <li>an <code>,</code> (a product)</li>
+          <li>an <code>|</code> (a “sum”)</li>
+          <li>an <code>-&gt;</code> (an arrow)</li>
+        </ul>
+        <p>Nesting of these gives us <i>records</i>,
+        <i>varians</i>, and <i>paths</i>.</p>
+        <p>And this is all you need.</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-06-04 Sat 13:37</p>
+  </div>
+</body>
+</html>
