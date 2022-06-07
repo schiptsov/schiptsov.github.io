@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-24 Tue 19:42 -->
+  <!-- 2022-06-07 Tue 08:32 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -16,6 +16,28 @@
   <link href="https://fonts.googleapis.com/css?family=Fira Code"
   rel="stylesheet">
   <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
   <div id="org-div-home-and-up">
@@ -38,6 +60,155 @@
     piles of bullshit, including the Category Theory, to <i>make
     sure</i> that <i>it is completely irrelevant</i> in this
     context.</p>
+    <div id="outline-container-org0499b57" class="outline-2">
+      <h2 id="org0499b57">Abstraction barrier</h2>
+      <div class="outline-text-2" id="text-org0499b57">
+        <p>The confusion and frustration come from a lack of clear
+        separation between interfaces and implementation.</p>
+        <p>A pure function could</p>
+        <ul class="org-ul">
+          <li>take an extra argument (usually a
+          <i>context</i>)</li>
+          <li>return an extra argument (usually a <i>modified
+          state</i>)</li>
+        </ul>
+        <p>Abstractly or conceptually, these extras could be
+        separated and completely hidden by an <i>abstraction
+        barrier</i>.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgc281ba6" class="outline-2">
+      <h2 id="orgc281ba6">Composition</h2>
+      <div class="outline-text-2" id="text-orgc281ba6">
+        <p>These abstractions should be <i>composable</i>, just
+        like ordinary functions \[g \circ f = g(f(x))\]</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell">g <span style=
+          "color: #88C0D0;">.</span> f <span style=
+          "color: #D8DEE9;">=</span> <span style=
+          "color: #D8DEE9;">\</span>x <span style=
+          "color: #D8DEE9;">-&gt;</span> g <span style=
+          "color: #81A1C1;">(</span>f x<span style=
+          "color: #81A1C1;">)</span>
+</pre>
+        </div>
+      </div>
+    </div>
+    <div id="outline-container-org70e7c4d" class="outline-2">
+      <h2 id="org70e7c4d">Functor</h2>
+      <div class="outline-text-2" id="text-org70e7c4d">
+        <p>Just like ordinary functions, these abstractions can be
+        <i>Functoral</i></p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">instance</span> <span style=
+          "color: #8FBCBB;">Functor</span> <span style=
+          "color: #81A1C1;">(</span><span style=
+          "color: #B48EAD;">(</span><span style=
+          "color: #8FBCBB;">-&gt;</span><span style=
+          "color: #B48EAD;">)</span> r<span style=
+          "color: #81A1C1;">)</span> <span style=
+          "color: #81A1C1;">where</span>
+  fmap <span style="color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span><span style=
+"color: #D8DEE9;">.</span><span style="color: #81A1C1;">)</span>
+</pre>
+        </div>
+        <p>So a Functor is <i>required</i> and the type-class Monad
+        is a subclass of a <i>Applicative</i>, which is a special
+        kind of Functor.</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">class</span> <span style=
+          "color: #8FBCBB;">Applicative</span> m <span style=
+          "color: #D8DEE9;">=&gt;</span> <span style=
+          "color: #8FBCBB;">Monad</span> m <span style=
+          "color: #81A1C1;">where</span>
+  <span style="color: #81A1C1;">(</span><span style=
+"color: #D8DEE9;">&gt;&gt;=</span><span style=
+"color: #81A1C1;">)</span>       <span style=
+"color: #D8DEE9;">::</span> <span style=
+"color: #81A1C1;">forall</span> a b<span style=
+"color: #D8DEE9;">.</span> m a <span style=
+"color: #D8DEE9;">-&gt;</span> <span style=
+"color: #81A1C1;">(</span>a <span style=
+"color: #D8DEE9;">-&gt;</span> m b<span style=
+"color: #81A1C1;">)</span> <span style=
+"color: #D8DEE9;">-&gt;</span> m b
+  return      <span style="color: #D8DEE9;">::</span> <span style=
+"color: #81A1C1;">forall</span> a<span style=
+"color: #D8DEE9;">.</span> a <span style=
+"color: #D8DEE9;">-&gt;</span> m a
+  return      <span style="color: #D8DEE9;">=</span> pure
+</pre>
+        </div>
+        <p>These, however, are Haskellisms - fancies of library
+        writers. Applicative is NOT required at all.</p>
+        <p>Moreover, implementations of <i>Functor instances</i>
+        break an abstraction (makes it leaky) by “looking at and
+        manipulating the guts”, which is a violation of the
+        abstraction principle.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgb830eb7" class="outline-2">
+      <h2 id="orgb830eb7">Formulations</h2>
+      <div class="outline-text-2" id="text-orgb830eb7">
+        <p>In the context of a <code>List</code></p>
+        <div class="org-src-container">
+          <pre class="src src-haskell">xs <span style=
+          "color: #88C0D0;">&gt;&gt;=</span> f <span style=
+          "color: #D8DEE9;">=</span> concat <span style=
+          "color: #81A1C1;">(</span>map f xs<span style=
+          "color: #81A1C1;">)</span>
+<span style="color: #88C0D0;">return</span> x <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">[</span>x<span style="color: #81A1C1;">]</span>
+</pre>
+        </div>
+        <p>were <code>f</code> must use <code>return</code> and
+        have the type <code>f : a -&gt; m b</code></p>
+        <p>And, of course, <code>List</code> is a “classic”
+        <i>Functor</i></p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">instance</span> <span style=
+          "color: #8FBCBB;">Functor</span> <span style=
+          "color: #81A1C1;">[</span>a<span style=
+          "color: #81A1C1;">]</span> <span style=
+          "color: #81A1C1;">where</span>
+  fmap <span style="color: #D8DEE9;">=</span> map
+</pre>
+        </div>
+        <p>For other, arbitrary instances there is
+        <code>join</code></p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #88C0D0;">join</span> <span style=
+          "color: #D8DEE9;">::</span> <span style=
+          "color: #8FBCBB;">Monad</span> m <span style=
+          "color: #D8DEE9;">=&gt;</span> m <span style=
+          "color: #81A1C1;">(</span>m a<span style=
+          "color: #81A1C1;">)</span> <span style=
+          "color: #D8DEE9;">-&gt;</span> m a
+</pre>
+        </div>
+        <p>which is structurally just like <code>concat</code> for
+        Lists</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #88C0D0;">concat</span> <span style=
+          "color: #D8DEE9;">::</span> <span style=
+          "color: #8FBCBB;">Foldable</span> t <span style=
+          "color: #D8DEE9;">=&gt;</span> t <span style=
+          "color: #81A1C1;">[</span>a<span style=
+          "color: #81A1C1;">]</span> <span style=
+          "color: #D8DEE9;">-&gt;</span> <span style=
+          "color: #81A1C1;">[</span>a<span style=
+          "color: #81A1C1;">]</span>
+</pre>
+        </div>
+      </div>
+    </div>
     <div id="outline-container-orgdc8c053" class="outline-2">
       <h2 id="orgdc8c053">The Proper Philosophy</h2>
       <div class="outline-text-2" id="text-orgdc8c053">
@@ -202,7 +373,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-24 Tue 19:42</p>
+    <p class="date">Created: 2022-06-07 Tue 08:32</p>
   </div>
 </body>
 </html>
