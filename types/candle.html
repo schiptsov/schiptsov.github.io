@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-06-10 Fri 18:16 -->
+  <!-- 2022-06-10 Fri 19:59 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -49,10 +49,10 @@
     </header>
     <p>We are building the <i>simplest possible</i> mathematical
     model.</p>
-    <div id="outline-container-orga93b7bc" class="outline-2">
-      <h2 id="orga93b7bc">A mathematical vector</h2>
-      <div class="outline-text-2" id="text-orga93b7bc">
-        <p>Intuitions from physics:</p>
+    <div id="outline-container-org03b03e6" class="outline-2">
+      <h2 id="org03b03e6">A vector from physics</h2>
+      <div class="outline-text-2" id="text-org03b03e6">
+        <p><i>Intuitions</i> from physics:</p>
       </div>
       <div id="outline-container-orga35e97a" class="outline-3">
         <h3 id="orga35e97a">Force</h3>
@@ -82,8 +82,21 @@
     <div id="outline-container-orgbf91977" class="outline-2">
       <h2 id="orgbf91977">A product-type</h2>
       <div class="outline-text-2" id="text-orgbf91977">
-        <p>A <code>Candle</code> is by definition a
-        <i>record</i>.</p>
+        <p>A <code>Candle</code> is by definition a <i>record</i>.
+        Conceptually - a <i>Set of labeled slots</i>. Each
+        particular value corresponds to a “point” or a
+        “vector”.</p>
+        <p>Abstractly, any <i>product type</i> covers a whole
+        <i>vector-space</i> (each value ranges over its
+        <i>type</i>).</p>
+        <p>A <i>record-type</i> provides <i>position-independent
+        access</i>, which means the structure is <i>expandable</i>
+        without breaking the existing code - an incremental
+        addition of <i>properties</i> (new slots) is possible (but
+        NOT changing - sort of <i>immutability</i> of what has been
+        already defined).</p>
+        <p>Of course, one could refactor quickly and safely because
+        it is an ADT.</p>
       </div>
     </div>
     <div id="outline-container-orga033875" class="outline-2">
@@ -141,15 +154,14 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-org685efe3" class="outline-2">
-      <h2 id="org685efe3">A Functor</h2>
-      <div class="outline-text-2" id="text-org685efe3">
-        <p>Any <i>product type</i> is implicitly a <i>Functor</i>,
-        provided that a <i>function</i> being mapped “knows” how
-        <i>not to break data consistency</i>.</p>
-        <p>So only complex functions, which map each “slot” to a
-        logically consistent value can be <i>mapped over</i> by a
-        <i>Functor</i>.</p>
+    <div id="outline-container-org23cf571" class="outline-2">
+      <h2 id="org23cf571">Not an Endofunctor</h2>
+      <div class="outline-text-2" id="text-org23cf571">
+        <p>Any <i>product type</i> looks like an implicit,
+        <i>trivial Endofunctor</i>, provided that a <i>function</i>
+        being mapped over it “knows” how <i>not to break data
+        consistency</i>.</p>
+        <p>It is almost as if</p>
         <div class="org-src-container">
           <pre class="src src-haskell"><span style=
           "color: #81A1C1;">instance</span> <span style=
@@ -157,15 +169,26 @@
           "color: #8FBCBB;">Candle</span> <span style=
           "color: #81A1C1;">where</span>
   fmap <span style="color: #D8DEE9;">=</span> <span style=
-"color: #D8DEE9;">...</span>
+"color: #81A1C1;">(</span><span style=
+"color: #D8DEE9;">$</span><span style="color: #81A1C1;">)</span>
 </pre>
         </div>
+        <p>but there is no way to guarantee <i>the associativity of
+        composition</i> and the <i>whole abstraction falls
+        apart</i>. It is NOT a <i>Functor</i>.</p>
+        <p>There is a hint: It is not a <i>parameterized type</i> -
+        not an <i>abstract container with a common structure.</i>
+        (it is a “very concrete <i>record</i> type - a <i>unique
+        set of named slots</i>”).</p>
+        <p>Thus any <i>record</i> type is just a classic
+        <i>Abstract Data Type</i> and also an <i>Algebraic Data
+        Type</i> (a product), but not a <i>Functor</i>.</p>
       </div>
     </div>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-06-10 Fri 18:16</p>
+    <p class="date">Created: 2022-06-10 Fri 19:59</p>
   </div>
 </body>
 </html>
