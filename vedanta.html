@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-05-24 Tue 19:42 -->
+  <!-- 2022-06-12 Sun 07:07 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
   rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Fira Code"
   rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='css/main.css'>
+  <link rel='stylesheet' type='text/css' href='/css/main.css'>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
@@ -58,12 +58,12 @@
     <i>actual implementation</i>, based on some particular
     <i>data-structure</i>.</p>
     <p>Math is untyped, too abstract and actually easy.</p>
-    <div id="outline-container-org39e523b" class="outline-2">
-      <h2 id="org39e523b">Math</h2>
-      <div class="outline-text-2" id="text-org39e523b"></div>
-      <div id="outline-container-org74a87ef" class="outline-3">
-        <h3 id="org74a87ef">Function</h3>
-        <div class="outline-text-3" id="text-org74a87ef">
+    <div id="outline-container-orge3590af" class="outline-2">
+      <h2 id="orge3590af">Math</h2>
+      <div class="outline-text-2" id="text-orge3590af"></div>
+      <div id="outline-container-orgc09281e" class="outline-3">
+        <h3 id="orgc09281e">Function</h3>
+        <div class="outline-text-3" id="text-orgc09281e">
           <p>A <i>function</i> \(f ∶ A \rightarrow B\) from a
           <i>Set</i> \(A\) (the domain) to a <i>Set</i> \(B\) (the
           codomain or a range) is a <i>rule</i> \(f\) (defined
@@ -72,33 +72,33 @@
           <p>We call \(f(x)\) the <i>image</i> of \(x\) (in
           \(B\)).</p>
         </div>
-        <div id="outline-container-org259a40b" class="outline-4">
-          <h4 id="org259a40b">One-to-one</h4>
-          <div class="outline-text-4" id="text-org259a40b">
+        <div id="outline-container-orgdcf5c22" class="outline-4">
+          <h4 id="orgdcf5c22">One-to-one</h4>
+          <div class="outline-text-4" id="text-orgdcf5c22">
             <p>The <i>function</i> \(f\) is <i>one-to-one</i> (or
             an <i>injection</i>) if and only if \(\forall x_1, x_2
             \in A, f(x_1) = f(x_2) \Rightarrow x_1 = x_2\).</p>
           </div>
         </div>
-        <div id="outline-container-org86a7c77" class="outline-4">
-          <h4 id="org86a7c77">Surjection</h4>
-          <div class="outline-text-4" id="text-org86a7c77">
+        <div id="outline-container-org2c7a58b" class="outline-4">
+          <h4 id="org2c7a58b">Surjection</h4>
+          <div class="outline-text-4" id="text-org2c7a58b">
             <p>The <i>function</i> \(f\) is <i>onto</i> (or a
             <i>surjection</i>) if and only if \(\forall x \in A
             \exists y \in B \mid f(y) = x\)</p>
           </div>
         </div>
-        <div id="outline-container-org25c87df" class="outline-4">
-          <h4 id="org25c87df">Bijection</h4>
-          <div class="outline-text-4" id="text-org25c87df">
+        <div id="outline-container-orgc6672c7" class="outline-4">
+          <h4 id="orgc6672c7">Bijection</h4>
+          <div class="outline-text-4" id="text-orgc6672c7">
             <p>A <i>function</i> is a <i>bigection</i> if and only
             if it is <i>both one-to-one</i> and <i>onto</i>.</p>
           </div>
         </div>
       </div>
-      <div id="outline-container-org74ce430" class="outline-3">
-        <h3 id="org74ce430">Composition</h3>
-        <div class="outline-text-3" id="text-org74ce430">
+      <div id="outline-container-orge59c38c" class="outline-3">
+        <h3 id="orge59c38c">Composition</h3>
+        <div class="outline-text-3" id="text-orge59c38c">
           <p>If \(f: A \rightarrow B \land g: B \rightarrow C\) are
           <i>functions</i>, their <i>composition</i> \(g \circ f :
           A \rightarrow C\) is given by \[g \circ f(x) =
@@ -107,26 +107,26 @@
           define an <i>order of evaluation</i> for a
           <i>composition</i> of two functions.</p>
         </div>
-        <div id="outline-container-orga1aea31" class="outline-4">
-          <h4 id="orga1aea31">Equality</h4>
-          <div class="outline-text-4" id="text-orga1aea31">
+        <div id="outline-container-orga2e700c" class="outline-4">
+          <h4 id="orga2e700c">Equality</h4>
+          <div class="outline-text-4" id="text-orga2e700c">
             <p>Two <i>functions</i> \(f : A \rightarrow B\) and \(g
             : A \rightarrow B\) are <i>equal</i> if and only if
             \[\forall x \in A, f(x) = g(x)\].</p>
           </div>
         </div>
       </div>
-      <div id="outline-container-orgaa18161" class="outline-3">
-        <h3 id="orgaa18161">Algebraic System</h3>
-        <div class="outline-text-3" id="text-orgaa18161">
+      <div id="outline-container-orgf4c9649" class="outline-3">
+        <h3 id="orgf4c9649">Algebraic System</h3>
+        <div class="outline-text-3" id="text-orgf4c9649">
           <p>A Set \(S\) together with an <i>operation</i>
           \(\bigoplus\) is an algebraic system denoted as \((S,
           \bigoplus)\) (just an <i>abstract tuple</i>).</p>
         </div>
       </div>
-      <div id="outline-container-orgf94860f" class="outline-3">
-        <h3 id="orgf94860f">Operation</h3>
-        <div class="outline-text-3" id="text-orgf94860f">
+      <div id="outline-container-orgc477152" class="outline-3">
+        <h3 id="orgc477152">Operation</h3>
+        <div class="outline-text-3" id="text-orgc477152">
           <p>A Set \(S\) has a <i>binary</i> operation
           \(\bigoplus\) if and only if \[\forall x, y \in S
           \exists! z \in S \mid x \bigoplus y = z\]</p>
@@ -134,9 +134,9 @@
           operation</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org1bf19c2" class="outline-3">
-        <h3 id="org1bf19c2">Closure</h3>
-        <div class="outline-text-3" id="text-org1bf19c2">
+      <div id="outline-container-orgac7525f" class="outline-3">
+        <h3 id="orgac7525f">Closure</h3>
+        <div class="outline-text-3" id="text-orgac7525f">
           <p>For a <i>system</i> \((S, \bigoplus)\), a subset \(T\)
           of \(S\) is <i>closed under \(\bigoplus\)</i> if and only
           if \[\forall t, u \in T, t \bigoplus u \in T\] That is,
@@ -144,9 +144,9 @@
           <i>not</i> required.</p>
         </div>
       </div>
-      <div id="outline-container-org8f33cf2" class="outline-3">
-        <h3 id="org8f33cf2">Commutative</h3>
-        <div class="outline-text-3" id="text-org8f33cf2">
+      <div id="outline-container-orgff0afd3" class="outline-3">
+        <h3 id="orgff0afd3">Commutative</h3>
+        <div class="outline-text-3" id="text-orgff0afd3">
           <p>An operation \(\bigoplus\) is <i>commutative</i> on
           \(S\) if and only if \[\forall a, b \in S, a \bigoplus b
           = b \bigoplus a\]</p>
@@ -155,9 +155,9 @@
           matter.</p>
         </div>
       </div>
-      <div id="outline-container-org5ebc825" class="outline-3">
-        <h3 id="org5ebc825">Associative</h3>
-        <div class="outline-text-3" id="text-org5ebc825">
+      <div id="outline-container-org8d54038" class="outline-3">
+        <h3 id="org8d54038">Associative</h3>
+        <div class="outline-text-3" id="text-org8d54038">
           <p>An operation \(\bigoplus\) on Set \(S\) is
           <i>associative</i> if and only if \(\forall a, b, c \in
           S\) we have \[(a \bigoplus b) \bigoplus c = a \bigoplus
@@ -170,9 +170,9 @@
           required.</p>
         </div>
       </div>
-      <div id="outline-container-org7afba64" class="outline-3">
-        <h3 id="org7afba64">Distributive</h3>
-        <div class="outline-text-3" id="text-org7afba64">
+      <div id="outline-container-orga37976f" class="outline-3">
+        <h3 id="orga37976f">Distributive</h3>
+        <div class="outline-text-3" id="text-orga37976f">
           <p>An operation \(\bigotimes\) on \(S\) <i>distributes
           over</i> \(+\) on \(S\) if and only if \[\forall a, b, c
           \in S, a \bigotimes (b + c) = (a \bigotimes b) + (a
@@ -183,9 +183,9 @@
           connectives</i> distribute over each other.</p>
         </div>
       </div>
-      <div id="outline-container-org73cff2b" class="outline-3">
-        <h3 id="org73cff2b">FOIL</h3>
-        <div class="outline-text-3" id="text-org73cff2b">
+      <div id="outline-container-orgd2aa913" class="outline-3">
+        <h3 id="orgd2aa913">FOIL</h3>
+        <div class="outline-text-3" id="text-orgd2aa913">
           <p>Suppose in \((S, +, *)\) that \(+\) is
           <i>associative</i> and \(*\) /distributes over \(+\) and
           \(a, b, c, d \in S\) Then \[(a + b) * (c + d) = (a * c) +
@@ -194,9 +194,9 @@
           <i>distributive law</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org0d0f200" class="outline-3">
-        <h3 id="org0d0f200">Identity</h3>
-        <div class="outline-text-3" id="text-org0d0f200">
+      <div id="outline-container-org2535f02" class="outline-3">
+        <h3 id="org2535f02">Identity</h3>
+        <div class="outline-text-3" id="text-org2535f02">
           <p>A system \((S, \bigoplus)\) has an <i>indentity</i>
           element \(e \in S\) if and only if \[\forall x \in S, x
           \bigoplus e = x = e \bigoplus x\]</p>
@@ -206,9 +206,9 @@
           <i>unique</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org01c49cd" class="outline-3">
-        <h3 id="org01c49cd">Monoid</h3>
-        <div class="outline-text-3" id="text-org01c49cd">
+      <div id="outline-container-orgcf144e1" class="outline-3">
+        <h3 id="orgcf144e1">Monoid</h3>
+        <div class="outline-text-3" id="text-orgcf144e1">
           <p>\((S, \bigoplus, e)\) such that \(\forall x, y, z \in
           S\) <i>identity</i> and <i>associativity</i> laws hold:
           \[x \bigoplus e = x = e \bigoplus x\] \[x \bigoplus (y
@@ -217,9 +217,9 @@
           however \(+\) and \(*\) are <i>commutative</i>. \[\]</p>
         </div>
       </div>
-      <div id="outline-container-org81851fe" class="outline-3">
-        <h3 id="org81851fe">Inverse</h3>
-        <div class="outline-text-3" id="text-org81851fe">
+      <div id="outline-container-org235120b" class="outline-3">
+        <h3 id="org235120b">Inverse</h3>
+        <div class="outline-text-3" id="text-org235120b">
           <p>For \((S, \bigoplus, e)\) with identity \(e\), an
           <i>inverse of</i> \(x \in S\) is some \(y \in S\) such
           that: \[x \bigoplus y = e = y \bigoplus x\].</p>
@@ -229,19 +229,19 @@
           <i>commutative</i> and \(-b\) is an <i>additive
           inverse</i> of \(b\).</p>
         </div>
-        <div id="outline-container-org62e1c8d" class="outline-4">
-          <h4 id="org62e1c8d">Uniqueness of an inverse</h4>
-          <div class="outline-text-4" id="text-org62e1c8d">
+        <div id="outline-container-org63454b2" class="outline-4">
+          <h4 id="org63454b2">Uniqueness of an inverse</h4>
+          <div class="outline-text-4" id="text-org63454b2">
             <p>If \((S, \bigoplus, e)\) is <i>associative</i> and
             has an <i>identity</i> \(e\) and an element \(x\) has
             an <i>inverse</i>, then the inverse is
             <i>unique</i>.</p>
           </div>
         </div>
-        <div id="outline-container-org5cbd496" class="outline-4">
-          <h4 id="org5cbd496">inverse distibutes over
+        <div id="outline-container-org9a8f8eb" class="outline-4">
+          <h4 id="org9a8f8eb">inverse distibutes over
           \(\bigoplus\)</h4>
-          <div class="outline-text-4" id="text-org5cbd496">
+          <div class="outline-text-4" id="text-org9a8f8eb">
             <ul class="org-ul">
               <li><i>symmetry</i>: \((x^{-1})^{-1} = x\)</li>
               <li><i>distributive law</i>: \((x \bigoplus y)^{-1} =
@@ -250,9 +250,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-org402bcce" class="outline-3">
-        <h3 id="org402bcce">Group</h3>
-        <div class="outline-text-3" id="text-org402bcce">
+      <div id="outline-container-org6155677" class="outline-3">
+        <h3 id="org6155677">Group</h3>
+        <div class="outline-text-3" id="text-org6155677">
           <p><i>Associativiy</i>, <i>Identity</i>, <i>Inverses
           \(\forall x\)</i>.</p>
           <p>A system \((G, \bigoplus, e)\) is a <i>Group</i> if
@@ -262,9 +262,9 @@
           <p>Commutativity is <i>not</i> required.</p>
         </div>
       </div>
-      <div id="outline-container-orgc8cd8c0" class="outline-3">
-        <h3 id="orgc8cd8c0">Ring</h3>
-        <div class="outline-text-3" id="text-orgc8cd8c0">
+      <div id="outline-container-org6421c95" class="outline-3">
+        <h3 id="org6421c95">Ring</h3>
+        <div class="outline-text-3" id="text-org6421c95">
           <p>A <i>Set</i> with two operations \((S, +, *)\) is a
           <i>ring</i> if and only if \((S, +)\) is an <i>abelian
           group</i> with identity \(0\), \(*\) is associative, and
@@ -273,18 +273,18 @@
           are commutative</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org0284110" class="outline-3">
-        <h3 id="org0284110">Field</h3>
-        <div class="outline-text-3" id="text-org0284110">
+      <div id="outline-container-org0e11471" class="outline-3">
+        <h3 id="org0e11471">Field</h3>
+        <div class="outline-text-3" id="text-org0e11471">
           <p>A <i>ring</i> \((F, +, *)\) is a <i>field</i> if and
           only if \(F\) is <i>commutative</i>, has a multiplicative
           identity and \(\forall x ∈ F | x \ne 0\), \(x\) has a
           <i>multiplicative inverse</i></p>
         </div>
       </div>
-      <div id="outline-container-org678a423" class="outline-3">
-        <h3 id="org678a423">Number systems</h3>
-        <div class="outline-text-3" id="text-org678a423">
+      <div id="outline-container-orgc6ebf40" class="outline-3">
+        <h3 id="orgc6ebf40">Number systems</h3>
+        <div class="outline-text-3" id="text-orgc6ebf40">
           <ul class="org-ul">
             <li>\(\mathbb{N}\) has no inverses, \(+\) and \(*\)
             form a <i>Monoid</i>.</li>
@@ -296,15 +296,15 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org089ab77" class="outline-3">
-        <h3 id="org089ab77">Semi-group</h3>
-        <div class="outline-text-3" id="text-org089ab77">
+      <div id="outline-container-orgd9fcfed" class="outline-3">
+        <h3 id="orgd9fcfed">Semi-group</h3>
+        <div class="outline-text-3" id="text-orgd9fcfed">
           <p>A <i>Group</i> without <i>inverses</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org9c5b2f6" class="outline-3">
-        <h3 id="org9c5b2f6">Functor</h3>
-        <div class="outline-text-3" id="text-org9c5b2f6">
+      <div id="outline-container-org51ba3b6" class="outline-3">
+        <h3 id="org51ba3b6">Functor</h3>
+        <div class="outline-text-3" id="text-org51ba3b6">
           <p>Originally defined on <i>graphs</i> as a
           transformation that <i>preserves the structure</i> of a
           graph.</p>
@@ -328,9 +328,9 @@
           <i>homomorphism</i>, that is a <i>structure-preserving
           transformation</i>, whatever it might be.</p>
         </div>
-        <div id="outline-container-org1ecdcad" class="outline-4">
-          <h4 id="org1ecdcad">Category theory</h4>
-          <div class="outline-text-4" id="text-org1ecdcad">
+        <div id="outline-container-orgf098284" class="outline-4">
+          <h4 id="orgf098284">Category theory</h4>
+          <div class="outline-text-4" id="text-orgf098284">
             <p>Here the notion of a <code>Functor</code> has been
             generalized as a mapping between <i>Categories</i>
             which are abstract algebraic structures of
@@ -344,9 +344,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-orgf4f5c20" class="outline-3">
-        <h3 id="orgf4f5c20">Constraints on Sets</h3>
-        <div class="outline-text-3" id="text-orgf4f5c20">
+      <div id="outline-container-org4cf5a30" class="outline-3">
+        <h3 id="org4cf5a30">Constraints on Sets</h3>
+        <div class="outline-text-3" id="text-org4cf5a30">
           <p>We use <i>set comprehension</i> notation to specify
           constraints on subsets (using guards, which are
           <i>predicates</i>). \[\{ x \mid x \leftarrow S, x \geq
@@ -358,15 +358,15 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-org1549621" class="outline-2">
-      <h2 id="org1549621">CS</h2>
-      <div class="outline-text-2" id="text-org1549621"></div>
-      <div id="outline-container-orgc79466c" class="outline-3">
-        <h3 id="orgc79466c">Types are Sets</h3>
+    <div id="outline-container-orge619155" class="outline-2">
+      <h2 id="orge619155">CS</h2>
+      <div class="outline-text-2" id="text-orge619155"></div>
+      <div id="outline-container-org37e99e5" class="outline-3">
+        <h3 id="org37e99e5">Types are Sets</h3>
       </div>
-      <div id="outline-container-org14c49e8" class="outline-3">
-        <h3 id="org14c49e8">Semi-group</h3>
-        <div class="outline-text-3" id="text-org14c49e8">
+      <div id="outline-container-orgfd7dbbd" class="outline-3">
+        <h3 id="orgfd7dbbd">Semi-group</h3>
+        <div class="outline-text-3" id="text-orgfd7dbbd">
           <p>No notion of an <i>inverse</i>. No notion of an
           <i>identity</i>.</p>
           <div class="org-src-container">
@@ -398,9 +398,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-org9a53973" class="outline-3">
-        <h3 id="org9a53973">Monoid</h3>
-        <div class="outline-text-3" id="text-org9a53973">
+      <div id="outline-container-orgcd8b15b" class="outline-3">
+        <h3 id="orgcd8b15b">Monoid</h3>
+        <div class="outline-text-3" id="text-orgcd8b15b">
           <p>Here a <code>Monoid</code> is a (subclass of a)
           <code>Semigroup</code></p>
           <div class="org-src-container">
@@ -434,9 +434,9 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org749dfea" class="outline-3">
-        <h3 id="org749dfea">Functor</h3>
-        <div class="outline-text-3" id="text-org749dfea">
+      <div id="outline-container-orgea1cb39" class="outline-3">
+        <h3 id="orgea1cb39">Functor</h3>
+        <div class="outline-text-3" id="text-orgea1cb39">
           <p>Generalized notion of <i>mapping over a value which
           preserves the structure</i> (whatever it may be).</p>
           <p>Generalized mapping on <code>Lists</code> dates back
@@ -488,9 +488,9 @@
           <p>No additional constraints, except the <i>arity</i> of
           a function which <code>fmap</code> takes.</p>
         </div>
-        <div id="outline-container-org6bd7ed7" class="outline-4">
-          <h4 id="org6bd7ed7">Ocaml modules</h4>
-          <div class="outline-text-4" id="text-org6bd7ed7">
+        <div id="outline-container-org986fe23" class="outline-4">
+          <h4 id="org986fe23">Ocaml modules</h4>
+          <div class="outline-text-4" id="text-org986fe23">
             <p>Application of one <i>structure</i> to another
             (yielding a new structure <i>of the same
             shape</i>).</p>
@@ -499,17 +499,17 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-orgf65d510" class="outline-3">
-        <h3 id="orgf65d510">Constraint on Types</h3>
-        <div class="outline-text-3" id="text-orgf65d510">
+      <div id="outline-container-orga566a24" class="outline-3">
+        <h3 id="orga566a24">Constraint on Types</h3>
+        <div class="outline-text-3" id="text-orga566a24">
           <p>We define <i>classes of parameterized types</i>
           (similar to Sets of Sets with constraints (Boolean
           guards) and the <i>subset relation</i>).</p>
         </div>
       </div>
-      <div id="outline-container-org71b9960" class="outline-3">
-        <h3 id="org71b9960">Type-classes</h3>
-        <div class="outline-text-3" id="text-org71b9960">
+      <div id="outline-container-org36f2a8b" class="outline-3">
+        <h3 id="org36f2a8b">Type-classes</h3>
+        <div class="outline-text-3" id="text-org36f2a8b">
           <p><i>Duck-typing</i> - to <i>be</i> an <code>X</code> is
           to <i>implement</i> a particular <i>interface</i> (a set
           of <i>names</i> with certain <i>type-signatures</i>)
@@ -520,9 +520,9 @@
           <code>X</code> it is required to (already) be (an
           instance of) an <code>Y</code>.</p>
         </div>
-        <div id="outline-container-org6f3fac9" class="outline-4">
-          <h4 id="org6f3fac9">Eq (Equality)</h4>
-          <div class="outline-text-4" id="text-org6f3fac9">
+        <div id="outline-container-org3e2cbba" class="outline-4">
+          <h4 id="org3e2cbba">Eq (Equality)</h4>
+          <div class="outline-text-4" id="text-org3e2cbba">
             <div class="org-src-container">
               <pre class="src src-haskell"><span style=
               "color: #81A1C1;">class</span> <span style=
@@ -549,9 +549,9 @@
             </div>
           </div>
         </div>
-        <div id="outline-container-org6026ce5" class="outline-4">
-          <h4 id="org6026ce5">Ord (Ordered)</h4>
-          <div class="outline-text-4" id="text-org6026ce5">
+        <div id="outline-container-org3a1033b" class="outline-4">
+          <h4 id="org3a1033b">Ord (Ordered)</h4>
+          <div class="outline-text-4" id="text-org3a1033b">
             <div class="org-src-container">
               <pre class="src src-haskell"><span style=
               "color: #81A1C1;">class</span> <span style=
@@ -596,9 +596,9 @@
             </div>
           </div>
         </div>
-        <div id="outline-container-org3e046bd" class="outline-4">
-          <h4 id="org3e046bd">Num (Numbers)</h4>
-          <div class="outline-text-4" id="text-org3e046bd">
+        <div id="outline-container-orgb0502ff" class="outline-4">
+          <h4 id="orgb0502ff">Num (Numbers)</h4>
+          <div class="outline-text-4" id="text-orgb0502ff">
             <p>This corresponds to a <i>Group</i> with 3
             operations.</p>
             <p><code>-</code> is not a Monoid (<i>not
@@ -627,9 +627,9 @@
             </div>
           </div>
         </div>
-        <div id="outline-container-org663ed72" class="outline-4">
-          <h4 id="org663ed72">Integral (Z - Integers)</h4>
-          <div class="outline-text-4" id="text-org663ed72">
+        <div id="outline-container-orga6094f2" class="outline-4">
+          <h4 id="orga6094f2">Integral (Z - Integers)</h4>
+          <div class="outline-text-4" id="text-orga6094f2">
             <p>A constraint on <code>Num</code> (a specialization,
             a subset)</p>
             <div class="org-src-container">
@@ -646,9 +646,9 @@
             </div>
           </div>
         </div>
-        <div id="outline-container-orge58723a" class="outline-4">
-          <h4 id="orge58723a">Fractional (R - Rational)</h4>
-          <div class="outline-text-4" id="text-orge58723a">
+        <div id="outline-container-org4d4538f" class="outline-4">
+          <h4 id="org4d4538f">Fractional (R - Rational)</h4>
+          <div class="outline-text-4" id="text-org4d4538f">
             <div class="org-src-container">
               <pre class="src src-haskell"><span style=
               "color: #81A1C1;">class</span> <span style=
@@ -672,9 +672,9 @@
             </div>
           </div>
         </div>
-        <div id="outline-container-org1856084" class="outline-4">
-          <h4 id="org1856084">Bool (Boolean values)</h4>
-          <div class="outline-text-4" id="text-org1856084">
+        <div id="outline-container-org8e84e3f" class="outline-4">
+          <h4 id="org8e84e3f">Bool (Boolean values)</h4>
+          <div class="outline-text-4" id="text-org8e84e3f">
             <div class="org-src-container">
               <pre class="src src-haskell"><span style=
               "color: #81A1C1;">data</span> <span style=
@@ -694,9 +694,9 @@
           </div>
         </div>
       </div>
-      <div id="outline-container-orge26dc9f" class="outline-3">
-        <h3 id="orge26dc9f">Classic Logic</h3>
-        <div class="outline-text-3" id="text-orge26dc9f">
+      <div id="outline-container-org1a9f6d0" class="outline-3">
+        <h3 id="org1a9f6d0">Classic Logic</h3>
+        <div class="outline-text-3" id="text-org1a9f6d0">
           <p>Logical conjunction:</p>
           <div class="org-src-container">
             <pre class="src src-haskell"><span style=
@@ -776,7 +776,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-05-24 Tue 19:42</p>
+    <p class="date">Created: 2022-06-12 Sun 07:07</p>
   </div>
 </body>
 </html>
