@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-06-12 Sun 07:06 -->
+  <!-- 2022-06-13 Mon 19:02 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -108,6 +108,17 @@
         \mid \forall t1, t2, t1 \leq t2\]</p>
       </div>
     </div>
+    <div id="outline-container-org436ce3a" class="outline-2">
+      <h2 id="org436ce3a">Deriving Eq, Ord</h2>
+      <div class="outline-text-2" id="text-org436ce3a">
+        <p>It will have implicit ordering by <i>timestamps</i>.</p>
+        <p>The first field is an <i>opening timestamp</i> so it
+        will be used for comparing whole records.</p>
+        <p>This implies <code>min</code> and <code>max</code> can
+        be used directly on the values of the <code>Candle</code>
+        type.</p>
+      </div>
+    </div>
     <div id="outline-container-org63ea41d" class="outline-2">
       <h2 id="org63ea41d">A Semigroup</h2>
       <div class="outline-text-2" id="text-org63ea41d">
@@ -188,7 +199,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-06-12 Sun 07:06</p>
+    <p class="date">Created: 2022-06-13 Mon 19:02</p>
   </div>
 </body>
 </html>
