@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-06-13 Mon 18:12 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Frame</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content="The Frame type.">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Frame</h1>
+    </header>
+    <p>A frame is a List of <a href="candle.html">Candles</a> or
+    just <code>[Candle]</code></p>
+    <p>Ideally, it should be a <i>dependent type</i>, parameterized
+    by its <i>time interval</i>, so the <code>Frames</code> of
+    different sizes would be strictly separated.</p>
+    <p>This requirement can be relaxed and a <code>Frame</code>
+    must be an <i>ADT</i>.</p>
+    <p>Conceptually, it is an <i>ordered sequence</i> if
+    <code>Candles</code>. Technically it is a List (an instance of
+    literally all the standard type-classes).</p>
+    <p>The ordering is defined by <i>timestamps</i> of
+    <code>Candles</code> at the time of creation.</p>
+    <div id="outline-container-orgea23aeb" class="outline-2">
+      <h2 id="orgea23aeb">An interval</h2>
+      <div class="outline-text-2" id="text-orgea23aeb">
+        <p>A <i>Frame</i> can be seen as an <i>interval</i> between
+        two <i>timestamps</i>.</p>
+        <p>It is between the <i>opening timestamp</i> of the first
+        <code>Candle</code> in a sequece and the <i>closing
+        timestamp</i> of the last <code>Candle</code> in a
+        sequence.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgc8964a7" class="outline-2">
+      <h2 id="orgc8964a7">Immutable</h2>
+      <div class="outline-text-2" id="text-orgc8964a7">
+        <p><code>Candles</code> are <code>Frames</code> are
+        <i>immutable</i>.</p>
+      </div>
+    </div>
+    <div id="outline-container-org3bf94c8" class="outline-2">
+      <h2 id="org3bf94c8">Functions</h2>
+      <div class="outline-text-2" id="text-org3bf94c8">
+        <p>There will be a set of functions which take a
+        <code>Frame</code> and look inside <code>Candles</code>,
+        just like <code>map</code> and <code>fold</code> do.</p>
+        <p>They should be private to the <code>Frame</code>
+        <i>module</i> and use <code>Candle</code> imports.</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-06-13 Mon 18:12</p>
+  </div>
+</body>
+</html>
