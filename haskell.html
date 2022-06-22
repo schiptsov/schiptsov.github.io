@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-06-12 Sun 07:07 -->
+  <!-- 2022-06-22 Wed 11:35 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -24,6 +24,54 @@
     <header>
       <h1 class="title">Haskell</h1>
     </header>
+    <div id="outline-container-org3af73ac" class="outline-2">
+      <h2 id="org3af73ac">Why</h2>
+      <div class="outline-text-2" id="text-org3af73ac">
+        <p>Because it is, surprise! the most <i>pragmatic</i>
+        language for high-level, domains, modeled using
+        mathematics.</p>
+        <p>The really big idea, which has been popularized by
+        Laslie Lamport, is that one has to model (specify) aspects
+        of ones’s domain in pure math, which then could be
+        mechanically checked for correctness (lack of
+        contradictions).</p>
+        <p>We need just Sets (the notion of such that) and First
+        Order logic from math, discarding the assumption that
+        <i>False implies anything</i>.</p>
+        <p>We need <i>variable bindings</i>, conditional
+        expressions, and the <i>function abstraction</i>, of
+        course. This is, basically, what TLA syntax is.</p>
+        <p>However, math is <i>untyped</i>, or, at best, weakly
+        typed using sets or abstract structures, such as
+        <i>fields</i>, <i>rings</i> and so on, in other words it is
+        <i>structually typed</i>.</p>
+        <p>One could use specialized languages with has a build-in
+        prof-checker, such as <code>coq</code> or
+        <code>Agda</code>, and sometimes it may be reasonable, but
+        one has to rewrite the solution in an “implementation
+        language”.</p>
+        <p>Haskell is a pragmatic choice because once the solution
+        compiles and runs it can be used in production, but this is
+        not the main point. The crucial thing is that the code is
+        <i>pure</i> (as pure mathematics) and could be evaluated
+        with a pen and paper using substitution model, just like
+        math.</p>
+        <p><i>Equational reasoning</i> enables one to write simple
+        (but actual, valid) <i>proofs</i> about functions on
+        domain-driven types and even <i>synthetize</i> some
+        <i>code</i> from <i>proofs</i>.</p>
+        <p>There is no need for another specialized language,
+        because Haskell technically is a <i>pure logic</i>
+        expressed as highly <i>syntactically sugared</i> and
+        <i>well-typed</i> polymorphic Lambda Calculus (System F
+        Omega), augmented with standard <i>machine types</i> (such
+        as <code>Int</code>, <code>Char</code> or
+        <code>Bool</code>).</p>
+        <p><i>Algebraic types</i> and <i>universal
+        pattern-matching</i> makes actual boring programming fun
+        again.</p>
+      </div>
+    </div>
     <div id="outline-container-org0e681cf" class="outline-2">
       <h2 id="org0e681cf">Pure functional</h2>
       <div class="outline-text-2" id="text-org0e681cf">
@@ -80,7 +128,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-06-12 Sun 07:07</p>
+    <p class="date">Created: 2022-06-22 Wed 11:35</p>
   </div>
 </body>
 </html>
