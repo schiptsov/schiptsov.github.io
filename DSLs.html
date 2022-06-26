@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-06-24 Fri 13:42 -->
+  <!-- 2022-06-26 Sun 09:37 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
   <title>Domain Specific Languages</title>
-  <meta name="author" content="schiptsov@gmail.com">
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
   <meta name="generator" content="Org Mode">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css?family=Fira Sans"
@@ -34,12 +34,16 @@
     <p>There is thousands years old mathematical tradition, notably
     the ancient geometry, which is what a descriptive (or
     declarative) language is all about.</p>
-    <div id="outline-container-org85d9fb7" class="outline-2">
-      <h2 id="org85d9fb7">Describe what to do, not how to do</h2>
-      <div class="outline-text-2" id="text-org85d9fb7">
+    <div id="outline-container-org43541aa" class="outline-2">
+      <h2 id="org43541aa">Describe what to do, not how to do</h2>
+      <div class="outline-text-2" id="text-org43541aa">
         <p>Ideally, we should be able to communicate to a program
         our intentions <i>without writing out all the particular
         details of how to do it imperatively</i>.</p>
+        <p>We <i>describe</i> in terms of certain <i>functions</i>
+        and <i>operators</i> provided by a <i>library</i> which is
+        a set of specialized modules (there should be clearly
+        separated <i>layers</i> of such libraries ).</p>
         <p>We should have been able to say something like.</p>
         <div class="org-src-container">
           <pre class="src src-haskell">time<span style=
@@ -59,9 +63,9 @@
         augment what system is able to infer by itself.</p>
       </div>
     </div>
-    <div id="outline-container-org4a17914" class="outline-2">
-      <h2 id="org4a17914">an Embedded DSL</h2>
-      <div class="outline-text-2" id="text-org4a17914">
+    <div id="outline-container-org610cad9" class="outline-2">
+      <h2 id="org610cad9">an Embedded DSL</h2>
+      <div class="outline-text-2" id="text-org610cad9">
         <p>Functional languages, such as Haskell, are particularly
         well-suited to develop <i>embedded DSLs</i> and to
         represent and manipulate <i>declarative mathematical</i>
@@ -69,9 +73,9 @@
         notation).</p>
       </div>
     </div>
-    <div id="outline-container-org1c648fa" class="outline-2">
-      <h2 id="org1c648fa">an Interpreter</h2>
-      <div class="outline-text-2" id="text-org1c648fa">
+    <div id="outline-container-org511e338" class="outline-2">
+      <h2 id="org511e338">an Interpreter</h2>
+      <div class="outline-text-2" id="text-org511e338">
         <p>A <i>state-of-the-art</i> system should have at least
         one <i>interpreter</i> of some <i>simple, declarative</i>
         language within.</p>
@@ -79,8 +83,8 @@
     </div>
   </div>
   <div id="postamble" class="status">
-    <p class="author">Author: schiptsov@gmail.com</p>
-    <p class="date">Created: 2022-06-24 Fri 13:42</p>
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-06-26 Sun 09:37</p>
   </div>
 </body>
 </html>
