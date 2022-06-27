@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-06-27 Mon 17:26 -->
+  <!-- 2022-06-27 Mon 17:33 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -30,7 +30,7 @@
         <p>The trick is that once you <i>threaded up</i> functions
         <i>explicitly</i> using a second argument and returning a
         second value or <i>implicitly</i>, by hiding the second
-        value behind an <i>abstraction barrier</i>, so the
+        value behind an <i>abstraction barrier</i>, the
         <i>referential transparency</i> (property) will hold.</p>
         <p>Same input <i>and an initial value</i> - same output,
         and a <i>new</i> “initial” value. These “ pairs” will
@@ -52,15 +52,18 @@
           "color: #81A1C1;">)</span>
 </pre>
         </div>
-        <p><code>IO</code> uses the <i>abstraction barrier</i>
+        <p><code>IO a</code> uses the <i>abstraction barrier</i>
         aspect of a <code>Monad</code> (so one cannot see or touch
         the World).</p>
-        <p>Serialization is <i>implicit</i> in any monad because
+        <p>In Haskell, but not in math, serialization is
+        <i>implicit</i> in any monad because
         <code>(&gt;&gt;=)</code> is implemented using <i>nested
         lambdas</i>.</p>
         <p>Notice that <i>function composition</i> <code>(.)</code>
-        is also nesting. There is <i>absolutely no other
-        way</i>.</p>
+        is also nesting of lambdas. This is not a coincidence -
+        there is <i>absolutely no other way</i> to enforce an order
+        of evaluation in a <i>Normal Order</i> language. One has to
+        <i>nest explicitly</i>.</p>
         <div class="org-src-container">
           <pre class="src src-haskell">g <span style=
           "color: #88C0D0;">.</span> f <span style=
@@ -94,7 +97,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-06-27 Mon 17:26</p>
+    <p class="date">Created: 2022-06-27 Mon 17:33</p>
   </div>
 </body>
 </html>
