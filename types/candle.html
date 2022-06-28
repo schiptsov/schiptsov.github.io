@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-06-26 Sun 09:37 -->
+  <!-- 2022-06-28 Tue 13:00 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -49,39 +49,39 @@
     </header>
     <p>We are building the <i>simplest possible</i> mathematical
     model.</p>
-    <div id="outline-container-orgba0c71d" class="outline-2">
-      <h2 id="orgba0c71d">A vector from physics</h2>
-      <div class="outline-text-2" id="text-orgba0c71d">
+    <div id="outline-container-orgb9819f2" class="outline-2">
+      <h2 id="orgb9819f2">A vector from physics</h2>
+      <div class="outline-text-2" id="text-orgb9819f2">
         <p><i>Intuitions</i> from physics:</p>
       </div>
-      <div id="outline-container-orgbce06fb" class="outline-3">
-        <h3 id="orgbce06fb">Force</h3>
-        <div class="outline-text-3" id="text-orgbce06fb">
+      <div id="outline-container-org4e841ee" class="outline-3">
+        <h3 id="org4e841ee">Force</h3>
+        <div class="outline-text-3" id="text-org4e841ee">
           <p>An abstract vector is defined as a <i>direction</i>
           and a <i>magnitude</i>.</p>
           <p>In the simplest model there are just two directions -
           up and down.</p>
         </div>
       </div>
-      <div id="outline-container-orge8d9cac" class="outline-3">
-        <h3 id="orge8d9cac">Momentum</h3>
-        <div class="outline-text-3" id="text-orge8d9cac">
+      <div id="outline-container-org28700a4" class="outline-3">
+        <h3 id="org28700a4">Momentum</h3>
+        <div class="outline-text-3" id="text-org28700a4">
           <p>A momentum is defined as a <i>difference</i> between
           <i>two</i> adjacent <i>vectors</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org1dc80c0" class="outline-3">
-        <h3 id="org1dc80c0">Derivative</h3>
-        <div class="outline-text-3" id="text-org1dc80c0">
+      <div id="outline-container-org3d9b6c9" class="outline-3">
+        <h3 id="org3d9b6c9">Derivative</h3>
+        <div class="outline-text-3" id="text-org3d9b6c9">
           <p>In the simplest model the \(x\) -change is always
           \(1\) , so the derivative \(\frac{dy}{dx}\) is just the
           <i>difference</i> in the \(y\) coordinate.</p>
         </div>
       </div>
     </div>
-    <div id="outline-container-orgb8906c9" class="outline-2">
-      <h2 id="orgb8906c9">A product-type</h2>
-      <div class="outline-text-2" id="text-orgb8906c9">
+    <div id="outline-container-orgd8864e8" class="outline-2">
+      <h2 id="orgd8864e8">A product-type</h2>
+      <div class="outline-text-2" id="text-orgd8864e8">
         <p>A <code>Candle</code> is by definition a <i>record</i>.
         Conceptually - a <i>Set of labeled slots</i>. Each
         particular value corresponds to a “point” or a
@@ -99,18 +99,18 @@
         it is an ADT.</p>
       </div>
     </div>
-    <div id="outline-container-org735b3a2" class="outline-2">
-      <h2 id="org735b3a2">Parameterized by an interval</h2>
-      <div class="outline-text-2" id="text-org735b3a2">
+    <div id="outline-container-org2d79b68" class="outline-2">
+      <h2 id="org2d79b68">Parameterized by an interval</h2>
+      <div class="outline-text-2" id="text-org2d79b68">
         <p>Ideally, a <code>Candle</code> has to be a <i>dependent
         type</i> (parameterized by its <i>size</i> - an
         <i>interval</i> between two <i>timestamps</i>). \[t1 - t2,
         \mid \forall t1, t2, t1 \leq t2\]</p>
       </div>
     </div>
-    <div id="outline-container-orga79579a" class="outline-2">
-      <h2 id="orga79579a">Deriving Eq, Ord</h2>
-      <div class="outline-text-2" id="text-orga79579a">
+    <div id="outline-container-org0cb9c7e" class="outline-2">
+      <h2 id="org0cb9c7e">Deriving Eq, Ord</h2>
+      <div class="outline-text-2" id="text-org0cb9c7e">
         <p>It will have implicit ordering by <i>timestamps</i>.</p>
         <p>The first field is an <i>opening timestamp</i> so it
         will be used for comparing whole records.</p>
@@ -119,9 +119,9 @@
         type.</p>
       </div>
     </div>
-    <div id="outline-container-org1f2c397" class="outline-2">
-      <h2 id="org1f2c397">A Semigroup</h2>
-      <div class="outline-text-2" id="text-org1f2c397">
+    <div id="outline-container-org1f2644c" class="outline-2">
+      <h2 id="org1f2644c">A Semigroup</h2>
+      <div class="outline-text-2" id="text-org1f2644c">
         <p>WIth respect to the <i>merging</i> operator
         \(\bigoplus\).</p>
         <div class="org-src-container">
@@ -138,17 +138,17 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-orgbed73f9" class="outline-2">
-      <h2 id="orgbed73f9">An abstract Empty Candle</h2>
-      <div class="outline-text-2" id="text-orgbed73f9">
+    <div id="outline-container-org4b09421" class="outline-2">
+      <h2 id="org4b09421">An abstract Empty Candle</h2>
+      <div class="outline-text-2" id="text-org4b09421">
         <p>Non-existent, abstract <i>identity element</i> \(e\) for
         the <i>merging</i> operation. \[e\bigoplus x = x = x
         \bigoplus e\]</p>
       </div>
     </div>
-    <div id="outline-container-org0982d8c" class="outline-2">
-      <h2 id="org0982d8c">A Monoid</h2>
-      <div class="outline-text-2" id="text-org0982d8c">
+    <div id="outline-container-orgdd1382e" class="outline-2">
+      <h2 id="orgdd1382e">A Monoid</h2>
+      <div class="outline-text-2" id="text-orgdd1382e">
         <p>With the <i>identity element</i> \(e\) (an Empty Candle)
         we will define an <i>instance of a Monoid</i>.</p>
         <div class="org-src-container">
@@ -165,9 +165,9 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-orgbdb49ea" class="outline-2">
-      <h2 id="orgbdb49ea">Not an Endofunctor</h2>
-      <div class="outline-text-2" id="text-orgbdb49ea">
+    <div id="outline-container-org2ef8ef5" class="outline-2">
+      <h2 id="org2ef8ef5">Not an Endofunctor</h2>
+      <div class="outline-text-2" id="text-org2ef8ef5">
         <p>Any <i>product type</i> looks like an implicit,
         <i>trivial Endofunctor</i>, provided that a <i>function</i>
         being mapped over it “knows” how <i>not to break data
@@ -199,7 +199,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-06-26 Sun 09:37</p>
+    <p class="date">Created: 2022-06-28 Tue 13:00</p>
   </div>
 </body>
 </html>
