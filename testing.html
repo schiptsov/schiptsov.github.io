@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-07-02 Sat 16:43 -->
+  <!-- 2022-07-07 Thu 17:46 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -16,10 +16,6 @@
   <link href="https://fonts.googleapis.com/css?family=Fira Code"
   rel="stylesheet">
   <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <link crossorigin="anonymous" media="all" integrity=
-  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
-  rel="stylesheet" href=
-  "https://github.githubassets.com/assets/light-92c7d381038e.css">
 </head>
 <body>
   <div id="org-div-home-and-up">
@@ -35,9 +31,34 @@
     <p>― Edsger W. Dijkstra~</p>
     <p>Every serious discussion about testing absolutely must begin
     with this quote. It is like <i>priming</i> of a religious
-    ritual. It also captures the essence of software engineering -
-    that complexity is so overwhelming that we cannot even know how
-    many bugs are there at any given moment.</p>
+    ritual.</p>
+    <p>It also captures the essence of software engineering - that
+    complexity is so overwhelming that we <i>cannot even know how
+    many bugs are there</i> at any given moment.</p>
+    <div id="outline-container-org18423ab" class="outline-2">
+      <h2 id="org18423ab">Why</h2>
+      <div class="outline-text-2" id="text-org18423ab">
+        <p>A modern aeroplane performs a <i>self-test</i> before a
+        takeoff to check if anything broken <i>since last
+        landing</i>. Pure rationality.</p>
+        <p>One ask <i>other people</i> to modify your code. How do
+        you know they did not break anything? At least a
+        <i>self-test</i> should pass.</p>
+        <p>Everyone thinks that he is smarter than “other people”,
+        so he will not break the code. This is a <i>naive selfish
+        bias</i> and it means that one must <i>double-check</i>
+        everything after every change.</p>
+        <p>A static type checking of a strongly typed language (ML
+        family) is the first line of testing (it catches
+        <i>inconsistencies</i> at a type level).</p>
+        <p>Defensive programming (checking <i>preconditions</i>
+        with assertions) is the second.</p>
+        <p>Static typing + <i>sum-types</i> + testing frameworks
+        will make modification easier and more confident.
+        Modifications, including by other people, are
+        essential.</p>
+      </div>
+    </div>
     <div id="outline-container-org0f7b381" class="outline-2">
       <h2 id="org0f7b381">The law of big numbers</h2>
       <div class="outline-text-2" id="text-org0f7b381">
@@ -111,7 +132,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-07-02 Sat 16:43</p>
+    <p class="date">Created: 2022-07-07 Thu 17:46</p>
   </div>
 </body>
 </html>
