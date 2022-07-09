@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-07-02 Sat 16:44 -->
+  <!-- 2022-07-09 Sat 11:40 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -60,6 +60,49 @@
     piles of bullshit, including the Category Theory, to <i>make
     sure</i> that <i>it is completely irrelevant</i> in this
     context.</p>
+    <p>There are 3 orthogonal notions within this concept <i>in the
+    context of Haskell</i>.</p>
+    <ul class="org-ul">
+      <li>These things encapsulate computations, similar to what
+      <i>functions</i> do. Just like functions, they are
+      <i>first-class values</i>.</li>
+      <li>These things are <i>composeable</i>, just like functions,
+      and form a</li>
+    </ul>
+    <p><i>Monoid</i> with respect the <i>composition
+    operation</i>.</p>
+    <ul class="org-ul">
+      <li>These things are a proper Abstract Data Types -
+      particular instances of a</li>
+    </ul>
+    <p>general <i>type-class</i>. This means that a <i>Monad</i> is
+    a generalized universal <i>pattern</i> (verbosely
+    expressed).</p>
+    <p>Last, but not least, the <i>actual abstraction barrier</i>
+    is enforced by the <i>type-checker</i> (conceptually, Monadic
+    values are tagged with an additional tag and cannot be mixed
+    with ordinary tagged values).</p>
+    <p><i>Data-constructors</i> plays the role of type-tags for
+    <i>absract types</i>.</p>
+    <p><i>Nesting</i> is the only way to define composition of
+    functions in mathematics and in Haskell, and nesting implies a
+    <i>particular order</i> of evaluation (serialization). This is
+    why their composition is an <i>arrow</i>.</p>
+    <p>There are common <i>patterns</i> of usage emerged</p>
+    <ul class="org-ul">
+      <li>Propagation of “nothingness”, as in <code>Maybe</code> or
+      a <code>List</code>.</li>
+      <li><i>Threading</i> (as in beads on a rosary) by implicitly
+      (behind the abstraction barrier) passing an additional
+      parameter, and returning an additional value.</li>
+      <li>
+        <p>Serialization of <code>IO</code> (via /abstract
+        threading - passing the World along).</p>
+        <p>In all cases the <i>referential transparency
+        property</i> still holds, so <i>monadic</i> programming
+        (composition) is still <i>pure-functional</i>.</p>
+      </li>
+    </ul>
     <div id="outline-container-org08d454b" class="outline-2">
       <h2 id="org08d454b">Abstraction barrier</h2>
       <div class="outline-text-2" id="text-org08d454b">
@@ -373,7 +416,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-07-02 Sat 16:44</p>
+    <p class="date">Created: 2022-07-09 Sat 11:40</p>
   </div>
 </body>
 </html>
