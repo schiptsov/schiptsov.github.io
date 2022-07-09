@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-07-09 Sat 09:39 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Formal specs.</title>
+  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
+  <meta name="description" content=
+  "No bullshit formal specifications.">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Formal specs.</h1>
+    </header>
+    <div id="outline-container-org0d4ee37" class="outline-2">
+      <h2 id="org0d4ee37">Writing</h2>
+      <div class="outline-text-2" id="text-org0d4ee37">
+        <p><i>Writing</i> is nature’s way of letting you know how
+        sloppy your <i>thinking</i> (reasoning) is.</p>
+        <p>A specification is a <i>written description</i> of
+        <i>what</i> (not <i>how</i>) a function, a module or a
+        system is supposed to do.</p>
+        <p><i>What</i> exactly a function or a module should do,
+        not <i>how</i>. Irrelevant details have to be <i>abstracted
+        out</i>.</p>
+        <p>Specifying a function or a module helps us understand it
+        at a higher level of concepts or abstractions.</p>
+        <p>Concepts and relations among them is a level of
+        abstraction <i>above the code</i>. It corresponds to how we
+        <i>think</i>.</p>
+        <p>it’s a good idea to write a <i>specification</i> of a
+        function or a module <i>before</i> implementing it. Nothing
+        clarifies the mind better than writing thoughts down.</p>
+        <p>Writting formally, using standard notiaions, eliminates
+        ambiguity and imprecision of a human language.</p>
+        <p>The tools are TLA+, and sometimes Agda or Idris.</p>
+        <p>The actual <i>data representation</i> and an
+        <i>implementation of an algorithm</i></p>
+        <ul class="org-ul">
+          <li>the how - has to be encapsulated and hidden behind a
+          /public</li>
+        </ul>
+        <p>interface/, which constitutes an abstraction barrier,
+        inside a module which implements an Abstract Data Type.</p>
+        <p>This is how a <i>hierarchical</i>, and <i>layered</i>
+        sub-systems is to be build, the way Nature does.</p>
+        <p>Functions or modules are “cells”, signatures or
+        interfaces are “membranes”.</p>
+        <p><i>Protocols</i> are contracts, which correspond to a
+        phisical <i>constraints of a shared environment</i>. A
+        network is a shared environment.</p>
+      </div>
+    </div>
+    <div id="outline-container-org1e624c3" class="outline-2">
+      <h2 id="org1e624c3">Math</h2>
+      <div class="outline-text-2" id="text-org1e624c3">
+        <p>Our basic tool for writing specifications is
+        mathematics.</p>
+        <p>Mathematics is nature’s way of letting you know how
+        sloppy your writing is.</p>
+        <p>Formal mathematics is nature’s way of letting you know
+        how sloppy your mathematics is</p>
+        <p>Logicians have developed ways of eliminating mere words
+        and making the mathematics completely formal and, hence,
+        completely precise.</p>
+        <p>It’s hard to be clear and <i>precise</i> in an imprecise
+        and ambigous language like English.</p>
+        <p>To avoid errors, science and engineering have adopted
+        mathematics as their language</p>
+        <p>Each <i>equation</i> is a precise assertion after being
+        <i>proven</i> to be correct.</p>
+        <p>Most specifications require only simple application of a
+        few <i>standard mathematical concepts</i> (Numbers, Sets
+        and Sequences).</p>
+        <p>Mathematics is a set of formal domain-specific languages
+        to describe the Universe (particular aspects of
+        reality).</p>
+        <p>The Set Theory and First-Order Logic are the most
+        fundamental DSLs.</p>
+        <p>The language of Sets could be thought of as an embedded
+        DLS for logic. Or an extension.</p>
+        <p>the generalized and abstracted out the notion of a
+        Number and operations on them).</p>
+        <p>write down a mathematical model of an aspect of
+        reality.</p>
+        <p>specify what we expect of a program and do so formally
+        in a mathematical language.</p>
+        <p>so that we could effectively prove the equivalence of
+        the two and verify their equivalence by computer.</p>
+        <p>Meaning is a mathematical model Semantics, denotational
+        semantics</p>
+      </div>
+    </div>
+    <div id="outline-container-org7f8f725" class="outline-2">
+      <h2 id="org7f8f725">Haskell</h2>
+      <div class="outline-text-2" id="text-org7f8f725">
+        <p>Write specs in Haskell, not abstract math</p>
+        <p>Specification is a mathematical model</p>
+        <ul class="org-ul">
+          <li>Adequate (captures, abstracts out correctly)</li>
+          <li>Simple (straightforward, simplest structures)</li>
+          <li>Precise (proof of adequacy and self-fool-proof)</li>
+        </ul>
+        <p>try to write our code to pack as much of the proof into
+        the type system as possible.</p>
+        <p>think of the code as a black box about which all we can
+        see is its surface: its specification.</p>
+        <p>A specification is written for humans to read, not
+        machines. (formal specifications, at least invariants
+        checking in TLA+)</p>
+        <p>“Specs” can take time to write well, and it is time well
+        spent.</p>
+        <p>The main goal is clarity. It is also important to be
+        concise.</p>
+        <p>A well-written specification usually has several parts
+        communicating different kinds of information about the
+        thing specified.</p>
+        <p>Definitional (declarative) specifications instead of
+        operational (imperative).</p>
+        <p>write simple, slow implementations first, then improve
+        bottlenecks as necessary.</p>
+        <p>The specification forms an abstraction barrier that
+        protects the implementer from the client and vice
+        versa.</p>
+        <p>Locality is one of the benefits of abstraction by
+        specification. A module can be understood without needing
+        to examine its implementation.</p>
+        <p>it promotes loose coupling between different code
+        modules. If one module changes, other modules are less
+        likely to have to change to match.</p>
+        <p>The client should not assume more about the
+        implementation than is given in the spec because that
+        allows the implementation to change.</p>
+        <p>Making assumptions about the implementation that are not
+        guaranteed by the specification is known as violating the
+        abstraction barrier.</p>
+        <p>Reading and writing specifications requires close
+        attention to detail.</p>
+        <p>A specification is a contract between a client of some
+        unit of code and the implementer of that code.</p>
+        <p>As soon as a design decision is made, document it in a
+        specification.</p>
+        <p>The most common place we find specifications is as
+        comments in the interface (.mli) files for a module.</p>
+        <p>So, specifications are informal (formal are in TLA).</p>
+        <p>There, the implementer of the module spells out what the
+        client may and may not assume about the module’s
+        behavior.</p>
+        <p>Specifications usually involve preconditions and
+        postconditions.</p>
+        <p>The preconditions inform what the client must guarantee
+        about inputs they pass in, and what the implementer may
+        assume about those inputs.</p>
+        <p>The postconditions inform what they client may assume
+        about outputs they receive, and what the implementer must
+        guarantee about those outputs.</p>
+        <p>Those are informally specified constraints on inputs and
+        outputs.</p>
+        <p>An implementation satisfies a specification if it
+        provides the behavior described by the specification.</p>
+        <p>There may be many possible implementations of a given
+        specification that are feasible.</p>
+        <ul class="org-ul">
+          <li>preconditions (constraints on inputs)</li>
+          <li>exceptions (when, if any)</li>
+          <li>boundary cases (empty containers, etc)</li>
+          <li>postconditions (the type of the range)</li>
+        </ul>
+        <p>Specifications should be written quite early.</p>
+        <p>Specifications should continue to be updated throughout
+        implementation.</p>
+        <p>a template Returns: (range, postconditions) Requires:
+        (domain, preconditions) Raises: Example: (use/call
+        side)</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+    <p class="date">Created: 2022-07-09 Sat 09:39</p>
+  </div>
+</body>
+</html>

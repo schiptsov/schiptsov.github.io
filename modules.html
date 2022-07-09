@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-07-02 Sat 16:43 -->
+  <!-- 2022-07-09 Sat 09:39 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -32,25 +32,119 @@
     within a package body.</p>
     <p>Partitioning and Nesting are the main principles. Types
     should be abstract.</p>
+    <p>A module must be understood without needing to examine its
+    implementation.</p>
+    <div id="outline-container-org7fd34d5" class="outline-2">
+      <h2 id="org7fd34d5">Meta-level</h2>
+      <div class="outline-text-2" id="text-org7fd34d5">
+        <p>Cognitive overload is the primary motivation for
+        modularity.</p>
+        <p>There is a limit to how many things a person can think
+        about at once (hence <i>loose coupling</i> - saparation,
+        partitioning).</p>
+        <p>One-to-one correspondence with major <i>concepts</i> in
+        an expert’s language.</p>
+        <p>Modules are part of <i>the Model</i>, and they should
+        reflect <i>concepts</i> in the domain.</p>
+        <p>It isn’t just code being divided into modules , but
+        <i>concepts</i>.</p>
+        <p>Modules are <i>partitions</i> for (in the universes of)
+        concepts.</p>
+        <p>Modules and their <i>names</i> should reflect insights
+        in the domain.</p>
+        <p>Refine the model (a spiral-shaped process of continuous
+        refinement ) until it <i>partitions</i> according to
+        <i>high-level domain concepts</i> and the corresponding
+        code is being <i>decoupled</i> as well.</p>
+      </div>
+    </div>
+    <div id="outline-container-org4634970" class="outline-2">
+      <h2 id="org4634970">Principles</h2>
+      <div class="outline-text-2" id="text-org4634970">
+        <p>Everything is to be build upon Algebraic (<i>sum</i> and
+        <i>product</i>) abstract data types.</p>
+        <p>Abstract means that one uses only <i>constructors</i>
+        exported from a module <i>pattern-matching</i>.</p>
+        <p>Individual types corresponds to (represent) <i>mental
+        concepts</i>. This is where DDD fuzzes with FP and TDD.</p>
+        <p>A module contains all the functions specifically related
+        to the main <i>types</i></p>
+        <p>It should have ML-like signature checked by the
+        compiler, but OK. Standard ML people in 90s got it all
+        right.</p>
+        <p>Again, the big picture is: <code>Concepts -&gt; Types
+        -&gt; Interfaces -&gt; Modules</code> We program with
+        algebraic types in FP.</p>
+      </div>
+      <div id="outline-container-org52b7a26" class="outline-3">
+        <h3 id="org52b7a26">The Abstraction principle</h3>
+        <div class="outline-text-3" id="text-org52b7a26">
+          <p>Abstraction is the key to managing overwhelming
+          complexity. • Abstraction is a tool (the only one?) that
+          people use to understand vastly complex systems. •
+          Abstraction allows people to know <i>what</i> a
+          (sub)system does without knowing <i>how</i> - without
+          memorizing all the irrelevant details.</p>
+          <p>Proper modularity is the manifestation of adequate
+          abstraction • Proper modularity makes a program’s
+          abstractions <i>explicit</i> • Proper modularity can
+          <i>dramatically</i> increase clarity</p>
+        </div>
+      </div>
+      <div id="outline-container-org447e55a" class="outline-3">
+        <h3 id="org447e55a">The Encapsulation principle</h3>
+        <div class="outline-text-3" id="text-org447e55a">
+          <p>A well-designed module encapsulates data (information
+          hiding) • An interface should <i>hide implementation
+          details</i> • A module should use its functions to
+          <i>encapsulate its data</i> • A module should <i>not</i>
+          allow clients to manipulate the data directly</p>
+          <p>The goal is that the <i>representation</i> and
+          <i>implementation</i> can be changed without being
+          noticed by the “users” of the module.</p>
+          <p>It is common in ML to have multiple implementations of
+          the same <i>signature</i> which can be used
+          <i>interchangeably</i>.</p>
+        </div>
+      </div>
+      <div id="outline-container-org0c0d699" class="outline-3">
+        <h3 id="org0c0d699">The Necessery and Sufficient
+        principle</h3>
+        <div class="outline-text-3" id="text-org0c0d699">
+          <p>A well-designed module has a <i>minimal interface</i>
+          • Function declaration should be in a module’s interface
+          if and only if: • The function is <i>necessary</i> to
+          make objects complete, or • The function is
+          <i>sufficient</i> - consistent for many clients</p>
+        </div>
+      </div>
+    </div>
     <div id="outline-container-org68d7feb" class="outline-2">
       <h2 id="org68d7feb">Record</h2>
       <div class="outline-text-2" id="text-org68d7feb">
+        <p>A module is just like a record of named and typed slots
+        (<i>type-signatures</i>) and just like a <i>tagged
+        Cartesian product</i>. Access is similar to
+        <i>selectors</i> (for slots of a record).</p>
+        <p>Modules can be <i>nested</i>, even <i>applied</i> to one
+        another (in ML or Ocaml).</p>
         <p>Conceptually, a module is <i>an instance of</i> a
         <a href="record.html">record</a> (it is not a
         <i>record-type</i>) of given type-signatures (which is a
-        symbol-type pair).</p>
+        <i>symbol-type pair</i>).</p>
         <p>We cannot say that a module is a <i>Cartesian
         Product</i> of typed slots (<i>type-signatures</i>),
         because they are fixed (are constants) and do not range
         over some Set (like variables).</p>
+        <p>This is why we said <i>like</i>.</p>
       </div>
     </div>
     <div id="outline-container-org0710584" class="outline-2">
       <h2 id="org0710584">Structure</h2>
       <div class="outline-text-2" id="text-org0710584">
-        <p>So it is an instance - (a single <i>record-value</i>) -
-        a particular structure as they called in Standard ML or
-        Ocaml or F#.</p>
+        <p>So it is an <i>instance</i> (a single <i>record-like
+        value</i>), a particular <i>structure</i> as they called in
+        Standard ML or Ocaml or F#.</p>
         <p>The access is similar to <i>selectors</i> for record’s
         slots.</p>
       </div>
@@ -58,12 +152,26 @@
     <div id="outline-container-org87e4572" class="outline-2">
       <h2 id="org87e4572">Signatures</h2>
       <div class="outline-text-2" id="text-org87e4572">
-        <p>Each such “structure” has its own “signature” which
-        corresponds to its particular “type”.</p>
+        <p>Each such “structure” is an instance of a particular
+        <i>“signature”</i> which corresponds to its particular
+        “<i>structural type</i>”.</p>
         <p>Conceptually, a module-signature is just a Set of
         type-signatures of individual values (which could be
         <i>functions</i>, <i>exceptions</i> or even
         <i>types</i>).</p>
+        <p>Syntactically, a module signatures is a list of
+        individual type-signatures.</p>
+        <p>The type of a structure is captured in its signature and
+        contains all of the static properties of a module that are
+        needed by some other module that might use it.</p>
+      </div>
+    </div>
+    <div id="outline-container-org04328a8" class="outline-2">
+      <h2 id="org04328a8">Functors in ML</h2>
+      <div class="outline-text-2" id="text-org04328a8">
+        <p>The use of one module by another is captured by special
+        functions called functors that map structures to new
+        structures.</p>
       </div>
     </div>
     <div id="outline-container-orgc3e5f90" class="outline-2">
@@ -83,6 +191,13 @@
     <div id="outline-container-org1e88536" class="outline-2">
       <h2 id="org1e88536">Interfaces</h2>
       <div class="outline-text-2" id="text-org1e88536">
+        <p>The interface of a module gives the <i>type</i> of each
+        exported <i>value</i>.</p>
+        <p>For exported types, the interface may give either their
+        complete definition or simply their name.</p>
+        <p>This is how the mind handle concepts - it might know
+        some details or only heard about it - <i>what it stands
+        for</i> (associated with).</p>
         <p>Modules <i>export</i> a Set of public (use-side,
         exposed) interfaces (which are, in turn, Sets of individual
         type-signatures).</p>
@@ -143,7 +258,7 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-07-02 Sat 16:43</p>
+    <p class="date">Created: 2022-07-09 Sat 09:39</p>
   </div>
 </body>
 </html>
