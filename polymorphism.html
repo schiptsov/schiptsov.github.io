@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-07-23 Sat 08:33 -->
+  <!-- 2022-07-31 Sun 08:50 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -48,15 +48,15 @@
     <header>
       <h1 class="title">Polymorphism</h1>
     </header>
-    <div id="outline-container-org350687f" class="outline-2">
-      <h2 id="org350687f">ad-hoc</h2>
-      <div class="outline-text-2" id="text-org350687f">
+    <div id="outline-container-org8c5cf10" class="outline-2">
+      <h2 id="org8c5cf10">ad-hoc</h2>
+      <div class="outline-text-2" id="text-org8c5cf10">
         <p>This means syntactic level tricks, no support at
         type-level.</p>
       </div>
-      <div id="outline-container-org27856c8" class="outline-3">
-        <h3 id="org27856c8">Operator overloading</h3>
-        <div class="outline-text-3" id="text-org27856c8">
+      <div id="outline-container-org3778055" class="outline-3">
+        <h3 id="org3778055">Operator overloading</h3>
+        <div class="outline-text-3" id="text-org3778055">
           <ul class="org-ul">
             <li>Syntactic sugar, as if a function is generic
             (desugars into specialized mono-typed by a
@@ -66,9 +66,9 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org8245a3a" class="outline-3">
-        <h3 id="org8245a3a">Implicit coercions</h3>
-        <div class="outline-text-3" id="text-org8245a3a">
+      <div id="outline-container-orgd08fc32" class="outline-3">
+        <h3 id="orgd08fc32">Implicit coercions</h3>
+        <div class="outline-text-3" id="text-orgd08fc32">
           <ul class="org-ul">
             <li>coercion syscalls inserted by a compiler (a
             kludge)</li>
@@ -76,15 +76,15 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-orgb538fa7" class="outline-2">
-      <h2 id="orgb538fa7">Universal</h2>
-      <div class="outline-text-2" id="text-orgb538fa7">
+    <div id="outline-container-org57b916d" class="outline-2">
+      <h2 id="org57b916d">Universal</h2>
+      <div class="outline-text-2" id="text-org57b916d">
         <p>A polymorphic type-system (such as the
         Hidley-Milner).</p>
       </div>
-      <div id="outline-container-org3ff20a0" class="outline-3">
-        <h3 id="org3ff20a0">Parametric</h3>
-        <div class="outline-text-3" id="text-org3ff20a0">
+      <div id="outline-container-orgadea99d" class="outline-3">
+        <h3 id="orgadea99d">Parametric</h3>
+        <div class="outline-text-3" id="text-orgadea99d">
           <p>Parameterized type-constructors (type-level
           application)</p>
           <ul class="org-ul">
@@ -94,9 +94,9 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org5d9238c" class="outline-3">
-        <h3 id="org5d9238c">Sub-typing</h3>
-        <div class="outline-text-3" id="text-org5d9238c">
+      <div id="outline-container-orgd667238" class="outline-3">
+        <h3 id="orgd667238">Sub-typing</h3>
+        <div class="outline-text-3" id="text-orgd667238">
           <p>An actual <i>type-hierarchy</i> from general to
           specific (specialization)</p>
           <ul class="org-ul">
@@ -106,9 +106,9 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-orgde6a842" class="outline-3">
-        <h3 id="orgde6a842">Type-classes</h3>
-        <div class="outline-text-3" id="text-orgde6a842">
+      <div id="outline-container-org90cedfc" class="outline-3">
+        <h3 id="org90cedfc">Type-classes</h3>
+        <div class="outline-text-3" id="text-org90cedfc">
           <p>An extension of a Hindley-Milner sytem - partitioning
           by an interface (a <i>set of type-signatures</i>)</p>
           <ul class="org-ul">
@@ -118,9 +118,9 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-org39b157b" class="outline-2">
-      <h2 id="org39b157b">forall</h2>
-      <div class="outline-text-2" id="text-org39b157b">
+    <div id="outline-container-orgbfc1602" class="outline-2">
+      <h2 id="orgbfc1602">forall</h2>
+      <div class="outline-text-2" id="text-orgbfc1602">
         <p>It turns out that one <i>cannot</i> just say \(\forall
         x\) - this would imply everything what is in the whole
         Universe and lead to the <i>Russel paradox</i>.</p>
@@ -185,9 +185,9 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-org6ee5a38" class="outline-2">
-      <h2 id="org6ee5a38">exists</h2>
-      <div class="outline-text-2" id="text-org6ee5a38">
+    <div id="outline-container-org3722a68" class="outline-2">
+      <h2 id="org3722a68">exists</h2>
+      <div class="outline-text-2" id="text-org3722a68">
         <p>The \(\exists\) quantifier corresponds to the notion
         that <i>there is</i> a <i>most general type</i> (a
         super-type) like <code>Object</code>.</p>
@@ -196,7 +196,9 @@
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="date">Created: 2022-07-23 Sat 08:33</p>
+    <p class="email">Email: <a href=
+    "mailto:lngnmn2@gmail.com">lngnmn2@gmail.com</a></p>
+    <p class="date">Created: 2022-07-31 Sun 08:50</p>
   </div>
 </body>
 </html>
