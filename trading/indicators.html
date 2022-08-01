@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-07-31 Sun 09:30 -->
+  <!-- 2022-08-01 Mon 10:00 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -240,6 +240,34 @@
       <h2 id="org240d4c8">MACD</h2>
       <div class="outline-text-2" id="text-org240d4c8">
         <p>Averages and slopes MA <i>Lines</i></p>
+        <p><code>MACD-Histogram = MACD line − Signal line</code>
+        MACD-Histogram measures the <i>difference</i> between the
+        MACD-line and the Signal Line (MACD-line is itself the
+        <i>difference</i> between \(12\) and \(26\) EMAs).</p>
+        <p>Since each \(\delta x\) can be considered as a
+        <i>unit</i> (set to \(1\)) the Histogram shows the
+        <i>abstract second /derivative</i> or “acceleration”
+        (spread).</p>
+        <p>The <i>slope</i> is thus just the \(\delta y\). (the
+        difference between open and close). This is <i>change</i>
+        within a candle.</p>
+        <p>The slope between any <i>two adjacent candles</i>
+        (closing prices) is the <i>change</i> within a <i>single
+        step</i> (so, again, \(\delta x=1\)).</p>
+        <p>Price change (the length of a candle) is the
+        “speed”.</p>
+      </div>
+    </div>
+    <div id="outline-container-org4eebaeb" class="outline-2">
+      <h2 id="org4eebaeb">Metrics and “meters”</h2>
+      <div class="outline-text-2" id="text-org4eebaeb">
+        <p>Keep in mind that these <i>moving averages</i> are pure
+        abstractions - derived metrics, and their further
+        manipulations (subtractions) are even more abstract.</p>
+        <p>The only “real” ones are the changes
+        (<i>differences</i>) in <i>price</i> and <i>volume</i> (and
+        numbers of trades, bucked-sorted by <i>position
+        sizes</i>).</p>
       </div>
     </div>
     <div id="outline-container-org0ae5bea" class="outline-2">
@@ -265,7 +293,7 @@
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
     <p class="email">Email: <a href=
     "mailto:lngnmn2@gmail.com">lngnmn2@gmail.com</a></p>
-    <p class="date">Created: 2022-07-31 Sun 09:30</p>
+    <p class="date">Created: 2022-08-01 Mon 10:00</p>
   </div>
 </body>
 </html>
