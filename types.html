@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-08-13 Sat 09:24 -->
+  <!-- 2022-08-14 Sun 11:59 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -48,6 +48,193 @@
     <header>
       <h1 class="title">Types</h1>
     </header>
+    <div id="outline-container-org9cbb682" class="outline-2">
+      <h2 id="org9cbb682">Cardinality of a type</h2>
+      <div class="outline-text-2" id="text-org9cbb682">
+        <p>Cardinality (the size) is the only <i>structural
+        (general) property</i> of a Set.</p>
+        <p>Associate a type with cardinality (just like of a Set)
+        How many inhabitants (members) a type has. Ignore bottoms
+        (they are relevant only in type-constraint solving)</p>
+        <div class="org-src-container">
+          <pre class="src src-haskell"><span style=
+          "color: #81A1C1;">data</span> <span style=
+          "color: #8FBCBB;">Void</span> <span style=
+          "color: #6f7787;">-- </span><span style=
+          "color: #6f7787;">0, no elements, just like The Empty Set</span>
+
+<span style="color: #81A1C1;">data</span> <span style=
+"color: #81A1C1;">()</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">()</span> <span style=
+"color: #6f7787;">-- </span><span style=
+"color: #6f7787;">exactly 1, exactly this - no new information</span>
+
+<span style="color: #81A1C1;">data</span> <span style=
+"color: #8FBCBB;">Bool</span> <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #8FBCBB;">True</span> <span style=
+"color: #D8DEE9;">|</span> <span style=
+"color: #8FBCBB;">False</span> <span style=
+"color: #6f7787;">-- </span><span style=
+"color: #6f7787;">just these 2. notice the |</span>
+
+<span style="color: #81A1C1;">data</span> <span style=
+"color: #81A1C1;">(</span><span style=
+"color: #8FBCBB;">,</span><span style=
+"color: #81A1C1;">)</span> a b <span style=
+"color: #D8DEE9;">=</span> <span style=
+"color: #81A1C1;">(</span><span style=
+"color: #8FBCBB;">,</span><span style=
+"color: #81A1C1;">)</span> a b <span style=
+"color: #6f7787;">-- </span><span style=
+"color: #6f7787;">a type-constructor, parametrized by a nd b</span>
+</pre>
+        </div>
+      </div>
+      <div id="outline-container-orgd7f63f0" class="outline-3">
+        <h3 id="orgd7f63f0">Shapes or forms</h3>
+        <div class="outline-text-3" id="text-orgd7f63f0">
+          <p>Notice that these types have distinct, unique
+          <i>shapes</i></p>
+          <ul class="org-ul">
+            <li><code>|</code> stands for an <i>alternative or a
+            possibility</i> - <code>OR ELSE</code> (a “fork” -
+            <i>this or that</i>).</li>
+            <li><code>,</code> stands for <code>AND ALSO</code>
+            (pretense in the same locality) (a “join” - <i>this and
+            that</i>).</li>
+          </ul>
+          <p>Notice that</p>
+          <ul class="org-ul">
+            <li>only one “branch” of a “fork” can be taken
+            (<i>observed</i>).</li>
+            <li>an <i>aggregate</i> (a compound) is fundamentally
+            different (has its own <i>unique /properties</i>) from
+            its individual parts.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="outline-container-orgd1a452c" class="outline-2">
+      <h2 id="orgd1a452c">Total</h2>
+      <div class="outline-text-2" id="text-orgd1a452c">
+        <p>Knowing cardinalities of any two types (sets) we can
+        know how many “arrows” (distinct relations or individual
+        mappings) are there <i>in total</i>.</p>
+        <p>When we try to <i>visualize</i> (or formally define as a
+        directed graph) the totality of all the possible relations
+        we will notice that the resulting shapes (abstract
+        structures) are the same (same number, same direction).</p>
+        <p>And this is it. This does not imply anything more than
+        that - just similarity in its totality - a purely abstract
+        notion.</p>
+        <p>The notion of duality based on cardinality alone is
+        wrong and misleading.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgbaacd9b" class="outline-2">
+      <h2 id="orgbaacd9b">Isomorphism</h2>
+      <div class="outline-text-2" id="text-orgbaacd9b">
+        <p>Any two types of the same cardinality could be viewed as
+        <i>isomorphic</i>. This is a naive and too abstract to be
+        useful assumption.</p>
+        <p>The <i>shape</i> (the <i>form</i> or <i>structure</i>)
+        of the type is its distinct feature, out of which its
+        <i>properties</i> arise (just as it is with molecules).</p>
+        <p>A “fork” is not isomorphic to a “join” in principle, but
+        these are viewed by some sectarians as such.</p>
+      </div>
+      <div id="outline-container-orgf91f7ca" class="outline-3">
+        <h3 id="orgf91f7ca">Definition</h3>
+        <div class="outline-text-3" id="text-orgf91f7ca">
+          <p>The formal definition is this</p>
+          <ul class="org-ul">
+            <li><i>there is a pair of total functions between two
+            types (sets)</i></li>
+            <li>any <i>composition of these two functions is an
+            identity (a round trip)</i></li>
+          </ul>
+          <p>When two types (sets) has the same cardinality, an
+          <i>one-to-one correspondence</i> (a mapping between whole
+          types) could be defined <i>in principle</i> as a pair of
+          total functions (on whole types).</p>
+        </div>
+      </div>
+      <div id="outline-container-org8a3d3fd" class="outline-3">
+        <h3 id="org8a3d3fd">Ordering</h3>
+        <div class="outline-text-3" id="text-org8a3d3fd">
+          <p>As long as cardinality is greater than 1 a particular
+          <i>ordering</i> has to be defined (become a part of an
+          abstract mathematical structure).</p>
+        </div>
+      </div>
+      <div id="outline-container-orge756652" class="outline-3">
+        <h3 id="orge756652">An ordered set of arrows</h3>
+        <div class="outline-text-3" id="text-orge756652">
+          <p>Individual “arrows” (relations) <i>between values</i>
+          has to be in a particular order.</p>
+          <p>Each “arrow” has to have a unique <i>inverse</i>
+          “arrow” (which goes back where it started).</p>
+          <p>The meaning and validity of such functions does not
+          concern mathematicians (only good philosophers).</p>
+          <p>Symmetries (rotations) could be formalized with such
+          sets of functions.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgc9b9e77" class="outline-3">
+        <h3 id="orgc9b9e77">n!</h3>
+        <div class="outline-text-3" id="text-orgc9b9e77">
+          <p>For any two types (sets) of the same cardinality \(n\)
+          there are \(n!\) <i>unique</i> isomorphisms between
+          them.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgad17294" class="outline-3">
+        <h3 id="orgad17294">Same cardinality does not imply the
+        same shape</h3>
+        <div class="outline-text-3" id="text-orgad17294">
+          <p><i>Knowing that an isomorphism exists is enough. An
+          isomorphism between types \(s\) and \(t\) is a proof that
+          /for all intents and purposes</i>, \(s\) and \(t\) are
+          the same thing/.</p>
+          <p>This, of course, is bullshit.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgc8474e8" class="outline-3">
+        <h3 id="orgc8474e8">The laws</h3>
+        <div class="outline-text-3" id="text-orgc8474e8">
+          <p>The cardinality of a <i>sum-type</i> is the sum of the
+          cardinalities of its constructors.</p>
+          <p>The cardinality of a <i>product-type</i> is the
+          product of cardinalities of its parts.</p>
+          <p>It is said that these are <i>duals</i>, which is,
+          again, bullshit.</p>
+          <p>The <i>sum-</i> and <i>product-</i> types have
+          different <i>shapes</i> or <i>forms</i>.</p>
+        </div>
+      </div>
+      <div id="outline-container-org7abd75c" class="outline-3">
+        <h3 id="org7abd75c">Monoidial identities</h3>
+        <div class="outline-text-3" id="text-org7abd75c">
+          <p><code>()</code> is a Monoidal Identity element for
+          product-types (no new information). <code>Void</code> is
+          an identity element for sum-types (<code>Void</code> has
+          no members).</p>
+        </div>
+      </div>
+    </div>
+    <div id="outline-container-org52e022d" class="outline-2">
+      <h2 id="org52e022d">Exponentials</h2>
+      <div class="outline-text-2" id="text-org52e022d">
+        <p>The type \(A \rightarrow B\) has cardinality \(B^{A}\)
+        .</p>
+        <p>For every value of \(a\) in the <i>domain</i>, there is
+        a \(b\) in \(B\). We can chose <i>any value</i> of \(B\)
+        for every value in \(A\) so it is \(b \times b \times \dots
+        \times b\) exactly \(a\) times.</p>
+      </div>
+    </div>
     <div id="outline-container-orgb812d17" class="outline-2">
       <h2 id="orgb812d17">Notes</h2>
       <div class="outline-text-2" id="text-orgb812d17"></div>
@@ -78,9 +265,9 @@
           actual implementation.</p>
         </div>
       </div>
-      <div id="outline-container-orgc063715" class="outline-3">
-        <h3 id="orgc063715">Type-classes</h3>
-        <div class="outline-text-3" id="text-orgc063715">
+      <div id="outline-container-orgdd2a4c1" class="outline-3">
+        <h3 id="orgdd2a4c1">Type-classes</h3>
+        <div class="outline-text-3" id="text-orgdd2a4c1">
           <p><code>Num a =&gt; [a] -&gt; a</code> This type states
           that for any <i>type <code>a</code> of Numbers</i>, sum
           is a function that <i>maps a list of such numbers to a
@@ -141,9 +328,9 @@
         <i>type-class</i>.</p>
       </div>
     </div>
-    <div id="outline-container-orgdd2a4c1" class="outline-2">
-      <h2 id="orgdd2a4c1">Type-classes</h2>
-      <div class="outline-text-2" id="text-orgdd2a4c1">
+    <div id="outline-container-org112448c" class="outline-2">
+      <h2 id="org112448c">Type-classes</h2>
+      <div class="outline-text-2" id="text-org112448c">
         <p>First of all, a <i>type-class</i> is a <i>higer-level
         abstraction over types</i>, and each particular
         <i>instance</i> of a type-class is <i>type</i>. The
@@ -197,7 +384,7 @@
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
     <p class="email">Email: <a href=
     "mailto:lngnmn2@gmail.com">lngnmn2@gmail.com</a></p>
-    <p class="date">Created: 2022-08-13 Sat 09:24</p>
+    <p class="date">Created: 2022-08-14 Sun 11:59</p>
   </div>
 </body>
 </html>
