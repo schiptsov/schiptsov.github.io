@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-08-13 Sat 09:24 -->
+  <!-- 2022-08-30 Tue 18:48 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -34,9 +34,9 @@
     should be abstract.</p>
     <p>A module must be understood without needing to examine its
     implementation.</p>
-    <div id="outline-container-orgaa930a0" class="outline-2">
-      <h2 id="orgaa930a0">Meta-level</h2>
-      <div class="outline-text-2" id="text-orgaa930a0">
+    <div id="outline-container-orgd739d1f" class="outline-2">
+      <h2 id="orgd739d1f">Meta-level</h2>
+      <div class="outline-text-2" id="text-orgd739d1f">
         <p>Cognitive overload is the primary motivation for
         modularity.</p>
         <p>There is a limit to how many things a person can think
@@ -58,9 +58,9 @@
         code is being <i>decoupled</i> as well.</p>
       </div>
     </div>
-    <div id="outline-container-org7771dc6" class="outline-2">
-      <h2 id="org7771dc6">Principles</h2>
-      <div class="outline-text-2" id="text-org7771dc6">
+    <div id="outline-container-orga4713c7" class="outline-2">
+      <h2 id="orga4713c7">Principles</h2>
+      <div class="outline-text-2" id="text-orga4713c7">
         <p>Everything is to be build upon Algebraic (<i>sum</i> and
         <i>product</i>) abstract data types.</p>
         <p>Abstract means that one uses only <i>constructors</i>
@@ -76,9 +76,9 @@
         -&gt; Interfaces -&gt; Modules</code> We program with
         algebraic types in FP.</p>
       </div>
-      <div id="outline-container-orge881ba7" class="outline-3">
-        <h3 id="orge881ba7">The Abstraction principle</h3>
-        <div class="outline-text-3" id="text-orge881ba7">
+      <div id="outline-container-orgd75fb9e" class="outline-3">
+        <h3 id="orgd75fb9e">The Abstraction principle</h3>
+        <div class="outline-text-3" id="text-orgd75fb9e">
           <p>Abstraction is the key to managing overwhelming
           complexity. • Abstraction is a tool (the only one?) that
           people use to understand vastly complex systems. •
@@ -91,9 +91,9 @@
           <i>dramatically</i> increase clarity</p>
         </div>
       </div>
-      <div id="outline-container-orgbafd988" class="outline-3">
-        <h3 id="orgbafd988">The Encapsulation principle</h3>
-        <div class="outline-text-3" id="text-orgbafd988">
+      <div id="outline-container-orgc9dbcfa" class="outline-3">
+        <h3 id="orgc9dbcfa">The Encapsulation principle</h3>
+        <div class="outline-text-3" id="text-orgc9dbcfa">
           <p>A well-designed module encapsulates data (information
           hiding) • An interface should <i>hide implementation
           details</i> • A module should use its functions to
@@ -107,10 +107,10 @@
           <i>interchangeably</i>.</p>
         </div>
       </div>
-      <div id="outline-container-org028401b" class="outline-3">
-        <h3 id="org028401b">The Necessery and Sufficient
+      <div id="outline-container-orgfea1e9a" class="outline-3">
+        <h3 id="orgfea1e9a">The Necessery and Sufficient
         principle</h3>
-        <div class="outline-text-3" id="text-org028401b">
+        <div class="outline-text-3" id="text-orgfea1e9a">
           <p>A well-designed module has a <i>minimal interface</i>
           • Function declaration should be in a module’s interface
           if and only if: • The function is <i>necessary</i> to
@@ -119,9 +119,9 @@
         </div>
       </div>
     </div>
-    <div id="outline-container-org7aee9b4" class="outline-2">
-      <h2 id="org7aee9b4">Record</h2>
-      <div class="outline-text-2" id="text-org7aee9b4">
+    <div id="outline-container-org6c776e6" class="outline-2">
+      <h2 id="org6c776e6">Record</h2>
+      <div class="outline-text-2" id="text-org6c776e6">
         <p>A module is just like a record of named and typed slots
         (<i>type-signatures</i>) and just like a <i>tagged
         Cartesian product</i>. Access is similar to
@@ -139,9 +139,9 @@
         <p>This is why we said <i>like</i>.</p>
       </div>
     </div>
-    <div id="outline-container-orgc1d1370" class="outline-2">
-      <h2 id="orgc1d1370">Structure</h2>
-      <div class="outline-text-2" id="text-orgc1d1370">
+    <div id="outline-container-org6f7ff62" class="outline-2">
+      <h2 id="org6f7ff62">Structure</h2>
+      <div class="outline-text-2" id="text-org6f7ff62">
         <p>So it is an <i>instance</i> (a single <i>record-like
         value</i>), a particular <i>structure</i> as they called in
         Standard ML or Ocaml or F#.</p>
@@ -149,9 +149,9 @@
         slots.</p>
       </div>
     </div>
-    <div id="outline-container-orga1c4398" class="outline-2">
-      <h2 id="orga1c4398">Signatures</h2>
-      <div class="outline-text-2" id="text-orga1c4398">
+    <div id="outline-container-orgd7e3ce2" class="outline-2">
+      <h2 id="orgd7e3ce2">Signatures</h2>
+      <div class="outline-text-2" id="text-orgd7e3ce2">
         <p>Each such “structure” is an instance of a particular
         <i>“signature”</i> which corresponds to its particular
         “<i>structural type</i>”.</p>
@@ -166,17 +166,17 @@
         needed by some other module that might use it.</p>
       </div>
     </div>
-    <div id="outline-container-org03890b4" class="outline-2">
-      <h2 id="org03890b4">Functors in ML</h2>
-      <div class="outline-text-2" id="text-org03890b4">
+    <div id="outline-container-org659d231" class="outline-2">
+      <h2 id="org659d231">Functors in ML</h2>
+      <div class="outline-text-2" id="text-org659d231">
         <p>The use of one module by another is captured by special
         functions called functors that map structures to new
         structures.</p>
       </div>
     </div>
-    <div id="outline-container-orgaa59b07" class="outline-2">
-      <h2 id="orgaa59b07">Abstraction barrier</h2>
-      <div class="outline-text-2" id="text-orgaa59b07">
+    <div id="outline-container-orge22458f" class="outline-2">
+      <h2 id="orge22458f">Abstraction barrier</h2>
+      <div class="outline-text-2" id="text-orge22458f">
         <p>This module-signature, at least in theory, forms an
         actual <i>Abstraction Barrier</i> (which acts like a
         cell-membrane of a module) that hides (encapsulates)
@@ -188,9 +188,9 @@
         modules (and corresponding <i>core types</i>).</p>
       </div>
     </div>
-    <div id="outline-container-orgc2c6e42" class="outline-2">
-      <h2 id="orgc2c6e42">Interfaces</h2>
-      <div class="outline-text-2" id="text-orgc2c6e42">
+    <div id="outline-container-org4ba9652" class="outline-2">
+      <h2 id="org4ba9652">Interfaces</h2>
+      <div class="outline-text-2" id="text-org4ba9652">
         <p>The interface of a module gives the <i>type</i> of each
         exported <i>value</i>.</p>
         <p>For exported types, the interface may give either their
@@ -206,9 +206,9 @@
         <p>SML (and Ocaml) got it right. F# too.</p>
       </div>
     </div>
-    <div id="outline-container-org09324ee" class="outline-2">
-      <h2 id="org09324ee">Modular programming</h2>
-      <div class="outline-text-2" id="text-org09324ee">
+    <div id="outline-container-org056bf55" class="outline-2">
+      <h2 id="org056bf55">Modular programming</h2>
+      <div class="outline-text-2" id="text-org056bf55">
         <p>The most important principle in whole Computer Science -
         the Molecularity Principle - is about how (and why)
         <a href="ADTs.html">Abstract Data Types</a> should be
@@ -259,8 +259,8 @@
   <div id="postamble" class="status">
     <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
     <p class="email">Email: <a href=
-    "mailto:lngnmn2@gmail.com">lngnmn2@gmail.com</a></p>
-    <p class="date">Created: 2022-08-13 Sat 09:24</p>
+    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+    <p class="date">Created: 2022-08-30 Tue 18:48</p>
   </div>
 </body>
 </html>
