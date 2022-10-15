@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-10-15 Sat 18:04 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Programming</title>
+  <meta name="author" content="schiptsov@gmail.com">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Programming</h1>
+    </header>
+    <div id="outline-container-org089851f" class="outline-2">
+      <h2 id="org089851f">UNIX Philosophy + Functional
+      Programming</h2>
+      <div class="outline-text-2" id="text-org089851f">
+        <p>It always looks simple in retrospect. Just take the best
+        parts of the UNIX Philosophy (do just one thing but do it
+        well, use text streams, files, pipes and sockets) and use
+        <code>SML/NJ</code>, <code>Haskell</code> or
+        <code>Ocaml</code> instead of <code>C</code> or
+        <code>C++</code>. Well, <code>SML</code> is rather a
+        monument of the glorious times long gone, so
+        <code>Ocaml</code> or <code>Haskell</code> but never
+        re-implementing the wheel, and just <i>FFI’ing
+        everything</i>.</p>
+        <p>If you are trapped in the JVM ecosystem, then there is
+        <code>Scala 3</code>, which doing almost everything right,
+        except, of course, the fucking dependencines and 3 versions
+        of the compiler and standard library in a smallest setup.
+        Well, with <code>Haskell</code> that is even worse.</p>
+        <p>Text streams and FP maps very well with so-called
+        <i>Micro-services architecture</i> - as long as you are
+        <i>pure functional</i> (Same input - same output. Always.),
+        which implies <i>referentially transparent</i>, you can
+        really mix and match “services” just like a functional
+        programmer mix and match <i>functions</i>. Yes, for real.
+        <code>Coursier</code>, <code>Kafka</code> or <code>Twitter
+        toolchain</code> are the actual use cases.</p>
+        <p>Just getting rid of imperative code (aliasing problems,
+        lifetimes, locks, semaphors, etc) and verbose, boated
+        sources is already a bliss and an unexpected return of the
+        <i>joy of programming</i> which programmers of the Golden
+        Age (Common Lisp, Smalltalk, Standard ML, Miranda, Haskell)
+        used to feel. <i>Happy, happy, joy, joy</i> (this is from
+        the MIT Scheme).</p>
+        <p>Using a <i>high level, mostly functional</i> language in
+        UNIX instead of <code>C</code> is (unfortunately) not my
+        idea. <i>Bell Labs</i> had a research project which
+        resulted in development of the <i>Basis Library</i> and a
+        couple of books. Today, it seems that <code>Ocaml</code>
+        picked everything up where they left. Just like it was with
+        SML, a major <i>theorem proover</i> (<code>Coq</code>) is
+        the main project for the whole ecosystem, and it has just
+        the <i>standard library</i> in dependencies (well,
+        almost).</p>
+        <p>Another thing to add is what is loosely called
+        <i>reactive programming</i> which is just <i>triggers on
+        events from an event stream</i>. This is already a mess and
+        a contenst in blog post idiocy, but one could use the right
+        abstractions (which are streams and typed events to
+        pattern-match upon). Some Haskell’s graphics and animation
+        libraries got it right.</p>
+        <p>Any kind of immutable databases, ledgers, etc. could
+        <i>naturally</i> be developed using this approach.
+        <i>Datomic</i> of Rich Hickey is an attempt for an
+        <i>immutable store</i>. <i>XTZ</i> is a blockchain
+        implementation in pure Ocaml, while others still got stuck
+        with <code>C and C++</code>.</p>
+        <p>The <i>Haskell Platform</i> (GHC + a small set of
+        well-designed libraries) and the <i>Ocaml Ecosystem</i>
+        (the compiler, tools and the libraries via
+        <code>opam</code>) are <i>production-ready</i>
+        environments. One always could enrich them with
+        <code>Coq</code>, <code>Agda</code> and <code>TLA+</code>
+        to reach the level of an <i>art</i> (instead of that
+        <i>learn to code in javascript or python</i> fucking
+        abomination).</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: schiptsov@gmail.com</p>
+    <p class="email">Email: <a href=
+    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+    <p class="date">Created: 2022-10-15 Sat 18:04</p>
+  </div>
+</body>
+</html>
