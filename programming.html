@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-15 Sat 18:42 -->
+  <!-- 2022-10-17 Mon 09:20 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -103,10 +103,10 @@
         <p>It always looks simple in retrospect. Just take the best
         parts of the UNIX Philosophy (do just one thing but do it
         well, use text streams, files, pipes and sockets) and use
-        <code>SML/NJ</code>, <code>Haskell</code> or
-        <code>Ocaml</code> instead of <code>C</code> or
-        <code>C++</code>. Well, <code>SML</code> is rather a
-        monument of the glorious times long gone, so
+        <code>SML/NJ</code>, <code>Erlang</code>,
+        <code>Haskell</code> or <code>Ocaml</code> instead of
+        <code>C</code> or <code>C++</code>. Well, <code>SML</code>
+        is rather a monument of the glorious times long gone, so
         <code>Ocaml</code> or <code>Haskell</code> but never
         re-implementing the wheel, and just <i>FFI’ing
         everything</i>.</p>
@@ -164,12 +164,91 @@
         abomination).</p>
       </div>
     </div>
+    <div id="outline-container-orga466125" class="outline-2">
+      <h2 id="orga466125">Algebraic types and pattern-matching</h2>
+      <div class="outline-text-2" id="text-orga466125">
+        <p>Anything could be build out of <i>Algebraic Data
+        Types</i>.</p>
+        <p>There are <i>AND-types</i> (<code>A, B</code> -
+        product-types), <i>OR-types</i> (<code>A | B</code> -
+        sum-types) and <i>lambda types</i> (<code>A -&gt; B</code>
+        - correspond to exponents).</p>
+        <p>Everything becomes self-evident when we think of types
+        as <i>finite sets</i> and consider all the individual
+        unique mappings (<i>arrows</i>) between the elements of any
+        two such sets.</p>
+        <p>We could pattern-match on <i>data-constructors</i> which
+        conceptually are the same as <i>type-tags</i> for every
+        value.</p>
+        <p>Logically, we can imagine that each value has an
+        implicit <i>type-tag attached to it</i>. Type-tags are as
+        old as early LISPs and this, in turn, corresponds to unique
+        shapes of common molecular structures in biology.</p>
+        <p>A list is a <i>recursive</i> sum-type. So are
+        <i>trees</i>. A record is a <i>product type</i> with
+        <i>tagged</i> (named) values (parts). A table is a mapping
+        (just like a function) from “rows” to “columns”.</p>
+        <p>One could think of a table as a <i>list of tuples</i>
+        (an ordered sequence of fixed-size “sequences”). The early
+        LISPs has been built this way.</p>
+      </div>
+    </div>
+    <div id="outline-container-org22910c4" class="outline-2">
+      <h2 id="org22910c4">The Relational Model</h2>
+      <div class="outline-text-2" id="text-org22910c4">
+        <p>Everything “fits together” because conceptually, at the
+        most abstract level it is all just <i>sets of tuples</i>,
+        which is the basis of <i>both</i> Functional Languages and
+        the Relational Model.</p>
+        <p>The crucial principle is that relations are just <i>sets
+        of tuples</i>, and the whole relations are <i>immutable
+        values</i>, with all the usual nice properties and
+        implications.</p>
+        <p>Everything is “naturally” <i>typed</i> with Algebraic
+        Data Types - a record is just a “named” tuple, which, in
+        turn, is a <i>product-type</i>. <i>Sum-types</i> provide
+        all the required enumerables.</p>
+        <p>There is a simple and obvious <i>relation algebra</i>
+        based on the algebra of the Set Theory, with the <i>closure
+        property</i>.</p>
+        <p>Like any other values, these <i>relation</i> values can
+        be passed to and returned from pure <i>functions</i>, used
+        within <i>persistent aggregates</i>, put into immutable
+        <i>trees</i>, etc.</p>
+        <p>This maps well to <i>persistent data structures</i>
+        (trees and maps) of functional languages.</p>
+        <p>Lists of records (“named” tuples) where the actual
+        ordering is irrelevant (unless deliberately <i>sorted</i>)
+        is an obvious transition from the abstract universe of sets
+        to the concrete reality of actual representations.</p>
+      </div>
+    </div>
+    <div id="outline-container-org2dd6c1d" class="outline-2">
+      <h2 id="org2dd6c1d">Lists, Records, Queues, Streams,
+      Logs</h2>
+      <div class="outline-text-2" id="text-org2dd6c1d">
+        <ul class="org-ul">
+          <li>Lists are <i>position ordered</i></li>
+          <li>Records are <i>by name</i> (associative)</li>
+          <li>Logs are <i>lists of strings which represent
+          records</i> (containing a <i>timestamp</i>)</li>
+          <li>Queues are async messages <i>without knowing anything
+          about the receiver</i>.</li>
+          <li>Streams are <i>serialized events</i> (by sense organs
+          of perception).</li>
+        </ul>
+        <p>Which a <i>by name</i> pattern one don’t have to know
+        <i>what else is there</i>. This implies new names (or keys)
+        could be <i>added later</i> without affection anything
+        which is already there.</p>
+      </div>
+    </div>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: schiptsov@gmail.com</p>
     <p class="email">Email: <a href=
     "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-15 Sat 18:42</p>
+    <p class="date">Created: 2022-10-17 Mon 09:20</p>
   </div>
 </body>
 </html>
