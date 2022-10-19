@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-17 Mon 20:44 -->
+  <!-- 2022-10-19 Wed 18:29 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -60,23 +60,37 @@
             <li>Has the <i>Simple-typed Lambda Calculus</i> at its
             core (LIPSs and ML descendants)</li>
             <li>Everything is an expression (not in Java, not in
-            C++)</li>
+            C++. Ocaml has <i>definitions</i>)</li>
             <li>No implicit coercions (not in Java, not in
             C++)</li>
-            <li>Every value has a type, even a type-tag attached
-            (LISP and ML descendants)</li>
-            <li>Every expression evaluates to a value, so <i>it</i>
-            has a type.</li>
+            <li><i>Every value has a type</i>, even a type-tag
+            attached (LISP and ML descendants)</li>
+            <li><i>Every expression is reducible to a value</i>, so
+            <i>it</i> has a type (or an <i>Exception</i>)</li>
+            <li><i>Every value is an expression</i> (in a
+            <i>normal-form</i> - it is
+            <i>self-evaluating</i>).</li>
+            <li>Once created, <i>every value is
+            /immutable</i>.</li>
+            <li><i>Every /binding is /immutable</i> (a <i>new
+            binding</i>, which <i>shadows</i>, can be
+            introduced).</li>
+            <li>So every <i>compound</i> data-structure is
+            <i>persistent</i>.</li>
             <li><i>Referential transparency</i> is maintained or
             even <i>enforced</i> (Haskell).</li>
             <li>The proper <i>Numerical Tower</i> is implemented
-            (only Smalltalk and some LISP and ML descendants)</li>
+            (only Smalltalk and some LISPs, but not Ocaml)</li>
             <li><i>Algebraic Data Types</i> and the proper type
             theory (ML descendants)</li>
             <li>Uniform (everywhere) <i>pattern-matching</i> on
             <i>data-constructors</i> (ML descendants)</li>
             <li>Uniform <i>asynchronous message-passing</i>
             (Erlang)</li>
+            <li>Single-argument lambdas, <i>currying</i> and
+            <i>partial application</i> (a real uniformity)</li>
+            <li><i>Syntactic sugar</i> for <i>multiple clauses</i>
+            (with patterns) for a function (SML, Erlang) .</li>
           </ul>
         </div>
       </div>
@@ -118,8 +132,12 @@
       <div id="outline-container-orgfb4c801" class="outline-3">
         <h3 id="orgfb4c801">Dynamic semantics</h3>
         <div class="outline-text-3" id="text-orgfb4c801">
-          <p>How a particular kind of expressions will be
-          <i>evaluated at runtime</i>.</p>
+          <p><i>Evaluation rules</i> - how a particular kind of
+          expressions will be <i>evaluated at runtime</i>. For
+          example, an <code>if e1 then e2 else e3</code> expression
+          has its own <i>evaluation rules</i> (either
+          <code>e2</code> or <code>e3</code>, depending on what
+          whether <code>e1</code> is <code>true</code>).</p>
         </div>
       </div>
       <div id="outline-container-org1d064a6" class="outline-3">
@@ -133,8 +151,12 @@
       <div id="outline-container-orgb407e00" class="outline-3">
         <h3 id="orgb407e00">Static semantics</h3>
         <div class="outline-text-3" id="text-orgb407e00">
-          <p>How a particular kind of expressions will be
-          <i>type-checked</i> by the compiler</p>
+          <p><i>Typing rules</i> - how a particular kind of
+          expressions will be <i>type-checked</i> by the compiler.
+          For example, an <code>if e1 then e2 else e3</code>
+          expression has its own <i>typing rules</i> (both clauses
+          <code>e2</code> and <code>e3</code> has to be of <i>the
+          same type</i>).</p>
         </div>
       </div>
     </div>
@@ -213,7 +235,7 @@
     <p class="author">Author: schiptsov@gmail.com</p>
     <p class="email">Email: <a href=
     "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-17 Mon 20:44</p>
+    <p class="date">Created: 2022-10-19 Wed 18:29</p>
   </div>
 </body>
 </html>
