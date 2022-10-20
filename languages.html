@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-20 Thu 15:56 -->
+  <!-- 2022-10-20 Thu 18:59 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -90,7 +90,8 @@
             <li>Single-argument lambdas, <i>currying</i> and
             <i>partial application</i> (a real uniformity)</li>
             <li><i>Syntactic sugar</i> for <i>multiple clauses</i>
-            (with patterns) for a function (SML, Erlang) .</li>
+            (with patterns) for a function (SML, Erlang, Ocaml with
+            the <code>function</code> keyword) .</li>
           </ul>
           <p><i>Curried functions</i> have the same signature as
           logical implications, and this is not a coincidence.</p>
@@ -101,11 +102,12 @@
           which type the arguments must be.</p>
           <p>Applying a <i>curried function</i> to a fewer
           arguments (which returns a <i>lambda</i> for the next
-          argument, not the result) is called a <i>partial
+          argument, not the result) is called <i>partial
           application</i>.</p>
-          <p>This is not just “natural”, but also very useful - a
-          partially applied functions can be passed around,
-          carrying already <i>captured</i> arguments with it.</p>
+          <p>This is not just “natural”, but also a <i>standard
+          idiom</i> - a partially applied functions can be passed
+          around, carrying already <i>captured</i> arguments with
+          it.</p>
           <p>Each <i>clause</i> of a function (defined by
           <i>pattern-matching</i>) can be considered as a
           <i>partial function</i> - it accepts a particular
@@ -119,10 +121,10 @@
           <i>uniform pattern-matching</i>, almost like in Erlang
           (where <i>everything</i> is pattern-matching).</p>
           <p>And, of course, pattern-matching is not just a
-          convenient way of <i>desctucturing</i> (without throwing
-          exceptions). This is a more general notion of a value to
-          have a certain “shape” (like a molecule) and of matching
-          against a particular shape.</p>
+          convenient way of <i>destructuring</i> (without throwing
+          exceptions). This is a more general notion of <i>a value
+          to have a certain “shape”</i> (like a molecule) and of
+          matching against a particular <i>shape</i>.</p>
           <p>This is what Rust “trannies” missed completely because
           they never studied the subject, but they are too proud of
           being “special” and “creative” lmao.</p>
@@ -269,7 +271,7 @@
     <p class="author">Author: schiptsov@gmail.com</p>
     <p class="email">Email: <a href=
     "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-20 Thu 15:56</p>
+    <p class="date">Created: 2022-10-20 Thu 18:59</p>
   </div>
 </body>
 </html>
