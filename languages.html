@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-19 Wed 18:29 -->
+  <!-- 2022-10-20 Thu 15:32 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -92,6 +92,35 @@
             <li><i>Syntactic sugar</i> for <i>multiple clauses</i>
             (with patterns) for a function (SML, Erlang) .</li>
           </ul>
+          <p><i>Curried functions</i> have the same signature as
+          logical implications, and this is not a coincidence.</p>
+          <p>Each argument (value) is captured into a
+          <i>closure</i> (accepted as a “fact”) and a new
+          <i>lambda</i> (closure) is returned for the next argument
+          (“fact”). Any curried function “knows” how many and of
+          which type the arguments must be.</p>
+          <p>Applying a <i>curried function</i> to a fewer
+          arguments (which returns a <i>lambda</i> for the next
+          argument, not the result) is called a <i>partial
+          application</i>.</p>
+          <p>This is not just “natural”, but also very useful - a
+          partially applied functions can be passed around,
+          carrying already <i>captured</i> arguments with it.</p>
+          <p>Each <i>clause</i> of a function (defined by
+          <i>pattern-matching</i>) can be considered as a
+          <i>partial function</i> - it accepts a particular
+          <i>subset</i> of a whole type, but is itself a <i>pure
+          function</i> nevertheless.</p>
+          <p>When a <i>clause</i> of a pattern-matching expression
+          (<code>match ... with ...</code>) introduces new
+          bindings, it is semantically the same as a <i>partial
+          function</i> (of a particular <i>subset of the type</i>):
+          same input - same output. Thus is what we call a
+          <i>uniform pattern-matching</i>, almost like in Erlang
+          (where <i>everything</i> is pattern-matching).</p>
+          <p>This is what Rust “trannies” missed completely because
+          they never studied the subject, but they are too proud of
+          being “special” and “creative” lmao.</p>
         </div>
       </div>
     </div>
@@ -235,7 +264,7 @@
     <p class="author">Author: schiptsov@gmail.com</p>
     <p class="email">Email: <a href=
     "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-19 Wed 18:29</p>
+    <p class="date">Created: 2022-10-20 Thu 15:32</p>
   </div>
 </body>
 </html>
