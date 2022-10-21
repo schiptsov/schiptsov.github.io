@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-17 Mon 09:45 -->
+  <!-- 2022-10-21 Fri 19:17 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -273,6 +273,84 @@
         from an over-“engineered” bullshit).</p>
       </div>
     </div>
+    <div id="outline-container-orgea52596" class="outline-2">
+      <h2 id="orgea52596">Building blocks</h2>
+      <div class="outline-text-2" id="text-orgea52596">
+        <p>There are basically 3 things that could happen with two
+        (one more than one) <i>values</i> (or whole sets, or
+        <i>types</i>)</p>
+        <ul class="org-ul">
+          <li><code>a, b</code> (which corresponds logical <i>AND
+          also</i>, a <i>product</i>)</li>
+          <li><code>a | b</code> (which corresponds logical <i>OR
+          else</i>, a <i>disjoint union</i>)</li>
+          <li><code>a -&gt; b</code> (which corresponds to a
+          logical <i>implication</i> or to a single STEP of
+          computation (or evaluation of an expression), which can
+          be abstracted out as a <i>function</i>).</li>
+        </ul>
+        <p>Notice that with the first two arrangements the <i>order
+        is irrelevant</i> and the two <i>views are isomorphic</i>,
+        while the third relation is <i>directed</i> and <code>b
+        -&gt; a</code> is not the same, but there could be a such
+        <i>inverse function</i> (or operation) within a particular
+        context.</p>
+        <p>Adding the universal notion of <i>nesting</i> we could
+        have <i>infinite lists</i> (which is a <i>recursive
+        structure</i> or a <i>nested type</i> - a sum of a
+        product).</p>
+      </div>
+      <div id="outline-container-orgf2c21e4" class="outline-3">
+        <h3 id="orgf2c21e4">Monads</h3>
+        <div class="outline-text-3" id="text-orgf2c21e4">
+          <p>A <i>Monad</i> (as an <i>Abstract Data Type</i>) has
+          to form an algebraic structure called <i>Monoid</i> with
+          respect to its operations (defined as a standardized
+          <i>interface</i> - <code>&gt;&gt;=</code> (composition)
+          and <code>return</code>).</p>
+          <p>This <i>interface</i>, which has to form an instance
+          of a <i>Monoid</i> with respect to the <i>binary
+          operator</i> <code>&gt;&gt;=</code>, is a generalized
+          <i>abstraction barrier</i> for <i>composable
+          entities</i>, or <i>values of a particular type</i>.</p>
+          <p>It is defined as a <i>type-class</i>, implying that
+          any <i>particular type (an ADT) which implements the
+          interface</i> (and ensures Monoidal laws -
+          <i>associativity and identity properties</i>) becomes an
+          <i>instance of a Monad</i>.</p>
+          <p>Now there is the trick. Behind this generalized
+          <i>abstraction barrier</i> (of composable values) could
+          be a value of a <i>sum-type</i>, of a
+          <i>product-type</i>, of a <i>function-type</i> or <i>any
+          nested combinations of these</i>. So there are different
+          kinds of Monads.</p>
+          <p>Or, <i>operationally</i>, once we can implement the
+          minimal interface (<code>&gt;&gt;=</code> and
+          <code>return</code>) for a given ADT, it <i>becomes</i>
+          an instance of a Monad. <i>To be an instance of a /Monad
+          /is to (also) implement the interface</i>.</p>
+          <p>A <code>List</code> is a such particular instance,
+          where <code>&gt;&gt;=</code> corresponds to
+          <code>append</code>, and the <code>[]</code> is an
+          <i>identity element</i>.</p>
+          <p>A <i>parameterized sum-type</i> behind this
+          <i>abstraction barrier</i> is a common idiom.</p>
+          <ul class="org-ul">
+            <li>promises and other kids of <i>asynchronous
+            operations</i></li>
+            <li>computations which <i>may fail</i> in general</li>
+            <li>values which could be <i>empty</i> or <i>contain
+            nothing</i></li>
+          </ul>
+          <p>or even an <i>arbitrary sum-type</i> (an <code>a |
+          b</code>) could be made into an instance of a Monad,
+          which means <i>the ADT</i> forms a Monoid with respect to
+          some <i>associative composition operator abstracted out
+          as</i> <code>&gt;&gt;=</code>.</p>
+          <p>Notice this very careful wording.</p>
+        </div>
+      </div>
+    </div>
     <div id="outline-container-org2dd6c1d" class="outline-2">
       <h2 id="org2dd6c1d">Lists, Records, Queues, Streams,
       Logs</h2>
@@ -298,7 +376,7 @@
     <p class="author">Author: schiptsov@gmail.com</p>
     <p class="email">Email: <a href=
     "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-17 Mon 09:45</p>
+    <p class="date">Created: 2022-10-21 Fri 19:17</p>
   </div>
 </body>
 </html>
