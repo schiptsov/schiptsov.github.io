@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 2022-10-22 Sat 18:27 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Incremental Development</title>
+  <meta name="author" content="Ln Gnmn &lt;lngnmn1@gmail.com&gt;">
+  <meta name="generator" content="Org Mode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira Code"
+  rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+  });
+  </script>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+  <div id="org-div-home-and-up">
+    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
+    "index.html">HOME</a>
+  </div>
+  <div id="content" class="content">
+    <header>
+      <h1 class="title">Incremental Development</h1>
+    </header>
+    <p>With <i>Algebraic Data Types</i> (and <i>Abstract Data
+    Types</i> in general) one doesn’t have to write everything down
+    at once. Write what you have already figured out, what you know
+    so far.</p>
+    <p><i>Partially specified</i> concepts will do. They reflect
+    one’s <i>partial knowledge</i> due to <i>imperfect
+    information</i> or simply not being able to figure everything
+    out as a whole <i>yet</i>.</p>
+    <p>With a <i>sum-type</i> each new <i>variant</i> could be
+    added and tested separately and independently (by explicit
+    pattern-matching).</p>
+    <p>Same goes for <i>records</i> (named or indexed
+    product-types) as long as one is accessing by a name or a “key”
+    (<i>get by getters and set by setters</i>, which is how one
+    uses an Abstract Data Types in principle).</p>
+    <p>This, by the way, is why <code>SELECT * FORM blah</code> is
+    <i>lame</i> - one simply throws everything that is
+    <i>principle-guided</i> out of the window.</p>
+    <p>Just like in mathematics, in a pure-functional programming
+    once you have figured it out and wrote down right (no
+    type-errors and all tests passed) it becomes “eternal” -
+    correct and valid.</p>
+    <div id="outline-container-orge6bf52f" class="outline-2">
+      <h2 id="orge6bf52f">REPL</h2>
+      <div class="outline-text-2" id="text-orge6bf52f">
+        <p>A REPL is the tools of experimentation and <i>rapid
+        prototyping</i> due to instant feedback and real quick
+        setup (because <i>pure functions share nothing</i> and
+        could be applied without setting of a context, in any
+        order).</p>
+        <p>In a REPL you <i>try</i> the things to feel the
+        “use-side” (the call-site).</p>
+      </div>
+    </div>
+    <div id="outline-container-orga637e43" class="outline-2">
+      <h2 id="orga637e43">Write the type-signatures first</h2>
+      <div class="outline-text-2" id="text-orga637e43">
+        <p>It should be one’s habit to write a prototype of the
+        <i>module-signature</i> (<code>.mli</code> in Ocaml) first.
+        You will at once “see” how <i>consistent</i> and uniform
+        your naming and <i>parameters</i> are (the same order).</p>
+        <p>I wish every language would have a support of Ocaml
+        <i>modules</i> (sigs, structs and functors). They are
+        absolutely brilliant. This is what Haskell lacks.</p>
+      </div>
+    </div>
+    <div id="outline-container-orgfc3a568" class="outline-2">
+      <h2 id="orgfc3a568">Tests as crude pseudo-specs</h2>
+      <div class="outline-text-2" id="text-orgfc3a568">
+        <p>Writing down <i>specifications</i> for interfaces (for
+        every exported function) is crucial, but instead of writing
+        them in commentaries, write them in <i>unit tests</i>, even
+        <i>before the implementation</i> is figured out.</p>
+        <p>Thus we will create poor man’s <i>executable
+        specifications</i>. Well, sort of.</p>
+        <ul class="org-ul">
+          <li>do <i>defensive programming</i> and always <i>assert
+          /preconditions</i>.</li>
+          <li>specify and test the <i>invariants</i> first (with
+          assertions and logic)</li>
+          <li>\(\forall\) and can be emulated with explicit “corner
+          cases” and a <i>quickcheck</i> generator</li>
+          <li>
+            <p>\(\exists\) is just a <i>search</i>, which may
+            require a <i>presorted</i> copy.</p>
+            <p>Remember that tests will never show the <i>absence
+            of bugs</i>, but will show their presence
+            <i>early</i>.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="outline-container-orgb8e6570" class="outline-2">
+      <h2 id="orgb8e6570">Formal specification</h2>
+      <div class="outline-text-2" id="text-orgb8e6570">
+        <p>The critical functions can be fully specified and
+        veryfied using advanced tools, like <code>TLA+</code>,
+        <code>Coq</code> or <code>Agda</code>.</p>
+        <p>This is, basically, just to write down all the
+        underlying math explicitly.</p>
+        <p>It is also possible to <i>bottom-up bootstrap</i> a
+        function in <code>Coq</code> and then export it in Haskell
+        (automatically) or any other functional language
+        (manually).</p>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
+    <p class="email">Email: <a href=
+    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+    <p class="date">Created: 2022-10-22 Sat 18:27</p>
+  </div>
+</body>
+</html>
