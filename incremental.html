@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-23 Sun 14:35 -->
+  <!-- 2022-10-23 Sun 14:44 -->
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
@@ -80,18 +80,6 @@
     once you have figured it out and wrote down right (no
     type-errors and all tests passed) it becomes “eternal” -
     correct and valid.</p>
-    <div id="outline-container-orge6bf52f" class="outline-2">
-      <h2 id="orge6bf52f">REPL</h2>
-      <div class="outline-text-2" id="text-orge6bf52f">
-        <p>A REPL is the tools of experimentation and <i>rapid
-        prototyping</i> due to instant feedback and real quick
-        setup (because <i>pure functions share nothing</i> and
-        could be applied without setting of a context, in any
-        order).</p>
-        <p>In a REPL you <i>try</i> the things to feel the
-        “use-side” (the call-site).</p>
-      </div>
-    </div>
     <div id="outline-container-orga637e43" class="outline-2">
       <h2 id="orga637e43">Write the type-signatures first</h2>
       <div class="outline-text-2" id="text-orga637e43">
@@ -102,6 +90,34 @@
         <p>I wish every language would have a support of Ocaml
         <i>modules</i> (sigs, structs and functors). They are
         absolutely brilliant. This is what Haskell lacks.</p>
+      </div>
+    </div>
+    <div id="outline-container-org202d8f8" class="outline-2">
+      <h2 id="org202d8f8">Second step - write a test-case</h2>
+      <div class="outline-text-2" id="text-org202d8f8">
+        <p>Write a failing test case <i>first</i> and <i>then</i>
+        implement the function to make the test pass. This is the
+        crucial pont of whole TTD approach.</p>
+        <p>Writing tests <i>before</i> the implementation allows on
+        to focus on the <i>interface</i> (function signature) and
+        the <i>call-site</i>, which are much more important
+        considerations.</p>
+        <p>If a function has already known <i>preconditions</i>
+        write test-cases which <i>explicitly specify</i> them and
+        catch the proper exceptions or fatal errors (failed
+        assetions).</p>
+      </div>
+    </div>
+    <div id="outline-container-orge6bf52f" class="outline-2">
+      <h2 id="orge6bf52f">REPL</h2>
+      <div class="outline-text-2" id="text-orge6bf52f">
+        <p>A REPL is the tools of experimentation and <i>rapid
+        prototyping</i> due to instant feedback and real quick
+        setup (because <i>pure functions share nothing</i> and
+        could be applied without setting of a context, in any
+        order).</p>
+        <p>In a REPL you <i>try</i> the things to feel the
+        “use-side” (the call-site).</p>
       </div>
     </div>
     <div id="outline-container-orgfc3a568" class="outline-2">
@@ -149,7 +165,7 @@
     <p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
     <p class="email">Email: <a href=
     "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-23 Sun 14:35</p>
+    <p class="date">Created: 2022-10-23 Sun 14:44</p>
   </div>
 </body>
 </html>
