@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 13:23 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Incremental Development</title>
+<meta name="author" content="Ln Gnmn &lt;lngnmn1@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Incremental Development</h1>
+</header><p>
+The point of programming techniques and methodologies is to <i>reduce
+cognitive load</i>, not to increase it with additional seemingly related
+concepts or tricks. We, humans, have very limited mental capacity so
+care should be taken not to overwhelm ourselves and others with
+unnecessary, redundant abstractions or irrelevant details.
+</p>
+
+<p>
+Things like <i>modules</i> and <i>namespaces</i>, when done right (small functions,
+small modules) tend to partition the problem domain into manageable
+pieces (building blocks) along with <i>conceptual boundaries</i> to make
+unrelated concepts <i>decoupled</i> from each other and to <i>share nothing</i>.
+</p>
+
+<p>
+With <i>Algebraic Data Types</i> (and <i>Abstract Data Types</i> in general) one
+doesn&rsquo;t have to write everything down <i>at once</i>. Write what you have
+already figured out, what you know so far.
+</p>
+
+<p>
+<i>Partially specified</i> concepts will do. They reflect one&rsquo;s <i>partial
+knowledge</i> due to <i>imperfect information</i> or simply not being able to
+figure everything out as a whole <i>yet</i>.
+</p>
+
+<p>
+With a <i>sum-type</i> each new <i>variant</i> could be added and tested
+separately and independently (by explicit pattern-matching).
+</p>
+
+<p>
+Same goes for <i>records</i> (named or indexed product-types) as long as one is
+accessing by a name or a &ldquo;key&rdquo; (<i>get by getters and set by setters</i>, which
+is how one uses an Abstract Data Types in principle).
+</p>
+
+<p>
+This, by the way, is why <code>SELECT * FORM blah</code> is <i>lame</i> - one simply throws
+everything that is <i>principle-guided</i> out of the window.
+</p>
+
+<p>
+Just like in mathematics, in a pure-functional programming once you
+have figured it out and wrote down right (no type-errors and all tests
+passed) it becomes &ldquo;eternal&rdquo; - correct and valid.
+</p>
+
+<div id="outline-container-org8985153" class="outline-2">
+<h2 id="org8985153">Gregor Kiczales</h2>
+<div class="outline-text-2" id="text-org8985153">
+<p>
+Gregor Kiczales has a whole course about <i>Systematic Program Design</i> on
+youtube (based on his MOOC). Just watch it, even if it a bit too
+pedantic (which is actually good).
+</p>
+
+<p>
+Really, this is one of the best and highest quality courses out there.
+</p>
+</div>
+</div>
+<div id="outline-container-org3a97609" class="outline-2">
+<h2 id="org3a97609">Write the type-signatures first</h2>
+<div class="outline-text-2" id="text-org3a97609">
+<p>
+It should be one&rsquo;s habit to write a prototype of the <i>module-signature</i>
+(<code>.mli</code> in Ocaml) first. You will at once &ldquo;see&rdquo; how <i>consistent</i> and uniform
+your naming and <i>parameters</i> are (the same order).
+</p>
+
+<p>
+I wish every language would have a support of Ocaml <i>modules</i> (sigs,
+structs and functors). They are absolutely brilliant. This is what Haskell lacks.
+</p>
+</div>
+</div>
+<div id="outline-container-org872e850" class="outline-2">
+<h2 id="org872e850">Second step - write a test-case</h2>
+<div class="outline-text-2" id="text-org872e850">
+<p>
+Write a failing test case <i>first</i> and <i>then</i> implement the function to make the
+test pass. This is the crucial pont of whole TTD approach.
+</p>
+
+<p>
+Writing tests <i>before</i> the implementation allows on to focus on the
+<i>interface</i> (function signature) and the <i>call-site</i>, which are much more
+important considerations.
+</p>
+
+<p>
+If a function has already known <i>preconditions</i> write test-cases which
+<i>explicitly specify</i> them and catch the proper exceptions or fatal errors
+(failed assetions).
+</p>
+</div>
+</div>
+<div id="outline-container-org151ff16" class="outline-2">
+<h2 id="org151ff16">REPL</h2>
+<div class="outline-text-2" id="text-org151ff16">
+<p>
+A REPL is the tools of experimentation and <i>rapid prototyping</i> due to
+instant feedback and real quick setup (because <i>pure functions share
+nothing</i> and could be applied without setting of a context, in any
+order).
+</p>
+
+<p>
+In a REPL you <i>try</i> the things to feel the &ldquo;use-side&rdquo; (the call-site).
+</p>
+</div>
+</div>
+<div id="outline-container-orgd55ef08" class="outline-2">
+<h2 id="orgd55ef08">Tests as crude pseudo-specs</h2>
+<div class="outline-text-2" id="text-orgd55ef08">
+<p>
+Writing down <i>specifications</i> for interfaces (for every exported function) is
+crucial, but instead of writing them in commentaries, write them in <i>unit
+tests</i>, even <i>before the implementation</i> is figured out.
+</p>
+
+<p>
+Thus we will create poor man&rsquo;s <i>executable specifications</i>. Well, sort of.
+</p>
+
+<ul class="org-ul">
+<li>do <i>defensive programming</i> and always <i>assert /preconditions</i>.</li>
+<li>specify and test the <i>invariants</i> first (with assertions and logic)</li>
+<li>\(\forall\) and can be emulated with explicit &ldquo;corner cases&rdquo; and a <i>quickcheck</i>
+generator</li>
+<li><p>
+\(\exists\) is just a <i>search</i>, which may require a <i>presorted</i> copy.
+</p>
+
+<p>
+Remember that tests will never show the <i>absence of bugs</i>, but will show
+their presence <i>early</i>.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3d5817f" class="outline-2">
+<h2 id="org3d5817f">Formal specification</h2>
+<div class="outline-text-2" id="text-org3d5817f">
+<p>
+The critical functions can be fully specified and veryfied using
+advanced tools, like <code>TLA+</code>, <code>Coq</code> or <code>Agda</code>.
+</p>
+
+<p>
+This is, basically, just to write down all the underlying math
+explicitly.
+</p>
+
+<p>
+It is also possible to <i>bottom-up bootstrap</i> a function in <code>Coq</code> and then
+export it in Haskell (automatically) or any other functional language (manually).
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-26 Wed 13:23</p>
+</div>
+</body>
+</html>

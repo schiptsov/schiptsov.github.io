@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 13:23 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minimal Abstraction building blocks</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Minimal abstractions for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Minimal Abstraction building blocks</h1>
+</header><p>
+The lemma (by me): <i>Unordered abstractions are always imaginary</i>.
+</p>
+
+<p>
+Everything in biological reality <i>represented in a particular order</i>
+(which may be a <i>symmetry</i>).
+</p>
+
+<p>
+<i>Reading</i> of a <i>symmetry</i> is relative, it depends on location of an
+<i>external observer</i>.
+</p>
+
+<p>
+Persistent (pure functional) data structures are <i>partial functions</i>
+from a <i>Set</i> of inputs to a <i>Set</i> of outputs.
+</p>
+
+<div id="outline-container-org256838b" class="outline-2">
+<h2 id="org256838b">an Ordered Pair</h2>
+<div class="outline-text-2" id="text-org256838b">
+<p>
+\[(a,b)\]
+A <i>minimal abstraction</i> with corresponds to several related <i>notions</i>.
+</p>
+<ul class="org-ul">
+<li><i>one more</i> than one (single) - the number two</li>
+<li>one <i>and also</i> (<i>together with</i>) another one - a minimal <i>aggregate</i></li>
+</ul>
+
+<p>
+A <i>Pair</i> is necessarily <i>structually different</i> from a single value. It is a <i>differnt level of abstraction</i> - an <i>aggregate</i>.
+</p>
+
+<p>
+Represented as
+</p>
+<ul class="org-ul">
+<li>a <i>Set of size 2</i> (unordered)</li>
+<li>a <i>Tuple</i> (position-based ordering)</li>
+<li>a <i>List of size 2</i> (position-based ordering)</li>
+<li>a <i>Record of 2 elements</i>  (symbol-tagged)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb09a329" class="outline-2">
+<h2 id="orgb09a329">an Arrow</h2>
+<div class="outline-text-2" id="text-orgb09a329">
+<p>
+\[\cdot \mapsto \cdot\]
+A mapping from one arbitrary value to another (<i>arity</i> of 2)
+</p>
+
+<p>
+Represented as
+</p>
+<ul class="org-ul">
+<li>an <i>Ordered Pair</i></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbeb51aa" class="outline-2">
+<h2 id="orgbeb51aa">a Set</h2>
+<div class="outline-text-2" id="text-orgbeb51aa">
+<p>
+a <i>formal definition</i> of a <i>mental concept</i> (a mental category).
+</p>
+<ul class="org-ul">
+<li>no notion of an <i>order</i></li>
+<li>no notion of a <i>duplicate</i> (multiple <i>references to the same</i> element)</li>
+<li>the notion of a <i>membership</i> based on the notion of <i>equality</i></li>
+<li>the notion of a <i>subset</i> (a <i>selection</i>). may be <i>empty</i> (none) or <i>all</i></li>
+<li>notion of <i>partitions</i> (non-overlapping <i>subsets</i>) based on a certain
+<i>property</i> (a <i>disjoint union</i> of non-overlapping <i>subsets</i>)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org89caf80" class="outline-2">
+<h2 id="org89caf80">an aList</h2>
+<div class="outline-text-2" id="text-org89caf80">
+<p>
+<code>[(a,b)]</code>
+An <i>association list</i> is a List of <i>ordered pairs</i> (itself in some particular order).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e83964" class="outline-2">
+<h2 id="org7e83964">a Function</h2>
+<div class="outline-text-2" id="text-org7e83964">
+<p>
+\[A \rightarrow B\]
+A <i>Set of Arrows</i> from one <i>Set</i> (called <i>domain</i>) to another (called <i>codomain</i>).
+</p>
+
+<p>
+A function, <i>as a whole</i>, is usually considered as a <i>Set of Ordered
+Pairs</i> (values drawn from corresponding <i>Sets</i>).
+</p>
+
+<p>
+Is <i>image</i> is a subset of a <i>Cartesian Product</i> (which is a set of <i>all
+possible Ordered Pairs</i>). This, BTW, is where <i>structural typing</i> kicks in.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcf48247" class="outline-2">
+<h2 id="orgcf48247">Nesting</h2>
+<div class="outline-text-2" id="text-orgcf48247">
+<p>
+\[f (g (x))\]
+<i>Nesting</i> is the most universal and <i>subtle</i> notion.
+</p>
+
+<p>
+It corresponds to use of parenthesis in mathematics for <i>gouping (putting together)</i> and for establishing an <i>explicit order of application</i> (of <i>nested</i> operators).
+</p>
+
+<p>
+The notion of an <i>associative operation</i> is based on the notion of <i>nesting</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5de4627" class="outline-2">
+<h2 id="org5de4627">a HashMap</h2>
+<div class="outline-text-2" id="text-org5de4627">
+<p>
+A set of <i>keys</i> mapped into a set of <i>values</i>.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-26 Wed 13:23</p>
+</div>
+</body>
+</html>

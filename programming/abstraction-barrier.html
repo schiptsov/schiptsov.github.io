@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 13:23 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abstraction Barriers</title>
+<meta name="author" content="Ln Gnmn &lt;lngnmn2@yahoo.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Abstraction Barriers</h1>
+</header><p>
+An atom is an ultimate abstraction barrier. It appears to be  indivisible, basic and &ldquo;solid&rdquo;.
+</p>
+
+<p>
+An atom while appeared (to Life Itself) to be a &ldquo;thing&rdquo; is actually a <i>process</i>. Everything is a sub-process of one single unfolding process we call Universe - waves on a single body of &ldquo;water&rdquo;.
+</p>
+
+<p>
+So, an atom is an ultimate abstraction barrier, but not very interesting one - it is a complete &ldquo;black box&rdquo;.
+</p>
+
+<p>
+More interesting abstraction barrier is a <i>cell membrane</i>. The purpose and meaning of a membrane is to isolate a particular process (actually - a whole set of proceses) from the rest of the Universe. And yes, this is how <i><i>nesting</i></i> of processes is done. This, by the way, is a definition of what <i>fundamental and universal</i> means.
+</p>
+
+<p>
+The point is, however, is that a cell membrane is not &ldquo;total&rdquo; or complete. It is <i>penetrable in both directions</i> - it has &ldquo;gates&rdquo; and &ldquo;pumps&rdquo; and what not so parcicular molecules and ions can be taken in or pumped out.
+</p>
+
+<p>
+The set of gates and pumps is not random or arbitrary, it has been evolved to serve a particular purpose of a specialized cell. (While started equivalent, each cell become &ldquo;specialized&rdquo; - transforms itsel into one of some particular kind).
+</p>
+
+<p>
+And this is when the concept of an <i>&ldquo;interface&rdquo;</i> comes from. It is that fundamental. Interface is not what you see on an iPhone. An interface is <i>the means of interraction</i> between processes. This is the right understanding.
+</p>
+
+<p>
+So, you see, a <i>lambda</i> has the simplest interface - one value in, one value out. Values are assumed to be <i>type-tagged</i>, which corresponds to having a unique atomic structure of a particualar molecule/, so no extra information is required.
+</p>
+
+<p>
+This is why The Lambda Calculus are so fundamental - <i>lambda</i> is an ultimate building block - a generalization, a universal <i>enzyme</i>,  which is a <i>machine</i> made out of proteins.
+</p>
+
+<p>
+In molecular biology each enzyme is an evolved (by trial and error) specialized machine for a particular <i>transformation</i>. Mother Nature does not generalize.
+</p>
+
+<p>
+By <i>currying</i> of <i>lambdas</i> we would have what appears to be a <i>multi-argument functions.</i> So, suddenly we have a much complex interfaces - the notion of an <i>order of arguments</i> is suddenly there. And of a <i>number</i> of arguments.
+</p>
+
+<p>
+Mother Nature has no notion of a Number - it does not count, so there are no &ldquo;multiple arguments enzymes&rdquo; in Molecular Biology. Each &ldquo;input&rdquo; is a self-contained molecule with a particular strucure, and if more that one is required there is more than one &ldquo;gate&rdquo;.
+</p>
+
+<p>
+There is one step further. Since Mother Nature does not conut it has no notion of Time. Whatsoever. It has, however, notions of a &ldquo;phase&rdquo; or &ldquo;state&rdquo; of a circular (actually - spiral) process. What they call &ldquo;biological clocks&rdquo; are just sensors, <i>not counter</i>.
+</p>
+
+<p>
+Now, a module is a set of exported <i>function signatures</i>.
+</p>
+
+<p>
+A <i><i>function</i></i> is just a named <i>lambda</i>, either curried (nested) or not. Yes, currying is just <i>nesting</i> in the context of application. Thus a <i>curried function</i> can be <i>partially applied</i>.
+</p>
+
+<p>
+A <i><i>signature</i></i> is a name (for a reference) together with information of a number and particular ordering of the arguments. If we are not in a <i>type-tagged universe</i>, then type information for each parameter (argument) is also provided. For now a type is just a named set of values.
+</p>
+
+<p>
+Now, you see, an abstraction barriers are literally everywhere and at different levels, just like in biology. A <i>lambda</i> can be viewed just a single <i>enzyme</i>, while a module is a single <i>cell</i>, whose exported interface (a set of <i>singatures</i>) is its &ldquo;membrane&rdquo;.
+</p>
+
+<p>
+Just as in biology, everything should be stateless and immutable. <i>Same input - same output. Always.</i> (eveyry enzime is like this). And this fundamental principle is not something which came from abstract mathematics. Mathematics generalized this principle from the fundamental laws of the Biolofy. For life to be possible the causality has to be <i>stable</i> or <i>appearantly immutable</i>.
+</p>
+
+<p>
+Anyway, the notion of an <i>abstraction barrier</i> or of an <i>Abstract Data Type</i>, which is a named, <i>formally specified set of interfaces</i>, is the most fundamental in programming too. We have them at a function level and at module level. Therefore the notion of <i>modularity</i> and of lose coupling (and of sharing nothing) is the most fundamental one.
+</p>
+
+<p>
+Proper (non-leaky) abstraction barriers (proper ADTs in their own small, specialized modules) enforce modularity and therefore <i>hierarchical, layered design</i>, possibility of swapping of implementations, hot code reload, easy maintainabiliy and all the nice things.
+</p>
+
+<p>
+In the ML family of languages one should use <i>Algebraic Data Type</i> where,
+ideally, each type corresponds to a <i>distinct concept in a problem&rsquo;s
+domain</i> and has its own module, which exports its <i>abstract interfaces</i>.
+This is how beautiful things like <i>Coq</i> has been written - just the standard
+library and a bunch of Algebraic Types.
+</p>
+
+<p>
+All you have to do is to be pure functional and use small, specialized modules (which leverage a standard library of a decent, well-researched language such a s Haskell or Ocaml). And yes, it is that simple once you have <i>the right understanding</i> of whys.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Ln Gnmn &lt;lngnmn2@yahoo.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-26 Wed 13:23</p>
+</div>
+</body>
+</html>

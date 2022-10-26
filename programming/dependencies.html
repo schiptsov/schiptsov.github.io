@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 13:23 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dependencies</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Dependencies</h1>
+</header><p>
+The so-called <i>dependency hell</i> is very real and the cause is <i>ignorance</i>.
+</p>
+
+<div id="outline-container-org46e3227" class="outline-2">
+<h2 id="org46e3227">The Standard Libraries</h2>
+<div class="outline-text-2" id="text-org46e3227">
+<p>
+Every standard library of any decent language, designed by competent
+academics, includes everything what one might need.
+</p>
+
+<p>
+It is well-understood that the basic building blocks are just values,
+sequences, trees and tables (in principle) and high-level, <i>file-based</i> IO
+and networking, so almost 40 years of research went into well-designed
+and polished standard libraries of LISP and ML famlilies of languages.
+</p>
+
+<p>
+Just build your small modules on top of the standard library and if
+something isn&rsquo;t there you most likely do not need it. Really.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5041496" class="outline-2">
+<h2 id="org5041496">Low-effort crap</h2>
+<div class="outline-text-2" id="text-org5041496">
+<p>
+<i>Unnecessary, redundant abstractions is the root of all evil</i>.
+</p>
+
+<p>
+Reduction to the essence - to a <i>just right, minimal set of concepts</i>,
+when there is nothing more to remove, is where the real effort goes. Without this it is just a
+low-effort crap. A junk-food of programming.
+</p>
+
+<p>
+Restricting oneself to just a few core universal data abstractions is
+how to retain control over complexity.
+</p>
+
+<p>
+No, you don&rsquo;t need that fancy module by an amateur literally who from
+github which has 100500 even more crappy dependencies. No, you really
+don&rsquo;t.
+</p>
+
+<p>
+When you see more than 5 dependencies in a dependency graphs beware of the
+<i>low-effort crap</i> trap.
+</p>
+</div>
+</div>
+<div id="outline-container-orgacbae61" class="outline-2">
+<h2 id="orgacbae61">Highly specialized libs</h2>
+<div class="outline-text-2" id="text-orgacbae61">
+<p>
+Know when <i>vendoring</i> is the right thing to do.
+</p>
+
+<p>
+Well, I definitely don&rsquo;t want to <i>re-implement</i> things like <i>Numerical
+libraries</i> for scientific computing, or  <i>Mesa</i> or <i>OpenSSL</i>. I want to <i>re-use</i> such great efforts.
+</p>
+
+<p>
+Notice that there is a big difference between, say, Mesa, and some
+amateur crap on NPM or some <i>low-effort</i> Rust crate.
+</p>
+
+<p>
+What one especially must avoid, like a plague, is some fancy abstract
+Haskell modules which implement unnecessary, redundant
+category-theoretic abstractions.
+</p>
+
+<p>
+Yes, I have studied the theory and I know it is mostly irrelevant.
+</p>
+</div>
+</div>
+<div id="outline-container-org590c7ef" class="outline-2">
+<h2 id="org590c7ef">Stdlibs to know and study</h2>
+<div class="outline-text-2" id="text-org590c7ef">
+<ul class="org-ul">
+<li>Erlang</li>
+<li>Standard ML</li>
+<li>Haskell (what comes with GHC)</li>
+<li>Ocaml (base, <i>not</i> Core)</li>
+<li>Common Lisp (the CLtL2)</li>
+<li>MIT Scheme</li>
+<li>Clojure (he is right about being <i>data-centric</i>)</li>
+<li>Go (the stdlib has been ported from Plan9)</li>
+<li>Scala 3 (they rewrote everything)</li>
+<li>Python (before the async madness)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-26 Wed 13:23</p>
+</div>
+</body>
+</html>

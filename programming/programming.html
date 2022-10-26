@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 13:23 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programming</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Programming</h1>
+</header>
+<div id="outline-container-org059cfa9" class="outline-2">
+<h2 id="org059cfa9">Just write everything down</h2>
+<div class="outline-text-2" id="text-org059cfa9">
+<p>
+The main problem with programming is one being totally <i>overwhelmed</i> with
+irrelevant details, especially in <i>C-like imperative languages</i>.
+</p>
+
+<p>
+The solution is the classic <i>layered</i> design, with layers of <i>DSLs</i> on top
+of one another. These DLSa are just functions, standardized interfaces
+and protocols. This is how <i>TeX</i> (and <i>LaTeX</i>) has been written and other
+remarkable things like the whole <i>X Window System</i>.
+</p>
+
+<p>
+The complexity, however, is still overwhelming. The final solution is to
+write everything down as informal specifications, formal specifications
+and even discrete <i>math</i>.
+</p>
+
+<p>
+Informal specs should written be in <i>org-mode</i>, formal specs in pure
+functional languages or even specialized theorem provers such as <code>Coq</code> or
+<code>Agda</code> (both have an <i>embedded</i> pure-functional language which can be used
+for a quick prototyping).
+</p>
+
+<p>
+Actually, the real problem is that you <i>will forget everything you have
+thought</i>. So it pays to write down as much as you can.
+</p>
+
+<p>
+Writing is also the best known from of transmitting a knowledge
+through the time and to other people, including to an older you.
+</p>
+
+<p>
+Writing itself is a very challenging and difficult task, since an
+art-level clarity and brevity is required, similar to the best
+mathematical texts which accompany some proofs.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org039dcd6" class="outline-2">
+<h2 id="org039dcd6">Test Driven Development</h2>
+<div class="outline-text-2" id="text-org039dcd6">
+<p>
+The consistent practice of writing tests before code is a <i>rare
+non-bullshit advice</i> from the world of project management.
+</p>
+
+<p>
+It helps you to focus on a higher-level concepts of <i>interfaces</i>
+(type-signatures) and <i>modules</i> and check both the <i>use side</i> and the
+<i>definition side</i>.
+</p>
+
+<p>
+<i>ADTs</i> and corresponding <i>modules</i> are at the very core of programming
+(within every <i>paradigm</i>) so to beginning with and focus on them is indeed
+a valuable <i>habit</i> to develop.
+</p>
+
+<p>
+Write the tests - your &ldquo;use side&rdquo; - before an implementation, and check if
+everything is in accordance with your <i>specifications</i>. This is an outline
+of actual design process, insead of day-dreaming and hand-waving.
+</p>
+</div>
+</div>
+<div id="outline-container-orga8c13d5" class="outline-2">
+<h2 id="orga8c13d5">Math</h2>
+<div class="outline-text-2" id="text-orga8c13d5">
+<p>
+It turns out that before thinking about actual interfaces (and
+type-signatures) even higher-level and mode abstract <i>mathematical
+thinking</i> (and writing) is required.
+</p>
+
+<p>
+The two DLSs - of The Set Theory and of the First-Order Logic - are at the
+code of all modern mathematics. Other specialized &ldquo;logics&rdquo; are
+occasionally useful.
+</p>
+
+<p>
+<i>Always write all the relevant math down</i> (in a LaTeX subset of org-mode).
+This will pay you back immensely. First, because you will forget it all
+in a week. Second, because other people can check and even verify your
+reasoning. This is priceless.
+</p>
+</div>
+</div>
+<div id="outline-container-org5f05528" class="outline-2">
+<h2 id="org5f05528">UNIX Philosophy + Functional Programming</h2>
+<div class="outline-text-2" id="text-org5f05528">
+<p>
+It always looks simple in retrospect. Just take the best parts of the
+UNIX Philosophy (do just one thing but do it well, use text streams,
+files, pipes and sockets) and use <code>SML/NJ</code>, <code>Erlang</code>, <code>Haskell</code> or <code>Ocaml</code> instead of <code>C</code> or <code>C++</code>. Well, <code>SML</code> is rather a monument of the glorious times long gone, so <code>Ocaml</code> or <code>Haskell</code> but never re-implementing the wheel, and just <i>FFI&rsquo;ing everything</i>.
+</p>
+
+<p>
+If you are trapped in the JVM ecosystem, then there is <code>Scala 3</code>, which doing almost everything right, except, of course, the fucking dependencines and 3 versions of the compiler and standard library in a smallest setup. Well, with <code>Haskell</code> that is even worse.
+</p>
+
+<p>
+Text streams and FP maps very well with so-called <i>Micro-services architecture</i> - as long as you are <i>pure functional</i> (Same input - same output. Always.), which implies <i>referentially transparent</i>, you can really mix and match &ldquo;services&rdquo; just like a functional programmer mix and match <i>functions</i>. Yes, for real. <code>Coursier</code>, <code>Kafka</code> or <code>Twitter toolchain</code> are the actual use cases.
+</p>
+
+<p>
+Just getting rid of imperative code (aliasing problems, lifetimes, locks, semaphors, etc) and verbose, boated sources is already a bliss and an unexpected return of the <i>joy of programming</i> which programmers of the Golden Age (Common Lisp, Smalltalk, Standard ML, Miranda, Haskell) used to feel. <i>Happy, happy, joy, joy</i> (this is from the MIT Scheme).
+</p>
+
+<p>
+Using a <i>high level, mostly functional</i> language in UNIX instead of <code>C</code> is (unfortunately) not my idea. <i>Bell Labs</i> had a research project which resulted in development of the <i>Basis Library</i> and a couple of books. Today, it seems that <code>Ocaml</code> picked everything up where they left. Just like it was with SML, a major <i>theorem proover</i> (<code>Coq</code>) is the main project for the whole ecosystem, and it has just the <i>standard library</i> in dependencies (well, almost).
+</p>
+
+<p>
+Another thing to add is what is loosely called <i>reactive programming</i> which is just <i>triggers on events from an event stream</i>. This is already a mess and a contenst in blog post idiocy, but one could use the right abstractions (which are streams and typed events to pattern-match upon). Some Haskell&rsquo;s graphics and animation libraries got it right.
+</p>
+
+<p>
+Any kind of immutable databases, ledgers, etc. could <i>naturally</i> be developed using this approach. <i>Datomic</i> of Rich Hickey is an attempt for an <i>immutable store</i>. <i>XTZ</i> is a blockchain implementation in pure Ocaml, while others still got stuck with <code>C and C++</code>.
+</p>
+
+<p>
+The <i>Haskell Platform</i> (GHC + a small set of well-designed libraries) and the <i>Ocaml Ecosystem</i> (the compiler, tools and the libraries via <code>opam</code>) are <i>production-ready</i> environments. One always could enrich them with <code>Coq</code>, <code>Agda</code> and <code>TLA+</code> to reach the level of an <i>art</i> (instead of that <i>learn to code in javascript or python</i> fucking abomination).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org521475f" class="outline-2">
+<h2 id="org521475f">Algebraic types and pattern-matching</h2>
+<div class="outline-text-2" id="text-org521475f">
+<p>
+Anything could be build out of <i>Algebraic Data Types</i>.
+</p>
+
+<p>
+There are <i>AND-types</i> (<code>A, B</code> - product-types), <i>OR-types</i> (<code>A | B</code> - sum-types) and <i>lambda
+types</i> (<code>A -&gt; B</code> - correspond to exponents).
+</p>
+
+<p>
+Everything becomes self-evident when we think of types as <i>finite sets</i> and consider all the individual unique
+mappings (<i>arrows</i>) between the elements of any two such sets.
+</p>
+
+<p>
+We could pattern-match on <i>data-constructors</i> which conceptually are the same
+as <i>type-tags</i> for every value.
+</p>
+
+<p>
+Logically, we can imagine that each value has an implicit
+<i>type-tag attached to it</i>. Type-tags are as old as early LISPs and this, in
+turn, corresponds to unique shapes of common molecular structures in biology.
+</p>
+
+<p>
+A list is a <i>recursive</i> sum-type. So are <i>trees</i>.
+A record is a <i>product type</i> with <i>tagged</i> (named) values (parts).
+A table is a mapping (just like a function) from &ldquo;rows&rdquo; to &ldquo;columns&rdquo;.
+</p>
+
+<p>
+One could think of a table as a <i>list of tuples</i> (an ordered sequence of
+fixed-size &ldquo;sequences&rdquo;). The early LISPs has been built this way.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcef5a7c" class="outline-2">
+<h2 id="orgcef5a7c">The Relational Model</h2>
+<div class="outline-text-2" id="text-orgcef5a7c">
+<p>
+Everything &ldquo;fits together&rdquo; because conceptually, at the most abstract
+level it is all just <i>sets of tuples</i>, which is the basis of <i>both</i>
+Functional Languages and the Relational Model.
+</p>
+
+<p>
+The crucial principle is that relations are just <i>sets of tuples</i>, and the whole
+relations are <i>immutable values</i>, with all the usual nice properties and implications.
+</p>
+
+<p>
+Everything is &ldquo;naturally&rdquo; <i>typed</i> with Algebraic Data Types - a record is just a
+&ldquo;named&rdquo; tuple, which, in turn, is a <i>product-type</i>. <i>Sum-types</i> provide all
+the required enumerables.
+</p>
+
+<p>
+There is a simple and obvious <i>relation algebra</i> based on the algebra of
+the Set Theory, with the <i>closure property</i>.
+</p>
+
+<p>
+Like any other values, these <i>relation</i> values can be passed to and
+returned from pure <i>functions</i>, used within <i>persistent aggregates</i>, put
+into immutable <i>trees</i>, etc.
+</p>
+
+<p>
+This maps well to <i>persistent data structures</i> (trees and maps) of functional languages.
+</p>
+
+<p>
+Lists of records (&ldquo;named&rdquo; tuples) where the actual ordering is
+irrelevant (unless deliberately <i>sorted</i>) is an obvious transition from
+the abstract universe of Sets to the concrete reality of actual
+representations and languages.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9f5b283" class="outline-2">
+<h2 id="org9f5b283">Managing Complexity</h2>
+<div class="outline-text-2" id="text-org9f5b283">
+<p>
+As long as we are able to model and formally specify our domain in the <i>language of
+mathematics</i>, which is basically 2 DSLs -the Sets and the First Order
+Logic and could derive a simple <i>domain-specific /algebra</i>, the
+complexity is under our control.
+</p>
+</div>
+<div id="outline-container-orgba2be25" class="outline-3">
+<h3 id="orgba2be25">Zooming in and out</h3>
+<div class="outline-text-3" id="text-orgba2be25">
+<p>
+This is the most important thing in managing complexity - the ability to
+zoom in from a mathematical model to actual language types and
+implementations inside modules and back to the most general and abstract
+notions.
+</p>
+
+<p>
+This ability is the key to success and the biginning of an art.&rsquo;
+</p>
+</div>
+</div>
+<div id="outline-container-orgdaf6f20" class="outline-3">
+<h3 id="orgdaf6f20">Formal systems</h3>
+<div class="outline-text-3" id="text-orgdaf6f20">
+<p>
+As long as we are writing math we are able to formally verify it.
+</p>
+
+<p>
+<code>TLA+</code>, <code>Agda</code> and <code>Coq</code> are the tools of the trade. Notice that the larter
+has an embedded pure functional language with algebraic types and pattern
+matching, which is, again, the universal core language.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge613b57" class="outline-2">
+<h2 id="orge613b57">Languages</h2>
+<div class="outline-text-2" id="text-orge613b57">
+<p>
+The modern descendants of the ML-family of languages are an &ldquo;ideal&rdquo;
+choice.
+</p>
+
+<p>
+Haskell is particularly good, because it <i>restricts</i> and has the most
+advanced <i>type system</i>.
+</p>
+
+<p>
+Ocaml shines with its <i>module system</i> and <i>syntactic extensions</i>.
+</p>
+
+<p>
+Scala 3 is also good, given that we use our own <i>simple</i> libraries (made
+by ripping off the essence from an over-&ldquo;engineered&rdquo; bullshit).
+</p>
+</div>
+</div>
+<div id="outline-container-org192f69d" class="outline-2">
+<h2 id="org192f69d">Building blocks</h2>
+<div class="outline-text-2" id="text-org192f69d">
+<p>
+There are basically 3 things that could happen with two (one more than one) <i>values</i> (or whole
+sets, or <i>types</i>)
+</p>
+<ul class="org-ul">
+<li><code>a, b</code> (which corresponds logical <i>AND also</i>, a <i>product</i>)</li>
+<li><code>a | b</code> (which corresponds logical <i>OR else</i>, a <i>disjoint union</i>)</li>
+<li><code>a -&gt; b</code> (which corresponds to a logical <i>implication</i> or to a single STEP
+of computation (or evaluation of an expression), which can be
+abstracted out as a <i>function</i>).</li>
+</ul>
+<p>
+This, by the way, is when we <i>transform</i> values into the same type or into
+another <i>of the same kind</i>. What if we transform them into something completely
+different?
+</p>
+<ul class="org-ul">
+<li><code>a -&gt; f b</code> - this is &ldquo;putting into&rdquo; or &ldquo;sending&rdquo; (no way to get back)</li>
+<li><code>f a -&gt; a</code> - this is &ldquo;tacking from&rdquo; or &ldquo;receiving&rdquo; (no way to put it
+there)
+These are <i>duals</i> of each other.</li>
+</ul>
+<p>
+One could think of <code>a -&gt; f b</code> as <i>extending an immutable structure</i>, and,
+conversely, <code>f a -&gt; a</code> as <i>traversing an immutable structure</i>
+</p>
+
+<p>
+Notice that with the first two arrangements the <i>order is irrelevant</i> and
+the two <i>views are isomorphic</i>, while the third relation is <i>directed</i> and <code>b
+-&gt; a</code> is not the same, but there could be a such <i>inverse function</i> (or
+operation) within a particular context.
+</p>
+
+<p>
+Adding the universal notion of <i>nesting</i> we could have <i>infinite lists</i>
+(which is a <i>recursive structure</i> or a <i>nested type</i> - a sum of a product).
+</p>
+</div>
+
+<div id="outline-container-org9413a0a" class="outline-3">
+<h3 id="org9413a0a">Monads</h3>
+<div class="outline-text-3" id="text-org9413a0a">
+<p>
+A <i>Monad</i> (as an <i>Abstract Data Type</i>) has to form an algebraic structure
+called <i>Monoid</i> with respect to its operations (defined as a standardized
+<i>interface</i> - <code>&gt;&gt;=</code> (composition) and <code>return</code>).
+</p>
+
+<p>
+This <i>interface</i>, which has to form an instance of a <i>Monoid</i>  with respect
+to the <i>binary operator</i> <code>&gt;&gt;=</code>, is a generalized <i>abstraction barrier</i> for <i>composable entities</i>, or <i>values of a particular
+type</i>.
+</p>
+
+<p>
+It is defined as a <i>type-class</i>, implying that any <i>particular type
+(an ADT) which implements the interface</i> (and ensures Monoidal laws -
+<i>associativity and identity properties</i>) becomes an <i>instance of a Monad</i>.
+</p>
+
+<p>
+Now there is the trick. Behind this generalized <i>abstraction barrier</i> (of
+composable values) could be a value of a <i>sum-type</i>, of a <i>product-type</i>, of a <i>function-type</i> or
+<i>any nested combinations of these</i>. So there are different kinds of
+Monads.
+</p>
+
+<p>
+Or, <i>operationally</i>, once we can implement the minimal interface (<code>&gt;&gt;=</code> and
+<code>return</code>) for a given ADT, it <i>becomes</i> an instance of a Monad. <i>To be an
+instance of a /Monad /is to (also) implement the interface</i>.
+</p>
+
+<p>
+A <code>List</code> is a such particular instance, where <code>&gt;&gt;=</code> corresponds to <code>append</code>, and the <code>[]</code> is
+an <i>identity element</i>.
+</p>
+
+<p>
+A <i>parameterized sum-type</i> behind this <i>abstraction barrier</i> is a common
+idiom.
+</p>
+<ul class="org-ul">
+<li>promises and other kids of <i>asynchronous operations</i></li>
+<li>computations which <i>may fail</i> in general</li>
+<li>values which could be <i>empty</i> or <i>contain nothing</i></li>
+</ul>
+<p>
+or even an <i>arbitrary sum-type</i> (an <code>a | b</code>) could be made into an
+instance of a Monad, which means <i>the ADT</i> forms a Monoid with respect to some
+<i>associative composition operator abstracted out as</i> <code>&gt;&gt;=</code>.
+</p>
+
+<p>
+Notice this very careful wording.
+</p>
+
+<p>
+In decent languages the static type system <i>guarantees</i> that this
+abstraction barrier <i>cannot be violated at runtime</i>.
+</p>
+
+<p>
+Additional type-system tricks, such as use of so-called <i>existential types</i> with
+<i>phantom parameters</i> makes a <i>type-level guarantee</i> that a value <i>cannot
+escape from a given context</i> or simply cannot be accessed <i>in principle</i>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5c3111a" class="outline-2">
+<h2 id="org5c3111a">Lists, Records, Queues, Streams, Logs</h2>
+<div class="outline-text-2" id="text-org5c3111a">
+<ul class="org-ul">
+<li>Lists are <i>position ordered</i></li>
+<li>Records are <i>by name</i> (associative)</li>
+<li>Logs are <i>lists of strings which represent records</i> (containing a <i>timestamp</i>)</li>
+<li>Queues are async messages <i>without knowing anything about the receiver</i>.</li>
+<li>Streams are <i>serialized events</i> (by sense organs of perception).</li>
+</ul>
+
+<p>
+Which a <i>by name</i> pattern one don&rsquo;t have to know <i>what else is there</i>. This
+implies new names (or keys) could be <i>added later</i> without affection
+anything which is already there.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-26 Wed 13:23</p>
+</div>
+</body>
+</html>

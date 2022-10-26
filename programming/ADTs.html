@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 13:23 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="ADTs for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<p>
+#+TITLE Abstract Data Types
+</p>
+<p>
+This is by far the most important concept (and related methodology) in programming.
+</p>
+
+<p>
+This is a fundamental result, originally by <i>Barbara Liskov</i> (for which she received the Turing Award).
+</p>
+
+<p>
+What she did, however, is <i>clearly articulated and grouped together</i>
+related concepts, while the original totions came from abstract
+mathematics.
+</p>
+
+<p>
+The first well-known <i>Abstract Data Type</i>, so to speak, is what
+underlies the <i>Set Theory</i> - the formalized notion of a <i>Set</i>.
+</p>
+
+<p>
+Abstract mathematics in general deliberately ignored (abstracted out)
+any notions of <i>actual representation</i> or even <i>possible existence</i> of
+abstract &ldquo;objects&rdquo; it considers.
+</p>
+
+<p>
+To formalize notions form a Domain in pure mathematics first (using Sets
+and Logic) is an excellent strategy, and this is what any serious
+programmers of the Golden Age (70s, 80s) advocate.
+</p>
+
+<p>
+However, classic mathematics is <i>untyped</i> or <i>implicitly weakly typed</i>,
+which means that <i>the properties</i> which constitute an abstract structure,
+or a <i>whole family (or a class)</i> of such structures, while stated
+precisely and formally, do not constitute a formal definition of a
+particular type (<i>ADTs</i> and <i>Type-classes</i> of Wadler are attempts to do
+typing systemically).
+</p>
+
+<p>
+The abstract notion of a Set is defined <i>only</i> in terms of <i>operations</i>
+(which itself is a set of <i>operators</i>), deliberately leaving out
+everything else.
+</p>
+
+<p>
+This is the same principle underlies any proper ADT - it is defined in
+terms of operations on the corresponding Set of <i>values</i> (which can be
+seen as an abstract <i>partition</i> on a Universe of all possible values).
+</p>
+
+<p>
+So <i>ADTs are Sets of values</i>, but defined (<i>such that</i>) in terms of <i>operations</i>.
+</p>
+
+<p>
+<i>Type-classes</i> extends this notion with <i>nesting</i> and <i>extension</i> or
+<i>specialization</i> by defining a Set of required <i>interfaces</i> to be
+implemented. It thus formalizes the notion of a <i>Duck-typing</i>.
+</p>
+
+<p>
+To be a <i>duck</i> is to exhibit this and that behavior - to quack like a duck
+and walk like a duck.
+</p>
+
+<p>
+The principle behind Abstract Data Types is clear and well-defined separation of
+</p>
+<ul class="org-ul">
+<li>A <i>Public Interface</i> (corresponds to a <i>signature</i> in ML)</li>
+<li>An <i>Internal representations</i>, together with a well-defined <i>representation invariants</i> and other <i>constraints</i>.</li>
+<li>A &ldquo;concrete&rdquo; <i>Data-Structure</i> which underlay the type and <i>actual implementation of corresponding algorithms</i>.</li>
+</ul>
+
+<p>
+Representation and implementation are defined in <i>structures</i> in ML.
+</p>
+
+<p>
+<i>Data dominates</i> (another fundamental principle) which means that once a
+particular data structure is selected, all the algorithms and even the
+shape of the code (implementation) <i>follows</i> - a recursive nature of a
+data structure implies recursive functions that traverse them.
+</p>
+
+<p>
+Similarly, a <i>sum-type</i> dictates its <i>pattern-matching code</i> and overall
+shape of the functions which manipulate values of a type.
+</p>
+
+<p>
+Monads in Haskell are ADTs, defined as a class of types (a type-class), while each particular <i>instance</i> is precisely an ADT.
+</p>
+
+<p>
+The type-class itself is just a <i>named set of interfaces</i> together with a <i>class-subclass relation</i> (or nesting).
+Semantics of a <i>type-class</i> is to state <i>what it takes to be an <code>X</code></i> - which particular <i>signatures</i> must be implemented (by an ADT)
+</p>
+
+<p>
+The second most fundamental concept of <i>Modules</i> is one level higher.
+A <i>Module</i> could contain one or more signatures and corresponding structures.
+In ML these could be separated in a .mli and .ml files.
+</p>
+
+<p>
+In ML <i>Modules</i> are high-level abstractions and could be <i>applied to one another</i> to produce a &ldquo;specialized&rdquo; <i>structure</i> (which is another new module).
+</p>
+
+<p>
+This application is based on the mathematical concept of a <code>Functor</code> which is a <i>mapping that preserves the structure of an &ldquo;object&rdquo;</i> (originally defined on directed graphs).
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-26 Wed 13:23</p>
+</div>
+</body>
+</html>

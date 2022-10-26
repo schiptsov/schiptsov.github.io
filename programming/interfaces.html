@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 13:23 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interfaces</title>
+<meta name="author" content="Ln Gnmn &lt;lngnmn1@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Interfaces</h1>
+</header><p>
+While <i>abstraction</i> (meaning abstracting out irrelevant details, not
+abstract philosophical or artistic bullshit) is the main principle of
+all programming (and math), what we call <i>Interfaces</i> is <i>the</i> most important <i>concept</i> in programming,
+period.
+</p>
+
+<p>
+The <i>Modularity principle</i>, just naturally follows from what
+interfaces are and how they being used.
+</p>
+
+<p>
+<i>Domain Specific Languages</i> or DSLs, which is, perhaps, the second most
+important concept in all programming, are just specially designed <i>sets
+of functions</i> (or, more precisely - <i>function type-signatures</i>). But a set
+function type-signatures is what an <i>interface</i> is.
+</p>
+
+<p>
+Just remember, that a function is the smallest building block <i>of abstraction</i>,
+and corresponds to a single <i>named expression</i>, parameterized (tables) or not
+(constants). In the old times they used to call it a <i>procedure abstraction</i>.
+</p>
+
+<p>
+Perhaps the best current metaphor for interfaces is from the golden age
+of Personal Computers, when on could buy, lets say a video card, and
+just plug it into some PCI (nowadays - PCI-Express) slot and it will
+just work. Then one might change not just a vendor, but a whole
+architercure of a video card (let&rsquo;s say from Nvidia to AMD), plug it
+into the motherboard, and everything will magically work.
+</p>
+
+<p>
+This is exactly what we want - the ability to swap not just
+implementation, without breaking anything, but to switch between
+&ldquo;storages&rdquo; or &ldquo;network protocols&rdquo;, having them as <i>plug-ins</i> (which is
+just a <i>module</i> that <i>implements some standard interface</i>).
+</p>
+
+<div id="outline-container-org4b657ac" class="outline-3">
+<h3 id="org4b657ac">Duck-typing</h3>
+<div class="outline-text-3" id="text-org4b657ac">
+<p>
+<i>To be an X is to exhibit X&rsquo;s /behavior</i> or just act exactly as X does.
+<i>What walks like a duck and quacks like duck</i>, they say. And, indeed, what
+can be a junior Javascript coder? What writes code like a javascript
+coder and quacks like a javascript coder. Anyway.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgffbf804" class="outline-3">
+<h3 id="orgffbf804">Biology</h3>
+<div class="outline-text-3" id="text-orgffbf804">
+<p>
+This is actually a <i>universal principle</i>. You can &ldquo;plug&rdquo; or &ldquo;use&rdquo; any molecule, lets say a glucose, which has a
+<i>particular shape</i> (and resulting electro-chemical characteristics).
+</p>
+
+<p>
+A <i>shape</i> serves as its own <i>type</i> and all the individual molecules of the
+same shape are indistinguishable and interexchageable. This, by the way,
+is <i>how</i> any molecular biology or life itself is possible. Mother nature
+does not have the concept of &ldquo;identity&rdquo;.
+</p>
+
+<p>
+There could be molecules which has exactly the same &ldquo;parts&rdquo; or
+&ldquo;sides&rdquo;, and these parts can be used <i>as if the molecules are exactly the
+same</i>. Biology uses this trick all the time.
+</p>
+
+<p>
+That particular &ldquo;shape&rdquo; or arrangement which triggers some <i>enzymes</i> or
+binds to some <i>receptors</i> is, operationally, <i>an interface</i>. It is that
+fundamental.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org10d9bb3" class="outline-2">
+<h2 id="org10d9bb3">The essence</h2>
+<div class="outline-text-2" id="text-org10d9bb3">
+<p>
+The essence of programming is to reduce everything to the few <i>universal
+principles</i> and universal <i>building blocks</i> which found in biology (after
+enumerable trials-and-errors). Smart people call them &ldquo;stable
+intermediate building blocks&rdquo;.
+</p>
+
+<p>
+It turns out that <i>hierarchical (or layered) DSLs</i> is a universal
+architecture. Just like <i>the language</i> of the Set Theory has been embedded
+into mathematics, an <i>Abstract Data Type</i> that implements the Set
+abstraction - the <i>module</i> - extends a pure functional language like Haskell (or the pure subset
+of Ocaml).
+</p>
+
+<p>
+Mathematicians never consider <i>representation</i> or even <i>existence</i> (leave
+alone <i>implementation</i>) of their &ldquo;objects&rdquo;, and the actual technique (and
+a whole methodology) of using <i>Abstract Data Types</i>, which create an
+<i>abstraction barrier</i> and hide implementation details behind (which could even be
+swapped - one <i>module</i> for another) is what Barbara Liskov got her Turing
+Award for.
+</p>
+
+<p>
+DSLs are just specialized <i>abstract interfaces</i> and a
+corresponding <i>module</i> which abstracts out the actual implementation behind its
+<i>abstract public interface</i>. Exactly like a module which implements Sets.
+</p>
+
+<p>
+Just make them <i>pure-functional</i>, like the imaginary core of molecular biology (enzymes are pure
+functions, and molecular structures are, at least operationally,
+<i>immutable and persistent</i>, if you don&rsquo;t know. Yes, DNA and RNA
+occasionally breaks, and DNA some times can be repaired, but they are not &ldquo;supposed to&rdquo; ).
+</p>
+
+<p>
+Even better - is to use the mind of an external observer <i>to generalize
+and derive useful abstractions</i> (like a Number or a linear sequence, a tree or a lookup table) and use the
+minimal possible set of these abstractions to <i>represent</i> and <i>define</i> your
+problem domain. This is what the Set Theory and the First Order Logic do
+in math (which happen to be DSLs embedded in it).
+</p>
+
+<p>
+And the essence of the essence is to use a <i>minimal</i> arrangement that is
+<i>stable</i>, just does <i>one</i> thing and <i>does it well</i>. And build whole
+<i>hierarchies</i> out of these arrangements. Yes, you have probably
+heard this somewhere before.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-26 Wed 13:23</p>
+</div>
+</body>
+</html>

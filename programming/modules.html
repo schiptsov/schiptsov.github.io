@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 13:42 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modules</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Modules for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Modules</h1>
+</header><p>
+The old-school guys (and girls!) from the golden age of programming
+(70s, 80s and early 90s - before Java) usually has a strong math
+background so they got all the fundamental  principles right.
+</p>
+
+<p>
+The Modularity principle (both at the level of individual abstract data
+types and of whole modules around them) is the most fundamental one
+because it not only mimics Mother Nature (multi-cellular organisms) but
+addresses the fact of out severe cognitive limitations and abilities to
+understand complex systems (<i>the 7, plus or minus 2 chunks</i> meme from
+cognitive psychology).
+</p>
+
+<p>
+Packages (an archaic name for libraries) allow the definition of groups
+(Sets) of related functions that share a local hidden data structure
+(actual representation) by hiding it (literally, behind an <i>abstraction
+barrier, which is an absract interface</i>) within a <i>module</i> body.
+</p>
+
+<p>
+A module traditionally corresponds to a single source file, plus a
+header or an interface file (for languages which require them). So, a
+single file (which should define and implement a <i>single ADT</i>) is a <i>module</i>,
+and a <i>set</i> of such files is a <i>package</i>.
+</p>
+
+<p>
+Disentanglement, Decomposition (of the concepts of a problem),
+Partitioning (of concepts and corresponding Abstract Data Types)
+and Nesting (of code) are the main  principles. Types and interfaces
+should be <i>abstract</i> (representation and implementation must be &ldquo;hidden&rdquo;
+</p>
+<ul class="org-ul">
+<li>is <i>not required to be known</i>, which is the proper meaning of <i>being
+abstracted out or away</i>).</li>
+</ul>
+
+<p>
+A module must be understood <i>independently from other modules</i> (at least
+loosely coupled to the standard library and a few modules at a lower level
+of abstraction - privios layer of hierarchical DSLs) and used <i>without needing to examine its
+implementation</i>.
+</p>
+
+<p>
+The idea of a module as a <i>separate unit of compilation</i>, meaning that, at
+least in theory, it is <i>self-contained</i>, is based on the principle of
+reducing cognitive load by proper decomposition (or disentanglement) of
+a problem into sub-problems, systems into sub-systems and of everything
+into its basic building blocks.
+</p>
+
+<p>
+Only in this way large and complex systems can be understood.
+/Disentanglement, decomposition and formal definition of the basic
+building blocks following by composing everything back into a coherent
+whole is the right metaphor.
+</p>
+
+<p>
+Modules are where the actual implementations reside, being <i>abstracted out by
+corresponding /interfaces</i> (of Abstract Data Types).
+</p>
+
+<p>
+Ideally, they should form well-defined layers of hierarchical
+abstractions, where each module interacts only (and only one) level
+below it (in the abstraction hierarchy). Not above. Not two levels down.
+</p>
+
+<p>
+It must be possible to develop individual modules by different people
+(or teams) with minimal communication required - everything has to be
+written down and <i>specified</i> (interfaces, constraints, formats, protocols)
+and only <i>the one layer down API</i> (and the standard library) is required.
+</p>
+
+<p>
+This is how proper DSLs should be designed and implemented. <i>Small,
+specialized</i> modules are the basic building blocks of hierarchies of
+pure-functional (based on high-order functions) DSLs.
+</p>
+
+<div id="outline-container-orgc44280f" class="outline-2">
+<h2 id="orgc44280f">Meta-level</h2>
+<div class="outline-text-2" id="text-orgc44280f">
+<p>
+Cognitive overload is the primary motivation for modularity.
+</p>
+
+<p>
+There is a limit to how many things a person can think about at once
+(hence <i>loose coupling</i> - separation, partitioning).
+</p>
+
+<p>
+One-to-one correspondence with major <i>concepts</i> in an expert&rsquo;s language.
+</p>
+
+<p>
+Modules are part of <i>the Model</i>, and they should reflect <i>concepts</i> in the domain.
+</p>
+
+<p>
+It isn’t just code being divided into modules , but <i>concepts</i>.
+</p>
+
+<p>
+Modules (interfaces, actually) are <i>partitions</i> for (in the universes of) concepts.
+</p>
+
+<p>
+Modules and their <i>names</i> should reflect insights in the domain.
+</p>
+
+<p>
+Refine the model (a spiral-shaped process of continuous refinement
+) until it <i>partitions</i> according to <i>high-level domain concepts</i> and the
+corresponding code is being <i>decoupled</i> as well.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c82fee" class="outline-2">
+<h2 id="org4c82fee">Principles</h2>
+<div class="outline-text-2" id="text-org4c82fee">
+<p>
+Everything is to be build upon Algebraic (<i>sum</i> and <i>product</i>) abstract
+data types.
+</p>
+
+<p>
+Abstract means that one uses only <i>constructors</i> exported from a
+module <i>pattern-matching</i>.
+</p>
+
+<p>
+Individual types corresponds to (represent) <i>mental concepts</i>.
+This is where DDD fuzzes with FP and TDD.
+</p>
+
+<p>
+A module contains all the functions specifically related to the main <i>types</i>
+</p>
+
+<p>
+It should have ML-like signature checked by the compiler, but OK.
+Standard ML people in 90s got it all right.
+</p>
+
+<p>
+Again, the big picture is:  <code>Concepts -&gt; Types -&gt; Interfaces -&gt; Modules</code>
+We program with algebraic types in FP.
+</p>
+</div>
+<div id="outline-container-orga896ba7" class="outline-3">
+<h3 id="orga896ba7">The Abstraction principle</h3>
+<div class="outline-text-3" id="text-orga896ba7">
+<p>
+Abstraction is the key to managing overwhelming complexity.
+• Abstraction is a tool (the only one?) that people use to understand
+vastly complex systems.
+• Abstraction allows people to know <i>what</i> a (sub)system does without
+knowing <i>how</i> - without memorizing all the irrelevant details.
+</p>
+
+<p>
+Proper modularity is the manifestation of adequate abstraction
+• Proper modularity makes a program’s abstractions <i>explicit</i>
+• Proper modularity can <i>dramatically</i> increase clarity
+</p>
+</div>
+</div>
+<div id="outline-container-org273f1d9" class="outline-3">
+<h3 id="org273f1d9">The Encapsulation principle</h3>
+<div class="outline-text-3" id="text-org273f1d9">
+<p>
+A well-designed module encapsulates data (information hiding)
+• An interface should <i>hide implementation details</i>
+• A module should use its functions to <i>encapsulate its data</i>
+• A module should <i>not</i> allow clients to manipulate the data directly
+</p>
+
+<p>
+The goal is that the <i>representation</i> and <i>implementation</i> can be changed
+without being noticed by the &ldquo;users&rdquo; of the module.
+</p>
+
+<p>
+It is common in ML to have multiple implementations of the same
+<i>signature</i> which can be used <i>interchangeably</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org327b565" class="outline-3">
+<h3 id="org327b565">The Necessery and Sufficient principle</h3>
+<div class="outline-text-3" id="text-org327b565">
+<p>
+A well-designed module has a <i>minimal interface</i>
+• Function declaration should be in a module’s interface if and only if:
+• The function is <i>necessary</i> to make objects complete, or
+• The function is <i>sufficient</i> - consistent for many clients
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4f67feb" class="outline-2">
+<h2 id="org4f67feb">Record</h2>
+<div class="outline-text-2" id="text-org4f67feb">
+<p>
+A module is just like a record of named and typed slots (<i>type-signatures</i>)
+and just like a <i>tagged Cartesian product</i>. Access is similar to <i>selectors</i> (for slots of a record).
+</p>
+
+<p>
+Modules can be <i>nested</i>, even <i>applied</i> to one another (in ML or Ocaml).
+</p>
+
+<p>
+Conceptually, a module is <i>an instance of</i> a <a href="record.html">record</a> (it is not a
+<i>record-type</i>) of given type-signatures (which is a <i>symbol-type pair</i>).
+</p>
+
+<p>
+We cannot say that a module is a <i>Cartesian Product</i> of typed slots (<i>type-signatures</i>),
+because they are fixed (are constants) and do not range over some Set (like variables).
+</p>
+
+<p>
+This is why we said <i>like</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgabfecba" class="outline-2">
+<h2 id="orgabfecba">Structure</h2>
+<div class="outline-text-2" id="text-orgabfecba">
+<p>
+So it is an <i>instance</i> (a single <i>record-like value</i>), a particular
+<i>structure</i> as they called in Standard ML or Ocaml or F#.
+</p>
+
+<p>
+The access is similar to <i>selectors</i> for record&rsquo;s slots.
+</p>
+</div>
+</div>
+<div id="outline-container-orga451c76" class="outline-2">
+<h2 id="orga451c76">Signatures</h2>
+<div class="outline-text-2" id="text-orga451c76">
+<p>
+Each such &ldquo;structure&rdquo; is an instance of a particular <i>&ldquo;signature&rdquo;</i> which corresponds to its
+particular &ldquo;<i>structural type</i>&rdquo;.
+</p>
+
+<p>
+Conceptually, a module-signature is just a Set of type-signatures of
+individual values (which could be <i>functions</i>, <i>exceptions</i> or even <i>types</i>).
+</p>
+
+<p>
+Syntactically, a module signatures is a list of individual
+type-signatures.
+</p>
+
+<p>
+The type of a structure is captured in its signature and contains all of the static properties of a module that are needed by some other module that might use it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfa78d8d" class="outline-2">
+<h2 id="orgfa78d8d">Functors in ML</h2>
+<div class="outline-text-2" id="text-orgfa78d8d">
+<p>
+The use of one module by another is captured by special functions called functors that map structures to new structures.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org95e83e9" class="outline-2">
+<h2 id="org95e83e9">Abstraction barrier</h2>
+<div class="outline-text-2" id="text-org95e83e9">
+<p>
+This module-signature, at least in theory, forms an actual <i>Abstraction
+Barrier</i> (which acts like a cell-membrane of a module) that hides
+(encapsulates) &ldquo;concrete&rdquo; representation and implementation of an
+Abstract Data Type (ideally, at least).
+</p>
+
+<p>
+This analogy with cell biology is deliberate and profound. Abstraction
+barriers (proper message-passing interfaces) are cell-membranes between
+<i>loose-coupled</i> modules (and corresponding <i>core types</i>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc55cd04" class="outline-2">
+<h2 id="orgc55cd04">Interfaces</h2>
+<div class="outline-text-2" id="text-orgc55cd04">
+<p>
+The interface of a module gives the <i>type</i> of each exported <i>value</i>.
+</p>
+
+<p>
+For exported types, the interface may give either their complete definition or simply their name.
+</p>
+
+<p>
+This is how the mind handle concepts - it might know some details or only heard about it - <i>what it stands for</i> (associated with).
+</p>
+
+<p>
+Modules <i>export</i> a Set of public (use-side, exposed) interfaces (which
+are, in turn, Sets of individual type-signatures).
+</p>
+
+<p>
+These sets of interfaces (module-signatures) can be specialized or even
+applied to one another.
+</p>
+
+<p>
+SML (and Ocaml) got it right. F# too.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6288e2a" class="outline-2">
+<h2 id="org6288e2a">Modular programming</h2>
+<div class="outline-text-2" id="text-org6288e2a">
+<p>
+The most important principle in whole Computer Science - the Molecularity
+Principle - is about how (and why) <a href="ADTs.html">Abstract Data Types</a> should be defined.
+</p>
+
+<p>
+One of the fundamental advantages is that an <i>underlying representation</i>
+(and related algorithms) could be changed and improved <i>without breaking
+the public interfaces</i>.
+</p>
+
+<p>
+Remember that <i>data dominates</i>. This implies that there is no need to
+recompile the code if it uses dynamic (shared) libraries, so the
+existing system could be improved without a re-install.
+</p>
+
+<p>
+This is exactly what pragmatic UNIX systems got right by introducing shared libraries.
+</p>
+
+<p>
+And this is precisely what delusional purists advocating &ldquo;reproducible
+builds&rdquo; got absolutely wrong. Focus on <i>stability of interfaces</i> and you
+won&rsquo;t need to hash every single build like Haskell tools do.
+</p>
+
+<p>
+Modules are abstractions closely related to ADTs, with the core
+principle of <i>being a separate (independent) units of compilation and
+linking</i>. While <i>intefaces establish abstraction barriers which
+partition and hook together</i> the code, modules are about <i>compilation units</i>.
+</p>
+
+<p>
+They also solve <i>name clashing</i> (conflict) by providing <i>fully
+qualified</i> symbols (names). When we head about &ldquo;Modular programming&rdquo; as
+a paradigm, it implies ADTs and Modules with <i>name-spaces</i>.
+</p>
+
+<p>
+Modules are larger scale the building blocks, while the ultimate
+building blocks of any software are <i>interfaces</i> and <i>ADTs</i> (which
+encapsulate actual implementations).
+</p>
+
+<p>
+Standard ML (and Ocaml) perfected its module system defining modules as
+having certain <i>structure</i> (similar to graphs in mathematics) and
+providing a DSL for <i>application</i> of one module to another (yielding a
+new <i>related</i> structure) similar to what mathematical <i>Functors</i> do
+(they are <i>structure-preserving</i> transformations).
+</p>
+
+<p>
+To summarize, modules are about standardized interfaces, exactly as
+ADTs (of which they provide actual data representations and
+implementations), while compilation units are of second importance.
+ML guys got it right, others missed the point.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-26 Wed 13:42</p>
+</div>
+</body>
+</html>
