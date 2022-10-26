@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-24 Mon 09:11 -->
+<!-- 2022-10-26 Wed 13:41 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Modules</title>
@@ -25,19 +25,50 @@
 <header>
 <h1 class="title">Modules</h1>
 </header><p>
-Packages (an archaic name for modules) allow the definition of groups
+The old-school guys (and girls!) from the golden age of programming
+(70s, 80s and early 90s - before Java) usually has a strong math
+background so they got all the fundamental  principles right.
+</p>
+
+<p>
+The Modularity principle (both at the level of individual abstract data
+types and of whole modules around them) is the most fundamental one
+because it not only mimics Mother Nature (multi-cellular organisms) but
+addresses the fact of out severe cognitive limitations and abilities to
+understand complex systems (<i>the 7, plus or minus 2 chunks</i> meme from
+cognitive psychology).
+</p>
+
+<p>
+Packages (an archaic name for libraries) allow the definition of groups
 (Sets) of related functions that share a local hidden data structure
-(actual representation) by hiding it (literally) within a package body.
+(actual representation) by hiding it (literally, behind an <i>abstraction
+barrier, which is an absract interface</i>) within a <i>module</i> body.
 </p>
 
 <p>
-Decomsition, Partitioning and Nesting are the main principles. Types and
-interfaces should be abstract.
+A module traditionally corresponds to a single source file, plus a
+header or an interface file (for languages which require them). So, a
+single file (which should define and implement a <i>single ADT</i>) is a <i>module</i>,
+and a <i>set</i> of such files is a <i>package</i>.
 </p>
 
 <p>
-A module must be understood and used without needing to examine its
-implementation.
+Disentanglement, Decomposition (of the concepts of a problem),
+Partitioning (of concepts and corresponding Abstract Data Types)
+and Nesting (of code) are the main  principles. Types and interfaces
+should be <i>abstract</i> (representation and implementation must be &ldquo;hidden&rdquo;
+</p>
+<ul class="org-ul">
+<li>is <i>not required to be known</i>, which is the proper meaning of <i>being
+abstracted out or away</i>).</li>
+</ul>
+
+<p>
+A module must be understood <i>independently from other modules</i> (at least
+loosely coupled to the standard library and a few modules at a lower level
+of abstraction - privios layer of hierarchical DSLs) and used <i>without needing to examine its
+implementation</i>.
 </p>
 
 <p>
@@ -393,7 +424,7 @@ ML guys got it right, others missed the point.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-10-24 Mon 09:11</p>
+<p class="date">Created: 2022-10-26 Wed 13:41</p>
 </div>
 </body>
 </html>
