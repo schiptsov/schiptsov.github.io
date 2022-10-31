@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:21 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Zoom</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content="How to zoom in and out.">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:41 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zoom</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="How to zoom in and out." />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -33,262 +33,257 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Zoom</h1>
-    </header>
-    <p>To be any good as a programmer (not a <i>coder</i> or a
-    webshitter - a person who does <i>webshit</i>) one has to be
-    able to <i>zoom</i> through layers upon layers of abstractions
-    (grounded in <i>What Is</i>) and being able to comprehend and
-    understand <i>all the details</i> (or at least the fundamental
-    <i>underlying principles</i>) at each level.</p>
-    <p><i>Attention to details</i> is not optional at
-    representation and implementation levels, and this is what
-    largely constitutes Japanesse (or any other)
-    <i>art-forms</i>.</p>
-    <p>Principles, by the way, are correct (closest to <i>What
-    Is</i>) but <i>informal</i> descriptions of what causes an
-    <i>observable</i> (by an external observer) behavior (or a
-    particualar <i>pattern</i>) at each level.</p>
-    <p>Precise, formal describtions of proven <i>properties</i> of
-    a particular abstraction (such as Natural Numbers) could also
-    be called principles.</p>
-    <p>Understanding of principles frees one from memorizing all
-    the particular details.</p>
-    <div id="outline-container-orgb463e67" class="outline-2">
-      <h2 id="orgb463e67">A sequence of steps</h2>
-      <div class="outline-text-2" id="text-orgb463e67">
-        <p>It is not an arbitrary coincedence that we see connected
-        <a href="arrows.html">arrows</a> almost everywhere as we
-        are trying to <a href="model.html">model</a> (using
-        mathematics as a language of precision) aspects of the
-        reality.</p>
-        <p>Mathematics, by the way, is a formal <i>study of
-        patterns</i> which arise in <i>What Is</i>. It expands by
-        generalizing and defining <i>pure abstractions</i>
-        (abstract entities) and studying their <i>properties</i>
-        and <i>relations</i> among them.</p>
-        <p>Mathematics, thus, is the most general language for
-        talking about <i>common patterns</i> and well-defined (in
-        terms of their <i>properties</i> and <i>structure</i> only)
-        <i>abstractions</i>.</p>
-        <p>When we see <i>connected arrows</i> we usually mean a
-        <i>sequence of discrete steps</i>.</p>
-        <p>A single <i>arrows</i> denotes a transition (or a
-        transformation) - a single <i>step</i>, which may, in turn,
-        be abstracted out as an <i>application</i> of a function or
-        a binary operator.</p>
-        <p>At a higher level (of types) an arrow also denotes a
-        <i>composition</i> of funtions - a single step <i>at the
-        level of pure functions</i> - one level higher than that of
-        <i>values</i>.</p>
-        <p>Notice that these are just arrows at <i>the type
-        level</i></p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">(</span><span style=
-          "color: #88C0D0;">.</span><span style=
-          "color: #81A1C1;">)</span> <span style=
-          "color: #D8DEE9;">::</span> <span style=
-          "color: #81A1C1;">(</span>b <span style=
-          "color: #D8DEE9;">-&gt;</span> c<span style=
-          "color: #81A1C1;">)</span> <span style=
-          "color: #D8DEE9;">-&gt;</span> <span style=
-          "color: #81A1C1;">(</span>a <span style=
-          "color: #D8DEE9;">-&gt;</span> b<span style=
-          "color: #81A1C1;">)</span> <span style=
-          "color: #D8DEE9;">-&gt;</span> a <span style=
-          "color: #D8DEE9;">-&gt;</span> c
-<span style="color: #81A1C1;">(</span><span style=
-"color: #88C0D0;">&gt;=&gt;</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">::</span> <span style=
-"color: #8FBCBB;">Monad</span> m <span style=
-"color: #D8DEE9;">=&gt;</span> <span style=
-"color: #81A1C1;">(</span>a <span style=
-"color: #D8DEE9;">-&gt;</span> m b<span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">-&gt;</span> <span style=
-"color: #81A1C1;">(</span>b <span style=
-"color: #D8DEE9;">-&gt;</span> m c<span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> m c
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Zoom</h1>
+</header><p>
+To be any good as a programmer (not a <i>coder</i> or a webshitter - a person
+who does <i>webshit</i>) one has to be able to <i>zoom</i> through layers upon
+layers of abstractions (grounded in <i>What Is</i>) and being able to
+comprehend and understand <i>all the details</i> (or at least the fundamental
+<i>underlying principles</i>) at each level.
+</p>
 
-<span style="color: #81A1C1;">(</span><span style=
-"color: #88C0D0;">&gt;&gt;</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">::</span> m a <span style=
-"color: #D8DEE9;">-&gt;</span> m b <span style=
-"color: #D8DEE9;">-&gt;</span> m b
-<span style="color: #81A1C1;">(</span><span style=
-"color: #88C0D0;">&gt;&gt;=</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">::</span> m a <span style=
-"color: #D8DEE9;">-&gt;</span> <span style=
-"color: #81A1C1;">(</span>a <span style=
-"color: #D8DEE9;">-&gt;</span> m b<span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">-&gt;</span> m b
+<p>
+<i>Attention to details</i> is not optional at representation and
+implementation levels, and this is what largely constitutes Japanesse
+(or any other) <i>art-forms</i>.
+</p>
+
+<p>
+Principles, by the way, are correct (closest to <i>What Is</i>) but
+ <i>informal</i> descriptions of what causes an <i>observable</i> (by an external
+ observer) behavior (or a particualar <i>pattern</i>) at each level.
+</p>
+
+<p>
+Precise, formal describtions of proven <i>properties</i> of a particular
+abstraction (such as Natural Numbers) could also be called principles.
+</p>
+
+<p>
+Understanding of principles frees one from memorizing all the particular details.
+</p>
+<div id="outline-container-org284d37e" class="outline-2">
+<h2 id="org284d37e">A sequence of steps</h2>
+<div class="outline-text-2" id="text-org284d37e">
+<p>
+It is not an arbitrary coincedence that we see connected <a href="arrows.html">arrows</a> almost
+everywhere as we are trying to <a href="model.html">model</a> (using mathematics as a language of
+precision) aspects of the reality.
+</p>
+
+<p>
+Mathematics, by the way, is a formal <i>study of patterns</i> which arise in
+<i>What Is</i>. It expands by generalizing and defining <i>pure abstractions</i> (abstract entities) and studying their <i>properties</i> and <i>relations</i> among them.
+</p>
+
+<p>
+Mathematics, thus, is the most general language for talking about <i>common
+patterns</i> and well-defined (in terms of their <i>properties</i> and <i>structure</i> only) <i>abstractions</i>.
+</p>
+
+<p>
+When we see <i>connected arrows</i> we usually mean a <i>sequence of discrete
+ steps</i>.
+</p>
+
+<p>
+A single <i>arrows</i> denotes a transition (or a transformation) - a single
+<i>step</i>, which may, in turn, be abstracted out as an <i>application</i> of a
+function or a binary operator.
+</p>
+
+<p>
+At a higher level (of types) an arrow also denotes a <i>composition</i> of
+funtions - a single step <i>at the level of pure functions</i> - one level
+higher than that of <i>values</i>.
+</p>
+
+<p>
+Notice that these are just arrows at <i>the type level</i>
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">(</span><span style="color: #88C0D0;">.</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">(</span>b <span style="color: #D8DEE9;">-&gt;</span> c<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>a <span style="color: #D8DEE9;">-&gt;</span> b<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> c
+<span style="color: #81A1C1;">(</span><span style="color: #88C0D0;">&gt;=&gt;</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #81A1C1;">(</span>a <span style="color: #D8DEE9;">-&gt;</span> m b<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>b <span style="color: #D8DEE9;">-&gt;</span> m c<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> m c
+
+<span style="color: #81A1C1;">(</span><span style="color: #88C0D0;">&gt;&gt;</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">::</span> m a <span style="color: #D8DEE9;">-&gt;</span> m b <span style="color: #D8DEE9;">-&gt;</span> m b
+<span style="color: #81A1C1;">(</span><span style="color: #88C0D0;">&gt;&gt;=</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">::</span> m a <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>a <span style="color: #D8DEE9;">-&gt;</span> m b<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> m b
 </pre>
-        </div>
-        <p>Arrows could denote not just steps but also
-        <i>relations</i> between values.</p>
-      </div>
-      <div id="outline-container-org76faadc" class="outline-3">
-        <h3 id="org76faadc">ANDs</h3>
-        <div class="outline-text-3" id="text-org76faadc">
-          <p>There are actually two <i>ANDs</i>, which are always
-          confused and sometimes not even distinguished</p>
-          <ul class="org-ul">
-            <li>AND ALSO, which corresponds to a <i>logical
-            conjunction</i> or \(\land\)</li>
-            <li>AND THEN, which corresponds to an <i>arrow of
-            composition</i> or \(\circ\)</li>
-          </ul>
-          <p>This is the result that took long time for me to
-          arrive at.</p>
-          <p>Notice that the first <i>AND</i> is
-          <i>declarative</i>, and is a generalization of <i>AND IS
-          ALSO TRUE</i>, and (wow!) <i>2 AND ALSO 2</i> while the
-          second <i>AND</i> is also <i>declarative</i> but defines
-          a single <i>STEP</i> in a particular
-          <i>direction</i>.</p>
-          <p>Guess <i>why</i> a <i>single-step evaluator</i> (or
-          <i>mechanical reducer</i> of logical expressions) is
-          <i>the way it is</i>?</p>
-        </div>
-      </div>
-      <div id="outline-container-orgcfa95aa" class="outline-3">
-        <h3 id="orgcfa95aa">The Category Theory</h3>
-        <div class="outline-text-3" id="text-orgcfa95aa">
-          <p>Other people study functions and their
-          <i>compositions</i> in terms of <i>dots and
-          arrows</i>.</p>
-          <p>The only usefulness of the Category Theory is that it
-          formalizes what <i>common patterns</i> - common
-          arrangements of arrows - are there and what properties
-          such arrangements have. In particular, it is imortant to
-          realize when considering a pattern that such and such
-          arrows are <i>all that is there</i> (the only possible
-          ones).</p>
-          <p>When we constrain ourself to the patterns of arrows
-          which does not have “forks”, but “joins” are possible
-          (which corresponds to <i>collapcing</i> of a structure or
-          to application a “multi-argument” or <i>curried</i>
-          functions), we would arrive at a <i>most general
-          structure</i> of almost everything <i>What Is</i>, as a
-          generalized abstract <i>visual model</i>, of course.</p>
-          <p>This is the obvious connection between TLA+ and the
-          Category Theory, and this connection is, of course,
-          through <i>What Is</i>.</p>
-          <p>A <i>sequence of discrete steps</i>, which may be
-          <i>denoted</i> as a set of connected arrows in a
-          <i>linear</i> structure (or in a structure which can be
-          traversed into a linear <i>path</i>, such as a
-          <i>finite</i> tree) is a <i>universal</i>
-          abstraction.</p>
-          <p>Not surprisingly, <i>currying</i>, function
-          <i>composition</i>, and <i>a transition from the current
-          state to the next</i> form such sequences of steps or
-          <i>pathes</i>, which always imply a <i>direction</i>,
-          which, in turn, captures causality and <i>unfolding of a
-          process</i> (by causality) in abstract “time”.</p>
-          <p>Notice, that the only use for abstract theories such
-          as the Set Theory or The Category Theory is that some
-          <i>universal patterns</i> are precisely defined and thus
-          <i>well understood</i>.</p>
-          <p>When we reduce some part of a problem to something
-          which is <i>well-understood</i> we can use all the
-          related formal knowledge - theorems, lemmas, “laws”.</p>
-        </div>
-      </div>
-      <div id="outline-container-org2b18cfd" class="outline-3">
-        <h3 id="org2b18cfd">Functional Programming</h3>
-        <div class="outline-text-3" id="text-org2b18cfd">
-          <p>This, by the way, is the reason behind (and a
-          connection to) the <i>functional programming
-          paradigm</i>. There are well-understood pattens, and even
-          “laws” in pure functional code which defines and
-          implements <i>sequential</i>, <i>tree-like</i> and
-          <i>table-like</i> data structures and related Abstract
-          Data Types.</p>
-          <p>Notice that programming could be reduced to <i>just 3
-          visual patterns</i> - a sequence (again), a loop (which
-          can be unfold into a sequence) and a “branch” which
-          corresponds to a <i>conditional expression</i>, which, in
-          turn, describes <i>alternative possibilities</i> (and
-          this is what “forks” are).</p>
-          <p>Notice also, that “forks” never arise in reality, only
-          <i>in abstract models of some aspects of it</i>.</p>
-          <p>An actual <i>sequence of “events”</i> always <i>goes
-          through</i> one branch <i>OR</i> another and an
-          alternative branch DOES NOT EXIST in <i>What Is</i> (it
-          is a super-imposed abstraction by an external
-          observer).</p>
-          <p>So, it seems that <i>everything</i> is reducible to a
-          sequence of discrete steps (or a sequrnce of
-          <i>events</i>), which can be represented as connected
-          arrows - <i>paths without forks or loops</i>.</p>
-          <p>This is where you zoom to.</p>
-        </div>
-      </div>
-      <div id="outline-container-org3f60d62" class="outline-3">
-        <h3 id="org3f60d62">Discrete Math</h3>
-        <div class="outline-text-3" id="text-org3f60d62">
-          <p>The good thing is that we need just <i>the very
-          essence</i> of Discrete Math - the Set Theory, the
-          Category Theory, the core of the Number Theory (that
-          numbers are a generalized abstraction and could be viewed
-          as having an abstract structure - <i>being a sum or a
-          product or a weighed sum</i> of other numbers) and the
-          Graph Theory (which captures and abstracts out pattens
-          which arise in <i>What Is</i>, while most of the pure
-          theoretical fancy bullshit (about possible categories of
-          categories, for example) could be safely discarded (or
-          pruned out).</p>
-          <p>And this “locus” of universal pattens is what a good
-          programmer should study.</p>
-          <p>The reasoning above partially explains why pure
-          functions and a list structure considered as the core of
-          functional programming - almost everything could be
-          reduced to them.</p>
-          <p>Remember that a <i>table</i> is just an <i>a list of
-          ordered pairs</i> (or a set of binary relations) and a
-          <i>tree</i> is a list with more than one <i>tails</i>,
-          and that a list itself is just a bunch nested pairs, and
-          “conses” could be implemented as <i>lambdas</i>.</p>
-          <p><i>All you need is Lambda</i> is another great
-          fundamental result (by Alonzo Church), which confirms
-          that everything is reducible to nesting of lambdas, which
-          is <i>the only implementation</i> for <i>sequencing</i>
-          (connected arrows!) in a Normal Order language.</p>
-          <p>And this is the beg picture one has to have in one’s
-          mind.</p>
-          <p>This, by the way, implies that all these
-          <i>gigabytes</i> of frameworks are, probably, unnecessay,
-          redundant abstractions made by ignorant virtue-signalling
-          idiots to bullshit their bosses and other people.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:21</p>
-  </div>
+</div>
+<p>
+Arrows could denote not just steps but also <i>relations</i> between values.
+</p>
+</div>
+<div id="outline-container-org9dcb530" class="outline-3">
+<h3 id="org9dcb530">ANDs</h3>
+<div class="outline-text-3" id="text-org9dcb530">
+<p>
+There are actually two <i>ANDs</i>, which are always confused and sometimes
+not even distinguished
+</p>
+<ul class="org-ul">
+<li>AND ALSO, which corresponds to a <i>logical conjunction</i> or \(\land\)</li>
+<li>AND THEN, which corresponds to an <i>arrow of composition</i> or \(\circ\)</li>
+</ul>
+<p>
+This is the result that took long time for me to arrive at.
+</p>
+
+<p>
+Notice that the first <i>AND</i> is <i>declarative</i>, and is a generalization of
+<i>AND IS ALSO TRUE</i>, and (wow!) <i>2 AND ALSO 2</i> while the second <i>AND</i> is
+also <i>declarative</i> but defines a single <i>STEP</i> in a particular <i>direction</i>.
+</p>
+
+<p>
+Guess <i>why</i> a <i>single-step evaluator</i> (or <i>mechanical reducer</i> of logical expressions)
+is <i>the way it is</i>?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org375be78" class="outline-3">
+<h3 id="org375be78">The Category Theory</h3>
+<div class="outline-text-3" id="text-org375be78">
+<p>
+Other people study functions and their <i>compositions</i> in terms of <i>dots and arrows</i>.
+</p>
+
+<p>
+The only usefulness of the Category Theory is that it formalizes what
+<i>common patterns</i> - common arrangements of arrows - are there and what
+properties such arrangements have. In particular, it is imortant to
+realize when considering a pattern that such and such arrows are <i>all
+that is there</i> (the only possible ones).
+</p>
+
+<p>
+When we constrain ourself to the patterns of arrows which does not have
+&ldquo;forks&rdquo;, but &ldquo;joins&rdquo; are possible (which corresponds to <i>collapcing</i> of
+a structure or to application a &ldquo;multi-argument&rdquo; or <i>curried</i>
+functions), we would arrive at a <i>most general structure</i> of almost everything <i>What Is</i>, as a generalized abstract <i>visual model</i>, of course.
+</p>
+
+<p>
+This is the obvious connection between TLA+ and the Category Theory, and
+this connection is, of course, through <i>What Is</i>.
+</p>
+
+<p>
+A <i>sequence of discrete steps</i>, which may be <i>denoted</i> as a set of
+connected arrows in a <i>linear</i> structure (or in a structure which can be
+traversed into a linear <i>path</i>, such as a <i>finite</i> tree) is a <i>universal</i> abstraction.
+</p>
+
+<p>
+Not surprisingly, <i>currying</i>, function <i>composition</i>, and <i>a transition from the current state to the next</i> form such sequences of steps or <i>pathes</i>, which always imply a <i>direction</i>, which, in turn, captures causality and <i>unfolding of a process</i> (by causality) in abstract &ldquo;time&rdquo;.
+</p>
+
+<p>
+Notice, that the only use for abstract theories such as the Set Theory
+or The Category Theory is that some <i>universal patterns</i> are precisely
+defined and thus <i>well understood</i>.
+</p>
+
+<p>
+When we reduce some part of a problem to something which is  <i>well-understood</i> we can use all the related formal knowledge - theorems, lemmas, &ldquo;laws&rdquo;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1207452" class="outline-3">
+<h3 id="org1207452">Functional Programming</h3>
+<div class="outline-text-3" id="text-org1207452">
+<p>
+This, by the way, is the reason behind (and a connection to) the
+<i>functional programming paradigm</i>. There are well-understood pattens,
+and even &ldquo;laws&rdquo; in pure functional code which defines and implements <i>sequential</i>, <i>tree-like</i> and <i>table-like</i> data structures and related Abstract Data Types.
+</p>
+
+<p>
+Notice that programming could be reduced to <i>just 3 visual patterns</i> - a sequence (again), a loop (which can be unfold into a sequence) and a &ldquo;branch&rdquo; which corresponds to a <i>conditional expression</i>, which, in turn, describes <i>alternative possibilities</i> (and this is what &ldquo;forks&rdquo; are).
+</p>
+
+<p>
+Notice also, that &ldquo;forks&rdquo; never arise in reality, only <i>in abstract
+models of some aspects of it</i>.
+</p>
+
+<p>
+An actual <i>sequence of &ldquo;events&rdquo;</i> always <i>goes through</i> one branch <i>OR</i> another and an alternative branch DOES NOT EXIST in <i>What Is</i> (it is a super-imposed abstraction by an external observer).
+</p>
+
+<p>
+So, it seems that <i>everything</i> is reducible to a sequence of discrete
+steps (or a sequrnce of <i>events</i>), which can be represented as connected arrows - <i>paths without forks or loops</i>.
+</p>
+
+<p>
+This is where you zoom to.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb0003d4" class="outline-3">
+<h3 id="orgb0003d4">Discrete Math</h3>
+<div class="outline-text-3" id="text-orgb0003d4">
+<p>
+The good thing is that we need just <i>the very essence</i> of Discrete
+Math - the Set Theory, the Category Theory, the core of the Number
+Theory (that numbers are a generalized abstraction and could be viewed as
+having an abstract structure - <i>being a sum or a product or a weighed sum</i>
+of other numbers) and the Graph Theory (which captures and abstracts out
+pattens which arise in <i>What Is</i>, while most of the pure theoretical
+fancy bullshit (about possible categories of categories, for example)
+could be safely discarded (or pruned out).
+</p>
+
+<p>
+And this &ldquo;locus&rdquo; of universal pattens is what a good programmer should study.
+</p>
+
+<p>
+The reasoning above partially explains why pure functions and a list
+structure considered as the core of functional programming - almost
+everything could be reduced to them.
+</p>
+
+<p>
+Remember that a <i>table</i> is just an <i>a list of ordered pairs</i> (or a set
+of binary relations) and a <i>tree</i> is a list with more than one <i>tails</i>,
+and that a list itself is just a bunch nested pairs, and &ldquo;conses&rdquo; could be implemented as <i>lambdas</i>.
+</p>
+
+<p>
+<i>All you need is Lambda</i> is another great fundamental result (by Alonzo
+Church), which confirms that everything is reducible to nesting of
+lambdas, which is <i>the only implementation</i> for <i>sequencing</i> (connected arrows!) in a Normal Order language.
+</p>
+
+<p>
+And this is the beg picture one has to have in one&rsquo;s mind.
+</p>
+
+<p>
+This, by the way, implies that all these <i>gigabytes</i> of frameworks are, probably, unnecessay, redundant abstractions made by ignorant virtue-signalling idiots to bullshit their bosses and other people.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:41</p>
+</div>
 </body>
 </html>

@@ -1,248 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:19 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Functional Programming</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "What is Functional Programming really.">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Functional Programming</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="What is Functional Programming really." />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Functional Programming</h1>
-    </header>
-    <div id="outline-container-orgd72e877" class="outline-2">
-      <h2 id="orgd72e877">High-level view</h2>
-      <div class="outline-text-2" id="text-orgd72e877">
-        <p>A <i>program</i> (or just a single function) is a
-        <i>precise specification</i> of a <i>process</i>
-        detailed-enough to be executed by an abstract machine.</p>
-        <p>An <i>algorithm</i> is a formalized (well-defined and
-        precise) general procedure (a particular <i>sequence of
-        steps</i>), to be <i>implemented</i> in all sufficient and
-        necessary details in more than one programming
-        language.</p>
-        <p>Representations are parts of implementation details and
-        should be hidden behind <i>abstraction barriers</i> which
-        are sets of <i>interfaces</i> (particular function
-        signatures).</p>
-        <p>These functions are <i>partitioned</i> into
-        semi-independent (<i>loose-coupled</i>) <i>modules</i>,
-        where each module exports its <i>public interface</i> (a
-        particular set of <i>signatures</i> to be used by a
-        “client”).</p>
-        <p>A <i>pile</i> is not the same as the things it is made
-        of (especially when it is made of different kinds of things
-        or “objects”).</p>
-        <p>A molecule is not the same as the individual atoms (it
-        has its own unique <i>shape</i> and the <i>properties</i>
-        that emerge from it).</p>
-        <p>This is the beginning of a categorical thinking.
-        Compounds are different kinds of things, and this is what
-        <i>typing</i> is about - to partition the universe of
-        “kinds of things” (values).</p>
-        <p>A <i>Set</i> is a generalization of a simplest category
-        (which has a minimal or <i>no structure</i>
-        whatsoever).</p>
-        <p>It is said that <i>categories</i> (in the context of the
-        Category Theory, at least some <i>useful</i> parts of it)
-        has <i>more algebraic structure</i> that mere a Set (the
-        most general abstraction, well, after a Number, out
-        there).</p>
-        <p>Both sets and categories (to a much lesser extent) are
-        relevant to Functional Programming (as a pradigm).</p>
-      </div>
-      <div id="outline-container-org9cea4ae" class="outline-3">
-        <h3 id="org9cea4ae">Structured programming - programming
-        with</h3>
-        <div class="outline-text-3" id="text-org9cea4ae">
-          <ul class="org-ul">
-            <li>sequencing (<i>nesting</i> of expressions and
-            function calls)</li>
-            <li>branching (if, cond)</li>
-            <li><i>recursion</i> (looping)</li>
-            <li><i>pattern-matching</i> everywhere</li>
-          </ul>
-          <p>And this is really <i>all</i> that is there (nothing
-          more to take away).</p>
-        </div>
-      </div>
-      <div id="outline-container-org7740757" class="outline-3">
-        <h3 id="org7740757">Functional (extended lambda calculus -
-        system F (w))</h3>
-        <div class="outline-text-3" id="text-org7740757">
-          <ul class="org-ul">
-            <li>everything is an <i>expression</i> (can be reduced
-            to a <i>value</i>)</li>
-            <li>mathematical functions (<i>closures</i>)</li>
-            <li>each value has a <i>type</i> (a static
-            environment)</li>
-            <li>everything is <i>immutable</i> (just bindings)</li>
-          </ul>
-        </div>
-      </div>
-      <div id="outline-container-org93606a0" class="outline-3">
-        <h3 id="org93606a0">Modular (with abstract interfaces,
-        algebraic types)</h3>
-        <div class="outline-text-3" id="text-org93606a0">
-          <ul class="org-ul">
-            <li>a separate module for every <i>major type</i>
-            (loosely coupled)</li>
-            <li>a stable <i>abstract interface</i> for each module
-            (ADTs)</li>
-            <li><i>representation</i> and <i>implementation</i> are
-            hidden (irrelevant)</li>
-            <li>data definitions and function definitions (inside a
-            module)</li>
-          </ul>
-        </div>
-      </div>
-      <div id="outline-container-org495abd5" class="outline-3">
-        <h3 id="org495abd5">Algebraic types</h3>
-        <div class="outline-text-3" id="text-org495abd5">
-          <ul class="org-ul">
-            <li><i>sum-types</i> and pattern-mating on them</li>
-            <li><i>product-types</i> (records or “structs”)</li>
-            <li><i>function types</i> (or exponentials)</li>
-          </ul>
-        </div>
-      </div>
-      <div id="outline-container-org03951de" class="outline-3">
-        <h3 id="org03951de">Beautiful tools of the trade</h3>
-        <div class="outline-text-3" id="text-org03951de">
-          <ul class="org-ul">
-            <li>currying</li>
-            <li>partial application</li>
-            <li>high-order functions</li>
-            <li>uniform <i>pattern-matching</i> on
-            <i>sum-types</i></li>
-            <li>Monads (as <i>abstraction barriers</i> - actual
-            ADTs)</li>
-          </ul>
-        </div>
-      </div>
-      <div id="outline-container-org3a03711" class="outline-3">
-        <h3 id="org3a03711">When there is nothing mode to
-        remove</h3>
-        <div class="outline-text-3" id="text-org3a03711">
-          <ul class="org-ul">
-            <li>types: capture the actual concepts or patterns</li>
-            <li>functions: do just one thing but do it well (just
-            right)</li>
-            <li>modules: just one ADT, but done right</li>
-          </ul>
-        </div>
-      </div>
-      <div id="outline-container-orgfea281f" class="outline-3">
-        <h3 id="orgfea281f">Embeded DSLs</h3>
-        <div class="outline-text-3" id="text-orgfea281f">
-          <ul class="org-ul">
-            <li>sets of <i>high-order functions</i> based on
-            domain-specific ADTs</li>
-            <li>this is the way to design rich
-            <i>libraries</i></li>
-          </ul>
-        </div>
-      </div>
-      <div id="outline-container-org65bfc55" class="outline-3">
-        <h3 id="org65bfc55">Interfaces</h3>
-        <div class="outline-text-3" id="text-org65bfc55">
-          <ul class="org-ul">
-            <li>sets of type-signatures.</li>
-            <li>simple, <i>consistent at a use-side</i></li>
-          </ul>
-        </div>
-      </div>
-      <div id="outline-container-orgeb390b9" class="outline-3">
-        <h3 id="orgeb390b9">Protocols</h3>
-        <div class="outline-text-3" id="text-orgeb390b9">
-          <ul class="org-ul">
-            <li>sets of <i>rules</i> and related data types
-            (this!)</li>
-            <li>corresponds to the physical <i>constraints</i> of
-            the environment</li>
-            <li>could be thought of as <i>contracts</i> or even
-            <i>laws</i></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org101736c" class="outline-2">
-      <h2 id="org101736c">Principles</h2>
-      <div class="outline-text-2" id="text-org101736c">
-        <p>Design with <i>modules</i> and <i>interfaces</i> (higher
-        level) which corresponds to the core parts of the
-        <i>mathematical model</i> of the domain.</p>
-        <p>Ideally, each module corresponds to a major
-        <i>concept</i> in the domain.</p>
-        <p><i>Types</i> first (the <i>Typeful</i> meme). Not just
-        types, but <i>Algebraic types</i> (sum, product) and
-        <i>Abstract Data Types</i> (<i>data-constructors</i>,
-        pattern-matching, no selectors).</p>
-        <p>Parameterized (<i>polymorphic</i>) types,
-        <i>Higher-kinded</i> types, defined as instances of common
-        and standard <i>type-classes</i>.</p>
-        <p><i>Interfaces</i> (types again) before implementations
-        (the <i>Domain-driven</i> meme).</p>
-        <ul class="org-ul">
-          <li>Write down the <i>types</i> (of functions) you’re
-          going to use before implementation.</li>
-          <li>Write your type definitions before writing the logic
-          of your computations.</li>
-          <li>Write a first draft of your <code>.mli</code> before
-          working on the <code>.ml</code>.</li>
-          <li>Write a draft of module exprorts in <code>.hs</code>
-          first.</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-orgc0109fd" class="outline-2">
-      <h2 id="orgc0109fd">Design</h2>
-      <div class="outline-text-2" id="text-orgc0109fd">
-        <p>Function <i>type-signatures</i> and
-        <i>module-signatures</i> provide a lightweight tool for
-        constructing a skeleton (a hierarchy of layers, layout) of
-        your <i>design</i> in a way that helps clarify your
-        thought, goals and intent.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgc3cf946" class="outline-2">
-      <h2 id="orgc3cf946">Modules</h2>
-      <div class="outline-text-2" id="text-orgc3cf946">
-        <p>Factor out the key functionality into a separate module
-        with an explicit interface (signature).</p>
-        <p><i>Alternative implementations</i> (structures) for a
-        single <i>signature</i> (a set of interfaces).</p>
-        <ul class="org-ul">
-          <li>Uniform interfaces (consistency)</li>
-          <li>A module for (almost) every type.</li>
-          <li>implicit <i>namespaces</i>.</li>
-        </ul>
-        <p>the primary type of a given module should be called
-        <code>t</code>.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:19</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Functional Programming</h1>
+</header>
+<div id="outline-container-org0f45011" class="outline-2">
+<h2 id="org0f45011">High-level view</h2>
+<div class="outline-text-2" id="text-org0f45011">
+<p>
+A <i>program</i> (or just a single function) is a <i>precise specification</i> of a
+<i>process</i> detailed-enough to be executed by an abstract machine.
+</p>
+
+<p>
+An <i>algorithm</i> is a formalized (well-defined and precise) general
+procedure (a particular <i>sequence of steps</i>), to be <i>implemented</i> in all
+sufficient and necessary details in more than one programming language.
+</p>
+
+<p>
+Representations are parts of implementation details and should be hidden
+behind <i>abstraction barriers</i> which are sets of <i>interfaces</i> (particular function
+signatures).
+</p>
+
+<p>
+These functions are <i>partitioned</i> into semi-independent
+(<i>loose-coupled</i>) <i>modules</i>, where each module exports its <i>public
+interface</i> (a particular set of <i>signatures</i> to be used by a &ldquo;client&rdquo;).
+</p>
+
+<p>
+A <i>pile</i> is not the same as the things it is made of (especially when it is
+made of different kinds of things or &ldquo;objects&rdquo;).
+</p>
+
+<p>
+A molecule is not the same as the individual atoms (it has its own
+unique <i>shape</i> and the <i>properties</i> that emerge from it).
+</p>
+
+<p>
+This is the beginning of a categorical thinking. Compounds are different
+kinds of things, and this is what <i>typing</i> is about - to partition the
+universe of &ldquo;kinds of things&rdquo; (values).
+</p>
+
+<p>
+A <i>Set</i> is a generalization of a simplest category (which has a minimal or
+<i>no structure</i> whatsoever).
+</p>
+
+<p>
+It is said that <i>categories</i> (in the context of the Category Theory, at
+least some <i>useful</i> parts of it) has <i>more algebraic structure</i> that mere a
+Set (the most general abstraction, well, after a Number, out there).
+</p>
+
+<p>
+Both sets and categories (to a much lesser extent) are relevant to
+Functional Programming (as a pradigm).
+</p>
+</div>
+
+<div id="outline-container-org0eafc9f" class="outline-3">
+<h3 id="org0eafc9f">Structured programming - programming with</h3>
+<div class="outline-text-3" id="text-org0eafc9f">
+<ul class="org-ul">
+<li>sequencing (<i>nesting</i> of expressions and function calls)</li>
+<li>branching (if, cond)</li>
+<li><i>recursion</i> (looping)</li>
+<li><i>pattern-matching</i> everywhere</li>
+</ul>
+<p>
+And this is really <i>all</i> that is there (nothing more to take away).
+</p>
+</div>
+</div>
+<div id="outline-container-org552ceb0" class="outline-3">
+<h3 id="org552ceb0">Functional (extended lambda calculus - system F (w))</h3>
+<div class="outline-text-3" id="text-org552ceb0">
+<ul class="org-ul">
+<li>everything is an <i>expression</i> (can be reduced to a <i>value</i>)</li>
+<li>mathematical functions (<i>closures</i>)</li>
+<li>each value has a <i>type</i> (a static environment)</li>
+<li>everything is <i>immutable</i> (just bindings)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7505b78" class="outline-3">
+<h3 id="org7505b78">Modular (with abstract interfaces, algebraic types)</h3>
+<div class="outline-text-3" id="text-org7505b78">
+<ul class="org-ul">
+<li>a separate module for every <i>major type</i> (loosely coupled)</li>
+<li>a stable <i>abstract interface</i> for each module (ADTs)</li>
+<li><i>representation</i> and <i>implementation</i> are hidden (irrelevant)</li>
+<li>data definitions and function definitions (inside a module)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgee3092f" class="outline-3">
+<h3 id="orgee3092f">Algebraic types</h3>
+<div class="outline-text-3" id="text-orgee3092f">
+<ul class="org-ul">
+<li><i>sum-types</i> and pattern-mating on them</li>
+<li><i>product-types</i> (records or &ldquo;structs&rdquo;)</li>
+<li><i>function types</i> (or exponentials)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcfedbbf" class="outline-3">
+<h3 id="orgcfedbbf">Beautiful tools of the trade</h3>
+<div class="outline-text-3" id="text-orgcfedbbf">
+<ul class="org-ul">
+<li>currying</li>
+<li>partial application</li>
+<li>high-order functions</li>
+<li>uniform <i>pattern-matching</i> on <i>sum-types</i></li>
+<li>Monads (as <i>abstraction barriers</i> - actual ADTs)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9b66373" class="outline-3">
+<h3 id="org9b66373">When there is nothing mode to remove</h3>
+<div class="outline-text-3" id="text-org9b66373">
+<ul class="org-ul">
+<li>types: capture the actual concepts or patterns</li>
+<li>functions: do just one thing but do it well (just right)</li>
+<li>modules: just one ADT, but done right</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org987ad7b" class="outline-3">
+<h3 id="org987ad7b">Embeded DSLs</h3>
+<div class="outline-text-3" id="text-org987ad7b">
+<ul class="org-ul">
+<li>sets of <i>high-order functions</i> based on domain-specific ADTs</li>
+<li>this is the way to design rich <i>libraries</i></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org77240e3" class="outline-3">
+<h3 id="org77240e3">Interfaces</h3>
+<div class="outline-text-3" id="text-org77240e3">
+<ul class="org-ul">
+<li>sets of type-signatures.</li>
+<li>simple, <i>consistent at a use-side</i></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6f54a76" class="outline-3">
+<h3 id="org6f54a76">Protocols</h3>
+<div class="outline-text-3" id="text-org6f54a76">
+<ul class="org-ul">
+<li>sets of <i>rules</i> and related data types (this!)</li>
+<li>corresponds to the physical <i>constraints</i> of the environment</li>
+<li>could be thought of as <i>contracts</i> or even <i>laws</i></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4046f3a" class="outline-2">
+<h2 id="org4046f3a">Principles</h2>
+<div class="outline-text-2" id="text-org4046f3a">
+<p>
+Design with <i>modules</i> and <i>interfaces</i> (higher level) which corresponds
+to the core parts of the <i>mathematical model</i> of the domain.
+</p>
+
+<p>
+Ideally, each module corresponds to a major <i>concept</i> in the domain.
+</p>
+
+<p>
+<i>Types</i> first (the <i>Typeful</i> meme). Not just types, but <i>Algebraic
+types</i> (sum, product) and <i>Abstract Data Types</i> (<i>data-constructors</i>,
+pattern-matching, no selectors).
+</p>
+
+<p>
+Parameterized (<i>polymorphic</i>) types,  <i>Higher-kinded</i> types, defined as
+instances of common and standard <i>type-classes</i>.
+</p>
+
+<p>
+<i>Interfaces</i> (types again) before implementations (the <i>Domain-driven</i> meme).
+</p>
+<ul class="org-ul">
+<li>Write down the <i>types</i> (of functions) you’re going to use before implementation.</li>
+<li>Write your type definitions before writing the logic of your computations.</li>
+<li>Write a first draft of your <code>.mli</code> before working on the <code>.ml</code>.</li>
+<li>Write a draft of module exprorts in <code>.hs</code> first.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2988fee" class="outline-2">
+<h2 id="org2988fee">Design</h2>
+<div class="outline-text-2" id="text-org2988fee">
+<p>
+Function <i>type-signatures</i> and <i>module-signatures</i> provide a lightweight
+tool for constructing a skeleton (a hierarchy of layers, layout) of your
+<i>design</i> in a way that helps clarify your thought, goals and intent.
+</p>
+</div>
+</div>
+<div id="outline-container-org03f1c44" class="outline-2">
+<h2 id="org03f1c44">Modules</h2>
+<div class="outline-text-2" id="text-org03f1c44">
+<p>
+Factor out the key functionality into a separate module with an explicit
+interface (signature).
+</p>
+
+<p>
+<i>Alternative implementations</i> (structures) for a single <i>signature</i> (a
+set of interfaces).
+</p>
+
+<ul class="org-ul">
+<li>Uniform interfaces (consistency)</li>
+<li>A module for (almost) every type.</li>
+<li>implicit <i>namespaces</i>.</li>
+</ul>
+<p>
+the primary type of a given module should be called <code>t</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

@@ -1,79 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-23 Sun 13:58 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Ocamlformat</title>
-  <meta name="author" content="Ln Gnmn &lt;lngnmn1@gmail.co&gt;">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ocamlformat</title>
+<meta name="author" content="Ln Gnmn &lt;lngnmn1@gmail.co&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Ocamlformat</h1>
-    </header>
-    <p>Can we just stop that <i>outrageous idiocy</i> of
-    automatically converting small functions into a singe line when
-    it, please?</p>
-    <p>First, <code>Ocaml</code> is not <code>Go</code> and the one
-    enforced formatting for all code cannot be applied here.
-    <code>Go</code> is especially designed to be “primitive”, while
-    Ocaml has long <i>tradition</i> and several <i>cultures</i>
-    which goes back to <code>ML</code>.</p>
-    <p>Second, there is a couple of <i>fundamental
-    principles</i>:</p>
-    <ul class="org-ul">
-      <li>Data values have its unique shapes (which is reflected in
-      types).</li>
-      <li>The shape of <i>functions</i> tends to reflect the shape
-      of <i>values</i>.</li>
-    </ul>
-    <p>Functions on <i>recursive types</i> tend to be recursive and
-    thus to have a particular shape which can be seen at a
-    glance.</p>
-    <p>Functions on <i>sum-types</i> (defined by pattern-matching
-    on data-constructors, which is <i>the</i> way) reflect the
-    <i>exact shape</i> of the type declaration.</p>
-    <p>Again, converting small types and small functions into
-    one-liners is outrageously stupid. It just throws the <i>shape
-    information</i> and <i>syntactic form clues</i> out of the
-    window for literally nothing.</p>
-    <p>There is a long tradition of writing <i>multy-clause</i>
-    functions by pattern-matching in at least <code>Standard
-    ML</code> and <code>Erlang</code>. <code>Ocaml</code> also has
-    the <code>function</code> syntactic form because it is
-    convenient.</p>
-    <p>Yes, the seemingly archaic term <i>syntactic form</i> is
-    what we are dealing with, and it is just stupid to
-    <i>dismiss</i> this rich and useful concept because zoomers
-    don’t know it.</p>
-    <p>The whole point of having a tool such as
-    <code>ocamlformat</code> is <i>to support multiple choices</i>,
-    not to reduce everything to an one-fits-all style. Again, this
-    is not <code>Go</code>. At least we should have an
-    <i>option</i>.</p>
-    <p>Functional languages tend to have many syntactic forms, even
-    if we cannot just create new ones, like we could with <i>Lisp
-    macros</i>. Again, this is part of the culture.</p>
-    <p>So, come on.</p>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.co&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-23 Sun 13:58</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Ocamlformat</h1>
+</header><p>
+Can we just stop that <i>outrageous idiocy</i> of automatically converting small
+functions into a singe line when it, please?
+</p>
+
+<p>
+First, <code>Ocaml</code> is not <code>Go</code> and the one enforced formatting for all code
+cannot be applied here. <code>Go</code> is especially designed to be &ldquo;primitive&rdquo;,
+while Ocaml has long <i>tradition</i> and several <i>cultures</i> which goes back to
+<code>ML</code>.
+</p>
+
+<p>
+Second, there is a couple of <i>fundamental principles</i>:
+</p>
+<ul class="org-ul">
+<li>Data values have its unique shapes (which is reflected in types).</li>
+<li>The shape of <i>functions</i> tends to reflect the shape of <i>values</i>.</li>
+</ul>
+
+<p>
+Functions on <i>recursive types</i> tend to be recursive and thus to have a
+particular shape which can be seen at a glance.
+</p>
+
+<p>
+Functions on <i>sum-types</i> (defined by pattern-matching on
+data-constructors, which is <i>the</i> way) reflect the <i>exact shape</i> of the type
+declaration.
+</p>
+
+<p>
+Again, converting small types and small functions into one-liners
+is outrageously stupid. It just throws the <i>shape information</i> and
+<i>syntactic form clues</i> out of the window for literally nothing.
+</p>
+
+<p>
+There is a long tradition of writing <i>multy-clause</i> functions by
+pattern-matching in at least <code>Standard ML</code> and <code>Erlang</code>.  <code>Ocaml</code> also has the
+<code>function</code> syntactic form because it is convenient.
+</p>
+
+<p>
+Yes, the seemingly archaic term <i>syntactic form</i> is what we are dealing with,
+and it is just stupid to <i>dismiss</i> this rich and useful concept because
+zoomers don&rsquo;t know it.
+</p>
+
+<p>
+The whole point of having a tool such as <code>ocamlformat</code> is <i>to support
+multiple choices</i>, not to reduce everything to an one-fits-all style. Again,
+this is not <code>Go</code>. At least we should have an <i>option</i>.
+</p>
+
+<p>
+Functional languages tend to have many syntactic forms, even if we cannot
+just create new ones, like we could with <i>Lisp macros</i>. Again, this is part of the culture.
+</p>
+
+<p>
+So, come on.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.co&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:39</p>
+</div>
 </body>
 </html>

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:20 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Monadic Vedanta</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "End of Knowledge about Monads in Haskell">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Monadic Vedanta</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="End of Knowledge about Monads in Haskell" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -34,391 +33,409 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Monadic Vedanta</h1>
-    </header>
-    <p>The problem why <code>Monads</code> <i>in Haskell</i> are so
-    confusing is that we (at least I) are trying to understand it
-    <i>bottom-up</i>, from what we see in some crappy code. Not
-    just that, but when we search for an explanation, shitposts by
-    narcissistic imposers is what Google Search will give you
-    first.</p>
-    <p>It might take years (at least for me) to sort everything
-    out, and reduce everything back to <i>What Is</i>.</p>
-    <p>It took so long because I have to went through piles and
-    piles of bullshit, including the Category Theory, to <i>make
-    sure</i> that <i>it is completely irrelevant</i> in this
-    context.</p>
-    <p>There are 3 orthogonal notions within this concept <i>in the
-    context of Haskell</i>.</p>
-    <ul class="org-ul">
-      <li>These things encapsulate computations, similar to what
-      <i>functions</i> do. Just like functions, they are
-      <i>first-class values</i>.</li>
-      <li>These things are <i>composeable</i>, just like functions,
-      and form a</li>
-    </ul>
-    <p><i>Monoid</i> with respect the <i>composition
-    operation</i>.</p>
-    <ul class="org-ul">
-      <li>These things are a proper Abstract Data Types -
-      particular instances of a</li>
-    </ul>
-    <p>general <i>type-class</i>. This means that a <i>Monad</i> is
-    a generalized universal <i>pattern</i> (verbosely
-    expressed).</p>
-    <p>Last, but not least, the <i>actual abstraction barrier</i>
-    is enforced by the <i>type-checker</i> (conceptually, Monadic
-    values are tagged with an additional tag and cannot be mixed
-    with ordinary tagged values).</p>
-    <p><i>Data-constructors</i> plays the role of type-tags for
-    <i>absract types</i>.</p>
-    <p><i>Nesting</i> is the only way to define composition of
-    functions in mathematics and in Haskell, and nesting implies a
-    <i>particular order</i> of evaluation (serialization). This is
-    why their composition is an <i>arrow</i>.</p>
-    <p>There are common <i>patterns</i> of usage emerged</p>
-    <ul class="org-ul">
-      <li>Propagation of “nothingness”, as in <code>Maybe</code> or
-      a <code>List</code>.</li>
-      <li><i>Threading</i> (as in beads on a rosary) by implicitly
-      (behind the abstraction barrier) passing an additional
-      parameter, and returning an additional value.</li>
-      <li>
-        <p>Serialization of <code>IO</code> (via /abstract
-        threading - passing the World along).</p>
-        <p>In all cases the <i>referential transparency
-        property</i> still holds, so <i>monadic</i> programming
-        (composition) is still <i>pure-functional</i>.</p>
-      </li>
-    </ul>
-    <div id="outline-container-org971e5f6" class="outline-2">
-      <h2 id="org971e5f6">Abstraction barrier</h2>
-      <div class="outline-text-2" id="text-org971e5f6">
-        <p>The confusion and frustration come from a lack of clear
-        separation between interfaces and implementation.</p>
-        <p>A pure function could</p>
-        <ul class="org-ul">
-          <li>take an extra argument (usually a
-          <i>context</i>)</li>
-          <li>return an extra argument (usually a <i>modified
-          state</i>)</li>
-        </ul>
-        <p>Abstractly or conceptually, these extras could be
-        separated and completely hidden by an <i>abstraction
-        barrier</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-org75dc0e9" class="outline-2">
-      <h2 id="org75dc0e9">Composition</h2>
-      <div class="outline-text-2" id="text-org75dc0e9">
-        <p>These abstractions should be <i>composable</i>, just
-        like ordinary functions \[g \circ f = g(f(x))\]</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell">g <span style=
-          "color: #88C0D0;">.</span> f <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #D8DEE9;">\</span>x <span style=
-          "color: #D8DEE9;">-&gt;</span> g <span style=
-          "color: #81A1C1;">(</span>f x<span style=
-          "color: #81A1C1;">)</span>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Monadic Vedanta</h1>
+</header><p>
+The problem why <code>Monads</code> <i>in Haskell</i> are so confusing is that we (at
+least I) are trying to understand it <i>bottom-up</i>, from what we see in
+some crappy code. Not just that, but when we search for an explanation,
+shitposts by narcissistic imposers is what Google Search will give you
+first.
+</p>
+
+<p>
+It might take years (at least for me) to sort everything out, and reduce
+everything back to <i>What Is</i>.
+</p>
+
+<p>
+It took so long because I have to went through piles and piles of
+bullshit, including the Category Theory, to <i>make sure</i> that <i>it is
+completely irrelevant</i> in this context.
+</p>
+
+<p>
+There are 3 orthogonal notions within this concept <i>in the context of
+Haskell</i>.
+</p>
+
+<ul class="org-ul">
+<li>These things encapsulate computations, similar to what <i>functions</i> do.
+Just like functions, they are <i>first-class values</i>.</li>
+<li>These things are <i>composeable</i>, just like functions, and form a</li>
+</ul>
+<p>
+<i>Monoid</i> with respect the <i>composition operation</i>.
+</p>
+<ul class="org-ul">
+<li>These things are a proper Abstract Data Types - particular instances of a</li>
+</ul>
+<p>
+general <i>type-class</i>. This means that a <i>Monad</i> is a generalized
+universal <i>pattern</i> (verbosely expressed).
+</p>
+
+<p>
+Last, but not least, the <i>actual abstraction barrier</i> is enforced by the
+<i>type-checker</i> (conceptually, Monadic values are tagged with an
+additional tag and cannot be mixed with ordinary tagged values).
+</p>
+
+<p>
+<i>Data-constructors</i> plays the role of type-tags for <i>absract types</i>.
+</p>
+
+<p>
+<i>Nesting</i> is the only way to define composition of functions in
+mathematics and in Haskell, and nesting implies a <i>particular order</i> of
+evaluation (serialization). This is why their composition is an <i>arrow</i>.
+</p>
+
+<p>
+There are common <i>patterns</i> of usage emerged
+</p>
+<ul class="org-ul">
+<li>Propagation of &ldquo;nothingness&rdquo;, as in <code>Maybe</code> or a <code>List</code>.</li>
+<li><i>Threading</i> (as in beads on a rosary) by implicitly (behind the
+abstraction barrier) passing an additional parameter, and returning an
+additional value.</li>
+<li><p>
+Serialization of <code>IO</code> (via /abstract threading - passing the World
+along).
+</p>
+
+<p>
+In all cases the <i>referential transparency property</i> still holds, so
+ <i>monadic</i> programming (composition) is still <i>pure-functional</i>.
+</p></li>
+</ul>
+
+<div id="outline-container-org41088bb" class="outline-2">
+<h2 id="org41088bb">Abstraction barrier</h2>
+<div class="outline-text-2" id="text-org41088bb">
+<p>
+The confusion and frustration come from a lack of clear separation between interfaces and implementation.
+</p>
+
+<p>
+A pure function could
+</p>
+<ul class="org-ul">
+<li>take an extra argument (usually a <i>context</i>)</li>
+<li>return an extra argument (usually a <i>modified state</i>)</li>
+</ul>
+
+<p>
+Abstractly or conceptually, these extras could be separated and completely hidden by an <i>abstraction barrier</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org71a979b" class="outline-2">
+<h2 id="org71a979b">Composition</h2>
+<div class="outline-text-2" id="text-org71a979b">
+<p>
+These abstractions should be <i>composable</i>, just like ordinary functions
+\[g \circ f = g(f(x))\]
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">g <span style="color: #88C0D0;">.</span> f <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">\</span>x <span style="color: #D8DEE9;">-&gt;</span> g <span style="color: #81A1C1;">(</span>f x<span style="color: #81A1C1;">)</span>
 </pre>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org51dd121" class="outline-2">
-      <h2 id="org51dd121">Functor</h2>
-      <div class="outline-text-2" id="text-org51dd121">
-        <p>Just like ordinary functions, these abstractions can be
-        <i>Functoral</i></p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">instance</span> <span style=
-          "color: #8FBCBB;">Functor</span> <span style=
-          "color: #81A1C1;">(</span><span style=
-          "color: #B48EAD;">(</span><span style=
-          "color: #8FBCBB;">-&gt;</span><span style=
-          "color: #B48EAD;">)</span> r<span style=
-          "color: #81A1C1;">)</span> <span style=
-          "color: #81A1C1;">where</span>
-  fmap <span style="color: #D8DEE9;">=</span> <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">.</span><span style="color: #81A1C1;">)</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org22b401a" class="outline-2">
+<h2 id="org22b401a">Functor</h2>
+<div class="outline-text-2" id="text-org22b401a">
+<p>
+Just like ordinary functions, these abstractions can be <i>Functoral</i>
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> <span style="color: #81A1C1;">(</span><span style="color: #B48EAD;">(</span><span style="color: #8FBCBB;">-&gt;</span><span style="color: #B48EAD;">)</span> r<span style="color: #81A1C1;">)</span> <span style="color: #81A1C1;">where</span>
+  fmap <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">.</span><span style="color: #81A1C1;">)</span>
 </pre>
-        </div>
-        <p>So a Functor is <i>required</i> and the type-class Monad
-        is a subclass of a <i>Applicative</i>, which is a special
-        kind of Functor.</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">class</span> <span style=
-          "color: #8FBCBB;">Applicative</span> m <span style=
-          "color: #D8DEE9;">=&gt;</span> <span style=
-          "color: #8FBCBB;">Monad</span> m <span style=
-          "color: #81A1C1;">where</span>
-  <span style="color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">&gt;&gt;=</span><span style=
-"color: #81A1C1;">)</span>       <span style=
-"color: #D8DEE9;">::</span> <span style=
-"color: #81A1C1;">forall</span> a b<span style=
-"color: #D8DEE9;">.</span> m a <span style=
-"color: #D8DEE9;">-&gt;</span> <span style=
-"color: #81A1C1;">(</span>a <span style=
-"color: #D8DEE9;">-&gt;</span> m b<span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #D8DEE9;">-&gt;</span> m b
-  return      <span style="color: #D8DEE9;">::</span> <span style=
-"color: #81A1C1;">forall</span> a<span style=
-"color: #D8DEE9;">.</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> m a
+</div>
+<p>
+So a Functor is <i>required</i> and the type-class Monad is a subclass of a <i>Applicative</i>, which is a special kind of Functor.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Applicative</span> m <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #81A1C1;">where</span>
+  <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">&gt;&gt;=</span><span style="color: #81A1C1;">)</span>       <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">forall</span> a b<span style="color: #D8DEE9;">.</span> m a <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>a <span style="color: #D8DEE9;">-&gt;</span> m b<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> m b
+  return      <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">forall</span> a<span style="color: #D8DEE9;">.</span> a <span style="color: #D8DEE9;">-&gt;</span> m a
   return      <span style="color: #D8DEE9;">=</span> pure
 </pre>
-        </div>
-        <p>These, however, are Haskellisms - fancies of library
-        writers. Applicative is NOT required at all.</p>
-        <p>Moreover, implementations of <i>Functor instances</i>
-        break an abstraction (makes it leaky) by “looking at and
-        manipulating the guts”, which is a violation of the
-        abstraction principle.</p>
-      </div>
-    </div>
-    <div id="outline-container-org0efa8d0" class="outline-2">
-      <h2 id="org0efa8d0">Formulations</h2>
-      <div class="outline-text-2" id="text-org0efa8d0">
-        <p>In the context of a <code>List</code></p>
-        <div class="org-src-container">
-          <pre class="src src-haskell">xs <span style=
-          "color: #88C0D0;">&gt;&gt;=</span> f <span style=
-          "color: #D8DEE9;">=</span> concat <span style=
-          "color: #81A1C1;">(</span>map f xs<span style=
-          "color: #81A1C1;">)</span>
-<span style="color: #88C0D0;">return</span> x <span style=
-"color: #D8DEE9;">=</span> <span style=
-"color: #81A1C1;">[</span>x<span style="color: #81A1C1;">]</span>
+</div>
+<p>
+These, however, are Haskellisms - fancies of library writers. Applicative is NOT required at all.
+</p>
+
+<p>
+Moreover, implementations of <i>Functor instances</i> break an abstraction (makes it leaky) by &ldquo;looking at and manipulating the guts&rdquo;, which is a violation of the abstraction principle.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcc46619" class="outline-2">
+<h2 id="orgcc46619">Formulations</h2>
+<div class="outline-text-2" id="text-orgcc46619">
+<p>
+In the context of a <code>List</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">xs <span style="color: #88C0D0;">&gt;&gt;=</span> f <span style="color: #D8DEE9;">=</span> concat <span style="color: #81A1C1;">(</span>map f xs<span style="color: #81A1C1;">)</span>
+<span style="color: #88C0D0;">return</span> x <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">[</span>x<span style="color: #81A1C1;">]</span>
 </pre>
-        </div>
-        <p>were <code>f</code> must use <code>return</code> and
-        have the type <code>f : a -&gt; m b</code></p>
-        <p>And, of course, <code>List</code> is a “classic”
-        <i>Functor</i></p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">instance</span> <span style=
-          "color: #8FBCBB;">Functor</span> <span style=
-          "color: #81A1C1;">[</span>a<span style=
-          "color: #81A1C1;">]</span> <span style=
-          "color: #81A1C1;">where</span>
+</div>
+<p>
+were <code>f</code> must use <code>return</code> and have the type <code>f : a -&gt; m b</code>
+</p>
+
+<p>
+And, of course, <code>List</code> is a &ldquo;classic&rdquo; <i>Functor</i>
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> <span style="color: #81A1C1;">[</span>a<span style="color: #81A1C1;">]</span> <span style="color: #81A1C1;">where</span>
   fmap <span style="color: #D8DEE9;">=</span> map
 </pre>
-        </div>
-        <p>For other, arbitrary instances there is
-        <code>join</code></p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #88C0D0;">join</span> <span style=
-          "color: #D8DEE9;">::</span> <span style=
-          "color: #8FBCBB;">Monad</span> m <span style=
-          "color: #D8DEE9;">=&gt;</span> m <span style=
-          "color: #81A1C1;">(</span>m a<span style=
-          "color: #81A1C1;">)</span> <span style=
-          "color: #D8DEE9;">-&gt;</span> m a
+</div>
+<p>
+For other, arbitrary instances there is <code>join</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">join</span> <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> m <span style="color: #81A1C1;">(</span>m a<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> m a
 </pre>
-        </div>
-        <p>which is structurally just like <code>concat</code> for
-        Lists</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #88C0D0;">concat</span> <span style=
-          "color: #D8DEE9;">::</span> <span style=
-          "color: #8FBCBB;">Foldable</span> t <span style=
-          "color: #D8DEE9;">=&gt;</span> t <span style=
-          "color: #81A1C1;">[</span>a<span style=
-          "color: #81A1C1;">]</span> <span style=
-          "color: #D8DEE9;">-&gt;</span> <span style=
-          "color: #81A1C1;">[</span>a<span style=
-          "color: #81A1C1;">]</span>
+</div>
+<p>
+which is structurally just like <code>concat</code> for Lists
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">concat</span> <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Foldable</span> t <span style="color: #D8DEE9;">=&gt;</span> t <span style="color: #81A1C1;">[</span>a<span style="color: #81A1C1;">]</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">[</span>a<span style="color: #81A1C1;">]</span>
 </pre>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-orgeffe805" class="outline-2">
-      <h2 id="orgeffe805">The Proper Philosophy</h2>
-      <div class="outline-text-2" id="text-orgeffe805">
-        <p><i>Life Itself</i> has been evolved upon certain
-        molecular structures, which are made out of <i>Atoms</i>.
-        Life does not know anything about their nature, it is just
-        using them as <i>given</i>.</p>
-        <p>If it could make any assumptions, that would be, as we
-        assume, that they are <i>indivisible</i> and
-        <i>indestructible</i>, and <i>some</i> particular molecular
-        structures such as <i>aminoacids</i> or RNAs are
-        <i>immutable</i>.</p>
-        <p>The <i>fact</i> that atoms can actually be broken in
-        certain conditions (created by humans on this planet) is
-        <i>irrelevant</i>, because in the actual environment in
-        which Life has been evolved <i>such conditions do not
-        arise</i>.</p>
-        <p>What we have here is a <i>very real, not imaginary,
-        abstraction barrier</i>, so real an actual, that literally
-        everything within you and around you is made upon it.</p>
-        <p>And <i>this</i> is the <i>Reality First Principle</i>
-        for functional programming - atomicity and immutability of
-        base structures, which is only apparent.</p>
-      </div>
-    </div>
-    <div id="outline-container-org473c798" class="outline-2">
-      <h2 id="org473c798">The Highest level</h2>
-      <div class="outline-text-2" id="text-org473c798">
-        <p>At a <i>highest, most abstract level</i> a Monad <i>in
-        Haskell</i> is a generalization of an <i>abstraction
-        barrier</i> similar to that one which holds <i>Life
-        Itself</i>.</p>
-        <p>Functions on <i>Monadic Values</i> (of a particular
-        type) are as pure as mathematical functions (could be
-        calculated by pure substitution with pen an paper),
-        <i>referential transparency</i> is preserved.</p>
-        <p><i>What is going on inside these values is beyond the
-        abstraction barrier</i> and <i>literally cannot be seen</i>
-        by pure Haskell code (the code only declare what to do with
-        these values, including pattern matching on value’s
-        structure).</p>
-        <p>These are <i>the same notions (of an impenetrable
-        abstraction barrier)</i>, and it <i>is not</i> “abstract”
-        or imaginary. Everything is real.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgda6e551" class="outline-2">
-      <h2 id="orgda6e551">&gt;&gt;=</h2>
-      <div class="outline-text-2" id="text-orgda6e551">
-        <p>The (&gt;&gt;=) function (called bind) which does
-        <i>re-binding</i> and <i>sequencing</i> should be
-        considered <i>impure</i>, because it (and only it) has
-        access to the <i>internal state</i> and <i>actual
-        representations</i>.</p>
-        <p>However, the <i>code that uses</i> (&gt;&gt;=) is as
-        pure as math or logic.</p>
-        <p>The type system guarantees that no code could “see” or
-        access any value behind the monad interface (abstraction
-        barrier). (&gt;&gt;=) and only (&gt;&gt;=) can access and
-        pattern-match (but not “see”, because Haskell is
-        <i>declarative</i>.).</p>
-        <p>This is exactly how Haskell code is pure (as math or
-        logic) in the presence of IO, State transformation and
-        side-effects. All these are beyond the abstraction barrier
-        with the Monad type-class establishes, and the type system
-        <i>enforses</i>.</p>
-        <p>Each <i>instance</i> of a Monad (an actual type) hides
-        all its “stuff” behind a standardized interface, which
-        separates the pure code from impure.</p>
-        <p>And that is really it. No more, no less.</p>
-      </div>
-    </div>
-    <div id="outline-container-org4f3519b" class="outline-2">
-      <h2 id="org4f3519b">Passing the Whole World</h2>
-      <div class="outline-text-2" id="text-org4f3519b">
-        <p>This <i>metaphor</i> is both philosophically funny and
-        useful. In an abstract theory, a function <i>is indeed
-        pure</i> if it takes a <i>snapshot of the whole
-        universe</i> and returns a value together with the <i>whole
-        universe modified by itself</i>.</p>
-        <p>In reality this is a form of an explicit
-        <i>serialization</i> (via nesting of calls and explicit
-        passing of a value - nested <code>lets</code>, which are
-        semantically equivalent to <i>nested lambdas</i>) which is
-        required for <i>sequencing of</i> <code>IO</code> actions,
-        since Haskell is a <i>call-by-need</i> language.</p>
-        <p>Nested function calls and implicit passing of a values
-        <i>inside a Monadic context</i> (behind the abstraction
-        barrier) is the most common idiom.</p>
-        <p>Nesting of expressions is the <i>natural</i> way to
-        establish an evaluation order in a language with <i>lazy
-        semantics</i>.</p>
-        <p>Passing of “RealWorld” values ensures “threading”- than
-        <i>no two IO contexts ever overlap</i>.</p>
-        <p><code>IO</code> is a <i>type synonym</i> defined in the
-        following way:</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">type</span> <span style=
-          "color: #8FBCBB;">IO</span> a  <span style=
-          "color: #D8DEE9;">=</span>  <span style=
-          "color: #8FBCBB;">RealWorld</span> <span style=
-          "color: #D8DEE9;">-&gt;</span> <span style=
-          "color: #81A1C1;">(</span>a, <span style=
-          "color: #8FBCBB;">RealWorld</span><span style=
-          "color: #81A1C1;">)</span>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga680e43" class="outline-2">
+<h2 id="orga680e43">The Proper Philosophy</h2>
+<div class="outline-text-2" id="text-orga680e43">
+<p>
+<i>Life Itself</i> has been evolved upon certain molecular structures, which
+are made out of <i>Atoms</i>. Life does not know anything about their nature,
+it is just using them as <i>given</i>.
+</p>
+
+<p>
+If it could make any assumptions, that would be, as we assume, that they
+are <i>indivisible</i> and <i>indestructible</i>, and <i>some</i> particular molecular
+structures such as <i>aminoacids</i> or RNAs are <i>immutable</i>.
+</p>
+
+<p>
+The <i>fact</i> that atoms can actually be broken in certain conditions
+(created by humans on this planet) is <i>irrelevant</i>, because in the
+actual environment in which Life has been evolved <i>such conditions do not
+arise</i>.
+</p>
+
+<p>
+What we have here is a <i>very real, not imaginary, abstraction barrier</i>,
+so real an actual, that literally everything within you and around you
+is made upon it.
+</p>
+
+<p>
+And <i>this</i> is the <i>Reality First Principle</i> for functional programming -
+atomicity and immutability of base structures, which is only apparent.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5684f39" class="outline-2">
+<h2 id="org5684f39">The Highest level</h2>
+<div class="outline-text-2" id="text-org5684f39">
+<p>
+At a <i>highest, most abstract level</i> a Monad <i>in Haskell</i> is a
+generalization of an <i>abstraction barrier</i> similar to that one which
+holds <i>Life Itself</i>.
+</p>
+
+<p>
+Functions on <i>Monadic Values</i> (of a particular type) are as pure as
+mathematical functions (could be calculated by pure substitution with
+pen an paper), <i>referential transparency</i> is preserved.
+</p>
+
+<p>
+<i>What is going on inside these values is beyond the abstraction barrier</i>
+and <i>literally cannot be seen</i> by pure Haskell code (the code only
+declare what to do with these values, including pattern matching on
+value&rsquo;s structure).
+</p>
+
+<p>
+These are <i>the same notions (of an impenetrable abstraction barrier)</i>,
+and it <i>is not</i> &ldquo;abstract&rdquo; or imaginary. Everything is real.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org99663f3" class="outline-2">
+<h2 id="org99663f3">&gt;&gt;=</h2>
+<div class="outline-text-2" id="text-org99663f3">
+<p>
+The (&gt;&gt;=) function (called bind) which does <i>re-binding</i> and
+<i>sequencing</i> should be considered <i>impure</i>, because it (and only it) has
+access to the <i>internal state</i> and <i>actual representations</i>.
+</p>
+
+<p>
+However, the <i>code that uses</i> (&gt;&gt;=) is as pure as math or logic.
+</p>
+
+<p>
+The type system guarantees that no code could &ldquo;see&rdquo; or access any value
+behind the monad interface (abstraction barrier). (&gt;&gt;=) and only (&gt;&gt;=)
+can access and pattern-match (but not &ldquo;see&rdquo;, because Haskell is
+<i>declarative</i>.).
+</p>
+
+<p>
+This is exactly how Haskell code is pure (as math or logic) in the
+presence of IO, State transformation and side-effects. All these are
+beyond the abstraction barrier with the Monad type-class establishes,
+and the type system <i>enforses</i>.
+</p>
+
+<p>
+Each <i>instance</i> of a Monad (an actual type) hides all its &ldquo;stuff&rdquo; behind
+a standardized interface, which separates the pure code from impure.
+</p>
+
+<p>
+And that is really it. No more, no less.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc77dad0" class="outline-2">
+<h2 id="orgc77dad0">Passing the Whole World</h2>
+<div class="outline-text-2" id="text-orgc77dad0">
+<p>
+This <i>metaphor</i> is both philosophically funny and useful. In an abstract
+theory, a function <i>is indeed pure</i> if it takes a <i>snapshot of the whole
+universe</i> and returns a value together with the <i>whole universe modified
+by itself</i>.
+</p>
+
+<p>
+In reality this is a form of an explicit <i>serialization</i> (via nesting of
+calls and explicit passing of a value - nested <code>lets</code>, which are
+semantically equivalent to <i>nested lambdas</i>) which is
+required for <i>sequencing of</i> <code>IO</code> actions, since Haskell is a
+<i>call-by-need</i> language.
+</p>
+
+<p>
+Nested function calls and implicit passing of a values <i>inside a Monadic context</i>
+(behind the abstraction barrier) is the most common idiom.
+</p>
+
+<p>
+Nesting of expressions is the <i>natural</i> way to establish an evaluation
+order in a language with <i>lazy semantics</i>.
+</p>
+
+<p>
+Passing of &ldquo;RealWorld&rdquo; values ensures &ldquo;threading&rdquo;- than <i>no two IO contexts ever overlap</i>.
+</p>
+
+<p>
+<code>IO</code> is a <i>type synonym</i> defined in the following way:
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">IO</span> a  <span style="color: #D8DEE9;">=</span>  <span style="color: #8FBCBB;">RealWorld</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>a, <span style="color: #8FBCBB;">RealWorld</span><span style="color: #81A1C1;">)</span>
 </pre>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org1d26940" class="outline-2">
-      <h2 id="org1d26940">an ADT</h2>
-      <div class="outline-text-2" id="text-org1d26940">
-        <p>Technically, it is an ADT as defined by Barbara Liskov.
-        There is an interface, which is what the <i>pure code</i>
-        “sees” and uses. There is an <i>actual implementation</i>,
-        based on some <i>particular representation</i> (actual
-        <i>data structure</i>) hidden behind the <i>interface</i>,
-        exactly as intended.</p>
-        <p>All the most fundamental concepts of programming are
-        there in play.</p>
-      </div>
-    </div>
-    <div id="outline-container-org980a24b" class="outline-2">
-      <h2 id="org980a24b">Actual representation</h2>
-      <div class="outline-text-2" id="text-org980a24b">
-        <p>At the lowest level there is an impure code which
-        manipulates data in memory, like everything else.</p>
-        <p>The purity ends when the <i>main</i> function of a
-        Haskell program returns a <i>pure expression</i> (to be
-        <i>eventually</i> evaluated by the runtime), which is a
-        type-checked <i>specialized state machine, defined in pure
-        logic</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgaa4945d" class="outline-2">
-      <h2 id="orgaa4945d">State Monad</h2>
-      <div class="outline-text-2" id="text-orgaa4945d">
-        <p>It is just a lambda which returns a <i>pair</i> of
-        values. Lambda, so that they can be composed sequentially
-        (yes, just <i>nested lambdas</i>) by
-        <code>&gt;&gt;=</code>.</p>
-        <p>The two values of a <i>pair</i> are at the different
-        sides of an <i>abstraction barrier</i>. The
-        <code>State</code> cannot be seen or accessed outside of
-        the Monad.</p>
-        <p>The lambda (which is called a <i>State Transformer</i>)
-        captures the value, and it is <i>lifted</i> into this
-        particular <i>Monadic context</i> “forever”.</p>
-        <p>The actual <code>State</code> <i>type</i> and how
-        exactly the <i>values of that type</i> are actually handled
-        is encapsulated inside a particular instance of a
-        <code>Monad</code> <i>type-class</i> and it does not
-        pollute the pure code.</p>
-        <p>Moreover, the code is still <i>declarative</i> and will
-        be evaluated <i>eventually</i>, so it is literally a pure
-        logical expression which declares <i>what is to be done
-        with Monadic values</i>. Referential transparency still
-        holds.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:20</p>
-  </div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb578d92" class="outline-2">
+<h2 id="orgb578d92">an ADT</h2>
+<div class="outline-text-2" id="text-orgb578d92">
+<p>
+Technically, it is an ADT as defined by Barbara Liskov. There is an
+interface, which is what the <i>pure code</i> &ldquo;sees&rdquo; and uses. There is an
+<i>actual implementation</i>, based on some <i>particular representation</i> (actual
+<i>data structure</i>) hidden behind the <i>interface</i>, exactly as intended.
+</p>
+
+<p>
+All the most fundamental concepts of programming are there in play.
+</p>
+</div>
+</div>
+<div id="outline-container-org3471033" class="outline-2">
+<h2 id="org3471033">Actual representation</h2>
+<div class="outline-text-2" id="text-org3471033">
+<p>
+At the lowest level there is an impure code which manipulates data in
+memory, like everything else.
+</p>
+
+<p>
+The purity ends when the <i>main</i> function of a Haskell program returns a
+<i>pure expression</i> (to be <i>eventually</i> evaluated by the runtime), which is a
+type-checked <i>specialized state machine, defined in pure logic</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org306eb9f" class="outline-2">
+<h2 id="org306eb9f">State Monad</h2>
+<div class="outline-text-2" id="text-org306eb9f">
+<p>
+It is just a lambda which returns a <i>pair</i> of values. Lambda, so that they can be
+composed sequentially (yes, just <i>nested lambdas</i>) by <code>&gt;&gt;=</code>.
+</p>
+
+<p>
+The two values of a <i>pair</i> are at the different sides of an
+<i>abstraction barrier</i>. The <code>State</code> cannot be seen or accessed outside
+of the Monad.
+</p>
+
+<p>
+The lambda (which is called a <i>State Transformer</i>) captures the value, and
+it is <i>lifted</i> into this particular <i>Monadic context</i> &ldquo;forever&rdquo;.
+</p>
+
+<p>
+The actual <code>State</code> <i>type</i> and how exactly the <i>values of that type</i> are
+actually handled is encapsulated inside a particular instance of a
+<code>Monad</code> <i>type-class</i> and it does not pollute the pure code.
+</p>
+
+<p>
+Moreover, the code is still <i>declarative</i> and will be evaluated
+<i>eventually</i>, so it is literally a pure logical expression which
+declares <i>what is to be done with Monadic values</i>. Referential transparency
+still holds.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

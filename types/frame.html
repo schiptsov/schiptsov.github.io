@@ -1,76 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:18 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Frame</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content="The Frame type.">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Frame</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="The Frame type." />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Frame</h1>
-    </header>
-    <p>A frame is a List of <a href="candle.html">Candles</a> or
-    just <code>[Candle]</code></p>
-    <p>Ideally, it should be a <i>dependent type</i>, parameterized
-    by its <i>time interval</i>, so the <code>Frames</code> of
-    different sizes would be strictly separated.</p>
-    <p>This requirement can be relaxed and a <code>Frame</code>
-    must be an <i>ADT</i>.</p>
-    <p>Conceptually, it is an <i>ordered sequence</i> if
-    <code>Candles</code>. Technically it is a List (an instance of
-    literally all the standard type-classes).</p>
-    <p>The ordering is defined by <i>timestamps</i> of
-    <code>Candles</code> at the time of creation.</p>
-    <div id="outline-container-orgef9f88f" class="outline-2">
-      <h2 id="orgef9f88f">An interval</h2>
-      <div class="outline-text-2" id="text-orgef9f88f">
-        <p>A <i>Frame</i> can be seen as an <i>interval</i> between
-        two <i>timestamps</i>.</p>
-        <p>It is between the <i>opening timestamp</i> of the first
-        <code>Candle</code> in a sequece and the <i>closing
-        timestamp</i> of the last <code>Candle</code> in a
-        sequence.</p>
-      </div>
-    </div>
-    <div id="outline-container-org1541855" class="outline-2">
-      <h2 id="org1541855">Immutable</h2>
-      <div class="outline-text-2" id="text-org1541855">
-        <p><code>Candles</code> are <code>Frames</code> are
-        <i>immutable</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-org8612858" class="outline-2">
-      <h2 id="org8612858">Functions</h2>
-      <div class="outline-text-2" id="text-org8612858">
-        <p>There will be a set of functions which take a
-        <code>Frame</code> and look inside <code>Candles</code>,
-        just like <code>map</code> and <code>fold</code> do.</p>
-        <p>They should be private to the <code>Frame</code>
-        <i>module</i> and use <code>Candle</code> imports.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:18</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Frame</h1>
+</header><p>
+A frame is a List of <a href="candle.html">Candles</a> or just <code>[Candle]</code>
+</p>
+
+<p>
+Ideally, it should be a <i>dependent type</i>, parameterized by its <i>time
+interval</i>, so the <code>Frames</code> of different sizes would be strictly separated.
+</p>
+
+<p>
+This requirement can be relaxed and a <code>Frame</code> must be an <i>ADT</i>.
+</p>
+
+<p>
+Conceptually, it is an <i>ordered sequence</i> if <code>Candles</code>. Technically it
+is a List (an instance of literally all the standard type-classes).
+</p>
+
+<p>
+The ordering is defined by <i>timestamps</i> of <code>Candles</code> at the time of creation.
+</p>
+
+<div id="outline-container-orgbb3c6d0" class="outline-2">
+<h2 id="orgbb3c6d0">An interval</h2>
+<div class="outline-text-2" id="text-orgbb3c6d0">
+<p>
+A <i>Frame</i> can be seen as an <i>interval</i> between two <i>timestamps</i>.
+</p>
+
+<p>
+It is between the <i>opening timestamp</i> of the first <code>Candle</code> in a sequece and the <i>closing timestamp</i> of the last <code>Candle</code> in a sequence.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ed2aa0" class="outline-2">
+<h2 id="org7ed2aa0">Immutable</h2>
+<div class="outline-text-2" id="text-org7ed2aa0">
+<p>
+<code>Candles</code> are <code>Frames</code> are <i>immutable</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org255295a" class="outline-2">
+<h2 id="org255295a">Functions</h2>
+<div class="outline-text-2" id="text-org255295a">
+<p>
+There will be a set of functions which take a <code>Frame</code> and look inside <code>Candles</code>, just like <code>map</code> and <code>fold</code> do.
+</p>
+
+<p>
+They should be private to the <code>Frame</code> <i>module</i> and use <code>Candle</code> imports.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:39</p>
+</div>
 </body>
 </html>

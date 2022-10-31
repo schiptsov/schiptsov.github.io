@@ -1,75 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:19 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Empty List</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Empty List</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Empty List</h1>
-    </header>
-    <p><code>[]</code> (which represents <i>emptiness</i>) acts
-    like an identity element for an <i>operation that chooses</i>
-    between alternatives, when a <code>List</code> of <i>possible
-    choices</i> is returned. This is a common, <i>standard
-    idiom</i>.</p>
-    <p><i>Empty</i> is not an “error” or a “failure”, but a
-    <i>signal to stop, prune, backtrack</i> and <i>delete the
-    empty, now cyclic path</i>.</p>
-    <p>Considered as an identity element for an operation of a
-    choice between alternatives: <code>if [] then try the next
-    one</code>.</p>
-    <p>This is a <i>standard idiom</i> in parsing - the current
-    parser sees <i>nothing</i> (returns an <i>empty result</i>) -
-    try the next one.</p>
-    <p>This is idiom is applicable for an ordinary Monadic
-    composition, or for composition of <i>partial</i> (non-total)
-    functions.</p>
-    <p>This generalizes the pattern of selection in the process of
-    <i>systematic exploration</i> or a <i>complete traversal</i> of
-    a tree-like (<i>acyclic</i>) structure.</p>
-    <p>This is at the core of universal <i>backtracking search</i>,
-    which either abandons the path on a <i>contradiction</i> or a
-    <i>dead-end</i> or an expected <i>base-case</i>.</p>
-    <p>Such kind of a search is <i>complete</i>.</p>
-    <p>A <i>recursive traversal</i> with stops at an <i>expected
-    base case</i> (<code>[]</code>) is also a special case of a
-    <i>backtracking search</i> process.</p>
-    <p><code>[]</code> (but not <code>null</code>) is a legitimate
-    <i>signal</i> and is an <i>identity</i> for concatenation. so
-    is the <code>""</code> (the <i>empty string</i>).</p>
-    <p>Again, being an <i>identity element for concatenation
-    operation</i> is what makes them <i>leigitimate</i>. A general
-    <code>NULL</code> is not an identity and is a huge and
-    embarrassing <i>theoretical mistake</i> (by
-    math-illiterates).</p>
-    <p><code>Maybe</code> is just this empty/non-empty (Nothing or
-    Something) aspect of a <code>list</code> being redefined with a
-    different pair of constructors.</p>
-    <p>A <i>recursive traversal</i> of a <i>tree</i> stops (and
-    recursion backtracks) at every expected <code>Leaf</code>.</p>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:19</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Empty List</h1>
+</header><p>
+<code>[]</code> (which represents <i>emptiness</i>) acts like an identity element for an
+<i>operation that chooses</i> between alternatives, when a <code>List</code> of <i>possible
+choices</i> is returned. This is a common, <i>standard idiom</i>.
+</p>
+
+<p>
+<i>Empty</i> is not an &ldquo;error&rdquo; or a &ldquo;failure&rdquo;, but a <i>signal to stop, prune,
+backtrack</i> and <i>delete the empty, now cyclic path</i>.
+</p>
+
+<p>
+Considered as an identity element for an operation of a choice between
+alternatives: <code>if [] then try the next one</code>.
+</p>
+
+<p>
+This is a <i>standard idiom</i> in parsing - the current parser sees
+<i>nothing</i> (returns an <i>empty result</i>) - try the next one.
+</p>
+
+<p>
+This is idiom is applicable for an ordinary Monadic composition, or for
+composition of <i>partial</i> (non-total) functions.
+</p>
+
+<p>
+This generalizes the pattern of selection in the process of <i>systematic
+exploration</i> or a <i>complete traversal</i> of a tree-like (<i>acyclic</i>) structure.
+</p>
+
+<p>
+This is at the core of universal <i>backtracking search</i>, which either abandons
+the path on a <i>contradiction</i> or a <i>dead-end</i> or an expected
+<i>base-case</i>.
+</p>
+
+<p>
+Such kind of a search is <i>complete</i>.
+</p>
+
+<p>
+A <i>recursive traversal</i> with stops at an <i>expected base case</i> (<code>[]</code>) is also a
+special case of a <i>backtracking search</i> process.
+</p>
+
+<p>
+<code>[]</code> (but not <code>null</code>) is a legitimate <i>signal</i> and is an <i>identity</i> for
+concatenation.
+so is the <code>""</code> (the <i>empty string</i>).
+</p>
+
+<p>
+Again, being an <i>identity element for concatenation operation</i> is what
+makes them <i>leigitimate</i>. A general <code>NULL</code> is not an identity and is a
+huge and embarrassing <i>theoretical mistake</i> (by math-illiterates).
+</p>
+
+<p>
+<code>Maybe</code> is just this empty/non-empty (Nothing or Something) aspect of a
+<code>list</code> being redefined with a different pair of constructors.
+</p>
+
+<p>
+A <i>recursive traversal</i> of a <i>tree</i> stops (and recursion backtracks)
+ at every expected <code>Leaf</code>.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

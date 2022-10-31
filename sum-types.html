@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:19 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Sum-Types</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Sum-types for a Functional programmer.">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sum-Types</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Sum-types for a Functional programmer." />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -34,125 +33,130 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Sum-Types</h1>
-    </header>
-    <div id="outline-container-org8fdc47e" class="outline-2">
-      <h2 id="org8fdc47e">Disjoint sum (union)</h2>
-      <div class="outline-text-2" id="text-org8fdc47e">
-        <p>We add up (put together) elements, not multiply
-        them.</p>
-        <p>Sums (and sum-types) are “linear”, while products are
-        build “dimensions”.</p>
-        <p>We use the symbol <code>|</code> to emphasize
-        <i>partitioning of a disjoint union</i>.</p>
-      </div>
-      <div id="outline-container-org1f1a641" class="outline-3">
-        <h3 id="org1f1a641">Rotation</h3>
-        <div class="outline-text-3" id="text-org1f1a641">
-          <p>commutative (same notion) \[(a \mid b) \cong (b \mid
-          a)\]</p>
-        </div>
-      </div>
-      <div id="outline-container-org007cacf" class="outline-3">
-        <h3 id="org007cacf">Nested pairs</h3>
-        <div class="outline-text-3" id="text-org007cacf">
-          <p>isomorphic \[((a \mid b) \mid c) \cong (a \mid (b \mid
-          c))\]</p>
-        </div>
-      </div>
-      <div id="outline-container-orgb2db73b" class="outline-3">
-        <h3 id="orgb2db73b">Disjoint sum</h3>
-        <div class="outline-text-3" id="text-orgb2db73b">
-          <p>Think of it as adding up without <i>morphing into
-          one</i>. \[a \mid b \cong a + b\]</p>
-        </div>
-      </div>
-      <div id="outline-container-org67b247b" class="outline-3">
-        <h3 id="org67b247b">Unit</h3>
-        <div class="outline-text-3" id="text-org67b247b">
-          <p>\(\emptyset\) as a <i>unit</i> - adding nothing change
-          nothing. Logically it is an <i>uninhabited</i> type
-          <code>Void</code> - there are no instances (or values) of
-          a void. \[a + 0 = a \cong a \mid \emptyset = a\]</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org432ad85" class="outline-2">
-      <h2 id="org432ad85">partitions</h2>
-      <div class="outline-text-2" id="text-org432ad85">
-        <p>These are <i>type-level</i> notions, not an instance
-        (value) level.</p>
-        <p><i>either</i> True or False</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">data</span> <span style=
-          "color: #8FBCBB;">Bool</span> <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #8FBCBB;">True</span> <span style=
-          "color: #D8DEE9;">|</span> <span style=
-          "color: #8FBCBB;">False</span>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Sum-Types</h1>
+</header>
+<div id="outline-container-org7ec9be0" class="outline-2">
+<h2 id="org7ec9be0">Disjoint sum (union)</h2>
+<div class="outline-text-2" id="text-org7ec9be0">
+<p>
+We add up (put together) elements, not multiply them.
+</p>
+
+<p>
+Sums (and sum-types) are &ldquo;linear&rdquo;, while products are build &ldquo;dimensions&rdquo;.
+</p>
+
+<p>
+We use the symbol <code>|</code> to emphasize <i>partitioning of a disjoint union</i>.
+</p>
+</div>
+<div id="outline-container-org5c2ad60" class="outline-3">
+<h3 id="org5c2ad60">Rotation</h3>
+<div class="outline-text-3" id="text-org5c2ad60">
+<p>
+commutative (same notion)
+\[(a \mid b) \cong (b \mid a)\]
+</p>
+</div>
+</div>
+<div id="outline-container-org0eae912" class="outline-3">
+<h3 id="org0eae912">Nested pairs</h3>
+<div class="outline-text-3" id="text-org0eae912">
+<p>
+isomorphic
+\[((a \mid b) \mid c) \cong (a \mid (b \mid c))\]
+</p>
+</div>
+</div>
+<div id="outline-container-org244bcec" class="outline-3">
+<h3 id="org244bcec">Disjoint sum</h3>
+<div class="outline-text-3" id="text-org244bcec">
+<p>
+Think of it as adding up without <i>morphing into one</i>.
+\[a \mid b \cong a + b\]
+</p>
+</div>
+</div>
+<div id="outline-container-org8b6f8be" class="outline-3">
+<h3 id="org8b6f8be">Unit</h3>
+<div class="outline-text-3" id="text-org8b6f8be">
+<p>
+\(\emptyset\) as a <i>unit</i> - adding nothing change nothing.
+Logically it is an <i>uninhabited</i> type <code>Void</code> - there are no instances (or
+values) of a void.
+\[a + 0 = a \cong a \mid \emptyset = a\]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbf8ddce" class="outline-2">
+<h2 id="orgbf8ddce">partitions</h2>
+<div class="outline-text-2" id="text-orgbf8ddce">
+<p>
+These are <i>type-level</i> notions, not an instance (value) level.
+</p>
+
+<p>
+<i>either</i> True or False
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">True</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">False</span>
 </pre>
-        </div>
-        <p>The empty/non-empty aspect of a list</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">data</span> <span style=
-          "color: #8FBCBB;">Maybe</span> a <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #8FBCBB;">Nothing</span> <span style=
-          "color: #D8DEE9;">|</span> <span style=
-          "color: #8FBCBB;">Just</span> a
+</div>
+<p>
+The empty/non-empty aspect of a list
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Maybe</span> a <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Nothing</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Just</span> a
 </pre>
-        </div>
-        <p><i>Recursive</i> disjoint sum (<i>of tuples</i>)</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">data</span> <span style=
-          "color: #8FBCBB;">List</span> a <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #8FBCBB;">Nil</span> <span style=
-          "color: #D8DEE9;">|</span> <span style=
-          "color: #8FBCBB;">Cons</span> a <span style=
-          "color: #81A1C1;">(</span><span style=
-          "color: #8FBCBB;">List</span> a<span style=
-          "color: #81A1C1;">)</span>
+</div>
+<p>
+<i>Recursive</i> disjoint sum (<i>of tuples</i>)
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">List</span> a <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Nil</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Cons</span> a <span style="color: #81A1C1;">(</span><span style="color: #8FBCBB;">List</span> a<span style="color: #81A1C1;">)</span>
 </pre>
-        </div>
-        <p>a List is <i>either</i> empty, or it is a singleton, or
-        a pair, or a triple or an n-tuple, made out of
-        <i>Conses</i>, which are nested Pairs.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgaff08af" class="outline-2">
-      <h2 id="orgaff08af">Pattern-matching</h2>
-      <div class="outline-text-2" id="text-orgaff08af">
-        <p>“Universal” (everywhere) <i>pattern-matching</i> on
-        sum-types of the ML-family of languages is the most
-        important innovation in programming languages.</p>
-        <p>It breaks <i>disjount sums</i> apart in a systematic,
-        uniform way, with proper nesting.</p>
-        <p>Languages without universal pattern-matching are simply
-        inferior.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:19</p>
-  </div>
+</div>
+<p>
+a List is <i>either</i> empty, or it is a singleton, or a pair, or a triple or
+an n-tuple, made out of <i>Conses</i>, which are nested Pairs.
+</p>
+</div>
+</div>
+<div id="outline-container-orge132a1b" class="outline-2">
+<h2 id="orge132a1b">Pattern-matching</h2>
+<div class="outline-text-2" id="text-orge132a1b">
+<p>
+&ldquo;Universal&rdquo; (everywhere) <i>pattern-matching</i> on sum-types of the ML-family of
+ languages is the most important innovation in programming languages.
+</p>
+
+<p>
+It breaks <i>disjount sums</i> apart in a systematic, uniform way, with
+proper nesting.
+</p>
+
+<p>
+Languages without universal pattern-matching are simply inferior.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

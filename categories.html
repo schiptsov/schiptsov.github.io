@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:20 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Category theory</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Virtue signaling for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:41 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Category theory</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Virtue signaling for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -34,435 +33,561 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Category theory</h1>
-    </header>
-    <p>Lets hack some abstract bullshit</p>
-    <p>The best way to understand what you are reading is to make
-    the idea your own “aha”. This means <i>following the idea back
-    to its origin (to What Is)</i>, and thus rediscovering it for
-    yourself.</p>
-    <p>Indeed, everything that has been written by humans (except
-    bullshit) is (or at least should be) verbalized observations of
-    the same reality from different angles and distances (points of
-    view).</p>
-    <div id="outline-container-org6964392" class="outline-2">
-      <h2 id="org6964392">Proper philosophy first</h2>
-      <div class="outline-text-2" id="text-org6964392"></div>
-      <div id="outline-container-orga1d4beb" class="outline-3">
-        <h3 id="orga1d4beb">Why arrows?</h3>
-        <div class="outline-text-3" id="text-orga1d4beb">
-          <p>Because they imply a <i>direction</i> - an
-          <i>order</i> for a ordered pair.</p>
-          <p>Why directed? Because of the <i>Causality
-          Principle</i>. Causality (it and only it) establishes a
-          direction and <i>an order</i>.</p>
-        </div>
-      </div>
-      <div id="outline-container-org4eb2b2a" class="outline-3">
-        <h3 id="org4eb2b2a">A single “step”</h3>
-        <div class="outline-text-3" id="text-org4eb2b2a">
-          <p>\[\cdot \rightarrow \cdot\] This is a minimal
-          <i>directed graph</i> - an abstraction. which may
-          correspond to a single step (a single transition)
-          whatsoever.</p>
-          <p>It may be a single step of a logical deduction (which
-          is called an <i>implication</i>) or it may be a function
-          application (which sounds almost the same), or it may be
-          a single leg of a path.</p>
-          <p>Is it really a minimal?</p>
-        </div>
-      </div>
-      <div id="outline-container-org7a7f2b4" class="outline-3">
-        <h3 id="org7a7f2b4">A single “dot”</h3>
-        <div class="outline-text-3" id="text-org7a7f2b4">
-          <p>\[\rightarrow\cdot\] What this corresponds to? <i>From
-          where</i> this arrow points <i>towards</i> something?</p>
-          <p>From an <i>external observe</i>, of course. This is
-          something he <i>directs his attention to</i></p>
-          <p>We seen such arrows before (yes, it is a fat one, but
-          it is an arrow!). \[\Gamma \Rightarrow A\] something that
-          is <i>already known</i> (to an observer).</p>
-          <p>So, this <i>single dot</i> (selected by the mind or by
-          directing observer’s attention to) is a <i>starting
-          point</i> for a single step. It is sometimes called a
-          <i>selector</i>.</p>
-          <p>We cannot step from nothing. (Which is why
-          <code>False</code> does not imply anything).</p>
-        </div>
-      </div>
-      <div id="outline-container-orge8a7ac9" class="outline-3">
-        <h3 id="orge8a7ac9">A set</h3>
-        <div class="outline-text-3" id="text-orge8a7ac9">
-          <p>One of the ways to define a <i>set</i> is to state
-          explicitly all the elements. The notation for this is \(S
-          = \{a,b,c,...,x\}\), and we define <i>alphabets</i>
-          essentially in this way. And it seems that \(\{0,1\}\) is
-          enough for everything.</p>
-          <p>What does it mean? It means that an <i>observer</i>
-          has to <i>know</i> and to <i>point out</i> every single
-          element explicitly, with a <i>finger</i> or with a
-          <i>word</i>, just like children do.</p>
-          <p>\[\rightarrow\cdot\] is a magical thing. Any set is
-          isomorphic to <i>a set of all arrows from you</i>
-          (towards what you know). \[S \cong Hom(You,S)\]</p>
-        </div>
-      </div>
-      <div id="outline-container-orgc05091f" class="outline-3">
-        <h3 id="orgc05091f">A next step</h3>
-        <div class="outline-text-3" id="text-orgc05091f">
-          <p>A next step starts exactly where the previous ends.
-          This is the essence of a composition (of functions, of
-          implications, etc). \[\cdot \rightarrow \cdot \rightarrow
-          \cdot\] That “dot” in the middle is special - it is a
-          <i>codomain</i> of the previous arrow and <i>domain</i>
-          of the next. It has to be the same.</p>
-        </div>
-      </div>
-      <div id="outline-container-orga149208" class="outline-3">
-        <h3 id="orga149208">Any 3 dots are between 2 steps</h3>
-        <div class="outline-text-3" id="text-orga149208">
-          <p>There can be only “this many” directed arrows between
-          any 3 dots. \[\cdot \rightarrow \cdot \rightarrow \cdot\]
-          the individual steps \[\cdot \rightarrow \cdot\] and the
-          result of their <i>composition</i>, provided <i>the
-          laws</i> of composition hold.</p>
-          <p>This is a minimal algebraic structure.</p>
-        </div>
-      </div>
-      <div id="outline-container-org5cac075" class="outline-3">
-        <h3 id="org5cac075">Nothing more to consider</h3>
-        <div class="outline-text-3" id="text-org5cac075">
-          <p>Just like it is with the <i>successor</i> function
-          <code>(+1)</code>, the ability to take a <i>single
-          step</i> \(\cdot \rightarrow \cdot\) is enough.</p>
-          <p>It is not an arbitrary choice that a λ abstraction is
-          <i>of an arity one</i> (takes <i>exactly one</i>
-          argument) - it is <i>minimal</i> and <i>enough for
-          everything</i>.</p>
-        </div>
-        <div id="outline-container-org37cbcb7" class="outline-4">
-          <h4 id="org37cbcb7">Currying</h4>
-          <div class="outline-text-4" id="text-org37cbcb7">
-            <p><i>Currying</i> is a technique to take one (and only
-            one) argument to a function at a time <i>by returning a
-            “next step” function</i> for a “next argument” for
-            multi-argument operators, such as \(+\).</p>
-            <p>It corresponds exactly to the \[\cdot \rightarrow
-            \cdot \rightarrow \cdot\] “individual steps” pattern
-            (at a <i>type-level</i>), and this is not an arbitrary
-            coincidence.</p>
-            <p><i>Partial application</i> (supplying a fewer
-            arguments and using the resulting <i>closure</i>) -
-            like <code>(+1)</code> - naturally follows.</p>
-            <p>Now we “compose” these steps (or lambdas).</p>
-          </div>
-        </div>
-      </div>
-      <div id="outline-container-orgc0e5e38" class="outline-3">
-        <h3 id="orgc0e5e38">Composition</h3>
-        <div class="outline-text-3" id="text-orgc0e5e38">
-          <p>We describe “steps” as mappings \(x \mapsto x^{2}\),
-          lets say, and give them <i>names</i>, like \(f\) and
-          types, like \(f: N^{+} \rightarrow N^{+}\).</p>
-          <p>Now we compose these mappings (steps) with an operator
-          \(\circ\).</p>
-        </div>
-      </div>
-      <div id="outline-container-orgd87af0f" class="outline-3">
-        <h3 id="orgd87af0f">Associativity</h3>
-        <div class="outline-text-3" id="text-orgd87af0f">
-          <p>Composition should have the <i>associative
-          property</i> \[\forall f, g, h, (h \circ g) \circ f = h
-          \circ (g \circ f)\] which means it is <i>irrelevant in
-          what order we connect</i> the plumbing pipes.</p>
-          <p>There is a special case, when \(f = g = h\) (the same
-          operation being <i>composed with itself</i> or
-          <i>pipelined to itself</i>).</p>
-          <p>This means <i>the operation</i> (\(\cdot \rightarrow
-          \cdot\)) is itself <i>associative</i>.</p>
-          <p>Addition(\(+\)) or string concatenation
-          <code>++</code> are such operations - it does not matter
-          in what order we <i>add up</i> or <i>put
-          together</i>.</p>
-        </div>
-      </div>
-      <div id="outline-container-org2e97d61" class="outline-3">
-        <h3 id="org2e97d61">Identity</h3>
-        <div class="outline-text-3" id="text-org2e97d61">
-          <p>There has to be an <i>arrow</i> from any “dot” <i>to
-          itself</i>, which corresponds to an <i>identity
-          function</i> for a set (or an <i>identity element</i> for
-          an operation).</p>
-        </div>
-      </div>
-      <div id="outline-container-orge0c99dc" class="outline-3">
-        <h3 id="orge0c99dc">What can be a “dot”</h3>
-        <div class="outline-text-3" id="text-orge0c99dc">
-          <p>Usually, dots stand for <i>sets</i> or <i>types</i>,
-          but it could be almost any “collection”, “structure” or a
-          whole “class” of these.</p>
-        </div>
-      </div>
-      <div id="outline-container-orgc19ecd8" class="outline-3">
-        <h3 id="orgc19ecd8">What could be an “arrow”</h3>
-        <div class="outline-text-3" id="text-orgc19ecd8">
-          <p>A single function, a morphism (which is more general),
-          a Functor (which is a particular class of morphisms),
-          everything that takes a single step (and has <i>at most
-          one</i> outgoing arrow).</p>
-          <p>A <i>homomorhphism</i> is a technical term for a
-          <i>structure-preserving</i> transformation (mapping, or a
-          function).</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org5fb9784" class="outline-2">
-      <h2 id="org5fb9784">One more generalization</h2>
-      <div class="outline-text-2" id="text-org5fb9784">
-        <p>A <i>category</i> is a higher level
-        <i>generalization</i> from (and defined in terms of) the
-        Set Theory.</p>
-        <ul class="org-ul">
-          <li>“collections” are sets (or classes)</li>
-          <li>“morphisms” are <i>set-theoretic</i> functions (sets
-          of ordered pairs)</li>
-          <li>“equality” is also <i>set-theoretic</i> (all the same
-          members)</li>
-        </ul>
-        <p>Within Set Theory functions from \(A\) to \(B\) are
-        viewed as a <i>Set of Ordered Pairs</i>, just as a
-        <i>Cartesian Product</i>.</p>
-        <p>These functions are single <i>“composite arrows”</i> at
-        the type level - \(f: A\rightarrow B\).</p>
-        <p>So \(f: A \rightarrow B\) is \(\{(a, b)\}\) (a set of
-        <i>all</i> ordered pairs), just like <code>[(a, b)]</code>
-        which is a <i>table</i>, and a valid <i>type</i> in
-        Haskell, by the way.</p>
-        <p>A function \(f\) has its <i>image</i> in a set \(S\)
-        such that \(B \subset S\)</p>
-        <p>There are also <i>“individual arrows”</i> which
-        represent each <i>ordered pair</i>. And \(x \rightarrow
-        x^2\) (\(N^{+} \rightarrow N^{+}\))can be viewed as (in a
-        pseudo-code)</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">{</span> <span style=
-          "color: #B48EAD;">(</span><span style=
-          "color: #B48EAD; font-weight: bold;">1</span>, <span style=
-          "color: #B48EAD; font-weight: bold;">1</span><span style=
-          "color: #B48EAD;">)</span>,
-  <span style="color: #B48EAD;">(</span><span style=
-"color: #B48EAD; font-weight: bold;">2</span>, <span style=
-"color: #B48EAD; font-weight: bold;">4</span><span style=
-"color: #B48EAD;">)</span>,
-  <span style="color: #B48EAD;">(</span><span style=
-"color: #B48EAD; font-weight: bold;">3</span>, <span style=
-"color: #B48EAD; font-weight: bold;">9</span><span style=
-"color: #B48EAD;">)</span>,
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Category theory</h1>
+</header><p>
+Lets hack some abstract bullshit
+</p>
+
+<p>
+The best way to understand what you are reading is to make the idea your
+own &ldquo;aha&rdquo;. This means <i>following the idea back to its origin (to What Is)</i>,
+and thus rediscovering it for yourself.
+</p>
+
+<p>
+Indeed, everything that has been written by humans (except bullshit) is
+(or at least should be) verbalized observations of the same reality from
+different angles and distances (points of view).
+</p>
+<div id="outline-container-orgbd0056c" class="outline-2">
+<h2 id="orgbd0056c">Proper philosophy first</h2>
+<div class="outline-text-2" id="text-orgbd0056c">
+</div>
+<div id="outline-container-org2d82a88" class="outline-3">
+<h3 id="org2d82a88">Why arrows?</h3>
+<div class="outline-text-3" id="text-org2d82a88">
+<p>
+Because they imply a <i>direction</i> - an <i>order</i> for a ordered pair.
+</p>
+
+<p>
+Why directed? Because of the <i>Causality Principle</i>. Causality
+(it and only it) establishes a direction and <i>an order</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org3d83b8a" class="outline-3">
+<h3 id="org3d83b8a">A single &ldquo;step&rdquo;</h3>
+<div class="outline-text-3" id="text-org3d83b8a">
+<p>
+\[\cdot \rightarrow \cdot\]
+This is a minimal <i>directed graph</i> - an abstraction. which may
+correspond to a single step (a single transition) whatsoever.
+</p>
+
+<p>
+It may be a single step of a logical deduction (which is called an
+<i>implication</i>) or it may be a function application (which sounds almost
+the same), or it may be a single leg of a path.
+</p>
+
+<p>
+Is it really a minimal?
+</p>
+</div>
+</div>
+<div id="outline-container-org47c0cb6" class="outline-3">
+<h3 id="org47c0cb6">A single &ldquo;dot&rdquo;</h3>
+<div class="outline-text-3" id="text-org47c0cb6">
+<p>
+\[\rightarrow\cdot\]
+What this corresponds to? <i>From where</i> this arrow points <i>towards</i>
+something?
+</p>
+
+<p>
+From an <i>external observe</i>, of course. This is something he <i>directs his
+attention to</i>
+</p>
+
+<p>
+We seen such arrows before (yes, it is a fat one, but it is an arrow!).
+\[\Gamma \Rightarrow A\]
+something that is <i>already known</i> (to an observer).
+</p>
+
+<p>
+So, this <i>single dot</i> (selected by the mind or by directing observer&rsquo;s
+attention to) is a <i>starting point</i> for a single step. It is sometimes
+called a <i>selector</i>.
+</p>
+
+<p>
+We cannot step from nothing. (Which is why <code>False</code> does not imply anything).
+</p>
+</div>
+</div>
+<div id="outline-container-orgca85874" class="outline-3">
+<h3 id="orgca85874">A set</h3>
+<div class="outline-text-3" id="text-orgca85874">
+<p>
+One of the ways to define a <i>set</i> is to state explicitly all the elements.
+The notation for this is \(S = \{a,b,c,...,x\}\), and we define <i>alphabets</i>
+essentially in this way. And it seems that \(\{0,1\}\) is enough for everything.
+</p>
+
+<p>
+What does it mean? It means that an <i>observer</i> has to <i>know</i> and to
+<i>point out</i> every single element explicitly, with a <i>finger</i> or with a
+<i>word</i>, just like children do.
+</p>
+
+<p>
+\[\rightarrow\cdot\] is a magical thing. Any set is isomorphic to <i>a set of all arrows
+from you</i> (towards what you know).
+\[S \cong Hom(You,S)\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgb9a0abb" class="outline-3">
+<h3 id="orgb9a0abb">A next step</h3>
+<div class="outline-text-3" id="text-orgb9a0abb">
+<p>
+A next step starts exactly where the previous ends. This is the essence
+of a composition (of functions, of implications, etc).
+\[\cdot \rightarrow \cdot \rightarrow \cdot\]
+That &ldquo;dot&rdquo; in the middle is special - it is a <i>codomain</i> of the previous
+arrow and <i>domain</i> of the next. It has to be the same.
+</p>
+</div>
+</div>
+<div id="outline-container-orgca07357" class="outline-3">
+<h3 id="orgca07357">Any 3 dots are between 2 steps</h3>
+<div class="outline-text-3" id="text-orgca07357">
+<p>
+There can be only &ldquo;this many&rdquo; directed arrows between any 3 dots.
+\[\cdot \rightarrow \cdot \rightarrow \cdot\]
+the individual steps
+\[\cdot \rightarrow \cdot\]
+and the result of their <i>composition</i>, provided <i>the laws</i> of composition hold.
+</p>
+
+<p>
+This is a minimal algebraic structure.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb0c0e8f" class="outline-3">
+<h3 id="orgb0c0e8f">Nothing more to consider</h3>
+<div class="outline-text-3" id="text-orgb0c0e8f">
+<p>
+Just like it is with the <i>successor</i> function <code>(+1)</code>, the ability to
+take a <i>single step</i> \(\cdot \rightarrow \cdot\) is enough.
+</p>
+
+<p>
+It is not an arbitrary choice that a &lambda; abstraction is <i>of an arity
+one</i> (takes <i>exactly one</i> argument) - it is <i>minimal</i> and <i>enough
+for everything</i>.
+</p>
+</div>
+
+<div id="outline-container-org1c5a48f" class="outline-4">
+<h4 id="org1c5a48f">Currying</h4>
+<div class="outline-text-4" id="text-org1c5a48f">
+<p>
+<i>Currying</i> is a technique to take one (and only one) argument to a
+ function at a time <i>by returning a &ldquo;next step&rdquo; function</i> for a &ldquo;next
+ argument&rdquo; for multi-argument operators, such as \(+\).
+</p>
+
+<p>
+It corresponds exactly to the
+\[\cdot \rightarrow \cdot \rightarrow \cdot\]
+&ldquo;individual steps&rdquo; pattern (at a <i>type-level</i>), and this is not an
+arbitrary coincidence.
+</p>
+
+<p>
+<i>Partial application</i> (supplying a fewer arguments and using the
+resulting <i>closure</i>) - like <code>(+1)</code> - naturally follows.
+</p>
+
+<p>
+Now we &ldquo;compose&rdquo; these steps (or lambdas).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga406876" class="outline-3">
+<h3 id="orga406876">Composition</h3>
+<div class="outline-text-3" id="text-orga406876">
+<p>
+We describe &ldquo;steps&rdquo; as mappings \(x \mapsto x^{2}\), lets say, and give them
+<i>names</i>, like \(f\) and types, like \(f: N^{+} \rightarrow N^{+}\).
+</p>
+
+<p>
+Now we compose these mappings (steps) with an operator \(\circ\).
+</p>
+</div>
+</div>
+<div id="outline-container-org7468cbe" class="outline-3">
+<h3 id="org7468cbe">Associativity</h3>
+<div class="outline-text-3" id="text-org7468cbe">
+<p>
+Composition should have the <i>associative property</i>
+\[\forall f, g, h, (h \circ g) \circ f = h \circ (g \circ f)\]
+which means it is <i>irrelevant in what order we connect</i> the plumbing
+pipes.
+</p>
+
+<p>
+There is a special case, when \(f = g = h\) (the same operation being
+<i>composed with itself</i> or <i>pipelined to itself</i>).
+</p>
+
+<p>
+This means <i>the operation</i> (\(\cdot \rightarrow \cdot\)) is itself <i>associative</i>.
+</p>
+
+<p>
+Addition(\(+\)) or string concatenation <code>++</code> are such operations - it does not
+matter in what order we <i>add up</i> or <i>put together</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org7424ce9" class="outline-3">
+<h3 id="org7424ce9">Identity</h3>
+<div class="outline-text-3" id="text-org7424ce9">
+<p>
+There has to be an <i>arrow</i> from any &ldquo;dot&rdquo; <i>to itself</i>, which corresponds to
+an <i>identity function</i> for a set (or an <i>identity element</i> for an operation).
+</p>
+</div>
+</div>
+<div id="outline-container-org5f23f92" class="outline-3">
+<h3 id="org5f23f92">What can be a &ldquo;dot&rdquo;</h3>
+<div class="outline-text-3" id="text-org5f23f92">
+<p>
+Usually, dots stand for <i>sets</i> or <i>types</i>, but it could be almost
+any &ldquo;collection&rdquo;, &ldquo;structure&rdquo; or a whole &ldquo;class&rdquo; of these.
+</p>
+</div>
+</div>
+<div id="outline-container-org7117478" class="outline-3">
+<h3 id="org7117478">What could be an &ldquo;arrow&rdquo;</h3>
+<div class="outline-text-3" id="text-org7117478">
+<p>
+A single function, a morphism (which is more general), a Functor (which
+is a particular class of morphisms), everything that takes a single step
+(and has <i>at most one</i> outgoing arrow).
+</p>
+
+<p>
+A <i>homomorhphism</i> is a technical term for a <i>structure-preserving</i>
+transformation (mapping, or a function).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4947c9e" class="outline-2">
+<h2 id="org4947c9e">One more generalization</h2>
+<div class="outline-text-2" id="text-org4947c9e">
+<p>
+A <i>category</i> is a higher level <i>generalization</i> from (and defined in
+terms of) the Set Theory.
+</p>
+
+<ul class="org-ul">
+<li>&ldquo;collections&rdquo; are sets (or classes)</li>
+<li>&ldquo;morphisms&rdquo; are <i>set-theoretic</i> functions (sets of ordered pairs)</li>
+<li>&ldquo;equality&rdquo; is also <i>set-theoretic</i> (all the same members)</li>
+</ul>
+
+<p>
+Within Set Theory functions from \(A\) to \(B\) are viewed as a <i>Set of Ordered Pairs</i>, just as a <i>Cartesian Product</i>.
+</p>
+
+<p>
+These functions are single <i>&ldquo;composite arrows&rdquo;</i> at the type level - \(f:
+A\rightarrow B\).
+</p>
+
+<p>
+So \(f: A \rightarrow B\) is \(\{(a, b)\}\) (a set of <i>all</i> ordered pairs), just like <code>[(a, b)]</code> which is a <i>table</i>, and a valid <i>type</i> in Haskell, by the way.
+</p>
+
+<p>
+A function \(f\) has its <i>image</i> in a set \(S\) such that \(B \subset S\)
+</p>
+
+<p>
+There are also <i>&ldquo;individual arrows&rdquo;</i> which represent each <i>ordered pair</i>.
+And \(x \rightarrow x^2\) (\(N^{+} \rightarrow N^{+}\))can be viewed as (in a pseudo-code)
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">{</span> <span style="color: #B48EAD;">(</span><span style="color: #B48EAD; font-weight: bold;">1</span>, <span style="color: #B48EAD; font-weight: bold;">1</span><span style="color: #B48EAD;">)</span>,
+  <span style="color: #B48EAD;">(</span><span style="color: #B48EAD; font-weight: bold;">2</span>, <span style="color: #B48EAD; font-weight: bold;">4</span><span style="color: #B48EAD;">)</span>,
+  <span style="color: #B48EAD;">(</span><span style="color: #B48EAD; font-weight: bold;">3</span>, <span style="color: #B48EAD; font-weight: bold;">9</span><span style="color: #B48EAD;">)</span>,
 <span style="color: #D8DEE9;">...</span>
 <span style="color: #81A1C1;">}</span>
 </pre>
-        </div>
-        <p>The ordering of pairs (<i>not</i> within a single pair)
-        is immaterial.</p>
-        <p>So, ordered pairs were generalized as <i>“arrows”</i>
-        (which are convenient for <i>directed graphs</i>) and
-        values as mere <i>“dots”</i> (which they call
-        “objects”).</p>
-        <p>Thus we have something even more abstract, like</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"> <span style=
-          "color: #D8DEE9;">*</span> <span style=
-          "color: #D8DEE9;">-&gt;</span> <span style=
-          "color: #D8DEE9;">*</span>
- <span style="color: #D8DEE9;">*</span> <span style=
-"color: #D8DEE9;">-&gt;</span> <span style=
-"color: #D8DEE9;">*</span>
- <span style="color: #D8DEE9;">*</span> <span style=
-"color: #D8DEE9;">-&gt;</span> <span style=
-"color: #D8DEE9;">*</span>
+</div>
+<p>
+The ordering of pairs (<i>not</i> within a single pair) is immaterial.
+</p>
+
+<p>
+So, ordered pairs were generalized as <i>&ldquo;arrows&rdquo;</i> (which are convenient for
+<i>directed graphs</i>) and values as mere <i>&ldquo;dots&rdquo;</i> (which they call &ldquo;objects&rdquo;).
+</p>
+
+<p>
+Thus we have something even more abstract, like
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"> <span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>
+ <span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>
+ <span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>
  <span style="color: #D8DEE9;">...</span>
 </pre>
-        </div>
-        <p>and particular <i>strucures</i> (directed graphs) they
-        form when <i>being composed</i>.</p>
-        <p>Not only we generalize <i>structure</i>, we also
-        generalize <i>associative composition</i> of “arrows”.</p>
-      </div>
-    </div>
-    <div id="outline-container-org3a2608c" class="outline-2">
-      <h2 id="org3a2608c">Structure</h2>
-      <div class="outline-text-2" id="text-org3a2608c">
-        <p>So, structurally, there are a “collection” (a set) of
-        “objects” (“dots”) <i>together with</i> a “collection” (a
-        set) of “arrows” (“morphisms”). \[(O, A,...)\] While a set
-        is just a “collection”, a category is a pair of
-        “collections”. Actually it is a <i>triple</i>.</p>
-        <p>Structurally, there must be <i>at least one</i> “object”
-        and <i>at least one</i> “arrow” (to itself) in a category.
-        And a trivial <i>composition with itself</i>.</p>
-        <p>One of the most important notions is to show that some
-        structure of “dots” and “arrows” <i>is all that is
-        there</i>.</p>
-        <p>This has philosophical correlation to the fact, that
-        there is no such thing as randomness, only “possible paths”
-        and “forks” (which, in turn, corresponds to
-        <i>sum-types</i> and <i>pattern-matching</i> on them).</p>
-      </div>
-    </div>
-    <div id="outline-container-org83e3c1e" class="outline-2">
-      <h2 id="org83e3c1e">Nesting</h2>
-      <div class="outline-text-2" id="text-org83e3c1e">
-        <p>Just like sets, these abstract entities could be
-        <i>nested</i>, given that they have <i>the same
-        structure</i> of composed arrows.</p>
-      </div>
-    </div>
-    <div id="outline-container-org04109a1" class="outline-2">
-      <h2 id="org04109a1">All the individual arrows</h2>
-      <div class="outline-text-2" id="text-org04109a1">
-        <p>Lets say we have augmented a set of values with an
-        explicit set of <i>all</i> “arrows”, which means adding
-        <i>more structure</i>.</p>
-        <p>Not just one arrow, as in \(A \rightarrow B\), but all
-        the <i>individual arrows</i>, which form different
-        <i>patterns</i> (structures, or <i>directed
-        graphs</i>).</p>
-        <p>Usually a collection of all <i>arrows</i> (within a
-        category) is denoted as \(C(A,B)\).</p>
-        <p>All the “individual arrows” have the same <i>domain</i>
-        \(A\) and <i>codomain</i> \(B\).</p>
-        <p>Sadly, not all functions (morphisms) are
-        <i>one-to-one</i>, so different <i>patterns</i> emerge.</p>
-      </div>
-    </div>
-    <div id="outline-container-orge5966a8" class="outline-2">
-      <h2 id="orge5966a8">Composition</h2>
-      <div class="outline-text-2" id="text-orge5966a8">
-        <p>The <i>composition</i> operator \(\circ\) for <i>total
-        functions</i> is defined as \(\forall f: A\rightarrow B, g:
-        B\rightarrow C, c = g(f(a))| a\in A,c\in C\)</p>
-        <p><i>Associativity</i> of composition (of functions or
-        “morphisms”) \(\forall f: A \rightarrow B, g: B \rightarrow
-        C, h: C \rightarrow D\) \[ h \circ (g \circ f) = (h \circ
-        g) \circ f\] The resulting function (morphism) will be \(A
-        \rightarrow D\).</p>
-        <p>This means, that it is irrelevant which two you “chain”
-        first, just as if one is wielding pieces of a pipe together
-        into a single one.</p>
-        <p>A <i>chain reaction</i> is a direct manifestation of
-        Causality.</p>
-        <p>Yes, this is a pipeline of functions (or morphisms). It
-        is <i>typed</i> (a <i>domain</i> and a <i>range</i> must be
-        consistent), so it is not the case that anything can be
-        composed to anything else (as in naive systems).</p>
-        <p>Obviously, not every <i>implication</i> can be composed
-        with every other.</p>
-        <p>There is nothing magical about <i>associative
-        property</i> of a composition of <i>arrows</i>.</p>
-        <p>And if \(A = B = C = D\) and \(f = g = h\) we have a
-        <i>Monoid</i> (just a single <i>arrow</i> and a
-        <i>closure</i>).</p>
-        <p>So, to form a <i>category</i> all the arrows must be
-        composable (properly chain-able).</p>
-      </div>
-    </div>
-    <div id="outline-container-orgf7897f3" class="outline-2">
-      <h2 id="orgf7897f3">Identity</h2>
-      <div class="outline-text-2" id="text-orgf7897f3">
-        <p>For every “object” (a “dot”) an “identity morphism” (an
-        arrow to itself) is required.</p>
-        <p>An arrow is a <i>mapping</i> - a particular
-        <i>function</i> with its domain and range. \[\forall f:A
-        \rightarrow B\] \[f \circ id_{A} = f\] \[id_{B} \circ f =
-        f\] For a single “dot” and for <i>Monoids</i> \(A=B\), of
-        course.</p>
-        <p>Identities are <i>important</i> for “at the ends” of a
-        sequence.</p>
-        <p>Just as with <i>identity values</i> (for an
-        <i>associative operation</i>) these <i>identity
-        functions</i> (identity arrows) are used in
-        <i>composition</i> - at “both ends” of a chain of composed
-        functions.</p>
-      </div>
-    </div>
-    <div id="outline-container-org614ea2b" class="outline-2">
-      <h2 id="org614ea2b">Structural patterns</h2>
-      <div class="outline-text-2" id="text-org614ea2b">
-        <p>It is not enough to specify (list) every single
-        individual arrow, we have to realize <i>which pattern</i>
-        they form when being <i>composed</i>.</p>
-        <p>Some patterns are common, and we give them a name.</p>
-        <p>Each particular <i>structural pattern</i> is its own
-        kind or a <i>structual type</i>.</p>
-        <p>So, a set of dots, a set of arrows and a pattern
-        (directed graph) the arrows from.</p>
-      </div>
-    </div>
-    <div id="outline-container-orge721702" class="outline-2">
-      <h2 id="orge721702">Homomorphisms</h2>
-      <div class="outline-text-2" id="text-orge721702">
-        <p>Some mappings of <i>structured objects (values)</i> are
-        <i>structure-preserving</i>, some are not.</p>
-        <p>Obviously, different kind of mappings belong to distinct
-        <i>categories</i>, and here you have categories all the way
-        down.</p>
-      </div>
-    </div>
-    <div id="outline-container-org4bb683f" class="outline-2">
-      <h2 id="org4bb683f">Monoids</h2>
-      <div class="outline-text-2" id="text-org4bb683f">
-        <p>\[(S,\cdot,e)\] \[\forall x,y,z \in S, (x\cdot y)\cdot z
-        = x\cdot (y\cdot z)\] \[\forall x \in S, e\cdot x = x =
-        x\cdot e\] Monoid homomorphism \[f:(S,\cdot,e) \rightarrow
-        (S',\cdot',e')\mid f(e)=e', \forall x,y\in S,f(x\cdot y)=
-        f(x)\cdot' f(y)\] Composition of two homomorphisms yields a
-        homororphism.</p>
-        <p>So it is a category with only one object: \(Ob_{C} =
-        \{S\}\) and \(Hom_{C} = \{id, \cdot\}\)</p>
-        <p>By the way, the identity function is a <i>partially
-        applied</i> \(e\) <code>(e.)</code>, for example
-        <code>(+0)</code> or <code>(*1)</code> or <code>(++
-        "")</code></p>
-      </div>
-    </div>
-    <div id="outline-container-org87b2699" class="outline-2">
-      <h2 id="org87b2699">Isomorphism</h2>
-      <div class="outline-text-2" id="text-org87b2699">
-        <p>\(f: A\rightarrow B\) is an <i>isomorphism</i> \(\iff\)
-        \[\]\[\exists g: B\rightarrow A \mid g\circ f = id_{A}
-        \land f\circ g = id_{B} \]</p>
-      </div>
-    </div>
-    <div id="outline-container-org3cb19b7" class="outline-2">
-      <h2 id="org3cb19b7">Complications</h2>
-      <div class="outline-text-2" id="text-org3cb19b7">
-        <p>\[\forall A,B \in Ob_{C},\exists Hom_{C}(A,B)\]
-        \[Ob_{C}=\{A,B\}, Hom_{C}(A,A)=id_{A}, Hom_{C}(B,B)=id_{B},
-        Hom_{C}(A,B)=\emptyset, Hom_{C}(B,A)=\emptyset\] No arrows
-        between \(A\) and \(B\), which means they are
-        <i>unrelated</i>. <i>Identities</i> must always be
-        there.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:20</p>
-  </div>
+</div>
+<p>
+and particular <i>strucures</i> (directed graphs) they form when <i>being
+composed</i>.
+</p>
+
+<p>
+Not only we generalize <i>structure</i>, we also generalize <i>associative
+composition</i> of &ldquo;arrows&rdquo;.
+</p>
+</div>
+</div>
+<div id="outline-container-orgcaf5ade" class="outline-2">
+<h2 id="orgcaf5ade">Structure</h2>
+<div class="outline-text-2" id="text-orgcaf5ade">
+<p>
+So, structurally, there are a &ldquo;collection&rdquo; (a set) of &ldquo;objects&rdquo; (&ldquo;dots&rdquo;) <i>together with</i> a &ldquo;collection&rdquo; (a set) of &ldquo;arrows&rdquo; (&ldquo;morphisms&rdquo;).
+\[(O, A,...)\]
+While a set is just a &ldquo;collection&rdquo;, a category is a pair of
+&ldquo;collections&rdquo;. Actually it is a <i>triple</i>.
+</p>
+
+<p>
+Structurally, there must be <i>at least one</i> &ldquo;object&rdquo; and <i>at least one</i>
+&ldquo;arrow&rdquo; (to itself) in a category. And a trivial <i>composition with itself</i>.
+</p>
+
+<p>
+One of the most important notions is to show that some structure of
+&ldquo;dots&rdquo; and &ldquo;arrows&rdquo; <i>is all that is there</i>.
+</p>
+
+<p>
+This has philosophical correlation to the fact, that there is no such
+thing as randomness, only &ldquo;possible paths&rdquo; and &ldquo;forks&rdquo; (which, in turn,
+corresponds to <i>sum-types</i> and <i>pattern-matching</i> on them).
+</p>
+</div>
+</div>
+<div id="outline-container-org52bdf99" class="outline-2">
+<h2 id="org52bdf99">Nesting</h2>
+<div class="outline-text-2" id="text-org52bdf99">
+<p>
+Just like sets, these abstract entities could be <i>nested</i>, given that
+they have <i>the same structure</i> of composed arrows.
+</p>
+</div>
+</div>
+<div id="outline-container-org41880a5" class="outline-2">
+<h2 id="org41880a5">All the individual arrows</h2>
+<div class="outline-text-2" id="text-org41880a5">
+<p>
+Lets say we have augmented a set of values with an explicit set of <i>all</i>
+ &ldquo;arrows&rdquo;, which means adding <i>more structure</i>.
+</p>
+
+<p>
+Not just one arrow, as in \(A \rightarrow B\), but all the <i>individual arrows</i>, which form different <i>patterns</i> (structures, or <i>directed graphs</i>).
+</p>
+
+<p>
+Usually a collection of all <i>arrows</i> (within a category) is denoted as
+\(C(A,B)\).
+</p>
+
+<p>
+All the &ldquo;individual arrows&rdquo; have the same <i>domain</i> \(A\) and <i>codomain</i> \(B\).
+</p>
+
+<p>
+Sadly, not all functions (morphisms) are <i>one-to-one</i>, so different
+<i>patterns</i> emerge.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb7dc9cc" class="outline-2">
+<h2 id="orgb7dc9cc">Composition</h2>
+<div class="outline-text-2" id="text-orgb7dc9cc">
+<p>
+The <i>composition</i> operator \(\circ\) for <i>total functions</i> is defined as
+\(\forall f: A\rightarrow B, g: B\rightarrow C, c = g(f(a))| a\in A,c\in C\)
+</p>
+
+<p>
+<i>Associativity</i> of composition (of functions or &ldquo;morphisms&rdquo;) \(\forall f: A \rightarrow B, g: B \rightarrow C, h: C \rightarrow D\)
+\[ h \circ (g \circ f) = (h \circ g) \circ f\]
+The resulting function (morphism) will be \(A \rightarrow D\).
+</p>
+
+<p>
+This means, that it is irrelevant which two you &ldquo;chain&rdquo; first, just as
+if one is wielding pieces of a pipe together into a single one.
+</p>
+
+<p>
+A <i>chain reaction</i> is a direct manifestation of Causality.
+</p>
+
+<p>
+Yes, this is a pipeline of functions (or morphisms). It is <i>typed</i>
+(a <i>domain</i> and a <i>range</i> must be consistent), so it is not the case
+that anything can be composed to anything else (as in naive systems).
+</p>
+
+<p>
+Obviously, not every <i>implication</i> can be composed with every other.
+</p>
+
+<p>
+There is nothing magical about <i>associative property</i> of a composition of <i>arrows</i>.
+</p>
+
+<p>
+And if \(A = B = C = D\) and \(f = g = h\) we have a <i>Monoid</i> (just a single
+<i>arrow</i> and a <i>closure</i>).
+</p>
+
+<p>
+So, to form a <i>category</i> all the arrows must be composable (properly chain-able).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org73aa81b" class="outline-2">
+<h2 id="org73aa81b">Identity</h2>
+<div class="outline-text-2" id="text-org73aa81b">
+<p>
+For every &ldquo;object&rdquo; (a &ldquo;dot&rdquo;) an &ldquo;identity morphism&rdquo; (an arrow to itself) is required.
+</p>
+
+<p>
+An arrow is a <i>mapping</i> - a particular <i>function</i> with its domain and
+range.
+\[\forall f:A \rightarrow B\]
+\[f \circ id_{A} = f\]
+\[id_{B} \circ f = f\]
+For a single &ldquo;dot&rdquo; and for <i>Monoids</i> \(A=B\), of course.
+</p>
+
+<p>
+Identities are <i>important</i> for &ldquo;at the ends&rdquo; of a sequence.
+</p>
+
+<p>
+Just as with <i>identity values</i> (for an <i>associative operation</i>) these
+<i>identity functions</i> (identity arrows) are used in <i>composition</i> - at
+&ldquo;both ends&rdquo; of a chain of composed functions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga78ec06" class="outline-2">
+<h2 id="orga78ec06">Structural patterns</h2>
+<div class="outline-text-2" id="text-orga78ec06">
+<p>
+It is not enough to specify (list) every single individual arrow, we
+have to realize <i>which pattern</i> they form when being <i>composed</i>.
+</p>
+
+<p>
+Some patterns are common, and we give them a name.
+</p>
+
+<p>
+Each particular <i>structural pattern</i> is its own kind or a <i>structual type</i>.
+</p>
+
+<p>
+So, a set of dots, a set of arrows and a pattern (directed graph) the arrows from.
+</p>
+</div>
+</div>
+<div id="outline-container-org78253cd" class="outline-2">
+<h2 id="org78253cd">Homomorphisms</h2>
+<div class="outline-text-2" id="text-org78253cd">
+<p>
+Some mappings of <i>structured objects (values)</i> are
+<i>structure-preserving</i>, some are not.
+</p>
+
+<p>
+Obviously, different kind of mappings belong to distinct <i>categories</i>,
+and here you have categories all the way down.
+</p>
+</div>
+</div>
+<div id="outline-container-org2812a14" class="outline-2">
+<h2 id="org2812a14">Monoids</h2>
+<div class="outline-text-2" id="text-org2812a14">
+<p>
+\[(S,\cdot,e)\]
+\[\forall x,y,z \in S, (x\cdot y)\cdot z = x\cdot (y\cdot z)\]
+\[\forall x \in S, e\cdot x = x = x\cdot e\]
+Monoid homomorphism
+\[f:(S,\cdot,e) \rightarrow (S',\cdot',e')\mid f(e)=e', \forall x,y\in S,f(x\cdot y)= f(x)\cdot' f(y)\]
+Composition of two homomorphisms yields a homororphism.
+</p>
+
+<p>
+So it is a category with only one object: \(Ob_{C} = \{S\}\) and \(Hom_{C}
+= \{id, \cdot\}\)
+</p>
+
+<p>
+By the way, the identity function is a <i>partially applied</i> \(e\) <code>(e.)</code>,
+for example <code>(+0)</code> or <code>(*1)</code> or <code>(++ "")</code>
+</p>
+</div>
+</div>
+<div id="outline-container-orgca68f9f" class="outline-2">
+<h2 id="orgca68f9f">Isomorphism</h2>
+<div class="outline-text-2" id="text-orgca68f9f">
+<p>
+\(f: A\rightarrow B\) is an <i>isomorphism</i> \(\iff\)
+\[\]\[\exists g: B\rightarrow A \mid g\circ f = id_{A} \land f\circ g = id_{B} \]
+</p>
+</div>
+</div>
+<div id="outline-container-org0ab2e7a" class="outline-2">
+<h2 id="org0ab2e7a">Complications</h2>
+<div class="outline-text-2" id="text-org0ab2e7a">
+<p>
+\[\forall A,B \in Ob_{C},\exists Hom_{C}(A,B)\]
+\[Ob_{C}=\{A,B\}, Hom_{C}(A,A)=id_{A}, Hom_{C}(B,B)=id_{B}, Hom_{C}(A,B)=\emptyset, Hom_{C}(B,A)=\emptyset\]
+No arrows between \(A\) and \(B\), which means they are <i>unrelated</i>.
+<i>Identities</i> must always be there.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:41</p>
+</div>
 </body>
 </html>

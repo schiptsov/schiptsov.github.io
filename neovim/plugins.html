@@ -1,94 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-19 Wed 18:29 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Main Plugins</title>
-  <meta name="author" content="schiptsov@gmail.com">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Main Plugins</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Main Plugins</h1>
-    </header>
-    <p>LSP is the future due to enormous momentum around <i>VS
-    Code</i> actively shilled by Microsoft. This is OK because we
-    will use these <i>LSP-servers</i> with our <i>Neovim</i> and
-    <i>Emacs</i> to avoid Javascript bloatware.</p>
-    <p>There are tens of ready-made Neovim configurations, such as
-    <code>LunarVim/LunarVim</code> or individual configs, like
-    <code>folke/dot</code>, to be ripped off. Notice that they are
-    all bloated and most of guys are just <i>copy-pasting code</i>
-    from each other.</p>
-    <p>Unlike <i>Emacs</i>, the entry barrier for Neovim/Lua is
-    very low, almost as for Javascript, so we have very crappy
-    <i>low effort</i> code everywhere.</p>
-    <p>The real challenge is to give to your whole configuration
-    the <i>right, modular structure</i> without too much of
-    <i>unnecessary wrapping</i>.</p>
-    <div id="outline-container-orgbb5ff2d" class="outline-2">
-      <h2 id="orgbb5ff2d">LuaSnip</h2>
-      <div class="outline-text-2" id="text-orgbb5ff2d">
-        <p><code>L3MON4D3/LuaSnip</code> - a snippet engine written
-        in Lua. It has a <code>nvim-cmp</code> integration, since
-        it is a <i>completion plugin</i> which offer to activate
-        particular snippets.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgef88ccd" class="outline-2">
-      <h2 id="orgef88ccd">nvim-cmp</h2>
-      <div class="outline-text-2" id="text-orgef88ccd">
-        <p><code>hrsh7th/nvim-cmp</code> - a <i>completion</i>
-        plugin done right. It has its own <i>modules</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgf6d8fd8" class="outline-2">
-      <h2 id="orgf6d8fd8">nvim-lspconfig</h2>
-      <div class="outline-text-2" id="text-orgf6d8fd8">
-        <p><code>neovim/nvim-lspconfig</code> - configures the
-        builtin <i>LSP client</i> to properly set up corresponding
-        <i>LSP-servers</i></p>
-      </div>
-    </div>
-    <div id="outline-container-orgcd844d6" class="outline-2">
-      <h2 id="orgcd844d6">neodev</h2>
-      <div class="outline-text-2" id="text-orgcd844d6">
-        <p><code>folke/neodev.nvim</code> - a plugin for editing
-        your vim <i>lua configs</i> or developing your own <i>lua
-        plugins</i>. It leverages <code>sumneko-lua</code>, which
-        is a <i>LSP-server</i> for <i>Lua</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-org8a65d0a" class="outline-2">
-      <h2 id="org8a65d0a">null-ls</h2>
-      <div class="outline-text-2" id="text-org8a65d0a">
-        <p><code>jose-elias-alvarez/null-ls.nvim</code> - this is a
-        really good one. It wraps individual linters and
-        formatters, similar to what ale <i>ALE</i> does, but acts
-        as an <i>LSP-server</i> with these capabilities.</p>
-        <p>Yes, you could have more than one at the same
-        buffer.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: schiptsov@gmail.com</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-19 Wed 18:29</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Main Plugins</h1>
+</header><p>
+LSP is the future due to enormous momentum around <i>VS Code</i> actively
+shilled by Microsoft. This is OK because we will use these
+<i>LSP-servers</i> with our <i>Neovim</i> and <i>Emacs</i> to avoid Javascript bloatware.
+</p>
+
+<p>
+There are tens of ready-made Neovim configurations, such as <code>LunarVim/LunarVim</code> or
+individual configs, like <code>folke/dot</code>, to be ripped off. Notice that they
+are all bloated and most of guys are just <i>copy-pasting code</i> from each other.
+</p>
+
+<p>
+Unlike <i>Emacs</i>, the entry barrier for Neovim/Lua is very low, almost as
+for Javascript, so we have very crappy <i>low effort</i> code everywhere.
+</p>
+
+<p>
+The real challenge is to give to your whole configuration the <i>right,
+modular structure</i> without too much of <i>unnecessary wrapping</i>.
+</p>
+
+<div id="outline-container-orga2ebe10" class="outline-2">
+<h2 id="orga2ebe10">LuaSnip</h2>
+<div class="outline-text-2" id="text-orga2ebe10">
+<p>
+<code>L3MON4D3/LuaSnip</code> - a snippet engine written in Lua. It has a <code>nvim-cmp</code>
+integration, since it is a <i>completion plugin</i> which offer to activate particular snippets.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfa69299" class="outline-2">
+<h2 id="orgfa69299">nvim-cmp</h2>
+<div class="outline-text-2" id="text-orgfa69299">
+<p>
+<code>hrsh7th/nvim-cmp</code> - a <i>completion</i> plugin done right. It has its own <i>modules</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org218df4a" class="outline-2">
+<h2 id="org218df4a">nvim-lspconfig</h2>
+<div class="outline-text-2" id="text-org218df4a">
+<p>
+<code>neovim/nvim-lspconfig</code> - configures the builtin <i>LSP client</i> to properly
+set up corresponding <i>LSP-servers</i>
+</p>
+</div>
+</div>
+<div id="outline-container-orgd39020b" class="outline-2">
+<h2 id="orgd39020b">neodev</h2>
+<div class="outline-text-2" id="text-orgd39020b">
+<p>
+<code>folke/neodev.nvim</code> - a plugin for editing your vim <i>lua configs</i> or developing
+your own <i>lua plugins</i>. It leverages <code>sumneko-lua</code>, which is a <i>LSP-server</i>
+for <i>Lua</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf87546a" class="outline-2">
+<h2 id="orgf87546a">null-ls</h2>
+<div class="outline-text-2" id="text-orgf87546a">
+<p>
+<code>jose-elias-alvarez/null-ls.nvim</code> - this is a really good one. It wraps
+individual linters and formatters, similar to what ale <i>ALE</i> does, but
+acts as an <i>LSP-server</i> with these capabilities.
+</p>
+
+<p>
+Yes, you could have more than one at the same buffer.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

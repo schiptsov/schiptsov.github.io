@@ -1,158 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:18 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Record types</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Record types for a Functioanl Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Record types</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Record types for a Functioanl Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Record types</h1>
-    </header>
-    <div id="outline-container-org1918d28" class="outline-2">
-      <h2 id="org1918d28">Mental process</h2>
-      <div class="outline-text-2" id="text-org1918d28">
-        <p>As the name implies, a <i>record</i> is a <i>mental
-        inventory</i> or a “collection” of:</p>
-        <ul class="org-ul">
-          <li><i>characteristics</i> of a “thing” (or a <i>whole
-          class</i> of things)</li>
-          <li><i>attributes</i> of an observable process
-          (everything is a process)</li>
-          <li><i>properties</i> of an abstract mathematical
-          “object”.</li>
-        </ul>
-        <p>In theory, the mind does not have to record <i>all the
-        attributes</i>, and each <i>slot</i> is independent from
-        each other.</p>
-        <p>The mind solves <i>the ordering problem</i> by using
-        words (of a human language) as “tags” for its mental
-        concepts (which are different from memories or feelings) so
-        the access is <i>position-independent</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-org2ed4e8b" class="outline-2">
-      <h2 id="org2ed4e8b">Abstraction</h2>
-      <div class="outline-text-2" id="text-org2ed4e8b">
-        <p>A record (as a whole) corresponds to labeled (tagged
-        with symbols) <i>Cartesian Product</i>, meaning that each
-        value has a unique label or a tag associated with it.</p>
-        <p>This means that the access is <i>name-based</i> (or
-        <i>position-independent</i>), rather than location-based,
-        which depends on a particular ordering.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgb6c8747" class="outline-2">
-      <h2 id="orgb6c8747">Vector space</h2>
-      <div class="outline-text-2" id="text-orgb6c8747">
-        <p>Just like it is with a Cartesian Products, each value
-        <i>ranges over a certain Set</i> (not necessarily the same)
-        and the product <i>covers</i> a whole <i>vector space</i>,
-        which is just a <i>Set of all Pairs</i> (points on a plane)
-        or <i>Triples</i> or whatever.</p>
-        <p>It is less wrong to say that a “covers” a vector space
-        (of all possible <i>n-dimensional coordinates or
-        “points”</i>) rather than “produces” it.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgf84d854" class="outline-2">
-      <h2 id="orgf84d854">Typing</h2>
-      <div class="outline-text-2" id="text-orgf84d854">
-        <p>“Naturally”, each record, at least in theory,
-        corresponds to its own <i>type</i>, assuming that it
-        characterizes some unique phenomena or a class of
-        “objects”, and the type as a whole <i>is superimposed
-        on</i> (by the mind) or <i>covers</i> a whole <i>vector
-        space</i> of whatever it supposed to represent.</p>
-        <p>It is reasonable to have a distinct <a href=
-        "modules.org">module</a> for each <i>record-type</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgad9cd72" class="outline-2">
-      <h2 id="orgad9cd72">Semantics</h2>
-      <div class="outline-text-2" id="text-orgad9cd72">
-        <p>A record is just a Set of typed “slots” labeled with
-        symbols, where symbols are merely tags for corresponding
-        <i>typed values</i>. Each “slot” could be viewed as a
-        mapping (an <i>ordered pair</i> symbol -&gt; typed value)
-        just like words maps to mental concpets.</p>
-        <p>As an implementation detail, every record has a
-        particular order, immaterial at the higher (semantic)
-        level.</p>
-        <p>If we will try to consider the Set of all possible
-        records instances (withing a given record-type) we will get
-        a <i>vector space</i> (as a whole).</p>
-        <p>A vector space of all <code>Vechicles</code>, which
-        <i>contains</i> a vector space of all <code>Toyotas</code>
-        in it.</p>
-      </div>
-    </div>
-    <div id="outline-container-org75d9f3d" class="outline-2">
-      <h2 id="org75d9f3d">Representation</h2>
-      <div class="outline-text-2" id="text-org75d9f3d">
-        <p>At an implementation level there is always an actual
-        “concrete” representation.</p>
-        <p>A record <i>represents</i> a collection of values stored
-        together as one, where each component is identified by a
-        different slot’s name.</p>
-        <p>Collection of records is a table (as in an SQL
-        database).</p>
-        <p>Each record (structured data) had its own type and,
-        ideally, its own module.</p>
-        <p>The first step is to cut down the definitions of each
-        record to contain just the information unique to that
-        record (Normalization in SQL)</p>
-        <p>The set of fields available in a record is always the
-        same.</p>
-        <p>patterns for types with a fixed structure, like records
-        and tuples, are irrefutable, unlike types with multiple
-        tags (data-counstructors) like lists and variants</p>
-        <p>a pattern can mention only a subset of the fields in the
-        record.</p>
-      </div>
-    </div>
-    <div id="outline-container-orga2dcd95" class="outline-2">
-      <h2 id="orga2dcd95">Functional Updates</h2>
-      <div class="outline-text-2" id="text-orga2dcd95">
-        <p>update only selected fields, leaving others (whatever
-        they are) unchanging</p>
-        <p>{ &lt;record&gt; with &lt;field&gt; = &lt;value&gt;;
-        &lt;field&gt; = &lt;value&gt;; … }</p>
-      </div>
-    </div>
-    <div id="outline-container-orgdc335f2" class="outline-2">
-      <h2 id="orgdc335f2">With Fields extension</h2>
-      <div class="outline-text-2" id="text-orgdc335f2">
-        <p>The with fields annotation at the end of the declaration
-        of a record type will cause the extension to be applied to
-        a given type declaration. The same as Common Lisp - creates
-        a set of funtions for accessing slots and modifying them.
-        Creates module named Fields</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:18</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Record types</h1>
+</header>
+<div id="outline-container-org78d75e8" class="outline-2">
+<h2 id="org78d75e8">Mental process</h2>
+<div class="outline-text-2" id="text-org78d75e8">
+<p>
+As the name implies, a <i>record</i> is a <i>mental inventory</i> or a &ldquo;collection&rdquo; of:
+</p>
+<ul class="org-ul">
+<li><i>characteristics</i> of a &ldquo;thing&rdquo; (or a <i>whole class</i> of things)</li>
+<li><i>attributes</i> of an observable process (everything is a process)</li>
+<li><i>properties</i> of an abstract mathematical &ldquo;object&rdquo;.</li>
+</ul>
+
+<p>
+In theory, the mind does not have to record <i>all the attributes</i>, and
+each <i>slot</i> is independent from each other.
+</p>
+
+<p>
+The mind solves <i>the ordering problem</i> by using words (of a human
+language) as &ldquo;tags&rdquo; for its mental concepts (which are different from
+memories or feelings) so the access is <i>position-independent</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9810630" class="outline-2">
+<h2 id="org9810630">Abstraction</h2>
+<div class="outline-text-2" id="text-org9810630">
+<p>
+A record (as a whole) corresponds to labeled (tagged with symbols) <i>Cartesian
+Product</i>, meaning that each value has a unique label or a tag associated
+with it.
+</p>
+
+<p>
+This means that the access is <i>name-based</i> (or <i>position-independent</i>),
+rather than location-based, which depends on a particular ordering.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1261de8" class="outline-2">
+<h2 id="org1261de8">Vector space</h2>
+<div class="outline-text-2" id="text-org1261de8">
+<p>
+Just like it is with a Cartesian Products, each value <i>ranges over a certain
+Set</i> (not necessarily the same) and the product <i>covers</i> a whole <i>vector space</i>,
+which is just a <i>Set of all Pairs</i> (points on a plane) or <i>Triples</i> or
+whatever.
+</p>
+
+<p>
+It is less wrong to say that a &ldquo;covers&rdquo; a vector space (of all possible
+<i>n-dimensional coordinates or &ldquo;points&rdquo;</i>) rather than &ldquo;produces&rdquo; it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org81dcd2e" class="outline-2">
+<h2 id="org81dcd2e">Typing</h2>
+<div class="outline-text-2" id="text-org81dcd2e">
+<p>
+&ldquo;Naturally&rdquo;, each record, at least in theory, corresponds to its own
+<i>type</i>, assuming that it characterizes some unique phenomena or a class
+of &ldquo;objects&rdquo;, and the type as a whole <i>is superimposed on</i> (by the mind)
+or <i>covers</i> a whole <i>vector space</i> of whatever it supposed to represent.
+</p>
+
+<p>
+It is reasonable to have a distinct <a href="modules.org ">module</a> for each <i>record-type</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbde25ee" class="outline-2">
+<h2 id="orgbde25ee">Semantics</h2>
+<div class="outline-text-2" id="text-orgbde25ee">
+<p>
+A record is just a Set of typed &ldquo;slots&rdquo; labeled with symbols, where symbols are merely tags for corresponding <i>typed values</i>.
+Each &ldquo;slot&rdquo; could be viewed as a mapping (an <i>ordered pair</i> symbol -&gt; typed value) just like words maps to mental concpets.
+</p>
+
+<p>
+As an implementation detail, every record has a particular order,
+immaterial at the higher (semantic) level.
+</p>
+
+<p>
+If we will try to consider the Set of all possible records instances
+(withing a given record-type) we will get a <i>vector space</i> (as a whole).
+</p>
+
+<p>
+A vector space of all <code>Vechicles</code>, which <i>contains</i> a vector space of
+all <code>Toyotas</code> in it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org280b059" class="outline-2">
+<h2 id="org280b059">Representation</h2>
+<div class="outline-text-2" id="text-org280b059">
+<p>
+At an implementation level there is always an actual &ldquo;concrete&rdquo;
+representation.
+</p>
+
+<p>
+A record <i>represents</i> a collection of values stored together as one,
+ where each component is identified by a different slot&rsquo;s name.
+</p>
+
+<p>
+Collection of records is a table (as in an SQL database).
+</p>
+
+<p>
+Each record (structured data) had its own type and, ideally, its own module.
+</p>
+
+<p>
+The first step is to cut down the definitions
+of each record to contain just the information unique to that record (Normalization in SQL)
+</p>
+
+<p>
+The set of fields available in a record is always the same.
+</p>
+
+<p>
+patterns for types with a fixed structure, like records and tuples, are irrefutable,
+unlike types with multiple tags (data-counstructors) like lists and variants
+</p>
+
+<p>
+a pattern can mention only a subset of the fields in the record.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d5eaa6" class="outline-2">
+<h2 id="org2d5eaa6">Functional Updates</h2>
+<div class="outline-text-2" id="text-org2d5eaa6">
+<p>
+update only selected fields, leaving others (whatever they are) unchanging
+</p>
+
+<p>
+{ &lt;record&gt; with &lt;field&gt; = &lt;value&gt;;
+&lt;field&gt; = &lt;value&gt;;
+&#x2026;
+}
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga0b1d90" class="outline-2">
+<h2 id="orga0b1d90">With Fields extension</h2>
+<div class="outline-text-2" id="text-orga0b1d90">
+<p>
+The with fields annotation at the end of the declaration of a record type will cause
+the extension to be applied to a given type declaration.
+The same as Common Lisp - creates a set of funtions for accessing slots and modifying them.
+Creates module named Fields
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

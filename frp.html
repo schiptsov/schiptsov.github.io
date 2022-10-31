@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:18 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>FRP</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Non-bullshit FRP for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FRP</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Non-bullshit FRP for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -34,236 +33,283 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">FRP</h1>
-    </header>
-    <p>There is what is wrong with it as a supposedly coherent set
-    of concepts.</p>
-    <p><i>They assume time as being something real (actual,
-    existent, of its own)</i>. And this leads to a mess - the
-    modelers introduce a whole bunch of <i>unnatural</i>,
-    unnecessary, redundant abstractions, instead to just having a
-    few right ones.</p>
-    <p>The main problem is in trying to get a function from time to
-    a value: <code>Time -&gt; a</code>, which means assuming
-    something that isn’t there.</p>
-    <p>The main difficulty is that they are trying to superimpose a
-    ruler to whatever isn’t there yet.</p>
-    <p>It takes time and very careful, precise wording to explain
-    (without usual narcissistic verbiage so prevailed within
-    Haskell community).</p>
-    <div id="outline-container-org5962420" class="outline-2">
-      <h2 id="org5962420">What exactly is wrong.</h2>
-      <div class="outline-text-2" id="text-org5962420">
-        <p>When we view a function as a set of ordered pairs and
-        the whole <i>functional space</i> as a result of a
-        <i>Cartesian Product of Domain and Codomain</i> we have a
-        fundamental problem - the function is <i>not total</i>, it
-        is not an <i>one-to-one</i> relation, so it is not a
-        function at all.</p>
-        <p>One cannot use a ruler before one gets an “object”.</p>
-        <p>The function of <code>a -&gt; (Time, a)</code> is just a
-        log. it tags an event with a <i>time-tag</i>. This also
-        means that the event <code>a</code> is already
-        <i>observed</i> (by those who tags it with a
-        <i>timestamp</i> - who used the ruler) - it is already
-        <i>emerged from a source</i>.</p>
-        <p>Again, <code>Time -&gt; a</code> is just wrong.</p>
-      </div>
-    </div>
-    <div id="outline-container-org9ba8765" class="outline-2">
-      <h2 id="org9ba8765">Partial function</h2>
-      <div class="outline-text-2" id="text-org9ba8765">
-        <p>If <i>partial function</i> from an <i>abstract</i>
-        <code>Time</code> is what they want, that would mean
-        getting <code>Nothing</code> most of the time, which is
-        what a <i>busy-waiting</i> is.</p>
-        <p>Nature does not use a <i>busy-waiting</i> because it is
-        <i>enery-inefficient</i>, grossly inefficient. It uses
-        <i>tresholds</i> and <i>triggers</i> (which is what a
-        nervous system is - a <i>signal-propagation</i>
-        network).</p>
-        <p><code>Maybe</code> monad comes to the mind, which
-        propagates <code>Nothing</code> and distributes
-        <code>f</code> over its <code>Just x</code>.</p>
-      </div>
-    </div>
-    <div id="outline-container-org6c7b3d2" class="outline-2">
-      <h2 id="org6c7b3d2">Number Line</h2>
-      <div class="outline-text-2" id="text-org6c7b3d2">
-        <p>A Number Line is an <i>imaginary mental construction</i>
-        (a generalized abstraction of the mind of an external
-        observer) which is used to <i>visualize</i> (and imagine)
-        the generalized abstract concept of a <i>Number</i>.</p>
-        <p>Originally it was just a primitive ruler - a stick with
-        equally-spaced notches or marks, which is, it turns out, a
-        common but decissive pattern of the mind. An external
-        observer is required to use a ruler, and without such an
-        observer the whole notion <i>does not exits</i> anywhere
-        outside his head.</p>
-        <p>This is how we (intelligent observers) measure lengths,
-        including lengths of time, which itself is an
-        <i>non-existent, abstract notion derived by an external
-        observer</i>. You will be unable to find any time anywhere
-        outside your head.</p>
-        <p>Again, that is it - just equally-spaced marks
-        superimposed onto observed phenomena by an external
-        (relative to the phenomena) observer.</p>
-        <p>This concrete (or abstract) ruler is superimposed
-        against (onto) something, and the number of notches are
-        counted (summed up or added together).</p>
-      </div>
-    </div>
-    <div id="outline-container-orgc8cc149" class="outline-2">
-      <h2 id="orgc8cc149">Math</h2>
-      <div class="outline-text-2" id="text-orgc8cc149">
-        <p>In abstract mathematics the notion of counting is
-        exactly this - superimpose an imaginary Number Line and
-        associate each “whatever” with a Number.</p>
-        <p>We can think of it as a Set of ordered pairs (and a
-        Cartesian Product) and, yes, <code>length</code> is the
-        same process as <code>count</code> (how many)</p>
-        <pre class="example">
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">FRP</h1>
+</header><p>
+There is what is wrong with it as a supposedly coherent set of concepts.
+</p>
+
+<p>
+<i>They assume time as being something real (actual, existent, of its
+own)</i>. And this leads to a mess - the modelers introduce a whole bunch
+of <i>unnatural</i>, unnecessary, redundant abstractions, instead to just
+having a few right ones.
+</p>
+
+<p>
+The main problem is in trying to get a function from time to a value:
+<code>Time -&gt; a</code>, which means assuming something that isn&rsquo;t there.
+</p>
+
+<p>
+The main difficulty is that they are trying to superimpose a ruler to
+whatever isn&rsquo;t there yet.
+</p>
+
+<p>
+It takes time and very careful, precise wording to explain (without
+usual narcissistic verbiage so prevailed within Haskell community).
+</p>
+
+<div id="outline-container-orgbf943a8" class="outline-2">
+<h2 id="orgbf943a8">What exactly is wrong.</h2>
+<div class="outline-text-2" id="text-orgbf943a8">
+<p>
+When we view a function as a set of ordered pairs and the whole
+<i>functional space</i> as a result of a <i>Cartesian Product of Domain and
+Codomain</i> we have a fundamental problem - the function is <i>not total</i>,
+it is not an <i>one-to-one</i> relation, so it is not a function at all.
+</p>
+
+<p>
+One cannot use a ruler before one gets an &ldquo;object&rdquo;.
+</p>
+
+<p>
+The function of <code>a -&gt; (Time, a)</code> is just a log. it tags an event with a
+<i>time-tag</i>. This also means that the event <code>a</code> is already <i>observed</i> (by
+those who tags it with a <i>timestamp</i> - who used the ruler) - it is
+already <i>emerged from a source</i>.
+</p>
+
+<p>
+Again, <code>Time -&gt; a</code> is just wrong.
+</p>
+</div>
+</div>
+<div id="outline-container-orgeb7a01c" class="outline-2">
+<h2 id="orgeb7a01c">Partial function</h2>
+<div class="outline-text-2" id="text-orgeb7a01c">
+<p>
+If <i>partial function</i> from an <i>abstract</i> <code>Time</code> is what they want, that
+would mean getting <code>Nothing</code> most of the time, which is what a
+<i>busy-waiting</i> is.
+</p>
+
+<p>
+Nature does not use a <i>busy-waiting</i> because it is <i>enery-inefficient</i>,
+grossly inefficient. It uses <i>tresholds</i> and <i>triggers</i> (which is what a
+nervous system is - a <i>signal-propagation</i> network).
+</p>
+
+<p>
+<code>Maybe</code> monad comes to the mind, which propagates <code>Nothing</code> and
+distributes <code>f</code> over its <code>Just x</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6ee3150" class="outline-2">
+<h2 id="org6ee3150">Number Line</h2>
+<div class="outline-text-2" id="text-org6ee3150">
+<p>
+A Number Line is an <i>imaginary mental construction</i> (a generalized abstraction of the mind of an external observer) which is used to <i>visualize</i> (and imagine) the generalized abstract concept of a <i>Number</i>.
+</p>
+
+<p>
+Originally it was just a primitive ruler - a stick with equally-spaced notches or marks, which is, it turns out, a common but decissive pattern of the mind. An external observer is required to use a ruler, and without such an observer the whole notion <i>does not exits</i> anywhere outside his head.
+</p>
+
+<p>
+This is how we (intelligent observers) measure lengths, including lengths of time, which itself is an <i>non-existent, abstract notion derived by an external observer</i>. You will be unable to find any time anywhere outside your head.
+</p>
+
+<p>
+Again, that is it - just equally-spaced marks superimposed onto observed phenomena by an external (relative to the phenomena) observer.
+</p>
+
+<p>
+This concrete (or abstract) ruler is superimposed against (onto) something, and the number of notches are counted (summed up or added together).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5511864" class="outline-2">
+<h2 id="org5511864">Math</h2>
+<div class="outline-text-2" id="text-org5511864">
+<p>
+In abstract mathematics the notion of counting is exactly this - superimpose an imaginary Number Line and associate each &ldquo;whatever&rdquo; with a Number.
+</p>
+
+<p>
+We can think of it as a Set of ordered pairs (and a Cartesian Product) and, yes, <code>length</code> is the same process as <code>count</code> (how many)
+</p>
+<pre class="example">
 count xs = fst . last $ zip [1 ..] xs
   where
     zip (n : ns) (x : xs) = (n, x) : zip ns xs
     zip _ _               = []
 </pre>
-      </div>
-    </div>
-    <div id="outline-container-org3021217" class="outline-2">
-      <h2 id="org3021217">Time</h2>
-      <div class="outline-text-2" id="text-org3021217">
-        <p>Time is modeled as discrete (ticks) or continuous (a
-        Real line).</p>
-        <p>Continuous time is mathematically more convenient and
-        derivatives and differential calculus arise from this
-        notion.</p>
-        <p>No matter how one model it - as discrete or continuous -
-        it does not make it more <i>real</i>.</p>
-        <p>The assumed implication that continuois time can vary is
-        just a play of conditioned (by shared culture) mind - pure
-        imagination, however sophisticated.</p>
-      </div>
-    </div>
-    <div id="outline-container-org3057e3b" class="outline-2">
-      <h2 id="org3057e3b">Change in Time</h2>
-      <div class="outline-text-2" id="text-org3057e3b">
-        <p>Once you have superimposed time you have a change over
-        time, or \[\frac{dy}{dt}\]</p>
-      </div>
-    </div>
-    <div id="outline-container-orge007af0" class="outline-2">
-      <h2 id="orge007af0">FRP</h2>
-      <div class="outline-text-2" id="text-orge007af0">
-        <p>We associate a continuous <i>time-line</i> with a
-        discrete event “flow” (stream).</p>
-        <p>So we get a “log” (ledger) - such event occurred at such
-        timestamp.</p>
-        <p>And that is it.</p>
-        <p>The better name for “Behavior” is “Signal”.</p>
-        <p>Semantically it is a <i>relation</i> over continuous
-        (Real) time.</p>
-        <p>The relation is <i>many-to-one</i> which means that many
-        timestamps result in the same <code>a</code>.</p>
-      </div>
-    </div>
-    <div id="outline-container-org8a6a77b" class="outline-2">
-      <h2 id="org8a6a77b">Monoids</h2>
-      <div class="outline-text-2" id="text-org8a6a77b">
-        <p>Obviously, a time-line, just as a number-line, have
-        associative “addition” or “concatenation”.</p>
-        <p>Associativity of concatenation and distribution of
-        operations (maps) over concatenation are <i>Universal
-        patterns</i> on <i>linear sequences</i>.</p>
-        <p>RNA and DNA are such sequences and enzymes “distribute”
-        over them.</p>
-        <p>The universal <i>Algebraic notions (structures)</i> are,
-        yes, generalized abstractions of… guess whom?</p>
-        <p>So, all the familiar /abstract algebraic structures
-        (with corresponding “laws”) are there.</p>
-      </div>
-    </div>
-    <div id="outline-container-org7f98aa7" class="outline-2">
-      <h2 id="org7f98aa7">Length</h2>
-      <div class="outline-text-2" id="text-org7f98aa7">
-        <p>Length is counting of “ticks”</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #88C0D0;">length</span> xs <span style=
-          "color: #D8DEE9;">=</span> sum <span style=
-          "color: #81A1C1;">[</span><span style=
-          "color: #B48EAD; font-weight: bold;">1</span> <span style=
-          "color: #D8DEE9;">|</span> <span style=
-          "color: #81A1C1;">_</span> <span style=
-          "color: #D8DEE9;">&lt;-</span> xs<span style=
-          "color: #81A1C1;">]</span>
+</div>
+</div>
+<div id="outline-container-org867cdf7" class="outline-2">
+<h2 id="org867cdf7">Time</h2>
+<div class="outline-text-2" id="text-org867cdf7">
+<p>
+Time is modeled as discrete (ticks) or continuous (a Real line).
+</p>
+
+<p>
+Continuous time is mathematically more convenient and derivatives and differential calculus arise from this notion.
+</p>
+
+<p>
+No matter how one model it - as discrete or continuous - it does not make it more <i>real</i>.
+</p>
+
+<p>
+The assumed implication that continuois time can vary is just a play of conditioned (by shared culture) mind - pure imagination, however sophisticated.
+</p>
+</div>
+</div>
+<div id="outline-container-org49aeddb" class="outline-2">
+<h2 id="org49aeddb">Change in Time</h2>
+<div class="outline-text-2" id="text-org49aeddb">
+<p>
+Once you have superimposed time you have a change over time, or
+\[\frac{dy}{dt}\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org7b03f80" class="outline-2">
+<h2 id="org7b03f80">FRP</h2>
+<div class="outline-text-2" id="text-org7b03f80">
+<p>
+We associate a continuous <i>time-line</i> with a discrete event &ldquo;flow&rdquo; (stream).
+</p>
+
+<p>
+So we get a &ldquo;log&rdquo; (ledger) - such event occurred at such timestamp.
+</p>
+
+<p>
+And that is it.
+</p>
+
+<p>
+The better name for &ldquo;Behavior&rdquo; is &ldquo;Signal&rdquo;.
+</p>
+
+<p>
+Semantically it is a <i>relation</i> over continuous (Real) time.
+</p>
+
+<p>
+The relation is <i>many-to-one</i> which means that many timestamps result in the same <code>a</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5a7a39" class="outline-2">
+<h2 id="orgf5a7a39">Monoids</h2>
+<div class="outline-text-2" id="text-orgf5a7a39">
+<p>
+Obviously, a time-line, just as a number-line, have associative &ldquo;addition&rdquo; or &ldquo;concatenation&rdquo;.
+</p>
+
+<p>
+Associativity of concatenation and distribution of operations (maps) over concatenation are <i>Universal patterns</i> on <i>linear sequences</i>.
+</p>
+
+<p>
+RNA and DNA are such sequences and enzymes &ldquo;distribute&rdquo; over them.
+</p>
+
+<p>
+The universal <i>Algebraic notions (structures)</i> are, yes, generalized abstractions of&#x2026; guess whom?
+</p>
+
+<p>
+So, all the familiar /abstract algebraic structures (with corresponding &ldquo;laws&rdquo;) are there.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdbf3d70" class="outline-2">
+<h2 id="orgdbf3d70">Length</h2>
+<div class="outline-text-2" id="text-orgdbf3d70">
+<p>
+Length is counting of &ldquo;ticks&rdquo;
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">length</span> xs <span style="color: #D8DEE9;">=</span> sum <span style="color: #81A1C1;">[</span><span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #D8DEE9;">|</span> <span style="color: #81A1C1;">_</span> <span style="color: #D8DEE9;">&lt;-</span> xs<span style="color: #81A1C1;">]</span>
   <span style="color: #81A1C1;">where</span>
-    sum <span style="color: #D8DEE9;">=</span> foldr <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">+</span><span style=
-"color: #81A1C1;">)</span> <span style=
-"color: #B48EAD; font-weight: bold;">0</span>
+    sum <span style="color: #D8DEE9;">=</span> foldr <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">+</span><span style="color: #81A1C1;">)</span> <span style="color: #B48EAD; font-weight: bold;">0</span>
 </pre>
-        </div>
-        <p>and, by the way</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #88C0D0;">count</span> x <span style=
-          "color: #D8DEE9;">=</span> length <span style=
-          "color: #D8DEE9;">.</span> filter <span style=
-          "color: #81A1C1;">(</span><span style=
-          "color: #D8DEE9;">==</span> x<span style=
-          "color: #81A1C1;">)</span>
+</div>
+<p>
+and, by the way
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">count</span> x <span style="color: #D8DEE9;">=</span> length <span style="color: #D8DEE9;">.</span> filter <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">==</span> x<span style="color: #81A1C1;">)</span>
 </pre>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org04a89d2" class="outline-2">
-      <h2 id="org04a89d2">Blocking (waiting for an event to occur)
-      is inevitable</h2>
-      <div class="outline-text-2" id="text-org04a89d2">
-        <p>Busy-waiting is energy-inefficient, unless it is
-        “sleeping”.</p>
-      </div>
-    </div>
-    <div id="outline-container-org945dbb2" class="outline-2">
-      <h2 id="org945dbb2">Triggering (with an interruption) is only
-      natural</h2>
-      <div class="outline-text-2" id="text-org945dbb2">
-        <p>Arrival of a necessary condition (in a locality). A
-        required molecular structure within a reach (same
-        locality). A threshold (temperature, energy, etc).</p>
-      </div>
-    </div>
-    <div id="outline-container-org55178c8" class="outline-2">
-      <h2 id="org55178c8">Already observed</h2>
-      <div class="outline-text-2" id="text-org55178c8">
-        <p>A time marker (tag) implies that a value (event) <i>has
-        already been</i> observed by someone who superimposed a
-        ruler and put a tag.</p>
-        <p>The “entering into a system” (crossing a cell-membrane)
-        event.</p>
-        <p>A sequence of tagging (modifications)</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:18</p>
-  </div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51beae2" class="outline-2">
+<h2 id="org51beae2">Blocking (waiting for an event to occur) is inevitable</h2>
+<div class="outline-text-2" id="text-org51beae2">
+<p>
+Busy-waiting is energy-inefficient, unless it is &ldquo;sleeping&rdquo;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org98448ae" class="outline-2">
+<h2 id="org98448ae">Triggering (with an interruption) is only natural</h2>
+<div class="outline-text-2" id="text-org98448ae">
+<p>
+Arrival of a necessary condition (in a locality).
+A required molecular structure within a reach (same locality).
+A threshold (temperature, energy, etc).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47bd14f" class="outline-2">
+<h2 id="org47bd14f">Already observed</h2>
+<div class="outline-text-2" id="text-org47bd14f">
+<p>
+A time marker (tag) implies that a value (event) <i>has already been</i> observed by someone who superimposed a ruler and put a tag.
+</p>
+
+<p>
+The &ldquo;entering into a system&rdquo; (crossing a cell-membrane) event.
+</p>
+
+<p>
+A sequence of tagging (modifications)
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

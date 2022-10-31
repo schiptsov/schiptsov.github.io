@@ -1,146 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:18 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Programming methodologies</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Methodology for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programming methodologies</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Methodology for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Programming methodologies</h1>
-    </header>
-    <p>All the research on high-level programming methodologies
-    could be summarized in jut a couple of sentences</p>
-    <p><code>Write declarative, mostly functional specialized DSLs,
-    package them as libraries of higher-order functions and design
-    layers of these DLSs</code>. And that is, literally, it.</p>
-    <p>Ideally, one strives to have almost exactly <i>declarative
-    mathematical notation at the use side</i>, like the list
-    comprehensions of Haskell:</p>
-    <div class="org-src-container">
-      <pre class="src src-haskell"><span style=
-      "color: #88C0D0;">map</span> f xs <span style=
-      "color: #D8DEE9;">=</span> <span style=
-      "color: #81A1C1;">[</span>f x <span style=
-      "color: #D8DEE9;">|</span> x <span style=
-      "color: #D8DEE9;">&lt;-</span> xs<span style=
-      "color: #81A1C1;">]</span>
-<span style="color: #6f7787;">-- </span><span style=
-"color: #6f7787;">or</span>
-<span style="color: #88C0D0;">filter</span> p xs <span style=
-"color: #D8DEE9;">=</span> <span style=
-"color: #81A1C1;">[</span>x <span style=
-"color: #D8DEE9;">|</span> x <span style=
-"color: #D8DEE9;">&lt;-</span>xs, p x<span style=
-"color: #81A1C1;">]</span>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Programming methodologies</h1>
+</header><p>
+All the research on high-level programming methodologies could be summarized in jut a couple of sentences
+</p>
+
+<p>
+<code>Write declarative, mostly functional specialized DSLs, package them as libraries of higher-order functions and design layers of these DLSs</code>. And that is, literally, it.
+</p>
+
+<p>
+Ideally, one strives to have almost exactly <i>declarative mathematical notation at the use side</i>, like the list comprehensions of Haskell:
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">map</span> f xs <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">[</span>f x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span> xs<span style="color: #81A1C1;">]</span>
+<span style="color: #6f7787;">-- </span><span style="color: #6f7787;">or</span>
+<span style="color: #88C0D0;">filter</span> p xs <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">[</span>x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span>xs, p x<span style="color: #81A1C1;">]</span>
 </pre>
-    </div>
-    <p>The Hutton’s dialect of Haskell has <i>monad
-    comprehensions</i> too. The infamous <i>do-notation</i> is
-    another example of a <i>declarative DSL</i> which hides
-    ugliness of implementation details.</p>
-    <p>The most successful applications, such as TeX or Rails are
-    sets of specialized DSLs.</p>
-    <p>The only relevant recent development worth mentioning is
-    so-called DDD - Domain Driven Design, which is a high-level
-    framework of organizing domain knowledge and extracting
-    knowledge from the <i>slang</i> of professionals in the
-    field.</p>
-    <p>The main point is that the <i>evolved</i> vocabulary and
-    standard idioms should be <i>incorporated into</i> and
-    <i>directly expressed</i> in code in code. There should not be
-    any translation of terms (nouns and verbs) and, ideally, no
-    introduction of unnecessary, redundant abstractions, which is
-    the root of all evil.</p>
-    <p>And that is really it.</p>
-    <p>One <i>models</i> actual domain knowledge with math (sets,
-    relations and logic), then expresses it as a set of <i>core
-    types</i> and implements a <i>declarative DSL</i> around these
-    <i>core types</i>.</p>
-    <p>This is how a single person (Knuth) or a small team (Rails)
-    could bootstrap a really sophisticated project using very
-    limited resources (both time and manpower). Getting the
-    principles right is the key.</p>
-    <p>Notice, how successful <code>Rails</code>, while being
-    implemented in a crappy language, and how <code>TeX</code> is
-    manageable and virtually bug-free, being a huge collection of
-    specialized packages. This is where a <i>proper theory</i>
-    works.</p>
-    <p>Imagine using better <a href="tools.html">tools</a> for the
-    job. It is a well-known, experimentally established fact that a
-    solution in Haskell could be a <i>factor of 10</i> less lines
-    of code (due to <i>sum-types</i> and <i>pattern-matching on
-    them</i>).</p>
-    <p>So, FP (Milner, Wadler, Cardelli), modularity (ADTs of
-    Lisov) and also the right tools together could guarantee, that
-    one <i>at least would not fail miserably</i> and that even a
-    partial solution would be <i>reusable</i> and worth time and
-    effort spent.</p>
-    <div id="outline-container-org5aa3046" class="outline-2">
-      <h2 id="org5aa3046">C++</h2>
-      <div class="outline-text-2" id="text-org5aa3046">
-        <p>While Java is <i>the</i> monument to human stupidity,
-        C++ is a tribute to brain-dead over-“engineering” (imagine
-        designing a language without putting composition at its
-        core and ignoring everything that Lisp, ML and Smalltalk
-        communities have researched).</p>
-        <p>In C++ one is always very explicit and very verbose
-        about every particular implementation detail. Not just
-        verbose, but <i>cryptic</i>, which, of course, helps with
-        employment - memorizing lots of details and particulars is
-        what most people consider as knowledge.</p>
-        <p>This habit of being over-verbose about particulars leads
-        to creation of unnecessary, redundant and particularly ugly
-        abstractions, which quickly become standardized and set in
-        stone.</p>
-        <p>Modern C++ is such a <i>cathedral</i> of solidified
-        crap. Compared to PHP or <code>node_modules</code>,
-        however, it is a <i>cathedral</i> indeed. Just don’t look
-        too closely of what exactly it is made off.</p>
-      </div>
-    </div>
-    <div id="outline-container-org18a64aa" class="outline-2">
-      <h2 id="org18a64aa">Old timers</h2>
-      <div class="outline-text-2" id="text-org18a64aa">
-        <p>Programmers from the golden era (80s and early 90s)
-        which culminated with Haskell 98 report and now in a steady
-        decline, used to have a solid background in mathematics, so
-        the interfaces they have designed were based on well-known
-        <i>mathematical structures</i> with mathematical rigor and
-        attention to details. They understood the importance of
-        <i>minimal</i> interfaces and <i>uniformity</i>, everything
-        that mathematicians of the past realized studying actual
-        and <i>generalized patterns</i> of reality (which is what a
-        proper math is about).</p>
-        <p>No one writes like this anymore, and this is the real
-        cause of suffering. The last old-timer language has been
-        David Moon’s POPL, or we could consider Scala 3 as the last
-        worth of the ML family.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:18</p>
-  </div>
+</div>
+<p>
+The Hutton&rsquo;s dialect of Haskell has <i>monad comprehensions</i> too. The infamous <i>do-notation</i> is another example of a <i>declarative DSL</i> which hides ugliness of implementation details.
+</p>
+
+<p>
+The most successful applications, such as TeX or Rails are sets of specialized DSLs.
+</p>
+
+<p>
+The only relevant recent development worth mentioning is so-called DDD - Domain Driven Design, which is a high-level framework of organizing domain knowledge and extracting knowledge from the <i>slang</i> of professionals in the field.
+</p>
+
+<p>
+The main point is that the <i>evolved</i> vocabulary and standard idioms should be <i>incorporated into</i> and <i>directly expressed</i> in code in code. There should not be any translation of terms (nouns and verbs) and, ideally, no introduction of unnecessary, redundant abstractions, which is the root of all evil.
+</p>
+
+<p>
+And that is really it.
+</p>
+
+<p>
+One <i>models</i> actual domain knowledge with math (sets, relations and logic), then expresses it as a set of <i>core types</i> and implements a <i>declarative DSL</i> around these <i>core types</i>.
+</p>
+
+<p>
+This is how a single person (Knuth) or a small team (Rails) could bootstrap a really sophisticated project using very limited resources (both time and manpower). Getting the principles right is the key.
+</p>
+
+<p>
+Notice, how successful <code>Rails</code>, while being implemented in a crappy language, and how <code>TeX</code> is manageable and virtually bug-free, being a huge collection of specialized packages. This is where a <i>proper theory</i> works.
+</p>
+
+<p>
+Imagine using better <a href="tools.html">tools</a> for the job. It is a well-known, experimentally established fact that a solution in Haskell could be a <i>factor of 10</i> less lines of code (due to <i>sum-types</i> and <i>pattern-matching on them</i>).
+</p>
+
+<p>
+So, FP (Milner, Wadler, Cardelli), modularity (ADTs of Lisov) and also the right tools together could guarantee, that one <i>at least would not fail miserably</i> and that even a partial solution would be <i>reusable</i> and worth time and effort spent.
+</p>
+
+<div id="outline-container-orgcf151c0" class="outline-2">
+<h2 id="orgcf151c0">C++</h2>
+<div class="outline-text-2" id="text-orgcf151c0">
+<p>
+While Java is <i>the</i> monument to human stupidity, C++ is a tribute to
+brain-dead over-&ldquo;engineering&rdquo; (imagine designing a language without
+putting composition at its core and ignoring everything that Lisp, ML
+and Smalltalk communities have researched).
+</p>
+
+<p>
+In C++ one is always very explicit and very verbose about every particular implementation detail. Not just verbose, but <i>cryptic</i>, which, of course, helps with employment - memorizing lots of details and particulars is what most people consider as knowledge.
+</p>
+
+<p>
+This habit of being over-verbose about particulars leads to creation of unnecessary, redundant and particularly ugly abstractions, which quickly become standardized and set in stone.
+</p>
+
+<p>
+Modern C++ is such a <i>cathedral</i> of solidified crap. Compared to PHP or <code>node_modules</code>, however, it is a <i>cathedral</i> indeed. Just don&rsquo;t look too closely of what exactly it is made off.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgadbd44c" class="outline-2">
+<h2 id="orgadbd44c">Old timers</h2>
+<div class="outline-text-2" id="text-orgadbd44c">
+<p>
+Programmers from the golden era (80s and early 90s) which culminated
+with Haskell 98 report and now in a steady decline, used to have a solid
+background in mathematics, so the interfaces they have designed were
+based on well-known <i>mathematical structures</i> with mathematical rigor
+and attention to details. They understood the importance of <i>minimal</i>
+interfaces and <i>uniformity</i>, everything that mathematicians of the past
+realized studying actual and <i>generalized patterns</i> of reality (which is
+what a proper math is about).
+</p>
+
+<p>
+No one writes like this anymore, and this is the real cause of
+suffering. The last old-timer language has been David Moon&rsquo;s POPL, or we
+could consider Scala 3 as the last worth of the ML family.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:39</p>
+</div>
 </body>
 </html>

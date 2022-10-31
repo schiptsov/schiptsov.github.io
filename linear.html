@@ -1,193 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:19 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Linear systems</title>
-  <meta name="author" content="Ln Gnmn &lt;lngnmn2@yahoo.com&gt;">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linear systems</title>
+<meta name="author" content="Ln Gnmn &lt;lngnmn2@yahoo.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Linear systems</h1>
-    </header>
-    <p>It seems that evolution process discovered these <i>stable
-    intermediate forms</i>, which has been successfully generalized
-    and abstracted out by multi-discipline institutions, like MIT,
-    which are famous for using insights from Molecular Biology.
-    Alan Kay also successfully translated insights from biology
-    into computer systems.</p>
-    <p>Abstraction barriers (atoms is an ultimate abstraction
-    barrier)</p>
-    <p>Cell-membrane (lambda, module, interface)</p>
-    <p>Nesting (function composition)</p>
-    <p>Recursion (spiral-shaped processes with a termination
-    condition)</p>
-    <p>Layered systems (cells, tissues, organs, subsystems)</p>
-    <p>Linear sequences (proteins)</p>
-    <p>Tree-line structures (neurons)</p>
-    <p>Lookup tables (RNA translation)</p>
-    <p>Encapsulated state (closures)</p>
-    <p>Signals (synapses)</p>
-    <p>Message passing (inter-cellular communication)</p>
-    <div id="outline-container-org45588a0" class="outline-2">
-      <h2 id="org45588a0">The Golden Age.</h2>
-      <div class="outline-text-2" id="text-org45588a0">
-        <p>There is no wonder that Scheme has been born in MIT as a
-        synthesis of The Lambda Calculus and Molecular Biology.</p>
-        <p>It was remarkable, historic achievement when Scheme’s
-        <i>Environment Model</i> has been implemented in Scheme
-        using just a few <i>special forms</i> and lists,
-        <i>trees</i> and a <i>lookup table (made out of
-        lists)</i>.</p>
-        <p>This is a true <i>biological</i> system - it reuses
-        simple, <i>universal</i>, <i>stable intermediate forms</i>
-        as basic building blocks. In the case of Scheme it was
-        <i>lambdas</i> and <i>lists</i> (where <i>lambdas and
-        actual closures were made out of lists</i>).</p>
-        <p>The actual evaluator (a <i>defining interpreter</i>) has
-        been literally a few pages long and could be understood in
-        its entirety by an ordinary person. The <i>standard
-        library</i> was another few pages.</p>
-        <p>Think of lists as <i>proteins</i> of programming. LISP
-        and MIT guys did.</p>
-        <p><i>All you need is /lambda</i>. Lambdas were
-        <i>enzymes</i> of programming. They has been made out of
-        <i>proteins</i> (lists), of course.</p>
-        <p>This is how to program and this Golden Age has been lost
-        forever. SML/NJ, Miranda, MIT Scheme and Erlang are the
-        last standing monuments of unsurpassable glory.</p>
-      </div>
-    </div>
-    <div id="outline-container-org9f69293" class="outline-2">
-      <h2 id="org9f69293">Complexity</h2>
-      <div class="outline-text-2" id="text-org9f69293">
-        <p><i>Complex systems do not work</i>. Layered
-        (<i>nested</i>) simplest (but just right) systems do. It is
-        not jsut my opinion. It is what the process of biological
-        evolution has been discovered.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgf6a7be4" class="outline-2">
-      <h2 id="orgf6a7be4">Standard Libraries</h2>
-      <div class="outline-text-2" id="text-orgf6a7be4">
-        <p>This is not an arbitrary coincidence that every
-        Functional Language, beginning from ISWIM, rely heavily on
-        a <i>list structure</i>, even using special syntax
-        (<i>syntactic sugar</i>) for lists. This reflects how
-        fundamental and universal they are. Other universal data
-        structures, such as <i>trees</i> and <i>tables</i> has been
-        made originally out of <i>lists</i>.</p>
-        <p>The main principle is <i>composition</i> (of functions
-        or <i>monads</i>), and it is natural in pure functional
-        languages or subsets.</p>
-        <p>Just remember that composition is <i>nesting</i> under
-        the hood. It is that fundamental.</p>
-        <p>We nest <i>types</i> and while a function is a value of
-        a <i>primitive</i> type <code>A -&gt; B</code>, a Monad is
-        an ADT (<i>Abstract Data Type</i>) and has at least
-        <code>2</code> functions (with different <i>signatures</i>)
-        in its <i>interface</i>. So in the case of a Monad we
-        compose (and actually nest) ADTs.</p>
-        <p>Again, a <i>Monad</i> is just an <i>ADT</i> with
-        additional “laws” of a <i>Monoid</i>, whose values can be
-        <i>composed (technically it has to form a Monoid with
-        respect to its functions, which, in turn, form an
-        abstraction barrier, as a standard interface)</i>, similar
-        to composition of functions (which are values too). An ADT
-        which must form a <i>Monoid</i>. Nothing to see here.</p>
-        <ul class="org-ul">
-          <li>SML</li>
-          <li>R5RS</li>
-          <li>Common Lisp</li>
-          <li>Haskell</li>
-          <li>Ocaml</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-org2275419" class="outline-2">
-      <h2 id="org2275419">Runtimes</h2>
-      <div class="outline-text-2" id="text-org2275419">
-        <p>One has to reuse these enormous efforts (both in terms
-        of research and man-hours) while restricting oneself to
-        most general, universal basic building blocks.</p>
-        <p>No, you don’t need that <i>async</i> crap. Lists and
-        Lambdas will do. Plus pure functional subset of the
-        standard library and modules (abstraction barriers and
-        interfaces).</p>
-        <p>You probably want <i>streams</i> and some sort of
-        <i>reactive</i> triggers, like <i>an observable</i>. Just
-        remember that it should be as simple as a <i>lambda</i> and
-        a <i>condition</i> on which it would be called (and it must
-        be a <i>closure</i> itself).</p>
-        <p><i>Unnecessary, redundant abstractions is the root of
-        all evil</i>. Especially in a crappy imperative, untyped
-        languages, to which javascript is an negative optimum.
-        (well, PHP is still the absolute worst, and Java is a
-        monument to human stupidity).</p>
-        <ul class="org-ul">
-          <li>SML/NJ</li>
-          <li>MIT Scheme</li>
-          <li>Miranda</li>
-          <li>Erlang</li>
-          <li>Ocaml</li>
-          <li>Haskell</li>
-          <li>JVM (with Scala 3)</li>
-          <li>.NET (with F#)</li>
-          <li>libc++</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-org7a1afe8" class="outline-2">
-      <h2 id="org7a1afe8">Just program with lists and lambdas</h2>
-      <div class="outline-text-2" id="text-org7a1afe8">
-        <p>Proteins and enzymes are good enough to “implement”
-        whole Tree of Life.</p>
-        <p>It seems that <i>lambdas</i>, <i>types</i> and some
-        syntactic sugar is enough for everything.</p>
-        <p>It is crucially important to <i>restrict oneself</i>, at
-        least in modeling and <i>executable formal
-        specifications</i> to these fundamental basic building
-        blocks, just like mathematicians use the <i>DSL</i> of The
-        Set Theory and formal Logic.</p>
-        <p>If you are able to <i>formally specify</i> (formally
-        model) your domain in a pure functional subset of a
-        language which uses no fancy shit, you will benefit
-        enormously, because you would literally <i>stand on the
-        shouters of giants</i> and your writing would be
-        <i>eternally understable</i>, just like core mathematics
-        itself.</p>
-      </div>
-    </div>
-    <div id="outline-container-org20e5910" class="outline-2">
-      <h2 id="org20e5910">Discrete, Linear, Time invariant.</h2>
-      <div class="outline-text-2" id="text-org20e5910">
-        <p>This is a whole class of systems we more or less
-        well-understood.</p>
-        <p>Finite State Machines, Digital Signal Processing, Linear
-        and Temporal logics, and TLA+ which is based upon these are
-        where to look for knowledge and insight.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: Ln Gnmn &lt;lngnmn2@yahoo.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:19</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Linear systems</h1>
+</header><p>
+It seems that evolution process discovered these <i>stable intermediate forms</i>, which has been successfully generalized and abstracted out by multi-discipline institutions, like MIT, which are famous for using insights from Molecular Biology. Alan Kay also successfully translated insights from biology into computer systems.
+</p>
+
+<p>
+Abstraction barriers (atoms is an ultimate abstraction barrier)
+</p>
+
+<p>
+Cell-membrane (lambda, module, interface)
+</p>
+
+<p>
+Nesting (function composition)
+</p>
+
+<p>
+Recursion (spiral-shaped processes with a termination condition)
+</p>
+
+<p>
+Layered systems (cells, tissues, organs, subsystems)
+</p>
+
+<p>
+Linear sequences (proteins)
+</p>
+
+<p>
+Tree-line structures (neurons)
+</p>
+
+<p>
+Lookup tables (RNA translation)
+</p>
+
+<p>
+Encapsulated state (closures)
+</p>
+
+<p>
+Signals (synapses)
+</p>
+
+<p>
+Message passing (inter-cellular communication)
+</p>
+
+<div id="outline-container-orgd6d36e6" class="outline-2">
+<h2 id="orgd6d36e6">The Golden Age.</h2>
+<div class="outline-text-2" id="text-orgd6d36e6">
+<p>
+There is no wonder that Scheme has been born in MIT as a synthesis of The Lambda Calculus and Molecular Biology.
+</p>
+
+<p>
+It was remarkable, historic achievement when Scheme&rsquo;s <i>Environment Model</i> has been implemented in Scheme using just a few <i>special forms</i> and lists, <i>trees</i> and a <i>lookup table (made out of lists)</i>.
+</p>
+
+<p>
+This is a true <i>biological</i> system - it reuses simple, <i>universal</i>, <i>stable intermediate forms</i> as basic building blocks. In the case of Scheme it was <i>lambdas</i> and <i>lists</i> (where <i>lambdas and actual closures were made out of lists</i>).
+</p>
+
+<p>
+The actual evaluator (a <i>defining interpreter</i>) has been literally a few pages long and could be understood in its entirety by an ordinary person. The <i>standard library</i> was another few pages.
+</p>
+
+<p>
+Think of lists as <i>proteins</i> of programming. LISP and MIT guys did.
+</p>
+
+<p>
+<i>All you need is /lambda</i>. Lambdas were <i>enzymes</i> of programming. They has been made out of <i>proteins</i> (lists), of course.
+</p>
+
+<p>
+This is how to program and this Golden Age has been lost forever. SML/NJ, Miranda, MIT Scheme and Erlang are the last standing monuments of unsurpassable glory.
+</p>
+</div>
+</div>
+<div id="outline-container-org9415edf" class="outline-2">
+<h2 id="org9415edf">Complexity</h2>
+<div class="outline-text-2" id="text-org9415edf">
+<p>
+<i>Complex systems do not work</i>. Layered (<i>nested</i>) simplest (but just right) systems do. It is not jsut my opinion. It is what the process of biological evolution has been discovered.
+</p>
+</div>
+</div>
+<div id="outline-container-org856b330" class="outline-2">
+<h2 id="org856b330">Standard Libraries</h2>
+<div class="outline-text-2" id="text-org856b330">
+<p>
+This is not an arbitrary coincidence that every Functional Language, beginning from ISWIM, rely heavily on a <i>list structure</i>, even using special syntax (<i>syntactic sugar</i>) for lists. This reflects how fundamental and universal they are. Other universal data structures, such as <i>trees</i> and <i>tables</i> has been made originally out of <i>lists</i>.
+</p>
+
+<p>
+The main principle is <i>composition</i> (of functions or <i>monads</i>), and it is natural in pure functional languages or subsets.
+</p>
+
+<p>
+Just remember that composition is <i>nesting</i> under the hood. It is that fundamental.
+</p>
+
+<p>
+We nest <i>types</i> and while a function is a value of a <i>primitive</i> type <code>A -&gt; B</code>, a Monad is an ADT (<i>Abstract Data Type</i>) and has at least <code>2</code> functions (with different <i>signatures</i>) in its <i>interface</i>. So in the case of a Monad we compose (and actually nest) ADTs.
+</p>
+
+<p>
+Again, a <i>Monad</i> is just an <i>ADT</i> with additional &ldquo;laws&rdquo; of a <i>Monoid</i>, whose values can be <i>composed (technically it has to form a Monoid with respect to its functions, which, in turn, form an abstraction barrier, as a standard interface)</i>, similar to composition of functions (which are values too). An ADT which must form a <i>Monoid</i>. Nothing to see here.
+</p>
+
+<ul class="org-ul">
+<li>SML</li>
+<li>R5RS</li>
+<li>Common Lisp</li>
+<li>Haskell</li>
+<li>Ocaml</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd5e28d7" class="outline-2">
+<h2 id="orgd5e28d7">Runtimes</h2>
+<div class="outline-text-2" id="text-orgd5e28d7">
+<p>
+One has to reuse these enormous efforts (both in terms of
+research and man-hours) while restricting oneself to most general, universal basic building blocks.
+</p>
+
+<p>
+No, you don&rsquo;t need that <i>async</i> crap. Lists and Lambdas will do. Plus pure functional subset of the standard library and modules (abstraction barriers and interfaces).
+</p>
+
+<p>
+You probably want <i>streams</i> and some sort of <i>reactive</i> triggers, like <i>an observable</i>. Just remember that it should be as simple as a <i>lambda</i> and a <i>condition</i> on which it would be called (and it must be a <i>closure</i> itself).
+</p>
+
+<p>
+<i>Unnecessary, redundant abstractions is the root of all evil</i>. Especially in a crappy imperative, untyped languages, to which javascript is an negative optimum. (well, PHP is still the absolute worst, and Java is a monument to human stupidity).
+</p>
+
+<ul class="org-ul">
+<li>SML/NJ</li>
+<li>MIT Scheme</li>
+<li>Miranda</li>
+<li>Erlang</li>
+<li>Ocaml</li>
+<li>Haskell</li>
+<li>JVM (with Scala 3)</li>
+<li>.NET (with F#)</li>
+<li>libc++</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org92538b2" class="outline-2">
+<h2 id="org92538b2">Just program with lists and lambdas</h2>
+<div class="outline-text-2" id="text-org92538b2">
+<p>
+Proteins and enzymes are good enough to &ldquo;implement&rdquo; whole Tree of Life.
+</p>
+
+<p>
+It seems that <i>lambdas</i>, <i>types</i> and some syntactic sugar is enough for everything.
+</p>
+
+<p>
+It is crucially important to <i>restrict oneself</i>, at least in modeling and <i>executable formal specifications</i> to these fundamental basic building blocks, just like mathematicians use the <i>DSL</i> of The Set Theory and formal Logic.
+</p>
+
+<p>
+If you are able to <i>formally specify</i> (formally model) your domain in a pure functional subset of a language which uses no fancy shit, you will benefit enormously, because you would literally <i>stand on the shouters of giants</i> and your writing would be <i>eternally understable</i>, just like core mathematics itself.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org33323ac" class="outline-2">
+<h2 id="org33323ac">Discrete, Linear, Time invariant.</h2>
+<div class="outline-text-2" id="text-org33323ac">
+<p>
+This is a whole class of systems we more or less well-understood.
+</p>
+
+<p>
+Finite State Machines, Digital Signal Processing, Linear and Temporal logics, and TLA+ which is based upon these are where to look for knowledge and insight.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Ln Gnmn &lt;lngnmn2@yahoo.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

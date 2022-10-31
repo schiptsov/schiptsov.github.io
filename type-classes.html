@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:21 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Type-Classes</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Type-classes for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:41 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Type-Classes</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Type-classes for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -34,202 +33,223 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Type-Classes</h1>
-    </header>
-    <div id="outline-container-orgeca8dce" class="outline-2">
-      <h2 id="orgeca8dce">Philosophy</h2>
-      <div class="outline-text-2" id="text-orgeca8dce">
-        <p>The Buddha emphasized <i>the right (adequate, close to
-        what actually is - as a correct map of a certain territory)
-        understanding</i> which is the essential prerequisite to
-        end (or at least diminish) suffering.</p>
-        <p>The mapping tools, or a <i>modeling framework</i> is
-        based on certain notions from <i>Classical Logic</i> and
-        mathematical <i>Set Theory</i>. With these almost
-        everything could be adequately modeled, to give one <i>the
-        right understanding</i>, or, at least <i>to be less
-        wrong</i>.</p>
-        <p>The mathematical notion of <i>“such that”</i> is a
-        linguistic abstraction of the innate ability of the mind of
-        an external observer <i>select</i> and <i>group</i>
-        observable phenomena (“objects”) into abstract “categories”
-        (or “classes”) based on a certain <i>common property</i>
-        (an attribute) which <i>all</i> or <i>some</i> objects
-        possess. This ability is at the core of so-called
-        intelligence.</p>
-        <p>This “works” because the whole Universe is a single
-        <i>unfolding process</i>, so every sub-process is subject
-        to the Causality Principle (there is no randomness, only
-        vastly complex causality) and everything evolves in an
-        imaginary tree-like structures (if we attempt to mentally
-        trace some process back).</p>
-        <p>In other words, <i>patterns and attributes are there</i>
-        and they <i>are</i> due to causality.</p>
-        <p>In the context of a <i>Set theory</i>, which could be
-        seen as a generalization and an attempt to formally define
-        a few universal (for the mind and the world) notions,
-        <i>the imaginary, abstract, non-existent universe of
-        “objects” of discourse</i> (or of “values”) is being
-        <i>partitioned</i> into a distinct partitions, called Sets,
-        which are abstract “classes” (of the ancients) with a
-        minimal “structure”.</p>
-        <p>In mathematics we write (using the <i>set comprehension
-        notation</i>) \[\{x \in S \mid P(x)\}\] which means “the
-        elements <code>x</code> of a given set <code>S</code>
-        <i>such that</i> (the vertical bar) the <i>predicate</i>
-        <code>P</code> is true for every <code>x</code>”.</p>
-        <p>The result form another Set - a <i>subset</i> of
-        <code>S</code>, which may or may not be <i>equivalent</i>
-        to <code>S</code> itself (when <code>P(x)</code> holds
-        <i>for all</i> elements of <code>S</code>).</p>
-        <p>It is easy to see that the universal notions of
-        <i>selection</i> (based on some <i>property</i>) and
-        <i>classification</i> (which mind does) has been captured
-        and formalized in this particular <i>piece</i> of
-        mathematics (we do not consider the whole Set Theory here,
-        because some parts of it contradict reality).</p>
-        <p>Such kind of <i>selection</i> (of “objects”) based on
-        having a certain <i>common property</i> is also known as
-        <i>filtering</i>, and indeed, we have this universal notion
-        captured in a function:</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #88C0D0;">filter</span> p xs <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #81A1C1;">[</span>x <span style=
-          "color: #D8DEE9;">|</span> x <span style=
-          "color: #D8DEE9;">&lt;-</span> xs, p x<span style=
-          "color: #81A1C1;">]</span>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Type-Classes</h1>
+</header>
+<div id="outline-container-org44edb94" class="outline-2">
+<h2 id="org44edb94">Philosophy</h2>
+<div class="outline-text-2" id="text-org44edb94">
+<p>
+The Buddha emphasized <i>the right (adequate, close to what actually is -
+as a correct map of a certain territory) understanding</i> which is the
+essential prerequisite to end (or at least diminish) suffering.
+</p>
+
+<p>
+The mapping tools, or a <i>modeling framework</i> is based on certain notions
+from <i>Classical Logic</i> and mathematical <i>Set Theory</i>. With these almost
+everything could be adequately modeled, to give one <i>the right
+understanding</i>, or, at least <i>to be less wrong</i>.
+</p>
+
+<p>
+The mathematical notion of <i>&ldquo;such that&rdquo;</i> is a linguistic abstraction of
+the innate ability of the mind of an external observer <i>select</i> and
+<i>group</i> observable phenomena (&ldquo;objects&rdquo;) into abstract &ldquo;categories&rdquo; (or &ldquo;classes&rdquo;)
+based on a certain <i>common property</i> (an attribute) which <i>all</i> or <i>some</i> objects
+possess. This ability is at the core of so-called intelligence.
+</p>
+
+<p>
+This &ldquo;works&rdquo; because the whole Universe is a single <i>unfolding process</i>,
+so every sub-process is subject to the Causality Principle (there is no
+randomness, only vastly complex causality) and everything evolves in an
+imaginary tree-like structures (if we attempt to mentally trace some
+process back).
+</p>
+
+<p>
+In other words, <i>patterns and attributes are there</i> and they <i>are</i> due to causality.
+</p>
+
+<p>
+In the context of a <i>Set theory</i>, which could be seen as a generalization
+and an attempt to formally define a few universal (for the mind and the world)
+ notions, <i>the imaginary, abstract, non-existent  universe of &ldquo;objects&rdquo;
+of discourse</i> (or of &ldquo;values&rdquo;) is being <i>partitioned</i> into a distinct
+partitions, called Sets, which are abstract &ldquo;classes&rdquo; (of the ancients) with a minimal
+&ldquo;structure&rdquo;.
+</p>
+
+<p>
+In mathematics we write (using the <i>set comprehension notation</i>)
+\[\{x \in S \mid P(x)\}\]
+which means &ldquo;the elements <code>x</code> of a given set <code>S</code> <i>such that</i> (the
+vertical bar) the <i>predicate</i> <code>P</code> is true for every <code>x</code>&rdquo;.
+</p>
+
+<p>
+The result form another Set - a <i>subset</i> of <code>S</code>, which may or may not be
+<i>equivalent</i> to <code>S</code> itself (when <code>P(x)</code> holds <i>for all</i> elements of <code>S</code>).
+</p>
+
+<p>
+It is easy to see that the universal notions of <i>selection</i> (based on
+some <i>property</i>) and <i>classification</i> (which mind does) has been
+captured and formalized in this particular <i>piece</i> of mathematics (we do
+not consider the whole Set Theory here, because some parts of it
+contradict reality).
+</p>
+
+<p>
+Such kind of <i>selection</i> (of &ldquo;objects&rdquo;) based on having a certain
+<i>common property</i> is also known as <i>filtering</i>, and indeed, we have this
+universal notion captured in a function:
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">filter</span> p xs <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">[</span>x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span> xs, p x<span style="color: #81A1C1;">]</span>
 </pre>
-        </div>
-        <p>which is just a different notation for the <i>set
-        comprehension notion</i> of mathematics.</p>
-      </div>
-    </div>
-    <div id="outline-container-org87a77bb" class="outline-2">
-      <h2 id="org87a77bb">Typing</h2>
-      <div class="outline-text-2" id="text-org87a77bb">
-        <p>It should be of no surprise that these <i>universal
-        notions</i> are at the core of what we call type systems
-        (or a type-discipline).</p>
-        <p>Types are just particular <i>subsets</i> of an imaginary
-        <i>Universe of all (possible) values</i> (which we can
-        denote in a given language).</p>
-        <p>The classic example is Numbers - some are
-        <i>Integers</i> (whole numbers), some are <i>Reals</i>, and
-        so on, as they all sit on an imaginary <i>number
-        line</i>.</p>
-        <p>We (in our minds) partition this imaginary <i>Universe
-        Of All Possible Numbers</i> into distinct Sets based on
-        particular properties of such numbers. These sets are
-        <i>superimposed onto</i> the set of all numbers.</p>
-        <p>Again, we just use the mathematical notion <i>“such
-        that”</i> for partitioning.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgdb8519d" class="outline-2">
-      <h2 id="orgdb8519d">Type-classes</h2>
-      <div class="outline-text-2" id="text-orgdb8519d">
-        <p>A <i>type-class</i> is a notation for partitioning the
-        imaginary <i>Universe of All Possible Types</i> (which are
-        defined as just <i>Sets of Values</i>).</p>
-        <p>Remember that the word “class” has been used by ancient
-        Greek logicians to refer to a particular “group” of
-        “objects”, such as “men” (Socrates is a Man), and the word
-        “set” has been introduce much later.</p>
-        <p>So, a <i>type-class</i> is just a particular <i>Set of
-        Types</i>.</p>
-        <p>It is also based on the notion of <i>“such that”</i>,
-        but instead of <i>logical predicated</i> it uses the notion
-        “implements a given set of type-signatures”.</p>
-        <p>This captures the <i>intuitive</i>, informal notion of a
-        “Duck Typing” - <i>if it walks like a duck and quacks like
-        a duck…</i></p>
-        <p>In theory, there should be <i>a proof</i> that every
-        type actually implements a given <i>set of
-        type-signatures</i> (which, by the way, is called an
-        <i>interface</i>) correctly, but for that we need a
-        proof-system.</p>
-        <p>A set of type-signatures is usually augmented by
-        formally defined “laws” (stated elsewhere), such as
-        <i>associativity</i> for a given operator. These “laws”
-        should have been formally proven too.</p>
-        <p>Supplying a corresponding <i>test-suite</i> is not a
-        proof, but it acts as <i>self-test</i> of an airplane - it
-        shows that at least nothing is broken <i>yet</i>.</p>
-        <p>Last, but not least, just like Sets, these type-classes
-        can be “nested”, and there is a special syntax to express
-        it. Nesting means that <i>“to be an <code>X</code> one has
-        to be an <code>Y</code>”</i>, which is just more
-        <i>specialization</i> or more <i>filtering</i>.</p>
-        <p>So, when we see something like</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">class</span>  <span style=
-          "color: #8FBCBB;">Num</span> a  <span style=
-          "color: #81A1C1;">where</span>
-    <span style="color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">+</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">-</span><span style=
-"color: #81A1C1;">)</span>, <span style=
-"color: #81A1C1;">(</span><span style=
-"color: #D8DEE9;">*</span><span style=
-"color: #81A1C1;">)</span>       <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-    negate              <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-    abs                 <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-    signum              <span style=
-"color: #D8DEE9;">::</span> a <span style=
-"color: #D8DEE9;">-&gt;</span> a
-    fromInteger         <span style=
-"color: #D8DEE9;">::</span> <span style=
-"color: #8FBCBB;">Integer</span> <span style=
-"color: #D8DEE9;">-&gt;</span> a
+</div>
+<p>
+which is just a different notation for the <i>set comprehension notion</i> of
+mathematics.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org94c3bd3" class="outline-2">
+<h2 id="org94c3bd3">Typing</h2>
+<div class="outline-text-2" id="text-org94c3bd3">
+<p>
+It should be of no surprise that these <i>universal notions</i> are at the
+core of what we call type systems (or a type-discipline).
+</p>
+
+<p>
+Types are just particular <i>subsets</i> of an imaginary <i>Universe of all
+(possible) values</i> (which we can denote in a given language).
+</p>
+
+<p>
+The classic example is Numbers - some are <i>Integers</i> (whole numbers),
+some are <i>Reals</i>, and so on, as they all sit on an imaginary <i>number
+line</i>.
+</p>
+
+<p>
+We (in our minds) partition this imaginary <i>Universe Of All Possible
+Numbers</i> into distinct Sets based on particular properties of such
+numbers. These sets are <i>superimposed onto</i> the set of all numbers.
+</p>
+
+<p>
+Again, we just use the mathematical notion <i>&ldquo;such that&rdquo;</i> for
+partitioning.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbe939f0" class="outline-2">
+<h2 id="orgbe939f0">Type-classes</h2>
+<div class="outline-text-2" id="text-orgbe939f0">
+<p>
+A <i>type-class</i> is a notation for partitioning the imaginary <i>Universe of
+All Possible Types</i> (which are defined as just <i>Sets of Values</i>).
+</p>
+
+<p>
+Remember that the word &ldquo;class&rdquo; has been used by ancient Greek logicians
+to refer to a particular &ldquo;group&rdquo; of &ldquo;objects&rdquo;, such as &ldquo;men&rdquo; (Socrates
+is a Man), and the word &ldquo;set&rdquo; has been introduce much later.
+</p>
+
+<p>
+So, a <i>type-class</i> is just a particular <i>Set of Types</i>.
+</p>
+
+<p>
+It is also based on the notion of <i>&ldquo;such that&rdquo;</i>, but instead of <i>logical
+predicated</i> it uses the notion &ldquo;implements a given set of type-signatures&rdquo;.
+</p>
+
+<p>
+This captures the <i>intuitive</i>, informal notion of a &ldquo;Duck Typing&rdquo; - <i>if
+ it walks like a duck and quacks like a duck&#x2026;</i>
+</p>
+
+<p>
+In theory, there should be <i>a proof</i> that every type actually
+implements a given <i>set of type-signatures</i> (which, by the way, is called an <i>interface</i>)
+correctly, but for that we need a proof-system.
+</p>
+
+<p>
+A set of type-signatures is usually augmented by formally defined
+&ldquo;laws&rdquo; (stated elsewhere), such as <i>associativity</i> for a given
+operator. These &ldquo;laws&rdquo; should have been formally proven too.
+</p>
+
+<p>
+Supplying a corresponding <i>test-suite</i> is not a proof, but it acts as
+<i>self-test</i> of an airplane - it shows that at least nothing is broken <i>yet</i>.
+</p>
+
+<p>
+Last, but not least, just like Sets, these type-classes can be
+&ldquo;nested&rdquo;, and there is a special syntax to express it. Nesting means
+that <i>&ldquo;to be an <code>X</code> one has to be an <code>Y</code>&rdquo;</i>, which is just more
+<i>specialization</i> or more <i>filtering</i>.
+</p>
+
+<p>
+So, when we see something like
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">class</span>  <span style="color: #8FBCBB;">Num</span> a  <span style="color: #81A1C1;">where</span>
+    <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">+</span><span style="color: #81A1C1;">)</span>, <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">-</span><span style="color: #81A1C1;">)</span>, <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">*</span><span style="color: #81A1C1;">)</span>       <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
+    negate              <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a
+    abs                 <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a
+    signum              <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a
+    fromInteger         <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Integer</span> <span style="color: #D8DEE9;">-&gt;</span> a
 </pre>
-        </div>
-        <p>(which, by the way, corresponds to another mathematical
-        notion of a <i>Ring</i> which includes <i>associative and
-        commutative binary operations</i> with certain
-        <i>identities</i>) we recognize a definition of a Subset of
-        Types (tagged with the <code>Num</code> tag) <i>“such
-        that”</i> this particular set <i>inteface</i> (a set of
-        type-signatures) has to be implemented.</p>
-        <p>And that is it. This is why it feels so familiar and
-        “natural”, and when Phil Wadler came up with his proposal,
-        everyone were instantly enlightened - this is just <i>types
-        partitioned by interfaces</i> instead of <i>logical
-        predicates</i>.</p>
-        <p>I am not surprised that type-classes aren’t incorporated
-        into any other decent languages of the ML-family, because
-        people are arrogant and stupid.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:21</p>
-  </div>
+</div>
+<p>
+(which, by the way, corresponds to another mathematical notion of a
+<i>Ring</i> which includes <i>associative and commutative binary operations</i>
+with certain <i>identities</i>) we recognize a definition of a Subset of
+Types (tagged with the <code>Num</code> tag) <i>&ldquo;such that&rdquo;</i> this particular set
+<i>inteface</i> (a set of type-signatures) has to be implemented.
+</p>
+
+<p>
+And that is it. This is why it feels so familiar and &ldquo;natural&rdquo;, and
+when Phil Wadler came up with his proposal, everyone were instantly
+enlightened - this is just <i>types partitioned by interfaces</i> instead of
+<i>logical predicates</i>.
+</p>
+
+<p>
+I am not surprised that type-classes aren&rsquo;t incorporated into any other
+decent languages of the ML-family, because people are arrogant and
+stupid.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:41</p>
+</div>
 </body>
 </html>

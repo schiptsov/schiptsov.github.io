@@ -1,174 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:20 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Haskell</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Haskell</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Haskell</h1>
-    </header>
-    <div id="outline-container-org4f43610" class="outline-2">
-      <h2 id="org4f43610">Why</h2>
-      <div class="outline-text-2" id="text-org4f43610">
-        <p>Because it is, surprise! the most <i>pragmatic</i>
-        language for high-level, domains, modeled using
-        mathematics.</p>
-        <p>The really big idea, which has been popularized by
-        Laslie Lamport, is that one has to model (specify) aspects
-        of ones’s domain in pure math, which then could be
-        mechanically checked for correctness (lack of
-        contradictions).</p>
-        <p>We need just Sets (the notion of such that) and First
-        Order logic from math, discarding the assumption that
-        <i>False implies anything</i>.</p>
-        <p>We need <i>variable bindings</i>, conditional
-        expressions, and the <i>function abstraction</i>, of
-        course. This is, basically, what TLA syntax is.</p>
-        <p>However, math is <i>untyped</i>, or, at best, weakly
-        typed using sets or abstract structures, such as
-        <i>fields</i>, <i>rings</i> and so on, in other words it is
-        <i>structually typed</i>.</p>
-        <p>One could use specialized languages with has a build-in
-        prof-checker, such as <code>coq</code> or
-        <code>Agda</code>, and sometimes it may be reasonable, but
-        one has to rewrite the solution in an “implementation
-        language”.</p>
-        <p>Haskell is a pragmatic choice because once the solution
-        compiles and runs it can be used in production, but this is
-        not the main point. The crucial thing is that the code is
-        <i>pure</i> (as pure mathematics) and could be evaluated
-        with a pen and paper using substitution model, just like
-        math.</p>
-        <p><i>Equational reasoning</i> enables one to write simple
-        (but actual, valid) <i>proofs</i> about functions on
-        domain-driven types and even <i>synthetize</i> some
-        <i>code</i> from <i>proofs</i>.</p>
-        <p>There is no need for another specialized language,
-        because Haskell technically is a <i>pure logic</i>
-        expressed as highly <i>syntactically sugared</i> and
-        <i>well-typed</i> polymorphic Lambda Calculus (System F
-        Omega), augmented with standard <i>machine types</i> (such
-        as <code>Int</code>, <code>Char</code> or
-        <code>Bool</code>).</p>
-        <p><i>Algebraic types</i> and <i>universal
-        pattern-matching</i> makes actual boring programming fun
-        again.</p>
-      </div>
-    </div>
-    <div id="outline-container-org1199d00" class="outline-2">
-      <h2 id="org1199d00">Math</h2>
-      <div class="outline-text-2" id="text-org1199d00">
-        <p>The worst code, second only to J2EE, is when amateurs
-        without any mathematical background are writing Haskell.
-        They are trying to write the same imperative crap they used
-        to write in Java or PHP, but in Haskell, so it become J2EE
-        spaghetti with Monads everywhere. After no one could read
-        or understand it, of course.</p>
-        <p>The way of writing decent Haskell is the same way as
-        writing mathematics.</p>
-        <p>Haskell is <i>declarative</i> by its nature, in the
-        first place, so one always writes <i>what is</i> (types)
-        and what to be done <i>eventually</i>, just like a damn
-        long single conditional expression (actually - a <i>state
-        machine</i>).</p>
-        <p>Yes, one writes a description of a state-machine (an
-        expression which <code>main</code> returns) to be executed
-        by the <i>runtime</i>, in a pure math (well, polymorphic
-        lamda calculus).</p>
-        <p>Another <i>plague</i> are unnecessary, redundant
-        abstractions which virtue signaling amateurs write to show
-        off their presumed smartness.</p>
-        <p>Richard Bird spent decades perfecting his style, which
-        is basically <i>point-free</i> function composition,
-        <i>pattern-matching</i> and <i>algebraic data types</i>
-        (which include <i>variants</i> and <i>records</i>), which,
-        as you might have realized, is the very essence of
-        everything.</p>
-        <p>Haskell has to be written in the Bird style. But most of
-        current coders have no idea what it is and why it is so
-        special.</p>
-        <p>Most of Haskell projects ended up as an unreadable
-        spaghetti of imperative crap expressed in a pure functional
-        language with strictness “optimizations” and unnecessary,
-        redundant abstractions everywhere. .</p>
-      </div>
-    </div>
-    <div id="outline-container-org82e45ad" class="outline-2">
-      <h2 id="org82e45ad">Pure functional</h2>
-      <div class="outline-text-2" id="text-org82e45ad">
-        <p>The result of any function call is <i>fully
-        determined</i> by its argument. Same input - same output.
-        Always.</p>
-        <p>Technically, every function has exactly one argument and
-        <i>currying</i> (nesting of <i>closures</i> which capture
-        their arguments) is used to construct multi-argument
-        functions. <i>Partial application</i> naturally
-        follows.</p>
-        <p>Like in mathematics, <i>any function call can be
-        replaced by the result of a previous call with the same
-        parameters</i>. This property is called the <i>referential
-        transparency</i> principle and is at the core of pure
-        mathematics - substituting a value for an expression to
-        which it <i>reduces</i> to.</p>
-        <p><i>Equational reasoning</i> follows, based on the
-        premise that two <i>expressions</i> at each side of the
-        <i>equal sing</i> are indeed equal, and can be
-        <i>substituted for one another</i> (substitution of
-        <i>lets</i> and <i>lambdas</i> employs distinct special
-        rules).</p>
-        <p>Those principles are used by the compiler, which
-        re-arranges and re-writes expressions without breaking
-        their semantics - pure mathematical transformations (which,
-        in theory, can be done with a pen and paper).</p>
-        <p>These properties are common for any pure-functional
-        subset of a <i>mostly-functional</i> language, such as
-        Standard ML, or Ocaml, or Erlang or Scala.</p>
-        <p>Haskell is special in that it uses the
-        <i>call-by-need</i> evaluation strategy (or a <i>Normal
-        Order</i> of evaluation, as intended by God. Or, at least,
-        by <i>Church</i>). The original <i>Lambda Calculus</i> and
-        most of <i>systems of logic</i> use same strategy for
-        application of a set of rules for <i>reductions</i>.</p>
-        <p>Remarkably, Haskell uses the <i>System F Omega</i> under
-        the hood as compiler’s <i>intermediate representation or
-        IR</i>, so, technically, <i>it is a pure logic</i> until
-        compilation of <code>main</code> ends and execution by the
-        runtime begins.</p>
-        <p>This means, among other things, that only so-called
-        “Domain logic” or <i>domain-driven core types</i> should be
-        implemented in Haskell (and it is indeed the best possible
-        choice - to define your <i>domain</i> in pure logic) and
-        everything else should be <i>degelgated</i> to the system
-        by FFI’ing or using calls to an OS.</p>
-        <p>Otherwise one will end up with something like Eterprise
-        Java (J2EE) with Monads and unnecessary, redundant
-        abstractions based on esoteric stuff, which is what we
-        already have.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:20</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Haskell</h1>
+</header>
+<div id="outline-container-org1f2e64d" class="outline-2">
+<h2 id="org1f2e64d">Why</h2>
+<div class="outline-text-2" id="text-org1f2e64d">
+<p>
+Because it is, surprise! the most <i>pragmatic</i> language for high-level,
+domains,  modeled using mathematics.
+</p>
+
+<p>
+The really big idea, which has been popularized by Laslie Lamport, is
+that one has to model (specify) aspects of ones&rsquo;s domain in pure math,
+which then could be mechanically checked for correctness (lack of
+contradictions).
+</p>
+
+<p>
+We need just Sets (the notion of such that) and First Order logic from
+ math,  discarding the assumption that <i>False implies anything</i>.
+</p>
+
+<p>
+We need <i>variable bindings</i>, conditional expressions, and
+the <i>function abstraction</i>, of course. This is, basically, what TLA
+syntax is.
+</p>
+
+<p>
+However, math is <i>untyped</i>, or, at best, weakly typed using sets or abstract
+structures, such as <i>fields</i>, <i>rings</i> and so on, in other words it is
+<i>structually typed</i>.
+</p>
+
+<p>
+One could use specialized languages with has a build-in prof-checker,
+such as <code>coq</code> or <code>Agda</code>, and sometimes it may be reasonable, but one has
+to rewrite the solution in an &ldquo;implementation language&rdquo;.
+</p>
+
+<p>
+Haskell is a pragmatic choice because once the solution compiles and
+runs it can be used in production, but this is not the main point. The
+crucial thing is that the code is <i>pure</i> (as pure mathematics) and could
+be evaluated with a pen and paper using substitution model, just like
+math.
+</p>
+
+<p>
+<i>Equational reasoning</i> enables one to write simple (but actual, valid)
+<i>proofs</i> about functions on domain-driven types and even <i>synthetize</i>
+some <i>code</i> from <i>proofs</i>.
+</p>
+
+<p>
+There is no need for another specialized language, because Haskell
+technically is a <i>pure logic</i> expressed as highly <i>syntactically sugared</i>
+and <i>well-typed</i> polymorphic Lambda Calculus  (System F Omega), augmented with
+standard <i>machine types</i> (such as <code>Int</code>, <code>Char</code> or <code>Bool</code>).
+</p>
+
+<p>
+<i>Algebraic types</i> and <i>universal pattern-matching</i> makes actual boring
+programming fun again.
+</p>
+</div>
+</div>
+<div id="outline-container-org586faf1" class="outline-2">
+<h2 id="org586faf1">Math</h2>
+<div class="outline-text-2" id="text-org586faf1">
+<p>
+The worst code, second only to J2EE, is when amateurs without any
+mathematical background are writing Haskell. They are trying to write
+the same imperative crap they used to write in Java or PHP, but in
+Haskell, so it become J2EE spaghetti with Monads everywhere. After no
+one could read or understand it, of course.
+</p>
+
+<p>
+The way of writing decent Haskell is the same way as writing
+mathematics.
+</p>
+
+<p>
+Haskell is <i>declarative</i> by its nature, in the first place, so one always
+writes <i>what is</i> (types) and what to be done <i>eventually</i>, just like a
+damn long single conditional expression (actually - a <i>state machine</i>).
+</p>
+
+<p>
+Yes, one writes a description of a state-machine (an expression which
+<code>main</code> returns) to be executed by the <i>runtime</i>, in a pure math (well,
+polymorphic lamda calculus).
+</p>
+
+<p>
+Another <i>plague</i> are unnecessary, redundant abstractions which virtue
+signaling amateurs write to show off their presumed smartness.
+</p>
+
+<p>
+Richard Bird spent decades perfecting his style, which is basically
+<i>point-free</i> function composition, <i>pattern-matching</i> and <i>algebraic
+data types</i> (which include <i>variants</i> and <i>records</i>), which, as you
+might have realized, is the very essence of everything.
+</p>
+
+<p>
+Haskell has to be written in the Bird style. But most of current coders
+have no idea what it is and why it is so special.
+</p>
+
+<p>
+Most of Haskell projects ended up as an unreadable spaghetti of
+imperative crap expressed in a pure functional language with strictness
+&ldquo;optimizations&rdquo; and unnecessary, redundant abstractions everywhere.
+.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb5bb09f" class="outline-2">
+<h2 id="orgb5bb09f">Pure functional</h2>
+<div class="outline-text-2" id="text-orgb5bb09f">
+<p>
+The result of any function call is <i>fully determined</i> by its argument.
+Same input - same output. Always.
+</p>
+
+<p>
+Technically, every function has exactly one argument and <i>currying</i>
+(nesting of <i>closures</i> which capture their arguments) is used to construct
+multi-argument functions. <i>Partial application</i> naturally follows.
+</p>
+
+<p>
+Like in mathematics, <i>any function call can be replaced by the result of
+a previous call with the same parameters</i>. This property is called
+the <i>referential transparency</i> principle and is at the core of pure
+mathematics - substituting a value for an expression to which it
+<i>reduces</i> to.
+</p>
+
+<p>
+<i>Equational reasoning</i> follows, based on the premise that two <i>expressions</i>
+at each side of the <i>equal sing</i> are indeed equal, and can be
+<i>substituted for one another</i> (substitution of <i>lets</i> and <i>lambdas</i> employs
+distinct special rules).
+</p>
+
+<p>
+Those principles are used by the compiler, which re-arranges and
+ re-writes expressions without breaking their semantics - pure
+ mathematical transformations (which, in theory, can be done with a pen
+ and paper).
+</p>
+
+<p>
+These properties are common for any pure-functional subset of a
+<i>mostly-functional</i> language, such as Standard ML, or Ocaml, or Erlang
+or Scala.
+</p>
+
+<p>
+Haskell is special in that it uses the <i>call-by-need</i> evaluation strategy
+(or a <i>Normal Order</i> of evaluation, as intended by God. Or, at least, by
+<i>Church</i>). The original <i>Lambda Calculus</i> and most of <i>systems of logic</i>
+use same strategy for application of a set of rules for <i>reductions</i>.
+</p>
+
+<p>
+Remarkably, Haskell uses the <i>System F Omega</i> under the hood as compiler&rsquo;s
+<i>intermediate representation or IR</i>, so, technically, <i>it is a pure
+logic</i> until compilation of <code>main</code> ends and execution by the runtime
+begins.
+</p>
+
+<p>
+This means, among other things, that only so-called &ldquo;Domain logic&rdquo; or
+<i>domain-driven core types</i> should be implemented in Haskell (and it is
+indeed the best possible choice - to define your <i>domain</i> in pure logic)
+and everything else should be <i>degelgated</i> to the system by FFI&rsquo;ing or
+using calls to an OS.
+</p>
+
+<p>
+Otherwise one will end up with something like Eterprise Java (J2EE) with
+Monads and unnecessary, redundant abstractions based on esoteric stuff,
+which is what we already have.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

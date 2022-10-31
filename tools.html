@@ -1,163 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:18 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Tools of the trade</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Tools of the trade for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <link crossorigin="anonymous" media="all" integrity=
-  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
-  rel="stylesheet" href=
-  "https://github.githubassets.com/assets/light-92c7d381038e.css">
+<!-- 2022-10-31 Mon 16:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tools of the trade</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Tools of the trade for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Tools of the trade</h1>
-    </header>
-    <p>I began my journey as a sysadmin at the time of <i>SCO Unix
-    3.2 v4.2</i> for i486 CPUs and <i>FreeBSD 1.1.5.1</i>, long
-    before fucking docker, kubernetes and this nix fucking
-    abomination (just imagine creating an exact opposite to UNIX
-    philosophy - standardized intefaces based on text streams - and
-    apply it to unix-like systems).</p>
-    <p>Anyway, I started as a practitioner and ended up as a sort
-    of a philosopher - investigating not just mathematical
-    foundation of FP, but where that mathematics came from - the
-    foundation of it.</p>
-    <p>But I still understand UNIX-like systems.</p>
-    <div id="outline-container-org57f92bc" class="outline-2">
-      <h2 id="org57f92bc">Runtimes</h2>
-      <div class="outline-text-2" id="text-org57f92bc">
-        <p>The most difficult and costly part is developing and
-        maintaining a stable runtime system (which runs your code).
-        There are several most famous:</p>
-        <ul class="org-ul">
-          <li>JVM (the most famous and widely used)</li>
-          <li>libstdc++ and libc (yes, this is a runtime)</li>
-          <li>Go (all the way from Plan9 and Bell labs)</li>
-          <li>.NET (from MS research)</li>
-          <li>Erlang (OTP - a telecom-grade)</li>
-          <li>Haskell runtime (Rts)</li>
-          <li>SML (the classics)</li>
-          <li>MIT Scheme runtime (and stdlib)</li>
-          <li>Chez Scheme (state of the art)</li>
-        </ul>
-        <p>All of these are <i>open-sourced</i>, which means that,
-        at least in theory, one could fix bugs in them or even
-        adding required features (it is <i>much</i> better to send
-        patches upstream due to “free” code-reviews and extensive
-        testing for free).</p>
-        <p>One should absolutely prefer languages researched and
-        created by mathematicians, especially good mathematicians
-        (SML) or good researchers (Miranda, Haskell, Ocaml, Scala).
-        A well-studied mathematical foundation (Liskov, Milner,
-        Wadler, Cardelli, Odersky) is what matters in the long
-        run.</p>
-        <p>Two <i>highly pragmatic</i> choices are:</p>
-        <ul class="org-ul">
-          <li>F# + .NET 6+ runtime</li>
-          <li>Scala3 with OpenJDK17 runtime</li>
-        </ul>
-        <p>In both cases we hanve an <i>ML-family</i> language and
-        a widely used runtime. The crucial difference is that JVM
-        ecosystem are orders of magnitude larger that .NET
-        (ready-made libraries and tools).</p>
-        <p>In the Java ecosystem one just writes
-        <code>Scala3</code> to manipulate JVM objects. A whole
-        books has been written about how bad Java is - all Scala
-        books are such books. Java itself is a monument of human
-        ignorance and stupidity (second only to PHP).</p>
-        <p>Considering language features, there is nothing better
-        than Haskell and modern Ocaml (which will finally have a
-        <i>proper</i> multicore support on 5.0).</p>
-        <ul class="org-ul">
-          <li>Haskell is a culmination of pure Lambda-Calculus,
-          Miranda lineage (via the seminal Bird & Wadler book)</li>
-          <li>Ocaml is a crown jewel of the ML family (continues
-          from where SML left off).</li>
-        </ul>
-        <p>Erlang and Go have their own niches respectively, with
-        its own tooling and communities. They both are great.</p>
-        <p>So, when thinking about <i>prototyping or
-        bootstrapping</i> of a project <i>nothing can be compared
-        to an ML-family language</i> (a Hindley-Milner type system
-        + <i>sum-types</i> + pattern-matching everywhere).
-        Sum-types are the crucial part.</p>
-        <p>Everyone is already brainwashed about Python, of course,
-        but Ocaml and F# are even better in any metrics. And,
-        ironically, Python <i>with type annotations</i> is similar
-        to imperative subset of Ocaml (minus libraries, of
-        course).</p>
-      </div>
-    </div>
-    <div id="outline-container-org434a765" class="outline-2">
-      <h2 id="org434a765">Libraries</h2>
-      <div class="outline-text-2" id="text-org434a765">
-        <p>One absolutely wants to rely on well-researched, mature
-        standard libraries from major research centers and never
-        come close to amateur crap like <code>node_modules</code>
-        or Rust’s <code>crates</code>.</p>
-        <p>The <i>state-of-the-art</i> stuff are:</p>
-        <ul class="org-ul">
-          <li>OTP (just a telecom-grade stuff)</li>
-          <li>LLVM’s libc++ (a clean rewrite)</li>
-          <li>Java’s class library is at least well-tested and
-          stable</li>
-          <li>SML Basis library (Bell Labs)</li>
-          <li>Go stdlib (Bell Labs, the Plan9 project)</li>
-          <li>.NET (MS research)</li>
-          <li>Ocaml stdlib (<i>NOT</i> Core)</li>
-          <li>Haskell platform (GHC + a set of libs)</li>
-          <li>Scala3 <i>collections</i> (as a wrapper around Java
-          classes)</li>
-        </ul>
-        <p>A standard library nowadays has literally everything one
-        need to write a modern compiler and network/concurrent
-        code. One should restrict oneself to this highest quality
-        stuff. Amateur code is just a <i>junk-food</i> level
-        crap.</p>
-        <p>If you cannot write using stdlib, bootstrapping
-        domain-specific libraries and languages as you go, you are
-        not even close to a “good programmer”, and webshit is not
-        programming at all, it is merely coding (filling
-        structures).</p>
-      </div>
-    </div>
-    <div id="outline-container-orgabfc14a" class="outline-2">
-      <h2 id="orgabfc14a">Methodology</h2>
-      <div class="outline-text-2" id="text-orgabfc14a">
-        <p>Tools are important (those who tried to debug weakly
-        typed dynamic languages, when one misspelled a single
-        letter in some structure’s member and <i>nothing
-        happened</i> would appreciate static typing) but not
-        enough.</p>
-        <p><a href="methodology.html">Methodologies</a>, which
-        arise partially due to particular tooling, are much more
-        important.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:18</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Tools of the trade</h1>
+</header><p>
+I began my journey as a sysadmin at the time of <i>SCO Unix 3.2 v4.2</i> for i486 CPUs and <i>FreeBSD 1.1.5.1</i>, long before fucking docker, kubernetes and this nix fucking abomination (just imagine creating an exact opposite to UNIX philosophy - standardized intefaces based on text streams - and apply it to unix-like systems).
+</p>
+
+<p>
+Anyway, I started as a practitioner and ended up as a sort of a philosopher - investigating not just mathematical foundation of FP, but where that mathematics came from - the foundation of it.
+</p>
+
+<p>
+But I still understand UNIX-like systems.
+</p>
+<div id="outline-container-orgfdff85c" class="outline-2">
+<h2 id="orgfdff85c">Runtimes</h2>
+<div class="outline-text-2" id="text-orgfdff85c">
+<p>
+The most difficult and costly part is developing and maintaining a stable runtime system (which runs your code). There are several most famous:
+</p>
+<ul class="org-ul">
+<li>JVM (the most famous and widely used)</li>
+<li>libstdc++ and libc (yes, this is a runtime)</li>
+<li>Go (all the way from Plan9 and Bell labs)</li>
+<li>.NET (from MS research)</li>
+<li>Erlang (OTP - a telecom-grade)</li>
+<li>Haskell runtime (Rts)</li>
+<li>SML (the classics)</li>
+<li>MIT Scheme runtime (and stdlib)</li>
+<li>Chez Scheme (state of the art)</li>
+</ul>
+
+<p>
+All of these are <i>open-sourced</i>, which means that, at least in theory, one could fix bugs in them or even adding required features (it is <i>much</i> better to send patches upstream due to &ldquo;free&rdquo; code-reviews and extensive testing for free).
+</p>
+
+<p>
+One should absolutely prefer languages researched and created by mathematicians, especially good mathematicians (SML) or good researchers (Miranda, Haskell, Ocaml, Scala). A well-studied mathematical foundation (Liskov, Milner, Wadler, Cardelli, Odersky) is what matters in the long run.
+</p>
+
+<p>
+Two <i>highly pragmatic</i> choices are:
+</p>
+<ul class="org-ul">
+<li>F# + .NET 6+ runtime</li>
+<li>Scala3 with OpenJDK17 runtime</li>
+</ul>
+
+<p>
+In both cases we hanve an <i>ML-family</i> language and a widely used runtime. The crucial difference is that JVM ecosystem are orders of magnitude larger that .NET (ready-made libraries and tools).
+</p>
+
+<p>
+In the Java ecosystem one just writes <code>Scala3</code> to manipulate JVM objects. A whole books has been written about how bad Java is - all Scala books are such books. Java itself is a monument of human ignorance and stupidity (second only to PHP).
+</p>
+
+<p>
+Considering language features, there is nothing better than Haskell and modern Ocaml (which will finally have a <i>proper</i> multicore support on 5.0).
+</p>
+<ul class="org-ul">
+<li>Haskell is a culmination of pure Lambda-Calculus, Miranda lineage (via the seminal Bird &amp; Wadler book)</li>
+<li>Ocaml is a crown jewel of the ML family (continues from where SML left off).</li>
+</ul>
+
+<p>
+Erlang and Go have their own niches respectively, with its own tooling and communities. They both are great.
+</p>
+
+<p>
+So, when thinking about <i>prototyping or bootstrapping</i> of a project <i>nothing can be compared to an ML-family language</i> (a Hindley-Milner type system + <i>sum-types</i> + pattern-matching everywhere). Sum-types are the crucial part.
+</p>
+
+<p>
+Everyone is already brainwashed about Python, of course, but Ocaml and F# are even better in any metrics. And, ironically, Python <i>with type annotations</i> is similar to imperative subset of Ocaml (minus libraries, of course).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge151554" class="outline-2">
+<h2 id="orge151554">Libraries</h2>
+<div class="outline-text-2" id="text-orge151554">
+<p>
+One absolutely wants to rely on well-researched, mature standard libraries from major research centers and never come close to amateur crap like <code>node_modules</code> or Rust&rsquo;s <code>crates</code>.
+</p>
+
+<p>
+The <i>state-of-the-art</i> stuff are:
+</p>
+<ul class="org-ul">
+<li>OTP (just a telecom-grade stuff)</li>
+<li>LLVM&rsquo;s libc++ (a clean rewrite)</li>
+<li>Java&rsquo;s class library is at least well-tested and stable</li>
+<li>SML Basis library (Bell Labs)</li>
+<li>Go stdlib (Bell Labs, the Plan9 project)</li>
+<li>.NET (MS research)</li>
+<li>Ocaml stdlib (<i>NOT</i> Core)</li>
+<li>Haskell platform (GHC + a set of libs)</li>
+<li>Scala3 <i>collections</i> (as a wrapper around Java classes)</li>
+</ul>
+
+<p>
+A standard library nowadays has literally everything one need to write a modern compiler and network/concurrent code. One should restrict oneself to this highest quality stuff. Amateur code is just a <i>junk-food</i> level crap.
+</p>
+
+<p>
+If you cannot write using stdlib, bootstrapping domain-specific libraries and languages as you go, you are not even close to a &ldquo;good programmer&rdquo;, and webshit is not programming at all, it is merely coding (filling structures).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4214626" class="outline-2">
+<h2 id="org4214626">Methodology</h2>
+<div class="outline-text-2" id="text-org4214626">
+<p>
+Tools are important (those who tried to debug weakly typed dynamic languages, when one misspelled a single letter in some structure&rsquo;s member and <i>nothing happened</i> would appreciate static typing) but not enough.
+</p>
+
+<p>
+<a href="methodology.html">Methodologies</a>, which arise partially due to particular tooling, are much more important.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:39</p>
+</div>
 </body>
 </html>

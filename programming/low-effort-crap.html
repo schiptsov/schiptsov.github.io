@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to deal with low effort crap.</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">How to deal with low effort crap.</h1>
+</header><p>
+Have you ever seen 100500 crappy dependencies (well, nothing could ever beat the degeneracy of Java) a Python or Rust project, leave alone that <code>node_modules</code> crap? This is because we are in the era of low-effort crappy junk-food of software.
+</p>
+
+<p>
+Yes, junk-food and low-effort fast-food is the exactly right metaphor. <i>Quickly make some crap we can sell</i> is the current mantra of software project management. <i>No time to do everything right</i>, even <i>no time to understand the problem in details</i>.
+</p>
+
+<p>
+So, what can we do? Well, we have to understand everything in all the details and then act according to just right principles. The principles has been formulated and validated by the programmers of the Golden Age (which culminated with Haskell98).
+</p>
+
+<p>
+Let&rsquo;s suppose that (god forbid!) lists are not built in and syntactically sugared in our language but provided to us by some <code>npm</code> module (which literally can be broken at any moment) or some narcissistic low-effort <code>crate</code>.
+</p>
+
+<p>
+We have to assume that everything can be broken by idiots at any moment, just like there could be a network error at any moment. So we have to <i>expect</i> shit to happen.
+</p>
+
+<p>
+The strategy is, just like with airplanes, is to perform a self-test, but not just component tests, but specification-validation tests.
+</p>
+
+<p>
+The right principles will guide us.
+</p>
+
+<p>
+For a list we have to state all the invariants and algebraic laws which this (or any other) <i>abstraction</i> provide or guarantee. We have to state these invariants and algebraic laws formally and validate them every time something has been changed in dependencies.
+</p>
+
+<p>
+Since we do not have a specification language we can use a pure-functional language and assertions, which is an operationally defined equivalent of executable specifications (given that pure-functional languages are just pure logic).
+</p>
+
+<p>
+What are those laws would be? Well, this is why you have to know and understand every abstraction you use. For a List that would be, for example, that <i>appending an empty list will not change anything</i> (that it is the <i>right identity</i>) or that <i>consing an element to an empty list is the same as lifting</i>.
+</p>
+
+<p>
+Eventually you have to specify every known law - Monoidal and Monadic.
+</p>
+
+<p>
+The important thing is that the laws and invariants has to be stated explicitly, which means that they has to be understood. Just <code>QuickCheck</code> generators alone won&rsquo;t do (but they must be used too).
+</p>
+
+<p>
+So, instead of vendoring and managing dependencies by hand, as Google does in all its projects (and for really good reasons) we can use <i>executable specifications for every ADT or interface we use</i>, and boy these better be pure-functional and immutable.
+</p>
+
+<p>
+Notice that Google uses crappy imperative languages, and we don&rsquo;t have to. We will use pure logic (which is what Haskell technically is).
+</p>
+
+<p>
+Vendoring leads to unnecessary, redundant idiocies like <code>Nix</code> (no, a file is just right granularity and a proper abstraction and a compiler and a linker <i>are</i> pure functions. Do not fix what isn&rsquo;t broken!), which is a cancer. <i>Stable interfaces</i> and FP is the principle-guided solution, not some additional tooling.
+</p>
+
+<p>
+Formally define and verify your abstractions and corresponding algebras and interfaces. And you better to have these algebras.
+</p>
+
+<p>
+This corresponds to knowing and verifying every ingredient in your junk food, or even better - to have it troughly lab-tested before you eat (of you have to consume other people&rsquo;s low-effort crap).
+</p>
+
+<p>
+It is much better, however, to be a chief.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
+</body>
+</html>

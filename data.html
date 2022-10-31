@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:20 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Data and structures</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Some more abstract math for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Data and structures</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Some more abstract math for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -34,194 +33,202 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Data and structures</h1>
-    </header>
-    <p>There is some journey from higher abstractions down to
-    Earth</p>
-    <div id="outline-container-orgf6f95ad" class="outline-2">
-      <h2 id="orgf6f95ad">Cartesian product</h2>
-      <div class="outline-text-2" id="text-orgf6f95ad">
-        <ul class="org-ul">
-          <li>Arbitrary chosen “Origin” (this is a philosophically
-          important principle)</li>
-          <li>Axies are <i>equally-spaced</i> “rulers”, or
-          abstractly - <i>Number Lines</i></li>
-          <li>Every Number on a line is a <i>distance</i> from the
-          “Origin” (distances are “real”, numbers are not)</li>
-          <li>2 Coordinate axis (superimposed by the mind “rulers”)
-          cover an <i>abstract plane</i></li>
-          <li>All possible <i>pairs</i> cover every single point on
-          a plane</li>
-          <li>3 mutually orthogonal (or perpendicular) cover a
-          whole Space (it happens that a motion can be factored
-          into 3 <i>independent</i> components)</li>
-          <li>Cartesian Product \(x \times y \times z\) covers
-          every point in a Space</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-org56db7fb" class="outline-2">
-      <h2 id="org56db7fb">Abstract N-dimensional spaces</h2>
-      <div class="outline-text-2" id="text-org56db7fb">
-        <ul class="org-ul">
-          <li>Dimensions are products of the mind and does not
-          exist</li>
-          <li>However it is useful to apply these abstractions
-          <i>in a systematic way</i></li>
-          <li>Just as within an Abstract Plane (or a Number Line)
-          other <i>abstract axis</i> (rulers) can be imagined.</li>
-          <li>A “ruler” or an axis can be superimposed on any
-          attribute (aspect)</li>
-          <li>This is how we get <i>n-tuples</i> to define (and
-          represent) almost everything</li>
-          <li>Each value <i>ranges over</i> a certain finite Set -
-          with certain <i>bounds</i></li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-org4ec0626" class="outline-2">
-      <h2 id="org4ec0626">Labeled Cartesian Product</h2>
-      <div class="outline-text-2" id="text-org4ec0626">
-        <ul class="org-ul">
-          <li>Once we label components of a <i>tuple</i> with
-          symbols we get a <i>record</i></li>
-        </ul>
-        <p>(here a tuple or a record defines a whole set of
-        possible values)</p>
-        <ul class="org-ul">
-          <li>Just as a tuple, a record “covers” (ranges over) a
-          <i>whole space</i> of “points”</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-orgc8bdefa" class="outline-2">
-      <h2 id="orgc8bdefa">Generalized labeled Product Type</h2>
-      <div class="outline-text-2" id="text-orgc8bdefa">
-        <p>When we say <code>{ name = "" }</code> we cover a linear
-        (1D) space of <i>all people ever lived, who had a name</i>.
-        Socrates is here, and George W. Bush.</p>
-        <p>Notice that this is a <i>Type</i> (a Set of all possible
-        values) not the individual names (values).</p>
-        <p>If we add a <code>{ social_security_number = "" }</code>
-        slot to out type we will <i>restrict</i> the <i>subset</i>
-        (and will get a different <i>image</i> on a Universe of
-        discourse), disqualifying Socrates and many others.</p>
-        <p>This is how we select (or filter) a particular
-        <i>sub-spaces</i> (subsets) from the “whole”.</p>
-      </div>
-    </div>
-    <div id="outline-container-org456de70" class="outline-2">
-      <h2 id="org456de70">Structure or a Table</h2>
-      <div class="outline-text-2" id="text-org456de70">
-        <ul class="org-ul">
-          <li>By defining a <i>type</i> we <i>partition</i> the
-          “Universe of Discourse”.</li>
-          <li>When we specialize a <i>record</i> we get a
-          <i>table</i> (or a <i>structure</i>) which is a
-          <i>type</i> of its own <i>together with an actual
-          implementation</i></li>
-          <li>It is an actual <i>representation</i> for a subset of
-          individual values.</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-org99e25cb" class="outline-2">
-      <h2 id="org99e25cb">A table is an Ordered Sequence of
-      Rows</h2>
-      <div class="outline-text-2" id="text-org99e25cb">
-        <ul class="org-ul">
-          <li>It is a <i>representation</i> of an <i>abstract
-          sub-space</i> (of a subset).</li>
-          <li>Rows <i>represent</i> individual “points” in a
-          sub-space.</li>
-          <li>Table is used to <i>store</i> a collection of rows
-          (in a particular order)</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-orgd4553f6" class="outline-2">
-      <h2 id="orgd4553f6">Product-types</h2>
-      <div class="outline-text-2" id="text-orgd4553f6">
-        <p>And that is basically it. We <i>superimpose rulers</i>,
-        group together “coordinates” or “distances” and
-        <i>partition “points” into sub-spaces</i> using what we
-        call <i>product types</i>.</p>
-        <p>This is how we <i>categorize and group “things”</i> in
-        our minds (Sets are the most general abstraction).</p>
-        <p>We also need <a href="sum-types.html">Sum-types</a>
-        (<i>disjoint unions</i>) to systematically represent
-        <i>possible distinct outcomes</i> (which form a Set
-        too).</p>
-      </div>
-    </div>
-    <div id="outline-container-org3442f2a" class="outline-2">
-      <h2 id="org3442f2a">Relations</h2>
-      <div class="outline-text-2" id="text-org3442f2a">
-        <p>An entity can be described as a set of its
-        <i>attributes</i>.</p>
-        <p>A relation can be viewed as a set of <i>arrows</i>
-        (ordered pairs) from an <i>id</i> to each of the
-        <i>values</i>.</p>
-        <p>So, mathematically, a relation is just a set of ordered
-        pairs represented as an <i>n-tuple</i>.</p>
-        <ul class="org-ul">
-          <li>Each attribute is a set of values - has its
-          particular <i>domain</i>.</li>
-          <li>The order of attributes is immaterial (as it should
-          be)</li>
-        </ul>
-        <p>A <i>table</i> is a <i>representation</i> for some
-        <i>type of particular relation</i>.</p>
-        <p>Each row of a table is a <i>record</i> or an instance of
-        a particular <i>type of relation</i>.</p>
-        <p>All rows (records) in a table from a Set, while each
-        field ranges over a set of possible values. So everything
-        is <i>typed</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-orga9b5d36" class="outline-2">
-      <h2 id="orga9b5d36">Schemas</h2>
-      <div class="outline-text-2" id="text-orga9b5d36">
-        <p>When we define a <i>schema</i> for a <i>table</i> we
-        establish a higher-kinded <i>structural typing</i> for what
-        is itself a <i>type</i> (a Set of all possible values).</p>
-        <p>Only tables <i>of the same kind</i> (same structure) can
-        be used \(\cup,\cap\) operations.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgb8563cc" class="outline-2">
-      <h2 id="orgb8563cc">“Select”</h2>
-      <div class="outline-text-2" id="text-orgb8563cc">
-        <p>Select corresponds to the notion of <i>“such that”</i>
-        and <i>filtering</i>.</p>
-        <p>Can be <i>nested</i>.</p>
-        <ul class="org-ul">
-          <li>Selects <i>commute</i> under <i>composition</i>
-          (order in a composition is irrelevant) (this is an
-          instance of a “universal construction”)</li>
-          <li>Select distributes over \(\cup, \cap\) (this is an
-          intuitive property)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:20</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Data and structures</h1>
+</header><p>
+There is some journey from higher abstractions down to Earth
+</p>
+
+<div id="outline-container-org61b7fab" class="outline-2">
+<h2 id="org61b7fab">Cartesian product</h2>
+<div class="outline-text-2" id="text-org61b7fab">
+<ul class="org-ul">
+<li>Arbitrary chosen &ldquo;Origin&rdquo; (this is a philosophically important principle)</li>
+<li>Axies are <i>equally-spaced</i> &ldquo;rulers&rdquo;, or abstractly - <i>Number Lines</i></li>
+<li>Every Number on a line is a <i>distance</i> from the &ldquo;Origin&rdquo;
+(distances are &ldquo;real&rdquo;, numbers are not)</li>
+<li>2 Coordinate axis (superimposed by the mind &ldquo;rulers&rdquo;) cover an <i>abstract plane</i></li>
+<li>All possible <i>pairs</i> cover every single point on a plane</li>
+<li>3 mutually orthogonal (or perpendicular) cover a whole Space
+(it happens that a motion can be factored into 3 <i>independent</i> components)</li>
+<li>Cartesian Product \(x \times y \times z\) covers every point in a Space</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcf3bf21" class="outline-2">
+<h2 id="orgcf3bf21">Abstract N-dimensional spaces</h2>
+<div class="outline-text-2" id="text-orgcf3bf21">
+<ul class="org-ul">
+<li>Dimensions are products of the mind and does not exist</li>
+<li>However it is useful to apply these abstractions <i>in a systematic way</i></li>
+<li>Just as within an Abstract Plane (or a Number Line) other <i>abstract axis</i> (rulers) can be imagined.</li>
+<li>A &ldquo;ruler&rdquo; or an axis can be superimposed on any attribute (aspect)</li>
+<li>This is how we get <i>n-tuples</i> to define (and represent) almost
+everything</li>
+<li>Each value <i>ranges over</i> a certain finite Set - with certain <i>bounds</i></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga80d822" class="outline-2">
+<h2 id="orga80d822">Labeled Cartesian Product</h2>
+<div class="outline-text-2" id="text-orga80d822">
+<ul class="org-ul">
+<li>Once we label components of a <i>tuple</i> with symbols we get a <i>record</i></li>
+</ul>
+<p>
+(here a tuple or a record defines a whole set of possible values)
+</p>
+<ul class="org-ul">
+<li>Just as a tuple, a record &ldquo;covers&rdquo; (ranges over) a <i>whole space</i> of &ldquo;points&rdquo;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbab253b" class="outline-2">
+<h2 id="orgbab253b">Generalized labeled Product Type</h2>
+<div class="outline-text-2" id="text-orgbab253b">
+<p>
+When we say <code>{ name = "" }</code> we cover a linear (1D) space of <i>all people ever lived, who had a name</i>. Socrates is here, and George W. Bush.
+</p>
+
+<p>
+Notice that this is a <i>Type</i> (a Set of all possible values) not the
+individual names (values).
+</p>
+
+<p>
+If we add a <code>{ social_security_number = "" }</code> slot to out type we will <i>restrict</i>
+the <i>subset</i> (and will get a different <i>image</i> on a Universe of discourse), disqualifying Socrates and many others.
+</p>
+
+<p>
+This is how we select (or filter) a particular <i>sub-spaces</i> (subsets)
+from the &ldquo;whole&rdquo;.
+</p>
+</div>
+</div>
+<div id="outline-container-orga66f794" class="outline-2">
+<h2 id="orga66f794">Structure or a Table</h2>
+<div class="outline-text-2" id="text-orga66f794">
+<ul class="org-ul">
+<li>By defining a <i>type</i> we <i>partition</i> the &ldquo;Universe of Discourse&rdquo;.</li>
+<li>When we specialize a <i>record</i>  we get a <i>table</i> (or a <i>structure</i>)
+which is a <i>type</i> of its own <i>together with an actual implementation</i></li>
+<li>It is an actual <i>representation</i> for a subset of individual values.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbb60a34" class="outline-2">
+<h2 id="orgbb60a34">A table is an Ordered Sequence of Rows</h2>
+<div class="outline-text-2" id="text-orgbb60a34">
+<ul class="org-ul">
+<li>It is a <i>representation</i> of an <i>abstract sub-space</i> (of a subset).</li>
+<li>Rows <i>represent</i> individual &ldquo;points&rdquo; in a sub-space.</li>
+<li>Table is used to <i>store</i> a collection of rows (in a particular order)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbde8ace" class="outline-2">
+<h2 id="orgbde8ace">Product-types</h2>
+<div class="outline-text-2" id="text-orgbde8ace">
+<p>
+And that is basically it. We <i>superimpose rulers</i>, group together &ldquo;coordinates&rdquo; or &ldquo;distances&rdquo; and <i>partition &ldquo;points&rdquo; into sub-spaces</i> using what we call <i>product types</i>.
+</p>
+
+<p>
+This is how we <i>categorize and group &ldquo;things&rdquo;</i> in our minds (Sets are
+the most general abstraction).
+</p>
+
+<p>
+We also need <a href="sum-types.html">Sum-types</a> (<i>disjoint unions</i>) to systematically represent <i>possible distinct outcomes</i> (which form a Set too).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgddeb636" class="outline-2">
+<h2 id="orgddeb636">Relations</h2>
+<div class="outline-text-2" id="text-orgddeb636">
+<p>
+An entity can be described as a set of its <i>attributes</i>.
+</p>
+
+<p>
+A relation can be viewed as a set of <i>arrows</i> (ordered pairs) from an <i>id</i> to each of the <i>values</i>.
+</p>
+
+<p>
+So, mathematically, a relation is just a set of ordered pairs represented as an <i>n-tuple</i>.
+</p>
+
+<ul class="org-ul">
+<li>Each attribute is a set of values - has its particular <i>domain</i>.</li>
+<li>The order of attributes is immaterial (as it should be)</li>
+</ul>
+
+<p>
+A <i>table</i> is a <i>representation</i> for some <i>type of particular relation</i>.
+</p>
+
+<p>
+Each row of a table is a <i>record</i> or an instance of a particular <i>type of relation</i>.
+</p>
+
+<p>
+All rows (records) in a table from a Set, while each field ranges over a set of possible values. So everything is <i>typed</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org66b02a7" class="outline-2">
+<h2 id="org66b02a7">Schemas</h2>
+<div class="outline-text-2" id="text-org66b02a7">
+<p>
+When we define a <i>schema</i> for a <i>table</i> we establish a higher-kinded
+<i>structural typing</i> for what is itself a <i>type</i> (a Set of all possible
+values).
+</p>
+
+<p>
+Only tables <i>of the same kind</i>  (same structure) can be used \(\cup,\cap\) operations.
+</p>
+</div>
+</div>
+<div id="outline-container-org34acad4" class="outline-2">
+<h2 id="org34acad4">&ldquo;Select&rdquo;</h2>
+<div class="outline-text-2" id="text-org34acad4">
+<p>
+Select corresponds to the notion of <i>&ldquo;such that&rdquo;</i> and <i>filtering</i>.
+</p>
+
+<p>
+Can be <i>nested</i>.
+</p>
+<ul class="org-ul">
+<li>Selects <i>commute</i> under <i>composition</i> (order in a composition is irrelevant)
+(this is an instance of a &ldquo;universal construction&rdquo;)</li>
+<li>Select distributes over \(\cup, \cap\)
+(this is an intuitive property)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

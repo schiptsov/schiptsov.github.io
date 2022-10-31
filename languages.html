@@ -1,313 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-21 Fri 14:25 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Programming Languages</title>
-  <meta name="author" content="schiptsov@gmail.com">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programming Languages</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Programming Languages</h1>
-    </header>
-    <p>There are languages designed by <i>competent academics</i>
-    (SML, Scheme, Miranda, Haskell, Ocaml, F#, Scala3), by
-    <i>talented professionals</i> (Common Lisp, C, Smalltalk,
-    Erlang, Python, Clojure, Go) and by over-ambitious,
-    narcissistic unqualified amateurs (C++, Java), <i>and you can
-    tell</i>.</p>
-    <p>PHP and Javascript have been “designed” by ignorant (never
-    studied the subject, the principles, and never looked on what
-    decent people did) idiots.</p>
-    <p>Yes, I know how Stroustrup and Gosling <i>rationalized</i>
-    their decisions (actually - fundamental theoretical fuckups)
-    <i>in retrospect</i>. Both literally ignored everything but
-    Algol, C and Simula. Just basic <i>uniformity</i> and
-    consistency would have eliminated <i>a lot</i> of fundamental
-    problems and pain.</p>
-    <p>Exactly these fundamental theoretical fuckups are trying to
-    be fixed by Scala, Clojure, Rust (also an amateur crap) and
-    that Google’s take on Rust. They are just trying to apply the
-    results of more than 60 years of PL research, which basically
-    boils down to what Ocaml is.</p>
-    <p>There are 7 major <i>levels</i> (or <i>contexts</i>) for
-    <i>any</i> programming language: principles, syntax, semantics,
-    idioms, modules, libraries, and tools.</p>
-    <div id="outline-container-orgc53b802" class="outline-2">
-      <h2 id="orgc53b802">Principles</h2>
-      <div class="outline-text-2" id="text-orgc53b802">
-        <p>To understand principles is to understand <i>how and
-        why</i> mathematics works (is). In particular, that
-        arithmetic consist of <i>number types</i> (Sets of numbers)
-        and (together with) a corresponding set of
-        <i>operations</i> (addition, subtraction, multiplication,
-        etc).</p>
-        <p>It is also important to realize what <i>generalized
-        abstract “structures” (notions)</i> such a <i>Group</i> or
-        a <i>Monoid</i> are.</p>
-        <p>The main principle in programming languages (just as in
-        Math) is <i>uniformity</i>. It follows naturally from the
-        <i>universal principles</i> of a <i>function-</i> and
-        <i>data- abstractions</i>, which, in turn, is what the
-        <i>Category Theory</i> and the <i>Set Theory</i> are all
-        about respectively.</p>
-        <p>The <i>Simple Typed Lambda Calculus</i> (has been
-        invented before any digital computers) is an underlying
-        mathematical formalism.</p>
-        <p>What we call <i>Modularity</i> are just sets of
-        <i>Abstract Data Types</i>, which are named sets of
-        <i>function signatures</i> (exported “public” interface),
-        along with “hidden” (abstracted out by these function
-        signatures) implementation details, <i>packaged into a
-        semi-independent module</i>.</p>
-        <p>Ideally, such Abstract Data Types (and related modules)
-        should correspond to the major concepts in the <i>problem
-        domain</i>, and to derived <i>generalized abstractions</i>
-        made from <i>analysis and decomposition</i> of the
-        domain.</p>
-        <p>Last but not least, <i>exact representations</i> of data
-        items (just like <code>42</code> or <code>"+"</code> on a
-        sheet of paper) and <i>NOT objects</i> should be passed
-        around (just like “in the wire”), and just like in biology,
-        the notion of an identity of each <i>molecule</i> is
-        redundant (it is defined by its location) while the notion
-        of being exactly the same as any other molecule of its kind
-        is <i>crucial</i>. Our invented <i>Numbers</i> follow the
-        same principles and this is why math “works”.</p>
-      </div>
-      <div id="outline-container-org40523a5" class="outline-3">
-        <h3 id="org40523a5">Uniformity</h3>
-        <div class="outline-text-3" id="text-org40523a5">
-          <ul class="org-ul">
-            <li>Has the <i>Simple-typed Lambda Calculus</i> at its
-            core (LIPSs and ML descendants)</li>
-            <li>Everything is an expression (not in Java, not in
-            C++. Ocaml has <i>definitions</i>)</li>
-            <li>No implicit coercions (not in Java, not in
-            C++)</li>
-            <li><i>Every value has a type</i>, even a type-tag
-            attached (LISP and ML descendants)</li>
-            <li><i>Every expression is reducible to a value</i>, so
-            <i>it</i> has a type (or an <i>Exception</i>)</li>
-            <li><i>Every value is an expression</i> (in a
-            <i>normal-form</i> - it is
-            <i>self-evaluating</i>).</li>
-            <li>Once created, <i>every value is
-            /immutable</i>.</li>
-            <li><i>Every /binding is /immutable</i> (a <i>new
-            binding</i>, which <i>shadows</i>, can be
-            introduced).</li>
-            <li>So every <i>compound</i> data-structure is
-            <i>persistent</i>.</li>
-            <li><i>Referential transparency</i> is maintained or
-            even <i>enforced</i> (Haskell).</li>
-            <li>The proper <i>Numerical Tower</i> is implemented
-            (only Smalltalk and some LISPs, but not Ocaml)</li>
-            <li><i>Algebraic Data Types</i> and the proper type
-            theory (ML descendants)</li>
-            <li>Uniform (everywhere) <i>pattern-matching</i> on
-            <i>data-constructors</i> (ML descendants)</li>
-            <li>Uniform <i>asynchronous message-passing</i>
-            (Erlang)</li>
-            <li>Single-argument lambdas, <i>currying</i> and
-            <i>partial application</i> (a real uniformity)</li>
-            <li><i>Syntactic sugar</i> for <i>multiple clauses</i>
-            (with patterns) for a function (SML, Erlang, Ocaml with
-            the <code>function</code> keyword) .</li>
-          </ul>
-          <p><i>Curried functions</i> have the same signature as
-          logical implications, and this is not a coincidence.</p>
-          <p>Each argument (value) is captured into a
-          <i>closure</i> (accepted as a “fact”) and a new
-          <i>lambda</i> (closure) is returned for the next argument
-          (“fact”). Any curried function “knows” how many and of
-          which type the arguments must be.</p>
-          <p>Applying a <i>curried function</i> to a fewer
-          arguments (which returns a <i>lambda</i> for the next
-          argument, not the result) is called <i>partial
-          application</i>.</p>
-          <p>This is not just “natural”, but also a <i>standard
-          idiom</i> - a partially applied functions can be passed
-          around, carrying already <i>captured</i> arguments with
-          it.</p>
-          <p>Each <i>clause</i> of a function (defined by
-          <i>pattern-matching</i>) can be considered as a
-          <i>partial function</i> - it accepts a particular
-          <i>subset</i> of a whole type, but is itself a <i>pure
-          function</i> nevertheless.</p>
-          <p>When a <i>clause</i> of a pattern-matching expression
-          (<code>match ... with ...</code>) introduces new
-          bindings, it is semantically the same as a <i>partial
-          function</i> (of a particular <i>subset of the type</i>):
-          same input - same output. Thus is what we call a
-          <i>uniform pattern-matching</i>, almost like in Erlang
-          (where <i>everything</i> is pattern-matching).</p>
-          <p>And, of course, pattern-matching is not just a
-          convenient way of <i>destructuring</i> (without throwing
-          exceptions). This is a more general notion of <i>a value
-          to have a certain “shape”</i> (like a molecule) and of
-          matching against a particular <i>shape</i>.</p>
-          <p>This is what Rust “trannies” missed completely because
-          they never studied the subject, but they are too proud of
-          being “special” and “creative” lmao.</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-orgb76fe45" class="outline-2">
-      <h2 id="orgb76fe45">Syntax</h2>
-      <div class="outline-text-2" id="text-orgb76fe45">
-        <p>Defined by a <i>set of rules</i>, which together
-        specifying what constitutes a <i>well-formed
-        expression</i>.</p>
-        <p><i>Syntax-checking</i> is, obviously, done before
-        <i>type-checking</i> and <i>evaluation</i>.</p>
-      </div>
-      <div id="outline-container-org8d79c00" class="outline-3">
-        <h3 id="org8d79c00">Type declarations</h3>
-        <div class="outline-text-3" id="text-org8d79c00">
-          <p>This is the syntax and the rules of how to define
-          <i>new (user-defined) types</i> and especially
-          <i>Algebraic Data Types</i>.</p>
-        </div>
-      </div>
-      <div id="outline-container-orgbb09248" class="outline-3">
-        <h3 id="orgbb09248">Pattern-matching</h3>
-        <div class="outline-text-3" id="text-orgbb09248">
-          <p>Pattern matching on <i>data-constructors</i> (of
-          Algebraic Data Typesp)</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org9a81e61" class="outline-2">
-      <h2 id="org9a81e61">Semantics</h2>
-      <div class="outline-text-2" id="text-org9a81e61">
-        <p>Basically, semantics are sets of <i>precise rules</i> of
-        how a compiler would “understand” (or an interpreter
-        interpret) a particular kind of expressions (this or that
-        <i>syntactic form</i>). Your understanding must correspond
-        to the compiler’s.</p>
-      </div>
-      <div id="outline-container-orgfb4c801" class="outline-3">
-        <h3 id="orgfb4c801">Dynamic semantics</h3>
-        <div class="outline-text-3" id="text-orgfb4c801">
-          <p><i>Evaluation rules</i> - how a particular kind of
-          expressions will be <i>evaluated at runtime</i>. For
-          example, an <code>if e1 then e2 else e3</code> expression
-          has its own <i>evaluation rules</i> (either
-          <code>e2</code> or <code>e3</code>, depending on what
-          whether <code>e1</code> is <code>true</code>).</p>
-        </div>
-      </div>
-      <div id="outline-container-org1d064a6" class="outline-3">
-        <h3 id="org1d064a6">Pattern-matching rules</h3>
-        <div class="outline-text-3" id="text-org1d064a6">
-          <p>These can be singled out because they are complex and
-          may or may not introduce local <i>scopes</i> and <i>new
-          bindings</i>.</p>
-        </div>
-      </div>
-      <div id="outline-container-orgb407e00" class="outline-3">
-        <h3 id="orgb407e00">Static semantics</h3>
-        <div class="outline-text-3" id="text-orgb407e00">
-          <p><i>Typing rules</i> - how a particular kind of
-          expressions will be <i>type-checked</i> by the compiler.
-          For example, an <code>if e1 then e2 else e3</code>
-          expression has its own <i>typing rules</i> (both clauses
-          <code>e2</code> and <code>e3</code> has to be of <i>the
-          same type</i>).</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org2ea3cca" class="outline-2">
-      <h2 id="org2ea3cca">Common idioms</h2>
-      <div class="outline-text-2" id="text-org2ea3cca">
-        <p>The same <i>computation</i> could be expressed in more
-        than one way. The classic example is how some <i>imperative
-        loops</i> could be expressed as <i>declarative</i>
-        recursive functions, like <code>map</code> or
-        <code>fold</code>.</p>
-        <p>Idiomatic usage of the <i>comprehension syntax</i> is
-        another way of reducing complexity.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgc6a6c57" class="outline-2">
-      <h2 id="orgc6a6c57">Modules</h2>
-      <div class="outline-text-2" id="text-orgc6a6c57"></div>
-      <div id="outline-container-orgd72b0de" class="outline-3">
-        <h3 id="orgd72b0de">Exports</h3>
-        <div class="outline-text-3" id="text-orgd72b0de">
-          <p>We can choose which particular values to export and
-          which to hide.</p>
-        </div>
-      </div>
-      <div id="outline-container-orga94058e" class="outline-3">
-        <h3 id="orga94058e">Imports</h3>
-        <div class="outline-text-3" id="text-orga94058e">
-          <p>This is how we import values from a module (external
-          or internal).</p>
-        </div>
-      </div>
-      <div id="outline-container-org7d612eb" class="outline-3">
-        <h3 id="org7d612eb">Functors</h3>
-        <div class="outline-text-3" id="text-org7d612eb">
-          <p>This defines operations on whole modules which are
-          available in <i>Standard ML</i>, <i>Ocaml</i> and
-          <i>F#</i>.</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-org7004ad3" class="outline-2">
-      <h2 id="org7004ad3">Libraries</h2>
-      <div class="outline-text-2" id="text-org7004ad3"></div>
-      <div id="outline-container-orge668840" class="outline-3">
-        <h3 id="orge668840">The Standard Library</h3>
-      </div>
-      <div id="outline-container-org25e0f31" class="outline-3">
-        <h3 id="org25e0f31">3rd-party libraries</h3>
-      </div>
-      <div id="outline-container-org954fc1c" class="outline-3">
-        <h3 id="org954fc1c">Internal libraries</h3>
-      </div>
-    </div>
-    <div id="outline-container-org05a0de7" class="outline-2">
-      <h2 id="org05a0de7">Tools</h2>
-      <div class="outline-text-2" id="text-org05a0de7"></div>
-      <div id="outline-container-org0f54d81" class="outline-3">
-        <h3 id="org0f54d81">Formatters</h3>
-      </div>
-      <div id="outline-container-org82f27fd" class="outline-3">
-        <h3 id="org82f27fd">Linters</h3>
-      </div>
-      <div id="outline-container-org9fd514e" class="outline-3">
-        <h3 id="org9fd514e">Static analyzers</h3>
-      </div>
-      <div id="outline-container-orgf87ca05" class="outline-3">
-        <h3 id="orgf87ca05">Interpreters or REPLs</h3>
-      </div>
-      <div id="outline-container-org98855d3" class="outline-3">
-        <h3 id="org98855d3">Compilers</h3>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: schiptsov@gmail.com</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-21 Fri 14:25</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Programming Languages</h1>
+</header><p>
+There are languages designed by <i>competent academics</i> (SML, Scheme, Miranda, Haskell,
+Ocaml, F#, Scala3), by <i>talented professionals</i> (Common Lisp, C,
+Smalltalk, Erlang, Python, Clojure, Go) and by
+over-ambitious, narcissistic unqualified amateurs (C++, Java), <i>and you can tell</i>.
+</p>
+
+<p>
+PHP and Javascript have been &ldquo;designed&rdquo; by ignorant (never
+studied the subject, the principles, and never looked on what decent people did) idiots.
+</p>
+
+<p>
+Yes, I know how Stroustrup and Gosling <i>rationalized</i> their decisions
+(actually - fundamental theoretical fuckups) <i>in retrospect</i>. Both
+literally ignored everything but Algol, C and Simula. Just basic
+<i>uniformity</i> and consistency would have eliminated <i>a lot</i> of fundamental problems
+and pain.
+</p>
+
+<p>
+Exactly these fundamental theoretical fuckups are trying to be fixed by
+Scala, Clojure, Rust (also an amateur crap) and that Google&rsquo;s take on
+Rust. They are just trying to apply the results of more than 60 years of PL
+research, which basically boils down to what Ocaml is.
+</p>
+
+<p>
+There are 7 major <i>levels</i> (or <i>contexts</i>) for <i>any</i> programming language:
+principles, syntax, semantics, idioms, modules, libraries, and tools.
+</p>
+<div id="outline-container-orgd9d2021" class="outline-2">
+<h2 id="orgd9d2021">Principles</h2>
+<div class="outline-text-2" id="text-orgd9d2021">
+<p>
+To understand principles is to understand <i>how and why</i> mathematics works
+(is).
+In particular, that arithmetic consist of <i>number types</i> (Sets of numbers)
+and (together with) a corresponding set of <i>operations</i> (addition, subtraction, multiplication, etc).
+</p>
+
+<p>
+It is also important to realize what <i>generalized abstract &ldquo;structures&rdquo; (notions)</i>
+such a <i>Group</i> or a <i>Monoid</i> are.
+</p>
+
+<p>
+The main principle in programming languages (just as in Math) is
+<i>uniformity</i>. It follows naturally from the <i>universal principles</i> of a <i>function-</i> and
+<i>data- abstractions</i>, which, in turn, is what the <i>Category Theory</i> and the <i>Set
+Theory</i> are all about respectively.
+</p>
+
+<p>
+The <i>Simple Typed Lambda Calculus</i> (has been invented before any digital
+ computers) is an underlying mathematical formalism.
+</p>
+
+<p>
+What we call <i>Modularity</i> are just sets of <i>Abstract Data Types</i>, which are
+named sets of <i>function signatures</i> (exported &ldquo;public&rdquo; interface), along with &ldquo;hidden&rdquo;
+(abstracted out by these function signatures) implementation details, <i>packaged into a semi-independent module</i>.
+</p>
+
+<p>
+Ideally, such Abstract Data Types (and related modules) should correspond to the
+major concepts in the <i>problem domain</i>, and to derived <i>generalized abstractions</i>
+made from <i>analysis and decomposition</i> of the domain.
+</p>
+
+<p>
+Last but not least, <i>exact representations</i> of data items (just like <code>42</code> or
+<code>"+"</code> on a sheet of paper) and <i>NOT objects</i> should be passed around (just like &ldquo;in the wire&rdquo;), and just like in biology, the
+notion of an identity of each <i>molecule</i> is redundant (it is defined by
+its location) while the notion of being exactly the same as any other
+molecule of its kind is <i>crucial</i>. Our invented <i>Numbers</i> follow the same
+principles and this is why math &ldquo;works&rdquo;.
+</p>
+</div>
+
+<div id="outline-container-org13f5628" class="outline-3">
+<h3 id="org13f5628">Uniformity</h3>
+<div class="outline-text-3" id="text-org13f5628">
+<ul class="org-ul">
+<li>Has the <i>Simple-typed Lambda Calculus</i> at its core (LIPSs and ML descendants)</li>
+<li>Everything is an expression (not in Java, not in C++. Ocaml has <i>definitions</i>)</li>
+<li>No implicit coercions (not in Java, not in C++)</li>
+<li><i>Every value has a type</i>, even a type-tag attached (LISP and ML descendants)</li>
+<li><i>Every expression is reducible to a value</i>, so <i>it</i> has a type (or an
+<i>Exception</i>)</li>
+<li><i>Every value is an expression</i> (in a <i>normal-form</i> - it is
+<i>self-evaluating</i>).</li>
+<li>Once created, <i>every value is /immutable</i>.</li>
+<li><i>Every /binding is /immutable</i> (a <i>new binding</i>, which <i>shadows</i>, can be
+introduced).</li>
+<li>So every <i>compound</i> data-structure is <i>persistent</i>.</li>
+<li><i>Referential transparency</i> is maintained or even <i>enforced</i> (Haskell).</li>
+<li>The proper <i>Numerical Tower</i> is implemented (only Smalltalk and some
+LISPs, but not Ocaml)</li>
+<li><i>Algebraic Data Types</i> and the proper type theory (ML descendants)</li>
+<li>Uniform (everywhere) <i>pattern-matching</i> on <i>data-constructors</i> (ML descendants)</li>
+<li>Uniform <i>asynchronous message-passing</i> (Erlang)</li>
+<li>Single-argument lambdas, <i>currying</i> and <i>partial application</i> (a real uniformity)</li>
+<li><i>Syntactic sugar</i> for <i>multiple clauses</i> (with patterns) for a function
+(SML, Erlang, Ocaml with the <code>function</code> keyword) .</li>
+</ul>
+
+<p>
+<i>Curried functions</i> have the same signature as logical implications, and
+this is not a coincidence.
+</p>
+
+<p>
+Each argument (value) is captured into a <i>closure</i> (accepted as a &ldquo;fact&rdquo;) and a new <i>lambda</i>
+(closure) is returned for the next argument (&ldquo;fact&rdquo;). Any curried
+function &ldquo;knows&rdquo; how many and of which type the arguments must be.
+</p>
+
+<p>
+Applying a <i>curried function</i> to a fewer arguments (which returns a
+<i>lambda</i> for the next argument, not the result) is called <i>partial
+application</i>.
+</p>
+
+<p>
+This is not just &ldquo;natural&rdquo;, but also a <i>standard idiom</i> - a partially
+applied functions can be passed around, carrying already <i>captured</i>
+arguments with it.
+</p>
+
+<p>
+Each <i>clause</i> of a function (defined by <i>pattern-matching</i>) can be considered as a <i>partial function</i> -
+it accepts a particular <i>subset</i> of a whole type, but is itself a <i>pure function</i>
+nevertheless.
+</p>
+
+<p>
+When a <i>clause</i> of a pattern-matching expression (<code>match ... with ...</code>) introduces new bindings, it
+is semantically the same as a <i>partial function</i> (of a particular <i>subset of the type</i>): same input - same
+output. Thus is what we call a <i>uniform pattern-matching</i>, almost like in
+Erlang (where <i>everything</i> is pattern-matching).
+</p>
+
+<p>
+And, of course, pattern-matching is not just a convenient way of
+<i>destructuring</i> (without throwing exceptions). This is a more general notion of <i>a value to have a
+certain &ldquo;shape&rdquo;</i> (like a molecule) and of matching against  a particular
+<i>shape</i>.
+</p>
+
+<p>
+This is what Rust &ldquo;trannies&rdquo; missed completely because they never
+studied the subject, but they are too proud of being &ldquo;special&rdquo; and &ldquo;creative&rdquo; lmao.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0adfe63" class="outline-2">
+<h2 id="org0adfe63">Syntax</h2>
+<div class="outline-text-2" id="text-org0adfe63">
+<p>
+Defined by a <i>set of rules</i>, which together specifying what constitutes a
+<i>well-formed expression</i>.
+</p>
+
+<p>
+<i>Syntax-checking</i> is, obviously, done before <i>type-checking</i> and <i>evaluation</i>.
+</p>
+</div>
+<div id="outline-container-orgfffb645" class="outline-3">
+<h3 id="orgfffb645">Type declarations</h3>
+<div class="outline-text-3" id="text-orgfffb645">
+<p>
+This is the syntax and the rules of how to define <i>new (user-defined) types</i> and
+especially <i>Algebraic Data Types</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdac5f5e" class="outline-3">
+<h3 id="orgdac5f5e">Pattern-matching</h3>
+<div class="outline-text-3" id="text-orgdac5f5e">
+<p>
+Pattern matching on <i>data-constructors</i> (of Algebraic Data Typesp)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org3fef89f" class="outline-2">
+<h2 id="org3fef89f">Semantics</h2>
+<div class="outline-text-2" id="text-org3fef89f">
+<p>
+Basically, semantics are sets of <i>precise rules</i> of how a compiler would
+&ldquo;understand&rdquo; (or an interpreter interpret) a particular kind of
+expressions (this or that <i>syntactic form</i>).
+Your understanding must correspond to the compiler&rsquo;s.
+</p>
+</div>
+<div id="outline-container-org6d86d83" class="outline-3">
+<h3 id="org6d86d83">Dynamic semantics</h3>
+<div class="outline-text-3" id="text-org6d86d83">
+<p>
+<i>Evaluation rules</i> - how a particular kind of expressions will be
+<i>evaluated at runtime</i>.
+For example, an <code>if e1 then e2 else e3</code> expression has its own <i>evaluation
+rules</i> (either <code>e2</code> or <code>e3</code>, depending on what whether <code>e1</code> is <code>true</code>).
+</p>
+</div>
+</div>
+<div id="outline-container-org6e43649" class="outline-3">
+<h3 id="org6e43649">Pattern-matching rules</h3>
+<div class="outline-text-3" id="text-org6e43649">
+<p>
+These can be singled out because they are complex and may or may not
+introduce local <i>scopes</i> and <i>new bindings</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfafd63e" class="outline-3">
+<h3 id="orgfafd63e">Static semantics</h3>
+<div class="outline-text-3" id="text-orgfafd63e">
+<p>
+<i>Typing rules</i> - how a particular kind of expressions will be <i>type-checked</i>
+by the compiler.
+For example, an <code>if e1 then e2 else e3</code> expression has its own <i>typing
+rules</i> (both clauses <code>e2</code> and <code>e3</code> has to be of <i>the same type</i>).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9102e1f" class="outline-2">
+<h2 id="org9102e1f">Common idioms</h2>
+<div class="outline-text-2" id="text-org9102e1f">
+<p>
+The same <i>computation</i> could be expressed in more than one way. The
+classic example is how some <i>imperative loops</i> could be expressed as
+<i>declarative</i> recursive functions, like <code>map</code> or <code>fold</code>.
+</p>
+
+<p>
+Idiomatic usage of the <i>comprehension syntax</i> is another way of reducing
+complexity.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgafe4608" class="outline-2">
+<h2 id="orgafe4608">Modules</h2>
+<div class="outline-text-2" id="text-orgafe4608">
+</div>
+<div id="outline-container-org5aab285" class="outline-3">
+<h3 id="org5aab285">Exports</h3>
+<div class="outline-text-3" id="text-org5aab285">
+<p>
+We can choose which particular values to export and which to hide.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc3d4df6" class="outline-3">
+<h3 id="orgc3d4df6">Imports</h3>
+<div class="outline-text-3" id="text-orgc3d4df6">
+<p>
+This is how we import values from a module (external or internal).
+</p>
+</div>
+</div>
+<div id="outline-container-orgfdd7938" class="outline-3">
+<h3 id="orgfdd7938">Functors</h3>
+<div class="outline-text-3" id="text-orgfdd7938">
+<p>
+This defines operations on whole modules which are available in
+<i>Standard ML</i>, <i>Ocaml</i> and <i>F#</i>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc60826d" class="outline-2">
+<h2 id="orgc60826d">Libraries</h2>
+<div class="outline-text-2" id="text-orgc60826d">
+</div>
+<div id="outline-container-org22e8497" class="outline-3">
+<h3 id="org22e8497">The Standard Library</h3>
+</div>
+<div id="outline-container-org9793383" class="outline-3">
+<h3 id="org9793383">3rd-party libraries</h3>
+</div>
+<div id="outline-container-orgcd84746" class="outline-3">
+<h3 id="orgcd84746">Internal libraries</h3>
+</div>
+</div>
+<div id="outline-container-org4adad01" class="outline-2">
+<h2 id="org4adad01">Tools</h2>
+<div class="outline-text-2" id="text-org4adad01">
+</div>
+<div id="outline-container-orgb209cd2" class="outline-3">
+<h3 id="orgb209cd2">Formatters</h3>
+</div>
+<div id="outline-container-orgede6bfe" class="outline-3">
+<h3 id="orgede6bfe">Linters</h3>
+</div>
+<div id="outline-container-org56f5c10" class="outline-3">
+<h3 id="org56f5c10">Static analyzers</h3>
+</div>
+<div id="outline-container-org079c72f" class="outline-3">
+<h3 id="org079c72f">Interpreters or REPLs</h3>
+</div>
+<div id="outline-container-orga8e1df4" class="outline-3">
+<h3 id="orga8e1df4">Compilers</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

@@ -1,105 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:18 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Haskell IO</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
+<!-- 2022-10-31 Mon 16:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Haskell IO</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Haskell IO</h1>
-    </header>
-    <div id="outline-container-org0bb43e6" class="outline-2">
-      <h2 id="org0bb43e6">Purity</h2>
-      <div class="outline-text-2" id="text-org0bb43e6">
-        <p>The trick is that once you <i>threaded up</i> functions
-        <i>explicitly</i> using a second argument and returning a
-        second value or <i>implicitly</i>, by hiding the second
-        value behind an <i>abstraction barrier</i>, the
-        <i>referential transparency</i> (property) will hold.</p>
-        <p>Same input <i>and an initial value</i> - same output,
-        and a <i>new</i> “initial” value. These “ pairs” will
-        always be the same, so expressions describing IO (to be
-        performed <i>eventually</i> by runtime) are literally
-        declarative expressions of a logic (describing parts of a
-        pure <i>state-machine</i>).</p>
-        <p>This is how <code>I/O</code> in Haskell is done. This is
-        the meaning behind the famous</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">type</span> <span style=
-          "color: #8FBCBB;">IO</span> a <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #8FBCBB;">World</span> <span style=
-          "color: #D8DEE9;">-&gt;</span> <span style=
-          "color: #81A1C1;">(</span>a,<span style=
-          "color: #8FBCBB;">World</span><span style=
-          "color: #81A1C1;">)</span>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Haskell IO</h1>
+</header>
+
+<div id="outline-container-orga0d6803" class="outline-2">
+<h2 id="orga0d6803">Purity</h2>
+<div class="outline-text-2" id="text-orga0d6803">
+<p>
+The trick is that once you <i>threaded up</i> functions <i>explicitly</i> using a second
+argument and returning a second value or <i>implicitly</i>, by hiding the second
+value behind an <i>abstraction barrier</i>, the <i>referential transparency</i>
+(property) will hold.
+</p>
+
+<p>
+Same input <i>and an initial value</i> - same output, and a <i>new</i> &ldquo;initial&rdquo;
+value. These &ldquo; pairs&rdquo; will always be the same, so expressions describing
+IO (to be performed <i>eventually</i> by runtime)  are literally declarative
+expressions of a logic (describing parts of a pure <i>state-machine</i>).
+</p>
+
+<p>
+This is how <code>I/O</code> in Haskell is done. This is the meaning behind the
+famous
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">IO</span> a <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">World</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>a,<span style="color: #8FBCBB;">World</span><span style="color: #81A1C1;">)</span>
 </pre>
-        </div>
-        <p><code>IO a</code> uses the <i>abstraction barrier</i>
-        aspect of a <code>Monad</code> (so one cannot see or touch
-        the World).</p>
-        <p>In Haskell, but not in math, serialization is
-        <i>implicit</i> in any monad because
-        <code>(&gt;&gt;=)</code> is implemented using <i>nested
-        lambdas</i>.</p>
-        <p>Notice that <i>function composition</i> <code>(.)</code>
-        is also nesting of lambdas. This is not a coincidence -
-        there is <i>absolutely no other way</i> to enforce an order
-        of evaluation in a <i>Normal Order</i> language. One has to
-        <i>nest explicitly</i>.</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell">g <span style=
-          "color: #88C0D0;">.</span> f <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #D8DEE9;">\</span>x <span style=
-          "color: #D8DEE9;">-&gt;</span> g <span style=
-          "color: #81A1C1;">(</span>f x<span style=
-          "color: #81A1C1;">)</span>
+</div>
+
+<p>
+<code>IO a</code> uses the <i>abstraction barrier</i> aspect of a <code>Monad</code> (so one cannot
+see or touch the World).
+</p>
+
+<p>
+In Haskell, but not in math, serialization is <i>implicit</i> in any monad because  <code>(&gt;&gt;=)</code> is
+implemented using <i>nested lambdas</i>.
+</p>
+
+<p>
+Notice that <i>function composition</i> <code>(.)</code> is also nesting of lambdas.
+This is not a coincidence - there is <i>absolutely no other way</i> to
+enforce an order of evaluation in a <i>Normal Order</i> language. One has to
+<i>nest explicitly</i>.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">g <span style="color: #88C0D0;">.</span> f <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">\</span>x <span style="color: #D8DEE9;">-&gt;</span> g <span style="color: #81A1C1;">(</span>f x<span style="color: #81A1C1;">)</span>
 </pre>
-        </div>
-        <p><code>IO a</code> is similar to</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell"><span style=
-          "color: #81A1C1;">type</span> <span style=
-          "color: #8FBCBB;">State</span> s a <span style=
-          "color: #D8DEE9;">=</span> s <span style=
-          "color: #D8DEE9;">-&gt;</span> <span style=
-          "color: #81A1C1;">(</span>a, s<span style=
-          "color: #81A1C1;">)</span>
+</div>
+
+<p>
+<code>IO a</code> is similar to
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">State</span> s a <span style="color: #D8DEE9;">=</span> s <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>a, s<span style="color: #81A1C1;">)</span>
 </pre>
-        </div>
-        <p>In the case of <code>IO a</code> the <i>threading
-        through</i> (an enforced serialization) is <i>implicit</i>,
-        while with <code>State s a</code> it is explicit within an
-        ADT.</p>
-        <p>Yes, it is just an <i>Abstract Data Type</i>, which is
-        also an <i>instance of a Monad</i>.</p>
-        <p>Just like <code>[a]</code>.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:18</p>
-  </div>
+</div>
+
+<p>
+In the case of <code>IO a</code> the <i>threading through</i> (an enforced serialization) is
+<i>implicit</i>, while with <code>State s a</code> it is explicit within an ADT.
+</p>
+
+<p>
+Yes, it is just an <i>Abstract Data Type</i>, which is also an <i>instance of
+a Monad</i>.
+</p>
+
+<p>
+Just like <code>[a]</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:39</p>
+</div>
 </body>
 </html>

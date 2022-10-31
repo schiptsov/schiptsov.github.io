@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:19 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Indicators</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Indicators</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -32,268 +32,349 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Indicators</h1>
-    </header>
-    <p>One cannot base trading decisions on a <i>single
-    indicator</i> (even on MACD).</p>
-    <p>Select <i>several</i> indicators you <i>understand</i> and
-    <i>combine</i> them, just like a <i>speedometer</i> and
-    <i>tahometer</i> of a bike.</p>
-    <p>One <i>lagging</i>, one <i>leading</i> and a couple of
-    <i>data-driven</i> will be enough.</p>
-    <ul class="org-ul">
-      <li>Stohastics “lead” (on ranges)</li>
-      <li>MAs “confirm” (on trends)</li>
-      <li>Open Interest shows the <i>sentiment</i></li>
-    </ul>
-    <p>Each one should <i>measure</i> a different kind of a
-    metric.</p>
-    <div id="outline-container-org98e2552" class="outline-2">
-      <h2 id="org98e2552">Math</h2>
-      <div class="outline-text-2" id="text-org98e2552">
-        <p>Learn the underlying math of every indicator.</p>
-        <p>It is basically <i>averaging</i> or <i>differences</i>
-        (distances) and <i>slopes</i>.</p>
-        <ul class="org-ul">
-          <li>lagging or leading</li>
-          <li>trend following or oscillators</li>
-          <li>sentiments or simple stats</li>
-        </ul>
-      </div>
-      <div id="outline-container-orgaaa9ae1" class="outline-3">
-        <h3 id="orgaaa9ae1">MACD-line</h3>
-        <div class="outline-text-3" id="text-orgaaa9ae1">
-          <ul class="org-ul">
-            <li><i>lagging</i></li>
-            <li>trend-<i>following</i></li>
-          </ul>
-          <p>“slow” (long) MA vs “fast” (short) MA Interpretation:
-          confirmations of reversals Similar to:</p>
-        </div>
-      </div>
-      <div id="outline-container-org1bfcab9" class="outline-3">
-        <h3 id="org1bfcab9">MACD-histogram</h3>
-        <div class="outline-text-3" id="text-org1bfcab9">
-          <ul class="org-ul">
-            <li><i>leading</i></li>
-            <li>an oscillator</li>
-          </ul>
-          <p>Interpretation: differences, <i>momentum</i>, rate of
-          change Similar to: RSI, Elder-ray, etc.</p>
-        </div>
-      </div>
-      <div id="outline-container-org4de7f2d" class="outline-3">
-        <h3 id="org4de7f2d">Open Interest</h3>
-        <div class="outline-text-3" id="text-org4de7f2d">
-          <p>A sum-total of <i>sizes</i> of open positions.</p>
-        </div>
-      </div>
-      <div id="outline-container-org4374e7f" class="outline-3">
-        <h3 id="org4374e7f">Long/Short Ratio</h3>
-        <div class="outline-text-3" id="text-org4374e7f">
-          <p>Number of <i>longs</i> vs. numbers of
-          <i>shorts</i>.</p>
-        </div>
-      </div>
-      <div id="outline-container-org4924bd3" class="outline-3">
-        <h3 id="org4924bd3">Calls/Puts</h3>
-        <div class="outline-text-3" id="text-org4924bd3">
-          <p>Number of <i>calls</i> vs. number of <i>puts</i>.</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-orgb7b0eec" class="outline-2">
-      <h2 id="orgb7b0eec">Socially constructed</h2>
-      <div class="outline-text-2" id="text-orgb7b0eec">
-        <p>Everything is socially constructed, like religious
-        rituals based on shared beliefs. Self-reinforcement systems
-        - the more of them act (perform the rituals),the more they
-        are sure.</p>
-      </div>
-    </div>
-    <div id="outline-container-org6778761" class="outline-2">
-      <h2 id="org6778761">Sentiments</h2>
-      <div class="outline-text-2" id="text-org6778761">
-        <p>All indicators must measure other people’s sentiments
-        (fear, greed, excitement, depression, intensity of
-        feelings).</p>
-        <p><i>FOMO-ing in</i> is the strongest sentiment.</p>
-      </div>
-    </div>
-    <div id="outline-container-org2954dbb" class="outline-2">
-      <h2 id="org2954dbb">Patterns</h2>
-      <div class="outline-text-2" id="text-org2954dbb">
-        <p>Indicators have <i>patterns</i> of their own, and
-        <i>other people</i> watch for and follow these patterns
-        (like they follow patterns of the main chart).</p>
-      </div>
-    </div>
-    <div id="outline-container-org66092f0" class="outline-2">
-      <h2 id="org66092f0">More than one</h2>
-      <div class="outline-text-2" id="text-org66092f0">
-        <p>Several indicators <i>of different kind</i> must
-        <i>confirm</i> each other (on a <i>larger
-        timeframe</i>).</p>
-        <p>Stohastics are using just last two candles (to get the
-        <i>differences</i> and <i>momentum</i>).</p>
-        <p>EMAs are also basically the same.</p>
-      </div>
-    </div>
-    <div id="outline-container-orge0faf0d" class="outline-2">
-      <h2 id="orge0faf0d">Elder</h2>
-      <div class="outline-text-2" id="text-orge0faf0d">
-        <p>If I squinting at a chart while trying to understand its
-        signals, I flip the page and move to the next stock. (this!
-        - stay aside and just trade more than one ticker.)</p>
-        <p>If you look at a familiar indicator but can’t understand
-        its message, it is most likely because the stock you’re
-        trying to analyze is in a <i>chaotic</i> stage (no pattern
-        emerged from the chaos yet).</p>
-      </div>
-    </div>
-    <div id="outline-container-orgb157057" class="outline-2">
-      <h2 id="orgb157057">MAs</h2>
-      <div class="outline-text-2" id="text-orgb157057">
-        <p>An average is a <i>smoothing function</i>. Averages
-        <i>lose information</i>, precision.</p>
-        <p>The most important information is the <i>direction</i>
-        (the sign) and the <i>slope</i> (angle) for the resulting
-        <i>curve</i> (when MA <i>points</i> are connected).</p>
-        <p>EMAs should be used instead of simple MAs</p>
-      </div>
-    </div>
-    <div id="outline-container-org73eed5e" class="outline-2">
-      <h2 id="org73eed5e">Smoothing</h2>
-      <div class="outline-text-2" id="text-org73eed5e">
-        <p>MA is an <i>average</i> price for <i>past</i> \(n\) days
-        interval (or a window). Connecting individual MA
-        <i>points</i> yields a <i>curve</i>. The larger \(n\) - the
-        smoother the curve. Every MA is thus <i>lagging</i>.
-        Shorter \(n\) curves are “faster”.</p>
-        <p>It is said that this technique separates a <i>signal</i>
-        from the <i>noise</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-org6cb9d29" class="outline-2">
-      <h2 id="org6cb9d29">Slope</h2>
-      <div class="outline-text-2" id="text-org6cb9d29">
-        <p>A <i>slope</i> of a MA curve is acceleration.</p>
-        <p>This is how <i>divergences</i> occur - new lows but in a
-        <i>less steep slope</i>. yay!</p>
-      </div>
-    </div>
-    <div id="outline-container-orgb1e8644" class="outline-2">
-      <h2 id="orgb1e8644">Lagging</h2>
-      <div class="outline-text-2" id="text-orgb1e8644">
-        <p>All <i>MAs</i> are <i>lagging</i> - they turns
-        <i>after</i> the price.</p>
-      </div>
-    </div>
-    <div id="outline-container-org798e459" class="outline-2">
-      <h2 id="org798e459">Last two</h2>
-      <div class="outline-text-2" id="text-org798e459">
-        <p>Oscillators <i>coincide</i>, because they use only
-        <i>last two</i> candles.</p>
-      </div>
-    </div>
-    <div id="outline-container-org5316f59" class="outline-2">
-      <h2 id="org5316f59">Moving Average
-      <i>convergence-divergence</i>.</h2>
-      <div class="outline-text-2" id="text-org5316f59"></div>
-      <div id="outline-container-org1100da5" class="outline-3">
-        <h3 id="org1100da5">Trend-following</h3>
-        <div class="outline-text-3" id="text-org1100da5">
-          <p>MACD lines is a <i>lagging</i> indicator - turns
-          <i>after</i> a reversal In trends to <i>confirm
-          reversals</i>. It measures <i>the slope of moving
-          averages</i>.</p>
-        </div>
-      </div>
-      <div id="outline-container-org181e92d" class="outline-3">
-        <h3 id="org181e92d">Oscillators</h3>
-        <div class="outline-text-3" id="text-org181e92d">
-          <p>MACD histogram is a <i>coincident</i> indicator - goes
-          with prices In flat ranges to <i>detect turns</i>.</p>
-        </div>
-      </div>
-      <div id="outline-container-org98b9be9" class="outline-3">
-        <h3 id="org98b9be9">Sentiment analysis</h3>
-        <div class="outline-text-3" id="text-org98b9be9">
-          <p>Open Interest Put/Call Ratio. Long/Short Supply held
-          by retail</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-orgb04178a" class="outline-2">
-      <h2 id="orgb04178a">MACD</h2>
-      <div class="outline-text-2" id="text-orgb04178a">
-        <p>Averages and slopes MA <i>Lines</i></p>
-        <p><code>MACD-Histogram = MACD line − Signal line</code>
-        MACD-Histogram measures the <i>difference</i> between the
-        MACD-line and the Signal Line (MACD-line is itself the
-        <i>difference</i> between \(12\) and \(26\) EMAs).</p>
-        <p>Since each \(\delta x\) can be considered as a
-        <i>unit</i> (set to \(1\)) the Histogram shows the
-        <i>abstract second /derivative</i> or “acceleration”
-        (spread).</p>
-        <p>The <i>slope</i> is thus just the \(\delta y\). (the
-        difference between open and close). This is <i>change</i>
-        within a candle.</p>
-        <p>The slope between any <i>two adjacent candles</i>
-        (closing prices) is the <i>change</i> within a <i>single
-        step</i> (so, again, \(\delta x=1\)).</p>
-        <p>Price change (the length of a candle) is the
-        “speed”.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgedb79b7" class="outline-2">
-      <h2 id="orgedb79b7">Metrics and “meters”</h2>
-      <div class="outline-text-2" id="text-orgedb79b7">
-        <p>Keep in mind that these <i>moving averages</i> are pure
-        abstractions - derived metrics, and their further
-        manipulations (subtractions) are even more abstract.</p>
-        <p>The only “real” ones are the changes
-        (<i>differences</i>) in <i>price</i> and <i>volume</i> (and
-        numbers of trades, bucked-sorted by <i>position
-        sizes</i>).</p>
-      </div>
-    </div>
-    <div id="outline-container-org0197e4a" class="outline-2">
-      <h2 id="org0197e4a">RSI</h2>
-      <div class="outline-text-2" id="text-org0197e4a">
-        <p>Know the math - what kind of a function it is.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgf8331ea" class="outline-2">
-      <h2 id="orgf8331ea">Other signals</h2>
-      <div class="outline-text-2" id="text-orgf8331ea">
-        <ul class="org-ul">
-          <li>Open Intgerest</li>
-          <li>Long/Short ratio</li>
-          <li>Leverage ratio (risk)</li>
-          <li>Calls/Puts</li>
-          <li>Liquidations</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:19</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Indicators</h1>
+</header><p>
+One cannot base trading decisions on a <i>single indicator</i> (even on MACD).
+</p>
+
+<p>
+Select <i>several</i> indicators you <i>understand</i> and <i>combine</i> them, just like a
+<i>speedometer</i> and <i>tahometer</i> of a bike.
+</p>
+
+<p>
+One <i>lagging</i>, one <i>leading</i> and a couple of <i>data-driven</i> will be enough.
+</p>
+<ul class="org-ul">
+<li>Stohastics &ldquo;lead&rdquo; (on ranges)</li>
+<li>MAs &ldquo;confirm&rdquo; (on trends)</li>
+<li>Open Interest shows the <i>sentiment</i></li>
+</ul>
+
+<p>
+Each one should <i>measure</i> a different kind of a metric.
+</p>
+
+<div id="outline-container-org38dc694" class="outline-2">
+<h2 id="org38dc694">Math</h2>
+<div class="outline-text-2" id="text-org38dc694">
+<p>
+Learn the underlying math of every indicator.
+</p>
+
+<p>
+It is basically <i>averaging</i> or <i>differences</i> (distances) and <i>slopes</i>.
+</p>
+
+<ul class="org-ul">
+<li>lagging or leading</li>
+<li>trend following or oscillators</li>
+<li>sentiments or simple stats</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd5c480b" class="outline-3">
+<h3 id="orgd5c480b">MACD-line</h3>
+<div class="outline-text-3" id="text-orgd5c480b">
+<ul class="org-ul">
+<li><i>lagging</i></li>
+<li>trend-<i>following</i></li>
+</ul>
+<p>
+&ldquo;slow&rdquo; (long) MA vs &ldquo;fast&rdquo; (short) MA
+Interpretation: confirmations of reversals
+Similar to:
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga14d002" class="outline-3">
+<h3 id="orga14d002">MACD-histogram</h3>
+<div class="outline-text-3" id="text-orga14d002">
+<ul class="org-ul">
+<li><i>leading</i></li>
+<li>an oscillator</li>
+</ul>
+<p>
+Interpretation: differences, <i>momentum</i>, rate of change
+Similar to: RSI, Elder-ray, etc.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org36f04d1" class="outline-3">
+<h3 id="org36f04d1">Open Interest</h3>
+<div class="outline-text-3" id="text-org36f04d1">
+<p>
+A sum-total of <i>sizes</i> of open positions.
+</p>
+</div>
+</div>
+<div id="outline-container-org528e5c0" class="outline-3">
+<h3 id="org528e5c0">Long/Short Ratio</h3>
+<div class="outline-text-3" id="text-org528e5c0">
+<p>
+Number of <i>longs</i> vs. numbers of <i>shorts</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org8f48c13" class="outline-3">
+<h3 id="org8f48c13">Calls/Puts</h3>
+<div class="outline-text-3" id="text-org8f48c13">
+<p>
+Number of <i>calls</i> vs. number of <i>puts</i>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6faaa17" class="outline-2">
+<h2 id="org6faaa17">Socially constructed</h2>
+<div class="outline-text-2" id="text-org6faaa17">
+<p>
+Everything is socially constructed, like religious rituals based on
+shared  beliefs.
+Self-reinforcement systems - the more of them act (perform the rituals),the more they are sure.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaab05f2" class="outline-2">
+<h2 id="orgaab05f2">Sentiments</h2>
+<div class="outline-text-2" id="text-orgaab05f2">
+<p>
+All indicators must measure other people&rsquo;s sentiments (fear, greed,
+excitement, depression, intensity of feelings).
+</p>
+
+<p>
+<i>FOMO-ing in</i> is the strongest sentiment.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4d133e9" class="outline-2">
+<h2 id="org4d133e9">Patterns</h2>
+<div class="outline-text-2" id="text-org4d133e9">
+<p>
+Indicators have <i>patterns</i> of their own, and <i>other people</i> watch for and follow these patterns (like they follow patterns of the main chart).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5d012ff" class="outline-2">
+<h2 id="org5d012ff">More than one</h2>
+<div class="outline-text-2" id="text-org5d012ff">
+<p>
+Several indicators <i>of different kind</i> must <i>confirm</i> each other (on a <i>larger timeframe</i>).
+</p>
+
+<p>
+Stohastics are using just last two candles (to get the <i>differences</i> and
+<i>momentum</i>).
+</p>
+
+<p>
+EMAs are also basically the same.
+</p>
+</div>
+</div>
+<div id="outline-container-orga54d83d" class="outline-2">
+<h2 id="orga54d83d">Elder</h2>
+<div class="outline-text-2" id="text-orga54d83d">
+<p>
+If I squinting at a chart while trying to understand its signals, I flip the page and move to the next stock. (this! - stay aside and just trade more than one ticker.)
+</p>
+
+<p>
+If you look at a familiar indicator but can’t understand its message, it is most likely because the stock you’re trying to analyze is in a <i>chaotic</i> stage (no pattern emerged from the chaos yet).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf4d334a" class="outline-2">
+<h2 id="orgf4d334a">MAs</h2>
+<div class="outline-text-2" id="text-orgf4d334a">
+<p>
+An average is a <i>smoothing function</i>.
+Averages <i>lose information</i>, precision.
+</p>
+
+<p>
+The most important information is the <i>direction</i> (the sign) and the <i>slope</i>
+(angle) for the resulting <i>curve</i> (when MA <i>points</i> are connected).
+</p>
+
+<p>
+EMAs should be used instead of simple MAs
+</p>
+</div>
+</div>
+<div id="outline-container-orgb7d3d45" class="outline-2">
+<h2 id="orgb7d3d45">Smoothing</h2>
+<div class="outline-text-2" id="text-orgb7d3d45">
+<p>
+MA is an <i>average</i> price for <i>past</i> \(n\) days interval (or a window).
+Connecting individual MA <i>points</i> yields a <i>curve</i>.
+The larger \(n\) - the smoother the curve.
+Every MA is thus <i>lagging</i>. Shorter \(n\) curves are &ldquo;faster&rdquo;.
+</p>
+
+<p>
+It is said that this technique separates a <i>signal</i> from the <i>noise</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org71f69f2" class="outline-2">
+<h2 id="org71f69f2">Slope</h2>
+<div class="outline-text-2" id="text-org71f69f2">
+<p>
+A <i>slope</i> of a MA curve is acceleration.
+</p>
+
+<p>
+This is how <i>divergences</i> occur - new lows but in a <i>less steep slope</i>. yay!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b6c63c" class="outline-2">
+<h2 id="org2b6c63c">Lagging</h2>
+<div class="outline-text-2" id="text-org2b6c63c">
+<p>
+All <i>MAs</i> are <i>lagging</i> - they turns <i>after</i> the price.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea79e41" class="outline-2">
+<h2 id="orgea79e41">Last two</h2>
+<div class="outline-text-2" id="text-orgea79e41">
+<p>
+Oscillators <i>coincide</i>, because they use only <i>last two</i> candles.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org52a7632" class="outline-2">
+<h2 id="org52a7632">Moving Average <i>convergence-divergence</i>.</h2>
+<div class="outline-text-2" id="text-org52a7632">
+</div>
+<div id="outline-container-org625d870" class="outline-3">
+<h3 id="org625d870">Trend-following</h3>
+<div class="outline-text-3" id="text-org625d870">
+<p>
+MACD lines is a <i>lagging</i> indicator - turns <i>after</i> a reversal
+In trends to <i>confirm reversals</i>.
+It measures <i>the slope of moving averages</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org6923d29" class="outline-3">
+<h3 id="org6923d29">Oscillators</h3>
+<div class="outline-text-3" id="text-org6923d29">
+<p>
+MACD histogram is a <i>coincident</i> indicator - goes with prices
+In flat ranges to <i>detect turns</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org93b08d9" class="outline-3">
+<h3 id="org93b08d9">Sentiment analysis</h3>
+<div class="outline-text-3" id="text-org93b08d9">
+<p>
+Open Interest
+Put/Call Ratio.
+Long/Short
+Supply held by retail
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd53a166" class="outline-2">
+<h2 id="orgd53a166">MACD</h2>
+<div class="outline-text-2" id="text-orgd53a166">
+<p>
+Averages and slopes
+MA <i>Lines</i>
+</p>
+<p>
+<code>MACD-Histogram = MACD line − Signal line</code>
+MACD-Histogram measures the <i>difference</i> between the MACD-line and the
+Signal Line (MACD-line is itself the <i>difference</i> between \(12\) and \(26\) EMAs).
+</p>
+
+<p>
+Since each \(\delta x\) can be considered as a <i>unit</i> (set to \(1\)) the Histogram
+shows the <i>abstract second /derivative</i> or &ldquo;acceleration&rdquo; (spread).
+</p>
+
+<p>
+The <i>slope</i> is thus just the \(\delta y\). (the difference between open and
+close). This is <i>change</i> within a candle.
+</p>
+
+<p>
+The slope between any <i>two adjacent candles</i> (closing prices) is the <i>change</i>
+within a <i>single step</i> (so, again, \(\delta x=1\)).
+</p>
+
+<p>
+Price change (the length of a candle) is the &ldquo;speed&rdquo;.
+</p>
+</div>
+</div>
+<div id="outline-container-org5235ef1" class="outline-2">
+<h2 id="org5235ef1">Metrics and &ldquo;meters&rdquo;</h2>
+<div class="outline-text-2" id="text-org5235ef1">
+<p>
+Keep in mind that these <i>moving averages</i> are pure abstractions - derived
+metrics, and their further manipulations (subtractions) are even more
+abstract.
+</p>
+
+<p>
+The only &ldquo;real&rdquo; ones are the changes (<i>differences</i>) in <i>price</i> and <i>volume</i>
+(and numbers of trades, bucked-sorted by <i>position sizes</i>).
+</p>
+</div>
+</div>
+<div id="outline-container-orga03643e" class="outline-2">
+<h2 id="orga03643e">RSI</h2>
+<div class="outline-text-2" id="text-orga03643e">
+<p>
+Know the math - what kind of a function it is.
+</p>
+</div>
+</div>
+<div id="outline-container-org6e1a3f1" class="outline-2">
+<h2 id="org6e1a3f1">Other signals</h2>
+<div class="outline-text-2" id="text-org6e1a3f1">
+<ul class="org-ul">
+<li>Open Intgerest</li>
+<li>Long/Short ratio</li>
+<li>Leverage ratio (risk)</li>
+<li>Calls/Puts</li>
+<li>Liquidations</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

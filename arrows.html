@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:19 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Arrows</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Some metaphysics for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Arrows</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Some metaphysics for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -34,123 +33,136 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Arrows</h1>
-    </header>
-    <p>There are two “metaphysically” important <i>universal
-    notions</i> being <i>visualized</i> as <i>arrows</i> (which
-    implies a certain <i>direction</i>).</p>
-    <p>\[\cdot\rightarrow\cdot\] A single “cons” or a single
-    “relation”, or a single “step” (of a process determined by the
-    causality Principle)</p>
-    <p>\[\cdot\rightarrow\cdot\rightarrow\cdot\] A “path” or a
-    “thread” or a “list” or a “composition” or a “linear”
-    structure</p>
-    <p>A <i>path</i> is “more than one” (another <i>universal
-    notion</i>) steps.</p>
-    <div id="outline-container-orgbdc1e59" class="outline-2">
-      <h2 id="orgbdc1e59">Pattern</h2>
-      <div class="outline-text-2" id="text-orgbdc1e59">
-        <p>This <i>pastern</i> arises in:</p>
-        <ul class="org-ul">
-          <li>in a structure or RNA and a single strands of DNA
-          (they are asymmetric or “directed”)</li>
-          <li>in a structure of an <i>immutable</i> single linked
-          list (<i>box-and-pointer</i> diagrams)</li>
-          <li>in <i>currying</i> of multi-argument functions (named
-          after Haskell Curry)</li>
-          <li>in composition of <i>pure</i> <i>curried</i>
-          functions (at a <i>type-level</i>)</li>
-          <li>Continuation Passing Style (or CPS for short) where a
-          continuation is a function (an arrow)</li>
-          <li>in patches of acyclic graphs (a universal
-          <i>generalized</i> notion)</li>
-          <li>in so-called linear logic (an extension of a
-          first-order logic)</li>
-          <li>etc.</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-org7ed4fa0" class="outline-2">
-      <h2 id="org7ed4fa0">Nesting</h2>
-      <div class="outline-text-2" id="text-org7ed4fa0">
-        <p>Notice that a single-linked list is <i>nesting of
-        “conses” (pairs)</i>, while a composition of a functions is
-        <i>nesting of lambdas</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-org3552340" class="outline-2">
-      <h2 id="org3552340">Threading</h2>
-      <div class="outline-text-2" id="text-org3552340">
-        <p>As long as your composition of functions (steps) is
-        “threaded” (as beads on a rosary) it is “isolated” and
-        “distinct” from all other values (or molecules).</p>
-        <p>We thus retain <i>referential transparency</i> and
-        <i>purity</i> - nothing (literally) could <i>intefere</i>
-        or <i>disrupt</i> a linear structure or a linear
-        <i>process</i>.</p>
-        <p>This is a universal principle on which biology builds
-        upon. It is not a coincidence that these patterns of
-        <i>linearity</i> are literally everywhere.</p>
-        <p>There are a couple of ways to ensure “threading”</p>
-        <ul class="org-ul">
-          <li>explicit or implicit passing of a value or a
-          context</li>
-          <li>having the same unique <i>tag</i> attached to each
-          <i>computation</i> (step)</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-orgc80e96d" class="outline-2">
-      <h2 id="orgc80e96d">FP</h2>
-      <div class="outline-text-2" id="text-orgc80e96d">
-        <p><i>Linearity</i> (and <i>nesting</i> ) in structures,
-        processes and even in Logic arises from the underlying
-        nature, not from some abstract bullshitting.</p>
-        <p>The notion than function composition could be only
-        implemented via <i>nesting</i> (in Natural Order languages)
-        is very deep and universal.</p>
-        <p>The <i>serialization</i> aspect of Monads is not
-        arbitrary.</p>
-        <p>A <code>Monad</code> has two <i>distinct, orthogonal</i>
-        aspects:</p>
-        <ul class="org-ul">
-          <li>a generalization of an <i>abstraction barrier</i> (it
-          is <i>implemented</i> an ADT after all)</li>
-          <li>an implicit <i>serialization</i> or “threading” via
-          nesting inside <code>(&gt;&gt;=)</code> or
-          <code>(&gt;=&gt;)</code> which even symbols being used
-          are suggesting.</li>
-        </ul>
-        <p>By the way,</p>
-        <div class="org-src-container">
-          <pre class="src src-haskell">m <span style=
-          "color: #88C0D0;">&gt;&gt;=</span> f <span style=
-          "color: #D8DEE9;">=</span> <span style=
-          "color: #81A1C1;">(</span>id <span style=
-          "color: #D8DEE9;">&gt;=&gt;</span> f<span style=
-          "color: #81A1C1;">)</span> m
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Arrows</h1>
+</header><p>
+There are two &ldquo;metaphysically&rdquo; important <i>universal notions</i> being
+<i>visualized</i> as <i>arrows</i> (which implies a certain <i>direction</i>).
+</p>
+
+<p>
+\[\cdot\rightarrow\cdot\]
+A single &ldquo;cons&rdquo; or a single &ldquo;relation&rdquo;, or a single &ldquo;step&rdquo; (of a process determined by the causality Principle)
+</p>
+
+<p>
+\[\cdot\rightarrow\cdot\rightarrow\cdot\]
+A &ldquo;path&rdquo; or a &ldquo;thread&rdquo; or a &ldquo;list&rdquo; or a &ldquo;composition&rdquo; or a &ldquo;linear&rdquo;
+structure
+</p>
+
+<p>
+A <i>path</i> is &ldquo;more than one&rdquo; (another <i>universal notion</i>) steps.
+</p>
+
+<div id="outline-container-org919760c" class="outline-2">
+<h2 id="org919760c">Pattern</h2>
+<div class="outline-text-2" id="text-org919760c">
+<p>
+This <i>pastern</i> arises in:
+</p>
+<ul class="org-ul">
+<li>in a structure or RNA and a single strands of DNA (they are asymmetric or &ldquo;directed&rdquo;)</li>
+<li>in a structure of an <i>immutable</i> single linked list (<i>box-and-pointer</i>
+diagrams)</li>
+<li>in <i>currying</i> of multi-argument functions (named after Haskell Curry)</li>
+<li>in composition of <i>pure</i> <i>curried</i> functions (at a <i>type-level</i>)</li>
+<li>Continuation Passing Style (or CPS for short) where a continuation is
+a function (an arrow)</li>
+<li>in patches of acyclic graphs (a universal <i>generalized</i> notion)</li>
+<li>in so-called linear logic (an extension of a first-order logic)</li>
+<li>etc.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org74c40d2" class="outline-2">
+<h2 id="org74c40d2">Nesting</h2>
+<div class="outline-text-2" id="text-org74c40d2">
+<p>
+Notice that a single-linked list is <i>nesting of &ldquo;conses&rdquo; (pairs)</i>, while
+a composition of a functions is <i>nesting of lambdas</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org3eec959" class="outline-2">
+<h2 id="org3eec959">Threading</h2>
+<div class="outline-text-2" id="text-org3eec959">
+<p>
+As long as your composition of functions (steps) is &ldquo;threaded&rdquo; (as beads
+on a rosary) it is &ldquo;isolated&rdquo; and &ldquo;distinct&rdquo; from all other values (or
+molecules).
+</p>
+
+<p>
+We thus retain <i>referential transparency</i> and <i>purity</i> - nothing
+(literally) could <i>intefere</i> or <i>disrupt</i> a linear structure or a linear <i>process</i>.
+</p>
+
+<p>
+This is a universal principle on which biology builds upon. It is not a
+coincidence that these patterns of <i>linearity</i> are literally everywhere.
+</p>
+
+<p>
+There are a couple of ways to ensure &ldquo;threading&rdquo;
+</p>
+<ul class="org-ul">
+<li>explicit or implicit passing of a value or a context</li>
+<li>having the same unique <i>tag</i> attached to each <i>computation</i> (step)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7113349" class="outline-2">
+<h2 id="org7113349">FP</h2>
+<div class="outline-text-2" id="text-org7113349">
+<p>
+<i>Linearity</i> (and <i>nesting</i> ) in structures, processes and even in Logic
+arises from the underlying nature, not from some abstract bullshitting.
+</p>
+
+<p>
+The notion than function composition could be only implemented via
+<i>nesting</i> (in Natural Order languages) is very deep and universal.
+</p>
+
+<p>
+The <i>serialization</i> aspect of Monads is not arbitrary.
+</p>
+
+<p>
+A <code>Monad</code> has two <i>distinct, orthogonal</i> aspects:
+</p>
+<ul class="org-ul">
+<li>a generalization of an <i>abstraction barrier</i> (it is <i>implemented</i> an ADT after all)</li>
+<li>an implicit <i>serialization</i> or &ldquo;threading&rdquo; via nesting inside <code>(&gt;&gt;=)</code> or <code>(&gt;=&gt;)</code> which
+even symbols being used are suggesting.</li>
+</ul>
+
+<p>
+By the way,
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">m <span style="color: #88C0D0;">&gt;&gt;=</span> f <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">(</span>id <span style="color: #D8DEE9;">&gt;=&gt;</span> f<span style="color: #81A1C1;">)</span> m
 </pre>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:19</p>
-  </div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

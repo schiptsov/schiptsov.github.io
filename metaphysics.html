@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:18 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Metaphysics</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Some metaphysics for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Metaphysics</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Some metaphysics for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -34,211 +33,196 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Metaphysics</h1>
-    </header>
-    <p>Distinction between True and False statements “partition”
-    the “universe of discurse”.</p>
-    <p>A <i>predicate</i> (or an assertion) could “land” on either
-    side - could be either True or False.</p>
-    <p>So it is a “fork” which sorts into two distinct,
-    non-overlapping “buckets”.</p>
-    <p>\[\{ x \in S | P(x) \}\]</p>
-    <p>Or, to be more precise, to a single partition (a subset) of
-    Truth in the sea of bullshit.</p>
-    <div class="org-src-container">
-      <pre class="src src-haskell"><span style=
-      "color: #88C0D0;">not</span> <span style=
-      "color: #8FBCBB;">True</span> <span style=
-      "color: #D8DEE9;">=</span> <span style=
-      "color: #8FBCBB;">False</span> <span style=
-      "color: #6f7787;">-- </span><span style=
-      "color: #6f7787;">a dump</span>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Metaphysics</h1>
+</header><p>
+Distinction between True and False statements &ldquo;partition&rdquo; the &ldquo;universe of discurse&rdquo;.
+</p>
+
+<p>
+A <i>predicate</i> (or an assertion) could &ldquo;land&rdquo; on either side - could be either True or False.
+</p>
+
+<p>
+So it is a &ldquo;fork&rdquo; which sorts into two distinct, non-overlapping &ldquo;buckets&rdquo;.
+</p>
+
+<p>
+\[\{ x \in S | P(x) \}\]
+</p>
+
+<p>
+Or, to be more precise, to a single partition (a subset) of Truth in the sea of bullshit.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">not</span> <span style="color: #8FBCBB;">True</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">False</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">a dump</span>
 </pre>
-    </div>
-    <p>So, it seems that we have <i>partitions</i> and <i>forks</i>
-    between them.</p>
-    <div id="outline-container-org28be4b1" class="outline-2">
-      <h2 id="org28be4b1">The vertical bar</h2>
-      <div class="outline-text-2" id="text-org28be4b1">
-        <p>The logical <code>OR</code> is syntactically expressed
-        as <code>|</code>. It is literally everywhere and it
-        captures the <i>universal</i> notion of <i>availability of
-        different forms</i> (as inputs to or outcomes of a
-        process), which the mind of an external observer captures
-        and expresses as <i>branching</i>.</p>
-      </div>
-      <div id="outline-container-orgd1fb646" class="outline-3">
-        <h3 id="orgd1fb646">Partitioning</h3>
-        <div class="outline-text-3" id="text-orgd1fb646">
-          <p>When we <i>partition</i> members of a Set as
-          <i>distinct possible forms</i> (alternative <i>valid
-          inputs</i> or outcomes) we have the notion of an
-          <i>alphabet</i> (or a finite dictionary of a language or
-          even some infinite set ofnumbers).</p>
-          <p>And this is the core of pattern-matching (on all
-          possible valid inputs), which is how the <i>captured
-          notion of branching</i> is expressed formally.</p>
-          <p>Regular expressions, such as</p>
-          <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">[</span><span style=
-            "color: #8FBCBB;">A</span><span style=
-            "color: #D8DEE9;">-</span><span style=
-            "color: #8FBCBB;">Z</span><span style=
-            "color: #81A1C1;">]</span>
+</div>
+
+<p>
+So, it seems that we have <i>partitions</i> and <i>forks</i> between them.
+</p>
+
+<div id="outline-container-orgd65554e" class="outline-2">
+<h2 id="orgd65554e">The vertical bar</h2>
+<div class="outline-text-2" id="text-orgd65554e">
+<p>
+The logical <code>OR</code> is syntactically expressed as <code>|</code>. It is literally
+everywhere and it captures the <i>universal</i> notion of <i>availability of
+different forms</i> (as inputs to or outcomes of a process), which the mind
+of an external observer captures and expresses as <i>branching</i>.
+</p>
+</div>
+<div id="outline-container-orgffca474" class="outline-3">
+<h3 id="orgffca474">Partitioning</h3>
+<div class="outline-text-3" id="text-orgffca474">
+<p>
+When we <i>partition</i> members of a Set as <i>distinct possible forms</i>
+(alternative <i>valid inputs</i> or outcomes) we have the notion of an
+<i>alphabet</i> (or a finite dictionary of a language or even some infinite
+set ofnumbers).
+</p>
+
+<p>
+And this is the core of pattern-matching (on all possible valid inputs),
+which is how the <i>captured notion of branching</i> is expressed formally.
+</p>
+
+<p>
+Regular expressions, such as
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">[</span><span style="color: #8FBCBB;">A</span><span style="color: #D8DEE9;">-</span><span style="color: #8FBCBB;">Z</span><span style="color: #81A1C1;">]</span>
 </pre>
-          </div>
-          <p>is an <i>abbreviation</i> for</p>
-          <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">{</span><span style=
-            "color: #8FBCBB;">A</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">B</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">C</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #D8DEE9;">...</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">X</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">Y</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">Z</span><span style=
-            "color: #81A1C1;">}</span>
+</div>
+<p>
+is an <i>abbreviation</i> for
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">{</span><span style="color: #8FBCBB;">A</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">B</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">C</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">...</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">X</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Y</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Z</span><span style="color: #81A1C1;">}</span>
 </pre>
-          </div>
-          <p>Notice that the choices of symbols (which corresponds
-          to distinct sounds) are arbitrary.</p>
-        </div>
-      </div>
-      <div id="outline-container-org2c8ce26" class="outline-3">
-        <h3 id="org2c8ce26">Grammars</h3>
-        <div class="outline-text-3" id="text-org2c8ce26">
-          <p>This is why the <i>BNF</i> of a grammar syntax is full
-          of <code>|</code> (ORs).</p>
-          <p>It captures the <i>universal notion</i> (a universal
-          <i>pattern</i>). We can write a <i>grammar</i> for <i>DNA
-          sequences</i> and for <i>Lambda Calculus</i>, end each
-          one will be a <i>set of possible inputs or forms</i>.</p>
-          <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">type</span> <span style=
-            "color: #8FBCBB;">Letter</span> <span style=
-            "color: #D8DEE9;">=</span> <span style=
-            "color: #8FBCBB;">A</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">C</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">G</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">T</span>
+</div>
+<p>
+Notice that the choices of symbols (which corresponds to distinct
+sounds) are arbitrary.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9554e4d" class="outline-3">
+<h3 id="org9554e4d">Grammars</h3>
+<div class="outline-text-3" id="text-org9554e4d">
+<p>
+This is why the <i>BNF</i> of a grammar syntax is full of <code>|</code> (ORs).
+</p>
+
+<p>
+It captures the <i>universal notion</i> (a universal <i>pattern</i>). We can write
+a <i>grammar</i> for <i>DNA sequences</i> and for <i>Lambda Calculus</i>, end each one
+will be a <i>set of possible inputs or forms</i>.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Letter</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">A</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">C</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">G</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">T</span>
 </pre>
-          </div>
-        </div>
-      </div>
-      <div id="outline-container-orgad43aa4" class="outline-3">
-        <h3 id="orgad43aa4">Whole number systems</h3>
-        <div class="outline-text-3" id="text-orgad43aa4">
-          <p>The set \(Z\) (of all Integers) is really</p>
-          <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">{</span> <span style=
-            "color: #D8DEE9;">...</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #D8DEE9;">-</span><span style=
-            "color: #B48EAD; font-weight: bold;">3</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #D8DEE9;">-</span><span style=
-            "color: #B48EAD; font-weight: bold;">2</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #D8DEE9;">-</span><span style=
-            "color: #B48EAD; font-weight: bold;">1</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #B48EAD; font-weight: bold;">0</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #B48EAD; font-weight: bold;">1</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #B48EAD; font-weight: bold;">2</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #B48EAD; font-weight: bold;">3</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #D8DEE9;">...</span> <span style=
-            "color: #81A1C1;">}</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org526fc8b" class="outline-3">
+<h3 id="org526fc8b">Whole number systems</h3>
+<div class="outline-text-3" id="text-org526fc8b">
+<p>
+The set \(Z\) (of all Integers) is really
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">{</span> <span style="color: #D8DEE9;">...</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">3</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">2</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">0</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">2</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">3</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">...</span> <span style="color: #81A1C1;">}</span>
 </pre>
-          </div>
-          <p>And if we ask <i>how different these are</i>, we will
-          arrive at the notion of a <i>successor</i> function.</p>
-        </div>
-      </div>
-      <div id="outline-container-orgdc473af" class="outline-3">
-        <h3 id="orgdc473af">Algebraic types</h3>
-        <div class="outline-text-3" id="text-orgdc473af">
-          <p>There is no wonder that we <i>have evolved</i> similar
-          syntax for <i>Algebraic Sum types</i>.</p>
-          <div class="org-src-container">
-            <pre class="src src-haskell"><span style=
-            "color: #81A1C1;">type</span> <span style=
-            "color: #8FBCBB;">Letter</span> <span style=
-            "color: #D8DEE9;">=</span> <span style=
-            "color: #8FBCBB;">A</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">C</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">G</span> <span style=
-            "color: #D8DEE9;">|</span> <span style=
-            "color: #8FBCBB;">T</span>
+</div>
+<p>
+And if we ask <i>how different these are</i>, we will arrive at the notion of
+a <i>successor</i> function.
+</p>
+</div>
+</div>
+<div id="outline-container-org038bd6d" class="outline-3">
+<h3 id="org038bd6d">Algebraic types</h3>
+<div class="outline-text-3" id="text-org038bd6d">
+<p>
+There is no wonder that we <i>have evolved</i> similar syntax for <i>Algebraic
+Sum types</i>.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Letter</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">A</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">C</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">G</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">T</span>
 </pre>
-          </div>
-          <p>Of course, GADTs are also based on the fundamental
-          notion of <code>|</code>.</p>
-          <div class="org-src-container">
-            <pre class="src src-haskell">
+</div>
+
+<p>
+Of course, GADTs are also based on the fundamental notion of <code>|</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">
 </pre>
-          </div>
-          <p>And <i>pattern matching</i> on these types is
-          “natural” <i>branching</i>.</p>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-orga12c223" class="outline-2">
-      <h2 id="orga12c223">Arrows</h2>
-      <div class="outline-text-2" id="text-orga12c223">
-        <p>A <i>single linked list</i> in a <i>box-and-pointed
-        diagram</i> (oldfags knew) is just a bunch of connected
-        <i>arrows</i> with donts in between.</p>
-        <p>So is a composition of several functions at a
-        <i>type-level</i>.</p>
-        <p>Both of these <i>abstract structures</i> could be seen
-        as <i>nested</i>.</p>
-        <p>A list is a bunch of nested <i>conses</i>, a composition
-        is a bunch of nested <i>lambdas</i>.</p>
-        <p>This is not a coincidence.</p>
-        <p>Both explicitly define a <i>particualar order</i> for a
-        Set of values (in the case of a composition - how a value
-        is being transformed by each function in a pipeline).</p>
-        <p>A list is a serialization at the data level. A function
-        composition is serialization at the function level.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:18</p>
-  </div>
+</div>
+
+<p>
+And <i>pattern matching</i> on these types is &ldquo;natural&rdquo; <i>branching</i>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge30ea26" class="outline-2">
+<h2 id="orge30ea26">Arrows</h2>
+<div class="outline-text-2" id="text-orge30ea26">
+<p>
+A <i>single linked list</i> in a <i>box-and-pointed diagram</i> (oldfags knew) is
+just a bunch of connected <i>arrows</i> with donts in between.
+</p>
+
+<p>
+So is a composition of several functions at a <i>type-level</i>.
+</p>
+
+<p>
+Both of these <i>abstract structures</i> could be seen as <i>nested</i>.
+</p>
+
+<p>
+A list is a bunch of nested <i>conses</i>, a composition is a bunch of nested
+<i>lambdas</i>.
+</p>
+
+<p>
+This is not a coincidence.
+</p>
+
+<p>
+Both explicitly define a <i>particualar order</i> for a Set of values (in the
+case of a composition - how a value is being transformed by each
+function in a pipeline).
+</p>
+
+<p>
+A list is a serialization at the data level. A function composition is
+serialization at the function level.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:40</p>
+</div>
 </body>
 </html>

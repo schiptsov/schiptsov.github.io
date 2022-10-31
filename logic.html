@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:21 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Logic</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "End of Knowledge for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <link crossorigin="anonymous" media="all" integrity=
-  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
-  rel="stylesheet" href=
-  "https://github.githubassets.com/assets/light-92c7d381038e.css">
-  <script type="text/x-mathjax-config">
+<!-- 2022-10-31 Mon 16:41 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Logic</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="End of Knowledge for a Functional Programmer" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "left",
         displayIndent: "5em",
@@ -38,82 +34,98 @@
                TagSide: "left",
                TagIndent: ".8em"
              }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Logic</h1>
-    </header>
-    <p>Systems of <i>mathematical</i> logic (and of Classic logic)
-    are too abstract and too general for actual reality. These
-    systems are <i>self-contained</i>, sound and <i>complete</i>,
-    but only within the context of underlying axiomatic system (a
-    set of assumptions taken for granted).</p>
-    <p>Actual reality outside of a window, however, is governed by
-    the <i>Causality Principle</i>, and in it neither
-    <i>contradictions</i>, nor <i>falsehoods</i> exists.</p>
-    <p>Falsehoods are <i>products of the mind</i>, so are
-    contradictions, and, of course, in (the context of) actual
-    reality <code>False</code> <i>implies</i> nothing.</p>
-    <p>The notion of <i>implication</i> itself, which captured in a
-    human language as <i>if this then that</i> or <i>therefore</i>,
-    captures (in turn) the working of the Causality Principle (or
-    the Law Of Causality) which is, perhaps, the only <i>law</i>
-    out there.</p>
-    <p>Also, a truth table for mathematical <i>inclusive or</i>
-    says that <code>both T is T</code> but this is called
-    <code>AND</code>, not <code>OR</code>. Or means <i>either</i>,
-    not both. Both is called <code>AND</code>. However, there is a
-    perfect explanation for <i>“or both”</i> from the set-theoretic
-    point of view - it is just an some area on a Vienn diagram, so
-    this logic depends on a context (as it should be) and is <i>not
-    universally applicable</i> (which very few people understood).
-    Application of mathematical logic outside of a mathematical
-    (set theoretical) context is an error.</p>
-    <p>So, the system of <i>Classical Logic</i>, which nowadays
-    expressed using <i>Boolean algebra</i>, is applicable only to
-    mathematical contexts and to symbolic expressions.</p>
-    <p>The system made to be nice, symmetric and <i>complete</i>
-    artificially, by human minds, to fulfill some <i>aesthetic</i>
-    goals. To collapse it back down to <code>What Is</code>, we
-    have to sacrifice symmetry. The truth tables has to be purged
-    from anything that uses <code>False</code> as a valid premise
-    (again, falsehoods do not exist, so they cannot be a
-    <i>required precondition</i>).</p>
-    <p>Notice, that all the major <i>tautologies</i> will be still
-    valid, except one \[A \Rightarrow (A \land B) \] which misses
-    the fact that \(B\) is <i>not necessary</i> and
-    <i>unrelated</i>.</p>
-    <p>The only “true” tautology is, of course, <i>Modus Ponens</i>
-    which captures the <i>Causality Principle</i> itself, and
-    written this way \[((A \Rightarrow B) \land A) \Rightarrow B\]
-    Is an <i>application of a function</i> - the core of The
-    <i>Lambda Calculus</i>, and rewritten the other way \[(A \land
-    (A \Rightarrow B)) \Rightarrow B\] is a functional
-    <i>pipeline</i> - the core notion for a <i>funtion
-    composition</i>.</p>
-    <p>This is how to ground everything back to <code>What
-    Is</code>, out of which it arose.</p>
-    <p>Those who are trying to apply <i>proof assistants</i> to
-    models which captures some aspects of reality should consider
-    purging their truth tables (and introduce <i>runtime errors</i>
-    when <code>False</code> is a premise).</p>
-    <p><code>What Is</code> (not what we think might be) is the
-    best type-checker.</p>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:21</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Logic</h1>
+</header><p>
+Systems of <i>mathematical</i> logic (and of Classic logic) are too abstract
+and too general for actual reality. These systems are <i>self-contained</i>,
+sound and <i>complete</i>, but only within the context of underlying
+axiomatic system (a set of assumptions taken for granted).
+</p>
+
+<p>
+Actual reality outside of a window, however, is governed by the <i>Causality
+Principle</i>, and in it neither <i>contradictions</i>, nor <i>falsehoods</i> exists.
+</p>
+
+<p>
+Falsehoods are <i>products of the mind</i>, so are contradictions, and, of
+course, in (the context of) actual reality <code>False</code> <i>implies</i> nothing.
+</p>
+
+<p>
+The notion of <i>implication</i> itself, which captured in a human language as
+<i>if this then that</i> or <i>therefore</i>, captures (in turn) the working of
+the Causality Principle (or the Law Of Causality) which is, perhaps, the
+only <i>law</i> out there.
+</p>
+
+<p>
+Also, a truth table for mathematical <i>inclusive or</i> says that <code>both T is T</code> but this is called <code>AND</code>, not <code>OR</code>. Or means <i>either</i>, not both. Both is called <code>AND</code>.
+However, there is a perfect explanation for <i>&ldquo;or both&rdquo;</i> from the set-theoretic point of view - it is just an some area on a Vienn diagram, so this logic depends on a context (as it should be) and is <i>not universally applicable</i> (which very few people understood).
+Application of mathematical logic outside of a mathematical (set theoretical) context is an error.
+</p>
+
+<p>
+So, the system of <i>Classical Logic</i>, which nowadays expressed using
+<i>Boolean algebra</i>, is applicable only to mathematical contexts and to
+symbolic expressions.
+</p>
+
+<p>
+The system made to be nice, symmetric and <i>complete</i> artificially, by
+human minds, to fulfill some <i>aesthetic</i> goals. To collapse it back down
+to <code>What Is</code>, we have to sacrifice symmetry. The truth tables has to be
+purged from anything that uses <code>False</code> as a valid premise (again,
+falsehoods do not exist, so they cannot be a <i>required precondition</i>).
+</p>
+
+<p>
+Notice, that all the major <i>tautologies</i> will be still valid, except one
+\[A \Rightarrow (A \land B) \]
+which misses the fact that \(B\) is <i>not necessary</i> and <i>unrelated</i>.
+</p>
+
+<p>
+The only &ldquo;true&rdquo; tautology is, of course, <i>Modus Ponens</i> which captures
+the <i>Causality Principle</i> itself, and written this way
+\[((A \Rightarrow B) \land A) \Rightarrow B\]
+Is an <i>application of a function</i> - the core of The <i>Lambda Calculus</i>,
+and rewritten the other way
+\[(A \land (A \Rightarrow B)) \Rightarrow B\]
+is a functional <i>pipeline</i> - the core notion for a <i>funtion
+composition</i>.
+</p>
+
+<p>
+This is how to ground everything back to <code>What Is</code>, out of which it
+arose.
+</p>
+
+<p>
+Those who are trying to apply <i>proof assistants</i> to models which
+captures some aspects of reality should consider purging their truth
+tables (and introduce <i>runtime errors</i> when <code>False</code> is a premise).
+</p>
+
+<p>
+<code>What Is</code> (not what we think might be) is the best type-checker.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-10-31 Mon 16:41</p>
+</div>
 </body>
 </html>
