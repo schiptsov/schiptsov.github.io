@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-01 Tue 13:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kleisli Arrows</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Kleisli Arrows</h1>
+</header><p>
+An arrow suggests and implies a <i>direction</i>. It is a symbol for the universal notion
+of a single <i>step</i> (of a process) or a individual completed
+<i>transformation</i>.
+</p>
+
+<p>
+Here <code>a</code> and <code>b</code> are of the same level of abstraction (usually a Set)
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">a <span style="color: #D8DEE9;">-&gt;</span> b
+</pre>
+</div>
+
+<p>
+Here it <i>crosses an abstraction boundary</i> or a resulting value is <i>of a
+different kind of abstraction</i>.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">a <span style="color: #D8DEE9;">-&gt;</span> m b
+</pre>
+</div>
+
+<p>
+This notion is, in turn, has been generalized as
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">pure</span> <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> f a
+</pre>
+</div>
+<p>
+which captures a general notion of <i>placing into</i>.
+</p>
+
+<p>
+or even more generally
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">return</span> <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> m a
+</pre>
+</div>
+
+<p>
+And then we have a couple of  <i>convectional hacks</i> to <i>apply</i> these <i>abstract
+entities</i> to each other or <i>compose</i> them.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Applicative</span> <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
+<span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Applicative</span> f <span style="color: #81A1C1;">where</span>
+  <span style="color: #D8DEE9;">...</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Monad</span> <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
+<span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Applicative</span> m <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #81A1C1;">where</span>
+  <span style="color: #D8DEE9;">...</span>
+</pre>
+</div>
+
+<p>
+Notice the <i>arrows</i> (kinds).
+</p>
+<div id="outline-container-org66658ca" class="outline-2">
+<h2 id="org66658ca">Cheaters</h2>
+<div class="outline-text-2" id="text-org66658ca">
+<p>
+We <i>cheat</i> and could &ldquo;extract&rdquo; values from different <i>contexts</i> (except IO),
+while we actually shouldn&rsquo;t.
+</p>
+
+<p>
+The reason is that causality has a <i>direction</i> and cannot be reversed,
+just like IO, by the way.
+</p>
+
+<p>
+When something became something else it is <i>irreversible</i>, at least at the
+level of Molecular biology or Life Itself (yes, I know, inside a star&#x2026;)
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-01 Tue 13:40</p>
+</div>
+</body>
+</html>
