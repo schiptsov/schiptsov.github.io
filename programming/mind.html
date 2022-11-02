@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-02 Wed 13:02 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Managing your own mind</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Managing your own mind</h1>
+</header><p>
+The most difficult thing in programming is <i>to manage your own mind</i> and
+to maintain an adequate mental &ldquo;map&rdquo; of the &ldquo;territory&rdquo; of the problem domain.
+</p>
+
+<p>
+The phases of <i>getting familiar</i> and then attaining (gradually building up)
+of a <i>thorough understanding</i> of the domain are the most challenging,
+frustrating, painful and cannot be short-circuited.
+</p>
+
+<p>
+The right understanding (to see the problem as it is) should come <i>before</i> the
+code (representations and concrete implementations).
+</p>
+
+<p>
+Sketching and <i>modeling</i> (even before prototyping) with the rich <i>Abstract
+and Algebraic Data Types</i> is the best methodology a man ever invented.
+</p>
+
+<p>
+All complex systems are hierarchical and layered, where, at least in
+principle, each layer interacts <i>only with the layer right below it</i> (not
+with any layer above or deep down) and <i>asynchronous message-passing</i>
+occur across abstraction boundaries.
+</p>
+
+<p>
+The only solution I know is to disentangle and <i>decompose</i> the problem
+into a <i>clear hierarchy</i> of smallest, <i>orthogonal</i> building blocks or
+<i>modules</i>, while formally specifying (sets and logic) and writing
+everything down. Literally everything.
+</p>
+
+<p>
+Every concept of the domain should, at least in therory, have a <i>direct correspondence</i> to a
+particular <i>algebraic /type</i> and therefore to a <i>module</i> which defines and implements it. The
+resulting dependency graph (an actual hierarchy) should be very flat (broad and
+shallow).
+</p>
+
+<p>
+The utmost care should be taken to eliminate and prune  <i>unnecessary,
+redundant abstractions</i> (which is the root of all evil).
+</p>
+
+<p>
+Decent languages, like <code>Standard ML</code>, <code>Ocaml</code> or <code>F#</code> provide <i>best in the whole world</i> support
+for this kind of modularity (a hierarchy of small, orthogonal
+specialized modules, with application and specialization).
+<code>Haskell</code>, <code>Scala 3</code>, or <code>Erlang</code> lack the advanced features such as explicit interface
+definition, validation and application.
+</p>
+
+<p>
+Ideally, it is just a deeply nested directory where each file (and filename) corresponds to a distinct concept of the problem domain.
+</p>
+
+<p>
+The file-system hierarchy should roughly correspond to an <i>abstract hierarchy of the problem domain inside your mind</i> (and in your texts).
+</p>
+
+<p>
+It allows your attention (and focus) easily <i>zoom in and out</i> through the mental hierarchy of the domain without getting distracted or messed up by irrelevant details and ideas.
+</p>
+
+<p>
+In short, this is a technique to narrow and maintain ones <i>focus</i> and concentration, which are the most scarce and precious resources.
+</p>
+
+<p>
+A project tree should have an obvious correspondence to a conceptual tree. John Carmack excels in doing this, and this is not a mere coincidence.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-02 Wed 13:02</p>
+</div>
+</body>
+</html>
