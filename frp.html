@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-31 Mon 16:40 -->
+<!-- 2022-11-06 Sun 18:47 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>FRP</title>
@@ -71,9 +71,9 @@ It takes time and very careful, precise wording to explain (without
 usual narcissistic verbiage so prevailed within Haskell community).
 </p>
 
-<div id="outline-container-orgbf943a8" class="outline-2">
-<h2 id="orgbf943a8">What exactly is wrong.</h2>
-<div class="outline-text-2" id="text-orgbf943a8">
+<div id="outline-container-org0764e6b" class="outline-2">
+<h2 id="org0764e6b">What exactly is wrong.</h2>
+<div class="outline-text-2" id="text-org0764e6b">
 <p>
 When we view a function as a set of ordered pairs and the whole
 <i>functional space</i> as a result of a <i>Cartesian Product of Domain and
@@ -97,9 +97,9 @@ Again, <code>Time -&gt; a</code> is just wrong.
 </p>
 </div>
 </div>
-<div id="outline-container-orgeb7a01c" class="outline-2">
-<h2 id="orgeb7a01c">Partial function</h2>
-<div class="outline-text-2" id="text-orgeb7a01c">
+<div id="outline-container-orgf08e8f2" class="outline-2">
+<h2 id="orgf08e8f2">Partial function</h2>
+<div class="outline-text-2" id="text-orgf08e8f2">
 <p>
 If <i>partial function</i> from an <i>abstract</i> <code>Time</code> is what they want, that
 would mean getting <code>Nothing</code> most of the time, which is what a
@@ -119,9 +119,9 @@ distributes <code>f</code> over its <code>Just x</code>.
 </div>
 </div>
 
-<div id="outline-container-org6ee3150" class="outline-2">
-<h2 id="org6ee3150">Number Line</h2>
-<div class="outline-text-2" id="text-org6ee3150">
+<div id="outline-container-org8c3194b" class="outline-2">
+<h2 id="org8c3194b">Number Line</h2>
+<div class="outline-text-2" id="text-org8c3194b">
 <p>
 A Number Line is an <i>imaginary mental construction</i> (a generalized abstraction of the mind of an external observer) which is used to <i>visualize</i> (and imagine) the generalized abstract concept of a <i>Number</i>.
 </p>
@@ -144,9 +144,9 @@ This concrete (or abstract) ruler is superimposed against (onto) something, and 
 </div>
 </div>
 
-<div id="outline-container-org5511864" class="outline-2">
-<h2 id="org5511864">Math</h2>
-<div class="outline-text-2" id="text-org5511864">
+<div id="outline-container-org46842a9" class="outline-2">
+<h2 id="org46842a9">Math</h2>
+<div class="outline-text-2" id="text-org46842a9">
 <p>
 In abstract mathematics the notion of counting is exactly this - superimpose an imaginary Number Line and associate each &ldquo;whatever&rdquo; with a Number.
 </p>
@@ -162,9 +162,9 @@ count xs = fst . last $ zip [1 ..] xs
 </pre>
 </div>
 </div>
-<div id="outline-container-org867cdf7" class="outline-2">
-<h2 id="org867cdf7">Time</h2>
-<div class="outline-text-2" id="text-org867cdf7">
+<div id="outline-container-org604dcf8" class="outline-2">
+<h2 id="org604dcf8">Time</h2>
+<div class="outline-text-2" id="text-org604dcf8">
 <p>
 Time is modeled as discrete (ticks) or continuous (a Real line).
 </p>
@@ -182,9 +182,9 @@ The assumed implication that continuois time can vary is just a play of conditio
 </p>
 </div>
 </div>
-<div id="outline-container-org49aeddb" class="outline-2">
-<h2 id="org49aeddb">Change in Time</h2>
-<div class="outline-text-2" id="text-org49aeddb">
+<div id="outline-container-org9911cfc" class="outline-2">
+<h2 id="org9911cfc">Change in Time</h2>
+<div class="outline-text-2" id="text-org9911cfc">
 <p>
 Once you have superimposed time you have a change over time, or
 \[\frac{dy}{dt}\]
@@ -193,9 +193,9 @@ Once you have superimposed time you have a change over time, or
 </div>
 
 
-<div id="outline-container-org7b03f80" class="outline-2">
-<h2 id="org7b03f80">FRP</h2>
-<div class="outline-text-2" id="text-org7b03f80">
+<div id="outline-container-orgf9bd8c8" class="outline-2">
+<h2 id="orgf9bd8c8">FRP</h2>
+<div class="outline-text-2" id="text-orgf9bd8c8">
 <p>
 We associate a continuous <i>time-line</i> with a discrete event &ldquo;flow&rdquo; (stream).
 </p>
@@ -222,9 +222,9 @@ The relation is <i>many-to-one</i> which means that many timestamps result in th
 </div>
 </div>
 
-<div id="outline-container-orgf5a7a39" class="outline-2">
-<h2 id="orgf5a7a39">Monoids</h2>
-<div class="outline-text-2" id="text-orgf5a7a39">
+<div id="outline-container-org43d5241" class="outline-2">
+<h2 id="org43d5241">Monoids</h2>
+<div class="outline-text-2" id="text-org43d5241">
 <p>
 Obviously, a time-line, just as a number-line, have associative &ldquo;addition&rdquo; or &ldquo;concatenation&rdquo;.
 </p>
@@ -247,9 +247,9 @@ So, all the familiar /abstract algebraic structures (with corresponding &ldquo;l
 </div>
 </div>
 
-<div id="outline-container-orgdbf3d70" class="outline-2">
-<h2 id="orgdbf3d70">Length</h2>
-<div class="outline-text-2" id="text-orgdbf3d70">
+<div id="outline-container-org762bb89" class="outline-2">
+<h2 id="org762bb89">Length</h2>
+<div class="outline-text-2" id="text-org762bb89">
 <p>
 Length is counting of &ldquo;ticks&rdquo;
 </p>
@@ -269,18 +269,18 @@ and, by the way
 </div>
 </div>
 
-<div id="outline-container-org51beae2" class="outline-2">
-<h2 id="org51beae2">Blocking (waiting for an event to occur) is inevitable</h2>
-<div class="outline-text-2" id="text-org51beae2">
+<div id="outline-container-org75d9f55" class="outline-2">
+<h2 id="org75d9f55">Blocking (waiting for an event to occur) is inevitable</h2>
+<div class="outline-text-2" id="text-org75d9f55">
 <p>
 Busy-waiting is energy-inefficient, unless it is &ldquo;sleeping&rdquo;.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org98448ae" class="outline-2">
-<h2 id="org98448ae">Triggering (with an interruption) is only natural</h2>
-<div class="outline-text-2" id="text-org98448ae">
+<div id="outline-container-orga770a2c" class="outline-2">
+<h2 id="orga770a2c">Triggering (with an interruption) is only natural</h2>
+<div class="outline-text-2" id="text-orga770a2c">
 <p>
 Arrival of a necessary condition (in a locality).
 A required molecular structure within a reach (same locality).
@@ -289,9 +289,9 @@ A threshold (temperature, energy, etc).
 </div>
 </div>
 
-<div id="outline-container-org47bd14f" class="outline-2">
-<h2 id="org47bd14f">Already observed</h2>
-<div class="outline-text-2" id="text-org47bd14f">
+<div id="outline-container-orga7a5a4c" class="outline-2">
+<h2 id="orga7a5a4c">Already observed</h2>
+<div class="outline-text-2" id="text-orga7a5a4c">
 <p>
 A time marker (tag) implies that a value (event) <i>has already been</i> observed by someone who superimposed a ruler and put a tag.
 </p>
@@ -309,7 +309,7 @@ A sequence of tagging (modifications)
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-10-31 Mon 16:40</p>
+<p class="date">Created: 2022-11-06 Sun 18:47</p>
 </div>
 </body>
 </html>

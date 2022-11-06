@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-31 Mon 16:40 -->
+<!-- 2022-11-06 Sun 18:47 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Candle</title>
@@ -49,16 +49,16 @@
 We are building the <i>simplest possible</i> mathematical model.
 </p>
 
-<div id="outline-container-orgc08f82c" class="outline-2">
-<h2 id="orgc08f82c">A vector from physics</h2>
-<div class="outline-text-2" id="text-orgc08f82c">
+<div id="outline-container-orge11cc71" class="outline-2">
+<h2 id="orge11cc71">A vector from physics</h2>
+<div class="outline-text-2" id="text-orge11cc71">
 <p>
 <i>Intuitions</i> from physics:
 </p>
 </div>
-<div id="outline-container-org037c810" class="outline-3">
-<h3 id="org037c810">Force</h3>
-<div class="outline-text-3" id="text-org037c810">
+<div id="outline-container-org555a743" class="outline-3">
+<h3 id="org555a743">Force</h3>
+<div class="outline-text-3" id="text-org555a743">
 <p>
 An abstract vector is defined as a <i>direction</i> and a <i>magnitude</i>.
 </p>
@@ -68,17 +68,17 @@ In the simplest model there are just two directions - up and down.
 </p>
 </div>
 </div>
-<div id="outline-container-org0e994bc" class="outline-3">
-<h3 id="org0e994bc">Momentum</h3>
-<div class="outline-text-3" id="text-org0e994bc">
+<div id="outline-container-org47b5295" class="outline-3">
+<h3 id="org47b5295">Momentum</h3>
+<div class="outline-text-3" id="text-org47b5295">
 <p>
 A momentum is defined as a <i>difference</i> between <i>two</i> adjacent <i>vectors</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org94e80c0" class="outline-3">
-<h3 id="org94e80c0">Derivative</h3>
-<div class="outline-text-3" id="text-org94e80c0">
+<div id="outline-container-org258f92a" class="outline-3">
+<h3 id="org258f92a">Derivative</h3>
+<div class="outline-text-3" id="text-org258f92a">
 <p>
 In the simplest model the \(x\) -change is always \(1\) , so the derivative \(\frac{dy}{dx}\)
 is just the <i>difference</i> in the \(y\) coordinate.
@@ -86,9 +86,9 @@ is just the <i>difference</i> in the \(y\) coordinate.
 </div>
 </div>
 </div>
-<div id="outline-container-orga543094" class="outline-2">
-<h2 id="orga543094">A product-type</h2>
-<div class="outline-text-2" id="text-orga543094">
+<div id="outline-container-orgd3f186f" class="outline-2">
+<h2 id="orgd3f186f">A product-type</h2>
+<div class="outline-text-2" id="text-orgd3f186f">
 <p>
 A <code>Candle</code> is by definition a <i>record</i>. Conceptually - a <i>Set of labeled
   slots</i>. Each particular value corresponds to a &ldquo;point&rdquo; or a &ldquo;vector&rdquo;.
@@ -111,9 +111,9 @@ Of course, one could refactor quickly and safely because it is an ADT.
 </p>
 </div>
 </div>
-<div id="outline-container-orgafca245" class="outline-2">
-<h2 id="orgafca245">Parameterized by an interval</h2>
-<div class="outline-text-2" id="text-orgafca245">
+<div id="outline-container-org7a4656e" class="outline-2">
+<h2 id="org7a4656e">Parameterized by an interval</h2>
+<div class="outline-text-2" id="text-org7a4656e">
 <p>
 Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized by its
 <i>size</i> - an <i>interval</i> between two <i>timestamps</i>).
@@ -121,9 +121,9 @@ Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized 
 </p>
 </div>
 </div>
-<div id="outline-container-org32b5343" class="outline-2">
-<h2 id="org32b5343">Deriving Eq, Ord</h2>
-<div class="outline-text-2" id="text-org32b5343">
+<div id="outline-container-orge90e561" class="outline-2">
+<h2 id="orge90e561">Deriving Eq, Ord</h2>
+<div class="outline-text-2" id="text-orge90e561">
 <p>
 It will have implicit ordering by <i>timestamps</i>.
 </p>
@@ -140,9 +140,9 @@ This implies <code>min</code> and <code>max</code>  can be used directly on the 
 </div>
 </div>
 
-<div id="outline-container-org1dca929" class="outline-2">
-<h2 id="org1dca929">A Semigroup</h2>
-<div class="outline-text-2" id="text-org1dca929">
+<div id="outline-container-org1058496" class="outline-2">
+<h2 id="org1058496">A Semigroup</h2>
+<div class="outline-text-2" id="text-org1058496">
 <p>
 WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </p>
@@ -153,18 +153,18 @@ WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </div>
 </div>
 </div>
-<div id="outline-container-org02ebb49" class="outline-2">
-<h2 id="org02ebb49">An abstract Empty Candle</h2>
-<div class="outline-text-2" id="text-org02ebb49">
+<div id="outline-container-org7503ef4" class="outline-2">
+<h2 id="org7503ef4">An abstract Empty Candle</h2>
+<div class="outline-text-2" id="text-org7503ef4">
 <p>
 Non-existent, abstract <i>identity element</i> \(e\) for the <i>merging</i> operation.
 \[e\bigoplus x = x = x \bigoplus e\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgbc285be" class="outline-2">
-<h2 id="orgbc285be">A Monoid</h2>
-<div class="outline-text-2" id="text-orgbc285be">
+<div id="outline-container-org2fabf34" class="outline-2">
+<h2 id="org2fabf34">A Monoid</h2>
+<div class="outline-text-2" id="text-org2fabf34">
 <p>
 With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>instance of a Monoid</i>.
 </p>
@@ -176,9 +176,9 @@ With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>in
 </div>
 </div>
 </div>
-<div id="outline-container-orgb78e035" class="outline-2">
-<h2 id="orgb78e035">Not an  Endofunctor</h2>
-<div class="outline-text-2" id="text-orgb78e035">
+<div id="outline-container-org135e94e" class="outline-2">
+<h2 id="org135e94e">Not an  Endofunctor</h2>
+<div class="outline-text-2" id="text-org135e94e">
 <p>
 Any <i>product type</i> looks like an implicit, <i>trivial Endofunctor</i>, provided that a <i>function</i>
 being  mapped over it &ldquo;knows&rdquo; how <i>not to break data consistency</i>.
@@ -213,7 +213,7 @@ an <i>Algebraic Data Type</i> (a product), but not a <i>Functor</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-10-31 Mon 16:40</p>
+<p class="date">Created: 2022-11-06 Sun 18:47</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-31 Mon 16:40 -->
+<!-- 2022-11-06 Sun 18:48 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Modules</title>
@@ -110,9 +110,9 @@ specialized</i> modules are the basic building blocks of hierarchies of
 pure-functional (based on high-order functions) DSLs.
 </p>
 
-<div id="outline-container-orge8f3e0f" class="outline-2">
-<h2 id="orge8f3e0f">Meta-level</h2>
-<div class="outline-text-2" id="text-orge8f3e0f">
+<div id="outline-container-org5d4b770" class="outline-2">
+<h2 id="org5d4b770">Meta-level</h2>
+<div class="outline-text-2" id="text-org5d4b770">
 <p>
 Cognitive overload is the primary motivation for modularity.
 </p>
@@ -150,9 +150,9 @@ corresponding code is being <i>decoupled</i> as well.
 </div>
 </div>
 
-<div id="outline-container-org10b7b1e" class="outline-2">
-<h2 id="org10b7b1e">Principles</h2>
-<div class="outline-text-2" id="text-org10b7b1e">
+<div id="outline-container-org02fd0bf" class="outline-2">
+<h2 id="org02fd0bf">Principles</h2>
+<div class="outline-text-2" id="text-org02fd0bf">
 <p>
 Everything is to be build upon Algebraic (<i>sum</i> and <i>product</i>) abstract
 data types.
@@ -182,9 +182,9 @@ Again, the big picture is:  <code>Concepts -&gt; Types -&gt; Interfaces -&gt; Mo
 We program with algebraic types in FP.
 </p>
 </div>
-<div id="outline-container-orga1e4cbe" class="outline-3">
-<h3 id="orga1e4cbe">The Abstraction principle</h3>
-<div class="outline-text-3" id="text-orga1e4cbe">
+<div id="outline-container-orga5b2a50" class="outline-3">
+<h3 id="orga5b2a50">The Abstraction principle</h3>
+<div class="outline-text-3" id="text-orga5b2a50">
 <p>
 Abstraction is the key to managing overwhelming complexity.
 • Abstraction is a tool (the only one?) that people use to understand
@@ -200,9 +200,9 @@ Proper modularity is the manifestation of adequate abstraction
 </p>
 </div>
 </div>
-<div id="outline-container-org4ea421d" class="outline-3">
-<h3 id="org4ea421d">The Encapsulation principle</h3>
-<div class="outline-text-3" id="text-org4ea421d">
+<div id="outline-container-org4fcddf4" class="outline-3">
+<h3 id="org4fcddf4">The Encapsulation principle</h3>
+<div class="outline-text-3" id="text-org4fcddf4">
 <p>
 A well-designed module encapsulates data (information hiding)
 • An interface should <i>hide implementation details</i>
@@ -221,9 +221,9 @@ It is common in ML to have multiple implementations of the same
 </p>
 </div>
 </div>
-<div id="outline-container-orgd685485" class="outline-3">
-<h3 id="orgd685485">The Necessery and Sufficient principle</h3>
-<div class="outline-text-3" id="text-orgd685485">
+<div id="outline-container-org8733170" class="outline-3">
+<h3 id="org8733170">The Necessery and Sufficient principle</h3>
+<div class="outline-text-3" id="text-org8733170">
 <p>
 A well-designed module has a <i>minimal interface</i>
 • Function declaration should be in a module’s interface if and only if:
@@ -233,9 +233,9 @@ A well-designed module has a <i>minimal interface</i>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb914d5c" class="outline-2">
-<h2 id="orgb914d5c">Record</h2>
-<div class="outline-text-2" id="text-orgb914d5c">
+<div id="outline-container-orgeaaed18" class="outline-2">
+<h2 id="orgeaaed18">Record</h2>
+<div class="outline-text-2" id="text-orgeaaed18">
 <p>
 A module is just like a record of named and typed slots (<i>type-signatures</i>)
 and just like a <i>tagged Cartesian product</i>. Access is similar to <i>selectors</i> (for slots of a record).
@@ -260,9 +260,9 @@ This is why we said <i>like</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org5ef304d" class="outline-2">
-<h2 id="org5ef304d">Structure</h2>
-<div class="outline-text-2" id="text-org5ef304d">
+<div id="outline-container-org3111efc" class="outline-2">
+<h2 id="org3111efc">Structure</h2>
+<div class="outline-text-2" id="text-org3111efc">
 <p>
 So it is an <i>instance</i> (a single <i>record-like value</i>), a particular
 <i>structure</i> as they called in Standard ML or Ocaml or F#.
@@ -273,9 +273,9 @@ The access is similar to <i>selectors</i> for record&rsquo;s slots.
 </p>
 </div>
 </div>
-<div id="outline-container-org7da0c7c" class="outline-2">
-<h2 id="org7da0c7c">Signatures</h2>
-<div class="outline-text-2" id="text-org7da0c7c">
+<div id="outline-container-org5668c53" class="outline-2">
+<h2 id="org5668c53">Signatures</h2>
+<div class="outline-text-2" id="text-org5668c53">
 <p>
 Each such &ldquo;structure&rdquo; is an instance of a particular <i>&ldquo;signature&rdquo;</i> which corresponds to its
 particular &ldquo;<i>structural type</i>&rdquo;.
@@ -297,18 +297,18 @@ The type of a structure is captured in its signature and contains all of the sta
 </div>
 </div>
 
-<div id="outline-container-orgbc62580" class="outline-2">
-<h2 id="orgbc62580">Functors in ML</h2>
-<div class="outline-text-2" id="text-orgbc62580">
+<div id="outline-container-orgad30ad6" class="outline-2">
+<h2 id="orgad30ad6">Functors in ML</h2>
+<div class="outline-text-2" id="text-orgad30ad6">
 <p>
 The use of one module by another is captured by special functions called functors that map structures to new structures.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgba95596" class="outline-2">
-<h2 id="orgba95596">Abstraction barrier</h2>
-<div class="outline-text-2" id="text-orgba95596">
+<div id="outline-container-org4296824" class="outline-2">
+<h2 id="org4296824">Abstraction barrier</h2>
+<div class="outline-text-2" id="text-org4296824">
 <p>
 This module-signature, at least in theory, forms an actual <i>Abstraction
 Barrier</i> (which acts like a cell-membrane of a module) that hides
@@ -324,9 +324,9 @@ barriers (proper message-passing interfaces) are cell-membranes between
 </div>
 </div>
 
-<div id="outline-container-org46db2f9" class="outline-2">
-<h2 id="org46db2f9">Interfaces</h2>
-<div class="outline-text-2" id="text-org46db2f9">
+<div id="outline-container-org84f0233" class="outline-2">
+<h2 id="org84f0233">Interfaces</h2>
+<div class="outline-text-2" id="text-org84f0233">
 <p>
 The interface of a module gives the <i>type</i> of each exported <i>value</i>.
 </p>
@@ -355,9 +355,9 @@ SML (and Ocaml) got it right. F# too.
 </div>
 </div>
 
-<div id="outline-container-org6cf1522" class="outline-2">
-<h2 id="org6cf1522">Modular programming</h2>
-<div class="outline-text-2" id="text-org6cf1522">
+<div id="outline-container-orgf5b94ab" class="outline-2">
+<h2 id="orgf5b94ab">Modular programming</h2>
+<div class="outline-text-2" id="text-orgf5b94ab">
 <p>
 The most important principle in whole Computer Science - the Molecularity
 Principle - is about how (and why) <a href="ADTs.html">Abstract Data Types</a> should be defined.
@@ -424,7 +424,7 @@ ML guys got it right, others missed the point.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-10-31 Mon 16:40</p>
+<p class="date">Created: 2022-11-06 Sun 18:48</p>
 </div>
 </body>
 </html>
