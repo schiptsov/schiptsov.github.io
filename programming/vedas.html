@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-06 Sun 18:48 -->
+<!-- 2022-11-09 Wed 17:10 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Vedas of programming</title>
@@ -24,7 +24,10 @@
 <header>
 <h1 class="title">The Vedas of programming</h1>
 </header><p>
-In the old books, published in the previous century, just before 2000, the old-timers, who as a rule had a deep mathematical or software engineering background (like Barbara Liskov or Joe Armstrong) it has been stated that applying of just a few fundamental principles will make solve the most problems, which arise in programming of complex systems.
+In the old books, published in the previous century, just before 2000,
+the old-timers, who as a rule had a deep mathematical or software
+engineering background (like Barbara Liskov or Joe Armstrong) it has
+been stated that applying of just a few fundamental principles will  solve the most problems, which arise in programming of complex systems.
 </p>
 
 <p>
@@ -47,6 +50,69 @@ Most of the books of the previous century teach <i>principles</i>, not particula
 Consistent Hashing algorithms and resulting hash-tables has been considered the last major innovation. Table-based languages, like Clojure or Lua emerged as a result, and these were the last good things that happened.
 </p>
 
+<div id="outline-container-orgbeabdb6" class="outline-2">
+<h2 id="orgbeabdb6">Decomposition</h2>
+<div class="outline-text-2" id="text-orgbeabdb6">
+<p>
+The best metaphor I know is how a competent and experienced mechanics
+disassemble a rusted engine, carefully examine and fix (or replace)
+every single part and then assemble the engine back just like a new. You
+can get lots of such videos on Facebook.
+</p>
+
+<p>
+Of course, programming is very different kind of activity, but the
+principles are the same. No one gives you an engine, you will have some
+<i>problem domain</i> instead.
+</p>
+
+<p>
+Nevertheless, the first thing to do is to disentangle, decompose and
+take apart the problem (into subproblems, subsystems, core concepts,
+<i>rules</i> and communication <i>protocols</i>, which are also <i>sets of rules</i>).
+</p>
+
+<p>
+One have to &ldquo;disassemble&rdquo; everything down to sets, formal logic and
+particular algorithms (which has to be derived from the rules of
+&ldquo;business logic&rdquo;).
+</p>
+
+<p>
+Only after everything &ldquo;part&rdquo; (or detali) has been &ldquo;placed on the table&rdquo;
+(being formally specified) one can begin to assemble an &ldquo;engine&rdquo; (this
+is actually a good metaphor!).
+</p>
+
+<p>
+One begin to <i>prototype</i> by enumerating the core <i>algebraic data types</i>, with corresponding
+<i>modules</i> that exports public <i>interfaces</i>. Then one tries partially
+implement these interfaces and to compose actual functions. This is a
+<i>bottom-up</i> process.
+</p>
+
+<p>
+<i>Partial implementation</i> is possible because both product- and sum-types
+can be <i>partially specified</i> and still be correct (just a few slots of a
+record, just a couple of data-constructors of a sum-type). Functions
+defined by <i>pattern-matching</i> will be correct by definition.
+</p>
+
+<p>
+The whole thing is a <i>spiral-shaped</i> process, where previous results act
+as foundation of the next iteration or a &ldquo;sprint&rdquo;.
+</p>
+
+<p>
+The key point here is that <i>both</i> actual representations and conceptual
+understanding are mutually refined (yes, just like a <i>mutual recursion</i>)
+and everything, including formal specifications and validation tests
+gets <i>simplified</i> and <i>reduced to the fundamental data structures and
+corresponding  standard idioms</i>. This is how one does assembling - by
+function composition.
+</p>
+</div>
+</div>
 <div id="outline-container-org922715c" class="outline-2">
 <h2 id="org922715c">Use the fundamentals</h2>
 <div class="outline-text-2" id="text-org922715c">
@@ -114,7 +180,7 @@ And this is it. This is Vedanta all over again.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-06 Sun 18:48</p>
+<p class="date">Created: 2022-11-09 Wed 17:10</p>
 </div>
 </body>
 </html>
