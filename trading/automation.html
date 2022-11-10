@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-10 Thu 10:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Automation</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Automation</h1>
+</header><p>
+Modern &ldquo;finance&rdquo; is famous for piling up abstractions on to of each
+other to the point that no one understands the actual dynamics and this,
+unironically, keeps the whole thing &ldquo;safe&rdquo; since at some point no one
+touches it anymore - it becomes a solidified cathedral of abstract
+bullshit, until it crashes down, like that Celsius or FTX .
+</p>
+
+<p>
+The finanical theory is general relies haavily on a fundamentally wrong
+assumption, which underlies the abstract probability theory too, that
+obverved events (values of a so-called &ldquo;random variable&rdquo;) are
+independent from each other, and therefore some inferred properties,
+like the &ldquo;law&rdquo; of large numbers hold.
+</p>
+
+<p>
+Once the <i>independence assumption</i> (and the abstract concept of
+mathematical randomness) are removed, everything collapses back to
+uncertainty, which is exactly right, provided that the factors which
+will create further events are not there yet or did not have enough
+weight.
+</p>
+
+<p>
+This is why event the less wrong, frequency-based probabilities does not
+apply, because the system under observation are not &ldquo;closed&rdquo; and <i>fully
+observable</i> in principle. Past performance does not imply anything certain, only
+reinforces common <i>beliefs</i>.
+</p>
+
+<p>
+What then about all these PhD-level books? Just abstract <i>sectarian
+bullshit</i>.
+</p>
+
+<p>
+Don&rsquo;t you remember books about Freudian &ldquo;psychology&rdquo; with an ego,
+super-ego and shieeet? Well, just like the whole field went from
+Freudian abstract bullshit, via Milgram, to <i>Evolutionary Psychology</i>,
+finance went from its own abstract bullshit (assumptions of rationality,
+independence, efficiency) to what we call &ldquo;behavioral finance&rdquo; where
+huge crowds of idiots are swayed by greed, fear, mass
+hysteria and clever memes in an environment full of &ldquo;bad actors&rdquo; of any
+imaginable kind.
+</p>
+
+<p>
+What we need, however, are <i>simplest</i> but correct mathematical modes which
+<i>formally define</i> what we are talking about. Every single word we use, at
+least in theory, should have precise mathematical meaning, and this is
+not that hard as long as we remain grounded into reality and did not
+invent abstract bullshit.
+</p>
+
+<p>
+Where the &ldquo;real stuff&rdquo; may come from? From the &ldquo;<i>wire</i>&rdquo; which links
+transacting (<i>in-wire representations</i> of values) entities and from
+transactions themselves (what goes where).
+</p>
+
+<p>
+Thus we do not start from the abstract theories of modern finance, but
+from <i>reverse-engineering</i> of how particular trading platforms. <code>Binance</code>
+did excellent job of making its API and underlying basic math publicly
+available, which was one of the reasons of its enormous success - they
+made the basic things clear and transparent.
+</p>
+
+<p>
+So, unless we are market-makers we have to focus on on-the-wire transactions and how
+they affect our accounts. From this we could infer precise definitions
+of vague concepts.
+</p>
+
+<div id="outline-container-org6bca7d3" class="outline-2">
+<h2 id="org6bca7d3">Reactive, not proactive</h2>
+<div class="outline-text-2" id="text-org6bca7d3">
+<p>
+It is tempting to belive that one could come up with a system that
+correctly forecasts the future and frontrun everyone. However, there is
+no such system has ever been made by Evolution itself (and there are
+fundamental philosophical considerations why this is impossible in
+principle). What Evolution managed to produce are <i>reactive</i> systems,
+which have certain &ldquo;architectural designs&rdquo; in common, namely - sensors
+and feedback loops.
+</p>
+
+<p>
+To have a systems which does your <i>reactions</i> to the market conditions is
+enough for everything, and just like in biology, the system should be a
+hierarchy of layered interfaces, made out of <i>simple pure functions</i>.
+</p>
+
+<p>
+Why no one did this so far? Because they always begin from abstract
+bullshit which constitute the current consensus, and from the memes of
+current mass hysteria, instead of universals and fundamental principles.
+</p>
+
+<p>
+And yes, the actual code must not much bigger that underlying simplest
+mathematics. The pure functional code should even be an executable
+<i>specification of itself</i>.
+</p>
+
+<p>
+Very few people have arrived at these decisions because, again, the
+whole industry is an organized &ldquo;religion&rdquo; of <i>imperative</i>, object-oriented
+crap, no one fully understands (yes, this is the same as modern
+finance). They start from <code>C++</code> because it is &ldquo;industry standard&rdquo; and
+ended up with piles upon piles of <i>low-level verbosity</i> no one is able to comprehend.
+</p>
+
+<p>
+I really envy these Cornell graduates and PhDs who has been taught the
+fundamental principles and proper languages (since MIT dropped Scheme
+and slided into the imperative OOP hell, Cornell becamethe number one
+classic school) and how they just applied their classic principle-guided
+knowledge to automate trading.
+</p>
+
+<p>
+The usual problem is that <i>disentanglement, reformulation,
+simplification and formal verification</i> takes time, and time is the most
+scarcest resource after attention span and ability to focus.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-10 Thu 10:39</p>
+</div>
+</body>
+</html>
