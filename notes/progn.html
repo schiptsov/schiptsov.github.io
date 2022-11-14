@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-14 Mon 13:13 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Me solving programming this morning</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Me solving programming this morning</h1>
+</header><p>
+Stable, pure-functional, composable <i>abstract interfaces</i> is the key.
+</p>
+
+<p>
+At the highest level - proper, &ldquo;just right&rdquo; <i>minimal</i> abstractions which
+&ldquo;perfectly&rdquo; (optimally) capture corresponding aspects of reality.
+</p>
+
+<p>
+Unnecessary, redundant abstractions is the root of all evil. Especially
+abstractions as in an <i>Abstract art</i> or abstractions for the sake of
+abstraction, as in  <i>Liberal arts</i> - pure evil idiocy.
+</p>
+
+<div id="outline-container-orgbb27708" class="outline-2">
+<h2 id="orgbb27708">All you need is:</h2>
+<div class="outline-text-2" id="text-orgbb27708">
+<ul class="org-ul">
+<li>everything is an <i>expression</i> which evaluates (reducible) to a <i>value</i></li>
+<li>everything is a <i>first-class value</i> (literally)</li>
+<li>values are <i>immutable</i></li>
+<li>immutable <i>bindings</i> of <i>symbols</i> to values (with <i>shadowing</i>).</li>
+<li>these properties imply /referential transparency (or substitution)</li>
+</ul>
+<p>
+And one got core <i>mathematics</i>.
+</p>
+<ul class="org-ul">
+<li>\(\lambda\) (means of abstraction)</li>
+<li><i>currying</i> (nesting, <i>partial application</i>)</li>
+<li>reduction rules based on the <i>substitution of equal for equal</i> principle</li>
+</ul>
+<p>
+This is Lambda Calculus, enough for everything
+</p>
+<ul class="org-ul">
+<li>every value has its type (immutable)</li>
+</ul>
+<p>
+Simple-typed Lambda Calculus, to avoid Russel&rsquo;s paradox
+</p>
+<ul class="org-ul">
+<li><i>type-tagged</i> values (<i>strong typing</i>)</li>
+<li>modules (like in Ocaml)</li>
+<li><code>defstruct</code> (sets of <i>named</i> and <i>typed</i> slots)</li>
+<li><i>Abstract data types</i> (abstractions defined by a <i>set of functions</i>)</li>
+</ul>
+<p>
+And here are LISPs and Schemes.
+</p>
+<ul class="org-ul">
+<li>built-in support for <i>sum-types</i> (tagged <i>disjoint unions</i>)</li>
+<li><i>product-types</i> (records)</li>
+<li><i>pattern-matching</i> on data-constructors (<i>everywhere</i>)</li>
+</ul>
+<p>
+And this is the <code>Standard ML</code>
+</p>
+<ul class="org-ul">
+<li>unbroken and <i>enforced</i> referential transparency</li>
+</ul>
+<p>
+as in <code>Haskell</code>
+</p>
+
+<p>
+From this <i>basis</i> OOP featured could be build <i>as a DSL</i> (LISPs did this).
+</p>
+
+<p>
+OOP is not essential, <i>ADTs, proper modules and Algebraic types</i> are.
+</p>
+
+<p>
+Good things to have
+</p>
+<ul class="org-ul">
+<li><i>list comprehensions</i> (generalized notation of the Set theory)</li>
+<li><i>monad comprehensions</i> (<code>for</code> notation, similar to the  <code>do</code> notation)</li>
+<li><code>deriving (Read, Show)</code></li>
+<li><code>deriving (FromJSON, ToJSON)</code></li>
+<li><i>iterator protocols</i> and syntax in the core language (Traversable)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-14 Mon 13:13</p>
+</div>
+</body>
+</html>
