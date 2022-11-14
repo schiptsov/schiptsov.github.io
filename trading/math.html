@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-12 Sat 20:28 -->
+<!-- 2022-11-14 Mon 16:54 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Math</title>
@@ -145,7 +145,7 @@ all the surges and drops through the day, their speed, etc.,
 <h2 id="org902fdc4">The Central tendency</h2>
 <div class="outline-text-2" id="text-org902fdc4">
 <p>
-This is roughly equivalent to measuring <i>height</i> and <i>spread</i> of a pile.
+This is conceptually equivalent to measuring <i>height</i> and <i>spread</i> of a pile.
 Or characterizing all the marks (the sample space) on a target.
 </p>
 
@@ -160,26 +160,6 @@ Notice that everything is just an <i>average</i> or a  <i>distance</i> from it
 <p>
 Reduction to a single number - an average (finding a center).
 \(\mu = \frac{\sum x}{n}\)
-</p>
-</div>
-</div>
-<div id="outline-container-orgb0932f4" class="outline-3">
-<h3 id="orgb0932f4">Variability (how much it varies)</h3>
-<div class="outline-text-3" id="text-orgb0932f4">
-<p>
-An <i>average /distance</i> from the <i>mean</i> (how close to the center).
-It characterizes <i>the shape</i> of a pile - how it spreads out.
-This is an <i>average</i> too (of <i>distances</i>) - a single number.
-\(var = \frac{\sum(x-\mu)^{2}}{n}\)
-</p>
-</div>
-</div>
-<div id="outline-container-org2c900b6" class="outline-3">
-<h3 id="org2c900b6">Standard deviation</h3>
-<div class="outline-text-3" id="text-org2c900b6">
-<p>
-The <i>unit</i> of measurement of a <i>variability</i>.
-\(\sigma = \sqrt \frac{\sum(x-\mu)^{2}}{n}\)
 </p>
 </div>
 </div>
@@ -205,6 +185,43 @@ Do a <i>bucket-sort</i> (same as frequency) and take the fullest bucket.
 </p>
 </div>
 </div>
+</div>
+<div id="outline-container-orgf1846fe" class="outline-2">
+<h2 id="orgf1846fe">Variability</h2>
+<div class="outline-text-2" id="text-orgf1846fe">
+<p>
+<i>Distances</i> from the center - spread or <i>dispersion</i> of values.
+</p>
+</div>
+<div id="outline-container-org3495e67" class="outline-3">
+<h3 id="org3495e67">Range</h3>
+<div class="outline-text-3" id="text-org3495e67">
+<p>
+This is just <code>max(xs) - min(xs)</code>, which is a <i>difference</i>.
+It shows how <i>spread out</i> the values are (on a <i>number line</i>).
+</p>
+</div>
+</div>
+<div id="outline-container-org9260d87" class="outline-3">
+<h3 id="org9260d87">Variance (how much it varies)</h3>
+<div class="outline-text-3" id="text-org9260d87">
+<p>
+An <i>average /distance</i> from the <i>mean</i> (how close to the center).
+It characterizes <i>the shape</i> of a pile - how it spreads out.
+This is an <i>average</i> too (of <i>distances</i>) - a single number.
+\(var = \frac{\sum(x-\mu)^{2}}{n}\)
+</p>
+</div>
+</div>
+<div id="outline-container-org2c900b6" class="outline-3">
+<h3 id="org2c900b6">Standard deviation</h3>
+<div class="outline-text-3" id="text-org2c900b6">
+<p>
+The <i>unit</i> of measurement of a <i>variability</i>. How many of such units <i>away</i> (distant).
+\(\sigma = \sqrt \frac{\sum(x-\mu)^{2}}{n}\)
+</p>
+</div>
+</div>
 <div id="outline-container-org5a9d402" class="outline-3">
 <h3 id="org5a9d402">z-score</h3>
 <div class="outline-text-3" id="text-org5a9d402">
@@ -220,7 +237,7 @@ In terms of units of variability.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-12 Sat 20:28</p>
+<p class="date">Created: 2022-11-14 Mon 16:54</p>
 </div>
 </body>
 </html>
