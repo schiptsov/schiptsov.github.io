@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-13 Sun 14:36 -->
+<!-- 2022-11-14 Mon 10:34 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Haskell</title>
@@ -45,9 +45,9 @@
 <header>
 <h1 class="title">Haskell</h1>
 </header>
-<div id="outline-container-orgb612834" class="outline-2">
-<h2 id="orgb612834">eternal</h2>
-<div class="outline-text-2" id="text-orgb612834">
+<div id="outline-container-org04c2abf" class="outline-2">
+<h2 id="org04c2abf">Eternal</h2>
+<div class="outline-text-2" id="text-org04c2abf">
 <p>
 Mathematicians are usually not concerned with <i>representations</i> of their
 abstract &ldquo;objects&rdquo; or <i>actual implementations</i> of their declarative solutions.
@@ -140,11 +140,514 @@ pipeline <i>outside the membrane</i> (metaphorically speaking).</li>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orgde6c96f" class="outline-2">
+<h2 id="orgde6c96f">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-orgde6c96f">
+<p>
+Associate a type with cardinality (just like of a Set)
+How many inhabitants (members) a type has.
+Ignore bottoms (they are relevant only in type-constraint solving)
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Void</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">0, no elements, just like The Empty Set</span>
+
+<span style="color: #81A1C1;">data</span> <span style="color: #81A1C1;">()</span> <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">()</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">exactly 1, exactly this - no new information</span>
+
+<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">True</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">False</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">just these 2. notice the |</span>
+
+<span style="color: #81A1C1;">data</span> <span style="color: #81A1C1;">(</span><span style="color: #8FBCBB;">,</span><span style="color: #81A1C1;">)</span> a b <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">(</span><span style="color: #8FBCBB;">,</span><span style="color: #81A1C1;">)</span> a b <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">a type-constructor, parametrized by a nd b</span>
+</pre>
+</div>
+</div>
+<div id="outline-container-orgee73908" class="outline-3">
+<h3 id="orgee73908">Shapes or forms</h3>
+<div class="outline-text-3" id="text-orgee73908">
+<p>
+Notice that these types have distinct, unique <i>shapes</i>
+</p>
+<ul class="org-ul">
+<li><code>|</code> stands for an <i>alternative or a possibility</i> - <code>OR ELSE</code> (a &ldquo;fork&rdquo; -
+<i>this or that</i>).</li>
+<li><code>,</code> stands for <code>AND ALSO</code> (pretense in the same locality) (a &ldquo;join&rdquo; - <i>this
+and that</i>).</li>
+</ul>
+<p>
+Notice that
+</p>
+<ul class="org-ul">
+<li>only one &ldquo;branch&rdquo; of a &ldquo;fork&rdquo; can be taken (<i>observed</i>).</li>
+<li>an <i>aggregate</i> (a compound) is fundamentally different (has its own
+<i>unique /properties</i>) from its individual parts.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org478231b" class="outline-2">
+<h2 id="org478231b">Total</h2>
+<div class="outline-text-2" id="text-org478231b">
+<p>
+Knowing cardinalities of any two types (sets) we can know how many
+&ldquo;arrows&rdquo; (individual relations or distinct mappings) are there <i>in total</i>.
+</p>
+
+<p>
+When we try to <i>visualize</i> (or formally define as a directed graph) the
+totality of all the possible relations we will notice that the resulting
+shapes (abstract structures) are the same (same number, same direction).
+</p>
+
+<p>
+And this is it. This does not imply anything more than that - just
+similarity in its totality - a purely abstract notion.
+</p>
+
+<p>
+The notion of duality based on cardinality alone is wrong and misleading.
+</p>
+</div>
+</div>
+<div id="outline-container-orge218ce3" class="outline-2">
+<h2 id="orge218ce3">Isomorphism</h2>
+<div class="outline-text-2" id="text-orge218ce3">
+<p>
+Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
+This is a naive and too abstract to be useful assumption.
+</p>
+
+<p>
+The <i>shape</i> (the <i>form</i> or <i>structure</i>) of the type is its distinct feature, out of which its <i>properties</i> arise (just as with molecules).
+</p>
+
+<p>
+A fork is not isomorphic to a join in principle, but it is viewed by sectarians as such.
+</p>
+</div>
+
+<div id="outline-container-orgb6c2e74" class="outline-3">
+<h3 id="orgb6c2e74">Definition</h3>
+<div class="outline-text-3" id="text-orgb6c2e74">
+<p>
+The formal definition is this
+</p>
+<ul class="org-ul">
+<li><i>there is a pair of total functions between two types (sets)</i></li>
+<li><i>composition of these two functions is an identity (a round trip)</i></li>
+</ul>
+
+<p>
+When two types (sets) has the same cardinality,
+an one-to-one correspondence (a mapping) could be defined in principle
+as a pair of total functions.
+</p>
+
+<p>
+As long as cardinality is greater than 1 a particular <i>ordering</i> has to be defined (become a part of an abstract mathematical structure).
+</p>
+
+<p>
+This does not imply that such one-to-one correspondence would necessarily have a
+meaning.
+</p>
+
+<p>
+The most general application is a primitive <i>associative counting device</i>, when,
+lets say, stones in a bucket are associated with how many sheep went to
+a pasture.
+</p>
+
+<p>
+Abstractly we have one-to-one correspondences with elements or notches
+on an imaginary <i>number line</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86440a9" class="outline-3">
+<h3 id="org86440a9">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-org86440a9">
+<p>
+Individual &ldquo;arrows&rdquo; (relations) between values has to have a particular order, and each &ldquo;arrow&rdquo; has to have a unique <i>inverse</i> &ldquo;arrow&rdquo;.
+</p>
+
+<p>
+The meaning and validity of such functions does not concern mathematicians.
+</p>
+
+<p>
+Symmetries (rotations) could be formalized with such functions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbb80f07" class="outline-3">
+<h3 id="orgbb80f07">n!</h3>
+<div class="outline-text-3" id="text-orgbb80f07">
+<p>
+For any two types (sets) of the same cardinality n
+there are n! <i>unique</i> isomorphisms (pairs of arrows) between them.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6115d97" class="outline-3">
+<h3 id="org6115d97">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-org6115d97">
+<p>
+Knowing that an isomorphism exists is enough.
+An isomorphism between types \(s\) and \(t\) is a proof that for all
+intents and purposes, \(s\) and \(t\) are the same thing.
+</p>
+
+<p>
+This, of course, is bullshit.
+</p>
+
+<p>
+The cardinality of a <i>sum-type</i> is the sum
+of the cardinalities of its constructors.
+</p>
+
+<p>
+The cardinality of a <i>product-type</i> is the product
+of cardinalities.
+</p>
+
+<p>
+It is said that these are <i>duals</i>, which is, again, bullshit. The ability
+of an external observer to reverse arrows on an abstract structure does
+not imply anything real or even meaningful.
+</p>
+
+<p>
+It <i>looks</i> like something profound, but there is nothing beyond the mental
+trick out there.
+</p>
+
+<p>
+The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9dc536a" class="outline-3">
+<h3 id="org9dc536a">Monoidial</h3>
+<div class="outline-text-3" id="text-org9dc536a">
+<p>
+<code>()</code> is a Monoidal Identity element for product-types (no information).
+<code>Void</code> is an identity element for sum-types (Void has no members).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga246685" class="outline-2">
+<h2 id="orga246685">Exponentials</h2>
+<div class="outline-text-2" id="text-orga246685">
+<p>
+The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
+</p>
+
+<p>
+For every value of \(a\) in the <i>domain</i>, there is a \(b\) in \(B\).
+We can chose <i>any value</i> of \(B\) for every value in \(A\)
+so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
+</p>
+</div>
+</div>
+<div id="outline-container-orgeee14e4" class="outline-2">
+<h2 id="orgeee14e4">Stuff</h2>
+<div class="outline-text-2" id="text-orgeee14e4">
+<p>
+described a system with equations that determine how its state evolves
+with time, where the state consists of the values of variables (a
+context)
+</p>
+
+<p>
+We can pretend that its state changes in discrete steps. This is
+sampling of a continuous signal.
+</p>
+
+<p>
+We can think of a <i>state</i> as representing a potential state of the
+<i>entire universe</i>. This is similar to \(R^{3}\) which defines every point
+in an abstract 3D space.
+</p>
+
+<p>
+So, we represent the execution of a system as a sequence of states
+(discrete steps).
+</p>
+
+<p>
+Formally, we define a <i>behavior</i> to be a sequence of states, where a
+state is an assignment of values to variables.
+</p>
+
+<p>
+A behavior could be viewed as a <i>log</i> of what just (already) <i>happened</i>.
+It is good idea to log each new state.
+</p>
+
+<p>
+A step is <i>an ordered pair</i> of <i>adjacent</i> states, while the last one is the <i>tip</i> of an arrow.
+</p>
+
+<p>
+Such sequence of steps (or arrows) is usually called a <i>path</i>.
+</p>
+
+<p>
+An <i>invariant</i> <code>P</code> is True (unchanged) \(\forall s \in S, P(s)\). For a directed
+sequence we could use <i>induction</i>.
+</p>
+
+<p>
+Mangle function definitions with lots of boilerplate purely <i>to
+thread the state through</i> (using an explicit parameter or implicitly -
+inside of a Monad).
+</p>
+
+<p>
+The ability to separate <i>what</i> is computed from <i>how</i> much of it is
+computed is a powerful aid to writing modular programs.
+</p>
+
+<p>
+<i>What</i> is in an function <i>signature</i> and its formal specification stated
+in the comments. <i>How</i> is in the function&rsquo;s body (an expression).
+</p>
+
+<p>
+Constitutionally separates (at the <i>type-level</i>) pure and impure (IO)
+functions without encumbering the syntax of either.
+</p>
+
+<p>
+Other &ldquo;side-effects&rdquo; are separated in its own <i>Monad</i> (the aspect of an
+<i>abstraction barrier</i> and the aspect of implicit <i>sequencing</i>).
+</p>
+
+<p>
+The type-class of Monads is defined as an ADT, so every particular
+instance of a Monad is an ADT in principle.
+</p>
+
+<p>
+The compiler simply refuses to build a program which incorrectly mixes
+pure and impure functions (trying to apply to a <i>lifted value</i>, etc).
+</p>
+
+<p>
+Monads are as general and important as parenthesis
+They are &ldquo;membranes&rdquo; - type-level abstraction barriers
+Monadic Laws are of a Monoid (associativity, identity)
+</p>
+
+<p>
+And a <i>Monoid</i> captures operations with properties of composition and folding
+</p>
+
+<p>
+As an abstraction in context of FP a Monad generalizes an <i>abstraction
+barrier</i> (by being an ADT).
+</p>
+
+<p>
+In the context of Haskell, it is just a type-class (an implicitly an
+ADT).
+</p>
+
+<p>
+To be (an instance of) a Monad is to <i>implement an interface</i>
+which consists of a couple of <i>function signatures</i>
+which, in turns, confirm to certain algebraic laws.
+</p>
+
+<p>
+Several definitions - in terms of <code>&lt;=&lt;</code>, of <code>join</code> and <code>return</code> and
+<code>bind</code> and <code>return</code>.
+</p>
+
+<p>
+the fish <code>&lt;=&lt;</code> is a <i>composition</i> operator, like ~ (.) ~ - \[f  \circ g\]
+fish facing in the opposite direction is <code>|&gt;</code> (the <i>pipe</i> operator).
+</p>
+
+<p>
+<code>join</code> is a &ldquo;hack&rdquo; (flatten for lists of lists).
+</p>
+
+<p>
+<code>fmap</code> of <code>f</code> over <code>g</code> is a composition - \(f \circ g\) - f <i>after</i> g - an
+<i>arrow</i>
+</p>
+
+<p>
+Before, the <code>puts</code> function took a world and a string, then returned a
+changed world. Now, it takes a string and <i>returns a world-changing
+function</i>, which must <i>eventually</i> be run. (this!)
+</p>
+
+<p>
+It’s like Unix pipes, but instead of transforming text, we <i>chain together functions that transform the world</i>.
+</p>
+
+<p>
+In Haskell, there is a special kind of value called an <i>IO action</i>.
+</p>
+
+<p>
+When a Haskell system evaluates an expression that yields an IO action, it knows not to try to &ldquo;run it&rdquo;, but rather to ask the runtime system to &ldquo;take the appropriate action&rdquo;, eventually, when performed.
+</p>
+
+<p>
+Everything impure happens after main returns.
+</p>
+
+<p>
+Still declarative - please, do this &ldquo;action&rdquo;, eventually. the value which main returns is still a pure logic.
+</p>
+
+<p>
+It delegates the actual running of actions to the runtime.
+</p>
+
+<p>
+{-# LANGUAGE DataKinds #-}
+The DataKinds extension allows us to promote data constructors into type constructors, which also promotes their type constructors into kind constructors.
+</p>
+
+<p>
+To promote something up a level, we prefix the name with an apostrophe, or tick
+</p>
+
+<p>
+type creates type-synonim, no new data-constructors
+</p>
+
+<p>
+[<a href="http://h2.jaguarpaw.co.uk/">http://h2.jaguarpaw.co.uk/</a>]
+</p>
+
+<p>
+The normal form is a simplified version of Haskell with fewer language constructs. It has only
+</p>
+<ul class="org-ul">
+<li>literals</li>
+<li>variables</li>
+<li>constructors</li>
+<li>let</li>
+<li>lambda</li>
+<li>function application</li>
+<li>case</li>
+</ul>
+
+<p>
+That world doesn’t speak in product and sum types, but in streams of bytes, so there’s no getting around a need to do some parsing.
+</p>
+
+<p>
+maxims
+</p>
+<ul class="org-ul">
+<li>make as much of your logic pure as possible</li>
+<li>avoid naked primitive types (String255, etc.)</li>
+<li>make invalid states unrepresentable (NonEmpty, NonZero)</li>
+<li>make flat hierarchies with composition</li>
+<li>parse, don’t validate</li>
+<li>Keep your types small</li>
+</ul>
+
+<p>
+try to figure out what its domain-specific types mean.
+</p>
+
+<p>
+start figuring out a library by figuring out its types.
+</p>
+
+<p>
+rich type system lets you model the domain precisely and in a complete way.
+</p>
+<ul class="org-ul">
+<li>no nulls;</li>
+<li>errors and the possibility of returning nothing are represented explicitly.</li>
+<li>algebraic data types model alternatives easily.</li>
+<li>well-implemented generics (polymorphism) and typeclasses means more reusable code.</li>
+<li>side effecting code is clearly separated from pure code at the type level.</li>
+</ul>
+
+<p>
+it’s possible to write functions that need no validation done on their inputs.
+</p>
+
+<p>
+able to use your function parameters immediately without having to do any null checking at all
+</p>
+
+<p>
+it’s easier for the same developers to return months or a year from now, or new developers to arrive, and gain a good grasp of what’s happening in the system.
+</p>
+
+<p>
+parses lists into non-empty lists
+&#x2013; Returns a meaningful value to be composed with
+parseNonEmpty :: [a] -&gt; IO (NonEmpty a)
+parseNonEmpty (x:xs) = pure (x:|xs)
+parseNonEmpty [] = throwIO $ userError &ldquo;list cannot be empty&rdquo;
+</p>
+
+<p>
+a parser is just a function that consumes less-structured input and produces more-structured output.
+</p>
+
+<p>
+By its very nature, a parser is a partial function—some values in the domain do not correspond to any value in the range—so all parsers must have some notion of failure.
+</p>
+
+
+<p>
+The common theme between all these libraries is that they sit on the boundary between your Haskell application and the external world.
+</p>
+
+<p>
+do &#x2026;
+   fmap f e
+</p>
+
+<p>
+can be rewritten to
+</p>
+
+<p>
+fmap f $ do &#x2026;
+            e
+</p>
+
+<p>
+and
+</p>
+
+<p>
+case x of
+    Case1 -&gt; f $ body1
+    Case2 -&gt; f $ body2
+to
+</p>
+
+<p>
+f $ case x of
+    Case1 -&gt; body1
+    Case2 -&gt; body2
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-13 Sun 14:36</p>
+<p class="date">Created: 2022-11-14 Mon 10:34</p>
 </div>
 </body>
 </html>
