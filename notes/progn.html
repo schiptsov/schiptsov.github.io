@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-15 Tue 19:28 -->
+<!-- 2022-11-16 Wed 09:49 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Me solving programming this morning</title>
@@ -63,8 +63,44 @@ abstraction, as in  <i>Liberal arts</i> - pure evil idiocy.
 Having a <i>pure /expression</i> in place of many possible sequences of imperative
 commands eliminates a lot of problems. <i>Declarative</i> comprehensions,
 iterators, futures and pure functional DSLs (made out of functions on
-ADTs) in general is the way to actually manage complexity. Scala 3 has
-its <i>immutable collections</i> and related subset.
+ADTs) in general is the way to actually manage complexity.
+</p>
+
+<p>
+<code>map</code>, and <code>fold</code> were the first functional abstractions, invented to
+generalize and <i>encapsulate traversals</i>, which otherwise would include
+explicit, error-prone imperative looping. Today <code>Scala 3</code> has its
+<i>immutable collections</i> and related <i>functional DSL</i> (building blocks) as a <i>pure subset</i>.
+</p>
+
+<p>
+Our own evolved <i>layered functional DSLs</i> should be at the highest possible level of
+abstractions (and everything on the same level of abstraction must be at
+the same level of details).
+</p>
+
+<p>
+Non-leaking <i>abstraction barriers</i> (public interfaces of proper ADTs) are
+<i>partitions</i> that partition the &ldquo;universe of discourse&rdquo;, which in our case
+<i>requires</i> to specify <i>representation</i> and <i>implementation</i> details. These,
+however, must never be mentioned or talked about at the level of <i>process logic</i>.
+</p>
+
+<p>
+Again, MATLAB REPL is all you need to understand (including the enormous
+complications in implementations of matrices and <i>numerical methods</i>).
+</p>
+
+<p>
+In short, as our forefathers emphasized, one has to evolve an <i>actual
+language</i> in which solutions to the problems will be developed. And, of
+course, the underlying programming language must be of the LISP/ML
+family, or Haskell.
+</p>
+
+<p>
+GHC (writen in Haskell), Coq (in Ocaml), Agda (in Haskell), Maxima (in
+Common Lisp), Octave (in C++, yikes) are the hows.
 </p>
 
 <div id="outline-container-orgbb27708" class="outline-2">
@@ -169,7 +205,7 @@ impossible (Ocaml).</li>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-15 Tue 19:28</p>
+<p class="date">Created: 2022-11-16 Wed 09:49</p>
 </div>
 </body>
 </html>
