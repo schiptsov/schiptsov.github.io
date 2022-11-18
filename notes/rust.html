@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-16 Wed 12:39 -->
+<!-- 2022-11-18 Fri 10:03 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rust</title>
-<meta name="author" content="schiptsov@gmail.com" />
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -35,12 +35,25 @@ How to make <code>Rust</code> a realy decent language.
 <li>support for <i>Algebraic types</i>, especially proper <i>sum-types</i> and GADTs</li>
 <li>Capitalized data-constructors, <i>type inference</i> for <i>Algebraic types</i>.</li>
 <li><i>pattern-matching</i> on data-constructors <i>everywhere</i></li>
-<li>multi-clause functions (a set of partial functions)</li>
+<li>multi-clause functions (a <i>set of partial functions</i>)</li>
+<li><i>type-classes</i> from Haskell (proper set-like <i>relations on interfaces</i>)</li>
 <li>just copy Ocaml module system (with more uniform syntax).</li>
 </ul>
 
 <p>
-Move from C++-sh imperative crap to Ocaml&rsquo;s and Scala&rsquo;s syntactic forms.
+Notice that <i>type-classes</i> solve the <i>specification problem</i>, providing more
+structured approach (the <i>set-subset</i> relation) than a bunch of
+<i>assertions</i> (as in CLU).
+</p>
+
+<p>
+Literally all languages should use them and Ocaml modules, which is the
+same fundamental structuring mechanisms (set-subset + application) at a higher level.
+</p>
+
+<p>
+Anyway, just move from C++-sh imperative crap to Ocaml&rsquo;s and Scala&rsquo;s
+syntactic forms, keeping all the imperative crap as a subset.
 </p>
 
 <p>
@@ -81,9 +94,9 @@ a new <code>F#</code> and <code>Scala</code>-based language, minimal, clean, pri
 </p>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: schiptsov@gmail.com</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-16 Wed 12:39</p>
+<p class="date">Created: 2022-11-18 Fri 10:03</p>
 </div>
 </body>
 </html>
