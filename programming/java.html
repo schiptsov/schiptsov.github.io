@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-19 Sat 13:26 -->
+<!-- 2022-11-19 Sat 14:02 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The monument of human stupidity</title>
@@ -81,13 +81,27 @@ thread or a process), which we call &ldquo;sharing&rdquo;, cannot be fixed in pr
 Java is indeed the monument to human stupidity, and &ldquo;shared mutable state&rdquo;
 is manifestation of ignorance and the cause of suffering.
 </p>
+
+<p>
+It is not even possible to implement proper <i>share-nothing</i> abstractions
+(not even a single byte, leave alone a per-thread <i>call-stack</i>) with
+are <i>required</i> for multi-processing in an environment which combines
+imperative <i>destructive updates, sharing and multi-threading</i>. Other
+people&rsquo;s crappy library code will fuck up everything.
+</p>
+
+<p>
+Somehow not surprisingly, Java is the second most popular language
+(after fucking Javascript), LMAO, while it is just a corporate PHP
+turned into a holy catholic Church.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-19 Sat 13:26</p>
+<p class="date">Created: 2022-11-19 Sat 14:02</p>
 </div>
 </body>
 </html>
