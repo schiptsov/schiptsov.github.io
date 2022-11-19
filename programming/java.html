@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-19 Sat 13:26 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The monument of human stupidity</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">The monument of human stupidity</h1>
+</header>
+<div id="outline-container-orgbbd3e08" class="outline-2">
+<h2 id="orgbbd3e08">The monument of human stupidity</h2>
+<div class="outline-text-2" id="text-orgbbd3e08">
+<p>
+The most embarrassing of it all is the idiotic insistence on piling up more
+and more imperative crap on designs based on fundamentally unsound
+principles, both in the language design and the implementation.
+</p>
+
+<p>
+The 2000s boom of notoriously crappy Java literature ruined the book industry
+forever as a side effect. Now they just print 300+ pages amateur blogposts.
+</p>
+
+<p>
+A <i>mutable state</i> cannot be guaranteed to remain consistent in an multi-execution
+(multi-processor) environment. Only in single-threaded contexts.
+</p>
+
+<p>
+This is just an evolutionary rejection of an in principle flawed set of
+arrangements - this <i>cannot be stable</i>.
+</p>
+
+<p>
+Imperative crap lacks true cell &ldquo;membranes&rdquo; or non-leaking abstraction
+barriers, as well as <i>immutability</i>.
+</p>
+
+<p>
+Imperative OO crap makes things even worse by providing <i>unsound
+/&ldquo;encapsulation&rdquo;</i> of a mutable state - a flawed cell &ldquo;membrane&rdquo;. These
+&ldquo;cells&rdquo; are just fundamentally broken.
+</p>
+
+<p>
+Every method of every object must be designed to be <i>re-enterable</i> (and
+have mandatory <i>locks around the state</i>), but, of course, most of the code are not.
+</p>
+
+<p>
+Java, being an imperative OO clustefuck with inconsistent typing (even
+in C++ - the JVM&rsquo;s implementation language!) and shared multi-threaded
+design, is doomed to always be buggy and to be exponentially slowing
+down in its improvement (already happened) due to not being able to fix
+concurrency flaws and subtle bugs - too much time and resources will be spent in vain.
+</p>
+
+<p>
+Unrestricted (arbitrary) <i>overwriting</i> of memory locations (from another
+thread or a process), which we call &ldquo;sharing&rdquo;, cannot be fixed in principle.
+</p>
+
+<p>
+Java is indeed the monument to human stupidity, and &ldquo;shared mutable state&rdquo;
+is manifestation of ignorance and the cause of suffering.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-19 Sat 13:26</p>
+</div>
+</body>
+</html>
