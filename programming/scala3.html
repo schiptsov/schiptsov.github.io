@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-19 Sat 16:29 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scala3</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Scala3</h1>
+</header><p>
+When the language specification and the compiler are done, we face a
+slow, painful but doable <code>2 -&gt; 3</code> transition, similar to what Python went
+through.
+</p>
+
+<p>
+It is not just matter of accessing old classes, it is an effort to
+rewrite parts of important codebases (Spark, Kafka, the Twitter stack)
+to use the new standard library and its better abstractions (due to
+better typing).
+</p>
+
+<p>
+I really hope that they at least attempted to unify various <i>in-house
+implementations</i> of <i>Streams</i> and <i>Futures</i> and what not. There is no easy or
+quick way to <i>evolve stable intermediate forms</i> which is a principal requirement for
+an ongoing evolutionary process.
+</p>
+
+<p>
+The mantra <i>Principle-based is better than rule-based</i> should be the motto
+of <code>Scala 3</code>.
+</p>
+
+<p>
+The sad thing is refusal to just copy fundamental innovations from other
+languages
+</p>
+<ul class="org-ul">
+<li>proper sum-types and GADTs (fundamental)</li>
+<li>type-classes of Haskell (they are just optimal)</li>
+<li>modules of Ocaml (it has to be the Java way)</li>
+<li>Some Haskell&rsquo;s typing extensions which have proven to be useful.</li>
+</ul>
+
+<p>
+Anyway, whatever.
+</p>
+<div id="outline-container-org4dc85e9" class="outline-2">
+<h2 id="org4dc85e9">Modern tools</h2>
+<div class="outline-text-2" id="text-org4dc85e9">
+<ul class="org-ul">
+<li><code>cs</code> -  <i>artifact manager</i></li>
+<li><code>amm</code> - <i>advanced REPL</i></li>
+</ul>
+
+<p>
+The Compiler
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">cs setup
+</pre>
+</div>
+
+<p>
+Language-server, linter, formater
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">cs install metals scalafix scalafmt
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash">cs update
+</pre>
+</div>
+
+<p>
+Launch the REPL
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">cs launch ammonite --scala 3.2.1
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org32d3198" class="outline-2">
+<h2 id="org32d3198">Libraries</h2>
+<div class="outline-text-2" id="text-org32d3198">
+<p>
+Most of them are over-&ldquo;engineered&rdquo; and bloated, without any effort of making the
+abstractions <i>minimal</i> and &ldquo;just right&rdquo; (optimal). Such &ldquo;natural
+selection&rdquo; (of gradual refinement and reduction to a local optimum)
+takes decades (like Common Lisp, Ocaml stdlib or Haskell&rsquo;s prelude).
+</p>
+
+<p>
+Most of corporate code are of <i>low-effort</i> and mostly &ldquo;copying&rdquo; of <i>imperative</i> implementations from one another.
+</p>
+<ul class="org-ul">
+<li><code>akka</code> - the supposedly done right <i>basic building</i> blocks. Use it.</li>
+<li>The <code>Twitter stack</code> (still Scala 2)</li>
+<li><code>Kafka</code> - steams</li>
+<li><code>Spark</code> - the <i>killer-app</i> (still Scala 2)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-19 Sat 16:29</p>
+</div>
+</body>
+</html>
