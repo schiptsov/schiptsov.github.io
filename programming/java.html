@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-19 Sat 14:02 -->
+<!-- 2022-11-19 Sat 14:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The monument of human stupidity</title>
@@ -83,6 +83,13 @@ is manifestation of ignorance and the cause of suffering.
 </p>
 
 <p>
+First, one cannot model proper <i>asynchronous /message-passing</i> using <i>calls
+to methods</i> within a single thread, because a method call implies a
+transfer of control with a return address on the stack (a suspension).
+It requires <i>sending</i> to a &ldquo;port&rdquo; - a proper RPC.
+</p>
+
+<p>
 It is not even possible to implement proper <i>share-nothing</i> abstractions
 (not even a single byte, leave alone a per-thread <i>call-stack</i>) with
 are <i>required</i> for multi-processing in an environment which combines
@@ -101,7 +108,7 @@ turned into a holy catholic Church.
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-19 Sat 14:02</p>
+<p class="date">Created: 2022-11-19 Sat 14:19</p>
 </div>
 </body>
 </html>
