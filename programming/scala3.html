@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-19 Sat 16:29 -->
+<!-- 2022-11-19 Sat 17:23 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -53,7 +53,8 @@ The sad thing is refusal to just copy fundamental innovations from other
 languages
 </p>
 <ul class="org-ul">
-<li>proper sum-types and GADTs (fundamental)</li>
+<li><code>where</code> clauses from CLU</li>
+<li>proper <i>sum-types</i> and GADTs (fundamental)</li>
 <li>type-classes of Haskell (they are just optimal)</li>
 <li>modules of Ocaml (it has to be the Java way)</li>
 <li>Some Haskell&rsquo;s typing extensions which have proven to be useful.</li>
@@ -98,6 +99,11 @@ Launch the REPL
 <pre class="src src-bash">cs launch ammonite --scala 3.2.1
 </pre>
 </div>
+
+<div class="org-src-container">
+<pre class="src src-scala">$ <span style="color: #81A1C1;">import</span> $ivy.`com.typesafe.akka<span style="color: #81A1C1;">:</span><span style="color: #8FBCBB;">akka</span>-stream_3<span style="color: #81A1C1;">:</span><span style="color: #81A1C1;">2.7.0</span>`
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-org32d3198" class="outline-2">
@@ -111,7 +117,7 @@ takes decades (like Common Lisp, Ocaml stdlib or Haskell&rsquo;s prelude).
 </p>
 
 <p>
-Most of corporate code are of <i>low-effort</i> and mostly &ldquo;copying&rdquo; of <i>imperative</i> implementations from one another.
+Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo; of <i>imperative</i> implementations from one another.
 </p>
 <ul class="org-ul">
 <li><code>akka</code> - the supposedly done right <i>basic building</i> blocks. Use it.</li>
@@ -125,7 +131,7 @@ Most of corporate code are of <i>low-effort</i> and mostly &ldquo;copying&rdquo;
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-19 Sat 16:29</p>
+<p class="date">Created: 2022-11-19 Sat 17:23</p>
 </div>
 </body>
 </html>
