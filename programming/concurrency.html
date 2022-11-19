@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-19 Sat 12:05 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Concurrency</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Concurrency</h1>
+</header><p>
+Immutability and the  <i>data-centric approach</i> &#x2013;  &ldquo;whole&rdquo; structured
+values &ldquo;on the wire&rdquo; instead of calling methods on objects &#x2013; solves most
+of the problems.
+</p>
+
+<p>
+This includes propagation of &ldquo;errors&rdquo;, and a monad is a good fit.
+</p>
+
+<p>
+&ldquo;Failures&rdquo; or &ldquo;Errors&rdquo; must be modeled explicitly as a part of the
+domain model. They are just &ldquo;<i>backtracting</i>&rdquo;.
+</p>
+
+<p>
+The authors of Erlang have everything solved in principle. We just take
+advantage of better-designed languages of the ML-family.
+</p>
+
+<p>
+The <i>multi-threaded imperative OO crap</i> is fucked beyond repair. They piled up
+on the wrong (faulty) principles.
+</p>
+<div id="outline-container-org74c85aa" class="outline-2">
+<h2 id="org74c85aa">Concurrency vs. Parallelism</h2>
+<div class="outline-text-2" id="text-org74c85aa">
+<p>
+<i>Concurrency</i> means some sort of <i>time-sharing /scheduling</i> or <i>cooperative multitasking</i> by
+some &ldquo;supervisor&rdquo; process.
+</p>
+
+<p>
+<i>Sharing</i> (of the call stack, for example) means they cannot run <i>simultaneously</i>
+in principle.
+</p>
+
+<p>
+<i>Parallelism</i> implies <i>share-nothing</i> processes (total <i>closures</i>), running on the same
+hardware or on different nodes.
+</p>
+
+<p>
+Really smart people &#x2013; the developers of Erlang &#x2013; solved everything back
+then by postulating that <i>share-nothing processes</i> which can perform <i>asynchronous
+message-passing</i> is the only viable solution. It is even better when the
+code is pure functional.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7783e28" class="outline-2">
+<h2 id="org7783e28">Asynchronous vs. Synchronous</h2>
+<div class="outline-text-2" id="text-org7783e28">
+<p>
+A normal function (or a chain of deeply <i>nested</i> functions) has to <i>return</i>.
+</p>
+
+<p>
+A compiler usually <i>inlines</i> nested (or composed) function into one big
+block of code which has an entry point and en exit point.
+</p>
+
+<p>
+If a &ldquo;function&rdquo; is annotated as <i>asynchronous</i>, it means that it is
+<i>wrapped</i> in some &ldquo;execution context&rdquo; or a <i>light-wright process</i> (which
+usually shares everything except code in memory) of its own.
+</p>
+
+<p>
+This means that it is not a <i>simple sequential</i> (graph reduction) process
+anymore.
+</p>
+
+<p>
+To such asynchronous processes (or &ldquo;execution contexts&rdquo;) some additional
+<i>signaling of completion</i> is <i>always</i> required via some &ldquo;external&rdquo; mechanism
+(runtime-support).
+</p>
+</div>
+<div id="outline-container-orgf715e14" class="outline-3">
+<h3 id="orgf715e14">More than one</h3>
+<div class="outline-text-3" id="text-orgf715e14">
+<p>
+This is not merely pure function composition (via nesting). Having more
+than one &ldquo;thread&rdquo; (or a routine) of execution <i>implies /coordination</i> and
+<i>communication</i> of some kind by runtime.
+</p>
+</div>
+</div>
+<div id="outline-container-org9acc8c2" class="outline-3">
+<h3 id="org9acc8c2">Message passing</h3>
+<div class="outline-text-3" id="text-org9acc8c2">
+<p>
+The right thing to do is what Erlang did - spawn a process, get its
+&ldquo;address&rdquo;, and send it a message. It will eventually send you &ldquo;the
+result&rdquo; back in a message (result will be delivered to your &ldquo;mailbox&rdquo;).
+</p>
+</div>
+</div>
+<div id="outline-container-orga8cf171" class="outline-3">
+<h3 id="orga8cf171">Callbacks</h3>
+<div class="outline-text-3" id="text-orga8cf171">
+<p>
+The most straightforward solution is to pass an additional parameter to
+the asynchronous &ldquo;function&rdquo; (an explicit callback) which will be callled instead of just
+returning.
+</p>
+
+<p>
+Notice that the callback (or a whole chain of them) <i>has to return</i>
+eventually. Because it is the <i>tail-call</i> it could be optimized nicely
+using the standard TCO.
+</p>
+</div>
+</div>
+<div id="outline-container-org8d9ade3" class="outline-3">
+<h3 id="org8d9ade3">Concurrent futures</h3>
+<div class="outline-text-3" id="text-org8d9ade3">
+<p>
+Futures do <i>not</i> signal completion but they can be called (polled) more than
+once.
+</p>
+
+<p>
+More precisely, they can be <i>created or dispatched</i> (and some callable <i>reference</i> is
+returned) and then <i>called</i> one or more time.
+</p>
+
+<p>
+When future is <i>not ready</i> it just blocks the caller.
+</p>
+
+<p>
+Notice that every future is still a <i>separate sub-process with sharing</i>,
+so what appears as a normal <i>function call</i> is really a <i>coordination</i> and <i>communication</i> at
+runtime.
+</p>
+
+<p>
+Futures are similar to what OS <code>poll</code> or <code>select</code> calls do.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcb5487c" class="outline-2">
+<h2 id="orgcb5487c">Non-blocking vs. Blocking</h2>
+<div class="outline-text-2" id="text-orgcb5487c">
+<p>
+The only way to achieve &ldquo;non-blocking&rdquo; is to have multiple &ldquo;execution
+contexts&rdquo;. There is no other way in principle.
+</p>
+
+<p>
+Non-blocking code just spawns (starts) more &ldquo;processes or routines&rdquo; (or
+sends messages to do so) and continues. This is exactly what
+&ldquo;delegation&rdquo; or &ldquo;dispatching&rdquo; is.
+</p>
+
+<p>
+This, again, requires some <i>signalling of completion</i> or use of concurrent
+futures.
+</p>
+
+<p>
+A newly created future can me <i>send</i> (via some channel) or passed to
+another async function as a parameter, and then &ldquo;forgotten&rdquo;.
+</p>
+
+<p>
+&ldquo;<i>Forgetting</i>&rdquo; is the part of non-blocking again. in principle.
+</p>
+</div>
+</div>
+<div id="outline-container-org1ab3dd3" class="outline-2">
+<h2 id="org1ab3dd3">Problems</h2>
+<div class="outline-text-2" id="text-org1ab3dd3">
+<p>
+In pure a functional setting most problems <i>do not arise</i>.
+</p>
+<ul class="org-ul">
+<li><i>Immutability</i> solves the <i>sharing</i> and <i>concurrent execution</i> problems.</li>
+<li><i>Implicit passing along of a /context</i> solves the <i>state</i> problem.</li>
+<li>Sending structured data (messages) through the &ldquo;wire&rdquo; (a queue) instead of doing</li>
+</ul>
+<p>
+method calls and returns solves the <i>communication</i> problems.
+</p>
+
+<p>
+Imperative OO crap, however, is fundamentally broken beyond repair.
+</p>
+<ul class="org-ul">
+<li>the shared call stack (between threads) is a problem (fundamental)</li>
+<li>multi-threading access for <i>statefull objects</i> is a problem (fundamental)</li>
+<li>internal state and invariants <i>cannot be guaranteed</i> in imperative
+&ldquo;objects&rdquo; with a concurrent <i>execution</i></li>
+<li>there is also an I/O</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcdaf0d4" class="outline-2">
+<h2 id="orgcdaf0d4">Summary</h2>
+<div class="outline-text-2" id="text-orgcdaf0d4">
+<p>
+To summarize, any form of <i>concurrency</i> requires multiple <i>execution context</i> (coroutines,
+fibers, threads, whatever) and <i>coordination and communication</i> between
+there by the language runtime.
+</p>
+
+<p>
+This, in turn, results in some <i>time-sharing</i> scheduling or cooperative (<i>interleaving</i>)
+multitasking, which is hard and should be done by an OS with
+share-nothing guarantees. Erlang authors have researched this.
+</p>
+
+<p>
+The only thing we can do is to rely on some &ldquo;trusted&rdquo; (LOL) runtime,
+which is experimentally shown that it is &ldquo;stable&rdquo;. - JVM, DotNET, Go, etc.
+</p>
+
+<p>
+All these, however, being over-&ldquo;engineered&rdquo; imperative OO crap (except
+Go), are necessarily buggy and error-prone. They <b>will</b> fail eventually.
+</p>
+
+<p>
+Erlang is an exception.
+</p>
+</div>
+</div>
+<div id="outline-container-org155c213" class="outline-2">
+<h2 id="org155c213">Imperative calls and returns</h2>
+<div class="outline-text-2" id="text-org155c213">
+<p>
+Again, asynchronity means starting another processes and delegating to them.
+</p>
+
+<p>
+This cannot be a simple method/function call because calls are strictly
+ local to the thread.
+</p>
+
+<p>
+This implies use of some shared <i>mutable</i> memory location, and some
+ &ldquo;external&rdquo; (hidden) <i>event-loop</i>.
+</p>
+
+<p>
+This how the caller function &ldquo;forgets&rdquo; and moves on.
+</p>
+
+<p>
+Now we need to solve notification issues and separate error signaling
+issues.
+</p>
+
+<p>
+In the functional world we just use <i>sum-types</i> for error propagation and
+message-passing for signalling. Not even callbacks.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-19 Sat 12:05</p>
+</div>
+</body>
+</html>
