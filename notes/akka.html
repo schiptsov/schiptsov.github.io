@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-20 Sun 16:38 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Akka</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Akka</h1>
+</header><p>
+Akka is a foundational framework (set of reusable abstractions)
+</p>
+<ul class="org-ul">
+<li>reactive <i>Streams</i> (nothing is evaluated before explicitly &ldquo;consumed&rdquo;)</li>
+<li><i>Actors</i> from Erlang (<i>share-nothing</i>, async message-passing, persistent mailboxes)</li>
+<li>everything is <i>asynchronous</i> (runs on <code>scala.concurrent</code> abstractions)</li>
+</ul>
+
+<p>
+A typical use case for stream processing is consuming a <i>live stream</i> of
+data (K-Lines, an OrderBook, etc.) that we want to extract or aggregate
+some other data from <i>as it goes, without slowing down - pseudo real-time</i>.
+</p>
+
+<p>
+Conceptually we can do <i>transformations</i>, like traditional <code>map</code>, <code>scan</code>,
+<code>filter</code> and then <i>consumption</i> (updating some <i>moving averages</i>, etc).
+</p>
+
+<p>
+At least in theory, with asynchronous (<i>reactive</i>) non-blocking processing
+we <i>always</i> must be way faster than any internet connection, and this is
+<i>why</i> we are using this bloated framework and JVM.
+</p>
+
+<p>
+We delegate all that enormous complexity of implementations to the JVM, Scala and Akka
+developers and communities respectively, <i>hoping</i> (because it is impossible to know,
+leave alone <i>understand</i> all the details) that <i>they</i> did everything right.
+</p>
+
+<div id="outline-container-orgc04293b" class="outline-2">
+<h2 id="orgc04293b">Streams</h2>
+<div class="outline-text-2" id="text-orgc04293b">
+<p>
+Presumably they have learned from <code>Spark</code> and <code>Kafka</code> and the <code>Twitter stack</code>.
+</p>
+
+<p>
+Akka Streams implicitly implement pervasive flow control, all <i>operators</i>
+respect <i>back-pressure</i> (advanced internal back-pressure signaling).
+</p>
+
+<p>
+The package provides a <i>rich DSL</i> with lots of pre-defined Sources, Sinks
+and  <i>stream /transformation operators</i>.
+</p>
+
+<p>
+Everything is a <i>value</i> (an instance of a class), declarative, <i>reusable</i> and
+<i>composable</i>.
+Conceptually similar to <i>directed graphs</i>, could have &ldquo;forks&rdquo; and &ldquo;joins&rdquo;.
+</p>
+
+<p>
+The core types are:
+</p>
+<ul class="org-ul">
+<li><code>Source</code>, literally (a &ldquo;Producer&rdquo;)</li>
+<li><code>Flow</code> (the abstract <i>middle part, without a /Source</i>)</li>
+<li><code>Sink</code> (a &ldquo;Consumer&rdquo;)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2f64ed0" class="outline-2">
+<h2 id="org2f64ed0">Agents</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-20 Sun 16:38</p>
+</div>
+</body>
+</html>
