@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-20 Sun 16:38 -->
+<!-- 2022-11-20 Sun 18:00 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Akka</title>
@@ -52,7 +52,12 @@ we <i>always</i> must be way faster than any internet connection, and this is
 <p>
 We delegate all that enormous complexity of implementations to the JVM, Scala and Akka
 developers and communities respectively, <i>hoping</i> (because it is impossible to know,
-leave alone <i>understand</i> all the details) that <i>they</i> did everything right.
+leave alone <i>understand</i> all the details) that <i>they</i> did everything <i>right</i>.
+</p>
+
+<p>
+At least the <i>design</i> is very good - declarative, functional <i>DSLs</i> and <i>Actors</i> instead
+of <i>method calls</i> (actual non-blocking asynchronous message-passing).
 </p>
 
 <div id="outline-container-orgc04293b" class="outline-2">
@@ -65,6 +70,11 @@ Presumably they have learned from <code>Spark</code> and <code>Kafka</code> and 
 <p>
 Akka Streams implicitly implement pervasive flow control, all <i>operators</i>
 respect <i>back-pressure</i> (advanced internal back-pressure signaling).
+</p>
+
+<p>
+They use <i>asynchronous message-passing</i> (just alike Actors) and queues
+(everything runs non-blocking in a thread-pool) under the hood, and every <i>node</i> on a <i>graph</i> is essentially an <code>Actor</code>.
 </p>
 
 <p>
@@ -95,7 +105,7 @@ The core types are:
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-20 Sun 16:38</p>
+<p class="date">Created: 2022-11-20 Sun 18:00</p>
 </div>
 </body>
 </html>
