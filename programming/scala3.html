@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-19 Sat 17:23 -->
+<!-- 2022-11-20 Sun 09:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -83,7 +83,7 @@ The Compiler
 Language-server, linter, formater
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">cs install metals scalafix scalafmt
+<pre class="src src-bash">cs install sbt amm bloop metals scalafix scalafmt
 </pre>
 </div>
 
@@ -102,6 +102,40 @@ Launch the REPL
 
 <div class="org-src-container">
 <pre class="src src-scala">$ <span style="color: #81A1C1;">import</span> $ivy.`com.typesafe.akka<span style="color: #81A1C1;">:</span><span style="color: #8FBCBB;">akka</span>-stream_3<span style="color: #81A1C1;">:</span><span style="color: #81A1C1;">2.7.0</span>`
+</pre>
+</div>
+<p>
+Basic configuration
+</p>
+
+<p>
+<code>build.sbt</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-scala"><span style="color: #81A1C1;">val</span> <span style="color: #D8DEE9;">scala3Version</span> <span style="color: #81A1C1;">=</span> <span style="color: #A3BE8C;">"3.2.1"</span>
+<span style="color: #81A1C1;">val</span> <span style="color: #D8DEE9;">AkkaVersion</span> <span style="color: #81A1C1;">=</span> <span style="color: #A3BE8C;">"2.7.0"</span>
+
+<span style="color: #81A1C1;">ThisBuild</span> / scalaVersion := scala3Version
+<span style="color: #81A1C1;">ThisBuild</span> / scalacOptions ++= <span style="color: #81A1C1;">Seq</span>(<span style="color: #A3BE8C;">"-language:_"</span>, <span style="color: #A3BE8C;">"-deprecation"</span>, <span style="color: #A3BE8C;">"-Xlint"</span>, <span style="color: #A3BE8C;">"-Xfuture"</span>)
+
+<span style="color: #81A1C1;">lazy</span> <span style="color: #81A1C1;">val</span> <span style="color: #D8DEE9;">root</span> <span style="color: #81A1C1;">=</span> project
+  .in(file(<span style="color: #A3BE8C;">"."</span>))
+  .settings(
+
+    scalaVersion := scala3Version,
+
+    libraryDependencies += <span style="color: #A3BE8C;">"com.typesafe.akka"</span> %% <span style="color: #A3BE8C;">"akka-stream"</span> % <span style="color: #81A1C1;">AkkaVersion</span>,
+  )
+</pre>
+</div>
+<p>
+<code>project/plugins.sbt</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-scala">addSbtPlugin(<span style="color: #A3BE8C;">"ch.epfl.scala"</span> % <span style="color: #A3BE8C;">"sbt-bloop"</span> % <span style="color: #A3BE8C;">"1.5.4"</span>)
+
+addSbtPlugin(<span style="color: #A3BE8C;">"ch.epfl.scala"</span> % <span style="color: #A3BE8C;">"sbt-scalafix"</span> % <span style="color: #A3BE8C;">"0.10.4"</span>)
+addSbtPlugin(<span style="color: #A3BE8C;">"org.scalameta"</span> % <span style="color: #A3BE8C;">"sbt-scalafmt"</span> % <span style="color: #A3BE8C;">"2.4.6"</span>)
 </pre>
 </div>
 </div>
@@ -131,7 +165,7 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-19 Sat 17:23</p>
+<p class="date">Created: 2022-11-20 Sun 09:19</p>
 </div>
 </body>
 </html>
