@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-22 Tue 13:15 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Erlang</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Erlang</h1>
+</header><p>
+<i>Erlang</i> (as a project) did everything right. They began with fundamental principles
+and serious research and found out that <i>Java is fundamentally flawed</i>
+(and published this finding in the Joe Armstrong&rsquo;s thesis and in the books).
+</p>
+
+<p>
+There is the principle which hardware designers knew all along - one
+cannot made a truly asynchronous (non-blocking) system with blocking
+primitives. This is why they have <i>interrupts</i>, <i>queues</i>, <i>ports</i> and <i>buses</i>.
+</p>
+
+<p>
+Another fundamental principle is <i>total isolation</i> of processes (<i>to share nothing</i>, not
+a single byte). In the hardware world this is taken for granted.
+</p>
+
+<p>
+The only way to communicate between totally isolated entities is <i>message
+passing</i>. This principle goes all the way down to cell (and even
+within-a-cell) communication in biology.
+</p>
+
+<p>
+That message passing must be truly asynchronous (they
+call it &ldquo;send and pray&rdquo;) because &ldquo;blocking&rdquo; does not work in biology
+(the principle which Evolution &ldquo;found out&rdquo;).
+</p>
+
+<p>
+One cannot use just ordinary <i>procedure calls</i> (which use stack), so they
+invented the <code>spawn</code>  asynchronous primitive.
+</p>
+
+<p>
+It takes a <i>functional closure</i>, its arguments (everything is, of course,
+immutable values), and create a new, fully
+isolated, share-nothing lightweight process with <i>eventually</i> will run
+that closure and communicate the result back via asynchronous message.
+</p>
+
+<p>
+There is a catch. If your stack does not use these <i>share-nothing</i>,
+asynchronous primitives (implemented without any sharing), you have an
+illusion of asynchronity.
+</p>
+
+<p>
+Not just that, if your implementation language is an imperative crap
+with objects, exceptions and multi-threading - you are fucked. These
+things simply do not combine into a coherent whole.
+</p>
+
+<p>
+Pure functions, persistent data structures, isolation of processes and
+asynchronous message-passing (with append-only mailboxes) <i>together</i> solve
+the problems, and Erlang designers and researchers got it right.
+</p>
+
+<p>
+Since then Clojure and Akka are striving to achieve some similar
+results, but the problem is that its target platform (the runtime) is
+not designed for true asynchronity - it only <i>emulates</i> it using blocking
+and sharing primitives.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-22 Tue 13:15</p>
+</div>
+</body>
+</html>

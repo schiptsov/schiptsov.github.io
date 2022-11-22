@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-22 Tue 10:49 -->
+<!-- 2022-11-22 Tue 13:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -161,11 +161,35 @@ Since <code>cs</code> is the modern tool of choice, make sure your <code>$HOME/.
 <p>
 <code>scalafmt</code> needs to specify a <i>dialect</i> in the <code>.scalafmt.conf</code>.
 </p>
-
+</div>
+<div id="outline-container-orga96ccf6" class="outline-3">
+<h3 id="orga96ccf6">Metals</h3>
+<div class="outline-text-3" id="text-orga96ccf6">
 <p>
 The only LSP-server available is <code>metals</code> but it is buggy as fuck. It
 relies on <code>bloop</code>, so make sure it is installed by <code>cs</code>.
 </p>
+
+<p>
+It fails with idiotic errors (cannot start <code>bsp</code>, etc) when you have
+<i>proxy</i> variables set in your shell environment.
+</p>
+
+<p>
+Degenerates cannot ignore <i>proxy settings</i> for <i>localhost</i> connections.
+</p>
+
+<p>
+They are also trying to install big <code>jars</code> in background, not being aware
+that there are millions of people behind crappy ADSL lines in the third
+world.
+</p>
+
+<p>
+The fucking crap failed with <i>timed out exceptions</i>, leaving everything in an
+inconsistent state.
+</p>
+</div>
 </div>
 </div>
 <div id="outline-container-org32d3198" class="outline-2">
@@ -193,7 +217,7 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-22 Tue 10:49</p>
+<p class="date">Created: 2022-11-22 Tue 13:13</p>
 </div>
 </body>
 </html>

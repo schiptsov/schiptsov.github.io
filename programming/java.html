@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-19 Sat 14:19 -->
+<!-- 2022-11-22 Tue 13:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The monument of human stupidity</title>
@@ -78,6 +78,26 @@ thread or a process), which we call &ldquo;sharing&rdquo;, cannot be fixed in pr
 </p>
 
 <p>
+There is a combination of features that cannot be combined in
+principle - <i>objects, destructive over-writing, multi-threading, shared stack and
+exceptions</i>. There is no way out from this and what we have is <i>the sunken
+costs fallacy</i>.
+</p>
+
+<p>
+<i>Exceptions</i> break the shared stack, multi-threading and destructive
+updates break <i>an internal</i> state of objects <i>in a random,
+non-reproducible way</i>. Even if your code takes some care, your
+dependencies all the way down, do not.
+</p>
+
+<p>
+There is another principle. One cannot make a truly non-blocking
+(asynchronous) system with blocking (synchronous) primitives. Hardware
+and Erlang guys knew that. <i>A method calls is not an adequate primitive</i>.
+</p>
+
+<p>
 Java is indeed the monument to human stupidity, and &ldquo;shared mutable state&rdquo;
 is manifestation of ignorance and the cause of suffering.
 </p>
@@ -108,7 +128,7 @@ turned into a holy catholic Church.
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-19 Sat 14:19</p>
+<p class="date">Created: 2022-11-22 Tue 13:13</p>
 </div>
 </body>
 </html>
