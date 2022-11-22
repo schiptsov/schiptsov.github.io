@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-20 Sun 09:42 -->
+<!-- 2022-11-22 Tue 10:49 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -140,6 +140,34 @@ addSbtPlugin(<span style="color: #A3BE8C;">"org.scalameta"</span> % <span style=
 </div>
 </div>
 </div>
+<div id="outline-container-orgdc41a0e" class="outline-2">
+<h2 id="orgdc41a0e">Editor support</h2>
+<div class="outline-text-2" id="text-orgdc41a0e">
+<p>
+Be aware of which <code>sbt</code> binary is in your <code>$PATH</code>, which version is
+specified in <code>project/build.properties</code> and which version has been
+installed by <code>cs</code>. Usually there is a version mismatch.
+</p>
+
+<p>
+Older <code>Vim</code> plugins check by calling <code>scalac</code>, so make sure there is no <i>Scala2</i> <code>scalac</code>
+binary in the <code>$PATH</code>. By default Scala3 calls the compiler <code>scala3-compiler</code>.
+</p>
+
+<p>
+Since <code>cs</code> is the modern tool of choice, make sure your <code>$HOME/.local/share/coursier/bin/</code> is in the <code>$PATH</code>
+</p>
+
+<p>
+<code>scalafmt</code> needs to specify a <i>dialect</i> in the <code>.scalafmt.conf</code>.
+</p>
+
+<p>
+The only LSP-server available is <code>metals</code> but it is buggy as fuck. It
+relies on <code>bloop</code>, so make sure it is installed by <code>cs</code>.
+</p>
+</div>
+</div>
 <div id="outline-container-org32d3198" class="outline-2">
 <h2 id="org32d3198">Libraries</h2>
 <div class="outline-text-2" id="text-org32d3198">
@@ -165,7 +193,7 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-20 Sun 09:42</p>
+<p class="date">Created: 2022-11-22 Tue 10:49</p>
 </div>
 </body>
 </html>

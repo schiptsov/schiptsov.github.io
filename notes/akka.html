@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-20 Sun 18:00 -->
+<!-- 2022-11-20 Sun 20:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Akka</title>
@@ -56,10 +56,20 @@ leave alone <i>understand</i> all the details) that <i>they</i> did everything <
 </p>
 
 <p>
-At least the <i>design</i> is very good - declarative, functional <i>DSLs</i> and <i>Actors</i> instead
-of <i>method calls</i> (actual non-blocking asynchronous message-passing).
+At least the <i>design</i> is very good - declarative, functional <i>DSLs</i> and
+message-passing <i>Actors</i> instead of <i>method calls</i> (actual <i>non-blocking</i> communication) with
+<i>dynamic buffers</i> inside and <i>back-pressure coordination</i> (via messages).
 </p>
 
+<p>
+It will be beautiful if they spend some effort to make at least design
+minimal and &ldquo;perfect&rdquo; (when there is nothing to remove), but corporate
+code tends to go in opposite direction, adding more and more features.
+</p>
+
+<p>
+Anyway.
+</p>
 <div id="outline-container-orgc04293b" class="outline-2">
 <h2 id="orgc04293b">Streams</h2>
 <div class="outline-text-2" id="text-orgc04293b">
@@ -105,7 +115,7 @@ The core types are:
 <div id="postamble" class="status">
 <p class="author">Author: schiptsov@gmail.com</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-20 Sun 18:00</p>
+<p class="date">Created: 2022-11-20 Sun 20:17</p>
 </div>
 </body>
 </html>
