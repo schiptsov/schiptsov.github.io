@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-24 Thu 14:43 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to program in crappy imperative languages</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">How to program in crappy imperative languages</h1>
+</header><p>
+The fundamental principle is increase the level of abstractions (interfaces) to the
+highest possible level, while maintaining a layered structure of
+underlying  DSLs.
+</p>
+
+<p>
+To put it simple, one has to wrap types and functions <i>over</i> verbose
+low-level crappy imperative code (everything will be <i>inlined</i> anyway).
+</p>
+
+<p>
+The data-abstraction principle and modularity helps.
+</p>
+
+<p>
+One has to use high-level features of the language <i>to mimic</i> Algebraic
+Types and other features of really good languages.
+</p>
+
+<p>
+A decent language <i>must</i> support generalized <i>sum-types</i> as a &ldquo;first class
+citizens&rdquo; or even GADTs.
+</p>
+
+<ul class="org-ul">
+<li>Rust at least has <i>pattern-matching on Enums</i>.</li>
+<li>Scala has a generalized pattern-matching.</li>
+</ul>
+
+<p>
+The main problem with the languages of C-family is that low-level
+imperative constructs are mixed with high-level types (classes) and operations on
+them. This is exactly how Java, C++ and Rust look like.
+</p>
+
+<p>
+But it does not have to be this way. Smart people bootstrap crude DSLs
+out of high-order functions and use them to &ldquo;talk&rdquo; about business logic
+and a problem domain.
+</p>
+
+<p>
+The most important thing is to have clear <i>layers</i> with separate the
+&ldquo;levels&rdquo; - a vertical <i>partitioning</i> of the concepts.
+</p>
+
+<p>
+The major &ldquo;code smell&rdquo; (or even stink) is when low level imperative
+stuff of handling memory or concurrency issues is presented in the code
+that handles business logic. There should be only <i>parts of your DSL</i>,
+which are appropriate to this particualar level of abstraction.
+</p>
+
+<p>
+So, wrap <i>high-level interfaces</i> around imperative crap, design it as a
+DSL, make a few <i>layers</i> if necessary, and package them into small,
+specialized modules.
+</p>
+
+<p>
+Use Algebraic Types (as Abstract types) as a <i>high-level</i> representations
+of concepts. Hide the implementation details <i>completely</i> behind
+<i>abstraction barriers</i> (ADTs).
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-24 Thu 14:43</p>
+</div>
+</body>
+</html>
