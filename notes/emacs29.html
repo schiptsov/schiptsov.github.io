@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-24 Thu 11:00 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs 29</title>
+<meta name="author" content="schiptsov@gmail.com" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Emacs 29</h1>
+</header><p>
+Emacs 29 (still in development) introduced Double Buffering on X11 (via
+<code>libXext</code>) and an support for Tree Sitter parsers.
+</p>
+
+<p>
+This is a good enough reason to give it a try.
+</p>
+
+<p>
+This is how one build butterly-smooth and fast Emacs. No GTK or other
+toolkits. No Xwidgets. All the best fonts, including form Apple (via
+<code>libotf</code>) with modern rendering (via <code>harfbuzz</code>). And the usual stuff.
+</p>
+
+<p>
+No fucking toxic <code>systemd</code> cancer, of course.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">../configure --prefix=/usr/local <span style="color: #A3BE8C;">\</span>
+    --without-all <span style="color: #A3BE8C;">\</span>
+    --with-x  <span style="color: #A3BE8C;">\</span>
+    --with-xdbe <span style="color: #A3BE8C;">\</span>
+    --with-xft <span style="color: #A3BE8C;">\</span>
+    --with-tree-sitter <span style="color: #A3BE8C;">\</span>
+    --with-x-toolkit=no <span style="color: #A3BE8C;">\</span>
+    --without-toolkit-scroll-bars --without-xaw3d <span style="color: #A3BE8C;">\</span>
+    --without-xwidgets <span style="color: #A3BE8C;">\</span>
+    --with-harfbuzz <span style="color: #A3BE8C;">\</span>
+    --with-cairo <span style="color: #A3BE8C;">\</span>
+    --with-libotf <span style="color: #A3BE8C;">\</span>
+    --with-xim <span style="color: #A3BE8C;">\</span>
+    --with-native-compilation=aot <span style="color: #A3BE8C;">\</span>
+    --with-xml2 --with-xpm --with-tiff --with-jpeg --with-gif --with-png --with-gnutls --with-selinux --with-wide-int --with-dbus --with-zlib --with-sound=alsa --enable-link-time-optimization --with-modules --with-json --with-tiff --without-libsystemd --with-gsettings --with-libgmp --with-imagemagick --without-pop --without-mailutils
+
+<span style="color: #8FBCBB;">make</span> -s bootstrap
+</pre>
+</div>
+<p>
+This is how one compiles such things
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #6f7787;">#</span><span style="color: #6f7787;">!/bin/</span><span style="color: #81A1C1;">bash</span>
+
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CC</span>=gcc
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CXX</span>=g++
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">LD</span>=ld
+
+<span style="color: #D8DEE9;">WARN</span>=<span style="color: #A3BE8C;">""</span>
+<span style="color: #6f7787;">#</span><span style="color: #6f7787;">WARN="-W -Wall -Wextra -pedantic -Wformat -Werror=format-security"</span>
+<span style="color: #D8DEE9;">OPT</span>=<span style="color: #A3BE8C;">"-m64 -march=native -mtune=native -O3 -fopenmp"</span>
+<span style="color: #D8DEE9;">SEC</span>=<span style="color: #A3BE8C;">"-D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fstack-protector-strong -fstack-protector-all -fstack-clash-protection"</span>
+<span style="color: #D8DEE9;">PIE</span>=<span style="color: #A3BE8C;">"-pie -fPIE"</span>
+<span style="color: #D8DEE9;">LTO</span>=<span style="color: #A3BE8C;">"-flto"</span>
+<span style="color: #D8DEE9;">LOCAL</span>=<span style="color: #A3BE8C;">"-I/usr/local/include"</span>
+
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CFLAGS</span>=<span style="color: #A3BE8C;">"</span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">WARN</span><span style="color: #A3BE8C;"> </span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">OPT</span><span style="color: #A3BE8C;"> </span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">SEC</span><span style="color: #A3BE8C;"> </span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">LTO</span><span style="color: #A3BE8C;"> </span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">PIE</span><span style="color: #A3BE8C;"> </span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">LOCAL</span><span style="color: #A3BE8C;">"</span>
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CXXFLAGS</span>=<span style="color: #A3BE8C;">"-std=c++17 </span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">CFLAGS</span><span style="color: #A3BE8C;">"</span>
+
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">LDFLAGS</span>=<span style="color: #A3BE8C;">"-L/usr/local/lib -m64 </span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">LTO</span><span style="color: #A3BE8C;"> </span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">PIE</span><span style="color: #A3BE8C;"> -Wl,-pie -Wl,--gc-sections -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack"</span>
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CXXLDFLAGS</span>=<span style="color: #A3BE8C;">"</span><span style="color: #81A1C1;">$</span><span style="color: #D8DEE9;">LDFLAGS</span><span style="color: #A3BE8C;">"</span>
+
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: schiptsov@gmail.com</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-24 Thu 11:00</p>
+</div>
+</body>
+</html>
