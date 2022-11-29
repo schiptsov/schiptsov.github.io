@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-29 Tue 12:46 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Delegation</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Delegation</h1>
+</header><p>
+This is the most fundamental and the most difficult part.
+</p>
+
+<p>
+How do I know something is good for real (not because some other people are saying so)?
+</p>
+
+<p>
+How do I know that <code>libc++</code> is good or not? Well, Google Chrome runs on it, it has <code>libc++</code> as a vendeored dependency.
+</p>
+
+<p>
+Google is arguably the best C++ shop in the world (MS is crap from its first days), and Chrome runs on hundreds of millions devives.
+</p>
+
+<p>
+The first observation is a <i>heuristic</i>, while the second one is a &ldquo;natural&rdquo; <i>experiment</i>.
+</p>
+
+<p>
+How do I know that the <code>LLVM</code> toolchain is any good? Well, Google uses it for Android, Apple uses it for iOS, these ran on <i>billions</i> of deveices.
+</p>
+
+<p>
+Does it mean that I have to use C++? Of course, not.
+</p>
+
+<p>
+Does it mean that I have to use <code>clang++</code> and <code>libc++</code> if I must use C++? Absolutely.
+</p>
+
+<p>
+Why this is hard? Because everything is complicated in the real world.
+</p>
+
+<p>
+How do you know that a drug you have just bought in a pharmacy is good? The partiular part may come from a faulty process, the particular vendor may ignore the safety measures, ingridients from a supply chain may be crappy just this time, and so on.
+</p>
+
+<p>
+Without proper testing (which, of course, no one does) you cannot tell and have to &ldquo;trust&rdquo; and &ldquo;believe&rdquo;.
+</p>
+
+<p>
+In software we can do neither. We must know and have a proof (not merely a test).
+</p>
+
+<p>
+Same goes for food. How do you know? Well, you don&rsquo;t. You may have, however, some <i>heuristics</i> which any professional cook will use to evaluate the kitchen, the ingredients and the dishes. This is what we do in the industry.
+</p>
+
+<p>
+Yes, we just &ldquo;know&rdquo; that things like LLVM (and libc++), or Webkit or Mesa are OK, and things like JVM are <i>not</i> (otherwise they would not have the binding versioning - our shit runs only on this particular versions of the crap). 
+</p>
+
+<div id="outline-container-org6e3c43f" class="outline-2">
+<h2 id="org6e3c43f">Emacs</h2>
+<div class="outline-text-2" id="text-org6e3c43f">
+<p>
+How do I know GNU Emacs is good? Well, it still can be compiled for and runs on <code>MS DOS</code>. Emacs 28.2 is available for DOS (requires the DOS/4GW extender). This tells one something about the quality of the software desing and of the quality of the code.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7614fc4" class="outline-2">
+<h2 id="org7614fc4">GCC</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
+</div>
+</body>
+</html>
