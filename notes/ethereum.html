@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-11-29 Tue 12:44 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ethereum</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Ethereum</h1>
+</header><p>
+AUTHOR: &lt;schiptsov@gmail.com&gt;
+</p>
+<p>
+I am old-enough to witness the rise and fall of PHP (the fractral of bad design, as you might know). I have seen PHP 2.0. I even wrote some stupid shit, being totally ignorant.
+</p>
+
+<p>
+Then I read this
+<a href="https://www.pixelstech.net/article/1334166417-PHP%3A-a-fractal-of-bad-design">https://www.pixelstech.net/article/1334166417-PHP%3A-a-fractal-of-bad-design</a> and
+realized how <i>ignorant</i> I am. Since them I am self-studying programming languages.
+</p>
+
+<p>
+So I know the one when I see it.
+</p>
+
+<p>
+Ethereum is exactly the same <i>idiotic amateur bullshit exuberance</i> (or an amateur
+shitfest), but this time it is <i>way</i> worse than PHP was.
+</p>
+
+<p>
+Literally everything has been put together without much thinking (skipping understanding) by over-excited, unqualified and mostly narcissistic guys.
+</p>
+
+<p>
+Again, let me emphasize - no one has been qualified to do the proper desing work
+for Ethereum. Not a single prominent figure had a necessary education back then.
+</p>
+
+<p>
+So the <i>technical debt</i> (of bad decisions) is a literal plague for the project. Everything which could have been done wrong <i>has been</i> done wrong.
+</p>
+
+<p>
+It is a literal imperative spaghetti in a low-level languages, which introduce
+unnecessary complications, verbosity, confusion and in general are not suitable for high-level domains.
+</p>
+
+<div id="outline-container-org5784a1c" class="outline-2">
+<h2 id="org5784a1c">Solidity</h2>
+<div class="outline-text-2" id="text-org5784a1c">
+<p>
+This is where you got exactly these <i>PHP vibes</i>. You open a &ldquo;hello-blockchain&rdquo; source and you <i>see</i> PHP, even if it does not prefix variables with a dollar sign.
+</p>
+
+<p>
+You see the same quickly put together <i>ad-hook crap</i> in a hurry, without any understanding of PL fundamentals or a distinct desing process. It is just the worst crap possible.
+</p>
+
+<p>
+How do you know? Well, the past almost <i>60 years</i> of research in the field of programming languages semantics, which has been culminated in modern Haskell, Ocaml and Scala 3, evolved some fundamental principles and heuristics, and what you see is total <i>lack</i> of these.
+</p>
+
+<p>
+They just did not bothered with stuff like studying the principles, and <i>one who did</i> can easily and unmistakably see it.
+</p>
+
+<p>
+One does not have to be a &ldquo;genious&rdquo; to expect that same clustefuck of problems which plagued PHP to emerge for Ethereum and Solidiry. These are just direct concequences of <i>literally ignoring</i> 60 years of research. PL desing is a serious thing and it requires a lot of work.
+</p>
+
+<p>
+Just some imperative Javascript-like crap with shitty ad-hook static types thrown at it in a hurry will not do it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf6d167e" class="outline-2">
+<h2 id="orgf6d167e">A quick look</h2>
+<div class="outline-text-2" id="text-orgf6d167e">
+<p>
+A <i>contract</i> in Solidity is a code (its procedures) and data (the state variables) that resides <i>at a specific address</i> on the Ethereum blockchain.
+</p>
+
+<p>
+So, it theory, it has to be some pure functions with <i>send</i> and <i>recieve</i>
+primitives, similar to <code>Erlang</code> actors. But they never read a single book, leave
+alone about Erlang.
+</p>
+
+<p>
+Conceptually, Ethereum addresses are just like <code>Erlang</code> &ldquo;names&rdquo;, and the code must
+be pure with carefully designed primitives &#x2013; just understand and follow the
+best practises of developing of robust distributed systems.
+</p>
+
+<p>
+Instead we have a fucking <i>ad-hook</i> mess by unqualified amateurs from all over the world.
+</p>
+
+<p>
+Anyway, conceptually, there are procedures at addresses, executed inside of an istance of a Virtual Machine. These VMs ran on user&rsquo;s computers, and execute procedures for <i>gas fees</i>.
+</p>
+
+<p>
+These &ldquo;procedures&rdquo; are full of &ldquo;getters&rdquo; and &ldquo;setters&rdquo; and more like &ldquo;OO objects
+with an internal state&rdquo; (but there is no <code>this</code>) than pure <i>message-passing</i> &ldquo;Actors&rdquo;.
+</p>
+
+<p>
+Just like it is with objects, calling methods is <i>the way to send messages</i>. This is just a <i>proven wrong way</i>, but how could <i>vitaliks</i> know?
+</p>
+
+<p>
+Like objects in, say, Python, everything is <i>public</i> and <i>writable</i> by anyone. Absolutely idiotic idea for a supposedly distributed system. This and similar <i>fundamental fuckups</i> is their technical debt.
+</p>
+
+<p>
+Naive, young vitaliks dreamed about &ldquo;objects&rdquo; instead of Actors, method calls instead of <i>asyncrohous message-passyng</i>. Why, a distributed system by amateurs PHP coders.
+</p>
+
+<p>
+Just keep in mind that originally <i>everything</i> has been <i>based on fundamentally wrong principles</i>, having nothing to do with how distributed systems should be designed and implemented.
+</p>
+
+<p>
+And these 256bit <i>integers</i> LMAO, a <i>boxed type</i> without any hardware support. No
+proper Numeric Tower in a language for mostly arithmetic workloads. Anyway, <i>vitaliks</i> is a multi-millionarie, and I am a literal <i>nobody</i>.
+</p>
+
+<p>
+I do not want to look into the EVM, I am pretty sure that they never read &ldquo;The Implementation Of Functional Programming Languages&rdquo;, never heard of <i>graph reduction</i>, what is BEAM and ignored the huge literature on the subject.
+</p>
+
+<p>
+So, now what?
+</p>
+
+<p>
+For last 10 years a huge amater community have managed to put <i>ad-hook</i> fixes and
+make it usable (exactly like PHP, by the way). So, by just using current solutions (<code>geth</code> and <code>solc</code>) very carefully one can use the ecosystem for some simple tasks.
+</p>
+
+<p>
+The obvious ones are to collect transaction fees, just like Uniswap did. (I
+remember looking at Uniswap-v2 github repo, but I just shurugged and passed by.
+I should have realized how so little of a crappy code generate so much money).
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-11-29 Tue 12:44</p>
+</div>
+</body>
+</html>
