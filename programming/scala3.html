@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-22 Tue 13:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
-<meta name="author" content="schiptsov@gmail.com" />
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -63,9 +63,9 @@ languages
 <p>
 Anyway, whatever.
 </p>
-<div id="outline-container-org4dc85e9" class="outline-2">
-<h2 id="org4dc85e9">Modern tools</h2>
-<div class="outline-text-2" id="text-org4dc85e9">
+<div id="outline-container-orgadb5e3e" class="outline-2">
+<h2 id="orgadb5e3e">Modern tools</h2>
+<div class="outline-text-2" id="text-orgadb5e3e">
 <ul class="org-ul">
 <li><code>cs</code> -  <i>artifact manager</i></li>
 <li><code>amm</code> - <i>advanced REPL</i></li>
@@ -99,16 +99,15 @@ Launch the REPL
 <pre class="src src-bash">cs launch ammonite --scala 3.2.1
 </pre>
 </div>
-
+<p>
+import straight from <code>Maven</code>
+</p>
 <div class="org-src-container">
-<pre class="src src-scala">$ <span style="color: #81A1C1;">import</span> $ivy.`com.typesafe.akka<span style="color: #81A1C1;">:</span><span style="color: #8FBCBB;">akka</span>-stream_3<span style="color: #81A1C1;">:</span><span style="color: #81A1C1;">2.7.0</span>`
+<pre class="src src-scala"><span style="color: #81A1C1;">import</span> $ivy.`com.typesafe.akka<span style="color: #81A1C1;">:</span><span style="color: #8FBCBB;">akka</span>-stream_3<span style="color: #81A1C1;">:</span><span style="color: #81A1C1;">2.7.0</span>`
 </pre>
 </div>
 <p>
 Basic configuration
-</p>
-
-<p>
 <code>build.sbt</code>
 </p>
 <div class="org-src-container">
@@ -140,9 +139,9 @@ addSbtPlugin(<span style="color: #A3BE8C;">"org.scalameta"</span> % <span style=
 </div>
 </div>
 </div>
-<div id="outline-container-orgdc41a0e" class="outline-2">
-<h2 id="orgdc41a0e">Editor support</h2>
-<div class="outline-text-2" id="text-orgdc41a0e">
+<div id="outline-container-org72eddee" class="outline-2">
+<h2 id="org72eddee">Editor support</h2>
+<div class="outline-text-2" id="text-org72eddee">
 <p>
 Be aware of which <code>sbt</code> binary is in your <code>$PATH</code>, which version is
 specified in <code>project/build.properties</code> and which version has been
@@ -162,9 +161,9 @@ Since <code>cs</code> is the modern tool of choice, make sure your <code>$HOME/.
 <code>scalafmt</code> needs to specify a <i>dialect</i> in the <code>.scalafmt.conf</code>.
 </p>
 </div>
-<div id="outline-container-orga96ccf6" class="outline-3">
-<h3 id="orga96ccf6">Metals</h3>
-<div class="outline-text-3" id="text-orga96ccf6">
+<div id="outline-container-orgeba9bc0" class="outline-3">
+<h3 id="orgeba9bc0">Metals</h3>
+<div class="outline-text-3" id="text-orgeba9bc0">
 <p>
 The only LSP-server available is <code>metals</code> but it is buggy as fuck. It
 relies on <code>bloop</code>, so make sure it is installed by <code>cs</code>.
@@ -192,9 +191,60 @@ inconsistent state.
 </div>
 </div>
 </div>
-<div id="outline-container-org32d3198" class="outline-2">
-<h2 id="org32d3198">Libraries</h2>
-<div class="outline-text-2" id="text-org32d3198">
+<div id="outline-container-org022bc12" class="outline-2">
+<h2 id="org022bc12">Better abstractions</h2>
+<div class="outline-text-2" id="text-org022bc12">
+<p>
+Refinement of <i>implicits</i> (of implicit <i>contexts</i>) by using a common
+mathematical jargon.
+</p>
+
+<p>
+The general principle of a <i>context</i> is that one does not have to always mention
+some properties or attributes.
+</p>
+
+<p>
+Conceptually similar to <i>partial application</i>, so one does not have to
+pass it all around.
+</p>
+
+<p>
+An implicit value can be &ldquo;inferred&rdquo; by the compiler or <i>selected explicitly</i>
+among many.
+</p>
+</div>
+<div id="outline-container-org8ba50a5" class="outline-3">
+<h3 id="org8ba50a5">Using (clauses)</h3>
+<div class="outline-text-3" id="text-org8ba50a5">
+<p>
+Optional arguments with <i>default values</i> which can be omitted at a <i>call site</i>.
+</p>
+
+<p>
+Values should be automatically provided by the <i>context</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-orge5416d2" class="outline-3">
+<h3 id="orge5416d2">Given (instances)</h3>
+<div class="outline-text-3" id="text-orge5416d2">
+<p>
+This corresponds to some &ldquo;standard property&rdquo; that we always assume -
+<i>given that&#x2026;</i>. The common synonym is <i>provided that&#x2026;</i>
+</p>
+
+<p>
+Define <i>terms</i> that can be used <i>by the compiler</i> to fill in the <i>missing
+arguments</i>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75fdeda" class="outline-2">
+<h2 id="org75fdeda">Libraries</h2>
+<div class="outline-text-2" id="text-org75fdeda">
 <p>
 Most of them are over-&ldquo;engineered&rdquo; and bloated, without any effort of making the
 abstractions <i>minimal</i> and &ldquo;just right&rdquo; (optimal). Such &ldquo;natural
@@ -206,6 +256,8 @@ takes decades (like Common Lisp, Ocaml stdlib or Haskell&rsquo;s prelude).
 Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo; of <i>imperative</i> implementations from one another.
 </p>
 <ul class="org-ul">
+<li><code>zio2</code> - functional style I/O</li>
+<li><code>cats</code> - some standard <i>type-classes</i> for common <i>algebraic structures</i>.</li>
 <li><code>akka</code> - the supposedly done right <i>basic building</i> blocks. Use it.</li>
 <li>The <code>Twitter stack</code> (still Scala 2)</li>
 <li><code>Kafka</code> - steams</li>
@@ -215,9 +267,9 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: schiptsov@gmail.com</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-22 Tue 13:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

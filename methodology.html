@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming methodologies</title>
@@ -36,9 +36,9 @@ All the research on high-level programming methodologies could be summarized in 
 Ideally, one strives to have almost exactly <i>declarative mathematical notation at the use side</i>, like the list comprehensions of Haskell:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">map</span> f xs <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">[</span>f x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span> xs<span style="color: #81A1C1;">]</span>
+<pre class="src src-haskell"><span style="color: #88C0D0;">map</span> f xs <span style="color: #D8DEE9;">=</span> [f x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span> xs]
 <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">or</span>
-<span style="color: #88C0D0;">filter</span> p xs <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">[</span>x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span>xs, p x<span style="color: #81A1C1;">]</span>
+<span style="color: #88C0D0;">filter</span> p xs <span style="color: #D8DEE9;">=</span> [x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span>xs, p x]
 </pre>
 </div>
 <p>
@@ -81,9 +81,9 @@ Imagine using better <a href="tools.html">tools</a> for the job. It is a well-kn
 So, FP (Milner, Wadler, Cardelli), modularity (ADTs of Lisov) and also the right tools together could guarantee, that one <i>at least would not fail miserably</i> and that even a partial solution would be <i>reusable</i> and worth time and effort spent.
 </p>
 
-<div id="outline-container-orga333dbc" class="outline-2">
-<h2 id="orga333dbc">C++</h2>
-<div class="outline-text-2" id="text-orga333dbc">
+<div id="outline-container-orgbd52fe2" class="outline-2">
+<h2 id="orgbd52fe2">C++</h2>
+<div class="outline-text-2" id="text-orgbd52fe2">
 <p>
 While Java is <i>the</i> monument to human stupidity, C++ is a tribute to
 brain-dead over-&ldquo;engineering&rdquo; (imagine designing a language without
@@ -105,9 +105,9 @@ Modern C++ is such a <i>cathedral</i> of solidified crap. Compared to PHP or <co
 </div>
 </div>
 
-<div id="outline-container-orgd7dc3b5" class="outline-2">
-<h2 id="orgd7dc3b5">Old timers</h2>
-<div class="outline-text-2" id="text-orgd7dc3b5">
+<div id="outline-container-org115779a" class="outline-2">
+<h2 id="org115779a">Old timers</h2>
+<div class="outline-text-2" id="text-org115779a">
 <p>
 Programmers from the golden era (80s and early 90s) which culminated
 with Haskell 98 report and now in a steady decline, used to have a solid
@@ -130,7 +130,7 @@ could consider Scala 3 as the last worth of the ML family.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

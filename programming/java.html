@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-22 Tue 13:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The monument of human stupidity</title>
-<meta name="author" content="schiptsov@gmail.com" />
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -24,9 +24,9 @@
 <header>
 <h1 class="title">The monument of human stupidity</h1>
 </header>
-<div id="outline-container-orgbbd3e08" class="outline-2">
-<h2 id="orgbbd3e08">The monument of human stupidity</h2>
-<div class="outline-text-2" id="text-orgbbd3e08">
+<div id="outline-container-org5dfb1c2" class="outline-2">
+<h2 id="org5dfb1c2">The monument of human stupidity</h2>
+<div class="outline-text-2" id="text-org5dfb1c2">
 <p>
 The most embarrassing of it all is the idiotic insistence on piling up more
 and more imperative crap on designs based on fundamentally unsound
@@ -124,11 +124,49 @@ turned into a holy catholic Church.
 </p>
 </div>
 </div>
+
+<div id="outline-container-org41e7760" class="outline-2">
+<h2 id="org41e7760">Actual experience</h2>
+<div class="outline-text-2" id="text-org41e7760">
+<p>
+There is an account for actual experience I have right now.
+</p>
+
+<p>
+I have some simple projects using Akka and Scala 3. Everything compiles and runs, except that it prints nothing.
+</p>
+
+<p>
+I tried a Scala 2 setup and copied and pasted exaples from the site. Everything compiles, runs but ptints nothing.
+</p>
+
+<p>
+Here is a short list what can go wrong (given that Akka is an advanced <i>async</i> and <i>nio</i> libray).
+</p>
+
+<ul class="org-ul">
+<li>the gcc 12.2.1 may not compile openjdk-17.0.5-p8 correctly</li>
+<li>this may happen only with certain optimizations enabled</li>
+<li>openjdk-17.0.5_p8 may have subtle async or nio bugs</li>
+<li>these bugs may only materialize with compiler optimizations</li>
+<li>maybe it networking has does not work due the new kernel</li>
+<li>or it is just Scala. Both 2 and 3? Why not.</li>
+<li>maybe scala breaks on the latest JDK 17, not being tested on it</li>
+<li>maybe it is Akka on the latest JDK, because the code uses advanced APIs</li>
+<li>it could be that only the latest versions of akka are affected</li>
+<li>any combination of the above.</li>
+</ul>
+
+<p>
+So, when someone will say to you JVM is a stable, mature, battele-tested platform on which everyone runs - return to this page and reread it.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: schiptsov@gmail.com</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-22 Tue 13:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

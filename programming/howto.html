@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-24 Thu 14:43 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to program in crappy imperative languages</title>
-<meta name="author" content="schiptsov@gmail.com" />
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -88,11 +88,119 @@ Use Algebraic Types (as Abstract types) as a <i>high-level</i> representations
 of concepts. Hide the implementation details <i>completely</i> behind
 <i>abstraction barriers</i> (ADTs).
 </p>
+
+<p>
+This is exactly what Scala did to Java - it <i>wrapped better abstractions</i> around its imperative ugliness and plain stupidity.
+</p>
+
+<div id="outline-container-orge99bdba" class="outline-2">
+<h2 id="orge99bdba">Sets and Logic</h2>
+<div class="outline-text-2" id="text-orge99bdba">
+<p>
+There are evolved formalisms (mental techniques <i>of an external Observer</i>). Neither exists outside ones head.
+</p>
+
+<p>
+However, almost everything that can be obveserved can be <i>modeled (of formally defined)</i> with Sets and Second Order Logics.
+</p>
+
+<p>
+This fact is the essence of <i>the Curry-Howard isomorphism</i>, which means that <i>proper observations eventyally converge to &ldquo;What Is&rdquo;</i>.
+</p>
+
+<p>
+It is not a coincedence that we use <i>types</i> (as sets of values) in both the Lambda Calculus and a formal logic (the Narual Deduction system).
+</p>
+
+<p>
+Sets <i>partition</i> the universe (of concepts) and this is a fundamental notion, which intelligent observers <i>captured</i> and <i>generalized</i>.
+</p>
+
+<p>
+Different kinds of atoms and molecules, from an external observer&rsquo;s point of view, form a distinct partititons, which he call &ldquo;classes&rdquo;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb5f22d9" class="outline-2">
+<h2 id="orgb5f22d9">Common idioms</h2>
+<div class="outline-text-2" id="text-orgb5f22d9">
+<p>
+There are common or even universal idioms in programming. Thet go back to early LISPs and CLU (which was an imperative OO language).
+</p>
+
+<p>
+It is important to realize that Abstract Data Types, type-classes (of Haskell) and, well, OO classes are just <i>sets of unterfaces</i> defined in diffrerent ways.
+</p>
+
+<p>
+Being, at least conceptually, <i>Sets</i>, they &ldquo;naturally&rdquo; have <i>set-subset</i> relations and the <i>union</i> (which is at the essence of everything) and <i>intersection</i> operations.
+</p>
+
+<p>
+What Haskell or Scala3 call a <i>type-class</i> are just <i>named sets of interfaces</i> with a <i>set-union</i> operation, defined with a different syntax.
+</p>
+</div>
+
+<div id="outline-container-org9659e9d" class="outline-3">
+<h3 id="org9659e9d">Types as sets of values</h3>
+<div class="outline-text-3" id="text-org9659e9d">
+<p>
+Classes, by the way, are just more structured <i>product types</i> - they allow <i>code &ldquo;slots&rdquo;</i>, not just data &ldquo;slots&rdquo;. CLOS got it right.
+</p>
+
+<p>
+Just like any other <i>strucuted (or nested) types</i>, a class is a <i>template</i> for a <i>structured (or nested) value</i> of a particular kind.
+</p>
+
+<p>
+Objects differ in that they have not just an internal state (just like records) but also a set of <i>methods</i> to manipulate this state and a <i>self reference</i> (to access it).
+</p>
+
+<p>
+In the classic paradigm the there <i>exported</i> functions to manipulate values of a <i>ADT</i> sitting inside a corresponding modules. <i>Referencing</i> thus is explicit.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9dfd587" class="outline-3">
+<h3 id="org9dfd587">Data-constructors</h3>
+<div class="outline-text-3" id="text-org9dfd587">
+<p>
+There is &ldquo;universal&rdquo; operation of producing a new value of a specific type (or a class) - to call a data-constructor, which is a function.
+</p>
+
+<p>
+The common and just right syntax is to have them Capitalizes, because this reflects it relations to corresponding mental concepts.
+</p>
+
+<p>
+For parameterized types we naturally would have parameterized data-constructors.
+</p>
+</div>
+</div>
+<div id="outline-container-org219a7bb" class="outline-3">
+<h3 id="org219a7bb">Type-Constructors</h3>
+<div class="outline-text-3" id="text-org219a7bb">
+<p>
+Type-constructors are always parameterized, because they are type-level &ldquo;functions&rdquo; or &ldquo;instantiations&rdquo;.
+</p>
+
+<p>
+Notice that type-level <i>lambdas</i> are more general concepts and implies &ldquo;arbitraty&rdquo; transoframations at the type-level.
+</p>
+
+<p>
+Only Scala 3 has them so far. Haskell has <i>type-families</i> which are restricted transformations.
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: schiptsov@gmail.com</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-24 Thu 14:43</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

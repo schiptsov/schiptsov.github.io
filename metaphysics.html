@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Metaphysics</title>
@@ -15,27 +15,25 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "left",
+    tagIndent: ".8em"
+  }
+};
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -74,9 +72,9 @@ Or, to be more precise, to a single partition (a subset) of Truth in the sea of 
 So, it seems that we have <i>partitions</i> and <i>forks</i> between them.
 </p>
 
-<div id="outline-container-orga50b687" class="outline-2">
-<h2 id="orga50b687">The vertical bar</h2>
-<div class="outline-text-2" id="text-orga50b687">
+<div id="outline-container-org8fad357" class="outline-2">
+<h2 id="org8fad357">The vertical bar</h2>
+<div class="outline-text-2" id="text-org8fad357">
 <p>
 The logical <code>OR</code> is syntactically expressed as <code>|</code>. It is literally
 everywhere and it captures the <i>universal</i> notion of <i>availability of
@@ -84,9 +82,9 @@ different forms</i> (as inputs to or outcomes of a process), which the mind
 of an external observer captures and expresses as <i>branching</i>.
 </p>
 </div>
-<div id="outline-container-orga819e0b" class="outline-3">
-<h3 id="orga819e0b">Partitioning</h3>
-<div class="outline-text-3" id="text-orga819e0b">
+<div id="outline-container-org11622ec" class="outline-3">
+<h3 id="org11622ec">Partitioning</h3>
+<div class="outline-text-3" id="text-org11622ec">
 <p>
 When we <i>partition</i> members of a Set as <i>distinct possible forms</i>
 (alternative <i>valid inputs</i> or outcomes) we have the notion of an
@@ -103,14 +101,14 @@ which is how the <i>captured notion of branching</i> is expressed formally.
 Regular expressions, such as
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">[</span><span style="color: #8FBCBB;">A</span><span style="color: #D8DEE9;">-</span><span style="color: #8FBCBB;">Z</span><span style="color: #81A1C1;">]</span>
+<pre class="src src-haskell">[<span style="color: #8FBCBB;">A</span><span style="color: #D8DEE9;">-</span><span style="color: #8FBCBB;">Z</span>]
 </pre>
 </div>
 <p>
 is an <i>abbreviation</i> for
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">{</span><span style="color: #8FBCBB;">A</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">B</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">C</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">...</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">X</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Y</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Z</span><span style="color: #81A1C1;">}</span>
+<pre class="src src-haskell">{<span style="color: #8FBCBB;">A</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">B</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">C</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">...</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">X</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Y</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Z</span>}
 </pre>
 </div>
 <p>
@@ -120,9 +118,9 @@ sounds) are arbitrary.
 </div>
 </div>
 
-<div id="outline-container-orgfe07f82" class="outline-3">
-<h3 id="orgfe07f82">Grammars</h3>
-<div class="outline-text-3" id="text-orgfe07f82">
+<div id="outline-container-org12971f6" class="outline-3">
+<h3 id="org12971f6">Grammars</h3>
+<div class="outline-text-3" id="text-org12971f6">
 <p>
 This is why the <i>BNF</i> of a grammar syntax is full of <code>|</code> (ORs).
 </p>
@@ -138,14 +136,14 @@ will be a <i>set of possible inputs or forms</i>.
 </div>
 </div>
 </div>
-<div id="outline-container-orgb39ad0a" class="outline-3">
-<h3 id="orgb39ad0a">Whole number systems</h3>
-<div class="outline-text-3" id="text-orgb39ad0a">
+<div id="outline-container-org6eec0c5" class="outline-3">
+<h3 id="org6eec0c5">Whole number systems</h3>
+<div class="outline-text-3" id="text-org6eec0c5">
 <p>
 The set \(Z\) (of all Integers) is really
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">{</span> <span style="color: #D8DEE9;">...</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">3</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">2</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">0</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">2</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">3</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">...</span> <span style="color: #81A1C1;">}</span>
+<pre class="src src-haskell">{ <span style="color: #D8DEE9;">...</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">3</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">2</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">-</span><span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">0</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">2</span> <span style="color: #D8DEE9;">|</span> <span style="color: #B48EAD; font-weight: bold;">3</span> <span style="color: #D8DEE9;">|</span> <span style="color: #D8DEE9;">...</span> }
 </pre>
 </div>
 <p>
@@ -154,9 +152,9 @@ a <i>successor</i> function.
 </p>
 </div>
 </div>
-<div id="outline-container-orgeb64633" class="outline-3">
-<h3 id="orgeb64633">Algebraic types</h3>
-<div class="outline-text-3" id="text-orgeb64633">
+<div id="outline-container-orgc7a9d09" class="outline-3">
+<h3 id="orgc7a9d09">Algebraic types</h3>
+<div class="outline-text-3" id="text-orgc7a9d09">
 <p>
 There is no wonder that we <i>have evolved</i> similar syntax for <i>Algebraic
 Sum types</i>.
@@ -181,9 +179,9 @@ And <i>pattern matching</i> on these types is &ldquo;natural&rdquo; <i>branching
 </div>
 </div>
 
-<div id="outline-container-org5d81d2b" class="outline-2">
-<h2 id="org5d81d2b">Arrows</h2>
-<div class="outline-text-2" id="text-org5d81d2b">
+<div id="outline-container-orgbb26b25" class="outline-2">
+<h2 id="orgbb26b25">Arrows</h2>
+<div class="outline-text-2" id="text-orgbb26b25">
 <p>
 A <i>single linked list</i> in a <i>box-and-pointed diagram</i> (oldfags knew) is
 just a bunch of connected <i>arrows</i> with donts in between.
@@ -222,7 +220,7 @@ serialization at the function level.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

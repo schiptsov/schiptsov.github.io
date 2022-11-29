@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-18 Fri 09:58 -->
+<!-- 2022-11-29 Tue 12:45 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Me solving programming this morning</title>
@@ -14,27 +14,25 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "left",
+    tagIndent: ".8em"
+  }
+};
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -117,9 +115,9 @@ GHC (writen in Haskell), Coq (in Ocaml), Agda (in Haskell), Maxima (in
 Common Lisp), Octave (in C++, yikes) are the hows.
 </p>
 
-<div id="outline-container-orga064c1f" class="outline-2">
-<h2 id="orga064c1f">All you need is Lambda:</h2>
-<div class="outline-text-2" id="text-orga064c1f">
+<div id="outline-container-orga2e0b22" class="outline-2">
+<h2 id="orga2e0b22">All you need is Lambda:</h2>
+<div class="outline-text-2" id="text-orga2e0b22">
 <p>
 A programming language should provide all the convenient and required
 means for <i>extending the language</i> by defining arbitrary high-level
@@ -199,9 +197,9 @@ Good things to have
 </div>
 </div>
 
-<div id="outline-container-orgc6f3b3e" class="outline-2">
-<h2 id="orgc6f3b3e">The Timeless Principles</h2>
-<div class="outline-text-2" id="text-orgc6f3b3e">
+<div id="outline-container-orgafc75c4" class="outline-2">
+<h2 id="orgafc75c4">The Timeless Principles</h2>
+<div class="outline-text-2" id="text-orgafc75c4">
 <ul class="org-ul">
 <li>Abstraction and formal Specification (all the modern abstract
 mathematics)</li>
@@ -231,7 +229,7 @@ impossible (Ocaml).</li>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-18 Fri 09:58</p>
+<p class="date">Created: 2022-11-29 Tue 12:45</p>
 </div>
 </body>
 </html>

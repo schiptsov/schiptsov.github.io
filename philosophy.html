@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Philosophy</title>
@@ -122,7 +122,7 @@ same locality), then the results will follow inevitably&rdquo;.
 No wonder that expressed symbolically with an <i>evolved notation</i>.
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">(</span><span style="color: #88C0D0;">$</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">(</span>a <span style="color: #D8DEE9;">-&gt;</span> b<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> b
+<pre class="src src-haskell">(<span style="color: #88C0D0;">$</span>) <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> b
 </pre>
 </div>
 <p>
@@ -145,7 +145,7 @@ Not surprisingly, what we call a <i>pipeline</i> is just an <i>application</i> w
 arguments reversed.
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">(</span><span style="color: #88C0D0;">|&gt;</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>a <span style="color: #D8DEE9;">-&gt;</span> b<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> b
+<pre class="src src-haskell">(<span style="color: #88C0D0;">|&gt;</span>) <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> b
 </pre>
 </div>
 <p>
@@ -178,13 +178,13 @@ formalized notions.
 Notice also that this is <i>the same</i> abstract concept, just like <code>|&gt;</code>.
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">(</span><span style="color: #88C0D0;">&gt;&gt;=</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">::</span>  <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> m a <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #81A1C1;">(</span>a <span style="color: #D8DEE9;">-&gt;</span> m b<span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> m b
+<pre class="src src-haskell">(<span style="color: #88C0D0;">&gt;&gt;=</span>) <span style="color: #D8DEE9;">::</span>  <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> m a <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> m b
 </pre>
 </div>
 
-<div id="outline-container-org12b09ab" class="outline-2">
-<h2 id="org12b09ab">TODO</h2>
-<div class="outline-text-2" id="text-org12b09ab">
+<div id="outline-container-orgfcd839a" class="outline-2">
+<h2 id="orgfcd839a">TODO</h2>
+<div class="outline-text-2" id="text-orgfcd839a">
 <p>
 Partitioning, nesting, branching (and joining).
 </p>
@@ -206,7 +206,7 @@ Message passing.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

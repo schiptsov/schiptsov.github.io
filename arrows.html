@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Arrows</title>
@@ -15,27 +15,25 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "left",
+    tagIndent: ".8em"
+  }
+};
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -65,9 +63,9 @@ structure
 A <i>path</i> is &ldquo;more than one&rdquo; (another <i>universal notion</i>) steps.
 </p>
 
-<div id="outline-container-org8f173ed" class="outline-2">
-<h2 id="org8f173ed">Pattern</h2>
-<div class="outline-text-2" id="text-org8f173ed">
+<div id="outline-container-org942ef57" class="outline-2">
+<h2 id="org942ef57">Pattern</h2>
+<div class="outline-text-2" id="text-org942ef57">
 <p>
 This <i>pastern</i> arises in:
 </p>
@@ -86,18 +84,18 @@ a function (an arrow)</li>
 </div>
 </div>
 
-<div id="outline-container-org5765568" class="outline-2">
-<h2 id="org5765568">Nesting</h2>
-<div class="outline-text-2" id="text-org5765568">
+<div id="outline-container-orgffe20bb" class="outline-2">
+<h2 id="orgffe20bb">Nesting</h2>
+<div class="outline-text-2" id="text-orgffe20bb">
 <p>
 Notice that a single-linked list is <i>nesting of &ldquo;conses&rdquo; (pairs)</i>, while
 a composition of a functions is <i>nesting of lambdas</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org13febe3" class="outline-2">
-<h2 id="org13febe3">Threading</h2>
-<div class="outline-text-2" id="text-org13febe3">
+<div id="outline-container-org2adf95c" class="outline-2">
+<h2 id="org2adf95c">Threading</h2>
+<div class="outline-text-2" id="text-org2adf95c">
 <p>
 As long as your composition of functions (steps) is &ldquo;threaded&rdquo; (as beads
 on a rosary) it is &ldquo;isolated&rdquo; and &ldquo;distinct&rdquo; from all other values (or
@@ -123,9 +121,9 @@ There are a couple of ways to ensure &ldquo;threading&rdquo;
 </ul>
 </div>
 </div>
-<div id="outline-container-orgebd866b" class="outline-2">
-<h2 id="orgebd866b">FP</h2>
-<div class="outline-text-2" id="text-orgebd866b">
+<div id="outline-container-org7027a43" class="outline-2">
+<h2 id="org7027a43">FP</h2>
+<div class="outline-text-2" id="text-org7027a43">
 <p>
 <i>Linearity</i> (and <i>nesting</i> ) in structures, processes and even in Logic
 arises from the underlying nature, not from some abstract bullshitting.
@@ -153,7 +151,7 @@ even symbols being used are suggesting.</li>
 By the way,
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">m <span style="color: #88C0D0;">&gt;&gt;=</span> f <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">(</span>id <span style="color: #D8DEE9;">&gt;=&gt;</span> f<span style="color: #81A1C1;">)</span> m
+<pre class="src src-haskell">m <span style="color: #88C0D0;">&gt;&gt;=</span> f <span style="color: #D8DEE9;">=</span> (id <span style="color: #D8DEE9;">&gt;=&gt;</span> f) m
 </pre>
 </div>
 </div>
@@ -162,7 +160,7 @@ By the way,
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

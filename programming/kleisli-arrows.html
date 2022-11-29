@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kleisli Arrows</title>
-<meta name="author" content="schiptsov@gmail.com" />
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -71,14 +71,14 @@ entities</i> to each other or <i>compose</i> them.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Applicative</span> <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Applicative</span> <span style="color: #D8DEE9;">::</span> (<span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>) <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
 <span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Applicative</span> f <span style="color: #81A1C1;">where</span>
   <span style="color: #D8DEE9;">...</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Monad</span> <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Monad</span> <span style="color: #D8DEE9;">::</span> (<span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>) <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
 <span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Applicative</span> m <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #81A1C1;">where</span>
   <span style="color: #D8DEE9;">...</span>
 </pre>
@@ -87,9 +87,9 @@ entities</i> to each other or <i>compose</i> them.
 <p>
 Notice the <i>arrows</i> (kinds).
 </p>
-<div id="outline-container-org228316a" class="outline-2">
-<h2 id="org228316a">Cheaters</h2>
-<div class="outline-text-2" id="text-org228316a">
+<div id="outline-container-org9265753" class="outline-2">
+<h2 id="org9265753">Cheaters</h2>
+<div class="outline-text-2" id="text-org9265753">
 <p>
 We <i>cheat</i> and could &ldquo;extract&rdquo; values from different <i>contexts</i> (except IO),
 while we actually shouldn&rsquo;t.
@@ -108,9 +108,9 @@ level of Molecular biology or Life Itself (yes, I know, inside a star&#x2026;)
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: schiptsov@gmail.com</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

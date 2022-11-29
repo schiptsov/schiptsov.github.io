@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Minimal Abstraction building blocks</title>
@@ -16,27 +16,25 @@
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "left",
+    tagIndent: ".8em"
+  }
+};
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -65,9 +63,9 @@ Persistent (pure functional) data structures are <i>partial functions</i>
 from a <i>Set</i> of inputs to a <i>Set</i> of outputs.
 </p>
 
-<div id="outline-container-org53ab03e" class="outline-2">
-<h2 id="org53ab03e">an Ordered Pair</h2>
-<div class="outline-text-2" id="text-org53ab03e">
+<div id="outline-container-org8bbe9ee" class="outline-2">
+<h2 id="org8bbe9ee">an Ordered Pair</h2>
+<div class="outline-text-2" id="text-org8bbe9ee">
 <p>
 \[(a,b)\]
 A <i>minimal abstraction</i> with corresponds to several related <i>notions</i>.
@@ -93,9 +91,9 @@ Represented as
 </div>
 </div>
 
-<div id="outline-container-orgc425d39" class="outline-2">
-<h2 id="orgc425d39">an Arrow</h2>
-<div class="outline-text-2" id="text-orgc425d39">
+<div id="outline-container-org67f476b" class="outline-2">
+<h2 id="org67f476b">an Arrow</h2>
+<div class="outline-text-2" id="text-org67f476b">
 <p>
 \[\cdot \mapsto \cdot\]
 A mapping from one arbitrary value to another (<i>arity</i> of 2)
@@ -109,9 +107,9 @@ Represented as
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd8df2f9" class="outline-2">
-<h2 id="orgd8df2f9">a Set</h2>
-<div class="outline-text-2" id="text-orgd8df2f9">
+<div id="outline-container-orgb54ed79" class="outline-2">
+<h2 id="orgb54ed79">a Set</h2>
+<div class="outline-text-2" id="text-orgb54ed79">
 <p>
 a <i>formal definition</i> of a <i>mental concept</i> (a mental category).
 </p>
@@ -126,9 +124,9 @@ a <i>formal definition</i> of a <i>mental concept</i> (a mental category).
 </div>
 </div>
 
-<div id="outline-container-orga5a2c23" class="outline-2">
-<h2 id="orga5a2c23">an aList</h2>
-<div class="outline-text-2" id="text-orga5a2c23">
+<div id="outline-container-org2ed8dca" class="outline-2">
+<h2 id="org2ed8dca">an aList</h2>
+<div class="outline-text-2" id="text-org2ed8dca">
 <p>
 <code>[(a,b)]</code>
 An <i>association list</i> is a List of <i>ordered pairs</i> (itself in some particular order).
@@ -136,9 +134,9 @@ An <i>association list</i> is a List of <i>ordered pairs</i> (itself in some par
 </div>
 </div>
 
-<div id="outline-container-org5d7e5bf" class="outline-2">
-<h2 id="org5d7e5bf">a Function</h2>
-<div class="outline-text-2" id="text-org5d7e5bf">
+<div id="outline-container-org114fce8" class="outline-2">
+<h2 id="org114fce8">a Function</h2>
+<div class="outline-text-2" id="text-org114fce8">
 <p>
 \[A \rightarrow B\]
 A <i>Set of Arrows</i> from one <i>Set</i> (called <i>domain</i>) to another (called <i>codomain</i>).
@@ -156,9 +154,9 @@ possible Ordered Pairs</i>). This, BTW, is where <i>structural typing</i> kicks 
 </div>
 </div>
 
-<div id="outline-container-org0874630" class="outline-2">
-<h2 id="org0874630">Nesting</h2>
-<div class="outline-text-2" id="text-org0874630">
+<div id="outline-container-org4e0f8c9" class="outline-2">
+<h2 id="org4e0f8c9">Nesting</h2>
+<div class="outline-text-2" id="text-org4e0f8c9">
 <p>
 \[f (g (x))\]
 <i>Nesting</i> is the most universal and <i>subtle</i> notion.
@@ -174,9 +172,9 @@ The notion of an <i>associative operation</i> is based on the notion of <i>nesti
 </div>
 </div>
 
-<div id="outline-container-orgbe0afe4" class="outline-2">
-<h2 id="orgbe0afe4">a HashMap</h2>
-<div class="outline-text-2" id="text-orgbe0afe4">
+<div id="outline-container-org72b5186" class="outline-2">
+<h2 id="org72b5186">a HashMap</h2>
+<div class="outline-text-2" id="text-org72b5186">
 <p>
 A set of <i>keys</i> mapped into a set of <i>values</i>.
 </p>
@@ -186,7 +184,7 @@ A set of <i>keys</i> mapped into a set of <i>values</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

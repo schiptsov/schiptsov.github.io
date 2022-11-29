@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Indicators</title>
@@ -14,27 +14,25 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "left",
+    tagIndent: ".8em"
+  }
+};
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -66,9 +64,9 @@ One <i>lagging</i>, one <i>leading</i> and a couple of <i>data-driven</i> will b
 Each one should <i>measure</i> a different kind of a metric.
 </p>
 
-<div id="outline-container-orgab6b6f4" class="outline-2">
-<h2 id="orgab6b6f4">Math</h2>
-<div class="outline-text-2" id="text-orgab6b6f4">
+<div id="outline-container-org8936625" class="outline-2">
+<h2 id="org8936625">Math</h2>
+<div class="outline-text-2" id="text-org8936625">
 <p>
 Learn the underlying math of every indicator.
 </p>
@@ -84,9 +82,9 @@ It is basically <i>averaging</i> or <i>differences</i> (distances) and <i>slopes
 </ul>
 </div>
 
-<div id="outline-container-orgfefdf54" class="outline-3">
-<h3 id="orgfefdf54">MACD-line</h3>
-<div class="outline-text-3" id="text-orgfefdf54">
+<div id="outline-container-org1d07400" class="outline-3">
+<h3 id="org1d07400">MACD-line</h3>
+<div class="outline-text-3" id="text-org1d07400">
 <ul class="org-ul">
 <li><i>lagging</i></li>
 <li>trend-<i>following</i></li>
@@ -99,9 +97,9 @@ Similar to:
 </div>
 </div>
 
-<div id="outline-container-org6ff2f6f" class="outline-3">
-<h3 id="org6ff2f6f">MACD-histogram</h3>
-<div class="outline-text-3" id="text-org6ff2f6f">
+<div id="outline-container-org9641609" class="outline-3">
+<h3 id="org9641609">MACD-histogram</h3>
+<div class="outline-text-3" id="text-org9641609">
 <ul class="org-ul">
 <li><i>leading</i></li>
 <li>an oscillator</li>
@@ -113,25 +111,25 @@ Similar to: RSI, Elder-ray, etc.
 </div>
 </div>
 
-<div id="outline-container-org34a9a79" class="outline-3">
-<h3 id="org34a9a79">Open Interest</h3>
-<div class="outline-text-3" id="text-org34a9a79">
+<div id="outline-container-org7cf90fc" class="outline-3">
+<h3 id="org7cf90fc">Open Interest</h3>
+<div class="outline-text-3" id="text-org7cf90fc">
 <p>
 A sum-total of <i>sizes</i> of open positions.
 </p>
 </div>
 </div>
-<div id="outline-container-org1ef0de8" class="outline-3">
-<h3 id="org1ef0de8">Long/Short Ratio</h3>
-<div class="outline-text-3" id="text-org1ef0de8">
+<div id="outline-container-org281bcfa" class="outline-3">
+<h3 id="org281bcfa">Long/Short Ratio</h3>
+<div class="outline-text-3" id="text-org281bcfa">
 <p>
 Number of <i>longs</i> vs. numbers of <i>shorts</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb97257f" class="outline-3">
-<h3 id="orgb97257f">Calls/Puts</h3>
-<div class="outline-text-3" id="text-orgb97257f">
+<div id="outline-container-org83c8143" class="outline-3">
+<h3 id="org83c8143">Calls/Puts</h3>
+<div class="outline-text-3" id="text-org83c8143">
 <p>
 Number of <i>calls</i> vs. number of <i>puts</i>.
 </p>
@@ -139,9 +137,9 @@ Number of <i>calls</i> vs. number of <i>puts</i>.
 </div>
 </div>
 
-<div id="outline-container-org5ccffaf" class="outline-2">
-<h2 id="org5ccffaf">Socially constructed</h2>
-<div class="outline-text-2" id="text-org5ccffaf">
+<div id="outline-container-org7005363" class="outline-2">
+<h2 id="org7005363">Socially constructed</h2>
+<div class="outline-text-2" id="text-org7005363">
 <p>
 Everything is socially constructed, like religious rituals based on
 shared  beliefs.
@@ -150,9 +148,9 @@ Self-reinforcement systems - the more of them act (perform the rituals),the more
 </div>
 </div>
 
-<div id="outline-container-org2818c67" class="outline-2">
-<h2 id="org2818c67">Sentiments</h2>
-<div class="outline-text-2" id="text-org2818c67">
+<div id="outline-container-orgaf4063d" class="outline-2">
+<h2 id="orgaf4063d">Sentiments</h2>
+<div class="outline-text-2" id="text-orgaf4063d">
 <p>
 All indicators must measure other people&rsquo;s sentiments (fear, greed,
 excitement, depression, intensity of feelings).
@@ -164,18 +162,18 @@ excitement, depression, intensity of feelings).
 </div>
 </div>
 
-<div id="outline-container-org6257cf9" class="outline-2">
-<h2 id="org6257cf9">Patterns</h2>
-<div class="outline-text-2" id="text-org6257cf9">
+<div id="outline-container-orga1bda20" class="outline-2">
+<h2 id="orga1bda20">Patterns</h2>
+<div class="outline-text-2" id="text-orga1bda20">
 <p>
 Indicators have <i>patterns</i> of their own, and <i>other people</i> watch for and follow these patterns (like they follow patterns of the main chart).
 </p>
 </div>
 </div>
 
-<div id="outline-container-orged0160d" class="outline-2">
-<h2 id="orged0160d">More than one</h2>
-<div class="outline-text-2" id="text-orged0160d">
+<div id="outline-container-orgb99b6b8" class="outline-2">
+<h2 id="orgb99b6b8">More than one</h2>
+<div class="outline-text-2" id="text-orgb99b6b8">
 <p>
 Several indicators <i>of different kind</i> must <i>confirm</i> each other (on a <i>larger timeframe</i>).
 </p>
@@ -190,9 +188,9 @@ EMAs are also basically the same.
 </p>
 </div>
 </div>
-<div id="outline-container-org7d5052c" class="outline-2">
-<h2 id="org7d5052c">Elder</h2>
-<div class="outline-text-2" id="text-org7d5052c">
+<div id="outline-container-org35d1fe9" class="outline-2">
+<h2 id="org35d1fe9">Elder</h2>
+<div class="outline-text-2" id="text-org35d1fe9">
 <p>
 If I squinting at a chart while trying to understand its signals, I flip the page and move to the next stock. (this! - stay aside and just trade more than one ticker.)
 </p>
@@ -203,9 +201,9 @@ If you look at a familiar indicator but can’t understand its message, it is mo
 </div>
 </div>
 
-<div id="outline-container-orgf758fe5" class="outline-2">
-<h2 id="orgf758fe5">MAs</h2>
-<div class="outline-text-2" id="text-orgf758fe5">
+<div id="outline-container-org52ea72d" class="outline-2">
+<h2 id="org52ea72d">MAs</h2>
+<div class="outline-text-2" id="text-org52ea72d">
 <p>
 An average is a <i>smoothing function</i>.
 Averages <i>lose information</i>, precision.
@@ -221,9 +219,9 @@ EMAs should be used instead of simple MAs
 </p>
 </div>
 </div>
-<div id="outline-container-orgc05a26e" class="outline-2">
-<h2 id="orgc05a26e">Smoothing</h2>
-<div class="outline-text-2" id="text-orgc05a26e">
+<div id="outline-container-org831158b" class="outline-2">
+<h2 id="org831158b">Smoothing</h2>
+<div class="outline-text-2" id="text-org831158b">
 <p>
 MA is an <i>average</i> price for <i>past</i> \(n\) days interval (or a window).
 Connecting individual MA <i>points</i> yields a <i>curve</i>.
@@ -236,9 +234,9 @@ It is said that this technique separates a <i>signal</i> from the <i>noise</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfba413b" class="outline-2">
-<h2 id="orgfba413b">Slope</h2>
-<div class="outline-text-2" id="text-orgfba413b">
+<div id="outline-container-orge8ae215" class="outline-2">
+<h2 id="orge8ae215">Slope</h2>
+<div class="outline-text-2" id="text-orge8ae215">
 <p>
 A <i>slope</i> of a MA curve is acceleration.
 </p>
@@ -249,31 +247,31 @@ This is how <i>divergences</i> occur - new lows but in a <i>less steep slope</i>
 </div>
 </div>
 
-<div id="outline-container-org6246942" class="outline-2">
-<h2 id="org6246942">Lagging</h2>
-<div class="outline-text-2" id="text-org6246942">
+<div id="outline-container-orge35c766" class="outline-2">
+<h2 id="orge35c766">Lagging</h2>
+<div class="outline-text-2" id="text-orge35c766">
 <p>
 All <i>MAs</i> are <i>lagging</i> - they turns <i>after</i> the price.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge48a2de" class="outline-2">
-<h2 id="orge48a2de">Last two</h2>
-<div class="outline-text-2" id="text-orge48a2de">
+<div id="outline-container-org6f181da" class="outline-2">
+<h2 id="org6f181da">Last two</h2>
+<div class="outline-text-2" id="text-org6f181da">
 <p>
 Oscillators <i>coincide</i>, because they use only <i>last two</i> candles.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org16e5894" class="outline-2">
-<h2 id="org16e5894">Moving Average <i>convergence-divergence</i>.</h2>
-<div class="outline-text-2" id="text-org16e5894">
+<div id="outline-container-org54ee8f7" class="outline-2">
+<h2 id="org54ee8f7">Moving Average <i>convergence-divergence</i>.</h2>
+<div class="outline-text-2" id="text-org54ee8f7">
 </div>
-<div id="outline-container-orgaec12ad" class="outline-3">
-<h3 id="orgaec12ad">Trend-following</h3>
-<div class="outline-text-3" id="text-orgaec12ad">
+<div id="outline-container-orge5af677" class="outline-3">
+<h3 id="orge5af677">Trend-following</h3>
+<div class="outline-text-3" id="text-orge5af677">
 <p>
 MACD lines is a <i>lagging</i> indicator - turns <i>after</i> a reversal
 In trends to <i>confirm reversals</i>.
@@ -281,18 +279,18 @@ It measures <i>the slope of moving averages</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org2b99341" class="outline-3">
-<h3 id="org2b99341">Oscillators</h3>
-<div class="outline-text-3" id="text-org2b99341">
+<div id="outline-container-org5b63216" class="outline-3">
+<h3 id="org5b63216">Oscillators</h3>
+<div class="outline-text-3" id="text-org5b63216">
 <p>
 MACD histogram is a <i>coincident</i> indicator - goes with prices
 In flat ranges to <i>detect turns</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org993722f" class="outline-3">
-<h3 id="org993722f">Sentiment analysis</h3>
-<div class="outline-text-3" id="text-org993722f">
+<div id="outline-container-orgeba79ad" class="outline-3">
+<h3 id="orgeba79ad">Sentiment analysis</h3>
+<div class="outline-text-3" id="text-orgeba79ad">
 <p>
 Open Interest
 Put/Call Ratio.
@@ -302,9 +300,9 @@ Supply held by retail
 </div>
 </div>
 </div>
-<div id="outline-container-org3371cb2" class="outline-2">
-<h2 id="org3371cb2">MACD</h2>
-<div class="outline-text-2" id="text-org3371cb2">
+<div id="outline-container-orgb26d3ab" class="outline-2">
+<h2 id="orgb26d3ab">MACD</h2>
+<div class="outline-text-2" id="text-orgb26d3ab">
 <p>
 Averages and slopes
 MA <i>Lines</i>
@@ -335,9 +333,9 @@ Price change (the length of a candle) is the &ldquo;speed&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-org1243291" class="outline-2">
-<h2 id="org1243291">Metrics and &ldquo;meters&rdquo;</h2>
-<div class="outline-text-2" id="text-org1243291">
+<div id="outline-container-org2d31704" class="outline-2">
+<h2 id="org2d31704">Metrics and &ldquo;meters&rdquo;</h2>
+<div class="outline-text-2" id="text-org2d31704">
 <p>
 Keep in mind that these <i>moving averages</i> are pure abstractions - derived
 metrics, and their further manipulations (subtractions) are even more
@@ -350,17 +348,17 @@ The only &ldquo;real&rdquo; ones are the changes (<i>differences</i>) in <i>pric
 </p>
 </div>
 </div>
-<div id="outline-container-org628fb8f" class="outline-2">
-<h2 id="org628fb8f">RSI</h2>
-<div class="outline-text-2" id="text-org628fb8f">
+<div id="outline-container-org6cefe88" class="outline-2">
+<h2 id="org6cefe88">RSI</h2>
+<div class="outline-text-2" id="text-org6cefe88">
 <p>
 Know the math - what kind of a function it is.
 </p>
 </div>
 </div>
-<div id="outline-container-org41236c0" class="outline-2">
-<h2 id="org41236c0">Other signals</h2>
-<div class="outline-text-2" id="text-org41236c0">
+<div id="outline-container-org8497df0" class="outline-2">
+<h2 id="org8497df0">Other signals</h2>
+<div class="outline-text-2" id="text-org8497df0">
 <ul class="org-ul">
 <li>Open Intgerest</li>
 <li>Long/Short ratio</li>
@@ -374,7 +372,7 @@ Know the math - what kind of a function it is.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

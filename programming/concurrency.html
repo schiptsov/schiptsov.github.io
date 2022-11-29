@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-19 Sat 12:10 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Concurrency</title>
-<meta name="author" content="schiptsov@gmail.com" />
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -53,9 +53,9 @@ Immutability is not an academic fancy, it is a universal principle, which
 makes Life Itself possible (every molecule of the same kind is as good
 as every other, and they are being <i>passing around</i> freely).
 </p>
-<div id="outline-container-org74c85aa" class="outline-2">
-<h2 id="org74c85aa">Concurrency vs. Parallelism</h2>
-<div class="outline-text-2" id="text-org74c85aa">
+<div id="outline-container-orgfd9ffaf" class="outline-2">
+<h2 id="orgfd9ffaf">Concurrency vs. Parallelism</h2>
+<div class="outline-text-2" id="text-orgfd9ffaf">
 <p>
 <i>Concurrency</i> means some sort of <i>time-sharing /scheduling</i> or <i>cooperative multitasking</i> by
 some &ldquo;supervisor&rdquo; process.
@@ -80,9 +80,9 @@ code is pure functional.
 </div>
 </div>
 
-<div id="outline-container-org7783e28" class="outline-2">
-<h2 id="org7783e28">Asynchronous vs. Synchronous</h2>
-<div class="outline-text-2" id="text-org7783e28">
+<div id="outline-container-org01dbc1b" class="outline-2">
+<h2 id="org01dbc1b">Asynchronous vs. Synchronous</h2>
+<div class="outline-text-2" id="text-org01dbc1b">
 <p>
 A normal function (or a chain of deeply <i>nested</i> functions) has to <i>return</i>.
 </p>
@@ -109,9 +109,9 @@ To such asynchronous processes (or &ldquo;execution contexts&rdquo;) some additi
 (runtime-support).
 </p>
 </div>
-<div id="outline-container-orgf715e14" class="outline-3">
-<h3 id="orgf715e14">More than one</h3>
-<div class="outline-text-3" id="text-orgf715e14">
+<div id="outline-container-orgaedae36" class="outline-3">
+<h3 id="orgaedae36">More than one</h3>
+<div class="outline-text-3" id="text-orgaedae36">
 <p>
 This is not merely pure function composition (via nesting). Having more
 than one &ldquo;thread&rdquo; (or a routine) of execution <i>implies /coordination</i> and
@@ -119,9 +119,9 @@ than one &ldquo;thread&rdquo; (or a routine) of execution <i>implies /coordinati
 </p>
 </div>
 </div>
-<div id="outline-container-org9acc8c2" class="outline-3">
-<h3 id="org9acc8c2">Message passing</h3>
-<div class="outline-text-3" id="text-org9acc8c2">
+<div id="outline-container-org6475777" class="outline-3">
+<h3 id="org6475777">Message passing</h3>
+<div class="outline-text-3" id="text-org6475777">
 <p>
 The right thing to do is what Erlang did - spawn a process, get its
 &ldquo;address&rdquo;, and send it a message. It will eventually send you &ldquo;the
@@ -129,9 +129,9 @@ result&rdquo; back in a message (result will be delivered to your &ldquo;mailbox
 </p>
 </div>
 </div>
-<div id="outline-container-orga8cf171" class="outline-3">
-<h3 id="orga8cf171">Callbacks</h3>
-<div class="outline-text-3" id="text-orga8cf171">
+<div id="outline-container-org6023e2b" class="outline-3">
+<h3 id="org6023e2b">Callbacks</h3>
+<div class="outline-text-3" id="text-org6023e2b">
 <p>
 The most straightforward solution is to pass an additional parameter to
 the asynchronous &ldquo;function&rdquo; (an explicit callback) which will be callled instead of just
@@ -145,9 +145,9 @@ using the standard TCO.
 </p>
 </div>
 </div>
-<div id="outline-container-org8d9ade3" class="outline-3">
-<h3 id="org8d9ade3">Concurrent futures</h3>
-<div class="outline-text-3" id="text-org8d9ade3">
+<div id="outline-container-org1459f40" class="outline-3">
+<h3 id="org1459f40">Concurrent futures</h3>
+<div class="outline-text-3" id="text-org1459f40">
 <p>
 Futures do <i>not</i> signal completion but they can be called (polled) more than
 once.
@@ -175,9 +175,9 @@ Futures are similar to what OS <code>poll</code> or <code>select</code> calls do
 </div>
 </div>
 
-<div id="outline-container-orgcb5487c" class="outline-2">
-<h2 id="orgcb5487c">Non-blocking vs. Blocking</h2>
-<div class="outline-text-2" id="text-orgcb5487c">
+<div id="outline-container-orgee693b9" class="outline-2">
+<h2 id="orgee693b9">Non-blocking vs. Blocking</h2>
+<div class="outline-text-2" id="text-orgee693b9">
 <p>
 The only way to achieve &ldquo;non-blocking&rdquo; is to have multiple &ldquo;execution
 contexts&rdquo;. There is no other way in principle.
@@ -204,9 +204,9 @@ another async function as a parameter, and then &ldquo;forgotten&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-org1ab3dd3" class="outline-2">
-<h2 id="org1ab3dd3">Problems</h2>
-<div class="outline-text-2" id="text-org1ab3dd3">
+<div id="outline-container-orgb289959" class="outline-2">
+<h2 id="orgb289959">Problems</h2>
+<div class="outline-text-2" id="text-orgb289959">
 <p>
 In pure a functional setting most problems <i>do not arise</i>.
 </p>
@@ -231,9 +231,9 @@ Imperative OO crap, however, is fundamentally broken beyond repair.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcdaf0d4" class="outline-2">
-<h2 id="orgcdaf0d4">Summary</h2>
-<div class="outline-text-2" id="text-orgcdaf0d4">
+<div id="outline-container-org0db3ae8" class="outline-2">
+<h2 id="org0db3ae8">Summary</h2>
+<div class="outline-text-2" id="text-org0db3ae8">
 <p>
 To summarize, any form of <i>concurrency</i> requires multiple <i>execution context</i> (coroutines,
 fibers, threads, whatever) and <i>coordination and communication</i> between
@@ -261,9 +261,9 @@ Erlang is an exception.
 </p>
 </div>
 </div>
-<div id="outline-container-org155c213" class="outline-2">
-<h2 id="org155c213">Imperative calls and returns</h2>
-<div class="outline-text-2" id="text-org155c213">
+<div id="outline-container-orgccf1e37" class="outline-2">
+<h2 id="orgccf1e37">Imperative calls and returns</h2>
+<div class="outline-text-2" id="text-orgccf1e37">
 <p>
 Again, asynchronity means starting another processes and delegating to them.
 </p>
@@ -295,9 +295,9 @@ message-passing for signalling. Not even callbacks.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: schiptsov@gmail.com</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-19 Sat 12:10</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Incremental Development</title>
@@ -14,27 +14,25 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -93,9 +91,9 @@ have figured it out and wrote down right (no type-errors and all tests
 passed) it becomes &ldquo;eternal&rdquo; - correct and valid.
 </p>
 
-<div id="outline-container-orgd5d0581" class="outline-2">
-<h2 id="orgd5d0581">Gregor Kiczales</h2>
-<div class="outline-text-2" id="text-orgd5d0581">
+<div id="outline-container-orgb0670eb" class="outline-2">
+<h2 id="orgb0670eb">Gregor Kiczales</h2>
+<div class="outline-text-2" id="text-orgb0670eb">
 <p>
 Gregor Kiczales has a whole course about <i>Systematic Program Design</i> on
 youtube (based on his MOOC). Just watch it, even if it a bit too
@@ -107,9 +105,9 @@ Really, this is one of the best and highest quality courses out there.
 </p>
 </div>
 </div>
-<div id="outline-container-orgea44b92" class="outline-2">
-<h2 id="orgea44b92">Write the type-signatures first</h2>
-<div class="outline-text-2" id="text-orgea44b92">
+<div id="outline-container-org9e4e367" class="outline-2">
+<h2 id="org9e4e367">Write the type-signatures first</h2>
+<div class="outline-text-2" id="text-org9e4e367">
 <p>
 It should be one&rsquo;s habit to write a prototype of the <i>module-signature</i>
 (<code>.mli</code> in Ocaml) first. You will at once &ldquo;see&rdquo; how <i>consistent</i> and uniform
@@ -122,9 +120,9 @@ structs and functors). They are absolutely brilliant. This is what Haskell lacks
 </p>
 </div>
 </div>
-<div id="outline-container-orgf8669c4" class="outline-2">
-<h2 id="orgf8669c4">Second step - write a test-case</h2>
-<div class="outline-text-2" id="text-orgf8669c4">
+<div id="outline-container-org9ff8e27" class="outline-2">
+<h2 id="org9ff8e27">Second step - write a test-case</h2>
+<div class="outline-text-2" id="text-org9ff8e27">
 <p>
 Write a failing test case <i>first</i> and <i>then</i> implement the function to make the
 test pass. This is the crucial pont of whole TTD approach.
@@ -143,9 +141,9 @@ If a function has already known <i>preconditions</i> write test-cases which
 </p>
 </div>
 </div>
-<div id="outline-container-org367b2d0" class="outline-2">
-<h2 id="org367b2d0">REPL</h2>
-<div class="outline-text-2" id="text-org367b2d0">
+<div id="outline-container-org2f14a1b" class="outline-2">
+<h2 id="org2f14a1b">REPL</h2>
+<div class="outline-text-2" id="text-org2f14a1b">
 <p>
 A REPL is the tools of experimentation and <i>rapid prototyping</i> due to
 instant feedback and real quick setup (because <i>pure functions share
@@ -158,9 +156,9 @@ In a REPL you <i>try</i> the things to feel the &ldquo;use-side&rdquo; (the call
 </p>
 </div>
 </div>
-<div id="outline-container-orgc61b9cb" class="outline-2">
-<h2 id="orgc61b9cb">Tests as crude pseudo-specs</h2>
-<div class="outline-text-2" id="text-orgc61b9cb">
+<div id="outline-container-org255376d" class="outline-2">
+<h2 id="org255376d">Tests as crude pseudo-specs</h2>
+<div class="outline-text-2" id="text-org255376d">
 <p>
 Writing down <i>specifications</i> for interfaces (for every exported function) is
 crucial, but instead of writing them in commentaries, write them in <i>unit
@@ -187,9 +185,9 @@ their presence <i>early</i>.
 </ul>
 </div>
 </div>
-<div id="outline-container-org9eacfb5" class="outline-2">
-<h2 id="org9eacfb5">Formal specification</h2>
-<div class="outline-text-2" id="text-org9eacfb5">
+<div id="outline-container-orgf160876" class="outline-2">
+<h2 id="orgf160876">Formal specification</h2>
+<div class="outline-text-2" id="text-orgf160876">
 <p>
 The critical functions can be fully specified and veryfied using
 advanced tools, like <code>TLA+</code>, <code>Coq</code> or <code>Agda</code>.
@@ -210,7 +208,7 @@ export it in Haskell (automatically) or any other functional language (manually)
 <div id="postamble" class="status">
 <p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>

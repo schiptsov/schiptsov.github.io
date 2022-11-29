@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-11 Fri 17:13 -->
+<!-- 2022-11-29 Tue 12:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Candle</title>
@@ -15,27 +15,25 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "left",
+    tagIndent: ".8em"
+  }
+};
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -49,16 +47,16 @@
 We are building the <i>simplest possible</i> mathematical model.
 </p>
 
-<div id="outline-container-org42685b9" class="outline-2">
-<h2 id="org42685b9">A vector from physics</h2>
-<div class="outline-text-2" id="text-org42685b9">
+<div id="outline-container-org645911b" class="outline-2">
+<h2 id="org645911b">A vector from physics</h2>
+<div class="outline-text-2" id="text-org645911b">
 <p>
 <i>Intuitions</i> from physics:
 </p>
 </div>
-<div id="outline-container-org2bd6d34" class="outline-3">
-<h3 id="org2bd6d34">Force</h3>
-<div class="outline-text-3" id="text-org2bd6d34">
+<div id="outline-container-orgfb8a2c0" class="outline-3">
+<h3 id="orgfb8a2c0">Force</h3>
+<div class="outline-text-3" id="text-orgfb8a2c0">
 <p>
 An abstract vector is defined as a <i>direction</i> and a <i>magnitude</i>.
 </p>
@@ -68,17 +66,17 @@ In the simplest model there are just two directions - up and down.
 </p>
 </div>
 </div>
-<div id="outline-container-org1ec7853" class="outline-3">
-<h3 id="org1ec7853">Momentum</h3>
-<div class="outline-text-3" id="text-org1ec7853">
+<div id="outline-container-orgc57a1bf" class="outline-3">
+<h3 id="orgc57a1bf">Momentum</h3>
+<div class="outline-text-3" id="text-orgc57a1bf">
 <p>
 A momentum is defined as a <i>difference</i> between <i>two</i> adjacent <i>vectors</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orge02016d" class="outline-3">
-<h3 id="orge02016d">Derivative</h3>
-<div class="outline-text-3" id="text-orge02016d">
+<div id="outline-container-orgec2b00d" class="outline-3">
+<h3 id="orgec2b00d">Derivative</h3>
+<div class="outline-text-3" id="text-orgec2b00d">
 <p>
 In the simplest model the \(x\) -change is always \(1\) , so the derivative \(\frac{dy}{dx}\)
 is just the <i>difference</i> in the \(y\) coordinate.
@@ -86,9 +84,9 @@ is just the <i>difference</i> in the \(y\) coordinate.
 </div>
 </div>
 </div>
-<div id="outline-container-org075f713" class="outline-2">
-<h2 id="org075f713">A product-type</h2>
-<div class="outline-text-2" id="text-org075f713">
+<div id="outline-container-org5e733e1" class="outline-2">
+<h2 id="org5e733e1">A product-type</h2>
+<div class="outline-text-2" id="text-org5e733e1">
 <p>
 A <code>Candle</code> is by definition a <i>record</i>. Conceptually - a <i>Set of labeled
   slots</i>. Each particular value corresponds to a &ldquo;point&rdquo; or a &ldquo;vector&rdquo;.
@@ -111,9 +109,9 @@ Of course, one could refactor quickly and safely because it is an ADT.
 </p>
 </div>
 </div>
-<div id="outline-container-org7546951" class="outline-2">
-<h2 id="org7546951">Parameterized by an interval</h2>
-<div class="outline-text-2" id="text-org7546951">
+<div id="outline-container-org298e558" class="outline-2">
+<h2 id="org298e558">Parameterized by an interval</h2>
+<div class="outline-text-2" id="text-org298e558">
 <p>
 Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized by its
 <i>size</i> - an <i>interval</i> between two <i>timestamps</i>).
@@ -121,9 +119,9 @@ Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized 
 </p>
 </div>
 </div>
-<div id="outline-container-orgdd00d1c" class="outline-2">
-<h2 id="orgdd00d1c">Deriving Eq, Ord</h2>
-<div class="outline-text-2" id="text-orgdd00d1c">
+<div id="outline-container-org4777357" class="outline-2">
+<h2 id="org4777357">Deriving Eq, Ord</h2>
+<div class="outline-text-2" id="text-org4777357">
 <p>
 It will have implicit ordering by <i>timestamps</i>.
 </p>
@@ -140,31 +138,31 @@ This implies <code>min</code> and <code>max</code>  can be used directly on the 
 </div>
 </div>
 
-<div id="outline-container-orgf968cd1" class="outline-2">
-<h2 id="orgf968cd1">A Semigroup</h2>
-<div class="outline-text-2" id="text-orgf968cd1">
+<div id="outline-container-org0f55796" class="outline-2">
+<h2 id="org0f55796">A Semigroup</h2>
+<div class="outline-text-2" id="text-org0f55796">
 <p>
 WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Semigroup</span> <span style="color: #8FBCBB;">Candle</span> <span style="color: #81A1C1;">where</span>
-  <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">&lt;&gt;</span><span style="color: #81A1C1;">)</span> <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
+  (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org08d3141" class="outline-2">
-<h2 id="org08d3141">An abstract Empty Candle</h2>
-<div class="outline-text-2" id="text-org08d3141">
+<div id="outline-container-org7ef0b79" class="outline-2">
+<h2 id="org7ef0b79">An abstract Empty Candle</h2>
+<div class="outline-text-2" id="text-org7ef0b79">
 <p>
 Non-existent, abstract <i>identity element</i> \(e\) for the <i>merging</i> operation.
 \[e\bigoplus x = x = x \bigoplus e\]
 </p>
 </div>
 </div>
-<div id="outline-container-org3531871" class="outline-2">
-<h2 id="org3531871">A Monoid</h2>
-<div class="outline-text-2" id="text-org3531871">
+<div id="outline-container-org9f07e6a" class="outline-2">
+<h2 id="org9f07e6a">A Monoid</h2>
+<div class="outline-text-2" id="text-org9f07e6a">
 <p>
 With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>instance of a Monoid</i>.
 </p>
@@ -176,9 +174,9 @@ With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>in
 </div>
 </div>
 </div>
-<div id="outline-container-orgcf79446" class="outline-2">
-<h2 id="orgcf79446">Not an  Endofunctor</h2>
-<div class="outline-text-2" id="text-orgcf79446">
+<div id="outline-container-org4022a22" class="outline-2">
+<h2 id="org4022a22">Not an  Endofunctor</h2>
+<div class="outline-text-2" id="text-org4022a22">
 <p>
 Any <i>product type</i> looks like an implicit, <i>trivial Endofunctor</i>, provided that a <i>function</i>
 being  mapped over it &ldquo;knows&rdquo; how <i>not to break data consistency</i>.
@@ -189,7 +187,7 @@ It is almost as if
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> <span style="color: #8FBCBB;">Candle</span> <span style="color: #81A1C1;">where</span>
-  fmap <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">(</span><span style="color: #D8DEE9;">$</span><span style="color: #81A1C1;">)</span>
+  fmap <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">$</span>)
 </pre>
 </div>
 <p>
@@ -213,7 +211,7 @@ an <i>Algebraic Data Type</i> (a product), but not a <i>Functor</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-11 Fri 17:13</p>
+<p class="date">Created: 2022-11-29 Tue 12:46</p>
 </div>
 </body>
 </html>
