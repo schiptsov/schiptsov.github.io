@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-30 Wed 10:44 -->
+<!-- 2022-11-30 Wed 11:22 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -35,6 +35,30 @@ rewrite parts of important codebases (Spark, Kafka, the Twitter stack)
 to use the new standard library and its better abstractions (due to
 better typing).
 </p>
+<div id="outline-container-org180bc10" class="outline-2">
+<h2 id="org180bc10">Overview</h2>
+<div class="outline-text-2" id="text-org180bc10">
+<p>
+It is much better to think in terms of <i>nested Sets of type-tagged structured
+values</i>.
+With proper universal <i>nesting</i> almost everything can be abstracted as such a
+value. Objects may have fields and methods, traits may have <i>types, fields,
+methods</i> and <i>other traits</i>, which may have types, methods and other traits&#x2026;
+At a higher level, <i>modules</i> and whole <i>packages</i> are such &ldquo;values&rdquo; too.
+</p>
+
+<p>
+<code>Scala 3</code> import system hints at this universality, allowing one to import
+everything from everything almost uniformly. This is a consequence of a proper
+design, and proper modeling based on just Sets and (Second Order) Logic.
+</p>
+
+<p>
+<code>Scala 3</code> got a lot of <i>principle-guided unification</i> from being a cool collection of
+<i>ad-hook</i> design decisions. It is by far the best-designed language out there,
+especially compared to Java or C++.
+</p>
+</div>
 
 <div id="outline-container-orgbea49f5" class="outline-3">
 <h3 id="orgbea49f5">Product types</h3>
@@ -95,6 +119,7 @@ languages
 <p>
 Anyway, whatever.
 </p>
+</div>
 </div>
 </div>
 <div id="outline-container-orgadb5e3e" class="outline-2">
@@ -303,7 +328,7 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-30 Wed 10:44</p>
+<p class="date">Created: 2022-11-30 Wed 11:22</p>
 </div>
 </body>
 </html>
