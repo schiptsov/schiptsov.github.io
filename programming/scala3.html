@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-29 Tue 12:46 -->
+<!-- 2022-11-30 Wed 10:04 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -37,6 +37,17 @@ better typing).
 </p>
 
 <p>
+Parameterized <i>Traits</i> are now the basis of proper <i>type-classes</i>, which are as
+fundamental as Liskov&rsquo;s ADTs, and one should <i>abstract out with traits</i>.
+</p>
+
+<p>
+<i>Enums</i> are Scala&rsquo;s  attempt on generalized <i>sum-types</i>, or even GADTs, and they
+seem OK due to the ability to define fields and methods, just like in a
+<i>companion object</i>.
+</p>
+
+<p>
 I really hope that they at least attempted to unify various <i>in-house
 implementations</i> of <i>Streams</i> and <i>Futures</i> and what not. There is no easy or
 quick way to <i>evolve stable intermediate forms</i> which is a principal requirement for
@@ -54,8 +65,6 @@ languages
 </p>
 <ul class="org-ul">
 <li><code>where</code> clauses from CLU</li>
-<li>proper <i>sum-types</i> and GADTs (fundamental)</li>
-<li>type-classes of Haskell (they are just optimal)</li>
 <li>modules of Ocaml (it has to be the Java way)</li>
 <li>Some Haskell&rsquo;s typing extensions which have proven to be useful.</li>
 </ul>
@@ -269,7 +278,7 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-29 Tue 12:46</p>
+<p class="date">Created: 2022-11-30 Wed 10:04</p>
 </div>
 </body>
 </html>
