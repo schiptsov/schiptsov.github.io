@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-30 Wed 10:04 -->
+<!-- 2022-11-30 Wed 10:22 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -36,15 +36,32 @@ to use the new standard library and its better abstractions (due to
 better typing).
 </p>
 
+<div id="outline-container-orgbea49f5" class="outline-3">
+<h3 id="orgbea49f5">Product types</h3>
+<div class="outline-text-3" id="text-orgbea49f5">
 <p>
-Parameterized <i>Traits</i> are now the basis of proper <i>type-classes</i>, which are as
-fundamental as Liskov&rsquo;s ADTs, and one should <i>abstract out with traits</i>.
+<i>Case-classes</i> are used to define <i>immutable values which have its own structure</i> and
+&ldquo;normal&rdquo; classes can create <i>mutable record types</i>. <i>Companion objects</i> provide an
+additional  <i>name-space</i>. /Extensions are also useful.
 </p>
-
+</div>
+</div>
+<div id="outline-container-org52f11d8" class="outline-3">
+<h3 id="org52f11d8">Sum types</h3>
+<div class="outline-text-3" id="text-org52f11d8">
 <p>
 <i>Enums</i> are Scala&rsquo;s  attempt on generalized <i>sum-types</i>, or even GADTs, and they
 seem OK due to the ability to define fields and methods, just like in a
-<i>companion object</i>.
+<i>companion object</i>. They can be <i>parameterized</i>, just like Traits.
+</p>
+</div>
+</div>
+<div id="outline-container-org64041e3" class="outline-3">
+<h3 id="org64041e3">Type-classes</h3>
+<div class="outline-text-3" id="text-org64041e3">
+<p>
+Parameterized <i>Traits</i> are now the solid basis of proper <i>type-classes</i>, which are as
+fundamental as Liskov&rsquo;s ADTs, and one should <i>abstract out with traits</i>.
 </p>
 
 <p>
@@ -72,6 +89,8 @@ languages
 <p>
 Anyway, whatever.
 </p>
+</div>
+</div>
 <div id="outline-container-orgadb5e3e" class="outline-2">
 <h2 id="orgadb5e3e">Modern tools</h2>
 <div class="outline-text-2" id="text-orgadb5e3e">
@@ -278,7 +297,7 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-30 Wed 10:04</p>
+<p class="date">Created: 2022-11-30 Wed 10:22</p>
 </div>
 </body>
 </html>
