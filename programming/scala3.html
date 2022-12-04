@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-30 Wed 11:22 -->
+<!-- 2022-12-04 Sun 14:02 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -161,39 +161,41 @@ Launch the REPL
 <p>
 import straight from <code>Maven</code>
 </p>
-<div class="org-src-container">
-<pre class="src src-scala"><span style="color: #81A1C1;">import</span> $ivy.`com.typesafe.akka<span style="color: #81A1C1;">:</span><span style="color: #8FBCBB;">akka</span>-stream_3<span style="color: #81A1C1;">:</span><span style="color: #81A1C1;">2.7.0</span>`
+<pre class="example" id="org3da30ad">
+import $ivy.`com.typesafe.akka:akka-stream_3:2.7.0`
 </pre>
 </div>
+<div id="outline-container-orgaa0155e" class="outline-3">
+<h3 id="orgaa0155e">Basic configuration</h3>
+<div class="outline-text-3" id="text-orgaa0155e">
 <p>
-Basic configuration
-<code>build.sbt</code>
+add this to the <code>build.sbt</code> file
 </p>
-<div class="org-src-container">
-<pre class="src src-scala"><span style="color: #81A1C1;">val</span> <span style="color: #D8DEE9;">scala3Version</span> <span style="color: #81A1C1;">=</span> <span style="color: #A3BE8C;">"3.2.1"</span>
-<span style="color: #81A1C1;">val</span> <span style="color: #D8DEE9;">AkkaVersion</span> <span style="color: #81A1C1;">=</span> <span style="color: #A3BE8C;">"2.7.0"</span>
+<pre class="example" id="orgf807379">
+val scala3Version = "3.2.1"
+val AkkaVersion = "2.8.0-M1"
 
-<span style="color: #81A1C1;">ThisBuild</span> / scalaVersion := scala3Version
-<span style="color: #81A1C1;">ThisBuild</span> / scalacOptions ++= <span style="color: #81A1C1;">Seq</span>(<span style="color: #A3BE8C;">"-language:_"</span>, <span style="color: #A3BE8C;">"-deprecation"</span>)
+ThisBuild / scalaVersion := scala3Version
+ThisBuild / scalacOptions ++= Seq("-language:_", "-deprecation")
 
-<span style="color: #81A1C1;">lazy</span> <span style="color: #81A1C1;">val</span> <span style="color: #D8DEE9;">root</span> <span style="color: #81A1C1;">=</span> project
-  .in(file(<span style="color: #A3BE8C;">"."</span>))
+lazy val root = project
+  .in(file("."))
   .settings(
 
     scalaVersion := scala3Version,
 
-    libraryDependencies += <span style="color: #A3BE8C;">"com.typesafe.akka"</span> %% <span style="color: #A3BE8C;">"akka-stream"</span> % <span style="color: #81A1C1;">AkkaVersion</span>,
+    libraryDependencies += Seq("com.typesafe.akka" %% "akka-http" % AkkaVersion,
+                               "org.scalatest"     %% "scalatest" % "3.2.14" % Test)
   )
 </pre>
-</div>
 <p>
-<code>project/plugins.sbt</code>
+and <code>project/plugins.sbt</code> is
 </p>
-<div class="org-src-container">
-<pre class="src src-scala">addSbtPlugin(<span style="color: #A3BE8C;">"ch.epfl.scala"</span> % <span style="color: #A3BE8C;">"sbt-bloop"</span> % <span style="color: #A3BE8C;">"1.5.4"</span>)
+<pre class="example" id="orgbb5a92e">
+addSbtPlugin("ch.epfl.scala" % "sbt-bloop" % "1.5.4")
 
-addSbtPlugin(<span style="color: #A3BE8C;">"ch.epfl.scala"</span> % <span style="color: #A3BE8C;">"sbt-scalafix"</span> % <span style="color: #A3BE8C;">"0.10.4"</span>)
-addSbtPlugin(<span style="color: #A3BE8C;">"org.scalameta"</span> % <span style="color: #A3BE8C;">"sbt-scalafmt"</span> % <span style="color: #A3BE8C;">"2.4.6"</span>)
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.10.4")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.6")
 </pre>
 </div>
 </div>
@@ -201,6 +203,11 @@ addSbtPlugin(<span style="color: #A3BE8C;">"org.scalameta"</span> % <span style=
 <div id="outline-container-org72eddee" class="outline-2">
 <h2 id="org72eddee">Editor support</h2>
 <div class="outline-text-2" id="text-org72eddee">
+<p>
+The <i>Giga Chad</i> Odersky and the team are using <i>VSCode</i>, so it almost always works.
+Vim and Emacs require some effort.
+</p>
+
 <p>
 Be aware of which <code>sbt</code> binary is in your <code>$PATH</code>, which version is
 specified in <code>project/build.properties</code> and which version has been
@@ -247,9 +254,15 @@ world.
 The fucking crap failed with <i>timed out exceptions</i>, leaving everything in an
 inconsistent state.
 </p>
+
+<p>
+It is trying to install <code>scalafmt</code> and other tools by itsef, while they are
+already installed by <code>cs</code>, which is the default, preferred way to do this in Scala.
+</p>
 </div>
 </div>
 </div>
+
 <div id="outline-container-org022bc12" class="outline-2">
 <h2 id="org022bc12">Better abstractions</h2>
 <div class="outline-text-2" id="text-org022bc12">
@@ -324,11 +337,85 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orged0515b" class="outline-2">
+<h2 id="orged0515b">Coming home</h2>
+<div class="outline-text-2" id="text-orged0515b">
+<pre class="example" id="orge60cc96">
+package s3.payload
+
+import akka.http.scaladsl.model.Uri
+
+import java.net.URLEncoder
+import java.io.UnsupportedEncodingException
+
+import scala.sys.process.*
+
+import s3.keys.{getSecretKey, privateKeyFile}
+
+// We shall use their (Binance's) terminology consistently
+// hoping that they use it consistently too
+
+// They call this /Singed Payload/
+
+// functions for constructing Signed Payloads
+
+// local type aliases
+type QueryString  = String
+type DigestSHA256 = String
+
+// This extension can be imported from this module
+extension (uri: Uri)
+  def withSignature: Uri =
+    uri.rawQueryString match
+      case Some(s) =&gt;
+        uri.withRawQueryString(addSignature(s), Uri.ParsingMode.Strict)
+      case None =&gt; uri
+
+  def addSignature(s: QueryString): QueryString =
+    s ++ f"?signature=${digest(s)}"
+
+def digest(q: QueryString): DigestSHA256 =
+  val sk = getSecretKey
+  val a =
+    f"bash -c \"echo -n '${q}' | openssl dgst -sha256 -hmac '${sk}'\""
+      .!!
+      .split(' ')
+      .map(_.trim)
+  a(1)
+</pre>
+<pre class="example" id="org2b36177">
+import akka.http.scaladsl.model.*
+
+import org.scalatest._
+import flatspec._
+import matchers._
+
+class PayloadSpec extends AnyFlatSpec with should.Matchers {
+  "A signed URI" should "be constructed" in {
+    val p =
+      "symbol=LTCBTC&amp;side=BUY&amp;type=LIMIT&amp;timeInForce=GTC&amp;quantity=1&amp;price=0.1&amp;recvWindow=5000&amp;timestamp=1499827319559"
+    val d =
+      "c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71"
+
+    import s3.binance.uri
+    import s3.payload.withSignature
+
+    val uri1 = uri
+      .withRawQueryString(p, Uri.ParsingMode.Strict)
+      .withSignature
+
+    uri1.toString should endWith(d)
+  }
+}
+</pre>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-30 Wed 11:22</p>
+<p class="date">Created: 2022-12-04 Sun 14:02</p>
 </div>
 </body>
 </html>
