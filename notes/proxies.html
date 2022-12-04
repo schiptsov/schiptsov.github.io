@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-12-02 Fri 18:36 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proxies</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Proxies</h1>
+</header><p>
+Google fucked up all the Tor users with endless captchas.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #6f7787;">#</span><span style="color: #6f7787;">!/bin/</span><span style="color: #81A1C1;">bash</span>
+
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">all_proxy</span>=<span style="color: #A3BE8C;">"socks5://127.0.0.1:9050"</span>
+
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">SOCKS_SERVER</span>=<span style="color: #A3BE8C;">"127.0.0.1:9050"</span>
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">SOCKS_VERSION</span>=<span style="color: #B48EAD; font-weight: bold;">5</span>
+
+gsettings set org.gnome.system.proxy.socks host <span style="color: #A3BE8C;">'127.0.0.1'</span>
+gsettings set org.gnome.system.proxy.socks port <span style="color: #B48EAD; font-weight: bold;">9050</span>
+gsettings set org.gnome.system.proxy mode <span style="color: #A3BE8C;">'manual'</span>
+gsettings set org.gnome.system.proxy use-same-proxy true
+
+gsettings set org.gnome.system.proxy ignore-hosts <span style="color: #81A1C1;">[</span><span style="color: #A3BE8C;">'localhost'</span>, <span style="color: #A3BE8C;">'127.0.0.0/8'</span>, <span style="color: #A3BE8C;">'::1'</span>, <span style="color: #A3BE8C;">'*.google.com'</span><span style="color: #81A1C1;">]</span>
+
+dconf write /system/proxy/mode <span style="color: #A3BE8C;">"'manual'"</span>
+dconf write /system/proxy/socks/host <span style="color: #A3BE8C;">"'127.0.0.1'"</span>
+dconf write /system/proxy/socks/port <span style="color: #A3BE8C;">"9050"</span>
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-12-02 Fri 18:36</p>
+</div>
+</body>
+</html>
