@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-29 Tue 12:46 -->
+<!-- 2022-12-05 Mon 16:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -96,11 +96,55 @@ results, but the problem is that its target platform (the runtime) is
 not designed for true asynchronity - it only <i>emulates</i> it using blocking
 and sharing primitives.
 </p>
+
+<div id="outline-container-org7b8c5b4" class="outline-2">
+<h2 id="org7b8c5b4">Websockets and framing in general</h2>
+<div class="outline-text-2" id="text-org7b8c5b4">
+<p>
+It seems, at least in theory, the <code>Erlang</code> is the best language for writing
+advanced client applications - it has the right implementation of &ldquo;core&rdquo;
+protocols and underlying low level primitives, such as <i>processes communicating
+through asynchronous message passing</i>.
+</p>
+
+<p>
+There is, however, no non-bullshit implementation of the websockets protocol,
+particularly OTP does not support it yet.
+</p>
+
+<p>
+It seems that frames and message maps particularly nice to <i>pattern-matching on
+receive</i>, which is the Erlang&rsquo;s killer feature, and an these &ldquo;messages&rdquo; are an
+appropriate level of abstraction to work with.
+</p>
+
+<p>
+Someone has to write it, but the problem is a niche language (even good one)
+requires a lot of time to become familiar and requires to read <i>a lot</i> of cryptic
+code which requires good understanding of the underlying model and abstractions.
+</p>
+
+<p>
+No one does such kind of work for free, because it requires <i>months</i> of
+uninterrupted effort, but food and money has to come from somewhere.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org79c7c80" class="outline-2">
+<h2 id="org79c7c80">SSL</h2>
+<div class="outline-text-2" id="text-org79c7c80">
+<p>
+Erlang OTP team have done a great job for maintaining the <code>ssl</code> library, but now
+there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/etc/ssl/certs/java/cacerts</code>
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-29 Tue 12:46</p>
+<p class="date">Created: 2022-12-05 Mon 16:37</p>
 </div>
 </body>
 </html>
