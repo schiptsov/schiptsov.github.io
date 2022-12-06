@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-04 Sun 14:07 -->
+<!-- 2022-12-06 Tue 13:55 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to program in crappy imperative languages</title>
@@ -24,6 +24,21 @@
 <header>
 <h1 class="title">How to program in crappy imperative languages</h1>
 </header><p>
+<i>“Data dominates. If you’ve chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.”</i>
+— <b>Rob Pike</b>
+</p>
+
+<p>
+This quote summarizes it almost perfectly. There are some of the facts, which it captures.
+</p>
+<ul class="org-ul">
+<li>The <i>shape</i> of the functions defined by <i>pattern-matching</i> have exactly the shape of the corresponding <i>sum-type</i> type.</li>
+<li>Erlang&rsquo;s <i>pattern-matching on receive</i> does de-structuring</li>
+<li><i>selectors</i> of <i>record-types</i> are <i>partial functions</i>.</li>
+<li><i>in-wire</i> representation of structuted data (Erlang, Clojure).</li>
+</ul>
+
+<p>
 The fundamental principle is increase the level of abstractions (interfaces) to the
 highest possible level, while maintaining a layered structure of
 underlying  DSLs.
@@ -231,7 +246,7 @@ of the &ldquo;previous generation&rdquo; of artistic craftsmanship. <code>Ocaml<
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-04 Sun 14:07</p>
+<p class="date">Created: 2022-12-06 Tue 13:55</p>
 </div>
 </body>
 </html>

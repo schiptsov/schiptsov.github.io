@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-05 Mon 16:37 -->
+<!-- 2022-12-06 Tue 09:31 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -96,6 +96,62 @@ results, but the problem is that its target platform (the runtime) is
 not designed for true asynchronity - it only <i>emulates</i> it using blocking
 and sharing primitives.
 </p>
+<div id="outline-container-org1975a18" class="outline-2">
+<h2 id="org1975a18">Why</h2>
+<div class="outline-text-2" id="text-org1975a18">
+<p>
+Conceptually, just like in a general purpose Functional language, functions from a
+<i>module</i> are being evaluated by the language&rsquo;s <i>runtime</i>. The runtime usually does
+some kind of <i>graph reduction</i>, where the graph is basically a structure made out
+of  <i>nesting</i> of pure functions.
+</p>
+
+<p>
+In Erlang one or more function can be evaluated within (inside of) a single totally isolated,
+<i>lightweight concurrent process</i> (sort of a co-routine) which <i>shares nothing</i> with
+other similar processes. Thus the runtime <i>partitions</i> the functions into separate
+processes, just the way we observe in the real world.
+</p>
+
+<p>
+This runtime has been explicitly designed, based on the fundamental principles,
+to ensure that there is nothing shared between the processes and that
+asynchronous but reliable communication (using persistent, append-only
+&ldquo;mailboxes&rdquo;) can done used structured <i>message-passing</i> (as structured immutable
+values) instead of calling methods, which share the stack and other contexts.
+</p>
+
+<p>
+This is the reason to use the Erlang OTP platform. Despite ancient Prolog-like
+syntax it otherwise exceptionally well designed and is suitable for functional
+programming with asynchronous streams, which is what Spark and other huge
+frameworks do.
+</p>
+
+<p>
+The crucial features are:
+</p>
+<ul class="org-ul">
+<li>truly asynchronous message-passing instead of calling methods (synchronously)</li>
+<li><i>whole values</i> are being passed - no hidden state or pointers to mutable data</li>
+<li>the <code>send</code> and <code>receive</code> primitives available for pure functions</li>
+<li><i>structural pattern-matching</i> on <code>recieve</code> (the killer feature)</li>
+<li>the <code>spawn</code> primitive which starts a new process (this is how you <i>non-block</i>).</li>
+<li>&ldquo;addressing&rdquo; and the <i>mailboxes</i> are implicitly maintained by the runtime.</li>
+</ul>
+
+<p>
+The fundamental &ldquo;pattern&rdquo; is that once a function receives its data as a message
+it sends it to a &ldquo;helper&rdquo; (delegates) and forgets (sleeps on <code>receive</code>), thus not blocking anything
+for a long time.
+</p>
+
+<p>
+The data and the resulting values are being passed in messages, not just in
+arguments. Arguments are used to <i>parameterize and specialize functions</i>.
+</p>
+</div>
+</div>
 
 <div id="outline-container-org7b8c5b4" class="outline-2">
 <h2 id="org7b8c5b4">Websockets and framing in general</h2>
@@ -144,7 +200,7 @@ there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/e
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-05 Mon 16:37</p>
+<p class="date">Created: 2022-12-06 Tue 09:31</p>
 </div>
 </body>
 </html>
