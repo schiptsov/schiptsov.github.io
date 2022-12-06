@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-06 Tue 18:32 -->
+<!-- 2022-12-06 Tue 19:35 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -65,6 +65,11 @@ that closure and communicate the result back via asynchronous message.
 </p>
 
 <p>
+A process is a <i>lightweight virtual machine</i> (which <i>evaluates a byte-compiled
+code</i>) that can communicate with other processes <i>only by sending and receiving messages</i>.
+</p>
+
+<p>
 Erlang&rsquo;s processes are executed and scheduled by other totally
 isolated processes, <i>within a supervision hierarchy</i>. Message-delivery
 subsystem is also isolated and supervised, and it began with the
@@ -75,7 +80,7 @@ properties</i> of the lightweight processes.
 <p>
 There is a catch. If your stack does not use these <i>share-nothing</i>,
 asynchronous primitives (implemented without any sharing), you have an
-illusion of asynchronity.
+illusion of asynchronity. Processes share no memory, have <i>no shared stack</i>.
 </p>
 
 <p>
@@ -283,7 +288,7 @@ use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-omnicomplete'</span>,
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-06 Tue 18:32</p>
+<p class="date">Created: 2022-12-06 Tue 19:35</p>
 </div>
 </body>
 </html>
