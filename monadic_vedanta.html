@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-29 Tue 12:46 -->
+<!-- 2022-12-09 Fri 22:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Monadic Vedanta</title>
@@ -118,9 +118,9 @@ In all cases the <i>referential transparency property</i> still holds, so
 </p></li>
 </ul>
 
-<div id="outline-container-orgb68e343" class="outline-2">
-<h2 id="orgb68e343">Abstraction barrier</h2>
-<div class="outline-text-2" id="text-orgb68e343">
+<div id="outline-container-org4674675" class="outline-2">
+<h2 id="org4674675">Abstraction barrier</h2>
+<div class="outline-text-2" id="text-org4674675">
 <p>
 The confusion and frustration come from a lack of clear separation between interfaces and implementation.
 </p>
@@ -139,9 +139,9 @@ Abstractly or conceptually, these extras could be separated and completely hidde
 </div>
 </div>
 
-<div id="outline-container-orgc98db53" class="outline-2">
-<h2 id="orgc98db53">Composition</h2>
-<div class="outline-text-2" id="text-orgc98db53">
+<div id="outline-container-org7da9e6d" class="outline-2">
+<h2 id="org7da9e6d">Composition</h2>
+<div class="outline-text-2" id="text-org7da9e6d">
 <p>
 These abstractions should be <i>composable</i>, just like ordinary functions
 \[g \circ f = g(f(x))\]
@@ -152,15 +152,15 @@ These abstractions should be <i>composable</i>, just like ordinary functions
 </div>
 </div>
 </div>
-<div id="outline-container-org400c8c5" class="outline-2">
-<h2 id="org400c8c5">Functor</h2>
-<div class="outline-text-2" id="text-org400c8c5">
+<div id="outline-container-org7c5a6ca" class="outline-2">
+<h2 id="org7c5a6ca">Functor</h2>
+<div class="outline-text-2" id="text-org7c5a6ca">
 <p>
 Just like ordinary functions, these abstractions can be <i>Functoral</i>
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> (<span style="color: #8FBCBB;">(-&gt;)</span> r) <span style="color: #81A1C1;">where</span>
-  fmap <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">.</span>)
+<span style="background-color: #2E3440;"> </span> fmap <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">.</span>)
 </pre>
 </div>
 <p>
@@ -168,9 +168,9 @@ So a Functor is <i>required</i> and the type-class Monad is a subclass of a <i>A
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Applicative</span> m <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #81A1C1;">where</span>
-  (<span style="color: #D8DEE9;">&gt;&gt;=</span>)       <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">forall</span> a b<span style="color: #D8DEE9;">.</span> m a <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> m b
-  return      <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">forall</span> a<span style="color: #D8DEE9;">.</span> a <span style="color: #D8DEE9;">-&gt;</span> m a
-  return      <span style="color: #D8DEE9;">=</span> pure
+<span style="background-color: #2E3440;"> </span> (<span style="color: #D8DEE9;">&gt;&gt;=</span>)       <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">forall</span> a b<span style="color: #D8DEE9;">.</span> m a <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> m b
+<span style="background-color: #2E3440;"> </span> return      <span style="color: #D8DEE9;">::</span> <span style="color: #81A1C1;">forall</span> a<span style="color: #D8DEE9;">.</span> a <span style="color: #D8DEE9;">-&gt;</span> m a
+<span style="background-color: #2E3440;"> </span> return      <span style="color: #D8DEE9;">=</span> pure
 </pre>
 </div>
 <p>
@@ -183,9 +183,9 @@ Moreover, implementations of <i>Functor instances</i> break an abstraction (make
 </div>
 </div>
 
-<div id="outline-container-org00a69eb" class="outline-2">
-<h2 id="org00a69eb">Formulations</h2>
-<div class="outline-text-2" id="text-org00a69eb">
+<div id="outline-container-org48afdb4" class="outline-2">
+<h2 id="org48afdb4">Formulations</h2>
+<div class="outline-text-2" id="text-org48afdb4">
 <p>
 In the context of a <code>List</code>
 </p>
@@ -203,7 +203,7 @@ And, of course, <code>List</code> is a &ldquo;classic&rdquo; <i>Functor</i>
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> [a] <span style="color: #81A1C1;">where</span>
-  fmap <span style="color: #D8DEE9;">=</span> map
+<span style="background-color: #2E3440;"> </span> fmap <span style="color: #D8DEE9;">=</span> map
 </pre>
 </div>
 <p>
@@ -223,9 +223,9 @@ which is structurally just like <code>concat</code> for Lists
 </div>
 </div>
 
-<div id="outline-container-orgac4b640" class="outline-2">
-<h2 id="orgac4b640">The Proper Philosophy</h2>
-<div class="outline-text-2" id="text-orgac4b640">
+<div id="outline-container-org3a6b2a2" class="outline-2">
+<h2 id="org3a6b2a2">The Proper Philosophy</h2>
+<div class="outline-text-2" id="text-org3a6b2a2">
 <p>
 <i>Life Itself</i> has been evolved upon certain molecular structures, which
 are made out of <i>Atoms</i>. Life does not know anything about their nature,
@@ -258,9 +258,9 @@ atomicity and immutability of base structures, which is only apparent.
 </div>
 </div>
 
-<div id="outline-container-orga0f6073" class="outline-2">
-<h2 id="orga0f6073">The Highest level</h2>
-<div class="outline-text-2" id="text-orga0f6073">
+<div id="outline-container-org55ad62a" class="outline-2">
+<h2 id="org55ad62a">The Highest level</h2>
+<div class="outline-text-2" id="text-org55ad62a">
 <p>
 At a <i>highest, most abstract level</i> a Monad <i>in Haskell</i> is a
 generalization of an <i>abstraction barrier</i> similar to that one which
@@ -287,9 +287,9 @@ and it <i>is not</i> &ldquo;abstract&rdquo; or imaginary. Everything is real.
 </div>
 </div>
 
-<div id="outline-container-org8cd5dab" class="outline-2">
-<h2 id="org8cd5dab">&gt;&gt;=</h2>
-<div class="outline-text-2" id="text-org8cd5dab">
+<div id="outline-container-org7232bee" class="outline-2">
+<h2 id="org7232bee">&gt;&gt;=</h2>
+<div class="outline-text-2" id="text-org7232bee">
 <p>
 The (&gt;&gt;=) function (called bind) which does <i>re-binding</i> and
 <i>sequencing</i> should be considered <i>impure</i>, because it (and only it) has
@@ -325,9 +325,9 @@ And that is really it. No more, no less.
 </div>
 </div>
 
-<div id="outline-container-org9c2b4a8" class="outline-2">
-<h2 id="org9c2b4a8">Passing the Whole World</h2>
-<div class="outline-text-2" id="text-org9c2b4a8">
+<div id="outline-container-orgd026706" class="outline-2">
+<h2 id="orgd026706">Passing the Whole World</h2>
+<div class="outline-text-2" id="text-orgd026706">
 <p>
 This <i>metaphor</i> is both philosophically funny and useful. In an abstract
 theory, a function <i>is indeed pure</i> if it takes a <i>snapshot of the whole
@@ -366,9 +366,9 @@ Passing of &ldquo;RealWorld&rdquo; values ensures &ldquo;threading&rdquo;- than 
 </div>
 </div>
 </div>
-<div id="outline-container-org7d219c3" class="outline-2">
-<h2 id="org7d219c3">an ADT</h2>
-<div class="outline-text-2" id="text-org7d219c3">
+<div id="outline-container-org5914356" class="outline-2">
+<h2 id="org5914356">an ADT</h2>
+<div class="outline-text-2" id="text-org5914356">
 <p>
 Technically, it is an ADT as defined by Barbara Liskov. There is an
 interface, which is what the <i>pure code</i> &ldquo;sees&rdquo; and uses. There is an
@@ -381,9 +381,9 @@ All the most fundamental concepts of programming are there in play.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfdb4295" class="outline-2">
-<h2 id="orgfdb4295">Actual representation</h2>
-<div class="outline-text-2" id="text-orgfdb4295">
+<div id="outline-container-orgf88a416" class="outline-2">
+<h2 id="orgf88a416">Actual representation</h2>
+<div class="outline-text-2" id="text-orgf88a416">
 <p>
 At the lowest level there is an impure code which manipulates data in
 memory, like everything else.
@@ -396,9 +396,9 @@ type-checked <i>specialized state machine, defined in pure logic</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb4e9565" class="outline-2">
-<h2 id="orgb4e9565">State Monad</h2>
-<div class="outline-text-2" id="text-orgb4e9565">
+<div id="outline-container-org2a810fa" class="outline-2">
+<h2 id="org2a810fa">State Monad</h2>
+<div class="outline-text-2" id="text-org2a810fa">
 <p>
 It is just a lambda which returns a <i>pair</i> of values. Lambda, so that they can be
 composed sequentially (yes, just <i>nested lambdas</i>) by <code>&gt;&gt;=</code>.
@@ -433,7 +433,7 @@ still holds.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-29 Tue 12:46</p>
+<p class="date">Created: 2022-12-09 Fri 22:16</p>
 </div>
 </body>
 </html>

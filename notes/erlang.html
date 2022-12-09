@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-12-09 Fri 22:15 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Erlang</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Erlang</h1>
+</header><p>
+Unlike SML, Erlang has <i>heterogeneous lists</i> and <i>type-tagged values</i>, just like
+Common Lisp or Scheme.
+</p>
+
+<p>
+Just like Haskell and lately Python, Erlang has <i>purely declarative list comprehensions</i>, which can be traced back to the mathematical notation, developed within the Set Theory (the basis for all mathematics).
+</p>
+
+<p>
+Being <i>declarative</i> with a high-level DSL is the highest possible level of excellence. Besides <i>set comprehensions</i>, summations and integrals are examples of such declarative notations.
+</p>
+
+<p>
+We, in programming, use DSLs, sometimes as beautiful and close to math as Scala&rsquo;s <code>scalatest</code> set of libraries or the original <code>quickcheck</code> for Haskell.
+</p>
+
+<p>
+Erlang lacks some abilities of expressing DSLs due to neglect of syntax. Currying and partial application + the ability to define arbitrary infix operators is what it is lacking.
+</p>
+
+<p>
+User-facing subset of Erlang is <i>pure functional</i>. <code>send</code>  is an <i>infix operator</i> and
+acts like an <i>identity</i> function. <code>recieve</code> is like a <i>multi-clause</i> &ldquo;function&rdquo; (it is
+<i>pure with respect to the pattern</i> and a given <i>context</i>).
+</p>
+
+<p>
+<code>spawn</code> is a pure as <code>apply</code>.
+</p>
+
+<p>
+Just like SML, <i>pattern-matching</i> is the main mechanism of dealing with structured and <i>nested</i>
+values.
+</p>
+
+<p>
+Erlang pioneered <i>universal pattern-matching</i> (first introduced in SML),
+which means patterns are <i>everywhere</i>.
+</p>
+
+<p>
+<code>=</code> is not an &ldquo;assignment&rdquo;, but binds <i>unbound</i> symbols or is an &ldquo;assertion&rdquo; for both
+sides of <code>=</code> to have the same shape with exactly the same values. SML uses <code>let</code>.
+</p>
+
+<p>
+Function <i>clauses</i> (which SML also have) also <i>defined by pattern-matching</i>. Thus
+each clause becomes a <i>partial function</i> (defined only on a particular subset of
+the domain).
+</p>
+
+<p>
+Functions with more that one <i>clause</i> are usually defined for <i>algebraic sum-types</i>,
+and the overall <i>shape</i> of a function follows to the shape of a data-type.
+</p>
+
+<p>
+Unlike SML, Erlang does not support <i>currying</i> and <i>partial application</i>.
+</p>
+
+<p>
+Pattern-matching on <code>receive</code> is Erlang&rsquo;s unique innovation. This allows to
+examine the <i>shape</i> of received data, destructure and <i>bind</i> to symbols.
+</p>
+
+<p>
+Each <code>receive</code> clause is a partial &ldquo;function&rdquo; with &ldquo;arguments&rdquo; being <i>bound</i> by the
+pattern-matching process.
+</p>
+
+<p>
+the <code>[H|T]</code> syntax. In a pattern it <i>unpacks and binds</i>, in an expression it
+<i>constructs</i>.
+</p>
+
+<p>
+We can easily add tests and perform <i>test-driven development</i> without any
+additional tools. All we need is /pattern matching and <code>=</code>.
+</p>
+
+<p>
+<code>result (self-evaluating) = expression</code>
+</p>
+
+<p>
+this is an implicit <i>assertion</i> about <i>structured values</i> (of the same shape).
+</p>
+
+<p>
+Don&rsquo;t handle the case where no pattern matches—our
+program will fail with a runtime error. /This is deliberate. This is the way we
+program in Erlang. (Fail fast!)
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-12-09 Fri 22:15</p>
+</div>
+</body>
+</html>

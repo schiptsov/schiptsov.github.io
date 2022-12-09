@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-06 Tue 13:55 -->
+<!-- 2022-12-09 Fri 22:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to program in crappy imperative languages</title>
@@ -109,9 +109,17 @@ This is exactly what <code>Scala 3</code> did to Java - it <i>wrapped better abs
 its imperative ugliness and plain stupidity.
 </p>
 
-<div id="outline-container-orgb47af45" class="outline-2">
-<h2 id="orgb47af45">High-level, concise DSLs</h2>
-<div class="outline-text-2" id="text-orgb47af45">
+<p>
+<i>“I tend to “grow” programs rather than think them out completely before writing them.
+This way I don’t tend to make large mistakes before I discover that things have gone
+wrong. Above all, it’s fun, I get immediate feedback, and I see whether my ideas work
+as soon as I have typed in the program.”</i>
+— <b>Joe Armstrong</b>
+</p>
+
+<div id="outline-container-orge76be85" class="outline-2">
+<h2 id="orge76be85">High-level, concise DSLs</h2>
+<div class="outline-text-2" id="text-orge76be85">
 <p>
 This is serious. Once one have a proper set of features which are <i>orthogonal to but
 complement each other</i> (currying, partial application, implicit parameters,
@@ -129,9 +137,9 @@ to program.
 </p>
 </div>
 </div>
-<div id="outline-container-orge99bdba" class="outline-2">
-<h2 id="orge99bdba">Sets and Logic</h2>
-<div class="outline-text-2" id="text-orge99bdba">
+<div id="outline-container-org9855179" class="outline-2">
+<h2 id="org9855179">Sets and Logic</h2>
+<div class="outline-text-2" id="text-org9855179">
 <p>
 There are evolved formalisms (mental techniques <i>of an external Observer</i>). Neither exists outside ones head.
 </p>
@@ -158,9 +166,9 @@ Different kinds of atoms and molecules, from an external observer&rsquo;s point 
 </div>
 </div>
 
-<div id="outline-container-orgb5f22d9" class="outline-2">
-<h2 id="orgb5f22d9">Common idioms</h2>
-<div class="outline-text-2" id="text-orgb5f22d9">
+<div id="outline-container-orgd3f33cd" class="outline-2">
+<h2 id="orgd3f33cd">Common idioms</h2>
+<div class="outline-text-2" id="text-orgd3f33cd">
 <p>
 There are common or even universal idioms in programming. Thet go back to early LISPs and CLU (which was an imperative OO language).
 </p>
@@ -178,9 +186,9 @@ What Haskell or Scala3 call a <i>type-class</i> are just <i>named sets of interf
 </p>
 </div>
 
-<div id="outline-container-org9659e9d" class="outline-3">
-<h3 id="org9659e9d">Types as sets of values</h3>
-<div class="outline-text-3" id="text-org9659e9d">
+<div id="outline-container-orge2032a2" class="outline-3">
+<h3 id="orge2032a2">Types as sets of values</h3>
+<div class="outline-text-3" id="text-orge2032a2">
 <p>
 Classes, by the way, are just more structured <i>product types</i> - they allow <i>code &ldquo;slots&rdquo;</i>, not just data &ldquo;slots&rdquo;. CLOS got it right.
 </p>
@@ -199,9 +207,9 @@ In the classic paradigm the there <i>exported</i> functions to manipulate values
 </div>
 </div>
 
-<div id="outline-container-org9dfd587" class="outline-3">
-<h3 id="org9dfd587">Data-constructors</h3>
-<div class="outline-text-3" id="text-org9dfd587">
+<div id="outline-container-org011adfa" class="outline-3">
+<h3 id="org011adfa">Data-constructors</h3>
+<div class="outline-text-3" id="text-org011adfa">
 <p>
 There is &ldquo;universal&rdquo; operation of producing a new value of a specific type (or a class) - to call a data-constructor, which is a function.
 </p>
@@ -215,9 +223,9 @@ For parameterized types we naturally would have parameterized data-constructors.
 </p>
 </div>
 </div>
-<div id="outline-container-org219a7bb" class="outline-3">
-<h3 id="org219a7bb">Type-Constructors</h3>
-<div class="outline-text-3" id="text-org219a7bb">
+<div id="outline-container-orgb00bdcd" class="outline-3">
+<h3 id="orgb00bdcd">Type-Constructors</h3>
+<div class="outline-text-3" id="text-orgb00bdcd">
 <p>
 Type-constructors are always parameterized, because they are type-level &ldquo;functions&rdquo; or &ldquo;instantiations&rdquo;.
 </p>
@@ -233,9 +241,9 @@ Only Scala 3 has them so far. Haskell has <i>type-families</i> which are restric
 </div>
 </div>
 
-<div id="outline-container-org117492e" class="outline-2">
-<h2 id="org117492e">Scala 3</h2>
-<div class="outline-text-2" id="text-org117492e">
+<div id="outline-container-orgb3e9123" class="outline-2">
+<h2 id="orgb3e9123">Scala 3</h2>
+<div class="outline-text-2" id="text-orgb3e9123">
 <p>
 <code>Scala 3</code> is a <i>crafted</i> language. The first of its own kind. SML/NJ was Haskell were
 of the &ldquo;previous generation&rdquo; of artistic craftsmanship. <code>Ocaml</code> is another example.
@@ -246,7 +254,7 @@ of the &ldquo;previous generation&rdquo; of artistic craftsmanship. <code>Ocaml<
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-06 Tue 13:55</p>
+<p class="date">Created: 2022-12-09 Fri 22:16</p>
 </div>
 </body>
 </html>

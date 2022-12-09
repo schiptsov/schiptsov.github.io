@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-29 Tue 12:47 -->
+<!-- 2022-12-09 Fri 22:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algebraic abstractions</title>
@@ -58,9 +58,9 @@ required set of type-signatures (an interface)</i> for all values in a <code>Set
 (and respects <i>corresponding laws</i> stated formally elsewhere).
 </p>
 
-<div id="outline-container-org2ecf275" class="outline-2">
-<h2 id="org2ecf275">Closure</h2>
-<div class="outline-text-2" id="text-org2ecf275">
+<div id="outline-container-orge6b856d" class="outline-2">
+<h2 id="orge6b856d">Closure</h2>
+<div class="outline-text-2" id="text-orge6b856d">
 <p>
 \((S, \bigoplus)\), a Set <code>S</code> is <i>closed under an operation</i> \(\bigoplus\) <i>iff</i>
 \[\forall a, b \in S, a \bigoplus b \in S\]
@@ -78,9 +78,9 @@ Associativity is not required.
 </p>
 </div>
 </div>
-<div id="outline-container-orgadefdb9" class="outline-2">
-<h2 id="orgadefdb9">Semigroup</h2>
-<div class="outline-text-2" id="text-orgadefdb9">
+<div id="outline-container-org6f56293" class="outline-2">
+<h2 id="org6f56293">Semigroup</h2>
+<div class="outline-text-2" id="text-org6f56293">
 <p>
 \((S, \bigoplus)\), an <i>associative binary operation</i> \(\bigoplus\) with a <i>Closure</i> property. Closure is implicit and &ldquo;natural&rdquo; due to <i>multiple applications of the same operator</i>, such that
 \[\forall a, b, c \in S, (a \bigoplus b) \bigoplus c = a \bigoplus (b \bigoplus c)\]
@@ -92,15 +92,15 @@ An <i>order-independent</i> (in a chain) operation.
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Semigroup</span> a <span style="color: #81A1C1;">where</span>
-  (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
+<span style="background-color: #2E3440;"> </span> (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org02590bc" class="outline-2">
-<h2 id="org02590bc">Monoid</h2>
-<div class="outline-text-2" id="text-org02590bc">
+<div id="outline-container-orgbf1a041" class="outline-2">
+<h2 id="orgbf1a041">Monoid</h2>
+<div class="outline-text-2" id="text-orgbf1a041">
 <p>
 \((S, \bigoplus, e)\), an <i>associative operation</i> which has an <i>identity element</i> <code>e</code> (value). Implicit <i>closure</i> or required by already being a Semigroup.
 \[x \bigoplus e = x = e \bigoplus x\]
@@ -109,21 +109,21 @@ An <i>identity-preserving</i> operation.
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Semigroup</span> a <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monoid</span> a <span style="color: #81A1C1;">where</span>
-  mempty  <span style="color: #D8DEE9;">::</span> a
+<span style="background-color: #2E3440;"> </span> mempty  <span style="color: #D8DEE9;">::</span> a
 
-  mappend <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-  mappend <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">&lt;&gt;</span>)
-  <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">This is not required, folding</span>
-  mconcat <span style="color: #D8DEE9;">::</span> [a] <span style="color: #D8DEE9;">-&gt;</span> a
-  mconcat <span style="color: #D8DEE9;">=</span> foldr mappend mempty
+<span style="background-color: #2E3440;"> </span> mappend <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
+<span style="background-color: #2E3440;"> </span> mappend <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">&lt;&gt;</span>)
+<span style="background-color: #2E3440;"> </span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">This is not required, folding</span>
+<span style="background-color: #2E3440;"> </span> mconcat <span style="color: #D8DEE9;">::</span> [a] <span style="color: #D8DEE9;">-&gt;</span> a
+<span style="background-color: #2E3440;"> </span> mconcat <span style="color: #D8DEE9;">=</span> foldr mappend mempty
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5855547" class="outline-2">
-<h2 id="org5855547">Functor</h2>
-<div class="outline-text-2" id="text-org5855547">
+<div id="outline-container-orgf8572e1" class="outline-2">
+<h2 id="orgf8572e1">Functor</h2>
+<div class="outline-text-2" id="text-orgf8572e1">
 <p>
 A homomorphism (of the same form). Just like a Closure, but for &ldquo;shapes&rdquo; (forms).
 </p>
@@ -142,7 +142,7 @@ A higher-level <i>structure-preserving</i> transformation.
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #81A1C1;">where</span>
-  fmap <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> f a <span style="color: #D8DEE9;">-&gt;</span> f b
+<span style="background-color: #2E3440;"> </span> fmap <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> f a <span style="color: #D8DEE9;">-&gt;</span> f b
 </pre>
 </div>
 <p>
@@ -151,9 +151,9 @@ Can be an <i>Endofunctor</i> - a <i>same-category</i> operation.
 </div>
 </div>
 
-<div id="outline-container-org2d14682" class="outline-2">
-<h2 id="org2d14682">Distributive</h2>
-<div class="outline-text-2" id="text-org2d14682">
+<div id="outline-container-org39f08a2" class="outline-2">
+<h2 id="org39f08a2">Distributive</h2>
+<div class="outline-text-2" id="text-org39f08a2">
 <p>
 \(\bigotimes\) on \(S\) <i>distributes over</i> \(+\) on \(S\) if and only if
  \[\forall a, b, c \in S, a \bigotimes (b + c) = (a \bigotimes b) + (a
@@ -167,19 +167,19 @@ This is a property of a <i>pair of operations</i> \((S, (\bigotimes, \bigoplus))
 </div>
 </div>
 
-<div id="outline-container-orge3278ba" class="outline-2">
-<h2 id="orge3278ba">Instances</h2>
-<div class="outline-text-2" id="text-orge3278ba">
+<div id="outline-container-org1b5d826" class="outline-2">
+<h2 id="org1b5d826">Instances</h2>
+<div class="outline-text-2" id="text-org1b5d826">
 </div>
-<div id="outline-container-orgb426792" class="outline-3">
-<h3 id="orgb426792">Tuples</h3>
-<div class="outline-text-3" id="text-orgb426792">
+<div id="outline-container-orgf78fe2f" class="outline-3">
+<h3 id="orgf78fe2f">Tuples</h3>
+<div class="outline-text-3" id="text-orgf78fe2f">
 <p>
 Distributive law (over a structure)
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> (<span style="color: #8FBCBB;">Semigroup</span> a, <span style="color: #8FBCBB;">Semigroup</span> b) <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Semigroup</span> (a, b) <span style="color: #81A1C1;">where</span>
-  (a, b) <span style="color: #D8DEE9;">&lt;&gt;</span> (a', b') <span style="color: #D8DEE9;">=</span> (a<span style="color: #D8DEE9;">&lt;&gt;</span>a', b<span style="color: #D8DEE9;">&lt;&gt;</span>b')
+<span style="background-color: #2E3440;"> </span> (a, b) <span style="color: #D8DEE9;">&lt;&gt;</span> (a', b') <span style="color: #D8DEE9;">=</span> (a<span style="color: #D8DEE9;">&lt;&gt;</span>a', b<span style="color: #D8DEE9;">&lt;&gt;</span>b')
 </pre>
 </div>
 <p>
@@ -187,7 +187,7 @@ Identity
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> (<span style="color: #8FBCBB;">Monoid</span> a, <span style="color: #8FBCBB;">Monoid</span> b) <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monoid</span> (a,b) <span style="color: #81A1C1;">where</span>
-  mempty <span style="color: #D8DEE9;">=</span> (mempty, mempty)
+<span style="background-color: #2E3440;"> </span> mempty <span style="color: #D8DEE9;">=</span> (mempty, mempty)
 </pre>
 </div>
 
@@ -200,7 +200,7 @@ Assuming this is an <i>ordered (by the first element) Pair</i> \(x -> y\), part 
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> <span style="color: #8FBCBB;">(,)</span> <span style="color: #81A1C1;">where</span>
-  fmap f (x, y) <span style="color: #D8DEE9;">=</span> (x, f y)
+<span style="background-color: #2E3440;"> </span> fmap f (x, y) <span style="color: #D8DEE9;">=</span> (x, f y)
 </pre>
 </div>
 <p>
@@ -212,37 +212,37 @@ An applicative is always a mess. Values merge with <code>(&lt;&gt;)</code> and a
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Monoid</span> a <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Applicative</span> (<span style="color: #8FBCBB;">(,)</span> a) <span style="color: #81A1C1;">where</span>
-  pure x <span style="color: #D8DEE9;">=</span> (mempty, x)
-  (u, f) <span style="color: #D8DEE9;">&lt;*&gt;</span> (v, x) <span style="color: #D8DEE9;">=</span> (u <span style="color: #D8DEE9;">&lt;&gt;</span> v, f x)
-  liftA2 f (u, x) (v, y) <span style="color: #D8DEE9;">=</span> (u <span style="color: #D8DEE9;">&lt;&gt;</span> v, f x y)
+<span style="background-color: #2E3440;"> </span> pure x <span style="color: #D8DEE9;">=</span> (mempty, x)
+<span style="background-color: #2E3440;"> </span> (u, f) <span style="color: #D8DEE9;">&lt;*&gt;</span> (v, x) <span style="color: #D8DEE9;">=</span> (u <span style="color: #D8DEE9;">&lt;&gt;</span> v, f x)
+<span style="background-color: #2E3440;"> </span> liftA2 f (u, x) (v, y) <span style="color: #D8DEE9;">=</span> (u <span style="color: #D8DEE9;">&lt;&gt;</span> v, f x y)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org3d1b2c5" class="outline-3">
-<h3 id="org3d1b2c5">Functions</h3>
-<div class="outline-text-3" id="text-org3d1b2c5">
+<div id="outline-container-org10f0eca" class="outline-3">
+<h3 id="org10f0eca">Functions</h3>
+<div class="outline-text-3" id="text-org10f0eca">
 <p>
 A function is viewed as a &ldquo;container&rdquo; for its result.
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> (<span style="color: #8FBCBB;">(-&gt;)</span> r) <span style="color: #81A1C1;">where</span>
-    fmap <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">.</span>)
+<span style="background-color: #2E3440;"> </span>   fmap <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">.</span>)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org01a12e1" class="outline-3">
-<h3 id="org01a12e1">Maybe</h3>
-<div class="outline-text-3" id="text-org01a12e1">
+<div id="outline-container-org78be83b" class="outline-3">
+<h3 id="org78be83b">Maybe</h3>
+<div class="outline-text-3" id="text-org78be83b">
 <p>
 Distributive law (over a structure)
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Semigroup</span> a <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Semigroup</span> (<span style="color: #8FBCBB;">Maybe</span> a) <span style="color: #81A1C1;">where</span>
-    <span style="color: #8FBCBB;">Nothing</span> <span style="color: #D8DEE9;">&lt;&gt;</span> b       <span style="color: #D8DEE9;">=</span> b
-    a       <span style="color: #D8DEE9;">&lt;&gt;</span> <span style="color: #8FBCBB;">Nothing</span> <span style="color: #D8DEE9;">=</span> a
-    <span style="color: #8FBCBB;">Just</span> a  <span style="color: #D8DEE9;">&lt;&gt;</span> <span style="color: #8FBCBB;">Just</span> b  <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Just</span> (a <span style="color: #D8DEE9;">&lt;&gt;</span> b)
+<span style="background-color: #2E3440;"> </span>   <span style="color: #8FBCBB;">Nothing</span> <span style="color: #D8DEE9;">&lt;&gt;</span> b       <span style="color: #D8DEE9;">=</span> b
+<span style="background-color: #2E3440;"> </span>   a       <span style="color: #D8DEE9;">&lt;&gt;</span> <span style="color: #8FBCBB;">Nothing</span> <span style="color: #D8DEE9;">=</span> a
+<span style="background-color: #2E3440;"> </span>   <span style="color: #8FBCBB;">Just</span> a  <span style="color: #D8DEE9;">&lt;&gt;</span> <span style="color: #8FBCBB;">Just</span> b  <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Just</span> (a <span style="color: #D8DEE9;">&lt;&gt;</span> b)
 </pre>
 </div>
 <p>
@@ -250,7 +250,7 @@ the Identity element
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Semigroup</span> a <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monoid</span> (<span style="color: #8FBCBB;">Maybe</span> a) <span style="color: #81A1C1;">where</span>
-    mempty <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Nothing</span>
+<span style="background-color: #2E3440;"> </span>   mempty <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Nothing</span>
 </pre>
 </div>
 <p>
@@ -259,8 +259,8 @@ It is not a recursive structure.
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span>  <span style="color: #8FBCBB;">Functor</span> <span style="color: #8FBCBB;">Maybe</span>  <span style="color: #81A1C1;">where</span>
-    fmap <span style="color: #81A1C1;">_</span> <span style="color: #8FBCBB;">Nothing</span>       <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Nothing</span>
-    fmap f (<span style="color: #8FBCBB;">Just</span> a)      <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Just</span> (f a)
+<span style="background-color: #2E3440;"> </span>   fmap <span style="color: #81A1C1;">_</span> <span style="color: #8FBCBB;">Nothing</span>       <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Nothing</span>
+<span style="background-color: #2E3440;"> </span>   fmap f (<span style="color: #8FBCBB;">Just</span> a)      <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Just</span> (f a)
 </pre>
 </div>
 <p>
@@ -268,16 +268,16 @@ It is not a recursive structure.
 </p>
 </div>
 </div>
-<div id="outline-container-org6d76cd0" class="outline-3">
-<h3 id="org6d76cd0">Lists</h3>
-<div class="outline-text-3" id="text-org6d76cd0">
+<div id="outline-container-orgef11d61" class="outline-3">
+<h3 id="orgef11d61">Lists</h3>
+<div class="outline-text-3" id="text-orgef11d61">
 <p>
 Concatenation is, indeed, associative, and the <i>empty list</i> is an
 orthogonal to it.
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Semigroup</span> [a] <span style="color: #81A1C1;">where</span>
-  (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">++</span>)
+<span style="background-color: #2E3440;"> </span> (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">++</span>)
 </pre>
 </div>
 <p>
@@ -285,9 +285,9 @@ With <code>[]</code> it will form a <i>Monoid</i>.
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Monoid</span> [a] <span style="color: #81A1C1;">where</span>
-  mempty  <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">[]</span>
-  <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">This is not required, folding</span>
-  mconcat xss <span style="color: #D8DEE9;">=</span> [x <span style="color: #D8DEE9;">|</span> xs <span style="color: #D8DEE9;">&lt;-</span> xss, x <span style="color: #D8DEE9;">&lt;-</span> xs]
+<span style="background-color: #2E3440;"> </span> mempty  <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">[]</span>
+<span style="background-color: #2E3440;"> </span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">This is not required, folding</span>
+<span style="background-color: #2E3440;"> </span> mconcat xss <span style="color: #D8DEE9;">=</span> [x <span style="color: #D8DEE9;">|</span> xs <span style="color: #D8DEE9;">&lt;-</span> xss, x <span style="color: #D8DEE9;">&lt;-</span> xs]
 </pre>
 </div>
 </div>
@@ -297,7 +297,7 @@ With <code>[]</code> it will form a <i>Monoid</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-11-29 Tue 12:47</p>
+<p class="date">Created: 2022-12-09 Fri 22:16</p>
 </div>
 </body>
 </html>
