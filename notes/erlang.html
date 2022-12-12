@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-10 Sat 09:01 -->
+<!-- 2022-12-12 Mon 19:43 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -24,6 +24,21 @@
 <header>
 <h1 class="title">Erlang</h1>
 </header><p>
+It is hard to tell, especially to an uninitiated, that Erlang is a both a <i>minimalist</i> and <i>principle-based</i> language - a set of necessary
+and sufficient features which are <i>orthogonal but complementing to each other</i>.
+</p>
+
+<p>
+CLU, Scheme, Standard ML and Haskell are other such languages.
+</p>
+
+<p>
+Some syntactic oddities are the primary cause of why people give up too early.
+Syntax aside, it is otherwise <i>brilliant</i>. The designers has a solid mathematical
+background and it <i>can be seen</i>.
+</p>
+
+<p>
 Unlike SML, Erlang has <i>heterogeneous lists</i> and <i>type-tagged values</i>, just like
 Common Lisp or Scheme.
 </p>
@@ -121,11 +136,70 @@ Don&rsquo;t handle the case where no pattern matches—our
 program will fail with a runtime error. /This is deliberate. This is the way we
 program in Erlang. (Fail fast!)
 </p>
+<div id="outline-container-org3c32dbf" class="outline-2">
+<h2 id="org3c32dbf">tuples</h2>
+<div class="outline-text-2" id="text-org3c32dbf">
+<p>
+The idea is to add an <i>atom</i> as a <i>tag</i> as the first element of a tuple and
+pattern-match against such tuples is simply brilliant and just right - it is
+rational, /principle-guided minimalism.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65896a6" class="outline-2">
+<h2 id="org65896a6">when guards</h2>
+<div class="outline-text-2" id="text-org65896a6">
+<p>
+These are just <i>expressions</i> of the type <code>true | false</code> (those are just <i>atoms</i>).
+</p>
+<ul class="org-ul">
+<li><code>,</code> is an implicit strict <code>AND</code>, because all the expressions are going to be evaluated
+in order.</li>
+<li><code>;</code> is an implicit strict <code>OR</code>, because the later will be evaluated (in
+order) when the former fails.</li>
+<li><code>andalso</code> and <code>orelse</code> are <i>short-circuiting</i> logical operators (evaluation stops on
+the first <code>false</code> or <code>true</code> respectively and the second expression <i>will not be evaluated</i>).</li>
+</ul>
+
+<p>
+Notice how <code>,</code> is is the essence of <i>product-type</i> and <code>;</code> in this context is just <code>|</code> of a <i>sum-type</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-erlang"><span style="color: #88C0D0;">test</span>(<span style="color: #D8DEE9;">X</span>) <span style="color: #81A1C1;">when</span> <span style="color: #D8DEE9;">X</span> =:= cat; <span style="color: #D8DEE9;">X</span> =:= dog -&gt;<span style="color: #88C0D0;"> </span>yay <span style="color: #6f7787;">% </span><span style="color: #6f7787;">either cat or a dog</span>
+</pre>
+</div>
+<p>
+The set of standard predicates is a reminiscence of <i>Common Lisp</i> ones, just with a
+different naming convention &#x2013;  <code>is_something(x)</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60f864b" class="outline-2">
+<h2 id="org60f864b">Let it crash. Fail Fast and Noisily. Crash, Crash, Crash.</h2>
+<div class="outline-text-2" id="text-org60f864b">
+<p>
+The proper way is to expect an &ldquo;error&rdquo; in a <i>sum-type</i> of a return value..
+Erlang&rsquo;s way is to return a <i>tuple</i> with <code>{ok, Value}</code> or <code>{error What}</code>.
+Another way is to throw an <i>exception</i>.
+</p>
+
+<p>
+The most important thing is that errors has to be <i>well-understood and expected</i>.
+</p>
+
+<p>
+Fault-tolerance requires a <i>supervision hierarchy</i> (redundancy). A supervisor must &ldquo;know what to do&rdquo; (usually just restart).
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-10 Sat 09:01</p>
+<p class="date">Created: 2022-12-12 Mon 19:43</p>
 </div>
 </body>
 </html>
