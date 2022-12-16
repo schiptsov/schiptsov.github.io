@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-09 Fri 22:16 -->
+<!-- 2022-12-16 Fri 17:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Monadic Vedanta</title>
@@ -118,9 +118,9 @@ In all cases the <i>referential transparency property</i> still holds, so
 </p></li>
 </ul>
 
-<div id="outline-container-org4674675" class="outline-2">
-<h2 id="org4674675">Abstraction barrier</h2>
-<div class="outline-text-2" id="text-org4674675">
+<div id="outline-container-orgb1e89cc" class="outline-2">
+<h2 id="orgb1e89cc">Abstraction barrier</h2>
+<div class="outline-text-2" id="text-orgb1e89cc">
 <p>
 The confusion and frustration come from a lack of clear separation between interfaces and implementation.
 </p>
@@ -139,9 +139,9 @@ Abstractly or conceptually, these extras could be separated and completely hidde
 </div>
 </div>
 
-<div id="outline-container-org7da9e6d" class="outline-2">
-<h2 id="org7da9e6d">Composition</h2>
-<div class="outline-text-2" id="text-org7da9e6d">
+<div id="outline-container-org56d441e" class="outline-2">
+<h2 id="org56d441e">Composition</h2>
+<div class="outline-text-2" id="text-org56d441e">
 <p>
 These abstractions should be <i>composable</i>, just like ordinary functions
 \[g \circ f = g(f(x))\]
@@ -152,9 +152,9 @@ These abstractions should be <i>composable</i>, just like ordinary functions
 </div>
 </div>
 </div>
-<div id="outline-container-org7c5a6ca" class="outline-2">
-<h2 id="org7c5a6ca">Functor</h2>
-<div class="outline-text-2" id="text-org7c5a6ca">
+<div id="outline-container-org2834f38" class="outline-2">
+<h2 id="org2834f38">Functor</h2>
+<div class="outline-text-2" id="text-org2834f38">
 <p>
 Just like ordinary functions, these abstractions can be <i>Functoral</i>
 </p>
@@ -183,9 +183,9 @@ Moreover, implementations of <i>Functor instances</i> break an abstraction (make
 </div>
 </div>
 
-<div id="outline-container-org48afdb4" class="outline-2">
-<h2 id="org48afdb4">Formulations</h2>
-<div class="outline-text-2" id="text-org48afdb4">
+<div id="outline-container-org245c849" class="outline-2">
+<h2 id="org245c849">Formulations</h2>
+<div class="outline-text-2" id="text-org245c849">
 <p>
 In the context of a <code>List</code>
 </p>
@@ -223,9 +223,9 @@ which is structurally just like <code>concat</code> for Lists
 </div>
 </div>
 
-<div id="outline-container-org3a6b2a2" class="outline-2">
-<h2 id="org3a6b2a2">The Proper Philosophy</h2>
-<div class="outline-text-2" id="text-org3a6b2a2">
+<div id="outline-container-org6b5f8ad" class="outline-2">
+<h2 id="org6b5f8ad">The Proper Philosophy</h2>
+<div class="outline-text-2" id="text-org6b5f8ad">
 <p>
 <i>Life Itself</i> has been evolved upon certain molecular structures, which
 are made out of <i>Atoms</i>. Life does not know anything about their nature,
@@ -258,9 +258,9 @@ atomicity and immutability of base structures, which is only apparent.
 </div>
 </div>
 
-<div id="outline-container-org55ad62a" class="outline-2">
-<h2 id="org55ad62a">The Highest level</h2>
-<div class="outline-text-2" id="text-org55ad62a">
+<div id="outline-container-org6e77f67" class="outline-2">
+<h2 id="org6e77f67">The Highest level</h2>
+<div class="outline-text-2" id="text-org6e77f67">
 <p>
 At a <i>highest, most abstract level</i> a Monad <i>in Haskell</i> is a
 generalization of an <i>abstraction barrier</i> similar to that one which
@@ -287,9 +287,9 @@ and it <i>is not</i> &ldquo;abstract&rdquo; or imaginary. Everything is real.
 </div>
 </div>
 
-<div id="outline-container-org7232bee" class="outline-2">
-<h2 id="org7232bee">&gt;&gt;=</h2>
-<div class="outline-text-2" id="text-org7232bee">
+<div id="outline-container-org91b3b80" class="outline-2">
+<h2 id="org91b3b80">&gt;&gt;=</h2>
+<div class="outline-text-2" id="text-org91b3b80">
 <p>
 The (&gt;&gt;=) function (called bind) which does <i>re-binding</i> and
 <i>sequencing</i> should be considered <i>impure</i>, because it (and only it) has
@@ -325,9 +325,9 @@ And that is really it. No more, no less.
 </div>
 </div>
 
-<div id="outline-container-orgd026706" class="outline-2">
-<h2 id="orgd026706">Passing the Whole World</h2>
-<div class="outline-text-2" id="text-orgd026706">
+<div id="outline-container-orgec82b62" class="outline-2">
+<h2 id="orgec82b62">Passing the Whole World</h2>
+<div class="outline-text-2" id="text-orgec82b62">
 <p>
 This <i>metaphor</i> is both philosophically funny and useful. In an abstract
 theory, a function <i>is indeed pure</i> if it takes a <i>snapshot of the whole
@@ -366,9 +366,9 @@ Passing of &ldquo;RealWorld&rdquo; values ensures &ldquo;threading&rdquo;- than 
 </div>
 </div>
 </div>
-<div id="outline-container-org5914356" class="outline-2">
-<h2 id="org5914356">an ADT</h2>
-<div class="outline-text-2" id="text-org5914356">
+<div id="outline-container-org0c3e499" class="outline-2">
+<h2 id="org0c3e499">an ADT</h2>
+<div class="outline-text-2" id="text-org0c3e499">
 <p>
 Technically, it is an ADT as defined by Barbara Liskov. There is an
 interface, which is what the <i>pure code</i> &ldquo;sees&rdquo; and uses. There is an
@@ -381,9 +381,9 @@ All the most fundamental concepts of programming are there in play.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf88a416" class="outline-2">
-<h2 id="orgf88a416">Actual representation</h2>
-<div class="outline-text-2" id="text-orgf88a416">
+<div id="outline-container-org5885a50" class="outline-2">
+<h2 id="org5885a50">Actual representation</h2>
+<div class="outline-text-2" id="text-org5885a50">
 <p>
 At the lowest level there is an impure code which manipulates data in
 memory, like everything else.
@@ -396,9 +396,9 @@ type-checked <i>specialized state machine, defined in pure logic</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org2a810fa" class="outline-2">
-<h2 id="org2a810fa">State Monad</h2>
-<div class="outline-text-2" id="text-org2a810fa">
+<div id="outline-container-orgb451ad5" class="outline-2">
+<h2 id="orgb451ad5">State Monad</h2>
+<div class="outline-text-2" id="text-orgb451ad5">
 <p>
 It is just a lambda which returns a <i>pair</i> of values. Lambda, so that they can be
 composed sequentially (yes, just <i>nested lambdas</i>) by <code>&gt;&gt;=</code>.
@@ -433,7 +433,7 @@ still holds.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-09 Fri 22:16</p>
+<p class="date">Created: 2022-12-16 Fri 17:46</p>
 </div>
 </body>
 </html>

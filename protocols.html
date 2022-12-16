@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-12-16 Fri 17:45 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Protocols</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Protocols</h1>
+</header><p>
+Just like the essence of programming can be reduced to a &ldquo;mostly-functional&rdquo;
+tiny, <i>orthogonal to but complementing</i> each other set of just right features
+(pioneered by Standard ML and Erlang), protocols can be reduced to some sort of
+essence too.
+</p>
+
+<p>
+Fundamentally, we have <i>sequences</i> of bytes and <i>in-wire encoding</i>.
+</p>
+
+<p>
+Since the 60s, reading and writing <i>one byte at a time</i> solves all the problems,
+but it is inefficient. So, the solution is to have &ldquo;frames&rdquo; or &ldquo;packets&rdquo; instead
+of a single byte.
+</p>
+
+<p>
+Both frames and packets have a <i>fixed size, a packed structure</i> header and a
+variable-length body.
+</p>
+
+<p>
+A clever bit-patterns could tell you what kind of a &ldquo;multi-byte payload&rdquo; will follow, and this is exactly what UTF-8
+(variable-length encoding) is. This is the state-of-the-art.
+</p>
+
+<p>
+In general, you have a <i>&ldquo;tagged data&rdquo;</i>, where a tag (a unique bit pattern)
+completely defines the payload - length, encoding, etc. All the major languages,
+since early LISPs, are using type-tagged values internally.
+</p>
+
+<p>
+Using the same set of ideas for an in-wire encoding of structured data is almost
+obvious and &ldquo;natural&rdquo; choice.
+</p>
+
+<p>
+Libraries like &ldquo;<code>message-pack</code>&rdquo; have done a great job of optimizing bit patterns
+(using frequencies).
+</p>
+
+<p>
+Erlang, being a <i>well-researched</i>, <i>principle-guided</i> and even &ldquo;conservative&rdquo;
+(in a rare positive sense) language, (with the runtime and the standard set of
+libraries) relies on tags and fixed-header messages (and packets) thoroughly,
+and it is not a coincidence that <i>pattern-matching</i> fits naturally.
+</p>
+
+<p>
+So, asynchronous messages, which are transmitted over a packet- or frame-based
+network is the essence. Just stick to it and your code will be small and
+correct, as has been <i>demonstrated</i> (proven by example) by lots of successful
+Erlang-based project in telecoms and other industries.
+</p>
+
+<p>
+I am not an expert, but I think the design choices of the hardware guys are
+exactly the same, because the asynchronous message-passing (through cell
+membranes), using particular molecular structures (and just ions) is an evolved
+&ldquo;stable universal pattern&rdquo;.
+</p>
+
+<p>
+Again, Erlang is <i>unique</i> in being <i>well-researched</i>, <i>principle-guided</i> (no arbitrary
+choices on a whim) and done almost everything <i>&ldquo;just right&rdquo;</i>. It is the esoteric
+syntax that kept it being a niche language (which is, actually a good thing).
+</p>
+
+<p>
+But you cannot see the craftsmanship and the beauty of Erlang without knowing
+the principles first.
+</p>
+
+<p>
+The way they have <i>generalized</i> (as a <i>generic code</i>) <code>Servers</code> and even <code>FSMs</code> is so brilliant (and has been
+possible in the first place) exactly because the underlying language and the
+runtime has been done <i>just right</i>.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-12-16 Fri 17:45</p>
+</div>
+</body>
+</html>

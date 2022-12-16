@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-09 Fri 22:16 -->
+<!-- 2022-12-16 Fri 17:45 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -101,9 +101,9 @@ results, but the problem is that its target platform (the runtime) is
 not designed for true asynchronity - it only <i>emulates</i> it using blocking
 and sharing primitives.
 </p>
-<div id="outline-container-org1cf455b" class="outline-2">
-<h2 id="org1cf455b">Why</h2>
-<div class="outline-text-2" id="text-org1cf455b">
+<div id="outline-container-org928ee9d" class="outline-2">
+<h2 id="org928ee9d">Why</h2>
+<div class="outline-text-2" id="text-org928ee9d">
 <p>
 Conceptually, just like in a general purpose Functional language, functions from a
 <i>module</i> are being evaluated by the language&rsquo;s <i>runtime</i>. The runtime usually does
@@ -158,9 +158,9 @@ arguments. Arguments are used to <i>parameterize and specialize functions</i>.
 </div>
 </div>
 
-<div id="outline-container-org25e89d6" class="outline-2">
-<h2 id="org25e89d6">Websockets and framing in general</h2>
-<div class="outline-text-2" id="text-org25e89d6">
+<div id="outline-container-org157a11e" class="outline-2">
+<h2 id="org157a11e">Websockets and framing in general</h2>
+<div class="outline-text-2" id="text-org157a11e">
 <p>
 It seems, at least in theory, the <code>Erlang</code> is the best language for writing
 advanced client applications - it has the right implementation of &ldquo;core&rdquo;
@@ -192,9 +192,9 @@ uninterrupted effort, but food and money has to come from somewhere.
 </div>
 </div>
 
-<div id="outline-container-org736f7fe" class="outline-2">
-<h2 id="org736f7fe">SSL</h2>
-<div class="outline-text-2" id="text-org736f7fe">
+<div id="outline-container-org241194e" class="outline-2">
+<h2 id="org241194e">SSL</h2>
+<div class="outline-text-2" id="text-org241194e">
 <p>
 Erlang OTP team have done a great job for maintaining the <code>ssl</code> library, but now
 there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/etc/ssl/certs/java/cacerts</code>
@@ -202,9 +202,9 @@ there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/e
 </div>
 </div>
 
-<div id="outline-container-org1bc1c31" class="outline-2">
-<h2 id="org1bc1c31">Tools</h2>
-<div class="outline-text-2" id="text-org1bc1c31">
+<div id="outline-container-org790f09a" class="outline-2">
+<h2 id="org790f09a">Tools</h2>
+<div class="outline-text-2" id="text-org790f09a">
 <p>
 Use <i>Emacs</i> or <i>Vim</i>. Both have support for TAGS and well as modern tooling.
 </p>
@@ -226,7 +226,7 @@ Here is a basic configuration. It uses <i>Doom Emacs</i> macros
 <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package!</span> erlang
 <span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">erlang-mode</span> . lsp<span style="color: #B48EAD;">)</span>
 <span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">:config</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> erlang-root-dir <span style="color: #A3BE8C;">"/usr/lib64/erlang"</span><span style="color: #B48EAD;">)</span>
+<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">erlang-root-dir</span> <span style="color: #A3BE8C;">"/usr/lib64/erlang"</span><span style="color: #B48EAD;">)</span>
 <span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> lsp-ui-doc-enable t<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
 </pre>
 </div>
@@ -288,7 +288,7 @@ use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-omnicomplete'</span>,
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-09 Fri 22:16</p>
+<p class="date">Created: 2022-12-16 Fri 17:45</p>
 </div>
 </body>
 </html>

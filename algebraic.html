@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-09 Fri 22:16 -->
+<!-- 2022-12-16 Fri 17:46 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algebraic abstractions</title>
@@ -58,9 +58,9 @@ required set of type-signatures (an interface)</i> for all values in a <code>Set
 (and respects <i>corresponding laws</i> stated formally elsewhere).
 </p>
 
-<div id="outline-container-orge6b856d" class="outline-2">
-<h2 id="orge6b856d">Closure</h2>
-<div class="outline-text-2" id="text-orge6b856d">
+<div id="outline-container-orga00a3c3" class="outline-2">
+<h2 id="orga00a3c3">Closure</h2>
+<div class="outline-text-2" id="text-orga00a3c3">
 <p>
 \((S, \bigoplus)\), a Set <code>S</code> is <i>closed under an operation</i> \(\bigoplus\) <i>iff</i>
 \[\forall a, b \in S, a \bigoplus b \in S\]
@@ -78,9 +78,9 @@ Associativity is not required.
 </p>
 </div>
 </div>
-<div id="outline-container-org6f56293" class="outline-2">
-<h2 id="org6f56293">Semigroup</h2>
-<div class="outline-text-2" id="text-org6f56293">
+<div id="outline-container-org5839bf2" class="outline-2">
+<h2 id="org5839bf2">Semigroup</h2>
+<div class="outline-text-2" id="text-org5839bf2">
 <p>
 \((S, \bigoplus)\), an <i>associative binary operation</i> \(\bigoplus\) with a <i>Closure</i> property. Closure is implicit and &ldquo;natural&rdquo; due to <i>multiple applications of the same operator</i>, such that
 \[\forall a, b, c \in S, (a \bigoplus b) \bigoplus c = a \bigoplus (b \bigoplus c)\]
@@ -98,9 +98,9 @@ An <i>order-independent</i> (in a chain) operation.
 </div>
 </div>
 
-<div id="outline-container-orgbf1a041" class="outline-2">
-<h2 id="orgbf1a041">Monoid</h2>
-<div class="outline-text-2" id="text-orgbf1a041">
+<div id="outline-container-org61ea0d7" class="outline-2">
+<h2 id="org61ea0d7">Monoid</h2>
+<div class="outline-text-2" id="text-org61ea0d7">
 <p>
 \((S, \bigoplus, e)\), an <i>associative operation</i> which has an <i>identity element</i> <code>e</code> (value). Implicit <i>closure</i> or required by already being a Semigroup.
 \[x \bigoplus e = x = e \bigoplus x\]
@@ -121,9 +121,9 @@ An <i>identity-preserving</i> operation.
 </div>
 </div>
 
-<div id="outline-container-orgf8572e1" class="outline-2">
-<h2 id="orgf8572e1">Functor</h2>
-<div class="outline-text-2" id="text-orgf8572e1">
+<div id="outline-container-org8a97426" class="outline-2">
+<h2 id="org8a97426">Functor</h2>
+<div class="outline-text-2" id="text-org8a97426">
 <p>
 A homomorphism (of the same form). Just like a Closure, but for &ldquo;shapes&rdquo; (forms).
 </p>
@@ -151,9 +151,9 @@ Can be an <i>Endofunctor</i> - a <i>same-category</i> operation.
 </div>
 </div>
 
-<div id="outline-container-org39f08a2" class="outline-2">
-<h2 id="org39f08a2">Distributive</h2>
-<div class="outline-text-2" id="text-org39f08a2">
+<div id="outline-container-org244b583" class="outline-2">
+<h2 id="org244b583">Distributive</h2>
+<div class="outline-text-2" id="text-org244b583">
 <p>
 \(\bigotimes\) on \(S\) <i>distributes over</i> \(+\) on \(S\) if and only if
  \[\forall a, b, c \in S, a \bigotimes (b + c) = (a \bigotimes b) + (a
@@ -167,13 +167,13 @@ This is a property of a <i>pair of operations</i> \((S, (\bigotimes, \bigoplus))
 </div>
 </div>
 
-<div id="outline-container-org1b5d826" class="outline-2">
-<h2 id="org1b5d826">Instances</h2>
-<div class="outline-text-2" id="text-org1b5d826">
+<div id="outline-container-orgee064fe" class="outline-2">
+<h2 id="orgee064fe">Instances</h2>
+<div class="outline-text-2" id="text-orgee064fe">
 </div>
-<div id="outline-container-orgf78fe2f" class="outline-3">
-<h3 id="orgf78fe2f">Tuples</h3>
-<div class="outline-text-3" id="text-orgf78fe2f">
+<div id="outline-container-org799544b" class="outline-3">
+<h3 id="org799544b">Tuples</h3>
+<div class="outline-text-3" id="text-org799544b">
 <p>
 Distributive law (over a structure)
 </p>
@@ -219,9 +219,9 @@ An applicative is always a mess. Values merge with <code>(&lt;&gt;)</code> and a
 </div>
 </div>
 </div>
-<div id="outline-container-org10f0eca" class="outline-3">
-<h3 id="org10f0eca">Functions</h3>
-<div class="outline-text-3" id="text-org10f0eca">
+<div id="outline-container-org10b3d48" class="outline-3">
+<h3 id="org10b3d48">Functions</h3>
+<div class="outline-text-3" id="text-org10b3d48">
 <p>
 A function is viewed as a &ldquo;container&rdquo; for its result.
 </p>
@@ -232,9 +232,9 @@ A function is viewed as a &ldquo;container&rdquo; for its result.
 </div>
 </div>
 </div>
-<div id="outline-container-org78be83b" class="outline-3">
-<h3 id="org78be83b">Maybe</h3>
-<div class="outline-text-3" id="text-org78be83b">
+<div id="outline-container-org03e2863" class="outline-3">
+<h3 id="org03e2863">Maybe</h3>
+<div class="outline-text-3" id="text-org03e2863">
 <p>
 Distributive law (over a structure)
 </p>
@@ -268,9 +268,9 @@ It is not a recursive structure.
 </p>
 </div>
 </div>
-<div id="outline-container-orgef11d61" class="outline-3">
-<h3 id="orgef11d61">Lists</h3>
-<div class="outline-text-3" id="text-orgef11d61">
+<div id="outline-container-orgd3e4649" class="outline-3">
+<h3 id="orgd3e4649">Lists</h3>
+<div class="outline-text-3" id="text-orgd3e4649">
 <p>
 Concatenation is, indeed, associative, and the <i>empty list</i> is an
 orthogonal to it.
@@ -297,7 +297,7 @@ With <code>[]</code> it will form a <i>Monoid</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-09 Fri 22:16</p>
+<p class="date">Created: 2022-12-16 Fri 17:46</p>
 </div>
 </body>
 </html>
