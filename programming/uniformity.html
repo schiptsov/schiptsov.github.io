@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-12-28 Wed 10:41 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Uniformity</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Uniformity</h1>
+</header><p>
+Decent languages are (and must be) as uniform as pure mathematics.
+</p>
+
+<div id="outline-container-orgb098b12" class="outline-2">
+<h2 id="orgb098b12">Everything is a value</h2>
+<div class="outline-text-2" id="text-orgb098b12">
+<p>
+Referencing (bindings) are uniform in decent languages - <i>everything is a value</i>.
+</p>
+
+<p>
+This is best illustrated in scheme, which uses two distinct <i>special forms</i> - one for
+creating a <i>closure</i> (lambda) and another for <i>binding</i> it to a symbol (define).
+</p>
+
+<p>
+A symbol becomes a <i>name</i> (reference) to the function (closure).
+</p>
+<div class="org-src-container">
+<pre class="src src-scheme">(<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">double</span> (<span style="color: #81A1C1;">lambda</span> (x) (* x x)))
+</pre>
+</div>
+
+<p>
+Languages of the ML-family have <i>let-bindings</i>, explicit and implicit. LISPs can
+bind functions in <i>let expressions</i> too.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">let</span> double <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">\</span>x <span style="color: #D8DEE9;">-&gt;</span> x <span style="color: #D8DEE9;">*</span> x
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb583fec" class="outline-2">
+<h2 id="orgb583fec">Immutability</h2>
+<div class="outline-text-2" id="text-orgb583fec">
+<p>
+Nothing is over-written (destructively updated). New <i>bindings</i> are created (shadowing) and
+new values are linked instead.
+</p>
+</div>
+</div>
+<div id="outline-container-org93058da" class="outline-2">
+<h2 id="org93058da">Referential transparency</h2>
+<div class="outline-text-2" id="text-org93058da">
+<p>
+This is the fundamental property of arithmetic expressions, which leads to
+algebraic (equational) reasoning.
+</p>
+
+<p>
+Any form of an algebra is possible in principle only with this <i>referential
+transparency</i>.
+</p>
+
+<p>
+One, of course, wants to have a simple algebra and equation reasoning for his
+functions. Since early LISPs, the ML-family of languages and Scheme we strive for this.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbd16964" class="outline-2">
+<h2 id="orgbd16964">Pattern-matching everywhere</h2>
+<div class="outline-text-2" id="text-orgbd16964">
+<p>
+Just like in Erlang, everything on the <i>left-hand side</i> (including <i>function
+.arguments</i>) is a pattern.
+</p>
+
+<p>
+The rules of a formally defined <i>pattern-matching expression</i> (&ldquo;case&rdquo;) are
+applicable everywhere <i>uniformly</i>, including <i>bindings</i> (<code>=</code>).
+</p>
+
+<p>
+Passing arguments to a function produces implicit <i>bindings</i> for its formal
+parameters, so a pattern-matching is performed
+</p>
+
+<p>
+This nice generalized into a <i>multiple-clause function</i> syntax, where each clause
+is tried in order until a match succeeds (a runtime exception if not).
+</p>
+
+<p>
+Notice each individual clause is just a <i>partial function</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org74238ae" class="outline-2">
+<h2 id="org74238ae">List comprehensions</h2>
+<div class="outline-text-2" id="text-org74238ae">
+<p>
+Haskell and Erlang have a generalized <i>list-comprehension</i> notation. Every
+comprehension is an <i>expression</i>, of course.
+</p>
+
+<p>
+This unifies the fundamental notions of an observer (<i>selection</i> based on a
+well-defined property (<i>such that</i>), logical conjunction (<i>and also</i>) which
+together is called &ldquo;filtering&rdquo;, and &ldquo;mapping&rdquo;, which is a uniform
+<i>transformation</i> - any pure unary function, or an &ldquo;arrow&rdquo;).
+</p>
+
+<p>
+This, by the way, is a half of all programming.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2022-12-28 Wed 10:41</p>
+</div>
+</body>
+</html>
