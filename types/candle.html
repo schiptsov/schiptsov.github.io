@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-16 Fri 17:45 -->
+<!-- 2023-01-04 Wed 09:31 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Candle</title>
@@ -47,16 +47,16 @@ MathJax = {
 We are building the <i>simplest possible</i> mathematical model.
 </p>
 
-<div id="outline-container-orgf81d2e4" class="outline-2">
-<h2 id="orgf81d2e4">A vector from physics</h2>
-<div class="outline-text-2" id="text-orgf81d2e4">
+<div id="outline-container-org22d78e5" class="outline-2">
+<h2 id="org22d78e5">A vector from physics</h2>
+<div class="outline-text-2" id="text-org22d78e5">
 <p>
 <i>Intuitions</i> from physics:
 </p>
 </div>
-<div id="outline-container-org3f1ca07" class="outline-3">
-<h3 id="org3f1ca07">Force</h3>
-<div class="outline-text-3" id="text-org3f1ca07">
+<div id="outline-container-orgb9056fc" class="outline-3">
+<h3 id="orgb9056fc">Force</h3>
+<div class="outline-text-3" id="text-orgb9056fc">
 <p>
 An abstract vector is defined as a <i>direction</i> and a <i>magnitude</i>.
 </p>
@@ -66,17 +66,17 @@ In the simplest model there are just two directions - up and down.
 </p>
 </div>
 </div>
-<div id="outline-container-orgdabe80b" class="outline-3">
-<h3 id="orgdabe80b">Momentum</h3>
-<div class="outline-text-3" id="text-orgdabe80b">
+<div id="outline-container-orgbd6b4ed" class="outline-3">
+<h3 id="orgbd6b4ed">Momentum</h3>
+<div class="outline-text-3" id="text-orgbd6b4ed">
 <p>
 A momentum is defined as a <i>difference</i> between <i>two</i> adjacent <i>vectors</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org079f142" class="outline-3">
-<h3 id="org079f142">Derivative</h3>
-<div class="outline-text-3" id="text-org079f142">
+<div id="outline-container-orge838b6e" class="outline-3">
+<h3 id="orge838b6e">Derivative</h3>
+<div class="outline-text-3" id="text-orge838b6e">
 <p>
 In the simplest model the \(x\) -change is always \(1\) , so the derivative \(\frac{dy}{dx}\)
 is just the <i>difference</i> in the \(y\) coordinate.
@@ -84,9 +84,9 @@ is just the <i>difference</i> in the \(y\) coordinate.
 </div>
 </div>
 </div>
-<div id="outline-container-org9774008" class="outline-2">
-<h2 id="org9774008">A product-type</h2>
-<div class="outline-text-2" id="text-org9774008">
+<div id="outline-container-org478b381" class="outline-2">
+<h2 id="org478b381">A product-type</h2>
+<div class="outline-text-2" id="text-org478b381">
 <p>
 A <code>Candle</code> is by definition a <i>record</i>. Conceptually - a <i>Set of labeled
   slots</i>. Each particular value corresponds to a &ldquo;point&rdquo; or a &ldquo;vector&rdquo;.
@@ -109,9 +109,9 @@ Of course, one could refactor quickly and safely because it is an ADT.
 </p>
 </div>
 </div>
-<div id="outline-container-orga2e52f9" class="outline-2">
-<h2 id="orga2e52f9">Parameterized by an interval</h2>
-<div class="outline-text-2" id="text-orga2e52f9">
+<div id="outline-container-orgc388e08" class="outline-2">
+<h2 id="orgc388e08">Parameterized by an interval</h2>
+<div class="outline-text-2" id="text-orgc388e08">
 <p>
 Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized by its
 <i>size</i> - an <i>interval</i> between two <i>timestamps</i>).
@@ -119,9 +119,9 @@ Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized 
 </p>
 </div>
 </div>
-<div id="outline-container-org1930c5f" class="outline-2">
-<h2 id="org1930c5f">Deriving Eq, Ord</h2>
-<div class="outline-text-2" id="text-org1930c5f">
+<div id="outline-container-orgc7f116a" class="outline-2">
+<h2 id="orgc7f116a">Deriving Eq, Ord</h2>
+<div class="outline-text-2" id="text-orgc7f116a">
 <p>
 It will have implicit ordering by <i>timestamps</i>.
 </p>
@@ -138,45 +138,45 @@ This implies <code>min</code> and <code>max</code>  can be used directly on the 
 </div>
 </div>
 
-<div id="outline-container-orgb1e988b" class="outline-2">
-<h2 id="orgb1e988b">A Semigroup</h2>
-<div class="outline-text-2" id="text-orgb1e988b">
+<div id="outline-container-org22fafd2" class="outline-2">
+<h2 id="org22fafd2">A Semigroup</h2>
+<div class="outline-text-2" id="text-org22fafd2">
 <p>
 WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Semigroup</span> <span style="color: #8FBCBB;">Candle</span> <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span> (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
+<span style="background-color: #272C36;"> </span> (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org991920c" class="outline-2">
-<h2 id="org991920c">An abstract Empty Candle</h2>
-<div class="outline-text-2" id="text-org991920c">
+<div id="outline-container-orge217638" class="outline-2">
+<h2 id="orge217638">An abstract Empty Candle</h2>
+<div class="outline-text-2" id="text-orge217638">
 <p>
 Non-existent, abstract <i>identity element</i> \(e\) for the <i>merging</i> operation.
 \[e\bigoplus x = x = x \bigoplus e\]
 </p>
 </div>
 </div>
-<div id="outline-container-org4f5ad96" class="outline-2">
-<h2 id="org4f5ad96">A Monoid</h2>
-<div class="outline-text-2" id="text-org4f5ad96">
+<div id="outline-container-org6df7984" class="outline-2">
+<h2 id="org6df7984">A Monoid</h2>
+<div class="outline-text-2" id="text-org6df7984">
 <p>
 With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>instance of a Monoid</i>.
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Monoid</span> <span style="color: #8FBCBB;">Candle</span> <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span> mempty <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
-<span style="background-color: #2E3440;"> </span> mappend <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
+<span style="background-color: #272C36;"> </span> mempty <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
+<span style="background-color: #272C36;"> </span> mappend <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org6c5fe59" class="outline-2">
-<h2 id="org6c5fe59">Not an  Endofunctor</h2>
-<div class="outline-text-2" id="text-org6c5fe59">
+<div id="outline-container-org2faa8e8" class="outline-2">
+<h2 id="org2faa8e8">Not an  Endofunctor</h2>
+<div class="outline-text-2" id="text-org2faa8e8">
 <p>
 Any <i>product type</i> looks like an implicit, <i>trivial Endofunctor</i>, provided that a <i>function</i>
 being  mapped over it &ldquo;knows&rdquo; how <i>not to break data consistency</i>.
@@ -187,7 +187,7 @@ It is almost as if
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> <span style="color: #8FBCBB;">Candle</span> <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span> fmap <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">$</span>)
+<span style="background-color: #272C36;"> </span> fmap <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">$</span>)
 </pre>
 </div>
 <p>
@@ -211,7 +211,7 @@ an <i>Algebraic Data Type</i> (a product), but not a <i>Functor</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2022-12-16 Fri 17:45</p>
+<p class="date">Created: 2023-01-04 Wed 09:31</p>
 </div>
 </body>
 </html>
