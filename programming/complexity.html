@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-01-07 Sat 13:26 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Complexity</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Complexity</h1>
+</header><p>
+Since the 70s it has been understood that the key to actually manage complexity
+is to use <i>abstract interfaces</i>, as parts of <i>Abstract Data Types</i> definitions,
+which, in turn, are implemented within corresponding <i>modules</i>.
+</p>
+
+<p>
+So, not just modularity, but clear, well-defined, non-leaking actual
+<i>abstraction boundaries</i> is the key concept (and therefore the basis of all
+methodologies) in programming, both in the small and at a scale.
+</p>
+
+<p>
+It is no surprise or a coincidence that <i>well-researched</i> and pragmatic languages
+emphasize and focus on exported interfaces.
+</p>
+
+<p>
+Abstract interfaces should be <i>&ldquo;first-class entities&rdquo;</i>, so to speak, and modern
+<code>Ocaml</code> (and <code>F#</code>), as well as the classic <code>Standard ML</code> are those which made modules
+(conceptually - named sets of public interfaces) &ldquo;first class&rdquo;.
+</p>
+
+<p>
+Having a separate, clear, well-defined and type-checked <i>module signature</i> is
+crucial for <i>understanding</i> of both the abstraction which is being to captured
+and its <i>boundaries</i>, which clearly separate <i>use from implementation</i>, which is <i>the
+principle</i> behind ADTs. Whether it is an OO class or a FP module <i>is irrelevant</i>.
+</p>
+
+<p>
+One absolutely should not be forced to read the module to extract its public
+interface. It must already be summarized in one place, and must be mechanically
+checked and verified. There is no substitute for this.
+</p>
+
+<p>
+&ldquo;Designers&rdquo; of idiotic amateur languages do not even understand this need. And
+no, having commentaries and auto-generated documentation is not enough.
+</p>
+
+<p>
+The whole point is to have <i>type-signatures</i> and <i>module-signatures</i> to be the only
+<i>mechanically checked and formally verified</i> documentation that is required - no
+need to say anything twice. No need to <i>read</i> comments (and auto-generated &ldquo;docs&rdquo;)
+and <i>believe</i> they are true and not out of sync.
+</p>
+
+<p>
+The closer we are to Sets and Logic - the better.
+</p>
+
+<p>
+In future, the <i>assertions of &ldquo;laws&rdquo; and invariants</i> (currently pushed away into
+the tests) must be the part of definitions, residing in a special clauses, which
+may refer to external files.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-01-07 Sat 13:26</p>
+</div>
+</body>
+</html>
