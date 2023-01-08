@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-01-04 Wed 09:31 -->
+<!-- 2023-01-08 Sun 20:56 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -24,6 +24,22 @@
 <header>
 <h1 class="title">Erlang</h1>
 </header><p>
+Once asynchronous message-passing has been integrated into the language runtime
+as the most fundamental feature (and exposed to the language as just a couple of
+primitives), communication within a node and across nodes becomes <i>uniform</i>.
+</p>
+
+<p>
+Having just that makes <i>scalability</i> and fault tolerance <i>uniform and straightforward</i>.
+</p>
+
+<p>
+Another fundamental design decision was that at an implementation level <i>of the
+runtime</i> there is no sharing of memory, so it is <i>not an emulation</i> of a
+theoretical property. With JVM they just emulate it.
+</p>
+
+<p>
 <i>Erlang</i> (as a project) did everything right. They began with fundamental principles
 and serious research and found out that <i>Java is fundamentally flawed</i>
 (and published this finding in the Joe Armstrong&rsquo;s thesis and in the books).
@@ -101,9 +117,9 @@ results, but the problem is that its target platform (the runtime) is
 not designed for true asynchronity - it only <i>emulates</i> it using blocking
 and sharing primitives.
 </p>
-<div id="outline-container-org4f309bf" class="outline-2">
-<h2 id="org4f309bf">Why</h2>
-<div class="outline-text-2" id="text-org4f309bf">
+<div id="outline-container-org877558c" class="outline-2">
+<h2 id="org877558c">Why</h2>
+<div class="outline-text-2" id="text-org877558c">
 <p>
 Conceptually, just like in a general purpose Functional language, functions from a
 <i>module</i> are being evaluated by the language&rsquo;s <i>runtime</i>. The runtime usually does
@@ -158,9 +174,9 @@ arguments. Arguments are used to <i>parameterize and specialize functions</i>.
 </div>
 </div>
 
-<div id="outline-container-org97c0fc4" class="outline-2">
-<h2 id="org97c0fc4">Websockets and framing in general</h2>
-<div class="outline-text-2" id="text-org97c0fc4">
+<div id="outline-container-org86de46e" class="outline-2">
+<h2 id="org86de46e">Websockets and framing in general</h2>
+<div class="outline-text-2" id="text-org86de46e">
 <p>
 It seems, at least in theory, the <code>Erlang</code> is the best language for writing
 advanced client applications - it has the right implementation of &ldquo;core&rdquo;
@@ -192,9 +208,9 @@ uninterrupted effort, but food and money has to come from somewhere.
 </div>
 </div>
 
-<div id="outline-container-org6e0a256" class="outline-2">
-<h2 id="org6e0a256">SSL</h2>
-<div class="outline-text-2" id="text-org6e0a256">
+<div id="outline-container-org9f764d3" class="outline-2">
+<h2 id="org9f764d3">SSL</h2>
+<div class="outline-text-2" id="text-org9f764d3">
 <p>
 Erlang OTP team have done a great job for maintaining the <code>ssl</code> library, but now
 there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/etc/ssl/certs/java/cacerts</code>
@@ -202,9 +218,9 @@ there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/e
 </div>
 </div>
 
-<div id="outline-container-orgcd81d37" class="outline-2">
-<h2 id="orgcd81d37">Tools</h2>
-<div class="outline-text-2" id="text-orgcd81d37">
+<div id="outline-container-orgc4d4ce8" class="outline-2">
+<h2 id="orgc4d4ce8">Tools</h2>
+<div class="outline-text-2" id="text-orgc4d4ce8">
 <p>
 Use <i>Emacs</i> or <i>Vim</i>. Both have support for TAGS and well as modern tooling.
 </p>
@@ -288,7 +304,7 @@ use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-omnicomplete'</span>,
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-01-04 Wed 09:31</p>
+<p class="date">Created: 2023-01-08 Sun 20:56</p>
 </div>
 </body>
 </html>

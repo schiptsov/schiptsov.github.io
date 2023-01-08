@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-01-04 Wed 09:31 -->
+<!-- 2023-01-08 Sun 20:57 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sum-Types</title>
@@ -44,9 +44,9 @@ MathJax = {
 <header>
 <h1 class="title">Sum-Types</h1>
 </header>
-<div id="outline-container-orgf3c9a13" class="outline-2">
-<h2 id="orgf3c9a13">Disjoint sum (union)</h2>
-<div class="outline-text-2" id="text-orgf3c9a13">
+<div id="outline-container-orgd440822" class="outline-2">
+<h2 id="orgd440822">Disjoint sum (union)</h2>
+<div class="outline-text-2" id="text-orgd440822">
 <p>
 We add up (put together) elements, not multiply them.
 </p>
@@ -59,36 +59,36 @@ Sums (and sum-types) are &ldquo;linear&rdquo;, while products are build &ldquo;d
 We use the symbol <code>|</code> to emphasize <i>partitioning of a disjoint union</i>.
 </p>
 </div>
-<div id="outline-container-org7c7c90e" class="outline-3">
-<h3 id="org7c7c90e">Rotation</h3>
-<div class="outline-text-3" id="text-org7c7c90e">
+<div id="outline-container-org4903224" class="outline-3">
+<h3 id="org4903224">Rotation</h3>
+<div class="outline-text-3" id="text-org4903224">
 <p>
 commutative (same notion)
 \[(a \mid b) \cong (b \mid a)\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgfe1e997" class="outline-3">
-<h3 id="orgfe1e997">Nested pairs</h3>
-<div class="outline-text-3" id="text-orgfe1e997">
+<div id="outline-container-orga63ebde" class="outline-3">
+<h3 id="orga63ebde">Nested pairs</h3>
+<div class="outline-text-3" id="text-orga63ebde">
 <p>
 isomorphic
 \[((a \mid b) \mid c) \cong (a \mid (b \mid c))\]
 </p>
 </div>
 </div>
-<div id="outline-container-org0232954" class="outline-3">
-<h3 id="org0232954">Disjoint sum</h3>
-<div class="outline-text-3" id="text-org0232954">
+<div id="outline-container-orgfd4b2eb" class="outline-3">
+<h3 id="orgfd4b2eb">Disjoint sum</h3>
+<div class="outline-text-3" id="text-orgfd4b2eb">
 <p>
 Think of it as adding up without <i>morphing into one</i>.
 \[a \mid b \cong a + b\]
 </p>
 </div>
 </div>
-<div id="outline-container-org7f9fe1f" class="outline-3">
-<h3 id="org7f9fe1f">Unit</h3>
-<div class="outline-text-3" id="text-org7f9fe1f">
+<div id="outline-container-orgaaed455" class="outline-3">
+<h3 id="orgaaed455">Unit</h3>
+<div class="outline-text-3" id="text-orgaaed455">
 <p>
 \(\emptyset\) as a <i>unit</i> - adding nothing change nothing.
 Logically it is an <i>uninhabited</i> type <code>Void</code> - there are no instances (or
@@ -98,9 +98,9 @@ values) of a void.
 </div>
 </div>
 </div>
-<div id="outline-container-org8dc993a" class="outline-2">
-<h2 id="org8dc993a">partitions</h2>
-<div class="outline-text-2" id="text-org8dc993a">
+<div id="outline-container-org13905b3" class="outline-2">
+<h2 id="org13905b3">partitions</h2>
+<div class="outline-text-2" id="text-org13905b3">
 <p>
 These are <i>type-level</i> notions, not an instance (value) level.
 </p>
@@ -132,9 +132,9 @@ an n-tuple, made out of <i>Conses</i>, which are nested Pairs.
 </p>
 </div>
 </div>
-<div id="outline-container-org5e00304" class="outline-2">
-<h2 id="org5e00304">Pattern-matching</h2>
-<div class="outline-text-2" id="text-org5e00304">
+<div id="outline-container-org2034d3a" class="outline-2">
+<h2 id="org2034d3a">Pattern-matching</h2>
+<div class="outline-text-2" id="text-org2034d3a">
 <p>
 &ldquo;Universal&rdquo; (everywhere) <i>pattern-matching</i> on sum-types of the ML-family of
  languages is the most important innovation in programming languages.
@@ -154,7 +154,7 @@ Languages without universal pattern-matching are simply inferior.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-01-04 Wed 09:31</p>
+<p class="date">Created: 2023-01-08 Sun 20:57</p>
 </div>
 </body>
 </html>
