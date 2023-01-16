@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-01-08 Sun 20:56 -->
+<!-- 2023-01-16 Mon 12:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
@@ -35,9 +35,33 @@ rewrite parts of important codebases (Spark, Kafka, the Twitter stack)
 to use the new standard library and its better abstractions (due to
 better typing).
 </p>
-<div id="outline-container-org4e5f7ff" class="outline-2">
-<h2 id="org4e5f7ff">Overview</h2>
-<div class="outline-text-2" id="text-org4e5f7ff">
+
+<p>
+The main goal was, and still is to write high-level libraries as layers of
+functional DSLs.
+</p>
+
+<p>
+However, over-&ldquo;engineering&rdquo;, over-abstraction and even over-DSLing are the
+actual problems. Over-complicated bullshit is not a solution to complexity, just
+like an idiotic pretentious, over-verbose language used by liberal-arts and
+humanties.
+</p>
+
+<p>
+To choose <i>just right abstractions</i> and just right level of
+wrapping (proper types) is what constitutes <i>the art part</i> of the craft.
+</p>
+
+<p>
+Things like <code>scalatest</code>, <code>cats</code> and <code>zio2</code> are the real-world examples of such layered
+DSLs. This is the way to program, and the real understanding comes from the
+principles behind the syntactic sugar and the <i>higher-kinded types</i>.
+</p>
+
+<div id="outline-container-org3057020" class="outline-2">
+<h2 id="org3057020">Overview</h2>
+<div class="outline-text-2" id="text-org3057020">
 <p>
 It is much better to think in terms of <i>nested Sets of type-tagged structured
 values</i>.
@@ -60,9 +84,9 @@ especially compared to Java or C++.
 </p>
 </div>
 
-<div id="outline-container-org89c2a70" class="outline-3">
-<h3 id="org89c2a70">Product types</h3>
-<div class="outline-text-3" id="text-org89c2a70">
+<div id="outline-container-orgdd5325f" class="outline-3">
+<h3 id="orgdd5325f">Product types</h3>
+<div class="outline-text-3" id="text-orgdd5325f">
 <p>
 <i>Case-classes</i> are used to define <i>immutable values which have its own structure</i> and
 &ldquo;normal&rdquo; classes can create <i>mutable record types</i>. <i>Companion objects</i> provide an
@@ -70,9 +94,9 @@ additional  <i>name-space</i>. /Extensions are also useful.
 </p>
 </div>
 </div>
-<div id="outline-container-org7bb004c" class="outline-3">
-<h3 id="org7bb004c">Sum types</h3>
-<div class="outline-text-3" id="text-org7bb004c">
+<div id="outline-container-orgbb11b92" class="outline-3">
+<h3 id="orgbb11b92">Sum types</h3>
+<div class="outline-text-3" id="text-orgbb11b92">
 <p>
 <i>Enums</i> are Scala&rsquo;s  attempt on generalized <i>sum-types</i>, or even GADTs, and they
 seem OK due to the ability to define fields and methods, just like in a
@@ -80,9 +104,9 @@ seem OK due to the ability to define fields and methods, just like in a
 </p>
 </div>
 </div>
-<div id="outline-container-org28a2c36" class="outline-3">
-<h3 id="org28a2c36">Type-classes</h3>
-<div class="outline-text-3" id="text-org28a2c36">
+<div id="outline-container-orgce3d0e5" class="outline-3">
+<h3 id="orgce3d0e5">Type-classes</h3>
+<div class="outline-text-3" id="text-orgce3d0e5">
 <p>
 Parameterized <i>Traits</i> are now the solid basis of proper <i>type-classes</i>, which are as
 fundamental as Liskov&rsquo;s ADTs, and one should <i>abstract out with traits</i>.
@@ -122,9 +146,9 @@ Anyway, whatever.
 </div>
 </div>
 </div>
-<div id="outline-container-orgc865f11" class="outline-2">
-<h2 id="orgc865f11">Modern tools</h2>
-<div class="outline-text-2" id="text-orgc865f11">
+<div id="outline-container-org02d180d" class="outline-2">
+<h2 id="org02d180d">Modern tools</h2>
+<div class="outline-text-2" id="text-org02d180d">
 <ul class="org-ul">
 <li><code>cs</code> -  <i>artifact manager</i></li>
 <li><code>amm</code> - <i>advanced REPL</i></li>
@@ -161,17 +185,17 @@ Launch the REPL
 <p>
 import straight from <code>Maven</code>
 </p>
-<pre class="example" id="org7f43b9c">
+<pre class="example" id="orgfa712ac">
 import $ivy.`com.typesafe.akka:akka-stream_3:2.7.0`
 </pre>
 </div>
-<div id="outline-container-org30187e4" class="outline-3">
-<h3 id="org30187e4">Basic configuration</h3>
-<div class="outline-text-3" id="text-org30187e4">
+<div id="outline-container-org86b6c7e" class="outline-3">
+<h3 id="org86b6c7e">Basic configuration</h3>
+<div class="outline-text-3" id="text-org86b6c7e">
 <p>
 add this to the <code>build.sbt</code> file
 </p>
-<pre class="example" id="orgf777e88">
+<pre class="example" id="orga633790">
 val scala3Version = "3.2.1"
 val AkkaVersion = "2.8.0-M1"
 
@@ -191,7 +215,7 @@ lazy val root = project
 <p>
 and <code>project/plugins.sbt</code> is
 </p>
-<pre class="example" id="org7b71e2b">
+<pre class="example" id="org6bb5c43">
 addSbtPlugin("ch.epfl.scala" % "sbt-bloop" % "1.5.4")
 
 addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.10.4")
@@ -200,9 +224,9 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.6")
 </div>
 </div>
 </div>
-<div id="outline-container-org000e89e" class="outline-2">
-<h2 id="org000e89e">Editor support</h2>
-<div class="outline-text-2" id="text-org000e89e">
+<div id="outline-container-org29923ef" class="outline-2">
+<h2 id="org29923ef">Editor support</h2>
+<div class="outline-text-2" id="text-org29923ef">
 <p>
 The <i>Giga Chad</i> Odersky and the team are using <i>VSCode</i>, so it almost always works.
 Vim and Emacs require some effort.
@@ -227,9 +251,9 @@ Since <code>cs</code> is the modern tool of choice, make sure your <code>$HOME/.
 <code>scalafmt</code> needs to specify a <i>dialect</i> in the <code>.scalafmt.conf</code>.
 </p>
 </div>
-<div id="outline-container-org9a5eca2" class="outline-3">
-<h3 id="org9a5eca2">Metals</h3>
-<div class="outline-text-3" id="text-org9a5eca2">
+<div id="outline-container-org8761336" class="outline-3">
+<h3 id="org8761336">Metals</h3>
+<div class="outline-text-3" id="text-org8761336">
 <p>
 The only LSP-server available is <code>metals</code> but it is buggy as fuck. It
 relies on <code>bloop</code>, so make sure it is installed by <code>cs</code>.
@@ -263,9 +287,9 @@ already installed by <code>cs</code>, which is the default, preferred way to do 
 </div>
 </div>
 
-<div id="outline-container-orgf81003f" class="outline-2">
-<h2 id="orgf81003f">Better abstractions</h2>
-<div class="outline-text-2" id="text-orgf81003f">
+<div id="outline-container-org51bce26" class="outline-2">
+<h2 id="org51bce26">Better abstractions</h2>
+<div class="outline-text-2" id="text-org51bce26">
 <p>
 Refinement of <i>implicits</i> (of implicit <i>contexts</i>) by using a common
 mathematical jargon.
@@ -286,9 +310,9 @@ An implicit value can be &ldquo;inferred&rdquo; by the compiler or <i>selected e
 among many.
 </p>
 </div>
-<div id="outline-container-org10aac7e" class="outline-3">
-<h3 id="org10aac7e">Using (clauses)</h3>
-<div class="outline-text-3" id="text-org10aac7e">
+<div id="outline-container-orgc60baa2" class="outline-3">
+<h3 id="orgc60baa2">Using (clauses)</h3>
+<div class="outline-text-3" id="text-orgc60baa2">
 <p>
 Optional arguments with <i>default values</i> which can be omitted at a <i>call site</i>.
 </p>
@@ -298,9 +322,9 @@ Values should be automatically provided by the <i>context</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb0d4a25" class="outline-3">
-<h3 id="orgb0d4a25">Given (instances)</h3>
-<div class="outline-text-3" id="text-orgb0d4a25">
+<div id="outline-container-org0b7e20d" class="outline-3">
+<h3 id="org0b7e20d">Given (instances)</h3>
+<div class="outline-text-3" id="text-org0b7e20d">
 <p>
 This corresponds to some &ldquo;standard property&rdquo; that we always assume -
 <i>given that&#x2026;</i>. The common synonym is <i>provided that&#x2026;</i>
@@ -314,9 +338,9 @@ arguments</i>.
 </div>
 </div>
 
-<div id="outline-container-orge9e4322" class="outline-2">
-<h2 id="orge9e4322">Libraries</h2>
-<div class="outline-text-2" id="text-orge9e4322">
+<div id="outline-container-org3b0f12e" class="outline-2">
+<h2 id="org3b0f12e">Libraries</h2>
+<div class="outline-text-2" id="text-org3b0f12e">
 <p>
 Most of them are over-&ldquo;engineered&rdquo; and bloated, without any effort of making the
 abstractions <i>minimal</i> and &ldquo;just right&rdquo; (optimal). Such &ldquo;natural
@@ -338,10 +362,10 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 </div>
 </div>
 
-<div id="outline-container-org1a272c2" class="outline-2">
-<h2 id="org1a272c2">Coming home</h2>
-<div class="outline-text-2" id="text-org1a272c2">
-<pre class="example" id="org5aefa5b">
+<div id="outline-container-orga0e4349" class="outline-2">
+<h2 id="orga0e4349">Coming home</h2>
+<div class="outline-text-2" id="text-orga0e4349">
+<pre class="example" id="orgc4234c6">
 package s3.payload
 
 import akka.http.scaladsl.model.Uri
@@ -384,7 +408,7 @@ def digest(q: QueryString): DigestSHA256 =
       .map(_.trim)
   a(1)
 </pre>
-<pre class="example" id="org4add3b0">
+<pre class="example" id="orgec163a6">
 import akka.http.scaladsl.model.*
 
 import org.scalatest._
@@ -415,7 +439,7 @@ class PayloadSpec extends AnyFlatSpec with should.Matchers {
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-01-08 Sun 20:56</p>
+<p class="date">Created: 2023-01-16 Mon 12:38</p>
 </div>
 </body>
 </html>
