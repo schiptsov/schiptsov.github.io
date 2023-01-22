@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-01-22 Sun 11:37 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stroustrup</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Stroustrup</h1>
+</header>
+<div id="outline-container-orgd28cfd1" class="outline-2">
+<h2 id="orgd28cfd1">Fractals of bullshit.</h2>
+<div class="outline-text-2" id="text-orgd28cfd1">
+<p>
+Recently we have been blessed with a new piece of Holy Gospel from the Creator:
+</p>
+
+<p>
+<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2739r0.pdf">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2739r0.pdf</a>
+</p>
+
+<p>
+Ignoring fundamental (different from merely theoretical - which means imaginary
+only) findings is a sing of insanity or even idiocy.
+</p>
+
+<p>
+We know that <i>all of</i> mathematics &ldquo;works&rdquo; as it does only due to the (<i>necessary
+and sufficient</i>) <i>referential transparency</i> property, which means that what has
+been <i>defined</i> (and bound) stays the same (forever), including <i>intermediate
+results</i>, which too has to be proven correct (every single step) and <i>immutable</i>.
+</p>
+
+<p>
+Do no have this property - do not have mathematics and its un-ambiguity and
+correctness.
+</p>
+
+<p>
+Joe Armstrong came up with to the same conclusion at a different level -
+mutation and concurrency (arbitrary access) do not match, which, it turns out,
+just the implications of the above necessity.
+</p>
+
+<p>
+Even biological systems &ldquo;built on assumption&rdquo; that DNA and mRNA structures are
+&ldquo;stable&rdquo; which technically means immutable.
+</p>
+
+<p>
+Explicit, non-leaking abstraction barriers, &ldquo;in-wire&rdquo; values, pure functions and
+state-less interfaces were the building blocks of Erlang. All this works in
+hardware (and in biology, which <i>is</i> a hardware).
+</p>
+
+<p>
+How can we use C++, which tries to formalize arbitrary assignments to arbitrary memory
+locations, so that lowly paid people without classic education and without understanding
+of the fundamental principles and idioms can program <i>fast</i> (even <i>agile</i>), without
+bugs and the need of constant maintenance? I will leave this as an exercise for
+the reader.
+</p>
+
+<p>
+Both Erlang and Haskell guys came up with the principle of separation of pure
+and impure code using sets of interfaces (whole modules). This is, of course,
+not a coincidence.
+</p>
+
+<p>
+In mathematics we capture (abstract out) recurring patterns, while <i>abstracting
+away</i> all seemingly irrelevant details of &ldquo;physics&rdquo; (locality, distances relative
+motion, etc).
+</p>
+
+<p>
+We form <i>closures</i>, which are the means of &ldquo;capturing&rdquo; (the early LISP guys, being
+influenced by <i>both</i> Lambda Calculus and the discovery of the structure of DNA, knew the
+importance of closures).
+</p>
+
+<p>
+With the set-theoretic formalism (with some parts from the Category theory) and logic
+(which <i>both</i> are formalizations of different aspects of reasoning by the mind of
+an External Observer - classification and of the underlying rules or &ldquo;laws&rdquo;) we can
+analyze captured patterns (closures).
+</p>
+
+<p>
+And this is what mathematics is all about - we capture, define and then analyze.
+</p>
+
+<p>
+It all &ldquo;works&rdquo; because everything <i>captured</i> stays the same (<i>closures</i> and
+resulting derivations are immutable). Losing this <i>invariant</i> will destroy
+mathematics and logic (in logic previous true assertions are immutable).
+</p>
+
+<p>
+Going all the way down to molecular biology -  building block are better to be
+immutable (or at least stable-enough to provide all the <i>stable intermediate forms</i>).
+</p>
+
+<p>
+Mathematics is based on this very principle - immutability of what is captured
+and of the previous <i>proven results</i>.
+</p>
+
+<p>
+This is where the second-order principles of immutable data-structures are
+coming from. Once whatever you already captured change behind your back you are
+fucked. Change of what has been captured is the same as destruction.
+</p>
+
+<p>
+Now what are the interfaces? Well, it is, aside from being generalization of
+cell membranes, is that abstraction barrier of a <i>closure</i>, which separates it
+from the rest of the conceptual and linguistic bullshit.
+</p>
+
+<p>
+We literally bring a <i>closure</i> into the realm of pure, rigorous, formal
+thoughts and understanding - into the environment of an <i>evaluation engine</i> (the
+MIT Scheme guys again).
+</p>
+
+<p>
+There is a big problem, however - If we <i>capture</i> bullshit, the outcome will be
+bullshit.
+</p>
+<ul class="org-ul">
+<li>If we miss out a single relevant factor we captured bullshit.</li>
+<li>If we used an imaginary entity as real we are fucked.</li>
+<li>If a relation does not exist, everything that uses it yields bullshit.</li>
+</ul>
+<p>
+And so on. The early logic guys figured it all out long ago - the results must
+be &ldquo;just right&rdquo;.
+</p>
+
+<p>
+The early FP people came with many fundamental results, including the principle of
+<i>having at most one mutable reference and passing it along</i>. Such restrictions
+will preserve the referential transparency and all the properties that follow
+from it.
+</p>
+
+<p>
+So, the partial answer is to use the right &ldquo;patterns&rdquo; and idioms, not just
+arbitrary imperative <i>destructive</i> assignments of everything to everything.
+Restrictions and partitioning (and communication) are <i>universal</i> and <i>necessary</i>.
+</p>
+
+<p>
+Haskell guys do it in practice (at the cost of explicitness and over-verbosity). They also do
+reinforce (at a type-level) the actual abstraction barriers, which keep their
+code <i>partitioned</i> and as pure as math or logic.
+</p>
+
+<p>
+How about the impure computer? Well, the main function of any haskell program is
+a pure declarative expression - it is a declaration of a type-safe <i>abstract
+state-machine</i> to be executed by an impure runtime on a dirty imperative
+computer (just as out pure math and logic is evaluated by dirty biological meat
+of the brain).
+</p>
+
+<p>
+Back to Stroustrup. Can arbitrary assignments (to a mutable locations) <i>in
+time</i> by more than one &ldquo;thread&rdquo; be formalized correctly? No. They cannot in
+principle (see Joe Armstrong).
+</p>
+
+<p>
+Can arbitrary nested arrangement of pointers (which themselves are mutable and
+live in a mutable memory locations) be <i>stable intermediate building blocks</i>?
+No. In principle.
+</p>
+
+<p>
+This is what all the <i>copying and moving-semantics</i> bullshit is about. How can we
+formalize arbitrary mutations and movements of numbers relative to an address space? You
+just cannot.
+</p>
+
+<p>
+How does everything work inside a computer, then? Just like in physics - as long
+as nothing really happened to a temporary arrangement.
+</p>
+
+<p>
+So, what are the answers? Well, use restricted, pure subset of <i>any</i> language
+until you cannot. Then partition the code and completely isolate (using interfaces)
+ the crap and make the whole thing reverentially-transparent (again) - create a
+new cell, lousely speaking, and communicate with it asynchronously, using <i>pure
+messages</i>.
+</p>
+
+<p>
+These are not just Haskell idioms, these are the universal principles (upon
+which all of the actual &ldquo;molecular biology&rdquo; has been evolved).
+</p>
+
+<p>
+The bullshit around C++ is based on the premise that a &ldquo;universal general
+purpose <i>imperative</i> language&rdquo; could exist, leave alone be formally defined.
+</p>
+
+<p>
+No, imperative is a no-go, and this is not just a fancy theoretical finding,
+this is a universal principle.
+</p>
+
+<p>
+Lots of people come to the same conclusions from different directions, because
+their observations and conclusions just converge on <i>What Is</i>. The intermediate
+forms must be indeed stable, otherwise we have only illusions and hand-waving.
+</p>
+
+<p>
+This is what Stroustrup does - he insists on a fundamentally wrong thesis by waving
+his hands before idiots.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-01-22 Sun 11:37</p>
+</div>
+</body>
+</html>
