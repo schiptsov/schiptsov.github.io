@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-06 Mon 13:55 -->
+<!-- 2023-02-06 Mon 21:15 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Mess We Are In</title>
@@ -44,7 +44,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="orgb3a8f7a">
+<pre class="example" id="org26e3b1a">
 	linux-vdso.so.1 (0x00007ffc46ed5000)
 	libc++.so.1 =&gt; /usr/lib64/libc++.so.1 (0x00007fa8c2449000)
 	libc++abi.so.1 =&gt; /usr/lib64/libc++abi.so.1 (0x00007fa8c2405000)
@@ -63,7 +63,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="orgc4c7920">
+<pre class="example" id="org31d0156">
 a.out:	file format elf64-x86-64
 
 Disassembly of section .text:
@@ -786,11 +786,66 @@ generalized form Molecular Biology and <i>What Is</i>.
 </div>
 </div>
 </div>
+
+<div id="outline-container-orge0ca45e" class="outline-2">
+<h2 id="orge0ca45e">Erlang</h2>
+<div class="outline-text-2" id="text-orge0ca45e">
+<p>
+Erlang, being <i>dynamically but strongly</i>-typed language, reinforces abstraction
+barriers at interfaces (where else?). User-facing code is a pure-functional
+language, augmented with a <i>minimum</i> of carefully crafted concurrency <i>primitives</i>.
+</p>
+
+<p>
+One can think of an actor as a <i>tail-recursive</i> function, which passes the state
+in a parameter (thus ensuring the <i>at most one mutable reference</i> property).
+</p>
+
+<p>
+Asynchronous <code>send</code> function (the <code>!</code> infix operator) always succeeds and could be
+seen as an <i>identity</i> function on the data argument (think that it could be
+/partially applied to the &ldquo;address&rdquo; first).
+</p>
+
+<p>
+The <code>reseive</code> expression is just like <code>case</code> (<i>pattern-matching</i>) expression on an
+<i>implicit parameter</i>, which is has <i>messages</i> as values.
+</p>
+
+<p>
+To be fair, these concurrency primitives are NOT strictly pure-functional, but
+the referential-transparency property is preserved - same input (/including the same
+contents of a mailbox) - same output. Always.
+</p>
+
+<p>
+The <code>spawn</code> primitive is definitely not a function, so it is a plain hack.
+However, it is fully-deterministic within the context of the whole Erlang node.
+</p>
+
+<p>
+Types are written in an additional DSL and checked by a specialized tools, which
+is also a <i>proper design</i>.
+</p>
+
+<p>
+Erlang is simply a great language. It is well-researched and well-designed
+<i>both</i> at the user-facing (syntax, semantics) level and at the level of a properly
+designed standard library (OTP) and the <i>partitioned /runtime system</i> (written in
+Erlang itself and some portable C).
+</p>
+
+<p>
+It takes time, like with any art form, to understand appreciate the details as
+well as the principles everything is based upon. Erlang is a marvel of craftsmanship.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-06 Mon 13:55</p>
+<p class="date">Created: 2023-02-06 Mon 21:15</p>
 </div>
 </body>
 </html>
