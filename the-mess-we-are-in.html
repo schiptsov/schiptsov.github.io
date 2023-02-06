@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-06 Mon 21:15 -->
+<!-- 2023-02-06 Mon 21:43 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Mess We Are In</title>
@@ -44,7 +44,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org26e3b1a">
+<pre class="example" id="orgfdbbe6c">
 	linux-vdso.so.1 (0x00007ffc46ed5000)
 	libc++.so.1 =&gt; /usr/lib64/libc++.so.1 (0x00007fa8c2449000)
 	libc++abi.so.1 =&gt; /usr/lib64/libc++abi.so.1 (0x00007fa8c2405000)
@@ -63,7 +63,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org31d0156">
+<pre class="example" id="orgaacdcb2">
 a.out:	file format elf64-x86-64
 
 Disassembly of section .text:
@@ -827,6 +827,37 @@ However, it is fully-deterministic within the context of the whole Erlang node.
 Types are written in an additional DSL and checked by a specialized tools, which
 is also a <i>proper design</i>.
 </p>
+</div>
+
+<div id="outline-container-orgca125c9" class="outline-3">
+<h3 id="orgca125c9">Behaviors</h3>
+<div class="outline-text-3" id="text-orgca125c9">
+<p>
+These building blocks (at the levels of libraries) can be thought off as
+<i>sets of mutually-recursive generic functions</i> (within a module), being
+parameterized by &ldquo;callbacks&rdquo; which contain user&rsquo;s code.
+</p>
+
+<p>
+This is the very same fundamental <i>abstraction by parameterization</i> principle,
+applied <i>at the level of interfaces</i>.
+</p>
+
+<p>
+The functions (a callback is just a function) send and receive messages
+according to well-defined protocol.
+</p>
+
+<p>
+Any protocol, in turn, is just an <i>informally stated explicit set of rules</i> to be
+implemented (followed).
+</p>
+
+<p>
+At a system (OTP) level there are <i>protocols</i> (with rely on universal
+<i>message-passing</i>) everywhere. This is how telecommunication hardware (systems)
+has been build.
+</p>
 
 <p>
 Erlang is simply a great language. It is well-researched and well-designed
@@ -842,10 +873,11 @@ well as the principles everything is based upon. Erlang is a marvel of craftsman
 </div>
 </div>
 </div>
+</div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-06 Mon 21:15</p>
+<p class="date">Created: 2023-02-06 Mon 21:43</p>
 </div>
 </body>
 </html>
