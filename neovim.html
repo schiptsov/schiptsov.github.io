@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-06 Mon 11:27 -->
+<!-- 2023-02-06 Mon 16:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>[Neo]Vim</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,28 +21,134 @@
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
-<p>
-The &ldquo;Lua revolution&rdquo; makes it even more a mess.
+<header>
+<h1 class="title">[Neo]Vim</h1>
+</header><p>
+The &ldquo;Lua revolution&rdquo; makes everything even more a mess. Some stable arrangements
+will <i>eventually</i> emerge from the <i>bullshit-mill</i> of enthusiastic amateur
+monkey-patching, we just have to wait for a while.
 </p>
 
 <p>
-The main problem is that very enthusiastic but also very amateur coders just copy-paste snippets they do not understand
-and those who design API never think more that a few seconds, if at all.
+The main problem is that very enthusiastic but also very amateur coders just
+copy-paste snippets they do not fully understand from one another (literally)
+and those who &ldquo;design&rdquo; APIs never think more that a few seconds, if at all.
 </p>
 
 <p>
-The old times (the golden age) when very few programmers with required math background used <i>list structures</i> are gone forever.
+The old times (the golden age) when very few programmers with required deep math
+background used only <i>list structures</i> are gone forever.
 </p>
 
 <p>
-No one is carefully designed a <i>call-site of an interface</i>, specifying which arguments are optional, what default values are, etc.
-If you miss an argument in an untyped dynamic language &ldquo;nothing happens&rdquo;, it continues silently without an error.
+No one novadays is carefully designed a <i>call-site of an interface</i>, specifying which arguments are optional, what default values are, etc.
+If you miss an argument in an untyped dynamic language &ldquo;nothing happens&rdquo;, it
+continues silently without an error.
 </p>
+
+<div id="outline-container-org68d3c9c" class="outline-2">
+<h2 id="org68d3c9c">Principles</h2>
+<div class="outline-text-2" id="text-org68d3c9c">
+<p>
+<code>[Neo]Vi[m]</code> is <i>great</i> (plain and simple) because it uses a <i>pattern language</i> (similar in
+its nature to <i>regular expressions</i>) to &ldquo;talk&rdquo; about the contents of a text file,
+and <i>systematically binds</i> single-letter commands (with optional uniform <i>prefixes</i>) to particular actions on a
+common patterns.
+</p>
+
+<p>
+The key to deep understanding is <i>systematic</i> (and the resulting <i>uniformity</i>). This
+<i>emergent</i> (or evolved,
+literally) system is what makes <code>[Neo]Vi[m]</code> great.
+</p>
+
+<p>
+The fundamental (and rather obvious) principle is that one &ldquo;thinks in terms of&rdquo;
+and &ldquo;acts upon&rdquo; various <i>parts and chunks of text</i> (depending upon a particular
+context), NOT single characters.
+</p>
+
+<p>
+In <code>[Neo]Vi[m]</code> one should NEVER use arrow keys or <code>jkhl</code>. This is a consequence of
+the <i>wrong way of thinking</i> - at a single character level (<code>H</code> and <code>L</code>, are much more useful).
+</p>
+
+<p>
+A <i>pro</i> moves with increasingly larger chunks of text - <i>words, whole sentences,
+paragraphs</i> and in the context of a programming language - with distinct chunks
+of code, usually consistent with <i>indentation</i> and <i>formatting</i>.
+</p>
+
+<p>
+<code>Neovim</code> has a generalized notion of <code>tree-sitter</code> based <i>textobjects</i> (while simple
+textobjects were available in the classic <code>Vim</code>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaaa4ad4" class="outline-2">
+<h2 id="orgaaa4ad4">Systematic</h2>
+<div class="outline-text-2" id="text-orgaaa4ad4">
+<p>
+It seems that there is not much one can do within a text file - just moving into
+this or that direction with increasing or decreasing &ldquo;steps&rdquo;.
+<code>w</code>, <code>W</code>, <code>}</code> etc. or <code>b</code>, <code>B</code>, <code>{</code> ~ or, lets say <code>0</code>, <code>$</code>. The <code>e</code> command is sibling of <code>w</code>.
+</p>
+
+<p>
+Notice that there is a systematic difference between what a <i>capital letter
+command</i> does relative to what does the lower-case counterpart.
+</p>
+
+<p>
+Not just that, but these &ldquo;steps&rdquo; above act as <i>modifiers</i> for commands such as <code>c</code>,
+<code>d</code>, <code>y</code>, etc.
+</p>
+
+<p>
+And there are <i>universal numeric modifiers</i>, so <code>3w</code> means <i>3 words</i> and <code>y3w</code> means
+<i>yank 3 words</i>. and <code>3yy</code> would be <i>yank 3 lines</i>.
+</p>
+
+<p>
+This emergent and then evolved <i>system</i> is what makes <code>[Neo]Vi[m]</code> unique and being
+emulated within other editors.
+</p>
+
+<p>
+To understand and learn it one has to start with these fundamentals. Everything
+else, due to being <i>systematic</i> is almost self-evident and one&rsquo;s informed guesses
+would almost always turn out to be valid ones.
+</p>
+
+<p>
+Modern <code>neovim</code> is <i>big</i>. It is not <i>wast</i> as modern <code>Emacs</code>, but nevertheless.
+</p>
+
+<p>
+And, of course, using <code>vi</code> with arrow keys, just like, lets say <code>SublimeText</code> or <code>VSCode</code>,
+defies the very meaning of using <code>vi</code>. No wonder it feels awkward. In fact <i>both</i>
+<code>vi</code> and <code>Emacs</code> should be deeply understood and mastered and being used depending
+upon context (<code>vi</code> is great for a quick, &ldquo;in-place&rdquo; modifications of configs or code, while <code>Emacs</code> is
+great for long writing sessions, and one actually never exit <code>emacs</code>).
+</p>
+
+<p>
+This notion is deeply related to the notion of coding in one (may be great)
+language just like they code in another (which may be just low-effort, never deeply researched
+amateur kitchen-sink crap).
+</p>
+
+<p>
+<i>Both</i> <code>vi</code> and <code>Emacs</code> are &ldquo;ancient traditions&rdquo; worth being familiar with.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-06 Mon 11:27</p>
+<p class="date">Created: 2023-02-06 Mon 16:29</p>
 </div>
 </body>
 </html>
