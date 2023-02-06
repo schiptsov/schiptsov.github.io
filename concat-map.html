@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-01-16 Mon 12:38 -->
+<!-- 2023-02-06 Mon 11:31 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Map and Filter on Lists</title>
@@ -58,9 +58,9 @@ One, it seems, like the old-timers, should program with <code>Lists</code>. The
 discipline will pay back in <i>clarity, brevity</i>, deeper understanding
 of <i>the problem domain</i> and better, simpler models.
 </p>
-<div id="outline-container-org1185059" class="outline-2">
-<h2 id="org1185059">Lists</h2>
-<div class="outline-text-2" id="text-org1185059">
+<div id="outline-container-org2f6dbaa" class="outline-2">
+<h2 id="org2f6dbaa">Lists</h2>
+<div class="outline-text-2" id="text-org2f6dbaa">
 <p>
 Most of the time our <i>intuitions</i> about a <code>List</code> as of something <i>long</i>,
  and it escapes our attention that it could be either <i>empty</i> or just a <i>singleton</i>.
@@ -136,9 +136,9 @@ about <i>linear structures</i>. Addition could be seen as &ldquo;linear&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-org8df4113" class="outline-2">
-<h2 id="org8df4113">Map</h2>
-<div class="outline-text-2" id="text-org8df4113">
+<div id="outline-container-org96ce68d" class="outline-2">
+<h2 id="org96ce68d">Map</h2>
+<div class="outline-text-2" id="text-org96ce68d">
 <p>
 So, this is a generalized notion of <i>modifying</i> (or transforming) a value
 <i>embedded into some structure</i>.
@@ -149,15 +149,15 @@ So, this is a generalized notion of <i>modifying</i> (or transforming) a value
 List comprehension
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="background-color: #2E3440;"> </span> map f xs <span style="color: #D8DEE9;">=</span> [f x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span> xs]
+<pre class="src src-haskell"><span style="background-color: #272C36;"> </span> map f xs <span style="color: #D8DEE9;">=</span> [f x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span> xs]
 </pre>
 </div></li>
 <li><p>
 The classic definition
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="background-color: #2E3440;"> </span> map f <span style="color: #8FBCBB;">[]</span>     <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">[]</span>
-<span style="background-color: #2E3440;"> </span> map f (x<span style="color: #8FBCBB;">:</span>xs) <span style="color: #D8DEE9;">=</span> f x <span style="color: #8FBCBB;">:</span> map f xs
+<pre class="src src-haskell"><span style="background-color: #272C36;"> </span> map f <span style="color: #8FBCBB;">[]</span>     <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">[]</span>
+<span style="background-color: #272C36;"> </span> map f (x<span style="color: #8FBCBB;">:</span>xs) <span style="color: #D8DEE9;">=</span> f x <span style="color: #8FBCBB;">:</span> map f xs
 </pre>
 </div></li>
 </ul>
@@ -179,9 +179,9 @@ These could be <i>different</i> <code>fmaps</code> - the inner of a <code>Maybe<
 </div>
 </div>
 
-<div id="outline-container-orgda760b9" class="outline-2">
-<h2 id="orgda760b9">Filter</h2>
-<div class="outline-text-2" id="text-orgda760b9">
+<div id="outline-container-orgf62a2bb" class="outline-2">
+<h2 id="orgf62a2bb">Filter</h2>
+<div class="outline-text-2" id="text-orgf62a2bb">
 <p>
 This is a generalized notion of <i>selection</i>, of <i>such that</i>, of defining
 a <i>subset</i> or a <i>sub-class</i>.
@@ -192,8 +192,8 @@ a <i>subset</i> or a <i>sub-class</i>.
 </ul>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #88C0D0;">filter</span> p (x <span style="color: #8FBCBB;">:</span> xs) <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">if</span> p x <span style="color: #81A1C1;">then</span> x <span style="color: #8FBCBB;">:</span> rest <span style="color: #81A1C1;">else</span> rest
-<span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span>   rest <span style="color: #D8DEE9;">=</span> filter p xs
+<span style="background-color: #272C36;"> </span> <span style="color: #81A1C1;">where</span>
+<span style="background-color: #272C36;"> </span>   rest <span style="color: #D8DEE9;">=</span> filter p xs
 </pre>
 </div>
 
@@ -213,8 +213,8 @@ suggests mathematical notions of <i>such that</i>, and <i>provided p x</i>.</li>
 <pre class="src src-haskell"><span style="color: #88C0D0;">filter</span> <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Bool</span>) <span style="color: #D8DEE9;">-&gt;</span> [a] <span style="color: #D8DEE9;">-&gt;</span> [a]
 <span style="color: #88C0D0;">filter</span> p <span style="color: #8FBCBB;">[]</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">[]</span>
 <span style="color: #88C0D0;">filter</span> p (x <span style="color: #8FBCBB;">:</span> xs)
-<span style="background-color: #2E3440;"> </span> <span style="color: #D8DEE9;">|</span> p x       <span style="color: #D8DEE9;">=</span> x <span style="color: #8FBCBB;">:</span> filter p xs
-<span style="background-color: #2E3440;"> </span> <span style="color: #D8DEE9;">|</span> otherwise <span style="color: #D8DEE9;">=</span> filter p xs
+<span style="background-color: #272C36;"> </span> <span style="color: #D8DEE9;">|</span> p x       <span style="color: #D8DEE9;">=</span> x <span style="color: #8FBCBB;">:</span> filter p xs
+<span style="background-color: #272C36;"> </span> <span style="color: #D8DEE9;">|</span> otherwise <span style="color: #D8DEE9;">=</span> filter p xs
 </pre>
 </div>
 <ul class="org-ul">
@@ -229,8 +229,8 @@ suggests mathematical notions of <i>such that</i>, and <i>provided p x</i>.</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #88C0D0;">filter</span> p <span style="color: #D8DEE9;">=</span> concat <span style="color: #D8DEE9;">.</span> map (test p)
-<span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span>   test p x <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">if</span> p x <span style="color: #81A1C1;">then</span> [x] <span style="color: #81A1C1;">else</span> <span style="color: #8FBCBB;">[]</span>
+<span style="background-color: #272C36;"> </span> <span style="color: #81A1C1;">where</span>
+<span style="background-color: #272C36;"> </span>   test p x <span style="color: #D8DEE9;">=</span> <span style="color: #81A1C1;">if</span> p x <span style="color: #81A1C1;">then</span> [x] <span style="color: #81A1C1;">else</span> <span style="color: #8FBCBB;">[]</span>
 </pre>
 </div>
 <p>
@@ -244,9 +244,9 @@ definitions of the List <code>Monad</code>, where <code>concat</code> is <code>j
 </p>
 </div>
 </div>
-<div id="outline-container-orgb430d48" class="outline-2">
-<h2 id="orgb430d48">Concat</h2>
-<div class="outline-text-2" id="text-orgb430d48">
+<div id="outline-container-orge72f27d" class="outline-2">
+<h2 id="orge72f27d">Concat</h2>
+<div class="outline-text-2" id="text-orge72f27d">
 <p>
 This captures the generalized notion of <i>collapsing of a nested
 structures</i> (one level at a time).
@@ -256,7 +256,7 @@ structures</i> (one level at a time).
 List comprehensions
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="background-color: #2E3440;"> </span> concat xss <span style="color: #D8DEE9;">=</span> [x <span style="color: #D8DEE9;">|</span> xs <span style="color: #D8DEE9;">&lt;-</span> xss, x <span style="color: #D8DEE9;">&lt;-</span> xs ]
+<pre class="src src-haskell"><span style="background-color: #272C36;"> </span> concat xss <span style="color: #D8DEE9;">=</span> [x <span style="color: #D8DEE9;">|</span> xs <span style="color: #D8DEE9;">&lt;-</span> xss, x <span style="color: #D8DEE9;">&lt;-</span> xs ]
 </pre>
 </div></li>
 <li><p>
@@ -274,7 +274,7 @@ Bird&rsquo;s style
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-01-16 Mon 12:38</p>
+<p class="date">Created: 2023-02-06 Mon 11:31</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-06 Mon 11:30 -->
+<!-- 2023-02-06 Mon 13:45 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Mess We Are In</title>
@@ -44,7 +44,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org5100635">
+<pre class="example" id="org49dc6f0">
 	linux-vdso.so.1 (0x00007ffc46ed5000)
 	libc++.so.1 =&gt; /usr/lib64/libc++.so.1 (0x00007fa8c2449000)
 	libc++abi.so.1 =&gt; /usr/lib64/libc++abi.so.1 (0x00007fa8c2405000)
@@ -63,7 +63,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org187576f">
+<pre class="example" id="orgab0edd3">
 a.out:	file format elf64-x86-64
 
 Disassembly of section .text:
@@ -598,11 +598,183 @@ Only Erlang guys did everything right &#x2013; a principle-based research from t
 <p>
 Shared concurrency for imperative code is a myth. Period.
 </p>
+
+<div id="outline-container-org617d16b" class="outline-2">
+<h2 id="org617d16b">The solutions</h2>
+<div class="outline-text-2" id="text-org617d16b">
+<p>
+There are <i>mathematically-sound theoretical solutions</i>.
+</p>
+</div>
+<div id="outline-container-org180178c" class="outline-3">
+<h3 id="org180178c">Referential transparency</h3>
+<div class="outline-text-3" id="text-org180178c">
+<p>
+This is the fundamental property of all <i>binding</i>, both of symbols and <i>within the
+compound and structured data</i> - once <i>bound</i> everything stays forever - does not
+change behind your back.
+</p>
+
+<p>
+This is the whole point of pure-functional languages like <code>Haskell</code>. All the
+effort is to preserve and even guarantee this <i>referential transparency property</i>.
+</p>
+
+<p>
+These guarantees have various qualitative implications. The most important is the
+emergent <i>declarative</i> nature of resulting expressions, so they operationally
+have the same properties as mathematical formulas, expressions of pure logic,
+finite state machines and can be transformed (without any loss of information)
+into abstract syntax trees and acyclic graphs in general.
+</p>
+
+<p>
+This is the <i>ideal</i> which Haskell community zealously seek to attain.
+</p>
+</div>
+</div>
+<div id="outline-container-orgda44b3a" class="outline-3">
+<h3 id="orgda44b3a">At most one mutable reference</h3>
+<div class="outline-text-3" id="text-orgda44b3a">
+<p>
+This is another principal theoretical solution, which is <i>partial referential
+transparency</i> so to speak. The state has to be encapsulated into a <i>closure</i>, which
+is traditionally called a <i>ref</i>.
+</p>
+
+<p>
+A <i>ref</i> or a reference is just an ADT, and the explicit abstraction barrier keeps
+the state &ldquo;invisible&rdquo; to the pure expressions. They only declare what
+<i>eventually</i> to do be done with it, whatever it actually might be.
+</p>
+
+<p>
+It is remarkable that an Abstract Data Type is the fundamental building block here.
+</p>
+</div>
+</div>
+<div id="outline-container-org35be28b" class="outline-3">
+<h3 id="org35be28b">Generalized Abstraction barriers</h3>
+<div class="outline-text-3" id="text-org35be28b">
+<p>
+There are <i>emergent /standard idioms</i> to establish and maintain <i>actual abstraction
+barriers</i>.
+</p>
+
+<ul class="org-ul">
+<li><i>type-classes</i> allow to define abstract data types on the basis of <i>behaviors</i> or
+<i>sets of required interfaces</i> to be implemented (to be an <code>X</code> is to quack like an
+<code>X</code> and walk like an <code>X</code>).</li>
+
+<li><p>
+<i>Monad</i> (in the context of programming languages) is &ldquo;even more generic&rdquo;
+<i>type-class</i> for defining Abstract Data Types, which in turn are abstraction barriers, <i>partitions</i> or abstract
+&ldquo;membranes&rdquo;. It is a &ldquo;standard shape or form&rdquo; for an ADT, which itself is <i>also
+an /instance</i> of a particular <i>type-class</i> (a set of required interfaces).
+</p>
+
+<p>
+<i>And also form (an instance of) a Monad (type-class)</i>. And this is literally it.
+</p>
+
+<p>
+Keeping state &ldquo;inside a Monad&rdquo; (behind an abstraction barrier) is how a
+type-system-level guarantees of &ldquo;safety&rdquo; (yes, of non-broken referential
+transparency) could be obtained.
+</p>
+
+<p>
+In languages <i>other than Haskell</i> care should be taken of maintaining <i>at most
+one mutable reference</i>. In Haskell there is no mutation possible in principle
+(only <i>shadowing</i> and extending).
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org87cde11" class="outline-3">
+<h3 id="org87cde11">Async</h3>
+<div class="outline-text-3" id="text-org87cde11">
+<p>
+The most adequate case for using a Monad (which is, again, just an ADT,  an
+instance of a standard <i>type-class</i>) is to separate pure functions form async
+procedures, which are fundamentally different forms of computation.
+</p>
+
+<p>
+(An async procedure requires an implicit distinct execution context and special
+signalling for returning its result).
+</p>
+
+<p>
+A monad (as a &ldquo;generic&rdquo; type-class) is the way to define abstraction barrier
+between pure mathematical functions and asynchronous procedures.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc31a44e" class="outline-3">
+<h3 id="orgc31a44e">A vertical arrow</h3>
+<div class="outline-text-3" id="text-orgc31a44e">
+<p>
+The fundamental principle is that values could be passed strictly in only one
+direction - <i>into an async context</i>, and never &ldquo;back&rdquo;, which has a deep relation
+with the concept of an &ldquo;arrow&rdquo;, found at the &ldquo;core of everything&rdquo; (<code>a -&gt; b</code>).
+</p>
+
+<p>
+The point is that these async procedures could be composed just like ordinary
+pure functions (using nesting, which is the only way a composition could be
+defined declaratively), but <i>behind its abstraction barrier</i>, using a distinct
+<i>composition operator</i> (not just our pure <code>.</code>) or &ldquo;inside of a Monad&rdquo; as they prefer to say.
+</p>
+
+<p>
+Think of introducing a <i>vertical arrow</i> for &ldquo;lifting of values&rdquo; (which will never
+&ldquo;come back&rdquo; to the pure realm which they have left - notice this <i>finest
+esoteric prose</i>) and a &ldquo;lifted&rdquo; (or specialized for this particular <i>context</i>) <code>.</code>,
+which is traditionally bound to a <code>&gt;&gt;=</code>, and suggest an arrow, which imply <i>a
+direction</i> (of a single step of any process).
+</p>
+
+<p>
+And, again, this notion of a &ldquo;vertical arrow&rdquo;, <i>which crosses an abstraction
+barrier</i> (it is a Kleisli arrow after all) in only one direction, is &ldquo;it&rdquo;.
+</p>
+
+<p>
+A Monad, as you see, is a &ldquo;lift&rdquo; (a <i>vertical error</i>) for values and &ldquo;composition&rdquo;
+(<i>specialized dot</i>) for computations in this particular <i>instance</i> or a context.
+</p>
+
+<p>
+So one &ldquo;lift&rdquo; values (using Kleisli arrows) into a specific context and compose
+&ldquo;computations&rdquo; defined (and evaluated) with means of the same pure language, but
+behind a <i>type-system ensured and guaranteed to be sound</i> actual abstraction barrier.
+</p>
+
+<p>
+This is <i>general-enough</i> (as general, in fact, as untyped Lambda Calculus) because
+it is, again, just an ADT for ADTs or nesting of ADTs. It corresponds to the
+fundamental notion of <i>&ldquo;AND ALSO&rdquo;</i> (an instance of) quacks like a duck.
+</p>
+
+<p>
+<i>Whole type-classes can be composed</i> (to form a new whole), and this is, for the third time in this
+essay, &ldquo;it&rdquo; again.
+</p>
+
+<p>
+Everything boils down to <i>partitions, nesting and arrows</i> - proper abstractions,
+generalized form Molecular Biology and <i>What Is</i>.
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-06 Mon 11:30</p>
+<p class="date">Created: 2023-02-06 Mon 13:45</p>
 </div>
 </body>
 </html>
