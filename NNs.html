@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-02-06 Mon 11:30 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neural Networks</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Neural Networks</h1>
+</header><p>
+We know the inputs and know the result and know the mathematical expression.
+</p>
+
+<p>
+Every mathematical expression can be turned into an Abstract Syntax Tree.
+</p>
+
+<p>
+A <i>Tree</i> here is crucial - this is how the individual &ldquo;arrows&rdquo; are arranged.
+</p>
+
+<p>
+The Arrows &ldquo;arise&rdquo; from currying of binary functions, which corresponds to the common <i>infix binary</i> operators, such as \(+\) or \(*\).
+</p>
+
+<p>
+An AST shows how values &ldquo;flow through&rdquo; an expression. There is always a <i>direction</i> in every evaluation.
+</p>
+
+<p>
+In addition to values of the parameters, an AST of a <i>partially</i> (or fully) evaluated expression may hold (memoize) some intermediate results, including derivatives of the function with respect to each of the values.
+</p>
+
+<p>
+As long as everything in the representation of an expression is <i>referentially transparent</i> and <i>immutable</i> the math will &ldquo;work&rdquo;.
+</p>
+
+<p>
+To change the outputs without changing the inputs of a <i>nested</i> expression (the nesting of at least one level deep is required), the only way is to <i>scale the parameters of the functions</i>. The functions themselves are, of course, immutable.
+</p>
+
+<p>
+This is how we a representation of a complex mathematical expression &ldquo;learns&rdquo; - the &ldquo;weights&rdquo; of the arguments are being updated.
+</p>
+
+<p>
+The process of updating of the wights can be done in a <i>systematic way</i>, using the notion of a <i>partial derivative</i> of a binary (curried) function with respect to each of its parameters.
+</p>
+
+<p>
+Notice that the derivative is defined as the <i>slope</i> to a function at a particular point.
+</p>
+
+<p>
+The notion of a <i>differentiable function</i> includes the notion of <i>continuity</i> (of having no gaps or kinks).
+</p>
+
+<p>
+In the mathematical expressions which represent neural nets we do not have arbitrary functions, on the contrary, we have functions of very particular kind.
+</p>
+
+<ul class="org-ul">
+<li>addition (putting together)</li>
+<li>negation</li>
+<li>adding of a negative number</li>
+<li>scaling (multiplying)</li>
+<li>adding to itself n times (repeated addition)</li>
+<li>taking apart into a number of equal parts</li>
+<li>rising into a power (exponentiation)</li>
+<li>division as rising into a negative power</li>
+<li>logarithms and recipricals</li>
+</ul>
+
+<p>
+We intentionally de-generalize multiplication and division.
+</p>
+
+<p>
+Out of these functions the nodes of an AST are being formed. The nodes then are &ldquo;decorated&rdquo; with additional intermediate results (values).
+</p>
+
+<p>
+Another fundamental <i>kind of operations</i> being used is a <i>structural transformation</i> of the values, without losing or discarding of any information.
+</p>
+
+<p>
+Such operations must be reversible, which imply no information loss.
+</p>
+
+<p>
+A function must be <i>differentiable</i>, which means to have a non-vertical <i>tangent line</i> at every point. So, \(y=Constant\) (collapse to a single value) are ok, but \(x=Constant\) (just a constant) are not.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-02-06 Mon 11:30</p>
+</div>
+</body>
+</html>
