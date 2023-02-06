@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-06 Mon 13:45 -->
+<!-- 2023-02-06 Mon 13:55 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Mess We Are In</title>
@@ -44,7 +44,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org49dc6f0">
+<pre class="example" id="orgb3a8f7a">
 	linux-vdso.so.1 (0x00007ffc46ed5000)
 	libc++.so.1 =&gt; /usr/lib64/libc++.so.1 (0x00007fa8c2449000)
 	libc++abi.so.1 =&gt; /usr/lib64/libc++abi.so.1 (0x00007fa8c2405000)
@@ -63,7 +63,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="orgab0edd3">
+<pre class="example" id="orgc4c7920">
 a.out:	file format elf64-x86-64
 
 Disassembly of section .text:
@@ -727,7 +727,12 @@ pure functions (using nesting, which is the only way a composition could be
 defined declaratively), but <i>behind its abstraction barrier</i>, using a distinct
 <i>composition operator</i> (not just our pure <code>.</code>) or &ldquo;inside of a Monad&rdquo; as they prefer to say.
 </p>
+</div>
+</div>
 
+<div id="outline-container-org8a8d27b" class="outline-3">
+<h3 id="org8a8d27b">And a horizontal arrow</h3>
+<div class="outline-text-3" id="text-org8a8d27b">
 <p>
 Think of introducing a <i>vertical arrow</i> for &ldquo;lifting of values&rdquo; (which will never
 &ldquo;come back&rdquo; to the pure realm which they have left - notice this <i>finest
@@ -740,7 +745,11 @@ direction</i> (of a single step of any process).
 And, again, this notion of a &ldquo;vertical arrow&rdquo;, <i>which crosses an abstraction
 barrier</i> (it is a Kleisli arrow after all) in only one direction, is &ldquo;it&rdquo;.
 </p>
-
+</div>
+</div>
+<div id="outline-container-orgad51fd0" class="outline-3">
+<h3 id="orgad51fd0">an ADT for ADTs</h3>
+<div class="outline-text-3" id="text-orgad51fd0">
 <p>
 A Monad, as you see, is a &ldquo;lift&rdquo; (a <i>vertical error</i>) for values and &ldquo;composition&rdquo;
 (<i>specialized dot</i>) for computations in this particular <i>instance</i> or a context.
@@ -757,9 +766,16 @@ This is <i>general-enough</i> (as general, in fact, as untyped Lambda Calculus) 
 it is, again, just an ADT for ADTs or nesting of ADTs. It corresponds to the
 fundamental notion of <i>&ldquo;AND ALSO&rdquo;</i> (an instance of) quacks like a duck.
 </p>
-
+</div>
+</div>
+<div id="outline-container-org9fcc878" class="outline-3">
+<h3 id="org9fcc878">Comosition of type-classes</h3>
+<div class="outline-text-3" id="text-org9fcc878">
 <p>
-<i>Whole type-classes can be composed</i> (to form a new whole), and this is, for the third time in this
+<i>Whole type-classes can be composed</i> (to form a new whole), using instantiation
+(implementing an interface within an ADT <i>module</i>) instead of some explicit
+type-level combinators (the type-system will maintain its own context to track
+who implements what), and this is, for the third time in this
 essay, &ldquo;it&rdquo; again.
 </p>
 
@@ -774,7 +790,7 @@ generalized form Molecular Biology and <i>What Is</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-06 Mon 13:45</p>
+<p class="date">Created: 2023-02-06 Mon 13:55</p>
 </div>
 </body>
 </html>
