@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-02-12 Sun 15:20 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Flat Map</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Flat Map</h1>
+</header>
+<div id="outline-container-orgacc17a3" class="outline-2">
+<h2 id="orgacc17a3">The flatMap view of the world</h2>
+<div class="outline-text-2" id="text-orgacc17a3">
+<p>
+In Scala they think intuitively in terms of <code>flaMap</code> and <code>map</code> (this is what for-syntax)
+desurars into, instead in terms of <i>arrows</i> and <i>composition</i>.
+</p>
+
+<p>
+In other words, they just emphasize the <i>Functor</i> aspect over the <i>arrow</i> aspect.
+</p>
+
+<p>
+They thus define things <i>operationally</i>, in terms of <i>how it is done</i> (nested calls
+to <code>fmap</code>), instead of <i>what it is for</i> - composition of <i>transformations</i> (arrows).
+</p>
+
+<p>
+the <code>flatMap</code> is just a wrong concept. It messes up the fundamental concepts and
+induces inappropriate, or plain wrong intuitions.
+</p>
+
+<p>
+The essence of what we traditionally call <code>map</code> is to <i>access</i> and/or <i>modify</i> a value
+within (&ldquo;inside of&rdquo;) a given <i>context</i> (an Abstract Data Type).
+</p>
+
+<p>
+There is a generalized abstraction which mathematicians call <i>Functor</i>.
+</p>
+
+<p>
+Traditionally, in CS we use a <i>type-class</i> (a set of <i>required signatures</i>) with <code>fmap</code>, as
+an <i>operational definition</i> of what a <i>Functor</i> is - to be an
+instance of a <i>Functor</i> an ADT should have <code>fmap</code> implemented.
+</p>
+
+<p>
+<code>flatMap</code> comes from the other &ldquo;realm&rdquo; and is just <code>flatten</code> (of a <i>nested</i> List -
+a list of lists - this is important) after being <code>map</code>-ped over the <i>inner list</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">flatten</span> <span style="color: #D8DEE9;">::</span> [[a]] <span style="color: #D8DEE9;">-&gt;</span> [a]
+</pre>
+</div>
+<p>
+<code>concat</code> is just a better generalization of this
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">concat</span> <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Foldable</span> t <span style="color: #D8DEE9;">=&gt;</span> t [a] <span style="color: #D8DEE9;">-&gt;</span> [a]
+</pre>
+</div>
+<p>
+and, of course, <code>fmap</code> is
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #81A1C1;">where</span>
+<span style="background-color: #2E3440;"> </span> fmap <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> f a <span style="color: #D8DEE9;">-&gt;</span> f b
+<span style="background-color: #2E3440;"> </span> <span style="color: #D8DEE9;">...</span>
+
+</pre>
+</div>
+<p>
+But this is not the whole story, not even the most essential part.
+</p>
+
+<p>
+The essence is <i>composition</i> of functions (transformations) and the only way to implement composition of
+pure functions (mathematical or in the context of a programming language
+<i>expressions</i>) is with <i>nesting</i>. In math we use <i>explicit parenthesis</i>, in CS we use
+<i>nested lanbda expressions</i>.
+</p>
+
+<p>
+This is the fundamental principle - a <i>composition always involve nesting</i>,
+implicit or explicit. This is as fundamental as biological cells (and partitions
+within the cells), which <i>&ldquo;implement&rdquo; processes</i>.
+</p>
+
+<p>
+This is <i>why</i> the <i>do-notation</i> in Haskell  desugars to <i>nested lambda expressions</i>,
+and the <i>for-syntax</i> in Scala desugars to something similar (but conceptually wrong) - <i>nested</i>
+<code>flatMap</code> s .
+</p>
+
+<p>
+Yes, nesting of <i>partially applies</i> <code>fmap</code> s <i>establishes an explicit order</i> of
+transformations (abstracted out by parameterization), but this is not the
+essense. The essense is that <i>these whole things</i> can be composed.
+</p>
+
+<p>
+The symbol <code>&gt;&gt;=</code> captures the essence of the whole operation - <i>nesting of lambdas</i>.
+</p>
+
+<p>
+The essence has is captured (and shown) in the type - it is a <i>transition</i> from <code>m
+a</code> to <code>m b</code>,  or just <code>m a -&gt; m b</code>, using <code>a -&gt; m b</code>, which can be partially applied.
+</p>
+
+<p>
+If we <i>hypothetically</i> change the order of arguments of <code>(&gt;&gt;=)</code>, then
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="background-color: #2E3440;"> </span>(<span style="color: #D8DEE9;">&gt;&gt;=</span>) <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> m a <span style="color: #D8DEE9;">-&gt;</span> m b
+</pre>
+</div>
+<p>
+looks exactly like <code>fmap</code>, and <code>a -&gt; m b</code> is a <i>Kleisli arrow</i> - an one-way <i>lifting</i> transformation.
+</p>
+
+<p>
+This, by the way, is exactly why a <i>Monad</i> is an instance of a <i>Functor</i> - it &ldquo;has&rdquo;
+this aspect of forming a <i>context</i>, which means an implicit <i>abstraction barrier</i> -
+a conceptual membrane.
+</p>
+
+<p>
+An abstraction barrier, in turn implies the way to cross it (a pump), and this is what
+<i>&ldquo;lifting&rdquo;</i> and <i>Kleisli arrows</i> (yet another abstract notion of crossing an
+abstraction barrier) for.
+</p>
+
+<p>
+We used to think of a <code>map</code> in terms of a Lists, but it may be just a single
+element &ldquo;container&rdquo;, or <i>either</i> empty or a single value (a sum-type), which is how a List can
+be viewed (<i>conceptually</i> it has the aspect of being either <i>empty</i> or not).
+</p>
+
+<p>
+Whether the type is a <i>sum-type</i> or not has been abstracted away from the notion
+of mapping over it (and of composing such mappings at a higher level).
+</p>
+
+<p>
+When we partially apply <code>fmap</code> or our hypothetical <i>reordered</i> <code>(&gt;&gt;=)</code>, what we get is
+a function from something <code>a</code> to the same something of <code>b</code>, which is just an <i>arrow</i> - a <i>single transformation</i> (a step).
+</p>
+
+<p>
+3 different fundamental, but orthogonal notions are packed tightly here (and
+could be clearly separated out by partially applying the <code>fmap</code> (<i>Functor</i>) aspect).
+</p>
+
+<ul class="org-ul">
+<li><i>mapping</i> (reaching to a value &ldquo;inside&rdquo;)</li>
+<li>an arrow (a transformation <code>a -&gt; b</code>)</li>
+<li><i>nesting</i> at the level of lambdas</li>
+<li>an implicit order (caused by nesting)</li>
+<li>composition of arrows (by nesting)</li>
+</ul>
+
+<p>
+Abstractly and conceptually, this is not unlike to the <i>emergent properties</i>, which a
+folded protein - a whole 3D structure (an enzyme) has.
+</p>
+
+<p>
+So, being an instance of a <i>Functor</i> here is rather an implementation detail. The essense
+is an <i>arrow</i> (a <i>transformation</i>) which, can be composed (nested).
+</p>
+
+<p>
+The functor aspect here is for reaching behind abstraction barriers, which is a
+&ldquo;dirty hack&rdquo; or &ldquo;cheating&rdquo;.
+</p>
+
+<p>
+The &ldquo;proper way&rdquo; is to <i>declaratively</i> say what is <i>eventyally</i> to be done (by the
+dirty runtime) <i>behind that abstraction barrier</i> (within a given context).
+</p>
+
+<p>
+And we just use <code>fmap</code> s to do the &ldquo;dirty&rdquo; jobs. Again, in the Scala tradion they
+emphasize the <i>means</i> (the Functor property) over the <i>ends</i> (composition of
+&ldquo;arrows&rdquo;) - whole transformations, resulted from <i>partially application</i>, which
+abstract out the actual &ldquo;transformer&rdquo;.
+</p>
+
+<p>
+As one may notice, all the fundamental notions (<i>abstraction by parameterization</i>,
+<i>abstraction by specification</i> (type-classes), ADTs as actual implementations) are
+being used it his <i>&ldquo;locus&rdquo;</i> which is at the essense of functional programming.
+</p>
+
+<p>
+This, of course, is not an arbitrary coincidence.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-02-12 Sun 15:20</p>
+</div>
+</body>
+</html>

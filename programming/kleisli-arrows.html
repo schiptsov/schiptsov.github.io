@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-06 Mon 11:30 -->
+<!-- 2023-02-12 Sun 14:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kleisli Arrows</title>
@@ -73,23 +73,23 @@ entities</i> to each other or <i>compose</i> them.
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Applicative</span> <span style="color: #D8DEE9;">::</span> (<span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>) <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
 <span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Applicative</span> f <span style="color: #81A1C1;">where</span>
-<span style="background-color: #272C36;"> </span> <span style="color: #D8DEE9;">...</span>
+<span style="background-color: #2E3440;"> </span> <span style="color: #D8DEE9;">...</span>
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Monad</span> <span style="color: #D8DEE9;">::</span> (<span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>) <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
 <span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Applicative</span> m <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #81A1C1;">where</span>
-<span style="background-color: #272C36;"> </span> <span style="color: #D8DEE9;">...</span>
+<span style="background-color: #2E3440;"> </span> <span style="color: #D8DEE9;">...</span>
 </pre>
 </div>
 
 <p>
 Notice the <i>arrows</i> (kinds).
 </p>
-<div id="outline-container-org263a5ce" class="outline-2">
-<h2 id="org263a5ce">Cheaters</h2>
-<div class="outline-text-2" id="text-org263a5ce">
+<div id="outline-container-org4db1abb" class="outline-2">
+<h2 id="org4db1abb">Cheaters</h2>
+<div class="outline-text-2" id="text-org4db1abb">
 <p>
 We <i>cheat</i> and could &ldquo;extract&rdquo; values from different <i>contexts</i> (except IO),
 while we actually shouldn&rsquo;t.
@@ -110,7 +110,7 @@ level of Molecular biology or Life Itself (yes, I know, inside a star&#x2026;)
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-06 Mon 11:30</p>
+<p class="date">Created: 2023-02-12 Sun 14:07</p>
 </div>
 </body>
 </html>
