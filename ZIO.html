@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-14 Tue 13:52 -->
+<!-- 2023-02-14 Tue 14:04 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ZIO</title>
@@ -218,11 +218,47 @@ running tons of imperative crap. So, definitely YES.
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgcfea9d2" class="outline-2">
+<h2 id="orgcfea9d2">Do not abstract for the sake of abstraction</h2>
+<div class="outline-text-2" id="text-orgcfea9d2">
+<p>
+Unnecessary, redundant abstractions is the root of all evil. Unlike <i>ZIO2</i>, which
+packages an <i>interpreter of a pure declarative language</i> (mini-Haskell, if you
+wish), things like <i>ScalaZ</i> or <i>Cats</i> just provide sets of common abstractions (by
+defining and implementing <i>standard type-classes</i>) which by themselves may be
+unnecessary and redundant.
+</p>
+
+<p>
+The point of emergent standard patterns (which, by the way, are always reducible
+to the fundamental arrangements of  &ldquo;dots and arrows&rdquo;) is to <i>recognize</i> them (in
+all kinds of meaning), not to just make them.
+</p>
+
+<p>
+Again, everything reducible to just a few <i>special forms</i> with corresponding
+visual and structural patterns, of which <i>dispatch</i> (structural pattern-matching)
+is the most fundamental.
+</p>
+
+<p>
+Partitioning (lambdas), Nesting (scoping) sequences (paths of arrows) and
+Forking/Joining are another universals. The old Lisp guys figured it all out
+back then, including &ldquo;fibers&rdquo;, &ldquo;flavors&rdquo; and metacircular interpreters.
+</p>
+
+<p>
+There is nothing in ZIO that was not in SICP, (well, except the parameterized
+type-classes and higher-kinded types, of course).
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-14 Tue 13:52</p>
+<p class="date">Created: 2023-02-14 Tue 14:04</p>
 </div>
 </body>
 </html>
