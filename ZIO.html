@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-14 Tue 14:04 -->
+<!-- 2023-02-14 Tue 17:27 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ZIO</title>
@@ -254,11 +254,71 @@ type-classes and higher-kinded types, of course).
 </p>
 </div>
 </div>
+
+<div id="outline-container-org7b23447" class="outline-2">
+<h2 id="org7b23447">Look, ma, ZIO!</h2>
+<div class="outline-text-2" id="text-org7b23447">
+<p>
+When <i>capturing</i> of common and even universal patterns ends and  <i>over-abstraction
+and unnecessary wrapping</i> begins?
+</p>
+
+<p>
+Well, there is a theoretical result that <i>everything can be reduced to (or
+/structured</i> in terms of) <i>Algebraic data types</i> (sum-, product- and function-).
+</p>
+
+<p>
+Special concurrency types (&ldquo;instructions&rdquo;) are being added on top of pure logic via an explicit
+support in the interpreter (a stack-based virtual-machine). As long as the
+referential transparency property is ensured, we do not care how these are
+being implemented, we just <i>declaratively use</i> them - &ldquo;and then (eventually) do
+this&rdquo;.
+</p>
+
+<p>
+So, the real question actually is - how much of a /declarative pure-functional DSL, extended with async primitives and advanced ADTs like Fibers, Streams,
+etc., do we need?
+</p>
+
+<p>
+Another question is which <code>Monads</code> exactly? <code>IO</code>, of course, and&#x2026;?
+</p>
+
+<p>
+The point is we do not want to re-create crappy parts of Haskell libraries
+caused by forced to be implemented as pure functions. In <i>Scala3</i> we can use the
+imperative features <i>behind an abstraction barriers, ensured by the types system</i>,
+and this is Whole Point and the &ldquo;innovation&rdquo; of using Scala instead of Haskell -
+having the <i>host language</i> a bit nicer, so we <i>do not over-abstract</i> the
+implementations.
+</p>
+
+<p>
+The essence, however, is to establish and to use the type-system to <i>guarantee the soundness</i> of the
+abstraction barriers that separates a pure, declarative DSL from its
+implementation and other Scala code, imperative or not.
+</p>
+
+<p>
+How much of it do we need? Well, similar to the Intermediate Representation
+which GHC uses - just a bunch of <i>typed thunks</i> sequenced into a <i>declarative
+description</i> of an Finite State Machine, which is what it should be - a pure expression (and which is
+an output of the Haskell&rsquo;s <code>main</code> function is).
+</p>
+
+<p>
+The whole point of a <i>lazy declarative languages</i> is to produce such pure
+expressions (FSMs) which are technically identical to expressions of math and
+logic.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-14 Tue 14:04</p>
+<p class="date">Created: 2023-02-14 Tue 17:27</p>
 </div>
 </body>
 </html>
