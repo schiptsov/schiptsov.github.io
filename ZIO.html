@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-02-14 Tue 13:52 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZIO</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">ZIO</h1>
+</header><p>
+This project <a href="https://zio.dev/">https://zio.dev/</a> turns out to be a representative example of what
+is going on in modern software development.
+</p>
+
+<p>
+The complementary set of videos &ldquo;ZIO from Scratch&rdquo; (can be found at
+<a href="https://www.youtube.com/@Ziverge">https://www.youtube.com/@Ziverge</a>) is especially nice, and illustrates that the
+clear articulation of the principles (the reason) behind every single design or
+implementation decisions leads to a way better code.
+</p>
+
+<p>
+Recently <a href="https://www.youtube.com/@AndrejKarpathy">https://www.youtube.com/@AndrejKarpathy</a> produced the similar set of
+&ldquo;from the first principles&rdquo; videos, which is a good thing.
+</p>
+
+<p>
+So, what is going on there? Well, <i>a lot</i> at different levels simultaneously.
+</p>
+
+<div id="outline-container-orgf543f8d" class="outline-2">
+<h2 id="orgf543f8d">Turtles all the way down</h2>
+<div class="outline-text-2" id="text-orgf543f8d">
+<p>
+Lets begin from seemingly very far away. A human language has been evolved to
+communicate information about things in our shared environment. It is
+<i>naturally</i> (universally) evolved to have different kinds (not classes) of words
+to <i>refer to</i> different aspects of what happens in the shared environment -
+&ldquo;things&rdquo;, &ldquo;attributes&rdquo; and &ldquo;actions&rdquo; or &ldquo;ongoing processes&rdquo;, which, of course,
+corresponds to nouns, adjectives and verbs. Again, this behavior naturally
+emerged because the environment has its constraints and &ldquo;laws&rdquo;.
+</p>
+
+<p>
+At a higher level of a human language model there are &ldquo;standards idioms&rdquo;, which are
+<i>distinct patterns</i> people lean to use to some recurring observations or in <i>similar contexts</i>.
+</p>
+
+<p>
+The fundamental principle is that a proper language use stays close to reality
+and technically is just an encoding and decoding. At least it should be this
+way.
+</p>
+
+<p>
+Conceptually, very similar things happen in the world of programming language
+semantics - generalized notions (for a commonly observed patterns) and
+corresponding <i>standard idioms</i> emerge and we are seeing the same things over and
+over again at different levels of abstraction.
+</p>
+
+<p>
+When we try to at least enumerate the &ldquo;core&rdquo; abstractions, we ultimately end up with
+&ldquo;arrows&rdquo; and &ldquo;dots&rdquo; and a very few <i>common &ldquo;shapes&rdquo; or &ldquo;forms&rdquo;</i> made out of these.
+</p>
+
+<p>
+At the very essence we can not just enumerate and count all the possible arrows
+between the dots in a particular arrangement, but even <i>observe</i> that these are
+<i>all possible arrows</i> out there.
+</p>
+
+<p>
+These notions lead to further generalized notions, such that of a &ldquo;path&rdquo;
+(<i>connected arrows</i>) and at the levels of paths, to the notions of reaching the
+same &ldquo;destination&rdquo;, etc.
+</p>
+
+<p>
+Being classified and then rigorously defined, these notions got their own names
+and their common properties got their own distinct names too. This is how we got
+things like <i>Functor</i> or <i>commutativity</i> or that notion that a <i>diagram commutes</i>.
+</p>
+
+<p>
+At the level of programming languages, both semantics and implementation, we
+have discovered similar generalized patterns too.
+</p>
+
+<p>
+Arguably, the most fundamental one is what we call &ldquo;dispatch&rdquo; or &ldquo;branching&rdquo;, to
+which various kinds of <i>structured pattern-matching</i> expressions corresponds.
+</p>
+
+<p>
+Your CPU does dispatch on a current <i>machine instruction</i>, JVM does dispatch on
+JVM <i>byte-codes</i>, a LISP interpreter does dispatch on a <i>structure of particular
+special forms</i>.
+</p>
+
+<p>
+The generalized process is, of course. called an <i>interpreter</i>, and this is a
+Universal Notion (this is why MIT professors wear funny hats on these videos).
+</p>
+
+<p>
+Going back to the &ldquo;core&rdquo; notions and patterns, it turns out that being <i>too
+general</i>, like <i>untyped</i> Lambda Calculus/ is &ldquo;bad&rdquo; (leads to paradoxes) and being
+too strict (as a <i>machine code</i>) is also bad (both are the extremes to be
+avoided).
+</p>
+
+<p>
+By trial and error we (the programming language community) has discovered that
+<i>type-systems</i> (which partitions the universe of values, check the constraints and
+provide some guarantees) is a must have, and even <i>evolved</i> what seems to be
+<i>&ldquo;just right&rdquo;</i> type system (Scala3 and Haskell are at the cutting edge of this).
+</p>
+
+<p>
+Everything is good and true when we deal with a pure mathematical expressions
+that never fail (and abstract syntax trees made out of those). But there are
+other &ldquo;things&rdquo; that night happen within a computation.
+</p>
+
+<p>
+So eventually we extend our basic universal <i>interpreters</i> to the notions of
+&ldquo;callback&rdquo; and &ldquo;continuations&rdquo; (which are basically closures that also capture
+parts of the context), to &ldquo;fibers&rdquo; (which ware essentially closures, but with
+fundamentally different <i>run-time properties</i> - they run differently). We also
+have &ldquo;errors&rdquo; (to which the right notions are &ldquo;termination&rdquo;, &ldquo;restarts&rdquo; or
+&ldquo;back-tracking&rdquo;).
+</p>
+
+<p>
+Having all this we still want to retain the fundamental properties of having
+<i>pure declarative languages</i> (or at least <i>pure subsets</i>) and the <i>referential
+transparency property</i> which is necessary and sufficient to <i>implement</i> interpreters
+of such pure declarative languages.
+</p>
+
+<p>
+If everything is done just right, we would have some emergent properties of
+a whole system, which we also call &ldquo;guarantees&rdquo; or &ldquo;safeties&rdquo; - <i>&ldquo;type-safety&rdquo;,
+&ldquo;stack safety&rdquo;, &ldquo;concurrency safety&rdquo; and even &ldquo;resource safety&rdquo;. All this just
+means that everything has been defined declaratively and will be interpreted
+/&ldquo;mechanically&rdquo;</i> by a machine - some simple <i>stack-bases virtual machine, which is
+an emergent architecture for an generalized interpreter</i>.
+</p>
+
+<p>
+All these &ldquo;nice things&rdquo; (a pure declarative language and its interpreter) can be
+packaged as an <i>advanced high-level library</i> for a modern, principle based
+language with and <i>advanced type-system</i> (which, of course, contains all these
+things <i>within itself</i>).
+</p>
+
+<p>
+The benefits are that we use this advanced host-language with its most advanced
+type-system to implement our <i>simple /but just done right</i> declarative language.
+The type-systems then <i>guarantees</i> the soundness and &ldquo;safety&rdquo; of our simple
+languages, in which we can program our stuff.
+</p>
+
+<p>
+All these <i>nested interpreters</i> (through JVM up to CPU), at least in theory/ just
+reduce the level of details within corresponding level of abstraction, while,
+and this is the point, retaining the high-level fundamental properties and the
+resulting &ldquo;soundness&rdquo; and &ldquo;safety&rdquo; at the cost of enormous, catastrophic
+redundancy.
+</p>
+
+<p>
+And <i>this</i> is what the ZIO project aims to achieve. It packages a simple declative
+DSL and its <i>async-aware interpreter</i> as an advaced Scala library, <i>delegating the
+/actual implementation</i> of all the <i>really scary shit</i> (low-level concurrency
+primitives, a less buggy async runtime) to the JVM, in hope that there will be
+some <i>other people</i> to blame for inevitable failures (JVM itself is an imperative
+OO C++98 crap, - subject to all the problems we are trying to avoid with out
+simple declarative DSLs).
+</p>
+
+<p>
+Whether or not ZIO does the <i>theoretically-optimal</i> things (uses proper Monads,
+does not over-abstract with bullshit, etc) is the subject of another long rant,
+but it is crucially important to realize that there ARE such <i>optimal
+abstractions</i> - the criteria is that they <i>closely and accurately capture</i>
+(completely and without redundancy) the relevant aspects of the world
+(sequences, forks and joins are examples of such aspects).
+</p>
+
+<p>
+Higher-level abstractions like <i>Events</i> and <i>Streams</i> and or <i>Channels</i> are &ldquo;natural&rdquo;
+and essential, so it is good when they have their own corresponding pure,
+declarative DSLs.
+</p>
+
+<p>
+Shall we use ZIO2? Well, it grossly simplifies the thinking, adds some
+&ldquo;mathematical rigor&rdquo; and provides the advertised &ldquo;guarantees&rdquo; at the cost of
+running tons of imperative crap. So, definitely YES.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-02-14 Tue 13:52</p>
+</div>
+</body>
+</html>
