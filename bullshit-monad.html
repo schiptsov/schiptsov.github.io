@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-25 Sat 21:37 -->
+<!-- 2023-02-26 Sun 12:12 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bullshit Monad</title>
@@ -37,8 +37,12 @@ programming, but nevertheless.
 
 <p>
 The level of bullshitting about Monads is way off charts. This is why so many
-pages of &ldquo;commentaries&rdquo; and gradual clarifications are requried - do reduce
+pages of &ldquo;commentaries&rdquo; and gradual clarifications are needed - do reduce
 bullshit to What actually Is.
+</p>
+
+<p>
+There is literally 2/3 of fundamental Computer Science entangled in this &ldquo;locus&rdquo;.
 </p>
 
 <p>
@@ -48,16 +52,27 @@ The <i>locus</i> (of programming) consist of:
 <h2 id="org753c19a">Interfaces</h2>
 <div class="outline-text-2" id="text-org753c19a">
 <p>
-A minimal interface is a single <i>typed lambda</i>. (We do not talk about <i>empty interfaces</i>).
+A <i>minimal interface</i> is a single <i>typed lambda</i>. (We do not talk about <i>empty interfaces</i>).
 </p>
 
 <p>
 We do <i>currying</i> to get a <i>multi-argument</i> lambdas and we <i>partially apply</i> curried
-lamdas.
+lambdas.
 </p>
 
 <p>
 This is how to make DSLs out of lambdas.
+</p>
+</div>
+</div>
+<div id="outline-container-org2842afe" class="outline-2">
+<h2 id="org2842afe">Modules</h2>
+<div class="outline-text-2" id="text-org2842afe">
+<p>
+A <i>minimal module</i> is one that exports a single such <i>typed lambda</i>. This is rather
+orthogonal concept for structuring the code, but it can be taken to a higher
+level with the concept of a Functor and <i>applying one module to another</i> (to get a
+specialization or compose &ldquo;traits&rdquo;).
 </p>
 </div>
 </div>
@@ -111,19 +126,60 @@ required &ldquo;laws&rdquo; and invariants)
 <h2 id="org75d3af5">Universal patterns</h2>
 <div class="outline-text-2" id="text-org75d3af5">
 <p>
-The abstract concept itself is too general, so Monads have <i>specializations</i>, and <i>which particular Monad</i> is another question.
+The abstract concept itself is too general, so Monads have <i>specializations</i>, and
+<i>which particular Monad</i> is another question.
+</p>
+
+<p>
+It <i>turns out</i> that this general concept captures and generalizes nicely the
+fundamental notion of an <i>abstraction barrier</i>, which in turn, is as fundamental
+as a cell membrane (a partition).
 </p>
 </div>
+
 <div id="outline-container-orgef03930" class="outline-3">
 <h3 id="orgef03930">Passing a context along</h3>
 <div class="outline-text-3" id="text-orgef03930">
+<p>
+A context could be passed explicitly as a <i>parameter</i> (<i>partially applied</i> or not)
+or implicitly as an <i>implicit parameter</i> (in languages which support implicits).
+</p>
+
 <ul class="org-ul">
 <li>to pass around the &ldquo;State of the whole World&rdquo; (an IO Monad)</li>
 <li>to pass a partially consumed input Stream (a Reader Monad)</li>
 <li>to pass along a partially filled String (a Writer Monad)</li>
+<li>etc.</li>
 </ul>
+
+<p>
+The fundamental property of <i>referential transparency</i> holds because no reference
+to a context is leaked out. This implies that there <i>at most one</i> reference to a
+context.
+</p>
+
+<p>
+There is, however, a standard idiom (in a function programming world) of passing
+the context within <code>&gt;&gt;=</code>, so it is &ldquo;hidden&rdquo; completely behind an abstraction
+barrier, and there is <i>zero public references</i> to the context and the user of an
+exported interfaces cannot even &ldquo;see&rdquo; that these is one.
+</p>
+
+<p>
+This trick alone justifies the use of a Monad type-class, and this idiom is so
+universal, that the IO Monad can be <i>though of</i> (modeled) as <i>passing of the state of the world
+behind the abstraction barrier</i>, and the referential transparency property holds.
+</p>
+
+<p>
+Any instance of an IO Monad, lets say, is just a value in a pure-functional
+world, while all the updating (which is described declaratively) would happen
+<i>eventually</i> behind the abstraction barrier (inside <code>&gt;&gt;==</code>) and will actually be
+done <i>at runtime</i>.
+</p>
 </div>
 </div>
+
 <div id="outline-container-orgc3f05e9" class="outline-3">
 <h3 id="orgc3f05e9">Nesting of pure functions</h3>
 <div class="outline-text-3" id="text-orgc3f05e9">
@@ -141,7 +197,7 @@ The abstract concept itself is too general, so Monads have <i>specializations</i
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-25 Sat 21:37</p>
+<p class="date">Created: 2023-02-26 Sun 12:12</p>
 </div>
 </body>
 </html>
