@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-12 Sun 14:07 -->
+<!-- 2023-02-25 Sat 21:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sum-Types</title>
@@ -25,7 +25,7 @@ MathJax = {
     fontCache: "global"
   },
   tex: {
-    tags: "ams",
+    tags: "%AUTONUMBER",
     multlineWidth: "85%",
     tagSide: "left",
     tagIndent: ".8em"
@@ -44,9 +44,9 @@ MathJax = {
 <header>
 <h1 class="title">Sum-Types</h1>
 </header>
-<div id="outline-container-org9a18580" class="outline-2">
-<h2 id="org9a18580">Disjoint sum (union)</h2>
-<div class="outline-text-2" id="text-org9a18580">
+<div id="outline-container-orgebf98b7" class="outline-2">
+<h2 id="orgebf98b7">Disjoint sum (union)</h2>
+<div class="outline-text-2" id="text-orgebf98b7">
 <p>
 We add up (put together) elements, not multiply them.
 </p>
@@ -59,36 +59,36 @@ Sums (and sum-types) are &ldquo;linear&rdquo;, while products are build &ldquo;d
 We use the symbol <code>|</code> to emphasize <i>partitioning of a disjoint union</i>.
 </p>
 </div>
-<div id="outline-container-org8204873" class="outline-3">
-<h3 id="org8204873">Rotation</h3>
-<div class="outline-text-3" id="text-org8204873">
+<div id="outline-container-orgf603e47" class="outline-3">
+<h3 id="orgf603e47">Rotation</h3>
+<div class="outline-text-3" id="text-orgf603e47">
 <p>
 commutative (same notion)
 \[(a \mid b) \cong (b \mid a)\]
 </p>
 </div>
 </div>
-<div id="outline-container-org978cf43" class="outline-3">
-<h3 id="org978cf43">Nested pairs</h3>
-<div class="outline-text-3" id="text-org978cf43">
+<div id="outline-container-org35c3d79" class="outline-3">
+<h3 id="org35c3d79">Nested pairs</h3>
+<div class="outline-text-3" id="text-org35c3d79">
 <p>
 isomorphic
 \[((a \mid b) \mid c) \cong (a \mid (b \mid c))\]
 </p>
 </div>
 </div>
-<div id="outline-container-org0abc1df" class="outline-3">
-<h3 id="org0abc1df">Disjoint sum</h3>
-<div class="outline-text-3" id="text-org0abc1df">
+<div id="outline-container-orge392a91" class="outline-3">
+<h3 id="orge392a91">Disjoint sum</h3>
+<div class="outline-text-3" id="text-orge392a91">
 <p>
 Think of it as adding up without <i>morphing into one</i>.
 \[a \mid b \cong a + b\]
 </p>
 </div>
 </div>
-<div id="outline-container-org43a7e02" class="outline-3">
-<h3 id="org43a7e02">Unit</h3>
-<div class="outline-text-3" id="text-org43a7e02">
+<div id="outline-container-org2e25a68" class="outline-3">
+<h3 id="org2e25a68">Unit</h3>
+<div class="outline-text-3" id="text-org2e25a68">
 <p>
 \(\emptyset\) as a <i>unit</i> - adding nothing change nothing.
 Logically it is an <i>uninhabited</i> type <code>Void</code> - there are no instances (or
@@ -98,9 +98,9 @@ values) of a void.
 </div>
 </div>
 </div>
-<div id="outline-container-org1f9ee65" class="outline-2">
-<h2 id="org1f9ee65">partitions</h2>
-<div class="outline-text-2" id="text-org1f9ee65">
+<div id="outline-container-org59de9a2" class="outline-2">
+<h2 id="org59de9a2">partitions</h2>
+<div class="outline-text-2" id="text-org59de9a2">
 <p>
 These are <i>type-level</i> notions, not an instance (value) level.
 </p>
@@ -132,9 +132,9 @@ an n-tuple, made out of <i>Conses</i>, which are nested Pairs.
 </p>
 </div>
 </div>
-<div id="outline-container-org5142e5b" class="outline-2">
-<h2 id="org5142e5b">Pattern-matching</h2>
-<div class="outline-text-2" id="text-org5142e5b">
+<div id="outline-container-org9d97162" class="outline-2">
+<h2 id="org9d97162">Pattern-matching</h2>
+<div class="outline-text-2" id="text-org9d97162">
 <p>
 &ldquo;Universal&rdquo; (everywhere) <i>pattern-matching</i> on sum-types of the ML-family of
  languages is the most important innovation in programming languages.
@@ -154,7 +154,7 @@ Languages without universal pattern-matching are simply inferior.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-12 Sun 14:07</p>
+<p class="date">Created: 2023-02-25 Sat 21:37</p>
 </div>
 </body>
 </html>

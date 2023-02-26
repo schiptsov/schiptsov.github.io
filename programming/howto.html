@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-12 Sun 14:07 -->
+<!-- 2023-02-25 Sat 21:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to program in crappy imperative languages</title>
@@ -117,9 +117,9 @@ as soon as I have typed in the program.”</i>
 — <b>Joe Armstrong</b>
 </p>
 
-<div id="outline-container-org8edebb9" class="outline-2">
-<h2 id="org8edebb9">Formalize with Algebraic types</h2>
-<div class="outline-text-2" id="text-org8edebb9">
+<div id="outline-container-org0e5b20f" class="outline-2">
+<h2 id="org0e5b20f">Formalize with Algebraic types</h2>
+<div class="outline-text-2" id="text-org0e5b20f">
 <p>
 Sets and a Second Order Logic is enough for formally define everything.
 </p>
@@ -140,9 +140,9 @@ an art. (Programming is still an art, similar to writing a poetry).
 </p>
 </div>
 </div>
-<div id="outline-container-orge0248b5" class="outline-2">
-<h2 id="orge0248b5">High-level, concise DSLs</h2>
-<div class="outline-text-2" id="text-orge0248b5">
+<div id="outline-container-orge303ca3" class="outline-2">
+<h2 id="orge303ca3">High-level, concise DSLs</h2>
+<div class="outline-text-2" id="text-orge303ca3">
 <p>
 This is serious. Once one have a proper set of features which are <i>orthogonal to but
 complement each other</i> (currying, partial application, implicit parameters,
@@ -160,9 +160,9 @@ to program.
 </p>
 </div>
 </div>
-<div id="outline-container-org9d257b5" class="outline-2">
-<h2 id="org9d257b5">Sets and Logic</h2>
-<div class="outline-text-2" id="text-org9d257b5">
+<div id="outline-container-org21f2af0" class="outline-2">
+<h2 id="org21f2af0">Sets and Logic</h2>
+<div class="outline-text-2" id="text-org21f2af0">
 <p>
 There are evolved formalisms (mental techniques <i>of an external Observer</i>). Neither exists outside ones head.
 </p>
@@ -189,9 +189,9 @@ Different kinds of atoms and molecules, from an external observer&rsquo;s point 
 </div>
 </div>
 
-<div id="outline-container-orga204b58" class="outline-2">
-<h2 id="orga204b58">Common idioms</h2>
-<div class="outline-text-2" id="text-orga204b58">
+<div id="outline-container-org93d3aa5" class="outline-2">
+<h2 id="org93d3aa5">Common idioms</h2>
+<div class="outline-text-2" id="text-org93d3aa5">
 <p>
 There are common or even universal idioms in programming. Thet go back to early LISPs and CLU (which was an imperative OO language).
 </p>
@@ -209,9 +209,9 @@ What Haskell or Scala3 call a <i>type-class</i> are just <i>named sets of interf
 </p>
 </div>
 
-<div id="outline-container-orgd29d76c" class="outline-3">
-<h3 id="orgd29d76c">Types as sets of values</h3>
-<div class="outline-text-3" id="text-orgd29d76c">
+<div id="outline-container-org920f68c" class="outline-3">
+<h3 id="org920f68c">Types as sets of values</h3>
+<div class="outline-text-3" id="text-org920f68c">
 <p>
 Classes, by the way, are just more structured <i>product types</i> - they allow <i>code &ldquo;slots&rdquo;</i>, not just data &ldquo;slots&rdquo;. CLOS got it right.
 </p>
@@ -230,9 +230,9 @@ In the classic paradigm the there <i>exported</i> functions to manipulate values
 </div>
 </div>
 
-<div id="outline-container-org4d5697a" class="outline-3">
-<h3 id="org4d5697a">Data-constructors</h3>
-<div class="outline-text-3" id="text-org4d5697a">
+<div id="outline-container-org0d20ed8" class="outline-3">
+<h3 id="org0d20ed8">Data-constructors</h3>
+<div class="outline-text-3" id="text-org0d20ed8">
 <p>
 There is &ldquo;universal&rdquo; operation of producing a new value of a specific type (or a class) - to call a data-constructor, which is a function.
 </p>
@@ -246,9 +246,9 @@ For parameterized types we naturally would have parameterized data-constructors.
 </p>
 </div>
 </div>
-<div id="outline-container-org3b294fb" class="outline-3">
-<h3 id="org3b294fb">Type-Constructors</h3>
-<div class="outline-text-3" id="text-org3b294fb">
+<div id="outline-container-org4a1322b" class="outline-3">
+<h3 id="org4a1322b">Type-Constructors</h3>
+<div class="outline-text-3" id="text-org4a1322b">
 <p>
 Type-constructors are always parameterized, because they are type-level &ldquo;functions&rdquo; or &ldquo;instantiations&rdquo;.
 </p>
@@ -264,9 +264,9 @@ Only Scala 3 has them so far. Haskell has <i>type-families</i> which are restric
 </div>
 </div>
 
-<div id="outline-container-org3257390" class="outline-2">
-<h2 id="org3257390">Scala 3</h2>
-<div class="outline-text-2" id="text-org3257390">
+<div id="outline-container-orgad68871" class="outline-2">
+<h2 id="orgad68871">Scala 3</h2>
+<div class="outline-text-2" id="text-orgad68871">
 <p>
 <code>Scala 3</code> is a <i>crafted</i> language. The first of its own kind. SML/NJ was Haskell were
 of the &ldquo;previous generation&rdquo; of artistic craftsmanship. <code>Ocaml</code> is another example.
@@ -277,7 +277,7 @@ of the &ldquo;previous generation&rdquo; of artistic craftsmanship. <code>Ocaml<
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-12 Sun 14:07</p>
+<p class="date">Created: 2023-02-25 Sat 21:37</p>
 </div>
 </body>
 </html>

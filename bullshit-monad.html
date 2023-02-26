@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-02-25 Sat 21:37 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bullshit Monad</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Bullshit Monad</h1>
+</header><p>
+At the end of the day one sees just another instance of the same common
+pattern - Upanishads turned into a obscurity, Buddhism ruined by sects,
+philosophy degraded into a contest of systems of  abstract bullshitting, science
+became a cult.
+</p>
+
+<p>
+Yes, this is somehow a <i>locus</i> at the core (boy, I hate this word!) of
+programming, but nevertheless.
+</p>
+
+<p>
+The level of bullshitting about Monads is way off charts. This is why so many
+pages of &ldquo;commentaries&rdquo; and gradual clarifications are requried - do reduce
+bullshit to What actually Is.
+</p>
+
+<p>
+The <i>locus</i> (of programming) consist of:
+</p>
+<div id="outline-container-org753c19a" class="outline-2">
+<h2 id="org753c19a">Interfaces</h2>
+<div class="outline-text-2" id="text-org753c19a">
+<p>
+A minimal interface is a single <i>typed lambda</i>. (We do not talk about <i>empty interfaces</i>).
+</p>
+
+<p>
+We do <i>currying</i> to get a <i>multi-argument</i> lambdas and we <i>partially apply</i> curried
+lamdas.
+</p>
+
+<p>
+This is how to make DSLs out of lambdas.
+</p>
+</div>
+</div>
+<div id="outline-container-org5dca566" class="outline-2">
+<h2 id="org5dca566">Just an ADT</h2>
+<div class="outline-text-2" id="text-org5dca566">
+<p>
+A minimal ADT is a <i>non-leaking</i> abstract type, defined only in terms of <i>exported
+interface</i> (a set of <i>operations</i>) and informally stated <i>relations</i> or &ldquo;laws&rdquo; among them.
+</p>
+
+<p>
+Mathematicians defined the <i>Set</i> abstraction in this way, without considering
+anything else but operations, relations and &ldquo;laws&rdquo;. This is, of course, a
+perfect ADT 200 years before any computers. Barbara Liskov just have noticed
+this first.
+</p>
+
+<p>
+Abstract Data Types (not <i>machine types</i>) are the basic building blocks.
+Everything builds upon this <i>required principle</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org4dd4f28" class="outline-2">
+<h2 id="org4dd4f28">A &ldquo;class&rdquo; for Types (ADTs)</h2>
+<div class="outline-text-2" id="text-org4dd4f28">
+<p>
+This unfortunate, crappy OO terminology confuses everyone. A <i>type-class</i> defines
+a <i>shape</i> of a <i>Trait</i> via required set interfaces (and informally stated &ldquo;laws&rdquo; and
+invariants).
+</p>
+
+<p>
+A Monad is <i>naturally</i> defined as a <i>type-class</i> and to implement it is become an
+instance of it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfcd0df5" class="outline-2">
+<h2 id="orgfcd0df5">And also an instance of a&#x2026;</h2>
+<div class="outline-text-2" id="text-orgfcd0df5">
+<p>
+This is the famous <i>Duck Typing</i> (walks like a duck and quacks like a duck). This literally means that an ADT <i>implements</i> another set of interfaces (and the
+required &ldquo;laws&rdquo; and invariants)
+</p>
+</div>
+</div>
+<div id="outline-container-org75d3af5" class="outline-2">
+<h2 id="org75d3af5">Universal patterns</h2>
+<div class="outline-text-2" id="text-org75d3af5">
+<p>
+The abstract concept itself is too general, so Monads have <i>specializations</i>, and <i>which particular Monad</i> is another question.
+</p>
+</div>
+<div id="outline-container-orgef03930" class="outline-3">
+<h3 id="orgef03930">Passing a context along</h3>
+<div class="outline-text-3" id="text-orgef03930">
+<ul class="org-ul">
+<li>to pass around the &ldquo;State of the whole World&rdquo; (an IO Monad)</li>
+<li>to pass a partially consumed input Stream (a Reader Monad)</li>
+<li>to pass along a partially filled String (a Writer Monad)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc3f05e9" class="outline-3">
+<h3 id="orgc3f05e9">Nesting of pure functions</h3>
+<div class="outline-text-3" id="text-orgc3f05e9">
+<ul class="org-ul">
+<li>Nesting is how one defines (or establishes) an explicit <i>order of evaluation</i>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org404fa9f" class="outline-2">
+<h2 id="org404fa9f">Abstraction barrier</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-02-25 Sat 21:37</p>
+</div>
+</body>
+</html>

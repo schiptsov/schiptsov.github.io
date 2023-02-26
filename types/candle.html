@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-12 Sun 14:07 -->
+<!-- 2023-02-25 Sat 21:36 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Candle</title>
@@ -25,7 +25,7 @@ MathJax = {
     fontCache: "global"
   },
   tex: {
-    tags: "ams",
+    tags: "%AUTONUMBER",
     multlineWidth: "85%",
     tagSide: "left",
     tagIndent: ".8em"
@@ -47,16 +47,16 @@ MathJax = {
 We are building the <i>simplest possible</i> mathematical model.
 </p>
 
-<div id="outline-container-org1349e9d" class="outline-2">
-<h2 id="org1349e9d">A vector from physics</h2>
-<div class="outline-text-2" id="text-org1349e9d">
+<div id="outline-container-org99e43b5" class="outline-2">
+<h2 id="org99e43b5">A vector from physics</h2>
+<div class="outline-text-2" id="text-org99e43b5">
 <p>
 <i>Intuitions</i> from physics:
 </p>
 </div>
-<div id="outline-container-orgbc7b3af" class="outline-3">
-<h3 id="orgbc7b3af">Force</h3>
-<div class="outline-text-3" id="text-orgbc7b3af">
+<div id="outline-container-orgfdf3a6c" class="outline-3">
+<h3 id="orgfdf3a6c">Force</h3>
+<div class="outline-text-3" id="text-orgfdf3a6c">
 <p>
 An abstract vector is defined as a <i>direction</i> and a <i>magnitude</i>.
 </p>
@@ -66,17 +66,17 @@ In the simplest model there are just two directions - up and down.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc7de96a" class="outline-3">
-<h3 id="orgc7de96a">Momentum</h3>
-<div class="outline-text-3" id="text-orgc7de96a">
+<div id="outline-container-org63d7560" class="outline-3">
+<h3 id="org63d7560">Momentum</h3>
+<div class="outline-text-3" id="text-org63d7560">
 <p>
 A momentum is defined as a <i>difference</i> between <i>two</i> adjacent <i>vectors</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgeebbc8a" class="outline-3">
-<h3 id="orgeebbc8a">Derivative</h3>
-<div class="outline-text-3" id="text-orgeebbc8a">
+<div id="outline-container-orgd7c1623" class="outline-3">
+<h3 id="orgd7c1623">Derivative</h3>
+<div class="outline-text-3" id="text-orgd7c1623">
 <p>
 In the simplest model the \(x\) -change is always \(1\) , so the derivative \(\frac{dy}{dx}\)
 is just the <i>difference</i> in the \(y\) coordinate.
@@ -84,9 +84,9 @@ is just the <i>difference</i> in the \(y\) coordinate.
 </div>
 </div>
 </div>
-<div id="outline-container-orgc04bb2d" class="outline-2">
-<h2 id="orgc04bb2d">A product-type</h2>
-<div class="outline-text-2" id="text-orgc04bb2d">
+<div id="outline-container-orgab4ef36" class="outline-2">
+<h2 id="orgab4ef36">A product-type</h2>
+<div class="outline-text-2" id="text-orgab4ef36">
 <p>
 A <code>Candle</code> is by definition a <i>record</i>. Conceptually - a <i>Set of labeled
   slots</i>. Each particular value corresponds to a &ldquo;point&rdquo; or a &ldquo;vector&rdquo;.
@@ -109,9 +109,9 @@ Of course, one could refactor quickly and safely because it is an ADT.
 </p>
 </div>
 </div>
-<div id="outline-container-org161842e" class="outline-2">
-<h2 id="org161842e">Parameterized by an interval</h2>
-<div class="outline-text-2" id="text-org161842e">
+<div id="outline-container-org94cdd97" class="outline-2">
+<h2 id="org94cdd97">Parameterized by an interval</h2>
+<div class="outline-text-2" id="text-org94cdd97">
 <p>
 Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized by its
 <i>size</i> - an <i>interval</i> between two <i>timestamps</i>).
@@ -119,9 +119,9 @@ Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized 
 </p>
 </div>
 </div>
-<div id="outline-container-orge7f8033" class="outline-2">
-<h2 id="orge7f8033">Deriving Eq, Ord</h2>
-<div class="outline-text-2" id="text-orge7f8033">
+<div id="outline-container-org79c003d" class="outline-2">
+<h2 id="org79c003d">Deriving Eq, Ord</h2>
+<div class="outline-text-2" id="text-org79c003d">
 <p>
 It will have implicit ordering by <i>timestamps</i>.
 </p>
@@ -138,9 +138,9 @@ This implies <code>min</code> and <code>max</code>  can be used directly on the 
 </div>
 </div>
 
-<div id="outline-container-org7e22754" class="outline-2">
-<h2 id="org7e22754">A Semigroup</h2>
-<div class="outline-text-2" id="text-org7e22754">
+<div id="outline-container-orgcd467a7" class="outline-2">
+<h2 id="orgcd467a7">A Semigroup</h2>
+<div class="outline-text-2" id="text-orgcd467a7">
 <p>
 WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </p>
@@ -151,18 +151,18 @@ WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </div>
 </div>
 </div>
-<div id="outline-container-orgcf4cac8" class="outline-2">
-<h2 id="orgcf4cac8">An abstract Empty Candle</h2>
-<div class="outline-text-2" id="text-orgcf4cac8">
+<div id="outline-container-orgf2fdb21" class="outline-2">
+<h2 id="orgf2fdb21">An abstract Empty Candle</h2>
+<div class="outline-text-2" id="text-orgf2fdb21">
 <p>
 Non-existent, abstract <i>identity element</i> \(e\) for the <i>merging</i> operation.
 \[e\bigoplus x = x = x \bigoplus e\]
 </p>
 </div>
 </div>
-<div id="outline-container-org0444fd1" class="outline-2">
-<h2 id="org0444fd1">A Monoid</h2>
-<div class="outline-text-2" id="text-org0444fd1">
+<div id="outline-container-orgadce4e8" class="outline-2">
+<h2 id="orgadce4e8">A Monoid</h2>
+<div class="outline-text-2" id="text-orgadce4e8">
 <p>
 With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>instance of a Monoid</i>.
 </p>
@@ -174,9 +174,9 @@ With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>in
 </div>
 </div>
 </div>
-<div id="outline-container-org0e614df" class="outline-2">
-<h2 id="org0e614df">Not an  Endofunctor</h2>
-<div class="outline-text-2" id="text-org0e614df">
+<div id="outline-container-org3a495e1" class="outline-2">
+<h2 id="org3a495e1">Not an  Endofunctor</h2>
+<div class="outline-text-2" id="text-org3a495e1">
 <p>
 Any <i>product type</i> looks like an implicit, <i>trivial Endofunctor</i>, provided that a <i>function</i>
 being  mapped over it &ldquo;knows&rdquo; how <i>not to break data consistency</i>.
@@ -211,7 +211,7 @@ an <i>Algebraic Data Type</i> (a product), but not a <i>Functor</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-12 Sun 14:07</p>
+<p class="date">Created: 2023-02-25 Sat 21:36</p>
 </div>
 </body>
 </html>
