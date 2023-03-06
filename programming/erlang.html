@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-25 Sat 21:37 -->
+<!-- 2023-03-06 Mon 13:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -117,9 +117,9 @@ results, but the problem is that its target platform (the runtime) is
 not designed for true asynchronity - it only <i>emulates</i> it using blocking
 and sharing primitives.
 </p>
-<div id="outline-container-org2597306" class="outline-2">
-<h2 id="org2597306">Why</h2>
-<div class="outline-text-2" id="text-org2597306">
+<div id="outline-container-org1027cab" class="outline-2">
+<h2 id="org1027cab">Why</h2>
+<div class="outline-text-2" id="text-org1027cab">
 <p>
 Conceptually, just like in a general purpose Functional language, functions from a
 <i>module</i> are being evaluated by the language&rsquo;s <i>runtime</i>. The runtime usually does
@@ -174,9 +174,9 @@ arguments. Arguments are used to <i>parameterize and specialize functions</i>.
 </div>
 </div>
 
-<div id="outline-container-org8fc5883" class="outline-2">
-<h2 id="org8fc5883">Websockets and framing in general</h2>
-<div class="outline-text-2" id="text-org8fc5883">
+<div id="outline-container-org867cd09" class="outline-2">
+<h2 id="org867cd09">Websockets and framing in general</h2>
+<div class="outline-text-2" id="text-org867cd09">
 <p>
 It seems, at least in theory, the <code>Erlang</code> is the best language for writing
 advanced client applications - it has the right implementation of &ldquo;core&rdquo;
@@ -208,9 +208,9 @@ uninterrupted effort, but food and money has to come from somewhere.
 </div>
 </div>
 
-<div id="outline-container-org0e979ff" class="outline-2">
-<h2 id="org0e979ff">SSL</h2>
-<div class="outline-text-2" id="text-org0e979ff">
+<div id="outline-container-org19b9b62" class="outline-2">
+<h2 id="org19b9b62">SSL</h2>
+<div class="outline-text-2" id="text-org19b9b62">
 <p>
 Erlang OTP team have done a great job for maintaining the <code>ssl</code> library, but now
 there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/etc/ssl/certs/java/cacerts</code>
@@ -218,9 +218,9 @@ there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/e
 </div>
 </div>
 
-<div id="outline-container-org7549d55" class="outline-2">
-<h2 id="org7549d55">Tools</h2>
-<div class="outline-text-2" id="text-org7549d55">
+<div id="outline-container-org5ba9283" class="outline-2">
+<h2 id="org5ba9283">Tools</h2>
+<div class="outline-text-2" id="text-org5ba9283">
 <p>
 Use <i>Emacs</i> or <i>Vim</i>. Both have support for TAGS and well as modern tooling.
 </p>
@@ -240,10 +240,10 @@ Here is a basic configuration. It uses <i>Doom Emacs</i> macros
 <pre class="src src-elisp"><span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">add-load-path!</span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">car</span> <span style="color: #A3BE8C;">(</span><span style="color: #81A1C1;">file-expand-wildcards</span> <span style="color: #A3BE8C;">"/usr/lib64/erlang/lib/tools-*/emacs"</span><span style="color: #A3BE8C;">)</span><span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
 
 <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package!</span> erlang
-<span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">erlang-mode</span> . lsp<span style="color: #B48EAD;">)</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">:config</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">erlang-root-dir</span> <span style="color: #A3BE8C;">"/usr/lib64/erlang"</span><span style="color: #B48EAD;">)</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> lsp-ui-doc-enable t<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+<span style="background-color: #272C36;"> </span> <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">erlang-mode</span> . lsp<span style="color: #B48EAD;">)</span>
+<span style="background-color: #272C36;"> </span> <span style="color: #81A1C1;">:config</span>
+<span style="background-color: #272C36;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">erlang-root-dir</span> <span style="color: #A3BE8C;">"/usr/lib64/erlang"</span><span style="color: #B48EAD;">)</span>
+<span style="background-color: #272C36;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> lsp-ui-doc-enable t<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
 </pre>
 </div>
 <p>
@@ -266,12 +266,12 @@ For <i>Neovim</i>, both <code>nvim-lspconfig</code> and <code>null_ls.nvim</code
 </p>
 <div class="org-src-container">
 <pre class="src src-lua"><span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">servers</span> = {
-<span style="background-color: #2E3440;"> </span> erlangls = {},
+<span style="background-color: #272C36;"> </span> erlangls = {},
 }
 <span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">lspconfig</span> = <span style="color: #81A1C1;">require</span> <span style="color: #A3BE8C;">'lspconfig'</span>
 <span style="color: #81A1C1;">for</span> <span style="color: #D8DEE9;">s</span> <span style="color: #81A1C1;">in</span> <span style="color: #81A1C1;">pairs</span>(servers) <span style="color: #81A1C1;">do</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">opts</span> = vim.tbl_deep_extend(<span style="color: #A3BE8C;">'force'</span>, options, servers[s] <span style="color: #81A1C1;">or</span> {})
-<span style="background-color: #2E3440;"> </span> lspconfig[s].setup(opts)
+<span style="background-color: #272C36;"> </span> <span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">opts</span> = vim.tbl_deep_extend(<span style="color: #A3BE8C;">'force'</span>, options, servers[s] <span style="color: #81A1C1;">or</span> {})
+<span style="background-color: #272C36;"> </span> lspconfig[s].setup(opts)
 <span style="color: #81A1C1;">end</span>
 </pre>
 </div>
@@ -279,13 +279,13 @@ For <i>Neovim</i>, both <code>nvim-lspconfig</code> and <code>null_ls.nvim</code
 for <code>null_ls</code> that would be something like
 </p>
 <div class="org-src-container">
-<pre class="src src-lua"><span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">nls</span> = <span style="color: #81A1C1;">require</span> <span style="color: #A3BE8C;">'null-ls'</span>
-<span style="background-color: #2E3440;"> </span> nls.setup {
-<span style="background-color: #2E3440;"> </span>   sources = {
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> nls.builtins.formatting.erlfmt,
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> },
-<span style="background-color: #2E3440;"> </span>   root_dir = <span style="color: #81A1C1;">require</span>(<span style="color: #A3BE8C;">'null-ls.utils'</span>).root_pattern(<span style="color: #A3BE8C;">'.null-ls-root'</span>, <span style="color: #A3BE8C;">'.nvim.settings.json'</span>, <span style="color: #A3BE8C;">'.git'</span>),
-<span style="background-color: #2E3440;"> </span> }
+<pre class="src src-lua"><span style="background-color: #272C36;"> </span> <span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">nls</span> = <span style="color: #81A1C1;">require</span> <span style="color: #A3BE8C;">'null-ls'</span>
+<span style="background-color: #272C36;"> </span> nls.setup {
+<span style="background-color: #272C36;"> </span>   sources = {
+<span style="background-color: #272C36;"> </span>   <span style="background-color: #272C36;"> </span> nls.builtins.formatting.erlfmt,
+<span style="background-color: #272C36;"> </span>   <span style="background-color: #272C36;"> </span> },
+<span style="background-color: #272C36;"> </span>   root_dir = <span style="color: #81A1C1;">require</span>(<span style="color: #A3BE8C;">'null-ls.utils'</span>).root_pattern(<span style="color: #A3BE8C;">'.null-ls-root'</span>, <span style="color: #A3BE8C;">'.nvim.settings.json'</span>, <span style="color: #A3BE8C;">'.git'</span>),
+<span style="background-color: #272C36;"> </span> }
 </pre>
 </div>
 <p>
@@ -304,7 +304,7 @@ use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-omnicomplete'</span>,
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-02-25 Sat 21:37</p>
+<p class="date">Created: 2023-03-06 Mon 13:07</p>
 </div>
 </body>
 </html>
