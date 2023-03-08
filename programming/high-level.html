@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-03-08 Wed 12:30 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>High Level programming</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">High Level programming</h1>
+</header><p>
+The Scott Wlaschin&rsquo;s book.
+The &ldquo;Making An Invalid State <i>Unrepresentable</i>&rdquo; meme.
+</p>
+
+<div id="outline-container-orgf3e4e22" class="outline-2">
+<h2 id="orgf3e4e22">&ldquo;Error&rdquo; handling</h2>
+<div class="outline-text-2" id="text-orgf3e4e22">
+<ul class="org-ul">
+<li>crash! crash! crash! (Joe Armstrong)</li>
+<li>option types, &ldquo;unwrap&rdquo; (Rust)</li>
+<li>&ldquo;smart constructors&rdquo; (Haskell, F#)</li>
+<li>proper <i>Monads</i> (with for comprehensions)</li>
+</ul>
+
+<p>
+In a <i>prototyping</i>, bottom-up code (as in &ldquo;On Lisp&rdquo;) always just <i>crash</i>.
+In <code>Erlang</code> crashes can be automatically restarted in a systematic way.
+</p>
+
+<p>
+An <i>Option</i> or a <i>Result</i> could be refactored after the &ldquo;happy path&rdquo; has been defined.
+</p>
+
+<p>
+Monadic <i>&ldquo;for-comprehensions&rdquo;</i> are especially good with <i>Options</i> or <i>Eithers</i>
+(<i>Results</i>). But just crash at first.
+</p>
+
+<p>
+Errors are not always &ldquo;failures&rdquo;. They are <i>anticipated possible outcomes</i> and
+therefore just &ldquo;forks&rdquo; of different &ldquo;paths&rdquo; (distinct <i>sequences of actions</i>).
+</p>
+
+<p>
+Some &ldquo;errors&rdquo; are <i>expected conditions</i> and thus would require a separate
+&ldquo;branch&rdquo; or a &ldquo;path&rdquo;. Just like an ordinary <code>if</code> expression.
+</p>
+
+<p>
+The <i>pattern-matching</i> or <i>case-analysis</i> expressions with multiple &ldquo;branches&rdquo;,
+&ldquo;arms&rdquo; or <i>clauses</i> capture this universal <i>pattern</i>.
+</p>
+
+<p>
+These <i>expected</i> &ldquo;splits&rdquo; or &ldquo;forks&rdquo; should be explicitly defined as separate &ldquo;paths of execution&rdquo; and made visible to a <i>type-checker</i>.
+</p>
+
+<p>
+The universal notion of an <i>empty /slot</i>, an <i>empty /list</i> (or any other <i>empty
+container</i>) inevitably result in a distinct &ldquo;alternative path&rdquo; (sequence of actions).
+</p>
+
+<p>
+<code>Monads</code> are just even more abstract, &ldquo;higher-level&rdquo; generalization of an
+<i>abstraction barrier</i> or of a <i>partition</i> or a <i>context</i> (it is a <i>type-class</i>, after all).
+</p>
+
+<p>
+A <i>Kleisli Arrow</i> crosses an <i>abstraction barrier</i>, literally. This is the <i>secret mantra</i>.
+</p>
+
+<p>
+Some <i>conditions</i> may cause an explicit &ldquo;lifting&rdquo; into a different <i>context</i>. There
+may or may not be the way to &ldquo;escape&rdquo; from it.
+</p>
+
+<p>
+In a <i>pure functional</i> language there is no &ldquo;arrow&rdquo; back &ldquo;down&rdquo; (after lifting). There is no
+&ldquo;unwrap&rdquo; in Haskell (because of a Monad instance).
+</p>
+
+<p>
+We can <i>pattern-match</i> and <i>bind</i> the wrapped value, but we cannot &ldquo;see it&rdquo; from outside
+of a Monad.
+</p>
+
+<p>
+So, what we call an &ldquo;error&rdquo; is just an <i>expected condition</i> which requires a &ldquo;<i>restart</i>&rdquo;, &ldquo;<i>backtracking</i>&rdquo;, and/or &ldquo;<i>taking a different path</i>&rdquo;.
+</p>
+
+<p>
+It is <i>redundant</i> to <i>partition</i> these &ldquo;paths&rdquo; (sequences of actions) with an
+explicit abstraction barrier, but it helps to maintain the <i>referential
+transparency property</i> for &ldquo;<i>applicative actions</i>&rdquo; and implicitly defines the order
+of evaluation in a <i>lazy language</i>, so they indeed form a <i>sequence</i> (being properly
+serialized).
+</p>
+
+<p>
+And this is basically it.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-03-08 Wed 12:30</p>
+</div>
+</body>
+</html>
