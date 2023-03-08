@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-03-08 Wed 19:11 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rust</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Rust</h1>
+</header><p>
+I came up with some <i>enlightened</i> and precise definition of <i>why</i> some languages  feel
+so crappy, like PHP, which is, as we know, <i>the fractal of bad design</i>.
+</p>
+
+<p>
+I have been reading a definitive <code>Rust</code> book, full of supposedly idiomatic,
+well-chosen examples, and I  regularly cringe <i>intuitively</i> without being able to
+articulate exactly why. It just <i>feels</i> crappy at some examples. Now I can articulate <i>why</i>.
+</p>
+
+<p>
+The language &ldquo;designers&rdquo; and community contributors are <i>math-illiterate</i>. This
+and only this. It feels exactly as if some <code>PHP</code> coders are designing a better <code>SML</code> for
+systems programming, without understanding <i>why</i>  <code>SML</code> or <code>Ocaml</code> are the way they
+are.
+</p>
+
+<p>
+Here is an example:
+</p>
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">pub</span> <span style="color: #81A1C1;">fn</span> <span style="color: #88C0D0;">notify</span><span style="color: #81A1C1;">&lt;</span><span style="color: #D8DEE9;">T</span>: <span style="color: #8FBCBB;">Summary</span> + <span style="color: #8FBCBB;">Display</span><span style="color: #81A1C1;">&gt;(</span><span style="color: #D8DEE9;">item</span>: <span style="color: #ECEFF4; background-color: #2E3440;">&amp;</span><span style="color: #8FBCBB;">T</span><span style="color: #81A1C1;">)</span>;
+</pre>
+</div>
+<p>
+This is the syntax for constraining an <i>abstract type</i> with multiple &ldquo;trait bounds&rdquo; as they call
+it.
+</p>
+
+<p>
+The operation they are trying to denote is a <i>Set Union</i>. A <i>star</i> <code>*</code> (for a <i>product</i>)
+would be appropriate. The <code>+</code> is mathematically a fundamentally
+different operation. This particular choice makes one cringe.
+</p>
+
+<p>
+The math experts who have designed SML have used <code>*</code> for product types.
+</p>
+
+<p>
+Here, in Rust, this is NOT a product type, but it is a <i>product of two traits</i>. The
+precise meaning is a <i>product of two named Sets of type-signatures</i>. Not a <i>sum</i>.
+</p>
+
+<p>
+Another cringe is that they use <code>push</code> and <code>pop</code> on collections, as if they are
+<i>stacks</i>, but this is OK because the idiots were those who designed the <code>C++</code>
+collections.
+</p>
+
+<p>
+There are a few more, mostly in naming of the methods, which I think is an
+intention, to make everything look familiar to <code>C++</code> developers,  but my generalization is obviously adequate and correct.
+</p>
+
+<p>
+<code>Scala</code> feels so much better because the designers came from the right <code>SML</code> tradition,
+and are <i>math experts</i>. Odersky is the <i>Giga Chad</i>, you know.
+</p>
+
+<p>
+Also the lack of a <i>uniform pattern-matching everywhere</i>, like in <code>SML</code>, <code>Ocaml</code> or
+<code>F#</code> is a cringe too. As if one just thrown away the most important thing because
+they did not get it, again, by being <i>math-illiterate</i>. They could, at least, have
+a look at <code>Erlang</code>, which is a <i>high-level system language</i>.
+</p>
+
+<p>
+By comparing <code>Rust</code> with <code>Scala</code> we could see how and why a <i>principle-guided /attention do
+details</i> really matters. <code>Rust</code> feels <i>PHP&rsquo;sque</i>.
+</p>
+
+<p>
+It is worth knowing that guys at <code>AT&amp;T Bell Labs</code>, who have designed the <i>Basis
+library</i> (an <i>stdlib</i>) have explored the possibility of using <code>SML/NJ</code> for system
+programming, and there were no problem with the syntax and semantics of the
+<code>SML</code>.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-03-08 Wed 19:11</p>
+</div>
+</body>
+</html>
