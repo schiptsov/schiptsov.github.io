@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-10 Fri 10:52 -->
+<!-- 2023-03-10 Fri 11:05 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Understanding Rust</title>
@@ -195,18 +195,24 @@ and <i>partial memory-safety</i> (and thus <i>soundness</i>) of the code <i>at t
 Yes, it <i>restricts</i> the <i>imperative</i> language (its semantics) to make it more <i>sound</i>,
 and imposes a strict &ldquo;discipline&rdquo; on <i>references</i> (by making them as they are in
 <code>SML</code>), similar to a pure-functional subset of <code>Scheme</code> or <code>Scala</code>. The analogy with
-<code>Scheme</code> is the principle-guiede way of the right understanding of <code>Rust</code>.
+<code>Scheme</code> is the principle-guided way of the right understanding of <code>Rust</code>.
 </p>
 
 <p>
 Instead of &ldquo;arbitrary&rdquo; memory access <i>using &ldquo;raw&rdquo; pointers</i> (as in <code>C</code> or <code>C++</code>) <code>Rust</code>
-enforces as strict &ldquo;discipline&rdquo;, guaranteed by the compiler (its type-checker
+enforces a strict &ldquo;discipline&rdquo;, guaranteed by the compiler (its type-checker
 and lifetime-checker), similar to <code>refs</code> (which is just an ADT) of functional
 language.
 </p>
 
 <p>
-In <code>Rust</code> <i>refs</i> are fundamental parts of the language and are deeply integrated within.
+Functional languages (or the pure subsets) do not have any <i>lifetime</i> issues by
+the virtue of having <i>immutable bindings</i> (and data) and the resulting <i>referential
+transparency</i> property. Everything &ldquo;lives forever&rdquo;.
+</p>
+
+<p>
+In <code>Rust</code> <i>refs</i> are the fundamental parts of the language and are deeply integrated within.
 This strict <i>ref-discipline</i>, together with the &ldquo;static and strong&rdquo; <i>type-discipline</i>, is
 what makes <code>Rust</code> special (and constitutes its major innovation).
 </p>
@@ -221,7 +227,7 @@ is <i>zero runtime overhead</i> in using its data-types. This is a long story.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-10 Fri 10:52</p>
+<p class="date">Created: 2023-03-10 Fri 11:05</p>
 </div>
 </body>
 </html>
