@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-03-10 Fri 10:52 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Understanding Rust</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Understanding Rust</h1>
+</header>
+<div id="outline-container-org8609469" class="outline-2">
+<h2 id="org8609469">Just what Scheme was to previous LISP dialects</h2>
+</div>
+
+<div id="outline-container-org6dea13f" class="outline-2">
+<h2 id="org6dea13f">The x86 CPU and Memory models</h2>
+<div class="outline-text-2" id="text-org6dea13f">
+<p>
+Modern CPUs are hardware implementations of  <i>abstract machines</i>, defined by
+standard <i>formal specifications</i>.
+</p>
+
+<p>
+It is crucial to realize that modern hardware is just creating an <i>illusion</i>
+according to simplified standard specification of a CPU with its particular
+instruction set, the set of <i>registers</i>, its <i>stack</i>, RAM, interrupts and I/O ports.
+</p>
+
+<p>
+Everything is a well-defined abstraction nowadays, which is <i>good</i> and the right
+thing to do.
+</p>
+
+<p>
+The <code>C++</code> language ISO standard is also defined as a <i>model</i>. It tries to define
+<i>semantics</i> of the language on top of <i>hardware abstractions</i>. This is also the
+right thing to do.
+</p>
+
+<p>
+To understand both <code>Rust</code> and <code>C/C++</code> we have to understand the most basic &ldquo;hardware
+abstractions&rdquo;.
+</p>
+</div>
+<div id="outline-container-org2115a8d" class="outline-3">
+<h3 id="org2115a8d">Instruction Set</h3>
+<div class="outline-text-3" id="text-org2115a8d">
+<p>
+A CPU is just a hardware implementation of an <i>Interpeter</i> (of its <i>instruction
+set</i>). Yes, an <i>Interpreter</i>, which is a particular kind of an <i>Abstract Machine</i>, is
+one of, if not <i>the</i> most fundamental abstraction in all computing.
+</p>
+</div>
+</div>
+<div id="outline-container-org53879f0" class="outline-3">
+<h3 id="org53879f0">Stack</h3>
+<div class="outline-text-3" id="text-org53879f0">
+<p>
+This is an &ldquo;hardware Abstract Data Type&rdquo;, defined within a CPU. Seriously. There
+is a particular set of instructions to access the Stack (an ADT) and
+standardized set of &ldquo;rules&rdquo; (<i>calling conventions</i>) of how the Stack is used when
+a <i>procedure</i> is called or an <i>interrupt</i> occurs.
+</p>
+
+<p>
+However Stack is just <i>superimposed</i> on some region in memory (RAM). A CPU has
+special <i>registers</i> to support it (as an abstraction), which maintain a <i>Stack
+Segment</i> for a program..
+</p>
+</div>
+</div>
+<div id="outline-container-orgc7d4816" class="outline-3">
+<h3 id="orgc7d4816">Heap</h3>
+</div>
+<div id="outline-container-org88ab13f" class="outline-3">
+<h3 id="org88ab13f">Data Segment</h3>
+<div class="outline-text-3" id="text-org88ab13f">
+<p>
+A process (resulting from running an <i>executable</i>) traditionally has
+</p>
+<ul class="org-ul">
+<li>Code Segment</li>
+<li>Stack Segment</li>
+<li>Data Segment</li>
+</ul>
+<p>
+which are abstract regions of memory each process has.
+</p>
+
+<p>
+These segments (memory regions) are completely separated from any other process
+and has a particular <i>addressing scheme</i> within each process.
+</p>
+
+<p>
+In fact CPU, hardware and an OS are maintaining an <i>illusion</i> of an isolated
+process and its memory layout, <i>as if each process has a &ldquo;full computer&rdquo; in its
+possession</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbdb1aef" class="outline-3">
+<h3 id="orgbdb1aef">Read-only &ldquo;section&rdquo;</h3>
+<div class="outline-text-3" id="text-orgbdb1aef">
+<p>
+Each executable has to be fully (or partially) loaded into computer&rsquo;s memory in
+order to be executed (interpreted) by a CPU. A <i>binary image</i> has its own
+<i>read-only</i> data section(s), which contain <i>&ldquo;static (immutable) data&rdquo;</i> of paticular
+types &#x2013; notably, numbers, <i>structs</i> and <i>strings</i>.
+</p>
+
+<p>
+The data can be accessed by the code as if it is just an ordinary data in
+memory, except that it is in fact <i>read-only</i>. Any attempt to write on any address
+from the <i>read-only section</i> will cause a hardware error, which will be caught by
+an OS and reported as a  <i>segmentation fault</i>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge7a205f" class="outline-2">
+<h2 id="orge7a205f">High-Level Functional languages</h2>
+<div class="outline-text-2" id="text-orge7a205f">
+<p>
+High-level functional languages are designed in the way to <i>abstract away
+everything hardware-related</i>.
+</p>
+
+<p>
+Languages like Miranda or Haskell could be <i>operationally defined</i> in its entirety
+as evaluation (reduction) of pure expressions by an interpretation process,
+formalized as of <i>Graph Reduction</i> (by a G-Machine).
+</p>
+
+<p>
+In fact it is operationally the same as evaluation using pen and paper (and
+person&rsquo;s memory and mind). This is absolutely remarkable and has lots of unique
+consequences.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8733b5f" class="outline-2">
+<h2 id="org8733b5f">Low-level Imperative languages</h2>
+<div class="outline-text-2" id="text-org8733b5f">
+<p>
+Imperative low-level languages such as <code>C</code>, <code>C++</code>, or <code>Rust</code> rely on standardized
+&ldquo;hardware abstractions&rdquo;, such as Registers, Stack and Memory Layout (visible
+from within a process).
+</p>
+
+<p>
+This is the fundamental difference. Low-level language are tied to underlying
+hardware abstractions, while pure-functional languages are just &ldquo;mathematical&rdquo;
+and &ldquo;logical&rdquo; expressions on &ldquo;paper&rdquo;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd42abb0" class="outline-2">
+<h2 id="orgd42abb0">Rust</h2>
+<div class="outline-text-2" id="text-orgd42abb0">
+<p>
+<code>Rust</code> superimposes its own set of abstractions, rules and conventions upon standardized
+&ldquo;hardware abstractions&rdquo;. This set is supposed to be <i>&ldquo;just right&rdquo;</i> (well-defined,
+<i>enforced</i> by the type-checker and the <i>lifetime-checker</i>) and <i>&ldquo;good-enough&rdquo;</i> for
+system programming (unlike <code>C++</code> with is a kitchen sink).
+</p>
+
+<p>
+This is the main innovation behind <code>Rust</code> - formalization of usage of <i>references</i>
+(a restricted variant of <i>pointers</i>) together with an explicit <i>lifetime-checker
+for references</i> (what they call the <i>borrow-checker</i>), which guarantees <i>type-safety</i>
+and <i>partial memory-safety</i> (and thus <i>soundness</i>) of the code <i>at the compile-time</i>.
+</p>
+
+<p>
+Yes, it <i>restricts</i> the <i>imperative</i> language (its semantics) to make it more <i>sound</i>,
+and imposes a strict &ldquo;discipline&rdquo; on <i>references</i> (by making them as they are in
+<code>SML</code>), similar to a pure-functional subset of <code>Scheme</code> or <code>Scala</code>. The analogy with
+<code>Scheme</code> is the principle-guiede way of the right understanding of <code>Rust</code>.
+</p>
+
+<p>
+Instead of &ldquo;arbitrary&rdquo; memory access <i>using &ldquo;raw&rdquo; pointers</i> (as in <code>C</code> or <code>C++</code>) <code>Rust</code>
+enforces as strict &ldquo;discipline&rdquo;, guaranteed by the compiler (its type-checker
+and lifetime-checker), similar to <code>refs</code> (which is just an ADT) of functional
+language.
+</p>
+
+<p>
+In <code>Rust</code> <i>refs</i> are fundamental parts of the language and are deeply integrated within.
+This strict <i>ref-discipline</i>, together with the &ldquo;static and strong&rdquo; <i>type-discipline</i>, is
+what makes <code>Rust</code> special (and constitutes its major innovation).
+</p>
+
+<p>
+It also uses the &ldquo;zero cost abstraction&rdquo; <i>meme</i>, introduced by <code>C++</code>, claiming that there
+is <i>zero runtime overhead</i> in using its data-types. This is a long story.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-03-10 Fri 10:52</p>
+</div>
+</body>
+</html>
