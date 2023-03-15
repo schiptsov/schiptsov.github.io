@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-03-15 Wed 11:17 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>It was a mistake</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">It was a mistake</h1>
+</header>
+<div id="outline-container-orgc43585b" class="outline-2">
+<h2 id="orgc43585b">Algol was a mistake</h2>
+<div class="outline-text-2" id="text-orgc43585b">
+<p>
+Algol has been designed as a <i>theoretical imperative language</i>, on assumption that
+a program will run on a &ldquo;whole computer&rdquo;, as it used to be back then before any
+<i>time-sharing</i> systems from IBM or AT&amp;T.
+</p>
+
+<p>
+The main mistake was to make it <i>imperative</i>. The resulting <i>lineage</i>, which
+includes C, C++, Java and even Javascript is nothing but pain and suffering (and you can tell!).
+</p>
+</div>
+</div>
+<div id="outline-container-org1742ee9" class="outline-2">
+<h2 id="org1742ee9">OOP was a mistake</h2>
+<div class="outline-text-2" id="text-org1742ee9">
+<p>
+OOP without <i>message-passing</i> (and sharing nothing) at is core was a mistake. The
+<i>theoretical claim</i> or promise of total encapsulation never materialized.
+</p>
+
+<p>
+Other than that, <i>stateful</i> objects do not <i>compose</i> and multi-threading <i>breaks the
+state encapsulation</i>. It routinely gets corrupted on a multi-threaded and multi-core settings.
+</p>
+</div>
+</div>
+<div id="outline-container-org474b54d" class="outline-2">
+<h2 id="org474b54d">Pthreads was a mistake</h2>
+<div class="outline-text-2" id="text-org474b54d">
+<p>
+Threads break process isolation, which is the fundamental and <i>required</i>
+characteristic of a process, plain and simple. It resulted in an <i>unsound</i>
+abstraction with all the well-known consequences.
+</p>
+
+<p>
+In short, an imperative multi-threaded OOP is a <i>low-effort toxic junkfood</i> of our
+trade.
+</p>
+
+<p>
+There are, however, things even worse than JVM. What happens inside a
+Javascript runtime should really not being discussed by sane, cultured, intelligent people.
+</p>
+</div>
+</div>
+<div id="outline-container-org45a7fce" class="outline-2">
+<h2 id="org45a7fce">Erlang</h2>
+<div class="outline-text-2" id="text-org45a7fce">
+<p>
+The designers of the Erlang language spent a lot of effort to use only sound
+abstractions and to place <i>asynchronous message-passing</i> at the center (as the
+foundational feature), restricting any other form of <i>sharing</i>.
+</p>
+
+<p>
+It is important to realize that, unlike Java (which is a plain <i>imperative OOP
+in C++</i>), the Erlang <i>runtime</i> has also been designed with <i>sharing nothing</i>
+principle in mind, and both <i>message-passing</i> and <i>process isolation</i> has been done
+right (unlike threads, they do not share even the <i>stack</i>).
+</p>
+
+<p>
+The &ldquo;outside world&rdquo; is accessible only thought <i>ports</i> and corresponding
+standardized <i>drivers</i>.
+</p>
+
+<p>
+Last, but not least, is the principle-guided <i>uniformity</i>. In Erlang everything
+looks like an isolated process, capable of receiving and sending messages in a
+uniform way. This is an example of a <i>conceptual integrity</i> at work.
+</p>
+
+<p>
+The results are so remarkable, that OO people prefer do not talk and ignore
+Erlang or the industrial (telecom and manufacturing) projects based on it.
+</p>
+</div>
+</div>
+<div id="outline-container-org0c00aa7" class="outline-2">
+<h2 id="org0c00aa7">Read mode</h2>
+<div class="outline-text-2" id="text-org0c00aa7">
+<p>
+<a href="https://doc.akka.io/docs/akka/current/typed/guide/actors-motivation.html">https://doc.akka.io/docs/akka/current/typed/guide/actors-motivation.html</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-03-15 Wed 11:17</p>
+</div>
+</body>
+</html>
