@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-17 Fri 14:52 -->
+<!-- 2023-03-17 Fri 14:57 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Understanding C++</title>
@@ -152,7 +152,14 @@ could <i>naturally</i> expect.
 </p>
 
 <p>
-Again, the Algol lineage is just non-mathematical (imperative) abstractions over
+Implicit coercions and truncations break the fundamental <i>closure property</i>,
+destructive over-writes (assignments) breaks the <i>referential transparency
+property</i>, and without these there is no mathematics. References to disappearing
+entities is just bullshit.
+</p>
+
+<p>
+Again, the Algol lineage is just a bunch of non-mathematical (imperative) abstractions over
 machine abstractions. This is the key for the right understanding.
 </p>
 </div>
@@ -174,7 +181,7 @@ The <code>C++</code> standard library, including STL, is written in itself, and 
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-17 Fri 14:52</p>
+<p class="date">Created: 2023-03-17 Fri 14:57</p>
 </div>
 </body>
 </html>
