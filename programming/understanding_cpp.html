@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-03-17 Fri 14:52 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Understanding C++</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Understanding C++</h1>
+</header>
+
+<div id="outline-container-org31d7c09" class="outline-2">
+<h2 id="org31d7c09">Generalization over hardware abstractions</h2>
+<div class="outline-text-2" id="text-org31d7c09">
+<p>
+The basic machine <i>model</i> of <code>C</code> and <code>C++</code> is based on an <i>abstraction</i> of a computer
+hardware architecture, rather than some form of <i>mathematics</i>. This explains so
+many annoying kludges, like having <code>0</code> as <code>false</code>.
+</p>
+
+<p>
+<code>C++</code> extends <code>C</code> with references, classes and generics, while it is
+backward-compatible with <code>C</code> <i>ABI</i>. The <code>C</code> language, in turn, is a set of slightly
+higher-level generalized abstraction over a machine (hardware architectures),
+which was an true enlightenment at its time.
+</p>
+
+<p>
+What <code>Fortran</code> did to programming mathematics, <code>C</code> did for programming hardware &#x2013;
+both introduced a set of convenient higher-level abstractions.
+</p>
+
+<p>
+This <i>model</i> includes &ldquo;hardware types&rdquo; (which are an actual representation with a
+corresponding set of CPU instructions) - how a machine represents its &ldquo;core&rdquo; types -
+ints, floats, and <code>pointers</code>.
+</p>
+
+<p>
+<code>C</code> and <code>C++</code> do <i>destructive assignments</i> (<i>over-writing</i> of memory locations) instead
+of bindings. Just as machine instructions do, It is <i>copying</i> of a value.
+</p>
+
+<p>
+Assignments are <i>not</i> bindings to the same value. <code>x = y</code> is <i>copying</i> (of the value
+if <code>y</code>), not <i>binding</i> (shadowing) of <code>x</code> (to the value of <code>y</code>), as in math.
+</p>
+
+<p>
+<code>C</code> <i>pointers</i> and <code>C++</code> <i>references</i> are used to explicitly specify any form of <i>sharing</i>.
+</p>
+
+<p>
+A <i>variable</i> is just a <i>name</i> (symbol) given to a <i>memory location</i>. It is not a
+<i>pure</i> symbol-to-value immutable <i>binding</i> &#x2013; no mathematical standard conventions
+here. &ldquo;Variables&rdquo; are <i>placeholders</i>, &ldquo;functions&rdquo; are <i>procedures</i>, numbers are only
+within a particular range, integers <i>overflow</i>, etc.
+</p>
+
+<p>
+This is exactly what it means to be a pure-<i>imperative</i>, procedural language. OO makes everything even worse.
+</p>
+
+<p>
+Good <code>C</code> and <code>C++</code> compilers map statements to single machine instructions.
+</p>
+
+<p>
+Procedures are implemented using standard ABIs for passing of <i>values</i> of formal
+parameters on the stack. The clever early <code>C++</code> hack just adds an extra pointer to
+an &ldquo;object&rdquo; on the stack when calling <i>methods</i> (which are just <code>procs</code> with an
+extra argument).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf1a40ea" class="outline-2">
+<h2 id="orgf1a40ea">&ldquo;Just right&rdquo; mathematical abstractions</h2>
+<div class="outline-text-2" id="text-orgf1a40ea">
+<p>
+A value is a <i>sequence</i> of bits interpreted according to a type (using a machine representation).
+</p>
+
+<p>
+A &ldquo;variable&rdquo; (as in math) <i>binds</i> a value of some type (set of values * set of operations).
+</p>
+
+<p>
+In an imperative languages it is some area in RAM that stores a value.
+</p>
+
+<p>
+Types, standard functions define a <i>vocabulary</i> of implementation. Unlike math,
+all out abstractions require <i>implementations</i> and <i>representations</i>.
+</p>
+
+<p>
+A <i>type</i> can be though off a s a Set of Values (together with a Set of Operations
+defined on it). Just as the mathematical abstraction of a Set itself.
+</p>
+
+<p>
+One also could think of a mathematical <i>system</i>, which is a Set together with one
+or more <i>operations</i> and the <i>closure property</i>. This is essentially how
+<i>higher-kinded</i> types are defined.
+</p>
+
+<p>
+The <i>type</i> of a value or an &ldquo;object&rdquo; determines <i>the set of operations applicable to it</i> <b>and</b> its layout in memory.
+</p>
+
+<p>
+Just as in First-order logic values can have <i>attributes</i> or properties (and thus predicates on these), <i>types</i> (like Sets) can be defined by <i>interfaces</i> &#x2013; particular sets of <i>function signatures</i> (together with &ldquo;laws&rdquo; and invariants stated informally elsewhere).
+</p>
+
+<p>
+These interfaces are <i>subsets</i> of possible operations, and implementing them makes an &ldquo;object&rdquo; operationally an instance of a type defined by a required <i>interface</i>.
+</p>
+
+<p>
+All the multiple <i>traits</i>, <i>type-classes</i> and what not &#x2013; everything can be boiled
+down to Sets and ADTs. Both traits and type-classes are ADTs of ADTs if you
+will.
+</p>
+
+<p>
+To be precise &#x2013; <i>such that it implements this particular set of signatures</i>,
+which is the mathematical essence of what we call <i>Duck-Typing</i>.
+</p>
+
+<p>
+The &ldquo;designers&rdquo; of Imperative languages, however, were mostly mathematically
+ignorant (the best ones were too focused on a machine) and just fucked
+everything up. Imperative language break almost all mathematical properties one
+could <i>naturally</i> expect.
+</p>
+
+<p>
+Again, the Algol lineage is just non-mathematical (imperative) abstractions over
+machine abstractions. This is the key for the right understanding.
+</p>
+</div>
+</div>
+<div id="outline-container-org96bc0cb" class="outline-2">
+<h2 id="org96bc0cb">Standard Libraries</h2>
+<div class="outline-text-2" id="text-org96bc0cb">
+<p>
+A standard library of any decent language is an idiomatic code to read. It also
+show how good the language is.
+</p>
+
+<p>
+The <code>C++</code> standard library, including STL, is written in itself, and it is a mess.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-03-17 Fri 14:52</p>
+</div>
+</body>
+</html>
