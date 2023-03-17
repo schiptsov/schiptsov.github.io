@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-17 Fri 14:57 -->
+<!-- 2023-03-17 Fri 19:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Understanding C++</title>
@@ -47,9 +47,27 @@ both introduced a set of convenient higher-level abstractions.
 </p>
 
 <p>
+While <code>C++</code> standard is trying to define a whole coherent model, <code>C</code> is just a
+small set of close to hardware model, &ldquo;almost transparent&rdquo; abstractions (and
+this is the real philosophy and beauty of <code>C</code>).
+</p>
+
+<p>
 This <i>model</i> includes &ldquo;hardware types&rdquo; (which are an actual representation with a
 corresponding set of CPU instructions) - how a machine represents its &ldquo;core&rdquo; types -
 ints, floats, and <code>pointers</code>.
+</p>
+
+<p>
+Basically, any hardware platform is abstracted as a model with the
+oversimplified notions of memory, pointers and <i>arrays</i> (continuous chunks of
+memeory) the machine-word size and endianness, the stack and procedure calling
+conventions.
+</p>
+
+<p>
+An OS adds to it the full ABI, which defines what exactly is passed and returned
+in registers and on the stack, how interrupts are handled, etc.
 </p>
 
 <p>
@@ -181,7 +199,7 @@ The <code>C++</code> standard library, including STL, is written in itself, and 
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-17 Fri 14:57</p>
+<p class="date">Created: 2023-03-17 Fri 19:29</p>
 </div>
 </body>
 </html>
