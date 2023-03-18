@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-09 Thu 10:19 -->
+<!-- 2023-03-18 Sat 19:10 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rust</title>
@@ -24,6 +24,150 @@
 <header>
 <h1 class="title">Rust</h1>
 </header>
+
+<div id="outline-container-org5e8d399" class="outline-2">
+<h2 id="org5e8d399">A meme language, which is OK</h2>
+<div class="outline-text-2" id="text-org5e8d399">
+<p>
+It has essentially the same <i>social momentum</i> like <code>Perl</code> and then <code>PHP</code> had, except
+much larger. Unlike <code>Javascript</code>, it is still a <i>niche</i> language, so more like a
+<i>cult</i> to be identified with.
+</p>
+</div>
+
+<div id="outline-container-orge36a564" class="outline-3">
+<h3 id="orge36a564">Over-excited amateur community</h3>
+<div class="outline-text-3" id="text-orge36a564">
+<p>
+One has to be an amateur to be excited about anything. Well, except high quality
+art and true craftsmanship in general.
+</p>
+
+<p>
+It must be noted that the language feels very rough, compared to much refined,
+<i>mostly-functional</i> language of the SML family (notably <code>Scala 3</code>), which is the
+direct consequence of having a large amateur community.
+</p>
+
+<p>
+When I say <i>amateur</i> I mean that none of them have been studied programming
+languages as a subject and qualified as language designers.
+</p>
+
+<p>
+It must be admitted that it is way better language than the well known &ldquo;fractal
+of bad design&rdquo; (also result of a similar community process), because the team
+at Mozilla has at least done alot of (<code>C++</code>) programming beforehand.
+</p>
+</div>
+</div>
+<div id="outline-container-org44142d8" class="outline-3">
+<h3 id="org44142d8">Pragmatic</h3>
+<div class="outline-text-3" id="text-org44142d8">
+<p>
+Being reasonably high-level, with meaningful high-level syntactic forms (like <code>?</code>)
+it is a pragmatic language, indeed.
+</p>
+
+<p>
+It is a principle-guided <i>imperative</i> language, by <i>restricting</i> what can be done.
+</p>
+
+<p>
+It is still imperative, so one has <i>Enums</i> instead of proper <i>sum-types</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org8d2c51f" class="outline-3">
+<h3 id="org8d2c51f">Free community docs</h3>
+<div class="outline-text-3" id="text-org8d2c51f">
+<ul class="org-ul">
+<li><a href="https://doc.rust-lang.org/rust-by-example/">https://doc.rust-lang.org/rust-by-example/</a></li>
+<li><a href="https://doc.rust-lang.org/book/">https://doc.rust-lang.org/book/</a></li>
+<li><a href="https://doc.rust-lang.org/reference/">https://doc.rust-lang.org/reference/</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9014173" class="outline-3">
+<h3 id="org9014173">Books</h3>
+<div class="outline-text-3" id="text-org9014173">
+<p>
+There are a few recent books on some <i>specifics</i>, so all the information is available.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0277568" class="outline-2">
+<h2 id="org0277568">Principles</h2>
+<div class="outline-text-2" id="text-org0277568">
+<p>
+The mind tends to abstract away (and out) and ignore the details, so should our
+<i>high-level</i> languages do.
+</p>
+
+<p>
+When we have to write down explicitly every single detail we will end up with another Java-like degeneracy.
+</p>
+
+<p>
+This is may be ok at the implementation side, but it is ridiculous at <i>use site</i>.
+So use high-level DSLs or <i>macros</i> to hide all the ugliness.
+</p>
+
+<p>
+The right thing to do is to have well-crafted <i>defaults</i>, and the clean syntax
+(like <code>Scala 3</code>) and allowing to explicitly override any default property
+(a universal principle).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdfeb530" class="outline-2">
+<h2 id="orgdfeb530">C++</h2>
+<div class="outline-text-2" id="text-orgdfeb530">
+<p>
+Programs must be read like arithmetic, not some an_int_implemented_as_with_signals_overflow_in_this_way.static_method_invoked_by_a_constant_reference+(an_instance_of_an_integer_implemented_as&#x2026;.)
+</p>
+
+<p>
+With all possible symbols thrown in.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3032f1a" class="outline-2">
+<h2 id="org3032f1a">Ideas</h2>
+<div class="outline-text-2" id="text-org3032f1a">
+<p>
+By the way, always having an <i>implicit context</i> (as in Scala) is a universal
+notion (not just of a human language, but even animal&rsquo;s stress calls), and it
+should be added as a &ldquo;<i>semantic closure</i>&rdquo; &#x2013; a captured <i>meaning</i> (which won&rsquo;t change).
+</p>
+
+<p>
+Because it is so fundamental, it should have very minimal syntax, like <code>.</code> for accessing the slots.
+</p>
+
+<p>
+A <i>context</i> is just a frame of an environment, an alist, so we can reuse all the
+familiar notions.
+</p>
+
+<p>
+<i>Semantic</i> environment is not different. We capture meaning (into language) with
+<i>properly generalized abstractions</i>.
+</p>
+
+<p>
+A context is by definition <i>shadowing</i> of symbols (just like a <i>closure</i>).
+</p>
+
+<p>
+Something like <code>a#b</code> (like in CLU) instead of <code>a.b</code>
+</p>
+</div>
+</div>
+
 <div id="outline-container-org81ebe81" class="outline-2">
 <h2 id="org81ebe81">Disclaimer</h2>
 <div class="outline-text-2" id="text-org81ebe81">
@@ -161,7 +305,7 @@ programming, and there were no problem with the syntax and semantics of the
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-09 Thu 10:19</p>
+<p class="date">Created: 2023-03-18 Sat 19:10</p>
 </div>
 </body>
 </html>
