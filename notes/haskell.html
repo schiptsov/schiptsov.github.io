@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-06 Mon 13:07 -->
+<!-- 2023-03-27 Mon 14:10 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Haskell</title>
@@ -43,9 +43,9 @@ MathJax = {
 <header>
 <h1 class="title">Haskell</h1>
 </header>
-<div id="outline-container-org400b791" class="outline-2">
-<h2 id="org400b791">Eternal</h2>
-<div class="outline-text-2" id="text-org400b791">
+<div id="outline-container-org2a7405d" class="outline-2">
+<h2 id="org2a7405d">Eternal</h2>
+<div class="outline-text-2" id="text-org2a7405d">
 <p>
 Mathematicians are usually not concerned with <i>representations</i> of their
 abstract &ldquo;objects&rdquo; or <i>actual implementations</i> of their declarative solutions.
@@ -75,9 +75,9 @@ optimum) ones it becomes <i>eternal</i> too.
 </p>
 </div>
 </div>
-<div id="outline-container-org88733a7" class="outline-2">
-<h2 id="org88733a7">proper abstraction</h2>
-<div class="outline-text-2" id="text-org88733a7">
+<div id="outline-container-org8534d91" class="outline-2">
+<h2 id="org8534d91">proper abstraction</h2>
+<div class="outline-text-2" id="text-org8534d91">
 <p>
 Just like numbers and arithmetic (in a <i>numeric-tower</i> languages, like
 Scheme), ignoring the details of representation,  value coercions or actual division or
@@ -95,9 +95,9 @@ other <i>infix operators</i> relay are.
 </p>
 </div>
 </div>
-<div id="outline-container-org5ad0702" class="outline-2">
-<h2 id="org5ad0702">deep nesting of modules</h2>
-<div class="outline-text-2" id="text-org5ad0702">
+<div id="outline-container-org4c0a063" class="outline-2">
+<h2 id="org4c0a063">deep nesting of modules</h2>
+<div class="outline-text-2" id="text-org4c0a063">
 <p>
 It is very good practice to have a &ldquo;ladder&rdquo; of nested modules which goes
 from higher to lowest <i>levels of abstraction</i>.
@@ -115,9 +115,9 @@ Only <i>high-level abstractions</i> should be used at the level of so-called
 </p>
 </div>
 </div>
-<div id="outline-container-orgd3302e5" class="outline-2">
-<h2 id="orgd3302e5">functional pipelines</h2>
-<div class="outline-text-2" id="text-orgd3302e5">
+<div id="outline-container-org563c818" class="outline-2">
+<h2 id="org563c818">functional pipelines</h2>
+<div class="outline-text-2" id="text-org563c818">
 <p>
 The \(a \rightarrow m b\) type is naturally suitable for constructing functional
 pipelines, similar to hardware graphics pipelines.
@@ -128,9 +128,9 @@ Graphics is a canonical use-case for DSLs and pipelines (Huddak, Conal).
 </p>
 </div>
 </div>
-<div id="outline-container-orgbe8b4d3" class="outline-2">
-<h2 id="orgbe8b4d3">surgical gloves</h2>
-<div class="outline-text-2" id="text-orgbe8b4d3">
+<div id="outline-container-org7f99a52" class="outline-2">
+<h2 id="org7f99a52">surgical gloves</h2>
+<div class="outline-text-2" id="text-org7f99a52">
 <ul class="org-ul">
 <li>an <i>abstraction barrier</i> is like a surgical glove</li>
 <li>a <i>monadic interface</i> is a <i>&ldquo;pump&rdquo; on a cell membrane</i> (<code>a -&gt; m b</code>) and a
@@ -139,9 +139,9 @@ pipeline <i>outside the membrane</i> (metaphorically speaking).</li>
 </div>
 </div>
 
-<div id="outline-container-orgc697a6b" class="outline-2">
-<h2 id="orgc697a6b">Cardinality of a type</h2>
-<div class="outline-text-2" id="text-orgc697a6b">
+<div id="outline-container-org9d4f1d1" class="outline-2">
+<h2 id="org9d4f1d1">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-org9d4f1d1">
 <p>
 Associate a type with cardinality (just like of a Set)
 How many inhabitants (members) a type has.
@@ -158,9 +158,9 @@ Ignore bottoms (they are relevant only in type-constraint solving)
 </pre>
 </div>
 </div>
-<div id="outline-container-orga115164" class="outline-3">
-<h3 id="orga115164">Shapes or forms</h3>
-<div class="outline-text-3" id="text-orga115164">
+<div id="outline-container-orgc487675" class="outline-3">
+<h3 id="orgc487675">Shapes or forms</h3>
+<div class="outline-text-3" id="text-orgc487675">
 <p>
 Notice that these types have distinct, unique <i>shapes</i>
 </p>
@@ -181,9 +181,9 @@ Notice that
 </div>
 </div>
 </div>
-<div id="outline-container-org1e1b5f2" class="outline-2">
-<h2 id="org1e1b5f2">Total</h2>
-<div class="outline-text-2" id="text-org1e1b5f2">
+<div id="outline-container-org8dab7dd" class="outline-2">
+<h2 id="org8dab7dd">Total</h2>
+<div class="outline-text-2" id="text-org8dab7dd">
 <p>
 Knowing cardinalities of any two types (sets) we can know how many
 &ldquo;arrows&rdquo; (individual relations or distinct mappings) are there <i>in total</i>.
@@ -205,9 +205,9 @@ The notion of duality based on cardinality alone is wrong and misleading.
 </p>
 </div>
 </div>
-<div id="outline-container-orge7421c9" class="outline-2">
-<h2 id="orge7421c9">Isomorphism</h2>
-<div class="outline-text-2" id="text-orge7421c9">
+<div id="outline-container-org0ef940f" class="outline-2">
+<h2 id="org0ef940f">Isomorphism</h2>
+<div class="outline-text-2" id="text-org0ef940f">
 <p>
 Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
 This is a naive and too abstract to be useful assumption.
@@ -222,9 +222,9 @@ A fork is not isomorphic to a join in principle, but it is viewed by sectarians 
 </p>
 </div>
 
-<div id="outline-container-org4685ee5" class="outline-3">
-<h3 id="org4685ee5">Definition</h3>
-<div class="outline-text-3" id="text-org4685ee5">
+<div id="outline-container-org6ae3825" class="outline-3">
+<h3 id="org6ae3825">Definition</h3>
+<div class="outline-text-3" id="text-org6ae3825">
 <p>
 The formal definition is this
 </p>
@@ -261,9 +261,9 @@ on an imaginary <i>number line</i>.
 </div>
 </div>
 
-<div id="outline-container-orgc6c41f5" class="outline-3">
-<h3 id="orgc6c41f5">An ordered set of arrows</h3>
-<div class="outline-text-3" id="text-orgc6c41f5">
+<div id="outline-container-orgb063f52" class="outline-3">
+<h3 id="orgb063f52">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-orgb063f52">
 <p>
 Individual &ldquo;arrows&rdquo; (relations) between values has to have a particular order, and each &ldquo;arrow&rdquo; has to have a unique <i>inverse</i> &ldquo;arrow&rdquo;.
 </p>
@@ -278,9 +278,9 @@ Symmetries (rotations) could be formalized with such functions.
 </div>
 </div>
 
-<div id="outline-container-orgfdaaf4c" class="outline-3">
-<h3 id="orgfdaaf4c">n!</h3>
-<div class="outline-text-3" id="text-orgfdaaf4c">
+<div id="outline-container-orgf6023ab" class="outline-3">
+<h3 id="orgf6023ab">n!</h3>
+<div class="outline-text-3" id="text-orgf6023ab">
 <p>
 For any two types (sets) of the same cardinality n
 there are n! <i>unique</i> isomorphisms (pairs of arrows) between them.
@@ -288,9 +288,9 @@ there are n! <i>unique</i> isomorphisms (pairs of arrows) between them.
 </div>
 </div>
 
-<div id="outline-container-orgb99474a" class="outline-3">
-<h3 id="orgb99474a">Same cardinality does not imply the same shape</h3>
-<div class="outline-text-3" id="text-orgb99474a">
+<div id="outline-container-org9aa6894" class="outline-3">
+<h3 id="org9aa6894">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-org9aa6894">
 <p>
 Knowing that an isomorphism exists is enough.
 An isomorphism between types \(s\) and \(t\) is a proof that for all
@@ -328,9 +328,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i>.
 </div>
 </div>
 
-<div id="outline-container-org3a0afbc" class="outline-3">
-<h3 id="org3a0afbc">Monoidial</h3>
-<div class="outline-text-3" id="text-org3a0afbc">
+<div id="outline-container-orgf30c6fe" class="outline-3">
+<h3 id="orgf30c6fe">Monoidial</h3>
+<div class="outline-text-3" id="text-orgf30c6fe">
 <p>
 <code>()</code> is a Monoidal Identity element for product-types (no information).
 <code>Void</code> is an identity element for sum-types (Void has no members).
@@ -338,9 +338,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i>.
 </div>
 </div>
 </div>
-<div id="outline-container-org810d4d6" class="outline-2">
-<h2 id="org810d4d6">Exponentials</h2>
-<div class="outline-text-2" id="text-org810d4d6">
+<div id="outline-container-org808f75b" class="outline-2">
+<h2 id="org808f75b">Exponentials</h2>
+<div class="outline-text-2" id="text-org808f75b">
 <p>
 The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
 </p>
@@ -352,9 +352,9 @@ so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
 </p>
 </div>
 </div>
-<div id="outline-container-org1576b57" class="outline-2">
-<h2 id="org1576b57">Stuff</h2>
-<div class="outline-text-2" id="text-org1576b57">
+<div id="outline-container-orgb13fb4a" class="outline-2">
+<h2 id="orgb13fb4a">Stuff</h2>
+<div class="outline-text-2" id="text-orgb13fb4a">
 <p>
 described a system with equations that determine how its state evolves
 with time, where the state consists of the values of variables (a
@@ -645,7 +645,7 @@ f $ case x of
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-06 Mon 13:07</p>
+<p class="date">Created: 2023-03-27 Mon 14:10</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-06 Mon 13:09 -->
+<!-- 2023-03-27 Mon 14:10 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bullshit Monad</title>
@@ -48,9 +48,9 @@ There is literally 2/3 of fundamental Computer Science entangled in this &ldquo;
 <p>
 The <i>locus</i> (of programming) consist of:
 </p>
-<div id="outline-container-org1372947" class="outline-2">
-<h2 id="org1372947">Interfaces</h2>
-<div class="outline-text-2" id="text-org1372947">
+<div id="outline-container-org720d32b" class="outline-2">
+<h2 id="org720d32b">Interfaces</h2>
+<div class="outline-text-2" id="text-org720d32b">
 <p>
 A <i>minimal interface</i> is a single <i>typed lambda</i>. (We do not talk about <i>empty interfaces</i>).
 </p>
@@ -65,9 +65,9 @@ This is how to make DSLs out of lambdas.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc207f45" class="outline-2">
-<h2 id="orgc207f45">Modules</h2>
-<div class="outline-text-2" id="text-orgc207f45">
+<div id="outline-container-orgd51a4ac" class="outline-2">
+<h2 id="orgd51a4ac">Modules</h2>
+<div class="outline-text-2" id="text-orgd51a4ac">
 <p>
 A <i>minimal module</i> is one that exports a single such <i>typed lambda</i>. This is rather
 orthogonal concept for structuring the code, but it can be taken to a higher
@@ -76,9 +76,9 @@ specialization or compose &ldquo;traits&rdquo;).
 </p>
 </div>
 </div>
-<div id="outline-container-orga87a0a6" class="outline-2">
-<h2 id="orga87a0a6">Just an ADT</h2>
-<div class="outline-text-2" id="text-orga87a0a6">
+<div id="outline-container-org2855ebf" class="outline-2">
+<h2 id="org2855ebf">Just an ADT</h2>
+<div class="outline-text-2" id="text-org2855ebf">
 <p>
 A minimal ADT is a <i>non-leaking</i> abstract type, defined only in terms of <i>exported
 interface</i> (a set of <i>operations</i>) and informally stated <i>relations</i> or &ldquo;laws&rdquo; among them.
@@ -97,9 +97,9 @@ Everything builds upon this <i>required principle</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org1de56ec" class="outline-2">
-<h2 id="org1de56ec">A &ldquo;class&rdquo; for Types (ADTs)</h2>
-<div class="outline-text-2" id="text-org1de56ec">
+<div id="outline-container-org3b3fdf8" class="outline-2">
+<h2 id="org3b3fdf8">A &ldquo;class&rdquo; for Types (ADTs)</h2>
+<div class="outline-text-2" id="text-org3b3fdf8">
 <p>
 This unfortunate, crappy OO terminology confuses everyone. A <i>type-class</i> defines
 a <i>shape</i> of a <i>Trait</i> via required set interfaces (and informally stated &ldquo;laws&rdquo; and
@@ -113,18 +113,18 @@ instance of it.
 </div>
 </div>
 
-<div id="outline-container-org772dda4" class="outline-2">
-<h2 id="org772dda4">And also an instance of a&#x2026;</h2>
-<div class="outline-text-2" id="text-org772dda4">
+<div id="outline-container-orgd9041cc" class="outline-2">
+<h2 id="orgd9041cc">And also an instance of a&#x2026;</h2>
+<div class="outline-text-2" id="text-orgd9041cc">
 <p>
 This is the famous <i>Duck Typing</i> (walks like a duck and quacks like a duck). This literally means that an ADT <i>implements</i> another set of interfaces (and the
 required &ldquo;laws&rdquo; and invariants)
 </p>
 </div>
 </div>
-<div id="outline-container-orgc8ab1e3" class="outline-2">
-<h2 id="orgc8ab1e3">Universal patterns</h2>
-<div class="outline-text-2" id="text-orgc8ab1e3">
+<div id="outline-container-org75dab55" class="outline-2">
+<h2 id="org75dab55">Universal patterns</h2>
+<div class="outline-text-2" id="text-org75dab55">
 <p>
 The abstract concept itself is too general, so Monads have <i>specializations</i>, and
 <i>which particular Monad</i> is another question.
@@ -137,9 +137,9 @@ as a cell membrane (a partition).
 </p>
 </div>
 
-<div id="outline-container-org1d7e2ae" class="outline-3">
-<h3 id="org1d7e2ae">Passing a context along</h3>
-<div class="outline-text-3" id="text-org1d7e2ae">
+<div id="outline-container-org1a7b150" class="outline-3">
+<h3 id="org1a7b150">Passing a context along</h3>
+<div class="outline-text-3" id="text-org1a7b150">
 <p>
 A context could be passed explicitly as a <i>parameter</i> (<i>partially applied</i> or not)
 or implicitly as an <i>implicit parameter</i> (in languages which support implicits).
@@ -180,9 +180,9 @@ done <i>at runtime</i>.
 </div>
 </div>
 
-<div id="outline-container-org4bbeb27" class="outline-3">
-<h3 id="org4bbeb27">Nesting of pure functions</h3>
-<div class="outline-text-3" id="text-org4bbeb27">
+<div id="outline-container-org3b6da98" class="outline-3">
+<h3 id="org3b6da98">Nesting of pure functions</h3>
+<div class="outline-text-3" id="text-org3b6da98">
 <ul class="org-ul">
 <li>Nesting is how one defines (or establishes) an explicit <i>order of evaluation</i>.</li>
 </ul>
@@ -190,14 +190,14 @@ done <i>at runtime</i>.
 </div>
 </div>
 
-<div id="outline-container-org455d776" class="outline-2">
-<h2 id="org455d776">Abstraction barrier</h2>
+<div id="outline-container-orgbc43001" class="outline-2">
+<h2 id="orgbc43001">Abstraction barrier</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-06 Mon 13:09</p>
+<p class="date">Created: 2023-03-27 Mon 14:10</p>
 </div>
 </body>
 </html>

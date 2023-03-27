@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-06 Mon 13:08 -->
+<!-- 2023-03-27 Mon 14:10 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Flat Map</title>
@@ -24,9 +24,9 @@
 <header>
 <h1 class="title">Flat Map</h1>
 </header>
-<div id="outline-container-org614f947" class="outline-2">
-<h2 id="org614f947">The flatMap view of the world</h2>
-<div class="outline-text-2" id="text-org614f947">
+<div id="outline-container-org55ca95e" class="outline-2">
+<h2 id="org55ca95e">The flatMap view of the world</h2>
+<div class="outline-text-2" id="text-org55ca95e">
 <p>
 In Scala they think intuitively in terms of <code>flaMap</code> and <code>map</code> (this is what for-syntax)
 desurars into, instead in terms of <i>arrows</i> and <i>composition</i>.
@@ -82,8 +82,8 @@ and, of course, <code>fmap</code> is
 </p>
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #81A1C1;">where</span>
-<span style="background-color: #272C36;"> </span> fmap <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> f a <span style="color: #D8DEE9;">-&gt;</span> f b
-<span style="background-color: #272C36;"> </span> <span style="color: #D8DEE9;">...</span>
+<span style="background-color: #2E3440;"> </span> fmap <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> f a <span style="color: #D8DEE9;">-&gt;</span> f b
+<span style="background-color: #2E3440;"> </span> <span style="color: #D8DEE9;">...</span>
 
 </pre>
 </div>
@@ -129,7 +129,7 @@ a</code> to <code>m b</code>,  or just <code>m a -&gt; m b</code>, using <code>a
 If we <i>hypothetically</i> change the order of arguments of <code>(&gt;&gt;=)</code>, then
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="background-color: #272C36;"> </span>(<span style="color: #D8DEE9;">&gt;&gt;=</span>) <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> m a <span style="color: #D8DEE9;">-&gt;</span> m b
+<pre class="src src-haskell"><span style="background-color: #2E3440;"> </span>(<span style="color: #D8DEE9;">&gt;&gt;=</span>) <span style="color: #D8DEE9;">::</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> m a <span style="color: #D8DEE9;">-&gt;</span> m b
 </pre>
 </div>
 <p>
@@ -219,7 +219,7 @@ This, of course, is not an arbitrary coincidence.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-06 Mon 13:08</p>
+<p class="date">Created: 2023-03-27 Mon 14:10</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-06 Mon 13:07 -->
+<!-- 2023-03-27 Mon 14:10 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Mess We Are In</title>
@@ -44,7 +44,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org65c647c">
+<pre class="example" id="orgfa1d1ee">
 	linux-vdso.so.1 (0x00007ffc46ed5000)
 	libc++.so.1 =&gt; /usr/lib64/libc++.so.1 (0x00007fa8c2449000)
 	libc++abi.so.1 =&gt; /usr/lib64/libc++abi.so.1 (0x00007fa8c2405000)
@@ -63,7 +63,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org19ce805">
+<pre class="example" id="orgefdb208">
 a.out:	file format elf64-x86-64
 
 Disassembly of section .text:
@@ -599,16 +599,16 @@ Only Erlang guys did everything right &#x2013; a principle-based research from t
 Shared concurrency for imperative code is a myth. Period.
 </p>
 
-<div id="outline-container-orgba9b2cc" class="outline-2">
-<h2 id="orgba9b2cc">The solutions</h2>
-<div class="outline-text-2" id="text-orgba9b2cc">
+<div id="outline-container-org8449912" class="outline-2">
+<h2 id="org8449912">The solutions</h2>
+<div class="outline-text-2" id="text-org8449912">
 <p>
 There are <i>mathematically-sound theoretical solutions</i>.
 </p>
 </div>
-<div id="outline-container-org1055e7f" class="outline-3">
-<h3 id="org1055e7f">Referential transparency</h3>
-<div class="outline-text-3" id="text-org1055e7f">
+<div id="outline-container-org5df5dfc" class="outline-3">
+<h3 id="org5df5dfc">Referential transparency</h3>
+<div class="outline-text-3" id="text-org5df5dfc">
 <p>
 This is the fundamental property of all <i>binding</i>, both of symbols and <i>within the
 compound and structured data</i> - once <i>bound</i> everything stays forever - does not
@@ -633,9 +633,9 @@ This is the <i>ideal</i> which Haskell community zealously seek to attain.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf50f798" class="outline-3">
-<h3 id="orgf50f798">At most one mutable reference</h3>
-<div class="outline-text-3" id="text-orgf50f798">
+<div id="outline-container-org9d9a94e" class="outline-3">
+<h3 id="org9d9a94e">At most one mutable reference</h3>
+<div class="outline-text-3" id="text-org9d9a94e">
 <p>
 This is another principal theoretical solution, which is <i>partial referential
 transparency</i> so to speak. The state has to be encapsulated into a <i>closure</i>, which
@@ -653,9 +653,9 @@ It is remarkable that an Abstract Data Type is the fundamental building block he
 </p>
 </div>
 </div>
-<div id="outline-container-org7a3fcff" class="outline-3">
-<h3 id="org7a3fcff">Generalized Abstraction barriers</h3>
-<div class="outline-text-3" id="text-org7a3fcff">
+<div id="outline-container-orgb241af7" class="outline-3">
+<h3 id="orgb241af7">Generalized Abstraction barriers</h3>
+<div class="outline-text-3" id="text-orgb241af7">
 <p>
 There are <i>emergent /standard idioms</i> to establish and maintain <i>actual abstraction
 barriers</i>.
@@ -691,9 +691,9 @@ one mutable reference</i>. In Haskell there is no mutation possible in principle
 </ul>
 </div>
 </div>
-<div id="outline-container-org59e41d4" class="outline-3">
-<h3 id="org59e41d4">Async</h3>
-<div class="outline-text-3" id="text-org59e41d4">
+<div id="outline-container-org0ca2b6f" class="outline-3">
+<h3 id="org0ca2b6f">Async</h3>
+<div class="outline-text-3" id="text-org0ca2b6f">
 <p>
 The most adequate case for using a Monad (which is, again, just an ADT,  an
 instance of a standard <i>type-class</i>) is to separate pure functions form async
@@ -712,9 +712,9 @@ between pure mathematical functions and asynchronous procedures.
 </div>
 </div>
 
-<div id="outline-container-orgc2e1f03" class="outline-3">
-<h3 id="orgc2e1f03">A vertical arrow</h3>
-<div class="outline-text-3" id="text-orgc2e1f03">
+<div id="outline-container-org949998b" class="outline-3">
+<h3 id="org949998b">A vertical arrow</h3>
+<div class="outline-text-3" id="text-org949998b">
 <p>
 The fundamental principle is that values could be passed strictly in only one
 direction - <i>into an async context</i>, and never &ldquo;back&rdquo;, which has a deep relation
@@ -730,9 +730,9 @@ defined declaratively), but <i>behind its abstraction barrier</i>, using a disti
 </div>
 </div>
 
-<div id="outline-container-orge74a2a8" class="outline-3">
-<h3 id="orge74a2a8">And a horizontal arrow</h3>
-<div class="outline-text-3" id="text-orge74a2a8">
+<div id="outline-container-org6e705f9" class="outline-3">
+<h3 id="org6e705f9">And a horizontal arrow</h3>
+<div class="outline-text-3" id="text-org6e705f9">
 <p>
 Think of introducing a <i>vertical arrow</i> for &ldquo;lifting of values&rdquo; (which will never
 &ldquo;come back&rdquo; to the pure realm which they have left - notice this <i>finest
@@ -747,9 +747,9 @@ barrier</i> (it is a Kleisli arrow after all) in only one direction, is &ldquo;i
 </p>
 </div>
 </div>
-<div id="outline-container-org282104f" class="outline-3">
-<h3 id="org282104f">an ADT for ADTs</h3>
-<div class="outline-text-3" id="text-org282104f">
+<div id="outline-container-org8035fd8" class="outline-3">
+<h3 id="org8035fd8">an ADT for ADTs</h3>
+<div class="outline-text-3" id="text-org8035fd8">
 <p>
 A Monad, as you see, is a &ldquo;lift&rdquo; (a <i>vertical error</i>) for values and &ldquo;composition&rdquo;
 (<i>specialized dot</i>) for computations in this particular <i>instance</i> or a context.
@@ -768,9 +768,9 @@ fundamental notion of <i>&ldquo;AND ALSO&rdquo;</i> (an instance of) quacks like
 </p>
 </div>
 </div>
-<div id="outline-container-orgd59dca4" class="outline-3">
-<h3 id="orgd59dca4">Comosition of type-classes</h3>
-<div class="outline-text-3" id="text-orgd59dca4">
+<div id="outline-container-org767a37d" class="outline-3">
+<h3 id="org767a37d">Comosition of type-classes</h3>
+<div class="outline-text-3" id="text-org767a37d">
 <p>
 <i>Whole type-classes can be composed</i> (to form a new whole), using instantiation
 (implementing an interface within an ADT <i>module</i>) instead of some explicit
@@ -787,9 +787,9 @@ generalized form Molecular Biology and <i>What Is</i>.
 </div>
 </div>
 
-<div id="outline-container-org48663eb" class="outline-2">
-<h2 id="org48663eb">Erlang</h2>
-<div class="outline-text-2" id="text-org48663eb">
+<div id="outline-container-orgde70641" class="outline-2">
+<h2 id="orgde70641">Erlang</h2>
+<div class="outline-text-2" id="text-orgde70641">
 <p>
 Erlang, being <i>dynamically but strongly</i>-typed language, reinforces abstraction
 barriers at interfaces (where else?). User-facing code is a pure-functional
@@ -829,9 +829,9 @@ is also a <i>proper design</i>.
 </p>
 </div>
 
-<div id="outline-container-org31eab7e" class="outline-3">
-<h3 id="org31eab7e">Behaviors</h3>
-<div class="outline-text-3" id="text-org31eab7e">
+<div id="outline-container-orgca4b52c" class="outline-3">
+<h3 id="orgca4b52c">Behaviors</h3>
+<div class="outline-text-3" id="text-orgca4b52c">
 <p>
 These building blocks (at the levels of libraries) can be thought off as
 <i>sets of mutually-recursive generic functions</i> (within a module), being
@@ -877,7 +877,7 @@ well as the principles everything is based upon. Erlang is a marvel of craftsman
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-06 Mon 13:07</p>
+<p class="date">Created: 2023-03-27 Mon 14:10</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-06 Mon 13:07 -->
+<!-- 2023-03-27 Mon 14:10 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Record types</title>
@@ -25,9 +25,9 @@
 <header>
 <h1 class="title">Record types</h1>
 </header>
-<div id="outline-container-orgef3d6f0" class="outline-2">
-<h2 id="orgef3d6f0">Mental process</h2>
-<div class="outline-text-2" id="text-orgef3d6f0">
+<div id="outline-container-org1d18876" class="outline-2">
+<h2 id="org1d18876">Mental process</h2>
+<div class="outline-text-2" id="text-org1d18876">
 <p>
 As the name implies, a <i>record</i> is a <i>mental inventory</i> or a &ldquo;collection&rdquo; of:
 </p>
@@ -50,9 +50,9 @@ memories or feelings) so the access is <i>position-independent</i>.
 </div>
 </div>
 
-<div id="outline-container-orgb6afb8f" class="outline-2">
-<h2 id="orgb6afb8f">Abstraction</h2>
-<div class="outline-text-2" id="text-orgb6afb8f">
+<div id="outline-container-org54a9cf5" class="outline-2">
+<h2 id="org54a9cf5">Abstraction</h2>
+<div class="outline-text-2" id="text-org54a9cf5">
 <p>
 A record (as a whole) corresponds to labeled (tagged with symbols) <i>Cartesian
 Product</i>, meaning that each value has a unique label or a tag associated
@@ -66,9 +66,9 @@ rather than location-based, which depends on a particular ordering.
 </div>
 </div>
 
-<div id="outline-container-org70379fb" class="outline-2">
-<h2 id="org70379fb">Vector space</h2>
-<div class="outline-text-2" id="text-org70379fb">
+<div id="outline-container-orgbf6370b" class="outline-2">
+<h2 id="orgbf6370b">Vector space</h2>
+<div class="outline-text-2" id="text-orgbf6370b">
 <p>
 Just like it is with a Cartesian Products, each value <i>ranges over a certain
 Set</i> (not necessarily the same) and the product <i>covers</i> a whole <i>vector space</i>,
@@ -83,9 +83,9 @@ It is less wrong to say that a &ldquo;covers&rdquo; a vector space (of all possi
 </div>
 </div>
 
-<div id="outline-container-org758965b" class="outline-2">
-<h2 id="org758965b">Typing</h2>
-<div class="outline-text-2" id="text-org758965b">
+<div id="outline-container-orgf5605cf" class="outline-2">
+<h2 id="orgf5605cf">Typing</h2>
+<div class="outline-text-2" id="text-orgf5605cf">
 <p>
 &ldquo;Naturally&rdquo;, each record, at least in theory, corresponds to its own
 <i>type</i>, assuming that it characterizes some unique phenomena or a class
@@ -98,9 +98,9 @@ It is reasonable to have a distinct <a href="modules.org ">module</a> for each <
 </p>
 </div>
 </div>
-<div id="outline-container-orgeadb3f1" class="outline-2">
-<h2 id="orgeadb3f1">Semantics</h2>
-<div class="outline-text-2" id="text-orgeadb3f1">
+<div id="outline-container-org5c198f9" class="outline-2">
+<h2 id="org5c198f9">Semantics</h2>
+<div class="outline-text-2" id="text-org5c198f9">
 <p>
 A record is just a Set of typed &ldquo;slots&rdquo; labeled with symbols, where symbols are merely tags for corresponding <i>typed values</i>.
 Each &ldquo;slot&rdquo; could be viewed as a mapping (an <i>ordered pair</i> symbol -&gt; typed value) just like words maps to mental concpets.
@@ -123,9 +123,9 @@ all <code>Toyotas</code> in it.
 </div>
 </div>
 
-<div id="outline-container-org4f32c27" class="outline-2">
-<h2 id="org4f32c27">Representation</h2>
-<div class="outline-text-2" id="text-org4f32c27">
+<div id="outline-container-orgbc0b811" class="outline-2">
+<h2 id="orgbc0b811">Representation</h2>
+<div class="outline-text-2" id="text-orgbc0b811">
 <p>
 At an implementation level there is always an actual &ldquo;concrete&rdquo;
 representation.
@@ -164,9 +164,9 @@ a pattern can mention only a subset of the fields in the record.
 </div>
 </div>
 
-<div id="outline-container-org45f5e22" class="outline-2">
-<h2 id="org45f5e22">Functional Updates</h2>
-<div class="outline-text-2" id="text-org45f5e22">
+<div id="outline-container-org30ff40e" class="outline-2">
+<h2 id="org30ff40e">Functional Updates</h2>
+<div class="outline-text-2" id="text-org30ff40e">
 <p>
 update only selected fields, leaving others (whatever they are) unchanging
 </p>
@@ -180,9 +180,9 @@ update only selected fields, leaving others (whatever they are) unchanging
 </div>
 </div>
 
-<div id="outline-container-org77d5d31" class="outline-2">
-<h2 id="org77d5d31">With Fields extension</h2>
-<div class="outline-text-2" id="text-org77d5d31">
+<div id="outline-container-org1cfc8e2" class="outline-2">
+<h2 id="org1cfc8e2">With Fields extension</h2>
+<div class="outline-text-2" id="text-org1cfc8e2">
 <p>
 The with fields annotation at the end of the declaration of a record type will cause
 the extension to be applied to a given type declaration.
@@ -195,7 +195,7 @@ Creates module named Fields
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-06 Mon 13:07</p>
+<p class="date">Created: 2023-03-27 Mon 14:10</p>
 </div>
 </body>
 </html>
