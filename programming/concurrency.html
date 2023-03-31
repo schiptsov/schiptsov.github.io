@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-27 Mon 14:10 -->
+<!-- 2023-03-31 Fri 18:34 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Concurrency</title>
@@ -53,9 +53,9 @@ Immutability is not an academic fancy, it is a universal principle, which
 makes Life Itself possible (every molecule of the same kind is as good
 as every other, and they are being <i>passing around</i> freely).
 </p>
-<div id="outline-container-orgcf06ee3" class="outline-2">
-<h2 id="orgcf06ee3">Concurrency vs. Parallelism</h2>
-<div class="outline-text-2" id="text-orgcf06ee3">
+<div id="outline-container-org1438162" class="outline-2">
+<h2 id="org1438162">Concurrency vs. Parallelism</h2>
+<div class="outline-text-2" id="text-org1438162">
 <p>
 <i>Concurrency</i> means some sort of <i>time-sharing /scheduling</i> or <i>cooperative multitasking</i> by
 some &ldquo;supervisor&rdquo; process.
@@ -80,9 +80,9 @@ code is pure functional.
 </div>
 </div>
 
-<div id="outline-container-org0c60151" class="outline-2">
-<h2 id="org0c60151">Asynchronous vs. Synchronous</h2>
-<div class="outline-text-2" id="text-org0c60151">
+<div id="outline-container-orgc0d031d" class="outline-2">
+<h2 id="orgc0d031d">Asynchronous vs. Synchronous</h2>
+<div class="outline-text-2" id="text-orgc0d031d">
 <p>
 A normal function (or a chain of deeply <i>nested</i> functions) has to <i>return</i>.
 </p>
@@ -109,9 +109,9 @@ To such asynchronous processes (or &ldquo;execution contexts&rdquo;) some additi
 (runtime-support).
 </p>
 </div>
-<div id="outline-container-org2b97418" class="outline-3">
-<h3 id="org2b97418">More than one</h3>
-<div class="outline-text-3" id="text-org2b97418">
+<div id="outline-container-org0376d27" class="outline-3">
+<h3 id="org0376d27">More than one</h3>
+<div class="outline-text-3" id="text-org0376d27">
 <p>
 This is not merely pure function composition (via nesting). Having more
 than one &ldquo;thread&rdquo; (or a routine) of execution <i>implies /coordination</i> and
@@ -119,9 +119,9 @@ than one &ldquo;thread&rdquo; (or a routine) of execution <i>implies /coordinati
 </p>
 </div>
 </div>
-<div id="outline-container-org939ad63" class="outline-3">
-<h3 id="org939ad63">Message passing</h3>
-<div class="outline-text-3" id="text-org939ad63">
+<div id="outline-container-org62d4f13" class="outline-3">
+<h3 id="org62d4f13">Message passing</h3>
+<div class="outline-text-3" id="text-org62d4f13">
 <p>
 The right thing to do is what Erlang did - spawn a process, get its
 &ldquo;address&rdquo;, and send it a message. It will eventually send you &ldquo;the
@@ -129,9 +129,9 @@ result&rdquo; back in a message (result will be delivered to your &ldquo;mailbox
 </p>
 </div>
 </div>
-<div id="outline-container-org287d4b6" class="outline-3">
-<h3 id="org287d4b6">Callbacks</h3>
-<div class="outline-text-3" id="text-org287d4b6">
+<div id="outline-container-org97562f0" class="outline-3">
+<h3 id="org97562f0">Callbacks</h3>
+<div class="outline-text-3" id="text-org97562f0">
 <p>
 The most straightforward solution is to pass an additional parameter to
 the asynchronous &ldquo;function&rdquo; (an explicit callback) which will be callled instead of just
@@ -145,9 +145,9 @@ using the standard TCO.
 </p>
 </div>
 </div>
-<div id="outline-container-org5291c69" class="outline-3">
-<h3 id="org5291c69">Concurrent futures</h3>
-<div class="outline-text-3" id="text-org5291c69">
+<div id="outline-container-orge8211c5" class="outline-3">
+<h3 id="orge8211c5">Concurrent futures</h3>
+<div class="outline-text-3" id="text-orge8211c5">
 <p>
 Futures do <i>not</i> signal completion but they can be called (polled) more than
 once.
@@ -175,9 +175,9 @@ Futures are similar to what OS <code>poll</code> or <code>select</code> calls do
 </div>
 </div>
 
-<div id="outline-container-org2871163" class="outline-2">
-<h2 id="org2871163">Non-blocking vs. Blocking</h2>
-<div class="outline-text-2" id="text-org2871163">
+<div id="outline-container-orgca989ca" class="outline-2">
+<h2 id="orgca989ca">Non-blocking vs. Blocking</h2>
+<div class="outline-text-2" id="text-orgca989ca">
 <p>
 The only way to achieve &ldquo;non-blocking&rdquo; is to have multiple &ldquo;execution
 contexts&rdquo;. There is no other way in principle.
@@ -204,9 +204,9 @@ another async function as a parameter, and then &ldquo;forgotten&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-org046deb9" class="outline-2">
-<h2 id="org046deb9">Problems</h2>
-<div class="outline-text-2" id="text-org046deb9">
+<div id="outline-container-orgd95dbba" class="outline-2">
+<h2 id="orgd95dbba">Problems</h2>
+<div class="outline-text-2" id="text-orgd95dbba">
 <p>
 In pure a functional setting most problems <i>do not arise</i>.
 </p>
@@ -231,9 +231,9 @@ Imperative OO crap, however, is fundamentally broken beyond repair.
 </ul>
 </div>
 </div>
-<div id="outline-container-org4587985" class="outline-2">
-<h2 id="org4587985">Summary</h2>
-<div class="outline-text-2" id="text-org4587985">
+<div id="outline-container-org59797d3" class="outline-2">
+<h2 id="org59797d3">Summary</h2>
+<div class="outline-text-2" id="text-org59797d3">
 <p>
 To summarize, any form of <i>concurrency</i> requires multiple <i>execution context</i> (coroutines,
 fibers, threads, whatever) and <i>coordination and communication</i> between
@@ -261,9 +261,9 @@ Erlang is an exception.
 </p>
 </div>
 </div>
-<div id="outline-container-org304841c" class="outline-2">
-<h2 id="org304841c">Imperative calls and returns</h2>
-<div class="outline-text-2" id="text-org304841c">
+<div id="outline-container-orgd3d11dd" class="outline-2">
+<h2 id="orgd3d11dd">Imperative calls and returns</h2>
+<div class="outline-text-2" id="text-orgd3d11dd">
 <p>
 Again, asynchronity means starting another processes and delegating to them.
 </p>
@@ -297,7 +297,7 @@ message-passing for signalling. Not even callbacks.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-27 Mon 14:10</p>
+<p class="date">Created: 2023-03-31 Fri 18:34</p>
 </div>
 </body>
 </html>
