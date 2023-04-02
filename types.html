@@ -1,13 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:29 -->
+<!-- 2023-04-02 Sun 07:30 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Types</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="description" content="Types for a Functional Programmer" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -15,6 +199,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 <script>
 MathJax = {
   chtml: {
@@ -44,9 +248,9 @@ MathJax = {
 <header>
 <h1 class="title">Types</h1>
 </header>
-<div id="outline-container-org3fcfab3" class="outline-2">
-<h2 id="org3fcfab3">Cardinality of a type</h2>
-<div class="outline-text-2" id="text-org3fcfab3">
+<div id="outline-container-orgb62374d" class="outline-2">
+<h2 id="orgb62374d">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-orgb62374d">
 <p>
 Cardinality (the size) is the only <i>structural (general) property</i> of a Set.
 </p>
@@ -67,9 +271,9 @@ Ignore bottoms (they are relevant only in type-constraint solving)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf33cb81" class="outline-3">
-<h3 id="orgf33cb81">Shapes or forms</h3>
-<div class="outline-text-3" id="text-orgf33cb81">
+<div id="outline-container-org339ca8e" class="outline-3">
+<h3 id="org339ca8e">Shapes or forms</h3>
+<div class="outline-text-3" id="text-org339ca8e">
 <p>
 Notice that these types have distinct, unique <i>shapes</i>
 </p>
@@ -90,9 +294,9 @@ Notice that
 </div>
 </div>
 </div>
-<div id="outline-container-orgc573e29" class="outline-2">
-<h2 id="orgc573e29">Total</h2>
-<div class="outline-text-2" id="text-orgc573e29">
+<div id="outline-container-orgd68dc72" class="outline-2">
+<h2 id="orgd68dc72">Total</h2>
+<div class="outline-text-2" id="text-orgd68dc72">
 <p>
 Knowing cardinalities of any two types (sets) we can know how many
 &ldquo;arrows&rdquo; (distinct relations or individual mappings) are there <i>in total</i>.
@@ -114,9 +318,9 @@ The notion of duality based on cardinality alone is wrong and misleading.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb4105a7" class="outline-2">
-<h2 id="orgb4105a7">Isomorphism</h2>
-<div class="outline-text-2" id="text-orgb4105a7">
+<div id="outline-container-org835dff2" class="outline-2">
+<h2 id="org835dff2">Isomorphism</h2>
+<div class="outline-text-2" id="text-org835dff2">
 <p>
 Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
 This is a naive and too abstract to be useful assumption.
@@ -133,9 +337,9 @@ some sectarians as such.
 </p>
 </div>
 
-<div id="outline-container-orgdedea70" class="outline-3">
-<h3 id="orgdedea70">Definition</h3>
-<div class="outline-text-3" id="text-orgdedea70">
+<div id="outline-container-org11187de" class="outline-3">
+<h3 id="org11187de">Definition</h3>
+<div class="outline-text-3" id="text-org11187de">
 <p>
 The formal definition is this
 </p>
@@ -151,18 +355,18 @@ defined <i>in principle</i> as a pair of total functions (on whole types).
 </p>
 </div>
 </div>
-<div id="outline-container-org3c30eae" class="outline-3">
-<h3 id="org3c30eae">Ordering</h3>
-<div class="outline-text-3" id="text-org3c30eae">
+<div id="outline-container-org8725ebd" class="outline-3">
+<h3 id="org8725ebd">Ordering</h3>
+<div class="outline-text-3" id="text-org8725ebd">
 <p>
 As long as cardinality is greater than 1 a particular <i>ordering</i> has to be defined (become a part of an abstract mathematical structure).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org7332661" class="outline-3">
-<h3 id="org7332661">An ordered set of arrows</h3>
-<div class="outline-text-3" id="text-org7332661">
+<div id="outline-container-orge7e55a8" class="outline-3">
+<h3 id="orge7e55a8">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-orge7e55a8">
 <p>
 Individual &ldquo;arrows&rdquo; (relations) <i>between values</i> has to be in a particular
  order.
@@ -184,9 +388,9 @@ Symmetries (rotations) could be formalized with such sets of functions.
 </div>
 </div>
 
-<div id="outline-container-org4036528" class="outline-3">
-<h3 id="org4036528">n!</h3>
-<div class="outline-text-3" id="text-org4036528">
+<div id="outline-container-org50475f9" class="outline-3">
+<h3 id="org50475f9">n!</h3>
+<div class="outline-text-3" id="text-org50475f9">
 <p>
 For any two types (sets) of the same cardinality \(n\)
 there are \(n!\) <i>unique</i> isomorphisms between them.
@@ -194,9 +398,9 @@ there are \(n!\) <i>unique</i> isomorphisms between them.
 </div>
 </div>
 
-<div id="outline-container-org9785de4" class="outline-3">
-<h3 id="org9785de4">Same cardinality does not imply the same shape</h3>
-<div class="outline-text-3" id="text-org9785de4">
+<div id="outline-container-org5b47e3d" class="outline-3">
+<h3 id="org5b47e3d">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-org5b47e3d">
 <p>
 <i>Knowing that an isomorphism exists is enough. An isomorphism between
 types \(s\) and \(t\) is a proof that /for all intents and purposes</i>, \(s\) and \(t\) are the same thing/.
@@ -208,9 +412,9 @@ This, of course, is bullshit.
 </div>
 </div>
 
-<div id="outline-container-org256a270" class="outline-3">
-<h3 id="org256a270">The laws</h3>
-<div class="outline-text-3" id="text-org256a270">
+<div id="outline-container-orgfe94b29" class="outline-3">
+<h3 id="orgfe94b29">The laws</h3>
+<div class="outline-text-3" id="text-orgfe94b29">
 <p>
 The cardinality of a <i>sum-type</i> is the sum of the cardinalities of its constructors.
 </p>
@@ -230,9 +434,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i> or <i>for
 </div>
 </div>
 
-<div id="outline-container-org0509709" class="outline-3">
-<h3 id="org0509709">Monoidial identities</h3>
-<div class="outline-text-3" id="text-org0509709">
+<div id="outline-container-org2e3d8b9" class="outline-3">
+<h3 id="org2e3d8b9">Monoidial identities</h3>
+<div class="outline-text-3" id="text-org2e3d8b9">
 <p>
 <code>()</code> is a Monoidal Identity element for product-types (no new information).
 <code>Void</code> is an identity element for sum-types (<code>Void</code> has no members).
@@ -241,9 +445,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i> or <i>for
 </div>
 </div>
 
-<div id="outline-container-org7696974" class="outline-2">
-<h2 id="org7696974">Exponentials</h2>
-<div class="outline-text-2" id="text-org7696974">
+<div id="outline-container-org23e74ff" class="outline-2">
+<h2 id="org23e74ff">Exponentials</h2>
+<div class="outline-text-2" id="text-org23e74ff">
 <p>
 The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
 </p>
@@ -256,13 +460,13 @@ so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
 </div>
 </div>
 
-<div id="outline-container-org7ae22af" class="outline-2">
-<h2 id="org7ae22af">Notes</h2>
-<div class="outline-text-2" id="text-org7ae22af">
+<div id="outline-container-org1074f13" class="outline-2">
+<h2 id="org1074f13">Notes</h2>
+<div class="outline-text-2" id="text-org1074f13">
 </div>
-<div id="outline-container-orge2081c9" class="outline-3">
-<h3 id="orge2081c9">Strings</h3>
-<div class="outline-text-3" id="text-orge2081c9">
+<div id="outline-container-orga4893f2" class="outline-3">
+<h3 id="orga4893f2">Strings</h3>
+<div class="outline-text-3" id="text-orga4893f2">
 <p>
 A <i>sequence</i> of elements from the same set (an alphabet) is called a <i>String</i> and it
 is a &ldquo;natural&rdquo; <i>type</i>.
@@ -275,9 +479,9 @@ taken \(n\) times.
 </p>
 </div>
 </div>
-<div id="outline-container-org6dec25c" class="outline-3">
-<h3 id="org6dec25c">Algebraic types</h3>
-<div class="outline-text-3" id="text-org6dec25c">
+<div id="outline-container-org6503b60" class="outline-3">
+<h3 id="org6503b60">Algebraic types</h3>
+<div class="outline-text-3" id="text-org6503b60">
 <p>
 <code>-&gt;</code> a set of all <i>ordered pairs</i> (arrows) - a <i>function space</i>
 <code>{ , }</code> records are <i>labeled</i> Cartesian Products (a \(\times\))
@@ -291,9 +495,9 @@ There is always some particular order in an actual implementation.
 </p>
 </div>
 </div>
-<div id="outline-container-org0eb967c" class="outline-3">
-<h3 id="org0eb967c">Type-classes</h3>
-<div class="outline-text-3" id="text-org0eb967c">
+<div id="outline-container-orgc18b3c8" class="outline-3">
+<h3 id="orgc18b3c8">Type-classes</h3>
+<div class="outline-text-3" id="text-orgc18b3c8">
 <p>
 <code>Num a =&gt; [a] -&gt; a</code>
 This type states that for any <i>type <code>a</code> of Numbers</i>, sum is a function that <i>maps a
@@ -302,9 +506,9 @@ list of such numbers to a single such number</i>.
 </div>
 </div>
 
-<div id="outline-container-orgd8c83b3" class="outline-3">
-<h3 id="orgd8c83b3">Nesting</h3>
-<div class="outline-text-3" id="text-orgd8c83b3">
+<div id="outline-container-org5b42cd9" class="outline-3">
+<h3 id="org5b42cd9">Nesting</h3>
+<div class="outline-text-3" id="text-org5b42cd9">
 <p>
 When we think of &ldquo;structured values&rdquo; we imply <i>nesting</i> of types.
 </p>
@@ -314,18 +518,18 @@ Algebraic types can be nested, just as expressions.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbae9b9e" class="outline-3">
-<h3 id="orgbae9b9e">Interfaces</h3>
-<div class="outline-text-3" id="text-orgbae9b9e">
+<div id="outline-container-org6694d6f" class="outline-3">
+<h3 id="org6694d6f">Interfaces</h3>
+<div class="outline-text-3" id="text-org6694d6f">
 <p>
 Interfaces are as fundamental as cell membranes - they establish penetrable partitions.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd444ed9" class="outline-3">
-<h3 id="orgd444ed9">Polymorphism</h3>
-<div class="outline-text-3" id="text-orgd444ed9">
+<div id="outline-container-org3c55b12" class="outline-3">
+<h3 id="org3c55b12">Polymorphism</h3>
+<div class="outline-text-3" id="text-org3c55b12">
 <p>
 Parametric polymorphism is &ldquo;on&rdquo; types with the same <i>nested structures</i>.
 This is, of course, how different molecules with same parts can be used.
@@ -343,9 +547,9 @@ In general, abstracting out and formalizing some <i>Universal mechanisms</i> (fo
 </div>
 </div>
 
-<div id="outline-container-org79e98b2" class="outline-2">
-<h2 id="org79e98b2">Sets of values</h2>
-<div class="outline-text-2" id="text-org79e98b2">
+<div id="outline-container-org1c1f721" class="outline-2">
+<h2 id="org1c1f721">Sets of values</h2>
+<div class="outline-text-2" id="text-org1c1f721">
 <p>
 Types are based on a formally defined mathematical notion of a <code>Set</code>.
 Types are <i>sets of values</i>, defined by sets of <i>constraints</i> (corresponding to particual properties).
@@ -369,9 +573,9 @@ to define a <i>family of types</i>, using the formal notion of a <i>type-class</
 </p>
 </div>
 </div>
-<div id="outline-container-org7907265" class="outline-2">
-<h2 id="org7907265">Type-classes</h2>
-<div class="outline-text-2" id="text-org7907265">
+<div id="outline-container-org7002ce7" class="outline-2">
+<h2 id="org7002ce7">Type-classes</h2>
+<div class="outline-text-2" id="text-org7002ce7">
 <p>
 First of all, a <i>type-class</i> is a <i>higer-level abstraction over types</i>, and each particular <i>instance</i> of a type-class is <i>type</i>.
 The mathematical analogy is a <i>Set of Sets</i> while members (types) have an additional strucure (a set of required <i>signatures</i>).
@@ -403,9 +607,9 @@ comprehensions with generators and boolean guards</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org336df09" class="outline-2">
-<h2 id="org336df09">Overloaded functions</h2>
-<div class="outline-text-2" id="text-org336df09">
+<div id="outline-container-orgf654795" class="outline-2">
+<h2 id="orgf654795">Overloaded functions</h2>
+<div class="outline-text-2" id="text-orgf654795">
 <p>
 This <i>type signature</i> implies that <code>(+)</code> is <i>overloaded</i>, which means could be applied to different types (provided both aguments are of the same type).
 </p>
@@ -419,7 +623,8 @@ This <i>type signature</i> implies that <code>(+)</code> is <i>overloaded</i>, w
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:29</p>
+<p class="date">Created: 2023-04-02 Sun 07:30</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

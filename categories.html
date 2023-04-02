@@ -1,13 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:36 -->
+<!-- 2023-04-02 Sun 07:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Category theory</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="description" content="Virtue signaling for a Functional Programmer" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -15,6 +199,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 <script>
 MathJax = {
   chtml: {
@@ -58,13 +262,13 @@ Indeed, everything that has been written by humans (except bullshit) is
 (or at least should be) verbalized observations of the same reality from
 different angles and distances (points of view).
 </p>
-<div id="outline-container-org157e075" class="outline-2">
-<h2 id="org157e075">Proper philosophy first</h2>
-<div class="outline-text-2" id="text-org157e075">
+<div id="outline-container-org6e9c854" class="outline-2">
+<h2 id="org6e9c854">Proper philosophy first</h2>
+<div class="outline-text-2" id="text-org6e9c854">
 </div>
-<div id="outline-container-org5e4d41f" class="outline-3">
-<h3 id="org5e4d41f">Why arrows?</h3>
-<div class="outline-text-3" id="text-org5e4d41f">
+<div id="outline-container-org4f864ef" class="outline-3">
+<h3 id="org4f864ef">Why arrows?</h3>
+<div class="outline-text-3" id="text-org4f864ef">
 <p>
 Because they imply a <i>direction</i> - an <i>order</i> for a ordered pair.
 </p>
@@ -75,9 +279,9 @@ Why directed? Because of the <i>Causality Principle</i>. Causality
 </p>
 </div>
 </div>
-<div id="outline-container-orgf192c6a" class="outline-3">
-<h3 id="orgf192c6a">A single &ldquo;step&rdquo;</h3>
-<div class="outline-text-3" id="text-orgf192c6a">
+<div id="outline-container-org2de36a9" class="outline-3">
+<h3 id="org2de36a9">A single &ldquo;step&rdquo;</h3>
+<div class="outline-text-3" id="text-org2de36a9">
 <p>
 \[\cdot \rightarrow \cdot\]
 This is a minimal <i>directed graph</i> - an abstraction. which may
@@ -95,9 +299,9 @@ Is it really a minimal?
 </p>
 </div>
 </div>
-<div id="outline-container-org440c7fc" class="outline-3">
-<h3 id="org440c7fc">A single &ldquo;dot&rdquo;</h3>
-<div class="outline-text-3" id="text-org440c7fc">
+<div id="outline-container-org31fbf95" class="outline-3">
+<h3 id="org31fbf95">A single &ldquo;dot&rdquo;</h3>
+<div class="outline-text-3" id="text-org31fbf95">
 <p>
 \[\rightarrow\cdot\]
 What this corresponds to? <i>From where</i> this arrow points <i>towards</i>
@@ -126,9 +330,9 @@ We cannot step from nothing. (Which is why <code>False</code> does not imply any
 </p>
 </div>
 </div>
-<div id="outline-container-org2705da3" class="outline-3">
-<h3 id="org2705da3">A set</h3>
-<div class="outline-text-3" id="text-org2705da3">
+<div id="outline-container-org3c9902d" class="outline-3">
+<h3 id="org3c9902d">A set</h3>
+<div class="outline-text-3" id="text-org3c9902d">
 <p>
 One of the ways to define a <i>set</i> is to state explicitly all the elements.
 The notation for this is \(S = \{a,b,c,...,x\}\), and we define <i>alphabets</i>
@@ -148,9 +352,9 @@ from you</i> (towards what you know).
 </p>
 </div>
 </div>
-<div id="outline-container-orgfce05c8" class="outline-3">
-<h3 id="orgfce05c8">A next step</h3>
-<div class="outline-text-3" id="text-orgfce05c8">
+<div id="outline-container-org7588c84" class="outline-3">
+<h3 id="org7588c84">A next step</h3>
+<div class="outline-text-3" id="text-org7588c84">
 <p>
 A next step starts exactly where the previous ends. This is the essence
 of a composition (of functions, of implications, etc).
@@ -160,9 +364,9 @@ arrow and <i>domain</i> of the next. It has to be the same.
 </p>
 </div>
 </div>
-<div id="outline-container-orgce3dfbf" class="outline-3">
-<h3 id="orgce3dfbf">Any 3 dots are between 2 steps</h3>
-<div class="outline-text-3" id="text-orgce3dfbf">
+<div id="outline-container-org571ba85" class="outline-3">
+<h3 id="org571ba85">Any 3 dots are between 2 steps</h3>
+<div class="outline-text-3" id="text-org571ba85">
 <p>
 There can be only &ldquo;this many&rdquo; directed arrows between any 3 dots.
 \[\cdot \rightarrow \cdot \rightarrow \cdot\]
@@ -176,9 +380,9 @@ This is a minimal algebraic structure.
 </p>
 </div>
 </div>
-<div id="outline-container-org3dcf75c" class="outline-3">
-<h3 id="org3dcf75c">Nothing more to consider</h3>
-<div class="outline-text-3" id="text-org3dcf75c">
+<div id="outline-container-org4b40c9f" class="outline-3">
+<h3 id="org4b40c9f">Nothing more to consider</h3>
+<div class="outline-text-3" id="text-org4b40c9f">
 <p>
 Just like it is with the <i>successor</i> function <code>(+1)</code>, the ability to
 take a <i>single step</i> \(\cdot \rightarrow \cdot\) is enough.
@@ -191,9 +395,9 @@ for everything</i>.
 </p>
 </div>
 
-<div id="outline-container-orgc6a842d" class="outline-4">
-<h4 id="orgc6a842d">Currying</h4>
-<div class="outline-text-4" id="text-orgc6a842d">
+<div id="outline-container-org36d0169" class="outline-4">
+<h4 id="org36d0169">Currying</h4>
+<div class="outline-text-4" id="text-org36d0169">
 <p>
 <i>Currying</i> is a technique to take one (and only one) argument to a
  function at a time <i>by returning a &ldquo;next step&rdquo; function</i> for a &ldquo;next
@@ -218,9 +422,9 @@ Now we &ldquo;compose&rdquo; these steps (or lambdas).
 </div>
 </div>
 </div>
-<div id="outline-container-org725ec69" class="outline-3">
-<h3 id="org725ec69">Composition</h3>
-<div class="outline-text-3" id="text-org725ec69">
+<div id="outline-container-org3e901b6" class="outline-3">
+<h3 id="org3e901b6">Composition</h3>
+<div class="outline-text-3" id="text-org3e901b6">
 <p>
 We describe &ldquo;steps&rdquo; as mappings \(x \mapsto x^{2}\), lets say, and give them
 <i>names</i>, like \(f\) and types, like \(f: N^{+} \rightarrow N^{+}\).
@@ -231,9 +435,9 @@ Now we compose these mappings (steps) with an operator \(\circ\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgc61cb6b" class="outline-3">
-<h3 id="orgc61cb6b">Associativity</h3>
-<div class="outline-text-3" id="text-orgc61cb6b">
+<div id="outline-container-org825fb9b" class="outline-3">
+<h3 id="org825fb9b">Associativity</h3>
+<div class="outline-text-3" id="text-org825fb9b">
 <p>
 Composition should have the <i>associative property</i>
 \[\forall f, g, h, (h \circ g) \circ f = h \circ (g \circ f)\]
@@ -256,27 +460,27 @@ matter in what order we <i>add up</i> or <i>put together</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orge00da16" class="outline-3">
-<h3 id="orge00da16">Identity</h3>
-<div class="outline-text-3" id="text-orge00da16">
+<div id="outline-container-org4dd9d1b" class="outline-3">
+<h3 id="org4dd9d1b">Identity</h3>
+<div class="outline-text-3" id="text-org4dd9d1b">
 <p>
 There has to be an <i>arrow</i> from any &ldquo;dot&rdquo; <i>to itself</i>, which corresponds to
 an <i>identity function</i> for a set (or an <i>identity element</i> for an operation).
 </p>
 </div>
 </div>
-<div id="outline-container-orgc8fd4d0" class="outline-3">
-<h3 id="orgc8fd4d0">What can be a &ldquo;dot&rdquo;</h3>
-<div class="outline-text-3" id="text-orgc8fd4d0">
+<div id="outline-container-org7bb331a" class="outline-3">
+<h3 id="org7bb331a">What can be a &ldquo;dot&rdquo;</h3>
+<div class="outline-text-3" id="text-org7bb331a">
 <p>
 Usually, dots stand for <i>sets</i> or <i>types</i>, but it could be almost
 any &ldquo;collection&rdquo;, &ldquo;structure&rdquo; or a whole &ldquo;class&rdquo; of these.
 </p>
 </div>
 </div>
-<div id="outline-container-orga89c5f4" class="outline-3">
-<h3 id="orga89c5f4">What could be an &ldquo;arrow&rdquo;</h3>
-<div class="outline-text-3" id="text-orga89c5f4">
+<div id="outline-container-org050873f" class="outline-3">
+<h3 id="org050873f">What could be an &ldquo;arrow&rdquo;</h3>
+<div class="outline-text-3" id="text-org050873f">
 <p>
 A single function, a morphism (which is more general), a Functor (which
 is a particular class of morphisms), everything that takes a single step
@@ -290,9 +494,9 @@ transformation (mapping, or a function).
 </div>
 </div>
 </div>
-<div id="outline-container-orge7e935d" class="outline-2">
-<h2 id="orge7e935d">One more generalization</h2>
-<div class="outline-text-2" id="text-orge7e935d">
+<div id="outline-container-org07feb62" class="outline-2">
+<h2 id="org07feb62">One more generalization</h2>
+<div class="outline-text-2" id="text-org07feb62">
 <p>
 A <i>category</i> is a higher level <i>generalization</i> from (and defined in
 terms of) the Set Theory.
@@ -363,9 +567,9 @@ composition</i> of &ldquo;arrows&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-orga360da0" class="outline-2">
-<h2 id="orga360da0">Structure</h2>
-<div class="outline-text-2" id="text-orga360da0">
+<div id="outline-container-org63c7285" class="outline-2">
+<h2 id="org63c7285">Structure</h2>
+<div class="outline-text-2" id="text-org63c7285">
 <p>
 So, structurally, there are a &ldquo;collection&rdquo; (a set) of &ldquo;objects&rdquo; (&ldquo;dots&rdquo;) <i>together with</i> a &ldquo;collection&rdquo; (a set) of &ldquo;arrows&rdquo; (&ldquo;morphisms&rdquo;).
 \[(O, A,...)\]
@@ -390,18 +594,18 @@ corresponds to <i>sum-types</i> and <i>pattern-matching</i> on them).
 </p>
 </div>
 </div>
-<div id="outline-container-org76d2ed4" class="outline-2">
-<h2 id="org76d2ed4">Nesting</h2>
-<div class="outline-text-2" id="text-org76d2ed4">
+<div id="outline-container-orgd1e9aca" class="outline-2">
+<h2 id="orgd1e9aca">Nesting</h2>
+<div class="outline-text-2" id="text-orgd1e9aca">
 <p>
 Just like sets, these abstract entities could be <i>nested</i>, given that
 they have <i>the same structure</i> of composed arrows.
 </p>
 </div>
 </div>
-<div id="outline-container-orge11b6ec" class="outline-2">
-<h2 id="orge11b6ec">All the individual arrows</h2>
-<div class="outline-text-2" id="text-orge11b6ec">
+<div id="outline-container-orge3aeedd" class="outline-2">
+<h2 id="orge3aeedd">All the individual arrows</h2>
+<div class="outline-text-2" id="text-orge3aeedd">
 <p>
 Lets say we have augmented a set of values with an explicit set of <i>all</i>
  &ldquo;arrows&rdquo;, which means adding <i>more structure</i>.
@@ -427,9 +631,9 @@ Sadly, not all functions (morphisms) are <i>one-to-one</i>, so different
 </div>
 </div>
 
-<div id="outline-container-org93466fe" class="outline-2">
-<h2 id="org93466fe">Composition</h2>
-<div class="outline-text-2" id="text-org93466fe">
+<div id="outline-container-org5c59f24" class="outline-2">
+<h2 id="org5c59f24">Composition</h2>
+<div class="outline-text-2" id="text-org5c59f24">
 <p>
 The <i>composition</i> operator \(\circ\) for <i>total functions</i> is defined as
 \(\forall f: A\rightarrow B, g: B\rightarrow C, c = g(f(a))| a\in A,c\in C\)
@@ -475,9 +679,9 @@ So, to form a <i>category</i> all the arrows must be composable (properly chain-
 </div>
 </div>
 
-<div id="outline-container-org06d3bf1" class="outline-2">
-<h2 id="org06d3bf1">Identity</h2>
-<div class="outline-text-2" id="text-org06d3bf1">
+<div id="outline-container-orgff150be" class="outline-2">
+<h2 id="orgff150be">Identity</h2>
+<div class="outline-text-2" id="text-orgff150be">
 <p>
 For every &ldquo;object&rdquo; (a &ldquo;dot&rdquo;) an &ldquo;identity morphism&rdquo; (an arrow to itself) is required.
 </p>
@@ -503,9 +707,9 @@ Just as with <i>identity values</i> (for an <i>associative operation</i>) these
 </div>
 </div>
 
-<div id="outline-container-orgd9fbfad" class="outline-2">
-<h2 id="orgd9fbfad">Structural patterns</h2>
-<div class="outline-text-2" id="text-orgd9fbfad">
+<div id="outline-container-org6e006ee" class="outline-2">
+<h2 id="org6e006ee">Structural patterns</h2>
+<div class="outline-text-2" id="text-org6e006ee">
 <p>
 It is not enough to specify (list) every single individual arrow, we
 have to realize <i>which pattern</i> they form when being <i>composed</i>.
@@ -524,9 +728,9 @@ So, a set of dots, a set of arrows and a pattern (directed graph) the arrows fro
 </p>
 </div>
 </div>
-<div id="outline-container-orge1103d2" class="outline-2">
-<h2 id="orge1103d2">Homomorphisms</h2>
-<div class="outline-text-2" id="text-orge1103d2">
+<div id="outline-container-orgf732c16" class="outline-2">
+<h2 id="orgf732c16">Homomorphisms</h2>
+<div class="outline-text-2" id="text-orgf732c16">
 <p>
 Some mappings of <i>structured objects (values)</i> are
 <i>structure-preserving</i>, some are not.
@@ -538,9 +742,9 @@ and here you have categories all the way down.
 </p>
 </div>
 </div>
-<div id="outline-container-orga99cc94" class="outline-2">
-<h2 id="orga99cc94">Monoids</h2>
-<div class="outline-text-2" id="text-orga99cc94">
+<div id="outline-container-org406d7c0" class="outline-2">
+<h2 id="org406d7c0">Monoids</h2>
+<div class="outline-text-2" id="text-org406d7c0">
 <p>
 \[(S,\cdot,e)\]
 \[\forall x,y,z \in S, (x\cdot y)\cdot z = x\cdot (y\cdot z)\]
@@ -561,18 +765,18 @@ for example <code>(+0)</code> or <code>(*1)</code> or <code>(++ "")</code>
 </p>
 </div>
 </div>
-<div id="outline-container-orgd78df56" class="outline-2">
-<h2 id="orgd78df56">Isomorphism</h2>
-<div class="outline-text-2" id="text-orgd78df56">
+<div id="outline-container-orgd1a8530" class="outline-2">
+<h2 id="orgd1a8530">Isomorphism</h2>
+<div class="outline-text-2" id="text-orgd1a8530">
 <p>
 \(f: A\rightarrow B\) is an <i>isomorphism</i> \(\iff\)
 \[\]\[\exists g: B\rightarrow A \mid g\circ f = id_{A} \land f\circ g = id_{B} \]
 </p>
 </div>
 </div>
-<div id="outline-container-orge61b44c" class="outline-2">
-<h2 id="orge61b44c">Complications</h2>
-<div class="outline-text-2" id="text-orge61b44c">
+<div id="outline-container-org7709782" class="outline-2">
+<h2 id="org7709782">Complications</h2>
+<div class="outline-text-2" id="text-org7709782">
 <p>
 \[\forall A,B \in Ob_{C},\exists Hom_{C}(A,B)\]
 \[Ob_{C}=\{A,B\}, Hom_{C}(A,A)=id_{A}, Hom_{C}(B,B)=id_{B}, Hom_{C}(A,B)=\emptyset, Hom_{C}(B,A)=\emptyset\]
@@ -585,7 +789,8 @@ No arrows between \(A\) and \(B\), which means they are <i>unrelated</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:36</p>
+<p class="date">Created: 2023-04-02 Sun 07:38</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

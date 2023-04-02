@@ -1,13 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:34 -->
+<!-- 2023-04-02 Sun 07:36 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Modules</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="description" content="Modules for a Functional Programmer" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -15,6 +199,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -110,9 +314,9 @@ specialized</i> modules are the basic building blocks of hierarchies of
 pure-functional (based on high-order functions) DSLs.
 </p>
 
-<div id="outline-container-orgc460249" class="outline-2">
-<h2 id="orgc460249">Meta-level</h2>
-<div class="outline-text-2" id="text-orgc460249">
+<div id="outline-container-orge3ee292" class="outline-2">
+<h2 id="orge3ee292">Meta-level</h2>
+<div class="outline-text-2" id="text-orge3ee292">
 <p>
 Cognitive overload is the primary motivation for modularity.
 </p>
@@ -150,9 +354,9 @@ corresponding code is being <i>decoupled</i> as well.
 </div>
 </div>
 
-<div id="outline-container-orgab10be1" class="outline-2">
-<h2 id="orgab10be1">Principles</h2>
-<div class="outline-text-2" id="text-orgab10be1">
+<div id="outline-container-org32bec99" class="outline-2">
+<h2 id="org32bec99">Principles</h2>
+<div class="outline-text-2" id="text-org32bec99">
 <p>
 Everything is to be build upon Algebraic (<i>sum</i> and <i>product</i>) abstract
 data types.
@@ -182,9 +386,9 @@ Again, the big picture is:  <code>Concepts -&gt; Types -&gt; Interfaces -&gt; Mo
 We program with algebraic types in FP.
 </p>
 </div>
-<div id="outline-container-org719ad64" class="outline-3">
-<h3 id="org719ad64">The Abstraction principle</h3>
-<div class="outline-text-3" id="text-org719ad64">
+<div id="outline-container-org90dc162" class="outline-3">
+<h3 id="org90dc162">The Abstraction principle</h3>
+<div class="outline-text-3" id="text-org90dc162">
 <p>
 Abstraction is the key to managing overwhelming complexity.
 • Abstraction is a tool (the only one?) that people use to understand
@@ -200,9 +404,9 @@ Proper modularity is the manifestation of adequate abstraction
 </p>
 </div>
 </div>
-<div id="outline-container-org4a68f76" class="outline-3">
-<h3 id="org4a68f76">The Encapsulation principle</h3>
-<div class="outline-text-3" id="text-org4a68f76">
+<div id="outline-container-org190dfbb" class="outline-3">
+<h3 id="org190dfbb">The Encapsulation principle</h3>
+<div class="outline-text-3" id="text-org190dfbb">
 <p>
 A well-designed module encapsulates data (information hiding)
 • An interface should <i>hide implementation details</i>
@@ -221,9 +425,9 @@ It is common in ML to have multiple implementations of the same
 </p>
 </div>
 </div>
-<div id="outline-container-orge76e39d" class="outline-3">
-<h3 id="orge76e39d">The Necessery and Sufficient principle</h3>
-<div class="outline-text-3" id="text-orge76e39d">
+<div id="outline-container-orge5fc452" class="outline-3">
+<h3 id="orge5fc452">The Necessery and Sufficient principle</h3>
+<div class="outline-text-3" id="text-orge5fc452">
 <p>
 A well-designed module has a <i>minimal interface</i>
 • Function declaration should be in a module’s interface if and only if:
@@ -233,9 +437,9 @@ A well-designed module has a <i>minimal interface</i>
 </div>
 </div>
 </div>
-<div id="outline-container-org2474b51" class="outline-2">
-<h2 id="org2474b51">Record</h2>
-<div class="outline-text-2" id="text-org2474b51">
+<div id="outline-container-org3db1479" class="outline-2">
+<h2 id="org3db1479">Record</h2>
+<div class="outline-text-2" id="text-org3db1479">
 <p>
 A module is just like a record of named and typed slots (<i>type-signatures</i>)
 and just like a <i>tagged Cartesian product</i>. Access is similar to <i>selectors</i> (for slots of a record).
@@ -260,9 +464,9 @@ This is why we said <i>like</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgcf683f0" class="outline-2">
-<h2 id="orgcf683f0">Structure</h2>
-<div class="outline-text-2" id="text-orgcf683f0">
+<div id="outline-container-org3148227" class="outline-2">
+<h2 id="org3148227">Structure</h2>
+<div class="outline-text-2" id="text-org3148227">
 <p>
 So it is an <i>instance</i> (a single <i>record-like value</i>), a particular
 <i>structure</i> as they called in Standard ML or Ocaml or F#.
@@ -273,9 +477,9 @@ The access is similar to <i>selectors</i> for record&rsquo;s slots.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbdade4c" class="outline-2">
-<h2 id="orgbdade4c">Signatures</h2>
-<div class="outline-text-2" id="text-orgbdade4c">
+<div id="outline-container-org0cb10c7" class="outline-2">
+<h2 id="org0cb10c7">Signatures</h2>
+<div class="outline-text-2" id="text-org0cb10c7">
 <p>
 Each such &ldquo;structure&rdquo; is an instance of a particular <i>&ldquo;signature&rdquo;</i> which corresponds to its
 particular &ldquo;<i>structural type</i>&rdquo;.
@@ -297,18 +501,18 @@ The type of a structure is captured in its signature and contains all of the sta
 </div>
 </div>
 
-<div id="outline-container-org6eb2aae" class="outline-2">
-<h2 id="org6eb2aae">Functors in ML</h2>
-<div class="outline-text-2" id="text-org6eb2aae">
+<div id="outline-container-orgb167bc5" class="outline-2">
+<h2 id="orgb167bc5">Functors in ML</h2>
+<div class="outline-text-2" id="text-orgb167bc5">
 <p>
 The use of one module by another is captured by special functions called functors that map structures to new structures.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org7477c7a" class="outline-2">
-<h2 id="org7477c7a">Abstraction barrier</h2>
-<div class="outline-text-2" id="text-org7477c7a">
+<div id="outline-container-org29b83cc" class="outline-2">
+<h2 id="org29b83cc">Abstraction barrier</h2>
+<div class="outline-text-2" id="text-org29b83cc">
 <p>
 This module-signature, at least in theory, forms an actual <i>Abstraction
 Barrier</i> (which acts like a cell-membrane of a module) that hides
@@ -324,9 +528,9 @@ barriers (proper message-passing interfaces) are cell-membranes between
 </div>
 </div>
 
-<div id="outline-container-org7303a91" class="outline-2">
-<h2 id="org7303a91">Interfaces</h2>
-<div class="outline-text-2" id="text-org7303a91">
+<div id="outline-container-org849f939" class="outline-2">
+<h2 id="org849f939">Interfaces</h2>
+<div class="outline-text-2" id="text-org849f939">
 <p>
 The interface of a module gives the <i>type</i> of each exported <i>value</i>.
 </p>
@@ -355,9 +559,9 @@ SML (and Ocaml) got it right. F# too.
 </div>
 </div>
 
-<div id="outline-container-org6eebf75" class="outline-2">
-<h2 id="org6eebf75">Modular programming</h2>
-<div class="outline-text-2" id="text-org6eebf75">
+<div id="outline-container-orgae2224c" class="outline-2">
+<h2 id="orgae2224c">Modular programming</h2>
+<div class="outline-text-2" id="text-orgae2224c">
 <p>
 The most important principle in whole Computer Science - the Molecularity
 Principle - is about how (and why) <a href="ADTs.html">Abstract Data Types</a> should be defined.
@@ -424,7 +628,8 @@ ML guys got it right, others missed the point.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:34</p>
+<p class="date">Created: 2023-04-02 Sun 07:36</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

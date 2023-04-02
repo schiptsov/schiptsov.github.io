@@ -1,12 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:34 -->
+<!-- 2023-04-02 Sun 07:36 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Mess We Are In</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -14,6 +198,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -44,7 +248,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org5ca72df">
+<pre class="example" id="org9bb2c32">
 	linux-vdso.so.1 (0x00007ffc46ed5000)
 	libc++.so.1 =&gt; /usr/lib64/libc++.so.1 (0x00007fa8c2449000)
 	libc++abi.so.1 =&gt; /usr/lib64/libc++abi.so.1 (0x00007fa8c2405000)
@@ -63,7 +267,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org398dd16">
+<pre class="example" id="orgc548225">
 a.out:	file format elf64-x86-64
 
 Disassembly of section .text:
@@ -599,16 +803,16 @@ Only Erlang guys did everything right &#x2013; a principle-based research from t
 Shared concurrency for imperative code is a myth. Period.
 </p>
 
-<div id="outline-container-orgba4dd47" class="outline-2">
-<h2 id="orgba4dd47">The solutions</h2>
-<div class="outline-text-2" id="text-orgba4dd47">
+<div id="outline-container-orgf2e34c1" class="outline-2">
+<h2 id="orgf2e34c1">The solutions</h2>
+<div class="outline-text-2" id="text-orgf2e34c1">
 <p>
 There are <i>mathematically-sound theoretical solutions</i>.
 </p>
 </div>
-<div id="outline-container-org910f15c" class="outline-3">
-<h3 id="org910f15c">Referential transparency</h3>
-<div class="outline-text-3" id="text-org910f15c">
+<div id="outline-container-orgb1f8d5e" class="outline-3">
+<h3 id="orgb1f8d5e">Referential transparency</h3>
+<div class="outline-text-3" id="text-orgb1f8d5e">
 <p>
 This is the fundamental property of all <i>binding</i>, both of symbols and <i>within the
 compound and structured data</i> - once <i>bound</i> everything stays forever - does not
@@ -633,9 +837,9 @@ This is the <i>ideal</i> which Haskell community zealously seek to attain.
 </p>
 </div>
 </div>
-<div id="outline-container-org4d6223b" class="outline-3">
-<h3 id="org4d6223b">At most one mutable reference</h3>
-<div class="outline-text-3" id="text-org4d6223b">
+<div id="outline-container-orga9c633b" class="outline-3">
+<h3 id="orga9c633b">At most one mutable reference</h3>
+<div class="outline-text-3" id="text-orga9c633b">
 <p>
 This is another principal theoretical solution, which is <i>partial referential
 transparency</i> so to speak. The state has to be encapsulated into a <i>closure</i>, which
@@ -653,9 +857,9 @@ It is remarkable that an Abstract Data Type is the fundamental building block he
 </p>
 </div>
 </div>
-<div id="outline-container-org6f62b5e" class="outline-3">
-<h3 id="org6f62b5e">Generalized Abstraction barriers</h3>
-<div class="outline-text-3" id="text-org6f62b5e">
+<div id="outline-container-org3ac1559" class="outline-3">
+<h3 id="org3ac1559">Generalized Abstraction barriers</h3>
+<div class="outline-text-3" id="text-org3ac1559">
 <p>
 There are <i>emergent /standard idioms</i> to establish and maintain <i>actual abstraction
 barriers</i>.
@@ -691,9 +895,9 @@ one mutable reference</i>. In Haskell there is no mutation possible in principle
 </ul>
 </div>
 </div>
-<div id="outline-container-org7127459" class="outline-3">
-<h3 id="org7127459">Async</h3>
-<div class="outline-text-3" id="text-org7127459">
+<div id="outline-container-org134ea29" class="outline-3">
+<h3 id="org134ea29">Async</h3>
+<div class="outline-text-3" id="text-org134ea29">
 <p>
 The most adequate case for using a Monad (which is, again, just an ADT,  an
 instance of a standard <i>type-class</i>) is to separate pure functions form async
@@ -712,9 +916,9 @@ between pure mathematical functions and asynchronous procedures.
 </div>
 </div>
 
-<div id="outline-container-org4c5ac15" class="outline-3">
-<h3 id="org4c5ac15">A vertical arrow</h3>
-<div class="outline-text-3" id="text-org4c5ac15">
+<div id="outline-container-org0281a70" class="outline-3">
+<h3 id="org0281a70">A vertical arrow</h3>
+<div class="outline-text-3" id="text-org0281a70">
 <p>
 The fundamental principle is that values could be passed strictly in only one
 direction - <i>into an async context</i>, and never &ldquo;back&rdquo;, which has a deep relation
@@ -730,9 +934,9 @@ defined declaratively), but <i>behind its abstraction barrier</i>, using a disti
 </div>
 </div>
 
-<div id="outline-container-orgd960b4d" class="outline-3">
-<h3 id="orgd960b4d">And a horizontal arrow</h3>
-<div class="outline-text-3" id="text-orgd960b4d">
+<div id="outline-container-orgd5ed5c3" class="outline-3">
+<h3 id="orgd5ed5c3">And a horizontal arrow</h3>
+<div class="outline-text-3" id="text-orgd5ed5c3">
 <p>
 Think of introducing a <i>vertical arrow</i> for &ldquo;lifting of values&rdquo; (which will never
 &ldquo;come back&rdquo; to the pure realm which they have left - notice this <i>finest
@@ -747,9 +951,9 @@ barrier</i> (it is a Kleisli arrow after all) in only one direction, is &ldquo;i
 </p>
 </div>
 </div>
-<div id="outline-container-org4da7d4a" class="outline-3">
-<h3 id="org4da7d4a">an ADT for ADTs</h3>
-<div class="outline-text-3" id="text-org4da7d4a">
+<div id="outline-container-orgf8e3ee9" class="outline-3">
+<h3 id="orgf8e3ee9">an ADT for ADTs</h3>
+<div class="outline-text-3" id="text-orgf8e3ee9">
 <p>
 A Monad, as you see, is a &ldquo;lift&rdquo; (a <i>vertical error</i>) for values and &ldquo;composition&rdquo;
 (<i>specialized dot</i>) for computations in this particular <i>instance</i> or a context.
@@ -768,9 +972,9 @@ fundamental notion of <i>&ldquo;AND ALSO&rdquo;</i> (an instance of) quacks like
 </p>
 </div>
 </div>
-<div id="outline-container-org5680d74" class="outline-3">
-<h3 id="org5680d74">Comosition of type-classes</h3>
-<div class="outline-text-3" id="text-org5680d74">
+<div id="outline-container-orgb03d247" class="outline-3">
+<h3 id="orgb03d247">Comosition of type-classes</h3>
+<div class="outline-text-3" id="text-orgb03d247">
 <p>
 <i>Whole type-classes can be composed</i> (to form a new whole), using instantiation
 (implementing an interface within an ADT <i>module</i>) instead of some explicit
@@ -787,9 +991,9 @@ generalized form Molecular Biology and <i>What Is</i>.
 </div>
 </div>
 
-<div id="outline-container-org4a09258" class="outline-2">
-<h2 id="org4a09258">Erlang</h2>
-<div class="outline-text-2" id="text-org4a09258">
+<div id="outline-container-orgd66a0b8" class="outline-2">
+<h2 id="orgd66a0b8">Erlang</h2>
+<div class="outline-text-2" id="text-orgd66a0b8">
 <p>
 Erlang, being <i>dynamically but strongly</i>-typed language, reinforces abstraction
 barriers at interfaces (where else?). User-facing code is a pure-functional
@@ -829,9 +1033,9 @@ is also a <i>proper design</i>.
 </p>
 </div>
 
-<div id="outline-container-orga41d25a" class="outline-3">
-<h3 id="orga41d25a">Behaviors</h3>
-<div class="outline-text-3" id="text-orga41d25a">
+<div id="outline-container-orge7c2478" class="outline-3">
+<h3 id="orge7c2478">Behaviors</h3>
+<div class="outline-text-3" id="text-orge7c2478">
 <p>
 These building blocks (at the levels of libraries) can be thought off as
 <i>sets of mutually-recursive generic functions</i> (within a module), being
@@ -877,7 +1081,8 @@ well as the principles everything is based upon. Erlang is a marvel of craftsman
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:34</p>
+<p class="date">Created: 2023-04-02 Sun 07:36</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

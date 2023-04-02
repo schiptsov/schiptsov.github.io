@@ -1,12 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:35 -->
+<!-- 2023-04-02 Sun 07:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rust</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -14,6 +198,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -25,9 +229,9 @@
 <h1 class="title">Rust</h1>
 </header>
 
-<div id="outline-container-orgc349dd4" class="outline-2">
-<h2 id="orgc349dd4">A meme language, which is OK</h2>
-<div class="outline-text-2" id="text-orgc349dd4">
+<div id="outline-container-org3261415" class="outline-2">
+<h2 id="org3261415">A meme language, which is OK</h2>
+<div class="outline-text-2" id="text-org3261415">
 <p>
 It has essentially the same <i>social momentum</i> like <code>Perl</code> and then <code>PHP</code> had, except
 much larger. Unlike <code>Javascript</code>, it is still a <i>niche</i> language, so more like a
@@ -35,9 +239,9 @@ much larger. Unlike <code>Javascript</code>, it is still a <i>niche</i> language
 </p>
 </div>
 
-<div id="outline-container-orgc2b26f0" class="outline-3">
-<h3 id="orgc2b26f0">Over-excited amateur community</h3>
-<div class="outline-text-3" id="text-orgc2b26f0">
+<div id="outline-container-orgee35cd3" class="outline-3">
+<h3 id="orgee35cd3">Over-excited amateur community</h3>
+<div class="outline-text-3" id="text-orgee35cd3">
 <p>
 One has to be an amateur to be excited about anything. Well, except high quality
 art and true craftsmanship in general.
@@ -61,9 +265,9 @@ at Mozilla has at least done alot of (<code>C++</code>) programming beforehand.
 </p>
 </div>
 </div>
-<div id="outline-container-org006160a" class="outline-3">
-<h3 id="org006160a">Pragmatic</h3>
-<div class="outline-text-3" id="text-org006160a">
+<div id="outline-container-org1687440" class="outline-3">
+<h3 id="org1687440">Pragmatic</h3>
+<div class="outline-text-3" id="text-org1687440">
 <p>
 Being reasonably high-level, with meaningful high-level syntactic forms (like <code>?</code>)
 it is a pragmatic language, indeed.
@@ -78,9 +282,9 @@ It is still imperative, so one has <i>Enums</i> instead of proper <i>sum-types</
 </p>
 </div>
 </div>
-<div id="outline-container-orgffc78d0" class="outline-3">
-<h3 id="orgffc78d0">Free community docs</h3>
-<div class="outline-text-3" id="text-orgffc78d0">
+<div id="outline-container-org179b005" class="outline-3">
+<h3 id="org179b005">Free community docs</h3>
+<div class="outline-text-3" id="text-org179b005">
 <ul class="org-ul">
 <li><a href="https://doc.rust-lang.org/rust-by-example/">https://doc.rust-lang.org/rust-by-example/</a></li>
 <li><a href="https://doc.rust-lang.org/book/">https://doc.rust-lang.org/book/</a></li>
@@ -88,18 +292,18 @@ It is still imperative, so one has <i>Enums</i> instead of proper <i>sum-types</
 </ul>
 </div>
 </div>
-<div id="outline-container-org0c2d48f" class="outline-3">
-<h3 id="org0c2d48f">Books</h3>
-<div class="outline-text-3" id="text-org0c2d48f">
+<div id="outline-container-org70878cf" class="outline-3">
+<h3 id="org70878cf">Books</h3>
+<div class="outline-text-3" id="text-org70878cf">
 <p>
 There are a few recent books on some <i>specifics</i>, so all the information is available.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb8652df" class="outline-2">
-<h2 id="orgb8652df">Principles</h2>
-<div class="outline-text-2" id="text-orgb8652df">
+<div id="outline-container-orgcbcd13f" class="outline-2">
+<h2 id="orgcbcd13f">Principles</h2>
+<div class="outline-text-2" id="text-orgcbcd13f">
 <p>
 The mind tends to abstract away (and out) and ignore the details, so should our
 <i>high-level</i> languages do.
@@ -122,9 +326,9 @@ The right thing to do is to have well-crafted <i>defaults</i>, and the clean syn
 </div>
 </div>
 
-<div id="outline-container-org0e09e39" class="outline-2">
-<h2 id="org0e09e39">C++</h2>
-<div class="outline-text-2" id="text-org0e09e39">
+<div id="outline-container-org872c15a" class="outline-2">
+<h2 id="org872c15a">C++</h2>
+<div class="outline-text-2" id="text-org872c15a">
 <p>
 Programs must be read like arithmetic, not some an_int_implemented_as_with_signals_overflow_in_this_way.static_method_invoked_by_a_constant_reference+(an_instance_of_an_integer_implemented_as&#x2026;.)
 </p>
@@ -135,9 +339,9 @@ With all possible symbols thrown in.
 </div>
 </div>
 
-<div id="outline-container-org9c65c06" class="outline-2">
-<h2 id="org9c65c06">Ideas</h2>
-<div class="outline-text-2" id="text-org9c65c06">
+<div id="outline-container-orgff78b6e" class="outline-2">
+<h2 id="orgff78b6e">Ideas</h2>
+<div class="outline-text-2" id="text-orgff78b6e">
 <p>
 By the way, always having an <i>implicit context</i> (as in Scala) is a universal
 notion (not just of a human language, but even animal&rsquo;s stress calls), and it
@@ -168,9 +372,9 @@ Something like <code>a#b</code> (like in CLU) instead of <code>a.b</code>
 </div>
 </div>
 
-<div id="outline-container-org3776253" class="outline-2">
-<h2 id="org3776253">Disclaimer</h2>
-<div class="outline-text-2" id="text-org3776253">
+<div id="outline-container-orgb9aafd6" class="outline-2">
+<h2 id="orgb9aafd6">Disclaimer</h2>
+<div class="outline-text-2" id="text-orgb9aafd6">
 <p>
 Even if I rant about <code>Rust</code> a lot, it is only because I <i>do</i> know &ldquo;any better&rdquo; -
 Scheme, Common Lisp, SML, Elang, Ocaml, Haskell, Scala3, F#. It is important,
@@ -207,9 +411,9 @@ least we could push it to the retirement home, together with <code>Cobol</code> 
 </p>
 </div>
 </div>
-<div id="outline-container-org49dcf13" class="outline-2">
-<h2 id="org49dcf13">The rant</h2>
-<div class="outline-text-2" id="text-org49dcf13">
+<div id="outline-container-orgfe73f8a" class="outline-2">
+<h2 id="orgfe73f8a">The rant</h2>
+<div class="outline-text-2" id="text-orgfe73f8a">
 <p>
 I came up with some <i>enlightened</i> and precise definition of <i>why</i> some languages  feel
 so crappy, like PHP, which is, as we know, <i>the fractal of bad design</i>.
@@ -305,7 +509,8 @@ programming, and there were no problem with the syntax and semantics of the
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:35</p>
+<p class="date">Created: 2023-04-02 Sun 07:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

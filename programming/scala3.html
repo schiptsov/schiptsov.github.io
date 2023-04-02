@@ -1,12 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:35 -->
+<!-- 2023-04-02 Sun 07:36 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scala3</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -14,6 +198,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -59,9 +263,9 @@ DSLs. This is the way to program, and the real understanding comes from the
 principles behind the syntactic sugar and the <i>higher-kinded types</i>.
 </p>
 
-<div id="outline-container-org1cbe3d4" class="outline-2">
-<h2 id="org1cbe3d4">Overview</h2>
-<div class="outline-text-2" id="text-org1cbe3d4">
+<div id="outline-container-orgd9fc116" class="outline-2">
+<h2 id="orgd9fc116">Overview</h2>
+<div class="outline-text-2" id="text-orgd9fc116">
 <p>
 It is much better to think in terms of <i>nested Sets of type-tagged structured
 values</i>.
@@ -84,9 +288,9 @@ especially compared to Java or C++.
 </p>
 </div>
 
-<div id="outline-container-orgf80fe8e" class="outline-3">
-<h3 id="orgf80fe8e">Product types</h3>
-<div class="outline-text-3" id="text-orgf80fe8e">
+<div id="outline-container-org4059309" class="outline-3">
+<h3 id="org4059309">Product types</h3>
+<div class="outline-text-3" id="text-org4059309">
 <p>
 <i>Case-classes</i> are used to define <i>immutable values which have its own structure</i> and
 &ldquo;normal&rdquo; classes can create <i>mutable record types</i>. <i>Companion objects</i> provide an
@@ -94,9 +298,9 @@ additional  <i>name-space</i>. /Extensions are also useful.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd9a8a2b" class="outline-3">
-<h3 id="orgd9a8a2b">Sum types</h3>
-<div class="outline-text-3" id="text-orgd9a8a2b">
+<div id="outline-container-orgaa02694" class="outline-3">
+<h3 id="orgaa02694">Sum types</h3>
+<div class="outline-text-3" id="text-orgaa02694">
 <p>
 <i>Enums</i> are Scala&rsquo;s  attempt on generalized <i>sum-types</i>, or even GADTs, and they
 seem OK due to the ability to define fields and methods, just like in a
@@ -104,9 +308,9 @@ seem OK due to the ability to define fields and methods, just like in a
 </p>
 </div>
 </div>
-<div id="outline-container-orgfaf25cd" class="outline-3">
-<h3 id="orgfaf25cd">Type-classes</h3>
-<div class="outline-text-3" id="text-orgfaf25cd">
+<div id="outline-container-orga212b7d" class="outline-3">
+<h3 id="orga212b7d">Type-classes</h3>
+<div class="outline-text-3" id="text-orga212b7d">
 <p>
 Parameterized <i>Traits</i> are now the solid basis of proper <i>type-classes</i>, which are as
 fundamental as Liskov&rsquo;s ADTs, and one should <i>abstract out with traits</i>.
@@ -146,9 +350,9 @@ Anyway, whatever.
 </div>
 </div>
 </div>
-<div id="outline-container-org5c4e729" class="outline-2">
-<h2 id="org5c4e729">Modern tools</h2>
-<div class="outline-text-2" id="text-org5c4e729">
+<div id="outline-container-org84368f2" class="outline-2">
+<h2 id="org84368f2">Modern tools</h2>
+<div class="outline-text-2" id="text-org84368f2">
 <ul class="org-ul">
 <li><code>cs</code> -  <i>artifact manager</i></li>
 <li><code>amm</code> - <i>advanced REPL</i></li>
@@ -185,17 +389,17 @@ Launch the REPL
 <p>
 import straight from <code>Maven</code>
 </p>
-<pre class="example" id="org7867258">
+<pre class="example" id="org46b49e9">
 import $ivy.`com.typesafe.akka:akka-stream_3:2.7.0`
 </pre>
 </div>
-<div id="outline-container-org94ffd10" class="outline-3">
-<h3 id="org94ffd10">Basic configuration</h3>
-<div class="outline-text-3" id="text-org94ffd10">
+<div id="outline-container-orgdbceb3e" class="outline-3">
+<h3 id="orgdbceb3e">Basic configuration</h3>
+<div class="outline-text-3" id="text-orgdbceb3e">
 <p>
 add this to the <code>build.sbt</code> file
 </p>
-<pre class="example" id="org8f60ced">
+<pre class="example" id="org6e5ce53">
 val scala3Version = "3.2.1"
 val AkkaVersion = "2.8.0-M1"
 
@@ -215,7 +419,7 @@ lazy val root = project
 <p>
 and <code>project/plugins.sbt</code> is
 </p>
-<pre class="example" id="org8cff22d">
+<pre class="example" id="orgb2ff96d">
 addSbtPlugin("ch.epfl.scala" % "sbt-bloop" % "1.5.4")
 
 addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.10.4")
@@ -224,9 +428,9 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.6")
 </div>
 </div>
 </div>
-<div id="outline-container-orgee91788" class="outline-2">
-<h2 id="orgee91788">Editor support</h2>
-<div class="outline-text-2" id="text-orgee91788">
+<div id="outline-container-org608bbb6" class="outline-2">
+<h2 id="org608bbb6">Editor support</h2>
+<div class="outline-text-2" id="text-org608bbb6">
 <p>
 The <i>Giga Chad</i> Odersky and the team are using <i>VSCode</i>, so it almost always works.
 Vim and Emacs require some effort.
@@ -251,9 +455,9 @@ Since <code>cs</code> is the modern tool of choice, make sure your <code>$HOME/.
 <code>scalafmt</code> needs to specify a <i>dialect</i> in the <code>.scalafmt.conf</code>.
 </p>
 </div>
-<div id="outline-container-orgc285c85" class="outline-3">
-<h3 id="orgc285c85">Metals</h3>
-<div class="outline-text-3" id="text-orgc285c85">
+<div id="outline-container-orgd2c6b86" class="outline-3">
+<h3 id="orgd2c6b86">Metals</h3>
+<div class="outline-text-3" id="text-orgd2c6b86">
 <p>
 The only LSP-server available is <code>metals</code> but it is buggy as fuck. It
 relies on <code>bloop</code>, so make sure it is installed by <code>cs</code>.
@@ -287,9 +491,9 @@ already installed by <code>cs</code>, which is the default, preferred way to do 
 </div>
 </div>
 
-<div id="outline-container-org7ccfd51" class="outline-2">
-<h2 id="org7ccfd51">Better abstractions</h2>
-<div class="outline-text-2" id="text-org7ccfd51">
+<div id="outline-container-org580da1e" class="outline-2">
+<h2 id="org580da1e">Better abstractions</h2>
+<div class="outline-text-2" id="text-org580da1e">
 <p>
 Refinement of <i>implicits</i> (of implicit <i>contexts</i>) by using a common
 mathematical jargon.
@@ -310,9 +514,9 @@ An implicit value can be &ldquo;inferred&rdquo; by the compiler or <i>selected e
 among many.
 </p>
 </div>
-<div id="outline-container-org5da360a" class="outline-3">
-<h3 id="org5da360a">Using (clauses)</h3>
-<div class="outline-text-3" id="text-org5da360a">
+<div id="outline-container-org1c9740c" class="outline-3">
+<h3 id="org1c9740c">Using (clauses)</h3>
+<div class="outline-text-3" id="text-org1c9740c">
 <p>
 Optional arguments with <i>default values</i> which can be omitted at a <i>call site</i>.
 </p>
@@ -322,9 +526,9 @@ Values should be automatically provided by the <i>context</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc27206e" class="outline-3">
-<h3 id="orgc27206e">Given (instances)</h3>
-<div class="outline-text-3" id="text-orgc27206e">
+<div id="outline-container-org8028c95" class="outline-3">
+<h3 id="org8028c95">Given (instances)</h3>
+<div class="outline-text-3" id="text-org8028c95">
 <p>
 This corresponds to some &ldquo;standard property&rdquo; that we always assume -
 <i>given that&#x2026;</i>. The common synonym is <i>provided that&#x2026;</i>
@@ -338,9 +542,9 @@ arguments</i>.
 </div>
 </div>
 
-<div id="outline-container-org467dda9" class="outline-2">
-<h2 id="org467dda9">Libraries</h2>
-<div class="outline-text-2" id="text-org467dda9">
+<div id="outline-container-org68aaf9a" class="outline-2">
+<h2 id="org68aaf9a">Libraries</h2>
+<div class="outline-text-2" id="text-org68aaf9a">
 <p>
 Most of them are over-&ldquo;engineered&rdquo; and bloated, without any effort of making the
 abstractions <i>minimal</i> and &ldquo;just right&rdquo; (optimal). Such &ldquo;natural
@@ -362,10 +566,10 @@ Most of corporate code are of <i>low-effort</i>, and mostly &ldquo;copying&rdquo
 </div>
 </div>
 
-<div id="outline-container-org2daea15" class="outline-2">
-<h2 id="org2daea15">Coming home</h2>
-<div class="outline-text-2" id="text-org2daea15">
-<pre class="example" id="org125455d">
+<div id="outline-container-orgbfd43ef" class="outline-2">
+<h2 id="orgbfd43ef">Coming home</h2>
+<div class="outline-text-2" id="text-orgbfd43ef">
+<pre class="example" id="org29be25b">
 package s3.payload
 
 import akka.http.scaladsl.model.Uri
@@ -408,7 +612,7 @@ def digest(q: QueryString): DigestSHA256 =
       .map(_.trim)
   a(1)
 </pre>
-<pre class="example" id="org101fab2">
+<pre class="example" id="org70ac4f0">
 import akka.http.scaladsl.model.*
 
 import org.scalatest._
@@ -439,7 +643,8 @@ class PayloadSpec extends AnyFlatSpec with should.Matchers {
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:35</p>
+<p class="date">Created: 2023-04-02 Sun 07:36</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

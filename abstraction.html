@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-02 Sun 07:37 -->
+<!-- 2023-04-02 Sun 07:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Patterns</title>
+<title>Abstractions</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
-<meta name="description" content="Pattens in Trading" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -219,6 +218,25 @@
      }
 // @license-end
 </script>
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "%AUTONUMBER",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -227,107 +245,59 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Patterns</h1>
+<h1 class="title">Abstractions</h1>
 </header><p>
-pattern noun
+\(a + b = b + a\)
 </p>
 
 <p>
-<i>ˈpæt̮ərn</i>
-</p>
-
-<ul class="org-ul">
-<li>the regular (repeated) way in which something happens or is done</li>
-</ul>
-
-<div id="outline-container-orgaf24fe4" class="outline-2">
-<h2 id="orgaf24fe4">Patterns</h2>
-<div class="outline-text-2" id="text-orgaf24fe4">
-<p>
-In general, <i>patterns</i> on a chart &ldquo;work&rdquo; for exactly the same reason religious or
-sacred symbols exist - because other people <i>think</i> so. Other people
-<i>caused</i> them to appear, no more, no less.
+Using symbols as a generalization from actual values.
 </p>
 
 <p>
-The patterns are <i>socially constructed</i>, the same way religious symbols
-and rituals are. In the same way they are <i>self-reinforcing</i>.
+Using symbols to denote <i>operations</i>, such as \(+\).
 </p>
 
 <p>
-<i>Single-candle</i> patterns, along with the color of the candle (which indicates
-<i>direction</i> of the price move) are the most &ldquo;objective&rdquo; (given that every candle
-can be decomposed further into candles of smaller time interval).
+Universal qualifier \(\forall\)
 </p>
 
 <p>
-Most fundamentally, a <i>reversal</i> can be captured in a <i>single-candle</i> pattern, along
-with its &ldquo;strength&rdquo; or &ldquo;momentum&rdquo;.
+Recursion for repetition (looping), inspired by mathematical induction.
 </p>
 
 <p>
-When other people see an already formed candle with a &ldquo;wick&rdquo; they see a &ldquo;strong
-reversal&rdquo;, which they interpret according to their <i>current set of beliefs</i> abot
-the market.
+Partitioning based on properties (Sets).
 </p>
 
 <p>
-A system which react in a timely manner to just a single one-candle pattern
-could in principle <i>consistently</i> beat any &ldquo;random walk&rdquo;.
-</p>
-</div>
-</div>
-<div id="outline-container-org1aa95f5" class="outline-2">
-<h2 id="org1aa95f5">TA</h2>
-<div class="outline-text-2" id="text-org1aa95f5">
-<p>
-So called <code>TA</code> or <i>Technical Analysis</i> is a teaching (similar to
-sectarian ones), according to which certain patterns on a chart
-<i>predict</i> certain outcomes within the Market.
+First-order logic (predicates on sets).
 </p>
 
 <p>
-The more people are familiar with <code>TA</code>, the more their prophesies are
-self-fulfilling. Just like religious rites, everything reinforces itself
-with actions of the practitioners.
+Interfaces (Sets of possible operations).
 </p>
 
 <p>
-Market movements and price actions are not random. There is no such thing as randomness (which is an abstract mathematical concept) in the first place. All the price actions are results of actions of all participating agents, who have certain beliefs and assumptions (in their heads or programmed into trading bots).
+Abstract Data Types.
 </p>
 
 <p>
-The future is not predictable in principle (and predictions are mostly
-wrong), however, <i>reacting</i> to certain events or patterns with (or <i>against</i>) other market participants makes actions meaningful or even <i>profitable</i>.
+Type-classes (ADTs for ADTs).
 </p>
 
 <p>
-This is what <code>TA</code> is.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgd4b8d89" class="outline-2">
-<h2 id="orgd4b8d89">Recurring patterns emerge from chaos</h2>
-<div class="outline-text-2" id="text-orgd4b8d89">
-<p>
-This is a <i>less wrong</i> view of Reality. Other people are looking for
-well-known patterns, so they eventually emerge from chaos as
-results of <i>amplified</i> and <i>self-reinforced</i> actions of the crowds of
-market participants - idiots are FOMOing in, etc.
+Abstraction barriers (atoms as building blocks of Life itself).
 </p>
 
 <p>
-There is literally nothing else in it - just large crowds of emotional
-people acting <i>out of sync</i>.
+&ldquo;Dots and arrows&rdquo; of the Category Theory.
 </p>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-02 Sun 07:37</p>
+<p class="date">Created: 2023-04-02 Sun 07:38</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>

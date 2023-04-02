@@ -1,12 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:34 -->
+<!-- 2023-04-02 Sun 07:35 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Crypto</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -14,6 +198,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -51,9 +255,9 @@ back and forth by memes on social media (the Elder school, to which I
 proudly belong).
 </p>
 
-<div id="outline-container-org860d9cf" class="outline-2">
-<h2 id="org860d9cf">Overview</h2>
-<div class="outline-text-2" id="text-org860d9cf">
+<div id="outline-container-orga678637" class="outline-2">
+<h2 id="orga678637">Overview</h2>
+<div class="outline-text-2" id="text-orga678637">
 <p>
 In general, one has to have deep pockets (and proper money management)
 to survive in the market as long as possible, till he gets somehow lucky
@@ -76,9 +280,9 @@ game</i> especially designed to confuse and inflict loses. The mantra is <i>trad
 </div>
 </div>
 
-<div id="outline-container-orgc8ad697" class="outline-2">
-<h2 id="orgc8ad697">Markets</h2>
-<div class="outline-text-2" id="text-orgc8ad697">
+<div id="outline-container-org36a42cb" class="outline-2">
+<h2 id="org36a42cb">Markets</h2>
+<div class="outline-text-2" id="text-org36a42cb">
 <ul class="org-ul">
 <li>huge crowds of people being swayed by strong emotions</li>
 <li>a flock behavior (like everyone else, especially FOMOing in)</li>
@@ -88,9 +292,9 @@ heuristics</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3a676a6" class="outline-2">
-<h2 id="org3a676a6">System</h2>
-<div class="outline-text-2" id="text-org3a676a6">
+<div id="outline-container-org5f7a9a7" class="outline-2">
+<h2 id="org5f7a9a7">System</h2>
+<div class="outline-text-2" id="text-org5f7a9a7">
 <ul class="org-ul">
 <li>A trading system must be as <i>simple</i> or even <i>primitive</i> as possible, so it can be
 <i>back-tested</i> by definition.</li>
@@ -98,18 +302,18 @@ heuristics</li>
 <i>random</i> entries and exits on any kind of market (better than random).</li>
 </ul>
 </div>
-<div id="outline-container-orgb3a1e76" class="outline-3">
-<h3 id="orgb3a1e76">Consistent</h3>
-<div class="outline-text-3" id="text-orgb3a1e76">
+<div id="outline-container-org6bafe91" class="outline-3">
+<h3 id="org6bafe91">Consistent</h3>
+<div class="outline-text-3" id="text-org6bafe91">
 <ul class="org-ul">
 <li>For any system to work its actions must be <i>consistent</i> and <i>automated</i>
 (no doubts or delays).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0d69767" class="outline-3">
-<h3 id="org0d69767">Scale</h3>
-<div class="outline-text-3" id="text-org0d69767">
+<div id="outline-container-org2f39da7" class="outline-3">
+<h3 id="org2f39da7">Scale</h3>
+<div class="outline-text-3" id="text-org2f39da7">
 <p>
 Even simple automation must support essential features
 </p>
@@ -123,9 +327,9 @@ Even simple automation must support essential features
 </div>
 </div>
 </div>
-<div id="outline-container-orged9df6d" class="outline-2">
-<h2 id="orged9df6d">Rules</h2>
-<div class="outline-text-2" id="text-orged9df6d">
+<div id="outline-container-org98203df" class="outline-2">
+<h2 id="org98203df">Rules</h2>
+<div class="outline-text-2" id="text-org98203df">
 <ul class="org-ul">
 <li>Always buy the dips on the most hyped <i>shitcoins</i> with <i>stops at zero</i>.
 Just do it. This alone will make profit if consistent actions will be
@@ -134,9 +338,9 @@ taken.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf21e12b" class="outline-2">
-<h2 id="orgf21e12b">Setup</h2>
-<div class="outline-text-2" id="text-orgf21e12b">
+<div id="outline-container-org1f1cd09" class="outline-2">
+<h2 id="org1f1cd09">Setup</h2>
+<div class="outline-text-2" id="text-org1f1cd09">
 <ul class="org-ul">
 <li>an API, not an app</li>
 <li>automatic <i>stops to zero</i> (entries)</li>
@@ -148,9 +352,9 @@ taken.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb610249" class="outline-2">
-<h2 id="orgb610249">Notes</h2>
-<div class="outline-text-2" id="text-orgb610249">
+<div id="outline-container-org45e22b8" class="outline-2">
+<h2 id="org45e22b8">Notes</h2>
+<div class="outline-text-2" id="text-org45e22b8">
 <ul class="org-ul">
 <li>greed prevails. the &ldquo;number/line go up&rdquo; meme</li>
 <li>FOMOing in at the &ldquo;bottom&rdquo; is most powerful force</li>
@@ -164,7 +368,8 @@ taken.</li>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:34</p>
+<p class="date">Created: 2023-04-02 Sun 07:35</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

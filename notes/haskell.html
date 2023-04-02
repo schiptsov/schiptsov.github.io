@@ -1,12 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:34 -->
+<!-- 2023-04-02 Sun 07:35 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Haskell</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -14,6 +198,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 <script>
 MathJax = {
   chtml: {
@@ -43,9 +247,9 @@ MathJax = {
 <header>
 <h1 class="title">Haskell</h1>
 </header>
-<div id="outline-container-org91673c8" class="outline-2">
-<h2 id="org91673c8">Eternal</h2>
-<div class="outline-text-2" id="text-org91673c8">
+<div id="outline-container-org0671c21" class="outline-2">
+<h2 id="org0671c21">Eternal</h2>
+<div class="outline-text-2" id="text-org0671c21">
 <p>
 Mathematicians are usually not concerned with <i>representations</i> of their
 abstract &ldquo;objects&rdquo; or <i>actual implementations</i> of their declarative solutions.
@@ -75,9 +279,9 @@ optimum) ones it becomes <i>eternal</i> too.
 </p>
 </div>
 </div>
-<div id="outline-container-orga0cdfe8" class="outline-2">
-<h2 id="orga0cdfe8">proper abstraction</h2>
-<div class="outline-text-2" id="text-orga0cdfe8">
+<div id="outline-container-org5955ed2" class="outline-2">
+<h2 id="org5955ed2">proper abstraction</h2>
+<div class="outline-text-2" id="text-org5955ed2">
 <p>
 Just like numbers and arithmetic (in a <i>numeric-tower</i> languages, like
 Scheme), ignoring the details of representation,  value coercions or actual division or
@@ -95,9 +299,9 @@ other <i>infix operators</i> relay are.
 </p>
 </div>
 </div>
-<div id="outline-container-org89130c2" class="outline-2">
-<h2 id="org89130c2">deep nesting of modules</h2>
-<div class="outline-text-2" id="text-org89130c2">
+<div id="outline-container-org58c0f7a" class="outline-2">
+<h2 id="org58c0f7a">deep nesting of modules</h2>
+<div class="outline-text-2" id="text-org58c0f7a">
 <p>
 It is very good practice to have a &ldquo;ladder&rdquo; of nested modules which goes
 from higher to lowest <i>levels of abstraction</i>.
@@ -115,9 +319,9 @@ Only <i>high-level abstractions</i> should be used at the level of so-called
 </p>
 </div>
 </div>
-<div id="outline-container-org2bc1f56" class="outline-2">
-<h2 id="org2bc1f56">functional pipelines</h2>
-<div class="outline-text-2" id="text-org2bc1f56">
+<div id="outline-container-orgda56128" class="outline-2">
+<h2 id="orgda56128">functional pipelines</h2>
+<div class="outline-text-2" id="text-orgda56128">
 <p>
 The \(a \rightarrow m b\) type is naturally suitable for constructing functional
 pipelines, similar to hardware graphics pipelines.
@@ -128,9 +332,9 @@ Graphics is a canonical use-case for DSLs and pipelines (Huddak, Conal).
 </p>
 </div>
 </div>
-<div id="outline-container-org0fe71c0" class="outline-2">
-<h2 id="org0fe71c0">surgical gloves</h2>
-<div class="outline-text-2" id="text-org0fe71c0">
+<div id="outline-container-org57d37aa" class="outline-2">
+<h2 id="org57d37aa">surgical gloves</h2>
+<div class="outline-text-2" id="text-org57d37aa">
 <ul class="org-ul">
 <li>an <i>abstraction barrier</i> is like a surgical glove</li>
 <li>a <i>monadic interface</i> is a <i>&ldquo;pump&rdquo; on a cell membrane</i> (<code>a -&gt; m b</code>) and a
@@ -139,9 +343,9 @@ pipeline <i>outside the membrane</i> (metaphorically speaking).</li>
 </div>
 </div>
 
-<div id="outline-container-orgfc07288" class="outline-2">
-<h2 id="orgfc07288">Cardinality of a type</h2>
-<div class="outline-text-2" id="text-orgfc07288">
+<div id="outline-container-org79a5b89" class="outline-2">
+<h2 id="org79a5b89">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-org79a5b89">
 <p>
 Associate a type with cardinality (just like of a Set)
 How many inhabitants (members) a type has.
@@ -158,9 +362,9 @@ Ignore bottoms (they are relevant only in type-constraint solving)
 </pre>
 </div>
 </div>
-<div id="outline-container-org6c9af75" class="outline-3">
-<h3 id="org6c9af75">Shapes or forms</h3>
-<div class="outline-text-3" id="text-org6c9af75">
+<div id="outline-container-org753be79" class="outline-3">
+<h3 id="org753be79">Shapes or forms</h3>
+<div class="outline-text-3" id="text-org753be79">
 <p>
 Notice that these types have distinct, unique <i>shapes</i>
 </p>
@@ -181,9 +385,9 @@ Notice that
 </div>
 </div>
 </div>
-<div id="outline-container-orgc1abd3f" class="outline-2">
-<h2 id="orgc1abd3f">Total</h2>
-<div class="outline-text-2" id="text-orgc1abd3f">
+<div id="outline-container-org333879c" class="outline-2">
+<h2 id="org333879c">Total</h2>
+<div class="outline-text-2" id="text-org333879c">
 <p>
 Knowing cardinalities of any two types (sets) we can know how many
 &ldquo;arrows&rdquo; (individual relations or distinct mappings) are there <i>in total</i>.
@@ -205,9 +409,9 @@ The notion of duality based on cardinality alone is wrong and misleading.
 </p>
 </div>
 </div>
-<div id="outline-container-org8360da9" class="outline-2">
-<h2 id="org8360da9">Isomorphism</h2>
-<div class="outline-text-2" id="text-org8360da9">
+<div id="outline-container-orgeb9a60f" class="outline-2">
+<h2 id="orgeb9a60f">Isomorphism</h2>
+<div class="outline-text-2" id="text-orgeb9a60f">
 <p>
 Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
 This is a naive and too abstract to be useful assumption.
@@ -222,9 +426,9 @@ A fork is not isomorphic to a join in principle, but it is viewed by sectarians 
 </p>
 </div>
 
-<div id="outline-container-orgd8de27c" class="outline-3">
-<h3 id="orgd8de27c">Definition</h3>
-<div class="outline-text-3" id="text-orgd8de27c">
+<div id="outline-container-org7c37adf" class="outline-3">
+<h3 id="org7c37adf">Definition</h3>
+<div class="outline-text-3" id="text-org7c37adf">
 <p>
 The formal definition is this
 </p>
@@ -261,9 +465,9 @@ on an imaginary <i>number line</i>.
 </div>
 </div>
 
-<div id="outline-container-org49ea7ad" class="outline-3">
-<h3 id="org49ea7ad">An ordered set of arrows</h3>
-<div class="outline-text-3" id="text-org49ea7ad">
+<div id="outline-container-orgefb0929" class="outline-3">
+<h3 id="orgefb0929">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-orgefb0929">
 <p>
 Individual &ldquo;arrows&rdquo; (relations) between values has to have a particular order, and each &ldquo;arrow&rdquo; has to have a unique <i>inverse</i> &ldquo;arrow&rdquo;.
 </p>
@@ -278,9 +482,9 @@ Symmetries (rotations) could be formalized with such functions.
 </div>
 </div>
 
-<div id="outline-container-org88f6340" class="outline-3">
-<h3 id="org88f6340">n!</h3>
-<div class="outline-text-3" id="text-org88f6340">
+<div id="outline-container-org6b79715" class="outline-3">
+<h3 id="org6b79715">n!</h3>
+<div class="outline-text-3" id="text-org6b79715">
 <p>
 For any two types (sets) of the same cardinality n
 there are n! <i>unique</i> isomorphisms (pairs of arrows) between them.
@@ -288,9 +492,9 @@ there are n! <i>unique</i> isomorphisms (pairs of arrows) between them.
 </div>
 </div>
 
-<div id="outline-container-org431589d" class="outline-3">
-<h3 id="org431589d">Same cardinality does not imply the same shape</h3>
-<div class="outline-text-3" id="text-org431589d">
+<div id="outline-container-orgcc41369" class="outline-3">
+<h3 id="orgcc41369">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-orgcc41369">
 <p>
 Knowing that an isomorphism exists is enough.
 An isomorphism between types \(s\) and \(t\) is a proof that for all
@@ -328,9 +532,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i>.
 </div>
 </div>
 
-<div id="outline-container-org0fa4557" class="outline-3">
-<h3 id="org0fa4557">Monoidial</h3>
-<div class="outline-text-3" id="text-org0fa4557">
+<div id="outline-container-orga192c3e" class="outline-3">
+<h3 id="orga192c3e">Monoidial</h3>
+<div class="outline-text-3" id="text-orga192c3e">
 <p>
 <code>()</code> is a Monoidal Identity element for product-types (no information).
 <code>Void</code> is an identity element for sum-types (Void has no members).
@@ -338,9 +542,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i>.
 </div>
 </div>
 </div>
-<div id="outline-container-org1a47079" class="outline-2">
-<h2 id="org1a47079">Exponentials</h2>
-<div class="outline-text-2" id="text-org1a47079">
+<div id="outline-container-org5b75db6" class="outline-2">
+<h2 id="org5b75db6">Exponentials</h2>
+<div class="outline-text-2" id="text-org5b75db6">
 <p>
 The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
 </p>
@@ -352,9 +556,9 @@ so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
 </p>
 </div>
 </div>
-<div id="outline-container-org4f60383" class="outline-2">
-<h2 id="org4f60383">Stuff</h2>
-<div class="outline-text-2" id="text-org4f60383">
+<div id="outline-container-orgfbebe03" class="outline-2">
+<h2 id="orgfbebe03">Stuff</h2>
+<div class="outline-text-2" id="text-orgfbebe03">
 <p>
 described a system with equations that determine how its state evolves
 with time, where the state consists of the values of variables (a
@@ -645,7 +849,8 @@ f $ case x of
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:34</p>
+<p class="date">Created: 2023-04-02 Sun 07:35</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

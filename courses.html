@@ -1,13 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-03-31 Fri 18:35 -->
+<!-- 2023-04-02 Sun 07:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Courses</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="description" content="The best online courses for a Functional Programmer" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
@@ -15,6 +199,26 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -25,17 +229,17 @@
 <header>
 <h1 class="title">Courses</h1>
 </header>
-<div id="outline-container-org9f2f883" class="outline-2">
-<h2 id="org9f2f883">The professors</h2>
-<div class="outline-text-2" id="text-org9f2f883">
+<div id="outline-container-org6bc4bb7" class="outline-2">
+<h2 id="org6bc4bb7">The professors</h2>
+<div class="outline-text-2" id="text-org6bc4bb7">
 </div>
-<div id="outline-container-org6504e5d" class="outline-3">
-<h3 id="org6504e5d">Brian Harvey</h3>
-<div class="outline-text-3" id="text-org6504e5d">
+<div id="outline-container-org20496ae" class="outline-3">
+<h3 id="org20496ae">Brian Harvey</h3>
+<div class="outline-text-3" id="text-org20496ae">
 </div>
-<div id="outline-container-org91b9303" class="outline-4">
-<h4 id="org91b9303">CS61A</h4>
-<div class="outline-text-4" id="text-org91b9303">
+<div id="outline-container-orgd9799ad" class="outline-4">
+<h4 id="orgd9799ad">CS61A</h4>
+<div class="outline-text-4" id="text-orgd9799ad">
 <p>
 So much soul in here.
 </p>
@@ -47,16 +251,16 @@ So much soul in here.
 </div>
 </div>
 </div>
-<div id="outline-container-org7e1b81c" class="outline-3">
-<h3 id="org7e1b81c">Joe Armstrong (RIP)</h3>
-<div class="outline-text-3" id="text-org7e1b81c">
+<div id="outline-container-org98792fe" class="outline-3">
+<h3 id="org98792fe">Joe Armstrong (RIP)</h3>
+<div class="outline-text-3" id="text-org98792fe">
 <p>
 Just watch everything by him on YouTube.
 </p>
 </div>
-<div id="outline-container-org15f793f" class="outline-4">
-<h4 id="org15f793f">Books</h4>
-<div class="outline-text-4" id="text-org15f793f">
+<div id="outline-container-orgab310c5" class="outline-4">
+<h4 id="orgab310c5">Books</h4>
+<div class="outline-text-4" id="text-orgab310c5">
 <ul class="org-ul">
 <li><a href="https://erlang.org/download/armstrong_thesis_2003.pdf">Making reliable distributed systems in the presence of software errors</a></li>
 <li><a href="https://pragprog.com/titles/jaerlang2/programming-erlang-2nd-edition/">Programming Erlang (2nd edition)</a></li>
@@ -64,13 +268,13 @@ Just watch everything by him on YouTube.
 </div>
 </div>
 </div>
-<div id="outline-container-org4743503" class="outline-3">
-<h3 id="org4743503">Piter Norvig</h3>
-<div class="outline-text-3" id="text-org4743503">
+<div id="outline-container-orgd584dcb" class="outline-3">
+<h3 id="orgd584dcb">Piter Norvig</h3>
+<div class="outline-text-3" id="text-orgd584dcb">
 </div>
-<div id="outline-container-orgf83ef5a" class="outline-4">
-<h4 id="orgf83ef5a">Design of Computer Programs</h4>
-<div class="outline-text-4" id="text-orgf83ef5a">
+<div id="outline-container-org6606bb0" class="outline-4">
+<h4 id="org6606bb0">Design of Computer Programs</h4>
+<div class="outline-text-4" id="text-org6606bb0">
 <p>
 Beginner&rsquo;s course by a <i>legend</i>. (Just read any code by him you could
 find, especially <i>pytudes</i>.)
@@ -82,13 +286,13 @@ find, especially <i>pytudes</i>.)
 </div>
 </div>
 </div>
-<div id="outline-container-org59087a7" class="outline-3">
-<h3 id="org59087a7">Gregor Kiczales</h3>
-<div class="outline-text-3" id="text-org59087a7">
+<div id="outline-container-org23e4c44" class="outline-3">
+<h3 id="org23e4c44">Gregor Kiczales</h3>
+<div class="outline-text-3" id="text-org23e4c44">
 </div>
-<div id="outline-container-org0386650" class="outline-4">
-<h4 id="org0386650">Systematic Program Design</h4>
-<div class="outline-text-4" id="text-org0386650">
+<div id="outline-container-org8d33a6d" class="outline-4">
+<h4 id="org8d33a6d">Systematic Program Design</h4>
+<div class="outline-text-4" id="text-org8d33a6d">
 <p>
 Pedantic and thoughtful.
 </p>
@@ -104,13 +308,13 @@ Pedantic and thoughtful.
 </div>
 </div>
 </div>
-<div id="outline-container-orga06da66" class="outline-3">
-<h3 id="orga06da66">The Wizards</h3>
-<div class="outline-text-3" id="text-orga06da66">
+<div id="outline-container-orge82e5d5" class="outline-3">
+<h3 id="orge82e5d5">The Wizards</h3>
+<div class="outline-text-3" id="text-orge82e5d5">
 </div>
-<div id="outline-container-org21c045d" class="outline-4">
-<h4 id="org21c045d">Absolute golden classic</h4>
-<div class="outline-text-4" id="text-org21c045d">
+<div id="outline-container-orga7a14ff" class="outline-4">
+<h4 id="orga7a14ff">Absolute golden classic</h4>
+<div class="outline-text-4" id="text-orga7a14ff">
 <ul class="org-ul">
 <li>The Book: <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html">https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html</a></li>
 <li>Videos: <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/">https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/</a></li>
@@ -118,13 +322,13 @@ Pedantic and thoughtful.
 </div>
 </div>
 </div>
-<div id="outline-container-org72ccb84" class="outline-3">
-<h3 id="org72ccb84">Dan Grossman</h3>
-<div class="outline-text-3" id="text-org72ccb84">
+<div id="outline-container-org31c76fd" class="outline-3">
+<h3 id="org31c76fd">Dan Grossman</h3>
+<div class="outline-text-3" id="text-org31c76fd">
 </div>
-<div id="outline-container-orga255fae" class="outline-4">
-<h4 id="orga255fae">Programming Languages</h4>
-<div class="outline-text-4" id="text-orga255fae">
+<div id="outline-container-orgf1a8691" class="outline-4">
+<h4 id="orgf1a8691">Programming Languages</h4>
+<div class="outline-text-4" id="text-orgf1a8691">
 <ul class="org-ul">
 <li>Materials: <a href="https://courses.cs.washington.edu/courses/cse341/19sp/">https://courses.cs.washington.edu/courses/cse341/19sp/</a></li>
 <li>Coursera: <a href="https://www.coursera.org/learn/programming-languages">https://www.coursera.org/learn/programming-languages</a></li>
@@ -132,13 +336,13 @@ Pedantic and thoughtful.
 </div>
 </div>
 </div>
-<div id="outline-container-org90bd889" class="outline-3">
-<h3 id="org90bd889">Graham Hutton</h3>
-<div class="outline-text-3" id="text-org90bd889">
+<div id="outline-container-orgef04f3a" class="outline-3">
+<h3 id="orgef04f3a">Graham Hutton</h3>
+<div class="outline-text-3" id="text-orgef04f3a">
 </div>
-<div id="outline-container-org544a0b7" class="outline-4">
-<h4 id="org544a0b7">Functional Programming</h4>
-<div class="outline-text-4" id="text-org544a0b7">
+<div id="outline-container-org2067f68" class="outline-4">
+<h4 id="org2067f68">Functional Programming</h4>
+<div class="outline-text-4" id="text-org2067f68">
 <p>
 The Principles and the Basics
 </p>
@@ -147,9 +351,9 @@ The Principles and the Basics
 </ul>
 </div>
 </div>
-<div id="outline-container-org770b55d" class="outline-4">
-<h4 id="org770b55d">Advanced Functional Programming</h4>
-<div class="outline-text-4" id="text-org770b55d">
+<div id="outline-container-orgb950cd2" class="outline-4">
+<h4 id="orgb950cd2">Advanced Functional Programming</h4>
+<div class="outline-text-4" id="text-orgb950cd2">
 <p>
 Functors, Monads, etc.
 </p>
@@ -159,13 +363,13 @@ Functors, Monads, etc.
 </div>
 </div>
 </div>
-<div id="outline-container-org3d88286" class="outline-3">
-<h3 id="org3d88286">Martin Odersky</h3>
-<div class="outline-text-3" id="text-org3d88286">
+<div id="outline-container-org2031199" class="outline-3">
+<h3 id="org2031199">Martin Odersky</h3>
+<div class="outline-text-3" id="text-org2031199">
 </div>
-<div id="outline-container-orgc9d6c9c" class="outline-4">
-<h4 id="orgc9d6c9c">Functional Programming Principles in Scala</h4>
-<div class="outline-text-4" id="text-orgc9d6c9c">
+<div id="outline-container-org62c50dd" class="outline-4">
+<h4 id="org62c50dd">Functional Programming Principles in Scala</h4>
+<div class="outline-text-4" id="text-org62c50dd">
 <p>
 The basics
 </p>
@@ -174,9 +378,9 @@ The basics
 </ul>
 </div>
 </div>
-<div id="outline-container-org299ddda" class="outline-4">
-<h4 id="org299ddda">Functional Program Design in Scala</h4>
-<div class="outline-text-4" id="text-org299ddda">
+<div id="outline-container-org8cc7317" class="outline-4">
+<h4 id="org8cc7317">Functional Program Design in Scala</h4>
+<div class="outline-text-4" id="text-org8cc7317">
 <p>
 Theory
 </p>
@@ -186,29 +390,29 @@ Theory
 </div>
 </div>
 </div>
-<div id="outline-container-org0a6947a" class="outline-3">
-<h3 id="org0a6947a">Leslie Lamport</h3>
-<div class="outline-text-3" id="text-org0a6947a">
+<div id="outline-container-org69d3e98" class="outline-3">
+<h3 id="org69d3e98">Leslie Lamport</h3>
+<div class="outline-text-3" id="text-org69d3e98">
 </div>
-<div id="outline-container-orgd607384" class="outline-4">
-<h4 id="orgd607384">The TLA+ Video Course</h4>
-<div class="outline-text-4" id="text-orgd607384">
+<div id="outline-container-org06fbf89" class="outline-4">
+<h4 id="org06fbf89">The TLA+ Video Course</h4>
+<div class="outline-text-4" id="text-org06fbf89">
 <ul class="org-ul">
 <li>Homepage: <a href="https://lamport.azurewebsites.net/video/videos.html">https://lamport.azurewebsites.net/video/videos.html</a></li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf1531cf" class="outline-3">
-<h3 id="orgf1531cf">Michael Clarkson</h3>
-<div class="outline-text-3" id="text-orgf1531cf">
+<div id="outline-container-org45eaf7a" class="outline-3">
+<h3 id="org45eaf7a">Michael Clarkson</h3>
+<div class="outline-text-3" id="text-org45eaf7a">
 <p>
 On par with the best ones. The clarity is astonishing.
 </p>
 </div>
-<div id="outline-container-org6a156fc" class="outline-4">
-<h4 id="org6a156fc">OCaml Programming: Correct + Efficient + Beautiful</h4>
-<div class="outline-text-4" id="text-org6a156fc">
+<div id="outline-container-org953f59f" class="outline-4">
+<h4 id="org953f59f">OCaml Programming: Correct + Efficient + Beautiful</h4>
+<div class="outline-text-4" id="text-org953f59f">
 <ul class="org-ul">
 <li>The Book: <a href="https://cs3110.github.io/textbook/cover.html">OCaml Programming: Correct + Efficient + Beautiful</a></li>
 <li>Videos: <a href="https://www.youtube.com/playlist?list=PLre5AT9JnKShBOPeuiD9b-I4XROIJhkIU">https://www.youtube.com/playlist?list=PLre5AT9JnKShBOPeuiD9b-I4XROIJhkIU</a></li>
@@ -216,50 +420,50 @@ On par with the best ones. The clarity is astonishing.
 </div>
 </div>
 </div>
-<div id="outline-container-org4165b21" class="outline-3">
-<h3 id="org4165b21">University Of Cambridge</h3>
-<div class="outline-text-3" id="text-org4165b21">
+<div id="outline-container-orga233481" class="outline-3">
+<h3 id="orga233481">University Of Cambridge</h3>
+<div class="outline-text-3" id="text-orga233481">
 </div>
-<div id="outline-container-org7d97bc4" class="outline-4">
-<h4 id="org7d97bc4">Advanced Functional Programming</h4>
-<div class="outline-text-4" id="text-org7d97bc4">
+<div id="outline-container-org0f52706" class="outline-4">
+<h4 id="org0f52706">Advanced Functional Programming</h4>
+<div class="outline-text-4" id="text-org0f52706">
 <ul class="org-ul">
 <li>Homepage: <a href="https://www.cl.cam.ac.uk/teaching/1718/L28/">https://www.cl.cam.ac.uk/teaching/1718/L28/</a></li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org7277894" class="outline-3">
-<h3 id="org7277894">Richard Delaware</h3>
-<div class="outline-text-3" id="text-org7277894">
+<div id="outline-container-org2f59703" class="outline-3">
+<h3 id="org2f59703">Richard Delaware</h3>
+<div class="outline-text-3" id="text-org2f59703">
 <p>
 By far the clarity champion.
 </p>
 </div>
-<div id="outline-container-org0636298" class="outline-4">
-<h4 id="org0636298">College Algebra</h4>
-<div class="outline-text-4" id="text-org0636298">
+<div id="outline-container-org3125037" class="outline-4">
+<h4 id="org3125037">College Algebra</h4>
+<div class="outline-text-4" id="text-org3125037">
 <ul class="org-ul">
 <li>Videos: <a href="https://www.youtube.com/playlist?list=PLDE28CF08BD313B2A">https://www.youtube.com/playlist?list=PLDE28CF08BD313B2A</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5b640c2" class="outline-4">
-<h4 id="org5b640c2">Calculus 1</h4>
-<div class="outline-text-4" id="text-org5b640c2">
+<div id="outline-container-orgd7c50d5" class="outline-4">
+<h4 id="orgd7c50d5">Calculus 1</h4>
+<div class="outline-text-4" id="text-orgd7c50d5">
 <ul class="org-ul">
 <li>Videos: <a href="https://www.youtube.com/playlist?list=PLF5E22224459D23D9">https://www.youtube.com/playlist?list=PLF5E22224459D23D9</a></li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org81826f5" class="outline-3">
-<h3 id="org81826f5">Tom Leighton</h3>
-<div class="outline-text-3" id="text-org81826f5">
+<div id="outline-container-org462f937" class="outline-3">
+<h3 id="org462f937">Tom Leighton</h3>
+<div class="outline-text-3" id="text-org462f937">
 </div>
-<div id="outline-container-org9c067d8" class="outline-4">
-<h4 id="org9c067d8">Mathematics for Computer Science</h4>
-<div class="outline-text-4" id="text-org9c067d8">
+<div id="outline-container-orgf7a81f2" class="outline-4">
+<h4 id="orgf7a81f2">Mathematics for Computer Science</h4>
+<div class="outline-text-4" id="text-orgf7a81f2">
 <ul class="org-ul">
 <li>The textbook <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2015/readings/MIT6_042JS15_textbook.pdf">https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2015/readings/MIT6_042JS15_textbook.pdf</a></li>
 <li>Homepage <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/">Mathematics for Computer Science</a></li>
@@ -268,66 +472,66 @@ By far the clarity champion.
 </div>
 </div>
 </div>
-<div id="outline-container-org749ae62" class="outline-3">
-<h3 id="org749ae62">Andrew Ng</h3>
-<div class="outline-text-3" id="text-org749ae62">
+<div id="outline-container-org2c1b1f6" class="outline-3">
+<h3 id="org2c1b1f6">Andrew Ng</h3>
+<div class="outline-text-3" id="text-org2c1b1f6">
 <p>
 I have completed the very first MOOC with 86% score.
 </p>
 </div>
-<div id="outline-container-orgb268117" class="outline-4">
-<h4 id="orgb268117">Machine Learning</h4>
-<div class="outline-text-4" id="text-orgb268117">
+<div id="outline-container-org7ee1fef" class="outline-4">
+<h4 id="org7ee1fef">Machine Learning</h4>
+<div class="outline-text-4" id="text-org7ee1fef">
 <ul class="org-ul">
 <li>Coursera <a href="https://www.coursera.org/learn/machine-learning">https://www.coursera.org/learn/machine-learning</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3226e46" class="outline-4">
-<h4 id="org3226e46">CS 229</h4>
-<div class="outline-text-4" id="text-org3226e46">
+<div id="outline-container-org5947b9c" class="outline-4">
+<h4 id="org5947b9c">CS 229</h4>
+<div class="outline-text-4" id="text-org5947b9c">
 <ul class="org-ul">
 <li>Lecture Notes: <a href="https://see.stanford.edu/materials/aimlcs229/cs229-notes1.pdf">https://see.stanford.edu/materials/aimlcs229/cs229-notes1.pdf</a></li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org241d6a6" class="outline-3">
-<h3 id="org241d6a6">Jerry Cain</h3>
-<div class="outline-text-3" id="text-org241d6a6">
+<div id="outline-container-org9b5e87e" class="outline-3">
+<h3 id="org9b5e87e">Jerry Cain</h3>
+<div class="outline-text-3" id="text-org9b5e87e">
 <p>
 &ldquo;Make sense to people&rdquo;
 </p>
 </div>
-<div id="outline-container-orgf977c85" class="outline-4">
-<h4 id="orgf977c85">CS107 Programming Paradigms</h4>
-<div class="outline-text-4" id="text-orgf977c85">
+<div id="outline-container-orgc21c6be" class="outline-4">
+<h4 id="orgc21c6be">CS107 Programming Paradigms</h4>
+<div class="outline-text-4" id="text-orgc21c6be">
 <ul class="org-ul">
 <li>Homepage: <a href="https://see.stanford.edu/course/cs107">https://see.stanford.edu/course/cs107</a></li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org180d223" class="outline-3">
-<h3 id="org180d223">Julie Zelenski</h3>
-<div class="outline-text-3" id="text-org180d223">
+<div id="outline-container-org720da6b" class="outline-3">
+<h3 id="org720da6b">Julie Zelenski</h3>
+<div class="outline-text-3" id="text-org720da6b">
 </div>
-<div id="outline-container-orgd4e924a" class="outline-4">
-<h4 id="orgd4e924a">CS106B Programming Abstractions</h4>
-<div class="outline-text-4" id="text-orgd4e924a">
+<div id="outline-container-org721bbab" class="outline-4">
+<h4 id="org721bbab">CS106B Programming Abstractions</h4>
+<div class="outline-text-4" id="text-org721bbab">
 <ul class="org-ul">
 <li>Homepage: <a href="https://see.stanford.edu/course/cs106b">https://see.stanford.edu/course/cs106b</a></li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org9357b18" class="outline-3">
-<h3 id="org9357b18">Igor Bogoslavskyi (the lecturer)</h3>
-<div class="outline-text-3" id="text-org9357b18">
+<div id="outline-container-orgdfb5425" class="outline-3">
+<h3 id="orgdfb5425">Igor Bogoslavskyi (the lecturer)</h3>
+<div class="outline-text-3" id="text-orgdfb5425">
 </div>
-<div id="outline-container-org1b01975" class="outline-4">
-<h4 id="org1b01975">Modern C++</h4>
-<div class="outline-text-4" id="text-org1b01975">
+<div id="outline-container-orgec2b72c" class="outline-4">
+<h4 id="orgec2b72c">Modern C++</h4>
+<div class="outline-text-4" id="text-orgec2b72c">
 <ul class="org-ul">
 <li>Videos: <a href="https://www.youtube.com/playlist?list=PLgnQpQtFTOGR50iIOtO36nK6aNPtVq98C">https://www.youtube.com/playlist?list=PLgnQpQtFTOGR50iIOtO36nK6aNPtVq98C</a></li>
 </ul>
@@ -335,14 +539,15 @@ I have completed the very first MOOC with 86% score.
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2ba80a" class="outline-2">
-<h2 id="orgb2ba80a">Yes, I went through all of &rsquo;em.</h2>
+<div id="outline-container-org77dbde2" class="outline-2">
+<h2 id="org77dbde2">Yes, I went through all of &rsquo;em.</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-03-31 Fri 18:35</p>
+<p class="date">Created: 2023-04-02 Sun 07:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>
