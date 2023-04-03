@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-04-03 Mon 20:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lambda Calculus augmented with an advanced type-system</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "%AUTONUMBER",
+    multlineWidth: "85%",
+    tagSide: "left",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Lambda Calculus augmented with an advanced type-system</h1>
+</header><p>
+The results of the Lambda Calculus is the starting point of proper undestanding. Just
+</p>
+<ul class="org-ul">
+<li>Abstraction (by <i>parameterization</i> and <i>naming</i>)</li>
+<li>Application (of a genral function to a value)</li>
+<li>Bindings (and implicitly the Environment)</li>
+<li>Nesting (implictly everywhere)</li>
+</ul>
+<p>
+are enough for everything.
+</p>
+
+<p>
+It is unclear whether or not John McCarthy has been inspired by the Lambda Calculus (looks like he was more into <i>structures</i>), but the language <code>Scheme</code> definitely has been built from this universal <i>foundation</i>.
+</p>
+
+<p>
+The <i>referential transparency</i> property, which follows from <i>immutabilioty</i> of all bindings  (both symbols or data), which the Lambda Calculus implicitly posses, is what makes a language <i>pure</i> as math or a symbolic logic.
+</p>
+
+<p>
+This &ldquo;purity&rdquo;, in turn, means <i>purely declarative and timeless (no notion of time)</i>. We <i>declare</i> what exactly has to be done <i>eventually</i> (at runtime), just like mathematical expressions defines <i>what</i> to compute.
+</p>
+
+<p>
+This means &ldquo;talking <i>about</i> values&rdquo;, but <i>no actual value can be &ldquo;seen&rdquo;/</i>. The only way is to <i>declare how to /scrutinize</i> it (using pattern-matching).
+</p>
+
+<p>
+There is no commands or statements. A whole program is one single <i>expression</i> (of a well-types <i>state-machine</i>, to be eventually evaluated by the runtime).
+</p>
+
+<p>
+So we define functions and expressions (everything is an expression) using mathematical equations. This is what we do.
+</p>
+
+<p>
+Again, the pute <i>expression</i> which the <code>main</code> &ldquo;produces&rdquo; is a <i>declarative desctibtion of a state-machine</i>, which the runtime will evaluate.
+</p>
+
+<p>
+Just <code>3</code> <i>sequential</i> &ldquo;patterns&rdquo; (one input - one output), so <i>everything /composes</i>:
+</p>
+<ul class="org-ul">
+<li>Composition (concatentation, pipelining)
+<ul class="org-ul">
+<li>of <i>curryied</i> Lambdas (<i>all you neeed is lambda</i>)</li>
+</ul></li>
+<li>Conditional expressions (branching)</li>
+<li>Recursive funtions (looping)</li>
+</ul>
+
+<p>
+Each expression evaluates to a single <i>value</i> and these are passed to <i>curried</i> functions.
+</p>
+
+<p>
+<i>Flow-charting</i> and circuit-based view are crucial to realize the <i>universality of arrows between dots</i>. The Category Theory goes deeper (with very limited results).
+</p>
+
+<p>
+<i>Nested</i> functions, all the way down to &ldquo;primitives&rdquo; (of the compiler runtime and the standard library).
+</p>
+
+<p>
+Nesting defines an <i>implicit order</i> in a &ldquo;lazy&rdquo; language. Otherwise the particular order of evaluation does not matter.
+</p>
+
+<p>
+Since every expression evaluares to a particular value (same input - same output for <code>lambdas</code>) we can <i>always substitute</i> an (not yet evaluated) expression for its (eventual) value, and vise versa.
+</p>
+
+<p>
+Not just functions, but functions defined by <i>ordinary equations</i> (just like in the pure subset of SML or Ocaml).
+</p>
+
+<p>
+Local bindings (which are expressions) with <code>let</code> and the <code>where</code> clauses (back from Ladrin66) and proper <i>shadowing.</i>
+</p>
+
+<p>
+Both are just a <i>syntactic sugar</i> for <code>((lambda (x) (* x x)) 2)</code> &#x2013; applications of in-place <code>lambdas</code>.
+</p>
+
+<p>
+<i>Nested scopes</i> (frames of the environment). The &ldquo;free variable&rdquo; (defined somewhere in an outer scope).
+</p>
+
+<p>
+<i>Lexical Closures</i> capture all the values of free variables (not to be confused with mathematical closures).
+</p>
+
+<p>
+<i>Compound data</i> in the form of <i>structures</i>, including the <i>recursive</i> ones is at the higer level of abstraction. &ldquo;Prinitives&rdquo; are being used.
+</p>
+
+<p>
+<i>ADTs, /type-classes</i> and <i>modules</i> (with export restrictions). No ML modules, unfortunately.
+</p>
+
+<div id="outline-container-orga677c88" class="outline-2">
+<h2 id="orga677c88">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-orga677c88">
+<p>
+Associate a type with cardinality (just like of a Set)
+How many inhabitants (members) a type has.
+Ignore bottoms (they are relevant only in type-constraint solving)
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Void</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">0, no elements, just like The Empty Set</span>
+
+<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">()</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">()</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">exactly 1, exactly this - no new information</span>
+
+<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">True</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">False</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">just these 2. notice the |</span>
+
+<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">(,)</span> a b <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">(,)</span> a b <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">a type-constructor, parametrized by a nd b</span>
+</pre>
+</div>
+</div>
+<div id="outline-container-orga59e006" class="outline-3">
+<h3 id="orga59e006">Shapes or forms</h3>
+<div class="outline-text-3" id="text-orga59e006">
+<p>
+Notice that these types have distinct, unique <i>shapes</i>
+</p>
+<ul class="org-ul">
+<li><code>|</code> stands for an <i>alternative or a possibility</i> - <code>OR ELSE</code> (a &ldquo;fork&rdquo; -
+<i>this or that</i>).</li>
+<li><code>,</code> stands for <code>AND ALSO</code> (pretense in the same locality) (a &ldquo;join&rdquo; - <i>this
+and that</i>).</li>
+</ul>
+<p>
+Notice that
+</p>
+<ul class="org-ul">
+<li>only one &ldquo;branch&rdquo; of a &ldquo;fork&rdquo; can be taken (<i>observed</i>).</li>
+<li>an <i>aggregate</i> (a compound) is fundamentally different (has its own
+<i>unique /properties</i>) from its individual parts.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb2525dc" class="outline-2">
+<h2 id="orgb2525dc">Total</h2>
+<div class="outline-text-2" id="text-orgb2525dc">
+<p>
+Knowing cardinalities of any two types (sets) we can know how many
+&ldquo;arrows&rdquo; (individual relations or distinct mappings) are there <i>in total</i>.
+</p>
+
+<p>
+When we try to <i>visualize</i> (or formally define as a directed graph) the
+totality of all the possible relations we will notice that the resulting
+shapes (abstract structures) are the same (same number, same direction).
+</p>
+
+<p>
+And this is it. This does not imply anything more than that - just
+similarity in its totality - a purely abstract notion.
+</p>
+
+<p>
+The notion of duality based on cardinality alone is wrong and misleading.
+</p>
+</div>
+</div>
+<div id="outline-container-org30e0561" class="outline-2">
+<h2 id="org30e0561">Isomorphism</h2>
+<div class="outline-text-2" id="text-org30e0561">
+<p>
+Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
+This is a naive and too abstract to be useful assumption.
+</p>
+
+<p>
+The <i>shape</i> (the <i>form</i> or <i>structure</i>) of the type is its distinct feature, out of which its <i>properties</i> arise (just as with molecules).
+</p>
+
+<p>
+A fork is not isomorphic to a join in principle, but it is viewed by sectarians as such.
+</p>
+</div>
+
+<div id="outline-container-orgbafd429" class="outline-3">
+<h3 id="orgbafd429">Definition</h3>
+<div class="outline-text-3" id="text-orgbafd429">
+<p>
+The formal definition is this
+</p>
+<ul class="org-ul">
+<li><i>there is a pair of total functions between two types (sets)</i></li>
+<li><i>composition of these two functions is an identity (a round trip)</i></li>
+</ul>
+
+<p>
+When two types (sets) has the same cardinality,
+an one-to-one correspondence (a mapping) could be defined in principle as a pair of total functions.
+</p>
+
+<p>
+As long as cardinality is greater than 1 a particular <i>ordering</i> has to be defined (become a part of an abstract mathematical structure).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org411b376" class="outline-3">
+<h3 id="org411b376">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-org411b376">
+<p>
+Individual &ldquo;arrows&rdquo; (relations) between values has to have a particular order, and each &ldquo;arrow&rdquo; has to have a unique <i>inverse</i> &ldquo;arrow&rdquo;.
+</p>
+
+<p>
+The meaning and validity of such functions does not concern mathematicians.
+</p>
+
+<p>
+Symmetries (rotations) could be formalized with such functions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgff04b18" class="outline-3">
+<h3 id="orgff04b18">n!</h3>
+<div class="outline-text-3" id="text-orgff04b18">
+<p>
+For any two types (sets) of the same cardinality n
+there are n! <i>unique</i> isomorphisms between them.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge41dcbc" class="outline-3">
+<h3 id="orge41dcbc">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-orge41dcbc">
+<p>
+Knowing that an isomorphism exists is enough.
+An isomorphism between types s and t is a proof that for all
+intents and purposes, s and t are the same thing.
+</p>
+
+<p>
+This, of course, is bullshit.
+</p>
+
+<p>
+The cardinality of a <i>sum-type</i> is the sum
+of the cardinalities of its constructors.
+</p>
+
+<p>
+The cardinality of a <i>product-type</i> is the product
+of cardinalities.
+</p>
+
+<p>
+It is said that these are <i>duals</i>, which is, again, bullshit.
+</p>
+
+<p>
+The sum- and product- types have different <i>shapes</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeb8d235" class="outline-3">
+<h3 id="orgeb8d235">Monoidial</h3>
+<div class="outline-text-3" id="text-orgeb8d235">
+<p>
+<code>()</code> is a Monoidal Identity element for product-types (no information).
+<code>Void</code> is an identity element for sum-types (Void has no members).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4acf346" class="outline-2">
+<h2 id="org4acf346">Exponentials</h2>
+<div class="outline-text-2" id="text-org4acf346">
+<p>
+The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
+</p>
+
+<p>
+For every value of \(a\) in the <i>domain</i>, there is a \(b\) in \(B\).
+We can chose <i>any value</i> of \(B\) for every value in \(A\)
+so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge605b36" class="outline-2">
+<h2 id="orge605b36">Stuff</h2>
+<div class="outline-text-2" id="text-orge605b36">
+<p>
+described a system with equations that determine how its state evolves
+with time, where the state consists of the values of variables (a
+context)
+</p>
+
+<p>
+We can pretend that its state changes in discrete steps. This is
+sampling of a continuous signal.
+</p>
+
+<p>
+We can think of a <i>state</i> as representing a potential state of the
+<i>entire universe</i>. This is similar to \(R^{3}\) which defines every point
+in an abstract 3D space.
+</p>
+
+<p>
+So, we represent the execution of a system as a sequence of states
+(discrete steps).
+</p>
+
+<p>
+Formally, we define a <i>behavior</i> to be a sequence of states, where a
+state is an assignment of values to variables.
+</p>
+
+<p>
+A behavior could be viewed as a <i>log</i> of what just (already) <i>happened</i>.
+It is good idea to log each new state.
+</p>
+
+<p>
+A step is <i>an ordered pair</i> of <i>adjacent</i> states, while the last one is the <i>tip</i> of an arrow.
+</p>
+
+<p>
+Such sequence of steps (or arrows) is usually called a <i>path</i>.
+</p>
+
+<p>
+An <i>invariant</i> <code>P</code> is True (unchanged) \(\forall s \in S, P(s)\). For a directed
+sequence we could use <i>induction</i>.
+</p>
+
+<p>
+Mangle function definitions with lots of boilerplate purely <i>to
+thread the state through</i> (using an explicit parameter or implicitly -
+inside of a Monad).
+</p>
+
+<p>
+The ability to separate <i>what</i> is computed from <i>how</i> much of it is
+computed is a powerful aid to writing modular programs.
+</p>
+
+<p>
+<i>What</i> is in an function <i>signature</i> and its formal specification stated
+in the comments. <i>How</i> is in the function&rsquo;s body (an expression).
+</p>
+
+<p>
+Constitutionally separates (at the <i>type-level</i>) pure and impure (IO)
+functions without encumbering the syntax of either.
+</p>
+
+<p>
+Other &ldquo;side-effects&rdquo; are separated in its own <i>Monad</i> (the aspect of an
+<i>abstraction barrier</i> and the aspect of implicit <i>sequencing</i>).
+</p>
+
+<p>
+The type-class of Monads is defined as an ADT, so every particular
+instance of a Monad is an ADT in principle.
+</p>
+
+<p>
+The compiler simply refuses to build a program which incorrectly mixes
+pure and impure functions (trying to apply to a <i>lifted value</i>, etc).
+</p>
+
+<p>
+Monads are as general and important as parenthesis
+They are &ldquo;membranes&rdquo; - type-level abstraction barriers
+Monadic Laws are of a Monoid (associativity, identity)
+</p>
+
+<p>
+And a <i>Monoid</i> captures operations with properties of composition and folding
+</p>
+
+<p>
+As an abstraction in context of FP a Monad generalizes an <i>abstraction
+barrier</i> (by being an ADT).
+</p>
+
+<p>
+In the context of Haskell, it is just a type-class (an implicitly an
+ADT).
+</p>
+
+<p>
+To be (an instance of) a Monad is to <i>implement an interface</i>
+which consists of a couple of <i>function signatures</i>
+which, in turns, confirm to certain algebraic laws.
+</p>
+
+<p>
+Several definitions - in terms of <code>&lt;=&lt;</code>, of <code>join</code> and <code>return</code> and
+<code>bind</code> and <code>return</code>.
+</p>
+
+<p>
+the fish <code>&lt;=&lt;</code> is a <i>composition</i> operator, like ~ (.) ~ - \[f  \circ g\]
+fish facing in the opposite direction is <code>|&gt;</code> (the <i>pipe</i> operator).
+</p>
+
+<p>
+<code>join</code> is a &ldquo;hack&rdquo; (flatten for lists of lists).
+</p>
+
+<p>
+<code>fmap</code> of <code>f</code> over <code>g</code> is a composition - \(f \circ g\) - f <i>after</i> g - an
+<i>arrow</i>
+</p>
+
+<p>
+Before, the <code>puts</code> function took a world and a string, then returned a
+changed world. Now, it takes a string and <i>returns a world-changing
+function</i>, which must <i>eventually</i> be run. (this!)
+</p>
+
+<p>
+It’s like Unix pipes, but instead of transforming text, we <i>chain together functions that transform the world</i>.
+</p>
+
+<p>
+In Haskell, there is a special kind of value called an <i>IO action</i>.
+</p>
+
+<p>
+When a Haskell system evaluates an expression that yields an IO action, it knows not to try to &ldquo;run it&rdquo;, but rather to ask the runtime system to &ldquo;take the appropriate action&rdquo;, eventually, when performed.
+</p>
+
+<p>
+Everything impure happens after main returns.
+</p>
+
+<p>
+Still declarative - please, do this &ldquo;action&rdquo;, eventually. the value which main returns is still a pure logic. 
+</p>
+
+<p>
+It delegates the actual running of actions to the runtime.
+</p>
+
+<p>
+{-# LANGUAGE DataKinds #-}
+The DataKinds extension allows us to promote data constructors into type constructors, which also promotes their type constructors into kind constructors.
+</p>
+
+<p>
+To promote something up a level, we prefix the name with an apostrophe, or tick
+</p>
+
+<p>
+type creates type-synonim, no new data-constructors
+</p>
+
+<p>
+[<a href="http://h2.jaguarpaw.co.uk/">http://h2.jaguarpaw.co.uk/</a>]
+</p>
+
+<p>
+The normal form is a simplified version of Haskell with fewer language constructs. It has only
+</p>
+<ul class="org-ul">
+<li>literals</li>
+<li>variables</li>
+<li>constructors</li>
+<li>let</li>
+<li>lambda</li>
+<li>function application</li>
+<li>case</li>
+</ul>
+
+<p>
+That world doesn’t speak in product and sum types, but in streams of bytes, so there’s no getting around a need to do some parsing.
+</p>
+
+<p>
+maxims
+</p>
+<ul class="org-ul">
+<li>make as much of your logic pure as possible</li>
+<li>avoid naked primitive types (String255, etc.)</li>
+<li>make invalid states unrepresentable (NonEmpty, NonZero)</li>
+<li>make flat hierarchies with composition</li>
+<li>parse, don’t validate</li>
+<li>Keep your types small</li>
+</ul>
+
+<p>
+try to figure out what its domain-specific types mean.
+</p>
+
+<p>
+start figuring out a library by figuring out its types.
+</p>
+
+<p>
+rich type system lets you model the domain precisely and in a complete way.
+</p>
+<ul class="org-ul">
+<li>no nulls;</li>
+<li>errors and the possibility of returning nothing are represented explicitly.</li>
+<li>algebraic data types model alternatives easily.</li>
+<li>well-implemented generics (polymorphism) and typeclasses means more reusable code.</li>
+<li>side effecting code is clearly separated from pure code at the type level.</li>
+</ul>
+
+<p>
+it’s possible to write functions that need no validation done on their inputs.
+</p>
+
+<p>
+able to use your function parameters immediately without having to do any null checking at all
+</p>
+
+<p>
+it’s easier for the same developers to return months or a year from now, or new developers to arrive, and gain a good grasp of what’s happening in the system.
+</p>
+
+<p>
+parses lists into non-empty lists
+&#x2013; Returns a meaningful value to be composed with
+parseNonEmpty :: [a] -&gt; IO (NonEmpty a)
+parseNonEmpty (x:xs) = pure (x:|xs)
+parseNonEmpty [] = throwIO $ userError &ldquo;list cannot be empty&rdquo;
+</p>
+
+<p>
+a parser is just a function that consumes less-structured input and produces more-structured output.
+</p>
+
+<p>
+By its very nature, a parser is a partial function—some values in the domain do not correspond to any value in the range—so all parsers must have some notion of failure.
+</p>
+
+
+<p>
+The common theme between all these libraries is that they sit on the boundary between your Haskell application and the external world.
+</p>
+
+<p>
+do &#x2026;
+   fmap f e
+</p>
+
+<p>
+can be rewritten to
+</p>
+
+<p>
+fmap f $ do &#x2026;
+            e
+</p>
+
+<p>
+and
+</p>
+
+<p>
+case x of
+    Case1 -&gt; f $ body1
+    Case2 -&gt; f $ body2
+to
+</p>
+
+<p>
+f $ case x of
+    Case1 -&gt; body1
+    Case2 -&gt; body2
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-04-03 Mon 20:40</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <!-- 2023-04-03 Mon 20:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Classics</title>
+<title>Composition</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -226,79 +226,72 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Classics</h1>
-</header>
-<div id="outline-container-org910e758" class="outline-2">
-<h2 id="org910e758">The golden classics</h2>
-<div class="outline-text-2" id="text-org910e758">
-<ul class="org-ul">
-<li><i>Djiekstra, Hoare - Structured Programming</i></li>
-<li>M. A. Jackson - <i>Principles of Program Design</i></li>
-<li>Niklaus Wirth - <i>Algorithms + Data Structures = Programs</i></li>
-<li>Barbara Liskov, John V. Guttag - /Abstraction and Specification in</li>
-</ul>
-<p>
-Program Development/
+<h1 class="title">Composition</h1>
+</header><p>
+<i>Partial application</i> is the most essential feature for a peoper <i>function composition</i>.
+Languages without parial application are cripled.
 </p>
-<ul class="org-ul">
-<li>Frederick P. Brooks - <i>The Mythical Man-Month</i> (R.I.P.)</li>
-<li>Bird &amp; Wadler - <i>Introduction To Functional Programming</i></li>
-<li>Lawrence C. Paulson - <i>ML For Working Programmer</i></li>
-<li>Peyton Jones - <i>Implementation of Functional Languages</i></li>
-<li>SICP</li>
-<li>Joe Armstrong - thesis</li>
-<li>Joe Armstrong - <i>Programming Erlang</i></li>
-<li>Paul Graham - <i>On LISP</i></li>
-<li>Peter Norvig - PAIP</li>
-<li>John Hugges - <i>Why Functional Programming Matters</i></li>
-<li>Paul Hudak - <i>A Gentle Introduction To Haskell, version 98</i></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgdce71f0" class="outline-2">
-<h2 id="orgdce71f0">Modern classics</h2>
-<div class="outline-text-2" id="text-orgdce71f0">
-<ul class="org-ul">
-<li>Richard Bird - <i>Thinking Functionally with Haskell</i></li>
-<li>Martin Odersky - <i>Programming in Scala 3</i></li>
-<li>Bartosz Milewski - <i>Category Theory for Programmers</i>.</li>
-<li>Michael R. Clarkson - <i>Ocaml Programming: Correct, Efficient, Beautiful</i>.</li>
-<li>Benjamin C. Pierce - <i>Software Foundations</i></li>
-</ul>
-</div>
+
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">factorial</span> <span style="color: #D8DEE9;">=</span> product <span style="color: #D8DEE9;">.</span> enumFromTo <span style="color: #B48EAD; font-weight: bold;">1</span>
+</pre>
 </div>
 
-<div id="outline-container-org55aae5a" class="outline-2">
-<h2 id="org55aae5a">Very good books</h2>
-<div class="outline-text-2" id="text-org55aae5a">
-<ul class="org-ul">
-<li>HTDP</li>
-<li>&rsquo;Cousineau G. - <i>The Functional Approach to Programming</i></li>
-<li>Graham Hutton - <i>Programming in Haskell</i></li>
-<li>Sandy Maguire - <i>Thinking with Types</i></li>
-</ul>
-</div>
+<p>
+Whenever a new datatype is defined, <i>higher-order</i> functions should be written for processing it.
+</p>
+
+<p>
+It also hides &ldquo;knowledge&rdquo; about the details of its representation (just like an ADT) inside a <i>module</i>.
+</p>
+
+<p>
+Instances of appropriate &ldquo;standard&rdquo; <i>type-classes</i> has to be writtern (<code>Monoid</code>, etc).
+</p>
+
+<p>
+Eventually, public functions form layers of  DSLs, just like <i>trees of lists</i>.
+</p>
+<div class="org-src-container">
+<pre class="src src-miranda">copy = foldr Cons Nil
+
+append xs ys = foldr Cons ys xs
+
+(g . f) x = g (f x)
+
+map = foldr (Cons . f) Nil
+</pre>
 </div>
 
-<div id="outline-container-org2841f28" class="outline-2">
-<h2 id="org2841f28">Good books</h2>
-<div class="outline-text-2" id="text-org2841f28">
-<ul class="org-ul">
-<li>John V. Guttag - <i>Introduction to Computation and Programming Using Python</i></li>
-<li>Anton V. Spraul - <i>Think Like a Programmer</i></li>
-</ul>
-</div>
+<p>
+Nested types are cool, so is <i>abstraction by parameterization</i>.
+</p>
+<div class="org-src-container">
+<pre class="src src-miranda">treeof ∗ ::= Node ∗ (listof (treeof ∗))
+
+foldtree f g a (Node v xss) = f v (foldtree f g a xss)
+foldtree f g a (Cons x xs) = g (foldtree f g a x) (foldtree f g a xs)
+foldtree f g a Nil = a
+
+inorder = foldtree Cons append Nil
+
+maptree f = foldtree (Node . f ) Cons Nil
+</pre>
 </div>
 
-<div id="outline-container-org1effa37" class="outline-2">
-<h2 id="org1effa37">Math books</h2>
-<div class="outline-text-2" id="text-org1effa37">
-<ul class="org-ul">
-<li>G. Polya - <i>How To Solve It</i></li>
-<li>Timothy S. Urdan - <i>Statistics in Plain English</i></li>
-<li>Ian Stewart - <i>Concepts of Modern Mathematics</i></li>
-</ul>
-</div>
+<p>
+Once we could define a <code>foldr</code> we could define a <code>map</code>, and then some for-<i>comprehensions</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">length</span> <span style="color: #D8DEE9;">=</span> foldr count <span style="color: #B48EAD; font-weight: bold;">0</span>
+<span style="color: #81A1C1;">where</span>
+<span style="background-color: #2E3440;"> </span>  count <span style="color: #81A1C1;">_</span> n <span style="color: #D8DEE9;">=</span> n <span style="color: #D8DEE9;">+</span> <span style="color: #B48EAD; font-weight: bold;">1</span>
+
+<span style="color: #81A1C1;">let</span> length <span style="color: #D8DEE9;">=</span> foldr (<span style="color: #D8DEE9;">\</span><span style="color: #81A1C1;">_</span> n <span style="color: #D8DEE9;">-&gt;</span> n<span style="color: #D8DEE9;">+</span><span style="color: #B48EAD; font-weight: bold;">1</span>) <span style="color: #B48EAD; font-weight: bold;">0</span>
+
+<span style="color: #81A1C1;">let</span> map f <span style="color: #D8DEE9;">=</span> foldr ((<span style="color: #8FBCBB;">:</span>) <span style="color: #D8DEE9;">.</span> f) <span style="color: #8FBCBB;">[]</span>
+</pre>
 </div>
 </div>
 <div id="postamble" class="status">
