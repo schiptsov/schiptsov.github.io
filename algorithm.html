@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-04 Tue 20:06 -->
+<!-- 2023-04-04 Tue 20:05 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Abstractions</title>
+<title>Algorithm</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -218,25 +218,6 @@
      }
 // @license-end
 </script>
-<script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "right",
-    tagIndent: ".8em"
-  }
-};
-</script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -245,100 +226,51 @@ MathJax = {
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Abstractions</h1>
+<h1 class="title">Algorithm</h1>
 </header><p>
-It is by <i>generalized abstraction</i> of what is repeatedly observed, that the <i>concepts</i> are introduced.
+According to Dijkstra, &ldquo;<i>the algorithm is what remains when one abstracts from the specific values manipulared in time&ldquo;</i>, and <i>&ldquo;the concept of a variable represents an abstraction from its current value</i>&rdquo;.
 </p>
 
 <p>
-Anything is defined <i>in terms</i> of someting which is already defined (known and understood).
+Yes, an algorithm, which is a declarative sequence (implies a particular ordering) of instructions of what to be done by a computer (a person) is a generalization, usually derived from repeated observcations.
 </p>
 
 <p>
-Analyzing which <i>terms</i> are used in a definiton of, say, an axiom, tells a lot about it.
+This, however, is not the best definiton. Just as in modern algebra <i>symbols</i> stand for all possible values of some Set, and a function definitoon uses &ldquo;variables&rdquo; as <i>placeholders</i>, algorithms are of the same kind of an abstraction.
 </p>
 
 <p>
-So we have to understand the <i>terms</i> in which our <i>functions</i> (or procedures) are defined. We could even use <i>yet unimplemented or even undefined</i>, still abstract <i>terms</i>  in prototyping our high-level definitions.
-This is what is behind the <i>ABC &#x2013; Always Be Compiled</i> &#x2013; principle. The <i>details</i> are still <i>undecided</i> or <i>unimplemented</i> yet. The <code>undefined</code> expression in <i>Haskell</i> and <code>???</code> in <i>Scala</i> are exactly for that.
+Again, a function defined by an equation (on the Set of Real Numbers, lets say), corresponds to a definition of a simple algorithm (how to compute the function). In mathematics there is no fundamenral difference.
 </p>
 
 <p>
-This is how one could prototype ADTs (public interfaces) and modules <i>first</i> (using a converging process of trial and error). This is not the waterfall, this is a &ldquo;spiral&rdquo; of <i>top-down-then-bottom-up</i> gradual refinements.
+In programming a procedure (or a function) is an <i>implementation</i> of a simple algorithm, not a definition of the algorithm itself. However, the level of a <i>generalized abstraction</i> is the same.
 </p>
 
 <p>
-Just as Dijkstra stated back then, &ldquo;<i>there is a stromg analogy between using a named operation (function) in a program regardless of &ldquo;how it works&rdquo; and using a theorem regardless of how exactly it has been proved</i>&rdquo;.
+Traditionally, in programming algorithms are stated in a <i>declarative</i>, abstract <i>pseudo-code</i>, which is usually derived from simple mathematical and logical expressions. This is because the &ldquo;real&rdquo; <i>imperative</i> languages are far away from math and too verbose.
 </p>
 
 <p>
-We also <i>name</i> concepts to &ldquo;invoke&rdquo; them in our minds. Mathematics has been developed this way.
+Nothing, however, forbids one from defining algorithms right by an implmenetation in <i>pure languages</i> (<i>Miranda</i>, <i>Haskell</i>) which has the same properties as math or logic.
 </p>
 
 <p>
-There is an <i>abstraction</i> involved in naming (denoting) an operation and using it on accout of <i>what</i> it does (specification) while completely disregarding &ldquo;<i>how</i> it is impelemented&rdquo;.
+Of course, the same algorighm could have more than one implementation, but this is an orthogonal notion. What is important to uderstand is that an informal <i>pseudo-code</i> is not require if your language is decent.
 </p>
 
 <p>
-Using &ldquo;public&rdquo; imperative interfaces according to an informal, ill-defined specification and hoping for the best is what a modern programming at large is nowadays.
+This, by the way, is why languages like <code>Haskell</code>, or <code>SML</code> or <code>Ocaml</code> or a pure subset of <code>Scala3</code> or even <code>Scheme</code> are such a <i>pragmatic</i> choices.
 </p>
 
 <p>
-It is so much better in mathematics, where everything is defined precisely, bound to &ldquo;standard&rdquo; <i>symbols</i> and never change.
-</p>
-
-<p>
-\(a + b = b + a\)
-</p>
-
-<p>
-Using symbols as a generalization from actual values.
-</p>
-
-<p>
-Using symbols to denote (name) <i>operations</i>, such as \(+\).
-</p>
-
-<p>
-Universal qualifier \(\forall\)
-</p>
-
-<p>
-Recursion for repetition (looping), inspired by mathematical induction.
-</p>
-
-<p>
-Partitioning based on properties (Sets).
-</p>
-
-<p>
-First-order logic (predicates on sets).
-</p>
-
-<p>
-Interfaces (Sets of possible operations).
-</p>
-
-<p>
-Abstract Data Types.
-</p>
-
-<p>
-Type-classes (ADTs for ADTs).
-</p>
-
-<p>
-Abstraction barriers (atoms as building blocks of Life itself).
-</p>
-
-<p>
-&ldquo;Dots and arrows&rdquo; of the Category Theory.
+It is also important to realize that any algorithm can be re-stated in terms of something like <code>TLA+</code> (which is a particular system of temporal logic) or just in some implemetation of the <i>Lamda Calculus</i>, which is timeless.
 </p>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-04 Tue 20:06</p>
+<p class="date">Created: 2023-04-04 Tue 20:05</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
