@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-04-07 Fri 18:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Archery</title>
+<meta name="author" content="&lt;lngnmn2@yahoo.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Archery</h1>
+</header><p>
+Shooting is to <i>study the mind</i> (observation, introspection).
+through actual practice and experience.
+</p>
+
+<p>
+An ancient <i>practice</i> of <i>knowing your self</i>.
+</p>
+
+<p>
+An ancient <i>exercise in self-discipline</i> and self-knowing (know thyself).
+</p>
+
+<p>
+Each shot reveals <i>what you are</i> (to you).
+</p>
+
+<p>
+Each shot reveals you as a living Buddha or a <i>tense fool</i>.
+</p>
+
+<p>
+Hitting a target with an arrow is a small vehicle; attaining enlightenment with an arrow is a big vehicle.
+</p>
+
+<p>
+<i>Draw the Bow that has no form</i> (it is just a tool of self-discipline practice).
+</p>
+
+<p>
+<i>One shot is one life</i> (calm concentration of perfect self-control).
+</p>
+
+<p>
+The activity of a non-verbal, &ldquo;animal&rdquo;-mind within you, observed by the mind (introspection).
+</p>
+
+<p>
+Your body, empty mind (no-mind), <i>calm concentration</i> and the bow becomes a perfect <i>unity</i>.
+</p>
+
+<p>
+Each shot is a new.
+</p>
+
+<p>
+As if your life depends on it.
+</p>
+
+<p>
+Without tension. Without mind. Without being busy. Without being intoxicated.
+</p>
+
+<p>
+Shoot with your &ldquo;belly&rdquo; (body, not &ldquo;intellect&rdquo; full of concepts).
+</p>
+
+<p>
+No concerns except <i>doing it right</i>.
+</p>
+
+<p>
+No tension. No mind. No struggle.
+</p>
+
+<p>
+Like a ripe fruit falls from a tree. When ready.
+</p>
+
+<p>
+<i>There is no perfect shot</i>.
+</p>
+
+<p>
+Self-improvement is endless, never complete and <i>ultimately futile</i>.
+</p>
+
+<p>
+The &ldquo;arrogant rooster&rdquo; story. Anger and arrogance are weaknesses.
+</p>
+
+<p>
+Do not be in a hurry.
+Do not shoot obsessively.
+Do not compete with others.
+Do shoot when you lack enthusiasm.
+</p>
+
+<p>
+“When an archer misses the center of the target, he <i>reflects and seeks the cause</i> of the failure <i>within himself</i>.”
+</p>
+
+<p>
+Make every shot anew.
+Self-discipline is painful, hard work; shoot each shot as if your life depended on it.
+</p>
+
+<p>
+Do your best at each and everything. That is the key to success.
+Learn one thing well and you will learn how to master ten thousand things.
+</p>
+
+<p>
+Aim at the target with your belly (let the body do it its way).
+</p>
+
+<p>
+Release the arrow with no intent. When it is ready.
+</p>
+
+<p>
+Each shot reveals your self - it shows who you are, what you can do.
+Each shot must be sincere (beginner&rsquo;s mind).
+</p>
+
+<p>
+You and your bow must come together as one; that act is divine.
+This unity of instrument and oneself is divine.
+</p>
+
+<p>
+Everyone tries to shoot naturally, but nearly all practitioners have some kind of strategy, some kind of shallow, artificial, calculating technical trick that they rely on when they shoot.
+Technical tricks ultimately lead nowhere. Shoot without shooting.
+</p>
+
+<p>
+Confucius practiced the Way of the Bow to demonstrate how a cultured person acts. Confucius was not concerned with hitting the target one hundred times out of one hundred shots.
+He was demonstrating how one hundred shots can be one hundred perfections of self-control and character.
+</p>
+
+<p>
+With no target,
+With no arrow to draw,
+Shoot:
+Not in the middle,
+Not outside.
+(actual practice, experience and feedback, not other concerns)
+</p>
+
+<p>
+Even when troubled
+Maintain the spirit
+Of the Bow and Arrow
+And it will heal
+Your sickness!
+</p>
+
+<p>
+Without tension, without strain.
+</p>
+
+<p>
+Non-thinking is where Buddha dwells. That is where we want to go.
+</p>
+
+<p>
+Human beings always cling to things. Practice begins when you stop clinging.
+</p>
+
+<p>
+When the bow is fully drawn, there is nothing more to add or nothing to remove.
+</p>
+
+<p>
+As you draw the Bow, everything else goes. The Buddha-nature assumes control.
+The unity of the &ldquo;empty&rdquo; mind and the non-tense body <i>as intendend</i> by evolution.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;lngnmn2@yahoo.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-04-07 Fri 18:39</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>
