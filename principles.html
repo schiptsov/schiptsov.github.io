@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-02 Sun 07:37 -->
+<!-- 2023-04-11 Tue 19:53 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Principles</title>
@@ -266,9 +266,9 @@ For us, like for the holy LISP and ML old-timers, typing is implicit type-taggin
 and (a set of) data-constructors are considered as tags.
 </p>
 
-<div id="outline-container-org171d241" class="outline-2">
-<h2 id="org171d241">Topology (sort of)</h2>
-<div class="outline-text-2" id="text-org171d241">
+<div id="outline-container-orgc6e03ae" class="outline-2">
+<h2 id="orgc6e03ae">Topology (sort of)</h2>
+<div class="outline-text-2" id="text-orgc6e03ae">
 <p>
 There is an old principle, which comes from algorithm charting techniques (in the great times they chart the control flow).
 </p>
@@ -311,9 +311,9 @@ This is a big finding. The meaning is that <i>every computable program</i> is re
 </div>
 </div>
 
-<div id="outline-container-org2dbd0cf" class="outline-2">
-<h2 id="org2dbd0cf">Sets</h2>
-<div class="outline-text-2" id="text-org2dbd0cf">
+<div id="outline-container-org3ab294f" class="outline-2">
+<h2 id="org3ab294f">Sets</h2>
+<div class="outline-text-2" id="text-org3ab294f">
 <p>
 Mathematically, both a <i>sum-type</i> and a <i>product-type</i> is a set of possible values. Here a set is a prtition.
 The difference is in their <i>algebraic structure</i> or topological shape of the type. 
@@ -322,9 +322,9 @@ Yes, types are sets of values plus some algebraic structure <i>and also</i> nest
 </div>
 </div>
 
-<div id="outline-container-org30eb4d5" class="outline-2">
-<h2 id="org30eb4d5">Sum-types</h2>
-<div class="outline-text-2" id="text-org30eb4d5">
+<div id="outline-container-org811b633" class="outline-2">
+<h2 id="org811b633">Sum-types</h2>
+<div class="outline-text-2" id="text-org811b633">
 <p>
 a finite set of tags for values of the type.
 </p>
@@ -338,9 +338,9 @@ a sum-type has \(n\) constructors and corresponding \(n\) distinct patterns (sel
 </div>
 </div>
 
-<div id="outline-container-org45c0cac" class="outline-2">
-<h2 id="org45c0cac">Product types</h2>
-<div class="outline-text-2" id="text-org45c0cac">
+<div id="outline-container-orgf027930" class="outline-2">
+<h2 id="orgf027930">Product types</h2>
+<div class="outline-text-2" id="text-orgf027930">
 <p>
 a single implicit tag for all values of the type
 </p>
@@ -362,12 +362,12 @@ The set of all possible values corresponds to a <i>Cartesian Product of Sets</i>
 </p>
 </div>
 
-<div id="outline-container-org2331f44" class="outline-3">
-<h3 id="org2331f44">any-of</h3>
+<div id="outline-container-org6278119" class="outline-3">
+<h3 id="org6278119">any-of</h3>
 </div>
-<div id="outline-container-org24bfe20" class="outline-3">
-<h3 id="org24bfe20">either-of</h3>
-<div class="outline-text-3" id="text-org24bfe20">
+<div id="outline-container-org6bc78c6" class="outline-3">
+<h3 id="org6bc78c6">either-of</h3>
+<div class="outline-text-3" id="text-org6bc78c6">
 <p>
 A <i>Set</i> of <i>all</i> possible outcomes (<i>any-of</i>)
 \(\{ True, False \}\)
@@ -380,9 +380,9 @@ A <i>either-of Type</i>
 </div>
 </div>
 
-<div id="outline-container-org38e8db2" class="outline-3">
-<h3 id="org38e8db2">and-also</h3>
-<div class="outline-text-3" id="text-org38e8db2">
+<div id="outline-container-org38f0dde" class="outline-3">
+<h3 id="org38f0dde">and-also</h3>
+<div class="outline-text-3" id="text-org38f0dde">
 <p>
 Abstract: <code>A</code> <i>and-also</i> <code>B</code>, <code>A &amp;&amp; B</code> (without any representation)
 A a pair: explicit ordering, position based selection
@@ -410,13 +410,13 @@ A a pair: explicit ordering, position based selection
 </div>
 </div>
 
-<div id="outline-container-org6ce0898" class="outline-2">
-<h2 id="org6ce0898">A shape of a type</h2>
-<div class="outline-text-2" id="text-org6ce0898">
+<div id="outline-container-orgc671187" class="outline-2">
+<h2 id="orgc671187">A shape of a type</h2>
+<div class="outline-text-2" id="text-orgc671187">
 </div>
-<div id="outline-container-orge1c07fc" class="outline-3">
-<h3 id="orge1c07fc">A product-type, any-of-type, and-also-type</h3>
-<div class="outline-text-3" id="text-orge1c07fc">
+<div id="outline-container-orgbb82b47" class="outline-3">
+<h3 id="orgbb82b47">A product-type, any-of-type, and-also-type</h3>
+<div class="outline-text-3" id="text-orgbb82b47">
 <p>
 a tuple
 </p>
@@ -433,9 +433,9 @@ a record
 </div>
 </div>
 </div>
-<div id="outline-container-org45999ef" class="outline-3">
-<h3 id="org45999ef">A sum-type, either-of-type</h3>
-<div class="outline-text-3" id="text-org45999ef">
+<div id="outline-container-orge3f7679" class="outline-3">
+<h3 id="orge3f7679">A sum-type, either-of-type</h3>
+<div class="outline-text-3" id="text-orge3f7679">
 <p>
 a variant
 </p>
@@ -465,8 +465,8 @@ tuples usually implemented and records with fields 1,2,3&#x2026;
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-02 Sun 07:37</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-04-11 Tue 19:53</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

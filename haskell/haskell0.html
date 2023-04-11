@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-03 Mon 20:40 -->
+<!-- 2023-04-11 Tue 19:45 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lambda Calculus augmented with an advanced type-system</title>
@@ -347,9 +347,9 @@ Both are just a <i>syntactic sugar</i> for <code>((lambda (x) (* x x)) 2)</code>
 <i>ADTs, /type-classes</i> and <i>modules</i> (with export restrictions). No ML modules, unfortunately.
 </p>
 
-<div id="outline-container-orga677c88" class="outline-2">
-<h2 id="orga677c88">Cardinality of a type</h2>
-<div class="outline-text-2" id="text-orga677c88">
+<div id="outline-container-org25f6afd" class="outline-2">
+<h2 id="org25f6afd">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-org25f6afd">
 <p>
 Associate a type with cardinality (just like of a Set)
 How many inhabitants (members) a type has.
@@ -366,9 +366,9 @@ Ignore bottoms (they are relevant only in type-constraint solving)
 </pre>
 </div>
 </div>
-<div id="outline-container-orga59e006" class="outline-3">
-<h3 id="orga59e006">Shapes or forms</h3>
-<div class="outline-text-3" id="text-orga59e006">
+<div id="outline-container-orgbf2e5bf" class="outline-3">
+<h3 id="orgbf2e5bf">Shapes or forms</h3>
+<div class="outline-text-3" id="text-orgbf2e5bf">
 <p>
 Notice that these types have distinct, unique <i>shapes</i>
 </p>
@@ -389,9 +389,9 @@ Notice that
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2525dc" class="outline-2">
-<h2 id="orgb2525dc">Total</h2>
-<div class="outline-text-2" id="text-orgb2525dc">
+<div id="outline-container-orgdadd4c4" class="outline-2">
+<h2 id="orgdadd4c4">Total</h2>
+<div class="outline-text-2" id="text-orgdadd4c4">
 <p>
 Knowing cardinalities of any two types (sets) we can know how many
 &ldquo;arrows&rdquo; (individual relations or distinct mappings) are there <i>in total</i>.
@@ -413,9 +413,9 @@ The notion of duality based on cardinality alone is wrong and misleading.
 </p>
 </div>
 </div>
-<div id="outline-container-org30e0561" class="outline-2">
-<h2 id="org30e0561">Isomorphism</h2>
-<div class="outline-text-2" id="text-org30e0561">
+<div id="outline-container-orga99c0a5" class="outline-2">
+<h2 id="orga99c0a5">Isomorphism</h2>
+<div class="outline-text-2" id="text-orga99c0a5">
 <p>
 Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
 This is a naive and too abstract to be useful assumption.
@@ -430,9 +430,9 @@ A fork is not isomorphic to a join in principle, but it is viewed by sectarians 
 </p>
 </div>
 
-<div id="outline-container-orgbafd429" class="outline-3">
-<h3 id="orgbafd429">Definition</h3>
-<div class="outline-text-3" id="text-orgbafd429">
+<div id="outline-container-org866a8ae" class="outline-3">
+<h3 id="org866a8ae">Definition</h3>
+<div class="outline-text-3" id="text-org866a8ae">
 <p>
 The formal definition is this
 </p>
@@ -452,9 +452,9 @@ As long as cardinality is greater than 1 a particular <i>ordering</i> has to be 
 </div>
 </div>
 
-<div id="outline-container-org411b376" class="outline-3">
-<h3 id="org411b376">An ordered set of arrows</h3>
-<div class="outline-text-3" id="text-org411b376">
+<div id="outline-container-orgc4b6236" class="outline-3">
+<h3 id="orgc4b6236">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-orgc4b6236">
 <p>
 Individual &ldquo;arrows&rdquo; (relations) between values has to have a particular order, and each &ldquo;arrow&rdquo; has to have a unique <i>inverse</i> &ldquo;arrow&rdquo;.
 </p>
@@ -469,9 +469,9 @@ Symmetries (rotations) could be formalized with such functions.
 </div>
 </div>
 
-<div id="outline-container-orgff04b18" class="outline-3">
-<h3 id="orgff04b18">n!</h3>
-<div class="outline-text-3" id="text-orgff04b18">
+<div id="outline-container-org0fe40e6" class="outline-3">
+<h3 id="org0fe40e6">n!</h3>
+<div class="outline-text-3" id="text-org0fe40e6">
 <p>
 For any two types (sets) of the same cardinality n
 there are n! <i>unique</i> isomorphisms between them.
@@ -479,9 +479,9 @@ there are n! <i>unique</i> isomorphisms between them.
 </div>
 </div>
 
-<div id="outline-container-orge41dcbc" class="outline-3">
-<h3 id="orge41dcbc">Same cardinality does not imply the same shape</h3>
-<div class="outline-text-3" id="text-orge41dcbc">
+<div id="outline-container-orgf6b0fb0" class="outline-3">
+<h3 id="orgf6b0fb0">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-orgf6b0fb0">
 <p>
 Knowing that an isomorphism exists is enough.
 An isomorphism between types s and t is a proof that for all
@@ -512,9 +512,9 @@ The sum- and product- types have different <i>shapes</i>.
 </div>
 </div>
 
-<div id="outline-container-orgeb8d235" class="outline-3">
-<h3 id="orgeb8d235">Monoidial</h3>
-<div class="outline-text-3" id="text-orgeb8d235">
+<div id="outline-container-org0cbc26a" class="outline-3">
+<h3 id="org0cbc26a">Monoidial</h3>
+<div class="outline-text-3" id="text-org0cbc26a">
 <p>
 <code>()</code> is a Monoidal Identity element for product-types (no information).
 <code>Void</code> is an identity element for sum-types (Void has no members).
@@ -523,9 +523,9 @@ The sum- and product- types have different <i>shapes</i>.
 </div>
 </div>
 
-<div id="outline-container-org4acf346" class="outline-2">
-<h2 id="org4acf346">Exponentials</h2>
-<div class="outline-text-2" id="text-org4acf346">
+<div id="outline-container-org69d92ed" class="outline-2">
+<h2 id="org69d92ed">Exponentials</h2>
+<div class="outline-text-2" id="text-org69d92ed">
 <p>
 The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
 </p>
@@ -538,9 +538,9 @@ so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
 </div>
 </div>
 
-<div id="outline-container-orge605b36" class="outline-2">
-<h2 id="orge605b36">Stuff</h2>
-<div class="outline-text-2" id="text-orge605b36">
+<div id="outline-container-org26b8de0" class="outline-2">
+<h2 id="org26b8de0">Stuff</h2>
+<div class="outline-text-2" id="text-org26b8de0">
 <p>
 described a system with equations that determine how its state evolves
 with time, where the state consists of the values of variables (a
@@ -831,8 +831,8 @@ f $ case x of
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-03 Mon 20:40</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.60 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-04-11 Tue 19:45</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>
