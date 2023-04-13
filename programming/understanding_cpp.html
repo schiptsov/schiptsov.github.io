@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-13 Thu 14:14 -->
+<!-- 2023-04-13 Thu 18:03 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Understanding C++</title>
@@ -232,23 +232,47 @@ Equality is a  <i>symmetric relation</i>.
 </p>
 
 <p>
-It has to be the assignment operator <code>:=</code> to suggest all the required notions of an <i>imperative assignment</i> such as LHS and RHS values, lifetimes etc.
+It has to be the assignment operator <code>:=</code> to suggest all the required notions of
+an <i>imperative assignment</i>, which implies LHS and RHS values, lifetimes, <i>who will
+call destructors and when</i>, etc.
 </p>
 
 <p>
-&ldquo;Functions&rdquo; are <i>procedures</i>, but the flawed terminology has been inherited from <code>C</code>.
+&ldquo;Functions&rdquo; are <i>procedures</i>, but the flawed terminology has been inherited from
+<code>C</code>. &ldquo;Bindings&rdquo; are <i>assignments</i>, which actually are writing to memory locations.
 </p>
 
 <p>
-In general, all the &ldquo;natural&rdquo; mathematical intuitions and assumptions are broken in <i>imperative</i> languages with destructive assignment statements.
+In general, all the &ldquo;natural&rdquo; mathematical intuitions and assumptions are broken
+in <i>imperative</i> languages with destructive assignment statements. One has to
+realize this and learn a new set of basic assumptions and rules.
 </p>
 
 <p>
-All of them are just little bit better than <code>PHP</code> (the fractal of bad design, you know) by having at lest some uniformity.
+All of them are just little bit better than <code>PHP</code> (the fractal of bad design, you
+know) by having at lest some uniformity and some form of standardization.
 </p>
 
 <p>
-At least every signgle annoing verbose explicit detail of the fucking mess which we call <code>C++</code> is defined in the standards.
+At least every single annoying verbose explicit detail of the fucking mess which we call <code>C++</code> is defined in the standard.
+</p>
+
+<p>
+Another important thing os that C++ changes nothing (muh non-breaking the
+compatibility meme of an industrial language), only piles up more crap on top.
+</p>
+
+<p>
+The &ldquo;good&rdquo; part is that the compilers (at least <code>clang++</code> and <code>g++</code>) are
+well-designed, layered and robust, and being changing incrementally, not ruining
+what already works and &ldquo;orthogonally&rdquo; adding hardware optimizations (even Google
+now/ uses modern compilers - <code>clang</code>).
+</p>
+
+<p>
+And, yes, C++ <b>is</b> and <i>the</i> industrial language, unfortunately. It requires very
+special mindset (to ignore and to feel nothing about all the verbose, redundant
+crap, inhuman syntax, and just to write down the fucking code).
 </p>
 
 <div id="outline-container-orgab6e1a4" class="outline-2">
@@ -421,11 +445,43 @@ The <code>C++</code> standard library, including STL, is written in itself, and 
 </p>
 </div>
 </div>
+<div id="outline-container-org0ea9c10" class="outline-2">
+<h2 id="org0ea9c10">The -std=c++XX argument</h2>
+<div class="outline-text-2" id="text-org0ea9c10">
+<p>
+First of all, <i>strings</i> in C++11, C++14 and C++17 are not the same. An idiomatic
+C++ code will compile but won&rsquo;t link (due to the subtle differences in <i>mangling</i>).
+</p>
+
+<p>
+In theory, one has to recompile all the dependencies and system libraries with
+the same <code>-std=c++XX</code> flag. Projects which do <i>vendoring</i> at least are trying to compile
+everything with the same flags (but linking with system libs and the stdlib).
+</p>
+
+<p>
+Google nowadays compiles its Chromium with <code>-std=c++20</code> (so should you) and
+vendoring almost everything, including <code>libc++</code>.
+</p>
+
+<p>
+In practice, good systems like <code>Gentoo</code>, cannot force, lets say <code>-std=c++20</code> by
+default (the most reasonable choice &#x2013; no breaking changes from <code>17</code>) because of
+the <i>stale</i> projects, and this illustrates yet another fundamental problem with
+C++ (the &ldquo;not-breaking the compatibility&rdquo; meme results is a dependency hell).
+</p>
+
+<p>
+So, what should one do? Well, vendor and re-compile everything with the same
+flags &#x2013; the way Google does it.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-13 Thu 14:14</p>
+<p class="date">Created: 2023-04-13 Thu 18:03</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
