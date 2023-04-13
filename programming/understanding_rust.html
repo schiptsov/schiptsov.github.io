@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-11 Tue 19:52 -->
+<!-- 2023-04-13 Thu 14:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Understanding Rust</title>
@@ -228,13 +228,13 @@
 <header>
 <h1 class="title">Understanding Rust</h1>
 </header>
-<div id="outline-container-org4de29a1" class="outline-2">
-<h2 id="org4de29a1">Just what Scheme was to previous LISP dialects</h2>
+<div id="outline-container-orgcdacd7f" class="outline-2">
+<h2 id="orgcdacd7f">Just what Scheme was to previous LISP dialects</h2>
 </div>
 
-<div id="outline-container-org6f0f09d" class="outline-2">
-<h2 id="org6f0f09d">The x86 CPU and Memory models</h2>
-<div class="outline-text-2" id="text-org6f0f09d">
+<div id="outline-container-org40de8d4" class="outline-2">
+<h2 id="org40de8d4">The x86 CPU and Memory models</h2>
+<div class="outline-text-2" id="text-org40de8d4">
 <p>
 Modern CPUs are hardware implementations of  <i>abstract machines</i>, defined by
 standard <i>formal specifications</i>.
@@ -262,9 +262,9 @@ To understand both <code>Rust</code> and <code>C/C++</code> we have to understan
 abstractions&rdquo;.
 </p>
 </div>
-<div id="outline-container-org3a834b5" class="outline-3">
-<h3 id="org3a834b5">Instruction Set</h3>
-<div class="outline-text-3" id="text-org3a834b5">
+<div id="outline-container-org63c6834" class="outline-3">
+<h3 id="org63c6834">Instruction Set</h3>
+<div class="outline-text-3" id="text-org63c6834">
 <p>
 A CPU is just a hardware implementation of an <i>Interpeter</i> (of its <i>instruction
 set</i>). Yes, an <i>Interpreter</i>, which is a particular kind of an <i>Abstract Machine</i>, is
@@ -272,9 +272,9 @@ one of, if not <i>the</i> most fundamental abstraction in all computing.
 </p>
 </div>
 </div>
-<div id="outline-container-org218cfc4" class="outline-3">
-<h3 id="org218cfc4">Stack</h3>
-<div class="outline-text-3" id="text-org218cfc4">
+<div id="outline-container-org44aa80c" class="outline-3">
+<h3 id="org44aa80c">Stack</h3>
+<div class="outline-text-3" id="text-org44aa80c">
 <p>
 This is an &ldquo;hardware Abstract Data Type&rdquo;, defined within a CPU. Seriously. There
 is a particular set of instructions to access the Stack (an ADT) and
@@ -289,12 +289,12 @@ Segment</i> for a program..
 </p>
 </div>
 </div>
-<div id="outline-container-org24ae6f7" class="outline-3">
-<h3 id="org24ae6f7">Heap</h3>
+<div id="outline-container-org2453ad9" class="outline-3">
+<h3 id="org2453ad9">Heap</h3>
 </div>
-<div id="outline-container-orga47e9ed" class="outline-3">
-<h3 id="orga47e9ed">Data Segment</h3>
-<div class="outline-text-3" id="text-orga47e9ed">
+<div id="outline-container-org55b0393" class="outline-3">
+<h3 id="org55b0393">Data Segment</h3>
+<div class="outline-text-3" id="text-org55b0393">
 <p>
 A process (resulting from running an <i>executable</i>) traditionally has
 </p>
@@ -319,9 +319,9 @@ possession</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org569e1f3" class="outline-3">
-<h3 id="org569e1f3">Read-only &ldquo;section&rdquo;</h3>
-<div class="outline-text-3" id="text-org569e1f3">
+<div id="outline-container-org25e76bd" class="outline-3">
+<h3 id="org25e76bd">Read-only &ldquo;section&rdquo;</h3>
+<div class="outline-text-3" id="text-org25e76bd">
 <p>
 Each executable has to be fully (or partially) loaded into computer&rsquo;s memory in
 order to be executed (interpreted) by a CPU. A <i>binary image</i> has its own
@@ -339,9 +339,9 @@ an OS and reported as a  <i>segmentation fault</i>.
 </div>
 </div>
 
-<div id="outline-container-org1e63c6e" class="outline-2">
-<h2 id="org1e63c6e">High-Level Functional languages</h2>
-<div class="outline-text-2" id="text-org1e63c6e">
+<div id="outline-container-org8a6b1ed" class="outline-2">
+<h2 id="org8a6b1ed">High-Level Functional languages</h2>
+<div class="outline-text-2" id="text-org8a6b1ed">
 <p>
 High-level functional languages are designed in the way to <i>abstract away
 everything hardware-related</i>.
@@ -361,9 +361,9 @@ consequences.
 </div>
 </div>
 
-<div id="outline-container-org9fad55e" class="outline-2">
-<h2 id="org9fad55e">Low-level Imperative languages</h2>
-<div class="outline-text-2" id="text-org9fad55e">
+<div id="outline-container-orga5a6343" class="outline-2">
+<h2 id="orga5a6343">Low-level Imperative languages</h2>
+<div class="outline-text-2" id="text-orga5a6343">
 <p>
 Imperative low-level languages such as <code>C</code>, <code>C++</code>, or <code>Rust</code> rely on standardized
 &ldquo;hardware abstractions&rdquo;, such as Registers, Stack and Memory Layout (visible
@@ -378,9 +378,9 @@ and &ldquo;logical&rdquo; expressions on &ldquo;paper&rdquo;.
 </div>
 </div>
 
-<div id="outline-container-org7bd7ac5" class="outline-2">
-<h2 id="org7bd7ac5">Rust</h2>
-<div class="outline-text-2" id="text-org7bd7ac5">
+<div id="outline-container-orgb364e84" class="outline-2">
+<h2 id="orgb364e84">Rust</h2>
+<div class="outline-text-2" id="text-orgb364e84">
 <p>
 <code>Rust</code> superimposes its own set of abstractions, rules and conventions upon standardized
 &ldquo;hardware abstractions&rdquo;. This set is supposed to be <i>&ldquo;just right&rdquo;</i> (well-defined,
@@ -431,7 +431,7 @@ is <i>zero runtime overhead</i> in using its data-types. This is a long story.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-11 Tue 19:52</p>
+<p class="date">Created: 2023-04-13 Thu 14:13</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
