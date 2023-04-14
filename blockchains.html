@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-04-14 Fri 19:15 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blockchains</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Blockchains</h1>
+</header><p>
+The principle behind a blockchain is quite straightforward. It is of <i>unique
+identity</i> for a given <i>sequence</i> of data.
+</p>
+
+<p>
+A <i>sequence</i> as an abstract concept, implies the notions of a particular order of
+bytes and of having no gaps. This is technically the same notion as <i>linearity</i>,
+while the content (interpretation) of a sequence may denote (or represent) a
+hierarchical, <i>graph-like</i> structure.
+</p>
+
+<p>
+A <i>fixed-length</i> sequence can be represented as a file or a continuous &ldquo;chunk&rdquo; of
+memory.
+</p>
+
+<p>
+An <i>arbitrary-length</i> sequence is usually called a <i>stream</i> and never stored
+anywhere in its [hypothetical] entirety. It is however almost always have some
+<i>buffer</i> (or an <i>aggregate</i>) which represents (or <i>summarizes</i>) it &ldquo;so far&rdquo;.
+</p>
+
+<p>
+Any fixed-length sequence of bytes (abstracting away what it may represent or
+denote) can be uniquely identified using a &ldquo;<i>checksum</i>&rdquo; (also called a
+<i>cryptographic hash</i>), produced by some particular <i>hash-function</i> (an
+implementation of an algorithm).
+</p>
+
+<p>
+The important part here that good cryptographic hash-functions can produce the
+checksum (or a &ldquo;hash&rdquo;) incrementally, byte-by-byte, so it is possible to compute
+it for a potentially infinite <i>stream</i> observed &ldquo;so far&rdquo; (in a buffer and with the
+accumulated value).
+</p>
+
+<p>
+The ability to compute an unique checksum (or a digest) for an arbitrary
+sequence of bytes and to use this unique checksum for establishing an identity
+(of a given sequence) <i>and</i> for checking the integrity (correctness) of the data
+(of a given sequence) is what enables any blockchain.
+</p>
+
+<p>
+A blockchain thus is a <i>particular arrangement</i> of &ldquo;nested&rdquo; uniquely identified
+sequences of data.
+</p>
+
+<p>
+The trick is that the hash of all the previous sequences &ldquo;so far&rdquo; is
+incorporated into each new &ldquo;block&rdquo;, and the unique hash is computed from this
+&ldquo;nested&rdquo; sequence.
+</p>
+
+<p>
+As one may already notice intuitively, there is a fundamental emergent property
+of such &ldquo;nested&rdquo; hashing scheme &#x2013; change of <i>any</i> single bit (from one to
+zero, say) in a sequence will &ldquo;invalidate&rdquo; the hash (the hash function will
+produce a completely different output).
+</p>
+
+<p>
+This means that the all the hashes of all the blocks &ldquo;above&rdquo; (being added after)
+the changed bit, <i>when recomputed</i>, will be totally different.
+</p>
+
+<p>
+This fact is used for a simple and straghtforward procedure of <i>mathematical validation</i> of
+data integrity of the whole blockchain - by recomputing all the hashes all the
+way from the beginning, and comparing it to the last one (&ldquo;so far&rdquo;).
+</p>
+
+<p>
+With these properties we could extend our conceptual definition of a blockchain.
+</p>
+
+<p>
+It is an <i>append-only</i>, <i>immutable</i> data structure (a representation), which may
+denote, encode or represent any graph-like data (an abstraction), together with
+a mechanism (set of functions) to ensure (and mathematically guaranetee) its
+data integrity and validity.
+</p>
+
+<p>
+Another fundamental principle is that multiple nodes store a full (or partial)
+copy of the whole blockchain (representation) and extend it (in an append-only
+way) only after checking the <i>consensus</i> among other nodes, which is basically a
+majority vote for what each node has &ldquo;observed&rdquo; and <i>validated</i> so far.
+</p>
+
+<p>
+So, nested cryptographic checksums, being validated for every operation, which
+are restricted only to extension (immutable, append-only &ldquo;ledger&rdquo;).
+</p>
+
+<p>
+And this is it. The hundreds of different projects (implementations) differ in
+the implementation details, but not in these fundamental principles and
+the <i>resulting properties</i>.
+</p>
+
+<p>
+<i>Nesting</i> and an <i>unique identity</i> (two exact copies would have exactly the same
+hashes) is the universal basis.
+</p>
+
+<p>
+The best analogy is <i>knitting</i>, when a thread &ldquo;knots to itself&rdquo; and the whole
+woolen cloth extends in an &ldquo;append-only&rdquo; way.
+</p>
+
+<p>
+The more subtle analogy, of course,  is the DNA, which is also &ldquo;grows&rdquo; in an
+append-only way and has some validation and even repair mechanisms (based on
+<i>structural arrangement and redundancy</i> instead of mathematical functions &#x2013;
+<i>Mother Nature does not count</i>).
+</p>
+
+<p>
+Just as DNA is a <i>supposedly</i> immutable store of genetic information (a particular
+arrangement of molecules), a blockchain is conceptually similar arrangement of
+information (particular sequences of bits).
+</p>
+
+<p>
+This analogy, however, should not been taken too far (as Chuds on the social
+media do). There are way better specialized well-studied data structures for almost every
+possible scenario (there is a while branch of computer science devoted to
+implementation of data structures and related, following from them, algorithms).
+</p>
+
+<p>
+So, no, it is neither special or profound or mythical. It is just distributed
+append-only immutable structures (arrangements of bits), made out of nested
+cryptographic hashes (outputs of partocular mathematical functions).
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-04-14 Fri 19:15</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>
