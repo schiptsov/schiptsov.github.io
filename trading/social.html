@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-04-14 Fri 16:03 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Socially constructed</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Socially constructed</h1>
+</header><p>
+Markets as a social phenomena, are so complex that differnt beanches of science are required to understand it and being less wrong about the causes of its dynamics.
+</p>
+
+<p>
+Everything in the markets are <i>socially constructed</i> as in organized religions. Markets are closer to religions than to rigorous math-based disciplines. This is the main principle from which everything follows.
+</p>
+
+<p>
+Ultimately, when not manipulated, the price moves in the direction of currently <i>eager</i> (or <i>over-excited</i>) majority - bulls or bears.
+</p>
+
+<p>
+The actions of the market participants are based on their <i>indivual forecasts of in what direction the prices will move</i> (from where they are right now). This is exactly what is calles <i>speculation</i> (about the direction).
+</p>
+
+<div id="outline-container-orgd712c37" class="outline-2">
+<h2 id="orgd712c37">Sentiments</h2>
+<div class="outline-text-2" id="text-orgd712c37">
+<p>
+An intelligent trader has to know and even measure (at least to some extent) the current <i>sentiment</i> of the majority and act accordingly. One has to ride the current &ldquo;wave&rdquo; (caused by an over-exited crowd) just like a <i>surfer</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9baf3b7" class="outline-2">
+<h2 id="org9baf3b7">Never play silly games</h2>
+<div class="outline-text-2" id="text-org9baf3b7">
+<p>
+It is tempting to &ldquo;bet against the stupid crowd&rdquo;, because it implies some way above average abilities and cleverness, thanks to socially constructed memes and the social cult of being &ldquo;special&rdquo;.
+</p>
+
+<p>
+Things do not work this way. It is just like betting against a semi-truck when riding a bicycle. The market forces (with its speed and momentum) will literally smash you down. Never try to stand up agaist the crowd.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ffc520" class="outline-2">
+<h2 id="org7ffc520">Psychology</h2>
+<div class="outline-text-2" id="text-org7ffc520">
+<p>
+The hardest part is to analyse the current sentiment of market participants from social media, without being affected, influenced and swayed away by the streams of screaming manipulative bullshit, paid or just emotional.
+</p>
+
+<p>
+Ideally, one should just <i>measure</i> the current sentiment and confirm the currently dominant crowd (bulls or bears) and the &ldquo;strength&rdquo; of their exitement.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org363d799" class="outline-2">
+<h2 id="org363d799">Indicators</h2>
+<div class="outline-text-2" id="text-org363d799">
+<p>
+Idicators are the &ldquo;<i>instruments</i>&rdquo; on a dashboard, which <i>measure</i> the current conditions.
+</p>
+
+<p>
+Idicators &ldquo;work&rdquo; because other people <i>belive</i> they do and <i>act accordinhgly</i>. Unlike objective indicators of a speed, momentum and volume, most of idicators capture <i>abstract notions</i>.
+</p>
+
+<p>
+<i>Rate of change</i> (the slope) is, perhaps, is where one nas to stop with abstractions.
+</p>
+
+<p>
+All indicators always show what already (just) happened, and never what will (would) happen. Projections and predictions are &ldquo;black magic&rdquo;.
+</p>
+
+<p>
+The main principle is that <i>all the factors cannot be taken into account</i>, and even &ldquo;weights&rdquo; of already known factors change as we speak (measure).  New factors could (and will) emerge at any moment, old factors will become irrelevant.
+</p>
+</div>
+
+<div id="outline-container-orgf78575f" class="outline-3">
+<h3 id="orgf78575f">EMA (its direction and slope)</h3>
+<div class="outline-text-3" id="text-orgf78575f">
+<p>
+This is the direction the markets are going.
+</p>
+</div>
+</div>
+<div id="outline-container-org4e50511" class="outline-3">
+<h3 id="org4e50511">MACD</h3>
+<div class="outline-text-3" id="text-org4e50511">
+<p>
+Short-term vs long-term averages - the change in sentiments.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb0dc9c3" class="outline-3">
+<h3 id="orgb0dc9c3">RSI</h3>
+<div class="outline-text-3" id="text-orgb0dc9c3">
+<p>
+Closing prices
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org770f44e" class="outline-2">
+<h2 id="org770f44e">Chart patterns</h2>
+<div class="outline-text-2" id="text-org770f44e">
+<p>
+Recurrent <i>patterns</i> emerge from &ldquo;chaos&rdquo; on differnt timeframes.
+</p>
+
+<p>
+Other market participants notice these <i>emergent patterns</i> and use them as confirmation to their current assumptions about the market conditions.
+</p>
+
+<p>
+Each new 5, 15, 30 or a hourly candle closes the previous one and forms a distinct pattern to which other people react. Now wonder, <code>mod 5</code> or <code>mod 15</code> are the most active (volatile) times of an hour.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge11acad" class="outline-2">
+<h2 id="orge11acad">the Price</h2>
+<div class="outline-text-2" id="text-orge11acad">
+<p>
+Every know and yet unknown, established or emergent factors contribute to the final result which is the <i>current price.</i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1525c01" class="outline-2">
+<h2 id="org1525c01">the individual actors</h2>
+<div class="outline-text-2" id="text-org1525c01">
+<p>
+Each idividual actor has some current views of how one inteprets the current market condition, based on his current assumptions.
+</p>
+<ul class="org-ul">
+<li>Bear or Bull market</li>
+<li>Which phase</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb85780b" class="outline-2">
+<h2 id="orgb85780b">Major events</h2>
+<div class="outline-text-2" id="text-orgb85780b">
+<p>
+The events that cause price movements are those which involve (cause) closing or even liquidation of lots of positions.
+</p>
+
+<p>
+When the moves &ldquo;<i>moves through stop-loses</i>&rdquo; or &ldquo;<i>moves below a FOMOing level</i>&rdquo; it usually cascades into a long &ldquo;dildos&rdquo;.
+</p>
+
+<p>
+There are always particualar causes behind each substantial price movement, and, similar to mechanics, there is always some &ldquo;potential energy&rdquo; involved.
+</p>
+
+<p>
+The actions (and positions) of other people are the &ldquo;potential energy&rdquo;.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc7cc83d" class="outline-2">
+<h2 id="orgc7cc83d">Adversaries</h2>
+<div class="outline-text-2" id="text-orgc7cc83d">
+<p>
+The price usually moves in the direction of mass <i>liquidations</i> causing <i>cascades</i>. This is not by accident.
+</p>
+
+<p>
+Whole companies (market &ldquo;makers&rdquo;) have been created to trade &ldquo;against retail&rdquo; for easy, mostly <i>automated</i> profits.
+</p>
+
+<p>
+The resent FTX scandal was an illustration of how Alameda traded against the FTX customers. Everyone else (trading desks) do the same.
+</p>
+
+<p>
+It does not require an IQ of 150 to identify some meme-driven degerate communites (notably &#x2013; Chainlink) and to manipulate the prices, and then to dump on retail at local tops (causing liquidations and closing of long position).
+</p>
+</div>
+<div id="outline-container-orga4c9aa8" class="outline-3">
+<h3 id="orga4c9aa8">Stop-loss hunding</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-04-14 Fri 16:03</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>
