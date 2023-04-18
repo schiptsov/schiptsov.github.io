@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-13 Thu 14:09 -->
+<!-- 2023-04-18 Tue 22:45 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Types</title>
@@ -247,10 +247,53 @@ MathJax = {
 </div><div id="content" class="content">
 <header>
 <h1 class="title">Types</h1>
-</header>
-<div id="outline-container-orgdd6453e" class="outline-2">
-<h2 id="orgdd6453e">Cardinality of a type</h2>
-<div class="outline-text-2" id="text-orgdd6453e">
+</header><p>
+In short, types are <i>mathematical systems</i>, which is, at a minimum, is a <i>set of value</i> and a <i>set of possible operations</i>.
+</p>
+
+<p>
+It may or may not form a <i>closure</i> with respect to these operations. The closure property is desirable and crucial.
+</p>
+
+<p>
+Unlike mathematicians, we are also conserned with not just <i>existence</i>, but with <i>representation</i> and <i>implemetation</i> of our abstractions.
+</p>
+
+<p>
+Out basic building blocks are <i>interfaces</i> and <i>abstract dats-types</i>.
+</p>
+
+<p>
+<i>&ldquo;Data dominates&rdquo;</i>, so the algorighms, interfaces and implememtations <i>follow</i> the actual <i>data-structures</i>.
+</p>
+
+<p>
+Data-types are ulitmate &ldquo;cells&rdquo; (building blocks) which have a &ldquo;membrane&rdquo; (an actual <i>abstraction barrier</i>) and &ldquo;pumps and gates&rdquo; (exported interfaces).
+</p>
+
+<p>
+Data-types also have the inner structure (inside a membrane) which consist of a representations (an actual structuring) and corresponding implementation (based on the structure).
+</p>
+
+<p>
+There could (and should) be more than one representation and implementation for the same abstract data-type (defined in terms of a formal specification of its exported interfaces).
+</p>
+
+<p>
+At a higher level we have &ldquo;type-classes&rdquo;, &ldquo;kinds of types&rdquo; or more generally types of types. The most important is concept here is a Set of required interfaces (to be implemented).
+</p>
+
+<p>
+This is known as &ldquo;duck-typing&rdquo; and, arguably, is the central notion.
+</p>
+
+<p>
+So, a names sub-set of values, defined in terms of a set of possible operations and a [in]formal specifications for these operations. Plus the &ldquo;type-classes&rdquo; and &ldquo;traits&rdquo; and &ldquo;modules&rdquo;, which all are Sets of <i>type-signatures</i>.
+</p>
+
+<div id="outline-container-orgd2ae4f0" class="outline-2">
+<h2 id="orgd2ae4f0">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-orgd2ae4f0">
 <p>
 Cardinality (the size) is the only <i>structural (general) property</i> of a Set.
 </p>
@@ -271,9 +314,9 @@ Ignore bottoms (they are relevant only in type-constraint solving)
 </pre>
 </div>
 </div>
-<div id="outline-container-org491bce0" class="outline-3">
-<h3 id="org491bce0">Shapes or forms</h3>
-<div class="outline-text-3" id="text-org491bce0">
+<div id="outline-container-org2bfe6c6" class="outline-3">
+<h3 id="org2bfe6c6">Shapes or forms</h3>
+<div class="outline-text-3" id="text-org2bfe6c6">
 <p>
 Notice that these types have distinct, unique <i>shapes</i>
 </p>
@@ -294,9 +337,9 @@ Notice that
 </div>
 </div>
 </div>
-<div id="outline-container-org3f16cc0" class="outline-2">
-<h2 id="org3f16cc0">Total</h2>
-<div class="outline-text-2" id="text-org3f16cc0">
+<div id="outline-container-orgcc1d01a" class="outline-2">
+<h2 id="orgcc1d01a">Total</h2>
+<div class="outline-text-2" id="text-orgcc1d01a">
 <p>
 Knowing cardinalities of any two types (sets) we can know how many
 &ldquo;arrows&rdquo; (distinct relations or individual mappings) are there <i>in total</i>.
@@ -318,9 +361,9 @@ The notion of duality based on cardinality alone is wrong and misleading.
 </p>
 </div>
 </div>
-<div id="outline-container-org2afce08" class="outline-2">
-<h2 id="org2afce08">Isomorphism</h2>
-<div class="outline-text-2" id="text-org2afce08">
+<div id="outline-container-orgc6b9921" class="outline-2">
+<h2 id="orgc6b9921">Isomorphism</h2>
+<div class="outline-text-2" id="text-orgc6b9921">
 <p>
 Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
 This is a naive and too abstract to be useful assumption.
@@ -337,9 +380,9 @@ some sectarians as such.
 </p>
 </div>
 
-<div id="outline-container-org7600e68" class="outline-3">
-<h3 id="org7600e68">Definition</h3>
-<div class="outline-text-3" id="text-org7600e68">
+<div id="outline-container-org530be1f" class="outline-3">
+<h3 id="org530be1f">Definition</h3>
+<div class="outline-text-3" id="text-org530be1f">
 <p>
 The formal definition is this
 </p>
@@ -355,18 +398,18 @@ defined <i>in principle</i> as a pair of total functions (on whole types).
 </p>
 </div>
 </div>
-<div id="outline-container-org32bc95a" class="outline-3">
-<h3 id="org32bc95a">Ordering</h3>
-<div class="outline-text-3" id="text-org32bc95a">
+<div id="outline-container-org7bdace1" class="outline-3">
+<h3 id="org7bdace1">Ordering</h3>
+<div class="outline-text-3" id="text-org7bdace1">
 <p>
 As long as cardinality is greater than 1 a particular <i>ordering</i> has to be defined (become a part of an abstract mathematical structure).
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf1c18ab" class="outline-3">
-<h3 id="orgf1c18ab">An ordered set of arrows</h3>
-<div class="outline-text-3" id="text-orgf1c18ab">
+<div id="outline-container-orgaf10f94" class="outline-3">
+<h3 id="orgaf10f94">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-orgaf10f94">
 <p>
 Individual &ldquo;arrows&rdquo; (relations) <i>between values</i> has to be in a particular
  order.
@@ -388,9 +431,9 @@ Symmetries (rotations) could be formalized with such sets of functions.
 </div>
 </div>
 
-<div id="outline-container-org898088d" class="outline-3">
-<h3 id="org898088d">n!</h3>
-<div class="outline-text-3" id="text-org898088d">
+<div id="outline-container-org421dfcf" class="outline-3">
+<h3 id="org421dfcf">n!</h3>
+<div class="outline-text-3" id="text-org421dfcf">
 <p>
 For any two types (sets) of the same cardinality \(n\)
 there are \(n!\) <i>unique</i> isomorphisms between them.
@@ -398,9 +441,9 @@ there are \(n!\) <i>unique</i> isomorphisms between them.
 </div>
 </div>
 
-<div id="outline-container-org05a173d" class="outline-3">
-<h3 id="org05a173d">Same cardinality does not imply the same shape</h3>
-<div class="outline-text-3" id="text-org05a173d">
+<div id="outline-container-org86171d0" class="outline-3">
+<h3 id="org86171d0">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-org86171d0">
 <p>
 <i>Knowing that an isomorphism exists is enough. An isomorphism between
 types \(s\) and \(t\) is a proof that /for all intents and purposes</i>, \(s\) and \(t\) are the same thing/.
@@ -412,9 +455,9 @@ This, of course, is bullshit.
 </div>
 </div>
 
-<div id="outline-container-orga97eb09" class="outline-3">
-<h3 id="orga97eb09">The laws</h3>
-<div class="outline-text-3" id="text-orga97eb09">
+<div id="outline-container-orgbc2f178" class="outline-3">
+<h3 id="orgbc2f178">The laws</h3>
+<div class="outline-text-3" id="text-orgbc2f178">
 <p>
 The cardinality of a <i>sum-type</i> is the sum of the cardinalities of its constructors.
 </p>
@@ -434,9 +477,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i> or <i>for
 </div>
 </div>
 
-<div id="outline-container-org6865745" class="outline-3">
-<h3 id="org6865745">Monoidial identities</h3>
-<div class="outline-text-3" id="text-org6865745">
+<div id="outline-container-orgd183a19" class="outline-3">
+<h3 id="orgd183a19">Monoidial identities</h3>
+<div class="outline-text-3" id="text-orgd183a19">
 <p>
 <code>()</code> is a Monoidal Identity element for product-types (no new information).
 <code>Void</code> is an identity element for sum-types (<code>Void</code> has no members).
@@ -445,9 +488,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i> or <i>for
 </div>
 </div>
 
-<div id="outline-container-org247f720" class="outline-2">
-<h2 id="org247f720">Exponentials</h2>
-<div class="outline-text-2" id="text-org247f720">
+<div id="outline-container-org4f81b03" class="outline-2">
+<h2 id="org4f81b03">Exponentials</h2>
+<div class="outline-text-2" id="text-org4f81b03">
 <p>
 The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
 </p>
@@ -460,13 +503,13 @@ so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
 </div>
 </div>
 
-<div id="outline-container-org4b75c17" class="outline-2">
-<h2 id="org4b75c17">Notes</h2>
-<div class="outline-text-2" id="text-org4b75c17">
+<div id="outline-container-orga9378f8" class="outline-2">
+<h2 id="orga9378f8">Notes</h2>
+<div class="outline-text-2" id="text-orga9378f8">
 </div>
-<div id="outline-container-org3c39b16" class="outline-3">
-<h3 id="org3c39b16">Strings</h3>
-<div class="outline-text-3" id="text-org3c39b16">
+<div id="outline-container-org4a4f433" class="outline-3">
+<h3 id="org4a4f433">Strings</h3>
+<div class="outline-text-3" id="text-org4a4f433">
 <p>
 A <i>sequence</i> of elements from the same set (an alphabet) is called a <i>String</i> and it
 is a &ldquo;natural&rdquo; <i>type</i>.
@@ -479,9 +522,9 @@ taken \(n\) times.
 </p>
 </div>
 </div>
-<div id="outline-container-org6ce62cb" class="outline-3">
-<h3 id="org6ce62cb">Algebraic types</h3>
-<div class="outline-text-3" id="text-org6ce62cb">
+<div id="outline-container-orgb1222e2" class="outline-3">
+<h3 id="orgb1222e2">Algebraic types</h3>
+<div class="outline-text-3" id="text-orgb1222e2">
 <p>
 <code>-&gt;</code> a set of all <i>ordered pairs</i> (arrows) - a <i>function space</i>
 <code>{ , }</code> records are <i>labeled</i> Cartesian Products (a \(\times\))
@@ -495,9 +538,9 @@ There is always some particular order in an actual implementation.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfd95b79" class="outline-3">
-<h3 id="orgfd95b79">Type-classes</h3>
-<div class="outline-text-3" id="text-orgfd95b79">
+<div id="outline-container-orgb9c0d7b" class="outline-3">
+<h3 id="orgb9c0d7b">Type-classes</h3>
+<div class="outline-text-3" id="text-orgb9c0d7b">
 <p>
 <code>Num a =&gt; [a] -&gt; a</code>
 This type states that for any <i>type <code>a</code> of Numbers</i>, sum is a function that <i>maps a
@@ -506,9 +549,9 @@ list of such numbers to a single such number</i>.
 </div>
 </div>
 
-<div id="outline-container-org7b40431" class="outline-3">
-<h3 id="org7b40431">Nesting</h3>
-<div class="outline-text-3" id="text-org7b40431">
+<div id="outline-container-org063e466" class="outline-3">
+<h3 id="org063e466">Nesting</h3>
+<div class="outline-text-3" id="text-org063e466">
 <p>
 When we think of &ldquo;structured values&rdquo; we imply <i>nesting</i> of types.
 </p>
@@ -518,18 +561,18 @@ Algebraic types can be nested, just as expressions.
 </p>
 </div>
 </div>
-<div id="outline-container-org961b3c6" class="outline-3">
-<h3 id="org961b3c6">Interfaces</h3>
-<div class="outline-text-3" id="text-org961b3c6">
+<div id="outline-container-orge64373a" class="outline-3">
+<h3 id="orge64373a">Interfaces</h3>
+<div class="outline-text-3" id="text-orge64373a">
 <p>
 Interfaces are as fundamental as cell membranes - they establish penetrable partitions.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org20fc702" class="outline-3">
-<h3 id="org20fc702">Polymorphism</h3>
-<div class="outline-text-3" id="text-org20fc702">
+<div id="outline-container-org1fb18e4" class="outline-3">
+<h3 id="org1fb18e4">Polymorphism</h3>
+<div class="outline-text-3" id="text-org1fb18e4">
 <p>
 Parametric polymorphism is &ldquo;on&rdquo; types with the same <i>nested structures</i>.
 This is, of course, how different molecules with same parts can be used.
@@ -547,9 +590,9 @@ In general, abstracting out and formalizing some <i>Universal mechanisms</i> (fo
 </div>
 </div>
 
-<div id="outline-container-org8e0cb28" class="outline-2">
-<h2 id="org8e0cb28">Sets of values</h2>
-<div class="outline-text-2" id="text-org8e0cb28">
+<div id="outline-container-orgd9089f2" class="outline-2">
+<h2 id="orgd9089f2">Sets of values</h2>
+<div class="outline-text-2" id="text-orgd9089f2">
 <p>
 Types are based on a formally defined mathematical notion of a <code>Set</code>.
 Types are <i>sets of values</i>, defined by sets of <i>constraints</i> (corresponding to particual properties).
@@ -573,9 +616,9 @@ to define a <i>family of types</i>, using the formal notion of a <i>type-class</
 </p>
 </div>
 </div>
-<div id="outline-container-org7e9dda9" class="outline-2">
-<h2 id="org7e9dda9">Type-classes</h2>
-<div class="outline-text-2" id="text-org7e9dda9">
+<div id="outline-container-org8a67b49" class="outline-2">
+<h2 id="org8a67b49">Type-classes</h2>
+<div class="outline-text-2" id="text-org8a67b49">
 <p>
 First of all, a <i>type-class</i> is a <i>higer-level abstraction over types</i>, and each particular <i>instance</i> of a type-class is <i>type</i>.
 The mathematical analogy is a <i>Set of Sets</i> while members (types) have an additional strucure (a set of required <i>signatures</i>).
@@ -607,9 +650,9 @@ comprehensions with generators and boolean guards</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf11b8bb" class="outline-2">
-<h2 id="orgf11b8bb">Overloaded functions</h2>
-<div class="outline-text-2" id="text-orgf11b8bb">
+<div id="outline-container-orgc17c982" class="outline-2">
+<h2 id="orgc17c982">Overloaded functions</h2>
+<div class="outline-text-2" id="text-orgc17c982">
 <p>
 This <i>type signature</i> implies that <code>(+)</code> is <i>overloaded</i>, which means could be applied to different types (provided both aguments are of the same type).
 </p>
@@ -623,7 +666,7 @@ This <i>type signature</i> implies that <code>(+)</code> is <i>overloaded</i>, w
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-13 Thu 14:09</p>
+<p class="date">Created: 2023-04-18 Tue 22:45</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>

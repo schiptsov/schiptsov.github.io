@@ -4,9 +4,8 @@
 <!-- 2023-04-18 Tue 22:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Understanding types</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
-<meta name="description" content="ADTs for a Functional Programmer" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -199,7 +198,6 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
      function CodeHighlightOn(elem, id)
@@ -227,122 +225,112 @@
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
-<p>
-#+TITLE Abstract Data Types
-</p>
-<p>
-This is by far the most important concept (and related methodology) in programming.
-</p>
-
-<p>
-This is a fundamental result, originally by <i>Barbara Liskov</i> (for which she received the Turing Award).
+<header>
+<h1 class="title">Understanding types</h1>
+</header><p>
+Every value has a type, which means, conceptually, that it belongs to a particular Set.
 </p>
 
 <p>
-What she did, however, is <i>clearly articulated and grouped together</i>
-related concepts, while the original totions came from abstract
-mathematics.
+The Set could be formed as a results of a constraint satisfaction process, which corresponds to multiple union/intersection operations.
 </p>
 
 <p>
-The first well-known <i>Abstract Data Type</i>, so to speak, is what
-underlies the <i>Set Theory</i> - the formalized notion of a <i>Set</i>.
+Duck-typing (based on &ldquo;traits&rdquo; or required interfaces) is the way to define a such a set of constraints (at an <i>interfaces level</i>).
 </p>
 
 <p>
-Abstract mathematics in general deliberately ignored (abstracted out)
-any notions of <i>actual representation</i> or even <i>possible existence</i> of
-abstract &ldquo;objects&rdquo; it considers.
-</p>
-
-<p>
-To formalize notions form a Domain in pure mathematics first (using Sets
-and Logic) is an excellent strategy, and this is what any serious
-programmers of the Golden Age (70s, 80s) advocate.
-</p>
-
-<p>
-However, classic mathematics is <i>untyped</i> or <i>implicitly weakly typed</i>,
-which means that <i>the properties</i> which constitute an abstract structure,
-or a <i>whole family (or a class)</i> of such structures, while stated
-precisely and formally, do not constitute a formal definition of a
-particular type (<i>ADTs</i> and <i>Type-classes</i> of Wadler are attempts to do
-typing systemically).
-</p>
-
-<p>
-The abstract notion of a Set is defined <i>only</i> in terms of <i>operations</i>
-(which itself is a set of <i>operators</i>), deliberately leaving out
-everything else.
-</p>
-
-<p>
-This is the same principle underlies any proper ADT - it is defined in
-terms of operations on the corresponding Set of <i>values</i> (which can be
-seen as an abstract <i>partition</i> on a Universe of all possible values).
-</p>
-
-<p>
-So <i>ADTs are Sets of values</i>, but defined (<i>such that</i>) in terms of <i>operations</i>.
-</p>
-
-<p>
-<i>Type-classes</i> extends this notion with <i>nesting</i> and <i>extension</i> or
-<i>specialization</i> by defining a Set of required <i>interfaces</i> to be
-implemented. It thus formalizes the notion of a <i>Duck-typing</i>.
-</p>
-
-<p>
-To be a <i>duck</i> is to exhibit this and that behavior - to quack like a duck
-and walk like a duck.
-</p>
-
-<p>
-The principle behind Abstract Data Types is clear and well-defined separation of
+It is remarkable that all the types could be either so-called
 </p>
 <ul class="org-ul">
-<li>A <i>Public Interface</i> (corresponds to a <i>signature</i> in ML)</li>
-<li>An <i>Internal representations</i>, together with a well-defined <i>representation invariants</i> and other <i>constraints</i>.</li>
-<li>A &ldquo;concrete&rdquo; <i>Data-Structure</i> which underlay the type and <i>actual implementation of corresponding algorithms</i>.</li>
+<li>product-types (<code>AND</code>, <code>,</code>)</li>
+<li>sum-types (<code>OR</code>, <code>|</code>)</li>
+<li>function types (<code>-&gt;</code> &#x2013; an <i>arrow</i>, or a <i>step</i>)</li>
 </ul>
 
 <p>
-Representation and implementation are defined in <i>structures</i> in ML.
+This has very deep correspondence with what we might loosely call &ldquo;the structure of reality&rdquo;, and with the 3 fundamental sequencing flow-chart patterns &#x2013; <i>composition</i>, <i>branching</i> and <i>recursion</i> (looping).
 </p>
 
 <p>
-<i>Data dominates</i> (another fundamental principle) which means that once a
-particular data structure is selected, all the algorithms and even the
-shape of the code (implementation) <i>follows</i> - a recursive nature of a
-data structure implies recursive functions that traverse them.
+<i>Product types</i> capture the universal notion of <i>having a structure</i> (<i>and-also</i> in human language).
 </p>
 
 <p>
-Similarly, a <i>sum-type</i> dictates its <i>pattern-matching code</i> and overall
-shape of the functions which manipulate values of a type.
+<i>Sum types</i> capture the universal notion of a <i>possible outcome</i> (<i>or else</i> in human languages).
 </p>
 
 <p>
-Monads in Haskell are ADTs, defined as a class of types (a type-class), while each particular <i>instance</i> is precisely an ADT.
+<i>Function types</i> capture the universal notion of a transition in a single step (implication, transformation, transition, which implies a <i>direction</i>) &#x2013; an <i>arrow</i> in a human symbolism.
 </p>
 
 <p>
-The type-class itself is just a <i>named set of interfaces</i> together with a <i>class-subclass relation</i> (or nesting).
-Semantics of a <i>type-class</i> is to state <i>what it takes to be an <code>X</code></i> - which particular <i>signatures</i> must be implemented (by an ADT)
+This means that types are not merely Sets of values, but a whole &ldquo;systems&rdquo; with associated Set of possible <i>operations</i> (on values) and informally defined <i>constraints</i>.
 </p>
 
 <p>
-The second most fundamental concept of <i>Modules</i> is one level higher.
-A <i>Module</i> could contain one or more signatures and corresponding structures.
-In ML these could be separated in a .mli and .ml files.
+This gives us
+</p>
+<ul class="org-ul">
+<li>Abstract Data Types (defined in terms of a named <i>Set</i> of possible operations)</li>
+<li>Type-Classes (defined in terms of a particular <i>Subset</i> of possible operations)</li>
+<li>OO classes (which usually implies <i>inheritance</i>, which is just nesting/ of Sets of interfaces).</li>
+</ul>
+
+<p>
+OO has lots of complications related to the notion of an <i>&ldquo;inheritance&rdquo;</i>, which means to define a proper &ldquo;<i>is a</i>&rdquo; relations, respecting all the &ldquo;logical&rdquo; constraints.
 </p>
 
 <p>
-In ML <i>Modules</i> are high-level abstractions and could be <i>applied to one another</i> to produce a &ldquo;specialized&rdquo; <i>structure</i> (which is another new module).
+Better language just <i>compose</i> (as a &ldquo;product&rdquo;) individual &ldquo;traits&rdquo;, which is not necessarily <i>nesting</i> (a <i>set-subset</i> relation).
 </p>
 
 <p>
-This application is based on the mathematical concept of a <code>Functor</code> which is a <i>mapping that preserves the structure of an &ldquo;object&rdquo;</i> (originally defined on directed graphs).
+This is the fundamental issue &#x2013; traits or &ldquo;behaviors&rdquo; do not have to be a proper <i>Subset</i>. Everything follows from this.
+</p>
+
+<p>
+There could be some arbitrary <i>nesting</i> (Subsets) of <i>interfaces</i> but it is not strictly required. This <i>relaxation</i> solves the fundamental problem of &ldquo;too rigid classifications&rdquo;.
+</p>
+
+<p>
+Again, just &ldquo;circles&rdquo; full of individual values. We defines these &ldquo;circles&rdquo; (Sets) <i>in terms of possible operations</i>.
+</p>
+
+<p>
+This is exactly how we define, say, a <i>Semigroup</i> in an abstract algebra.
+</p>
+
+<p>
+We may add additional constraints, such as particular <i>relations</i> among elements, and we would get a <i>Monoid</i> or even a <i>Group</i>.
+</p>
+
+<p>
+The notion of a <i>type-class</i> (as by Wadler) is how we define as a <i>common Subset</i> of required <i>operations</i> (implemented interfaces).
+</p>
+
+<p>
+This is exactly the same notion which is behind the <i>Liskov Substitution Principle</i> (idicating that it is a universal) - it is the <i>set-subset</i> relation <i>at the level of type-signatures</i> (interfaces).
+</p>
+
+<p>
+If something <i>implements</i> (walks like a duck), it can be &ldquo;substituted&rdquo; (the methods can be called on a <i>reference</i> of distinct <i>supertype</i>).
+</p>
+
+<p>
+One more time - as long as we define the types (Sets of values) in terms of <i>operations</i> (abstract type-signatures and interfaces), and then select a common Subset of the these operations (type-signatures, interfaces) we are all set.
+</p>
+
+<p>
+The additional informally stated constraints, invariants, and &ldquo;laws&rdquo; cannot be expressed with this &ldquo;set-and-logic&rdquo; classic conceptual framework.
+</p>
+
+<p>
+Nothing, however, prevents one to add one more component to the <i>conceptual closure</i> (a product) already which has a <i>Set of Operations</i>. It couls be a <i>Set of Constraints</i>, even with &ldquo;lambdas&rdquo; (lexical closures) that check them.
+</p>
+
+<p>
+But fundamentally, it is still &ldquo;sets, subsets (nesting), products, graphs and logic&rdquo;.
 </p>
 </div>
 <div id="postamble" class="status">

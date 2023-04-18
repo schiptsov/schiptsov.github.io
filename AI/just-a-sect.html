@@ -4,9 +4,8 @@
 <!-- 2023-04-18 Tue 22:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Just a sect.</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
-<meta name="description" content="ADTs for a Functional Programmer" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -199,7 +198,6 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
      function CodeHighlightOn(elem, id)
@@ -227,122 +225,146 @@
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
-<p>
-#+TITLE Abstract Data Types
-</p>
-<p>
-This is by far the most important concept (and related methodology) in programming.
-</p>
-
-<p>
-This is a fundamental result, originally by <i>Barbara Liskov</i> (for which she received the Turing Award).
+<header>
+<h1 class="title">Just a sect.</h1>
+</header><p>
+I used to live for years in Kathmnadu and read some used books from its excellent (and now mostly scrapped) bookshops.
 </p>
 
 <p>
-What she did, however, is <i>clearly articulated and grouped together</i>
-related concepts, while the original totions came from abstract
-mathematics.
+I read a lot of texts on Eastern traditions and philosophies, mostly Buddhism and Upanishads, which are unparalleled in the sense that they put the mind &ldquo;on the spot&rdquo; of its own attention and awareness.
 </p>
 
 <p>
-The first well-known <i>Abstract Data Type</i>, so to speak, is what
-underlies the <i>Set Theory</i> - the formalized notion of a <i>Set</i>.
+In short, they have proposed (and practiced what they preached) that in order to understand what is one has to understand the mind first. <i>To know what lies &ldquo;outside&rdquo; know what lies within</i>.
 </p>
 
 <p>
-Abstract mathematics in general deliberately ignored (abstracted out)
-any notions of <i>actual representation</i> or even <i>possible existence</i> of
-abstract &ldquo;objects&rdquo; it considers.
+This is, of course, a universal maxim and could be even more generalized and extended to everything social, including socially constructed &ldquo;memes&rdquo;, beliefs and what they call &ldquo;scientific consensus&rdquo;.
 </p>
 
 <p>
-To formalize notions form a Domain in pure mathematics first (using Sets
-and Logic) is an excellent strategy, and this is what any serious
-programmers of the Golden Age (70s, 80s) advocate.
+To illustrate how <i>real</i> (and actual) these are, try to realize that all the efforts behind construction of the Great Pyramids were absolutely, beyond any doubt &ldquo;justified&rdquo;, &ldquo;valid&rdquo; and absolutely &ldquo;right thing to do&rdquo;.
 </p>
 
 <p>
-However, classic mathematics is <i>untyped</i> or <i>implicitly weakly typed</i>,
-which means that <i>the properties</i> which constitute an abstract structure,
-or a <i>whole family (or a class)</i> of such structures, while stated
-precisely and formally, do not constitute a formal definition of a
-particular type (<i>ADTs</i> and <i>Type-classes</i> of Wadler are attempts to do
-typing systemically).
+Some day we would say the same about the LCH, which is trying to catch &ldquo;statistical memes&rdquo; (not unlike these LLMs).
 </p>
 
 <p>
-The abstract notion of a Set is defined <i>only</i> in terms of <i>operations</i>
-(which itself is a set of <i>operators</i>), deliberately leaving out
-everything else.
+This subject of how socially constructed memes infect our minds is quite complicated and subtle, and we have to go slowly and be as careful and accurate as humanly possible.
 </p>
 
 <p>
-This is the same principle underlies any proper ADT - it is defined in
-terms of operations on the corresponding Set of <i>values</i> (which can be
-seen as an abstract <i>partition</i> on a Universe of all possible values).
+The memes can be as sophisticated as whole &ldquo;scientific, (ok, humanitarian) theories&rdquo;. It ranges from &ldquo;Statistical Learning&rdquo;, which is bullshit, to the books titled as &ldquo;There Are No Facts&rdquo; from no less than the <i>MIT Press</i>.
 </p>
 
 <p>
-So <i>ADTs are Sets of values</i>, but defined (<i>such that</i>) in terms of <i>operations</i>.
+The proponents of so-called modern &ldquo;smart&rdquo; culture would argue, that every opinion has a merit and has to be taken into account and cannot just be dismissed as mere bullshit, largely because we cannot call bullshit anymore.
 </p>
 
 <p>
-<i>Type-classes</i> extends this notion with <i>nesting</i> and <i>extension</i> or
-<i>specialization</i> by defining a Set of required <i>interfaces</i> to be
-implemented. It thus formalizes the notion of a <i>Duck-typing</i>.
+There is a guy named Vapnik, highly praised for his theories. He publishes books and lectures at MIT. What is his problem? Well, if we apply the old or even ancient standards for working with texts, we would call bullshit.
 </p>
 
 <p>
-To be a <i>duck</i> is to exhibit this and that behavior - to quack like a duck
-and walk like a duck.
+The technique of calling bullshit is indeed ancient, and it is about dismissing and discarding everything that follows after a logically or mathematically flawed statement, taken as a fact, and later built upon.
 </p>
 
 <p>
-The principle behind Abstract Data Types is clear and well-defined separation of
-</p>
-<ul class="org-ul">
-<li>A <i>Public Interface</i> (corresponds to a <i>signature</i> in ML)</li>
-<li>An <i>Internal representations</i>, together with a well-defined <i>representation invariants</i> and other <i>constraints</i>.</li>
-<li>A &ldquo;concrete&rdquo; <i>Data-Structure</i> which underlay the type and <i>actual implementation of corresponding algorithms</i>.</li>
-</ul>
-
-<p>
-Representation and implementation are defined in <i>structures</i> in ML.
+OK, just pure abstract logic and pure abstract mathematics are <i>not enough</i> to call bullshit. There is the only principle we have left with - there must not be a single contradiction with reality or <i>&ldquo;What Is&rdquo;</i>.
 </p>
 
 <p>
-<i>Data dominates</i> (another fundamental principle) which means that once a
-particular data structure is selected, all the algorithms and even the
-shape of the code (implementation) <i>follows</i> - a recursive nature of a
-data structure implies recursive functions that traverse them.
+There are justification for this meta-statement. Everything <i>What Is</i> (at least within this planet) is a result of still ongoing process of &ldquo;unfolding&rdquo;, of which biological evolution is a set of sub-process (just like everything else).
 </p>
 
 <p>
-Similarly, a <i>sum-type</i> dictates its <i>pattern-matching code</i> and overall
-shape of the functions which manipulate values of a type.
+When we &ldquo;look back&rdquo; we would see a tree-like trails or &ldquo;footprints of causality&rdquo;. The point is not in the metaphors but in the &ldquo;abstract structures&rdquo; &#x2013; they are directed graphs.
 </p>
 
 <p>
-Monads in Haskell are ADTs, defined as a class of types (a type-class), while each particular <i>instance</i> is precisely an ADT.
+The absence or even impossibility of having a contradiction to what is a subtle property of this planet being a literal <i>closure</i> under the what we call laws of physics or the physical constraints of the current shared environment. 
 </p>
 
 <p>
-The type-class itself is just a <i>named set of interfaces</i> together with a <i>class-subclass relation</i> (or nesting).
-Semantics of a <i>type-class</i> is to state <i>what it takes to be an <code>X</code></i> - which particular <i>signatures</i> must be implemented (by an ADT)
+Everything evolved (every single sub-process) out there is subject to these set of constraints, and nothing else. It is a closed environment. The minds, no batter what bullshitters talk about them, are no exceptions.
 </p>
 
 <p>
-The second most fundamental concept of <i>Modules</i> is one level higher.
-A <i>Module</i> could contain one or more signatures and corresponding structures.
-In ML these could be separated in a .mli and .ml files.
+As long as we dismiss the constraints of our shared environment, the possibility of having a nice, comfy <i>sect</i> arises. One just have to choose an arbitrary set of beliefs and stick to it.
 </p>
 
 <p>
-In ML <i>Modules</i> are high-level abstractions and could be <i>applied to one another</i> to produce a &ldquo;specialized&rdquo; <i>structure</i> (which is another new module).
+Another definitive attribute of a sect is that at some level the concepts involved become so abstract and complex, that they switched to &ldquo;hand waving&rdquo; and cease any efforts to <i>validate</i> statements at this level.
 </p>
 
 <p>
-This application is based on the mathematical concept of a <code>Functor</code> which is a <i>mapping that preserves the structure of an &ldquo;object&rdquo;</i> (originally defined on directed graphs).
+This <i>threshold</i> after which no one even try to validate anything is precisely what defines bullshit doctrines, &ldquo;philosophies&rdquo;, theories and any kind of sectarian bullshit in general - after a certain point it all becomes <i>fugazi</i>.
+</p>
+
+<p>
+And, because of inability (too much effort) to validate this still sells exceptionally well.
+</p>
+
+<p>
+Now, what about AI.
+</p>
+
+<p>
+One would argue that every single model can be traced as a sequence of discrete steps (mathematical expressions and functions as transformations) and so it is possible to <i>validate</i> every single step and thus the whole, sort of mathematical an induction.
+</p>
+
+<p>
+The problem is that if we do this we have to dismiss and discard the whole after a single &ldquo;dubious&rdquo; step. Yes, one can do hand-waving with the math (it is called &ldquo;advanced statistics&rdquo;) and with the code (when one do not understand the data anymore).
+</p>
+
+<p>
+This is precisely the point. At some level, after another transformation, <i>the data cease to make sense and cannot be validated anymore</i>. After this threshold one is free to interpret the resulting nonsense anything he likes, and produce any bullshit he wishes.
+</p>
+
+<p>
+And this is precisely how the modern sects are defined - they interpret nonsense and produces bullshit, just like any other sect since the beginning of time.
+</p>
+
+<p>
+Where is this threshold in AI? When they throw &ldquo;multi-head attention&rdquo; and other transformations on the data This is what corresponds to &ldquo;hand-waving&rdquo; with the code. One performs operations which one do not understand or even follow.
+</p>
+
+<p>
+And, of course, now they can brag, blog, publish about it - no one would spend an effort to validate and to call bullshit.
+</p>
+
+<p>
+One more time. These are definitive, well-understood, recurrent social dynamics, based upon inability of the Mind to distinguish between what linguistic and conceptual &ldquo;input&rdquo; is valid and what is just socially constructed bullshit.
+</p>
+
+<p>
+To do this requires an enormous effort, and most of people choose to give up and accept all the bullshit, especially labeled as &ldquo;scientific&rdquo; or &ldquo;mathematical&rdquo;.
+</p>
+
+<p>
+And, yes, it all comes from the &ldquo;advanced statistics cancer&rdquo;, when transformations and the resulting data cease to make sense and just taken as a &ldquo;belief&rdquo;.
+</p>
+
+<p>
+Now what about measured &ldquo;performance&rdquo; of a model, which employ statistical transformations one cannot understand and which makes no sense?
+</p>
+
+<p>
+Well, they should be considered as added noise, which do not completely ruin the signal.
+</p>
+
+<p>
+The signal there is the <i>evolved use</i> of a human language as a medium of describing (encoding for a verbalized communication or transmission) particular aspects of <i>What Is</i>. This is <i>the signal</i>. Transformations is added noise.    
+</p>
+
+<p>
+The results and measurements reflect the fact that there IS a signal in the original training data in the first place. And this is, basically, it.
+</p>
+
+<p>
+I hope <i>now</i> one can, at least intuitively, understand how Vapnik is a bullshit, and most of statistical modeling are just sects. Notice that this is not just an opinion. This is literally how it works (at a social level) and why.
 </p>
 </div>
 <div id="postamble" class="status">

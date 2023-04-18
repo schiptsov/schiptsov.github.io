@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-13 Thu 14:13 -->
+<!-- 2023-04-18 Tue 22:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -321,9 +321,9 @@ results, but the problem is that its target platform (the runtime) is
 not designed for true asynchronity - it only <i>emulates</i> it using blocking
 and sharing primitives.
 </p>
-<div id="outline-container-orgdd491b5" class="outline-2">
-<h2 id="orgdd491b5">Why</h2>
-<div class="outline-text-2" id="text-orgdd491b5">
+<div id="outline-container-org169f7d9" class="outline-2">
+<h2 id="org169f7d9">Why</h2>
+<div class="outline-text-2" id="text-org169f7d9">
 <p>
 Conceptually, just like in a general purpose Functional language, functions from a
 <i>module</i> are being evaluated by the language&rsquo;s <i>runtime</i>. The runtime usually does
@@ -378,9 +378,9 @@ arguments. Arguments are used to <i>parameterize and specialize functions</i>.
 </div>
 </div>
 
-<div id="outline-container-org711a416" class="outline-2">
-<h2 id="org711a416">Websockets and framing in general</h2>
-<div class="outline-text-2" id="text-org711a416">
+<div id="outline-container-orge21320b" class="outline-2">
+<h2 id="orge21320b">Websockets and framing in general</h2>
+<div class="outline-text-2" id="text-orge21320b">
 <p>
 It seems, at least in theory, the <code>Erlang</code> is the best language for writing
 advanced client applications - it has the right implementation of &ldquo;core&rdquo;
@@ -412,9 +412,9 @@ uninterrupted effort, but food and money has to come from somewhere.
 </div>
 </div>
 
-<div id="outline-container-orgb44be9a" class="outline-2">
-<h2 id="orgb44be9a">SSL</h2>
-<div class="outline-text-2" id="text-orgb44be9a">
+<div id="outline-container-orgb0835b2" class="outline-2">
+<h2 id="orgb0835b2">SSL</h2>
+<div class="outline-text-2" id="text-orgb0835b2">
 <p>
 Erlang OTP team have done a great job for maintaining the <code>ssl</code> library, but now
 there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/etc/ssl/certs/java/cacerts</code>
@@ -422,9 +422,9 @@ there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/e
 </div>
 </div>
 
-<div id="outline-container-orga7e6cd2" class="outline-2">
-<h2 id="orga7e6cd2">Tools</h2>
-<div class="outline-text-2" id="text-orga7e6cd2">
+<div id="outline-container-org3473d8f" class="outline-2">
+<h2 id="org3473d8f">Tools</h2>
+<div class="outline-text-2" id="text-org3473d8f">
 <p>
 Use <i>Emacs</i> or <i>Vim</i>. Both have support for TAGS and well as modern tooling.
 </p>
@@ -447,7 +447,7 @@ Here is a basic configuration. It uses <i>Doom Emacs</i> macros
 <span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">erlang-mode</span> . lsp<span style="color: #B48EAD;">)</span>
 <span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">:config</span>
 <span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">erlang-root-dir</span> <span style="color: #A3BE8C;">"/usr/lib64/erlang"</span><span style="color: #B48EAD;">)</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">lsp-ui-doc-enable</span> t<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> lsp-ui-doc-enable t<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
 </pre>
 </div>
 <p>
@@ -508,7 +508,7 @@ use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-omnicomplete'</span>,
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-13 Thu 14:13</p>
+<p class="date">Created: 2023-04-18 Tue 22:51</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-13 Thu 14:09 -->
+<!-- 2023-04-18 Tue 22:45 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -340,9 +340,9 @@ Don&rsquo;t handle the case where no pattern matches—our
 program will fail with a runtime error. /This is deliberate. This is the way we
 program in Erlang. (Fail fast!)
 </p>
-<div id="outline-container-org92e54d6" class="outline-2">
-<h2 id="org92e54d6">tuples</h2>
-<div class="outline-text-2" id="text-org92e54d6">
+<div id="outline-container-org1333371" class="outline-2">
+<h2 id="org1333371">tuples</h2>
+<div class="outline-text-2" id="text-org1333371">
 <p>
 The idea is to add an <i>atom</i> as a <i>tag</i> as the first element of a tuple and
 pattern-match against such tuples is simply brilliant and just right - it is
@@ -351,9 +351,9 @@ rational, /principle-guided minimalism.
 </div>
 </div>
 
-<div id="outline-container-org1635690" class="outline-2">
-<h2 id="org1635690">when guards</h2>
-<div class="outline-text-2" id="text-org1635690">
+<div id="outline-container-org1307d00" class="outline-2">
+<h2 id="org1307d00">when guards</h2>
+<div class="outline-text-2" id="text-org1307d00">
 <p>
 These are just <i>expressions</i> of the type <code>true | false</code> (those are just <i>atoms</i>).
 </p>
@@ -381,9 +381,9 @@ different naming convention &#x2013;  <code>is_something(x)</code>.
 </div>
 </div>
 
-<div id="outline-container-orgb78ca8f" class="outline-2">
-<h2 id="orgb78ca8f">Let it crash. Fail Fast and Noisily. Crash, Crash, Crash.</h2>
-<div class="outline-text-2" id="text-orgb78ca8f">
+<div id="outline-container-orgce1763f" class="outline-2">
+<h2 id="orgce1763f">Let it crash. Fail Fast and Noisily. Crash, Crash, Crash.</h2>
+<div class="outline-text-2" id="text-orgce1763f">
 <p>
 The proper way is to expect an &ldquo;error&rdquo; in a <i>sum-type</i> of a return value..
 Erlang&rsquo;s way is to return a <i>tuple</i> with <code>{ok, Value}</code> or <code>{error What}</code>.
@@ -403,7 +403,7 @@ Fault-tolerance requires a <i>supervision hierarchy</i> (redundancy). A supervis
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-13 Thu 14:09</p>
+<p class="date">Created: 2023-04-18 Tue 22:45</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>

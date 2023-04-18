@@ -4,9 +4,8 @@
 <!-- 2023-04-18 Tue 22:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Bullshit, bullshit everywhere</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
-<meta name="description" content="ADTs for a Functional Programmer" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -199,7 +198,6 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
      function CodeHighlightOn(elem, id)
@@ -227,122 +225,98 @@
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
-<p>
-#+TITLE Abstract Data Types
-</p>
-<p>
-This is by far the most important concept (and related methodology) in programming.
-</p>
-
-<p>
-This is a fundamental result, originally by <i>Barbara Liskov</i> (for which she received the Turing Award).
+<header>
+<h1 class="title">Bullshit, bullshit everywhere</h1>
+</header><p>
+This turned out into a real bullshitfest of Chuds.
 </p>
 
 <p>
-What she did, however, is <i>clearly articulated and grouped together</i>
-related concepts, while the original totions came from abstract
-mathematics.
+Example: <a href="https://txt.cohere.ai/what-are-transformer-models/">https://txt.cohere.ai/what-are-transformer-models/</a>
 </p>
 
 <p>
-The first well-known <i>Abstract Data Type</i>, so to speak, is what
-underlies the <i>Set Theory</i> - the formalized notion of a <i>Set</i>.
+&ldquo;<i>Transformers, on the other hand, keep track of the context of what is being written, and this is why the text that they write makes sense.</i>&rdquo;
 </p>
 
 <p>
-Abstract mathematics in general deliberately ignored (abstracted out)
-any notions of <i>actual representation</i> or even <i>possible existence</i> of
-abstract &ldquo;objects&rdquo; it considers.
+Bullshit. Plain and simple.
 </p>
 
 <p>
-To formalize notions form a Domain in pure mathematics first (using Sets
-and Logic) is an excellent strategy, and this is what any serious
-programmers of the Golden Age (70s, 80s) advocate.
+The &ldquo;context&rdquo;, as a word without clarification (without specifying a context!), is a pure abstraction, too general to be used meaningfully.
 </p>
 
 <p>
-However, classic mathematics is <i>untyped</i> or <i>implicitly weakly typed</i>,
-which means that <i>the properties</i> which constitute an abstract structure,
-or a <i>whole family (or a class)</i> of such structures, while stated
-precisely and formally, do not constitute a formal definition of a
-particular type (<i>ADTs</i> and <i>Type-classes</i> of Wadler are attempts to do
-typing systemically).
+There is, however, a <i>semantic context</i>, <i>cultural context</i>, <i>social context</i> and even a <i>context of a particular language usage</i>.
 </p>
 
 <p>
-The abstract notion of a Set is defined <i>only</i> in terms of <i>operations</i>
-(which itself is a set of <i>operators</i>), deliberately leaving out
-everything else.
+A model &ldquo;is not aware&rdquo; or &ldquo;keeps track&rdquo; of any of these. All models work on the level of <i>frequencies (and &ldquo;emerging directed graphs&rdquo; &#x2013; the actual &ldquo;structures&rdquo; being used after all the gradients being set) of bit patterns</i>, not even letters, vovels or morphemes.
 </p>
 
 <p>
-This is the same principle underlies any proper ADT - it is defined in
-terms of operations on the corresponding Set of <i>values</i> (which can be
-seen as an abstract <i>partition</i> on a Universe of all possible values).
+What they call &ldquo;attention&rdquo; in the &ldquo;standard terminology&rdquo; has nothing to do with moving of a perception or selectivity. It is &ldquo;reshaping&rdquo; of the &ldquo;resulting structure&rdquo;, by updating the <i>weights</i>, based on how frequently the words appear <i>next or close to each other</i>.
 </p>
 
 <p>
-So <i>ADTs are Sets of values</i>, but defined (<i>such that</i>) in terms of <i>operations</i>.
+This has nothing to do with the meaning, it is only a form of clustering, which is, in principle, similar to a <i>bucket-sorting</i>, but not a semantic categorisation.
 </p>
 
 <p>
-<i>Type-classes</i> extends this notion with <i>nesting</i> and <i>extension</i> or
-<i>specialization</i> by defining a Set of required <i>interfaces</i> to be
-implemented. It thus formalizes the notion of a <i>Duck-typing</i>.
+This is not just a metaphor. From a seemingly uniform, fully-connected strucure some frequently used &ldquo;trails&rdquo; emerge as result of backprops.
 </p>
 
 <p>
-To be a <i>duck</i> is to exhibit this and that behavior - to quack like a duck
-and walk like a duck.
+Something similar <i>in principle</i> hapens in the brain, which does &ldquo;pruning&rdquo; in the process of neuro-maturaion, and this is how a child learns.
 </p>
 
 <p>
-The principle behind Abstract Data Types is clear and well-defined separation of
-</p>
-<ul class="org-ul">
-<li>A <i>Public Interface</i> (corresponds to a <i>signature</i> in ML)</li>
-<li>An <i>Internal representations</i>, together with a well-defined <i>representation invariants</i> and other <i>constraints</i>.</li>
-<li>A &ldquo;concrete&rdquo; <i>Data-Structure</i> which underlay the type and <i>actual implementation of corresponding algorithms</i>.</li>
-</ul>
-
-<p>
-Representation and implementation are defined in <i>structures</i> in ML.
+The trails on the snow (or in the mountins) is the best metaphor.
 </p>
 
 <p>
-<i>Data dominates</i> (another fundamental principle) which means that once a
-particular data structure is selected, all the algorithms and even the
-shape of the code (implementation) <i>follows</i> - a recursive nature of a
-data structure implies recursive functions that traverse them.
+What is &ldquo;keeps track of&rdquo; is the &ldquo;state&rdquo;, which is being passed along, but this state is <i>not</i> a synonim of a <i>context</i> as we know it in linguistics or semantics. It is just a numeric (in a shape of a matrix) aggregate.
 </p>
 
 <p>
-Similarly, a <i>sum-type</i> dictates its <i>pattern-matching code</i> and overall
-shape of the functions which manipulate values of a type.
+One more time. There is only <i>seemingly</i> emergent behaviors of the models and <i>apparent</i> intelligence.
 </p>
 
 <p>
-Monads in Haskell are ADTs, defined as a class of types (a type-class), while each particular <i>instance</i> is precisely an ADT.
+Just as an uneducated peasant cannot tell intelligent, science-based talk from a religious bullshit, most of people cannot call bullsit on model&rsquo;s output. Only real experts in their fields can do.
 </p>
 
 <p>
-The type-class itself is just a <i>named set of interfaces</i> together with a <i>class-subclass relation</i> (or nesting).
-Semantics of a <i>type-class</i> is to state <i>what it takes to be an <code>X</code></i> - which particular <i>signatures</i> must be implemented (by an ADT)
+A model does not perform any inferences, deductions or inductions or anything at all. It just traverses its resulting (from training) structure.
 </p>
 
 <p>
-The second most fundamental concept of <i>Modules</i> is one level higher.
-A <i>Module</i> could contain one or more signatures and corresponding structures.
-In ML these could be separated in a .mli and .ml files.
+To parapharse good philosophers - <i>there is nothing in its output that was not in its training</i>.
 </p>
 
 <p>
-In ML <i>Modules</i> are high-level abstractions and could be <i>applied to one another</i> to produce a &ldquo;specialized&rdquo; <i>structure</i> (which is another new module).
+Pseudo-randomly selecting among possible &ldquo;next words&rdquo; does not produce a &ldquo;new meaning&rdquo;. It just produce a parrot babbling, or, literally, &ldquo;talking bullshit&rdquo;.
 </p>
 
 <p>
-This application is based on the mathematical concept of a <code>Functor</code> which is a <i>mapping that preserves the structure of an &ldquo;object&rdquo;</i> (originally defined on directed graphs).
+Another Chud: <a href="https://apenwarr.ca/log/20230415">https://apenwarr.ca/log/20230415</a>
+</p>
+
+<p>
+&ldquo;Behold, /emerging complexity, game-of-life, Wolfram&rsquo;s pseudo-science&rsquo;, I am so fucking smart and know all the current memes!&rdquo;
+</p>
+
+<p>
+A human language <i>is not</i> the medium of creating emerging complexities, it is actually the opposite. It is the medium for oral (and in a written form) transmission of descriptions of particular aspects of the shared environment between humans.
+</p>
+
+<p>
+Any person with classic education in math, philosophy, logic and writing (just like me, LOL) will tell you that.
+</p>
+
+<p>
+We are not interested in emerging verbalized bullshit. We already have whole Himalayas of it in a written form and on the social media.
 </p>
 </div>
 <div id="postamble" class="status">

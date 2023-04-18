@@ -4,9 +4,8 @@
 <!-- 2023-04-18 Tue 22:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Transformers</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
-<meta name="description" content="ADTs for a Functional Programmer" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -199,7 +198,6 @@
 <link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-<link crossorigin="anonymous" media="all" integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ==" rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
      function CodeHighlightOn(elem, id)
@@ -227,122 +225,79 @@
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
-<p>
-#+TITLE Abstract Data Types
-</p>
-<p>
-This is by far the most important concept (and related methodology) in programming.
-</p>
-
-<p>
-This is a fundamental result, originally by <i>Barbara Liskov</i> (for which she received the Turing Award).
+<header>
+<h1 class="title">Transformers</h1>
+</header><p>
+First of all, there are a lot of &ldquo;memes&rdquo; - &ldquo;attention&rdquo;, &ldquo;transformer&rdquo;, etc.
+which meanings that do not correspond to out <i>intuitive</i> understanding, plus
+unfortunate terminology of &ldquo;queries&rdquo;, &ldquo;keys&rdquo;, and &ldquo;values&rdquo;.
 </p>
 
 <p>
-What she did, however, is <i>clearly articulated and grouped together</i>
-related concepts, while the original totions came from abstract
-mathematics.
+&ldquo;Queries&rdquo; come from general search, while &ldquo;keys&rdquo; and &ldquo;values&rdquo; are, probably,
+reminiscent of <i>hash-tables</i>, which are a special case of a generalized, abstract
+<i>lookup-table</i>.
 </p>
 
 <p>
-The first well-known <i>Abstract Data Type</i>, so to speak, is what
-underlies the <i>Set Theory</i> - the formalized notion of a <i>Set</i>.
+There are, however, neither queries not lookup-tables within a model. Only matrices of
+real numbers and their <i>products</i>.
 </p>
 
 <p>
-Abstract mathematics in general deliberately ignored (abstracted out)
-any notions of <i>actual representation</i> or even <i>possible existence</i> of
-abstract &ldquo;objects&rdquo; it considers.
+The actual notion is that after matrix-matrix multiplication, some &ldquo;<i>positions</i>&rdquo; are
+&ldquo;zeroes&rdquo; (very close to zero) and can be ignored, while the rest &ldquo;stand out&rdquo; and
+thus were &ldquo;<i>selected</i>&rdquo; (no one there actually selects or attends to anything, this is just a
+multiplying by <i>sort of an &ldquo;/inverse&rdquo;</i> value).
 </p>
 
 <p>
-To formalize notions form a Domain in pure mathematics first (using Sets
-and Logic) is an excellent strategy, and this is what any serious
-programmers of the Golden Age (70s, 80s) advocate.
+The general idea is, of course, obvious - to pay attention to the definitive
+features, just like <i>/eyes on a face</i> or on any animal head. Crows do that - they
+know the direction where you (as a potential danger) are looking at.
 </p>
 
 <p>
-However, classic mathematics is <i>untyped</i> or <i>implicitly weakly typed</i>,
-which means that <i>the properties</i> which constitute an abstract structure,
-or a <i>whole family (or a class)</i> of such structures, while stated
-precisely and formally, do not constitute a formal definition of a
-particular type (<i>ADTs</i> and <i>Type-classes</i> of Wadler are attempts to do
-typing systemically).
+Learning to pay attention only to what changes while &ldquo;ignoring&rdquo; what &ldquo;always&rdquo;
+stays the same in an environment is, indeed, a &ldquo;natural process&rdquo;, which has been
+<i>evolved</i> in all life forms - every life form pays attention to what <i>moves</i>,
+suddenly appears, etc.
 </p>
 
 <p>
-The abstract notion of a Set is defined <i>only</i> in terms of <i>operations</i>
-(which itself is a set of <i>operators</i>), deliberately leaving out
-everything else.
+Learning to recognize common patterns by its distinct features (when they exist)
+is the same &ldquo;naturally evolved&rdquo; ability. Patterns are out there, so are distinct features.
 </p>
 
 <p>
-This is the same principle underlies any proper ADT - it is defined in
-terms of operations on the corresponding Set of <i>values</i> (which can be
-seen as an abstract <i>partition</i> on a Universe of all possible values).
+Technically, what they call &ldquo;self-attention of a neural network&rdquo; is just another
+&ldquo;layer&rdquo; (or a matrix) of numbers superimposed on the input. The underlying
+principle is <i>to &ldquo;ignore&rdquo; what is irrelevant</i>, by <i>soft-maxing to zero</i>.
 </p>
 
 <p>
-So <i>ADTs are Sets of values</i>, but defined (<i>such that</i>) in terms of <i>operations</i>.
+This matrix is being continuously updates, so it eventually &ldquo;selects&rdquo; (when
+multiplied to an input) what seems to be &ldquo;important&rdquo; or &ldquo;relevant&rdquo;.
 </p>
 
 <p>
-<i>Type-classes</i> extends this notion with <i>nesting</i> and <i>extension</i> or
-<i>specialization</i> by defining a Set of required <i>interfaces</i> to be
-implemented. It thus formalizes the notion of a <i>Duck-typing</i>.
+This, of course, does not imply anything &ldquo;intelligent&rdquo; and corresponds roughly
+to accumulated statistics of repeated observations - something &ldquo;changes&rdquo;,
+something else does not. Some patterns are common, others aren&rsquo;t.
 </p>
 
 <p>
-To be a <i>duck</i> is to exhibit this and that behavior - to quack like a duck
-and walk like a duck.
+So, all the dramatic memes aside, just &ldquo;another matrix&rdquo;, which captures what
+&ldquo;stands out&rdquo;, which &ldquo;selects&rdquo; when being multiplied by the intput.
 </p>
 
 <p>
-The principle behind Abstract Data Types is clear and well-defined separation of
-</p>
-<ul class="org-ul">
-<li>A <i>Public Interface</i> (corresponds to a <i>signature</i> in ML)</li>
-<li>An <i>Internal representations</i>, together with a well-defined <i>representation invariants</i> and other <i>constraints</i>.</li>
-<li>A &ldquo;concrete&rdquo; <i>Data-Structure</i> which underlay the type and <i>actual implementation of corresponding algorithms</i>.</li>
-</ul>
-
-<p>
-Representation and implementation are defined in <i>structures</i> in ML.
+This multiplication &ldquo;transforms&rdquo; (as a mathematical function does) the <i>input</i>,
+hence the name.
 </p>
 
 <p>
-<i>Data dominates</i> (another fundamental principle) which means that once a
-particular data structure is selected, all the algorithms and even the
-shape of the code (implementation) <i>follows</i> - a recursive nature of a
-data structure implies recursive functions that traverse them.
-</p>
-
-<p>
-Similarly, a <i>sum-type</i> dictates its <i>pattern-matching code</i> and overall
-shape of the functions which manipulate values of a type.
-</p>
-
-<p>
-Monads in Haskell are ADTs, defined as a class of types (a type-class), while each particular <i>instance</i> is precisely an ADT.
-</p>
-
-<p>
-The type-class itself is just a <i>named set of interfaces</i> together with a <i>class-subclass relation</i> (or nesting).
-Semantics of a <i>type-class</i> is to state <i>what it takes to be an <code>X</code></i> - which particular <i>signatures</i> must be implemented (by an ADT)
-</p>
-
-<p>
-The second most fundamental concept of <i>Modules</i> is one level higher.
-A <i>Module</i> could contain one or more signatures and corresponding structures.
-In ML these could be separated in a .mli and .ml files.
-</p>
-
-<p>
-In ML <i>Modules</i> are high-level abstractions and could be <i>applied to one another</i> to produce a &ldquo;specialized&rdquo; <i>structure</i> (which is another new module).
-</p>
-
-<p>
-This application is based on the mathematical concept of a <code>Functor</code> which is a <i>mapping that preserves the structure of an &ldquo;object&rdquo;</i> (originally defined on directed graphs).
+And this is, basically, it at a higher level.
 </p>
 </div>
 <div id="postamble" class="status">
