@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-19 Wed 12:40 -->
+<!-- 2023-04-19 Wed 12:54 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Zooming through the conceptual layers</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -225,11 +225,50 @@
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
+<header>
+<h1 class="title">Zooming through the conceptual layers</h1>
+</header><p>
+This is, arguably, the most important skills in programming, so lets exercise
+it!
+</p>
+
+<p>
+What <i>conceptually</i> most of language models do? They produce a binary artifact,
+which is a representation of an <i>abstract multi-dimensional vector-space</i> in which
+so-called &ldquo;word-embeddings&rdquo; are &ldquo;topologically sorted&rdquo; (by an abstract distance
+or &ldquo;proximity&rdquo;).
+</p>
+
+<p>
+This is a less-wrong operational definition. It is indeed a &ldquo;sorting&rdquo; problem,
+but instead of a linear sequence (in a <code>1D</code>, linear &ldquo;space&rdquo;) we &ldquo;sort&rdquo; (or cluster
+up) in an abstract <code>nD</code> space.
+</p>
+
+<p>
+The actual &ldquo;distances&rdquo; are encoded (embedded in to the structure) as an
+additional layer of <i>weights</i>, which are being &ldquo;updated&rdquo; (destructively) with each
+new iteration of the training process.
+</p>
+
+<p>
+So it is not the usual &ldquo;gradients&rdquo; (the actual weights) within an &ldquo;algebraic
+expression&rdquo;, it is an additional component &ldquo;super-imposed&rdquo; onto it.
+</p>
+
+<p>
+By updating these &ldquo;positional&rdquo; we &ldquo;sort&rdquo; the &ldquo;space&rdquo;. The whole thing therefore
+is a form of &ldquo;indexing&rdquo;. Too many quotes, huh?
+</p>
+
+<p>
+Notice that there is literally no place of any form &ldquo;intelligence&rdquo; to &ldquo;emerge&rdquo; so far.
+</p>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-19 Wed 12:40</p>
+<p class="date">Created: 2023-04-19 Wed 12:54</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
