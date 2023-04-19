@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-18 Tue 22:51 -->
+<!-- 2023-04-19 Wed 16:22 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Main Plugins</title>
@@ -240,6 +240,10 @@ are all bloated and most of guys are just <i>copy-pasting code</i> from each oth
 </p>
 
 <p>
+The <code>nvim-starter</code> at Github is a decent step-by-step guide almost without bloat.
+</p>
+
+<p>
 Unlike <i>Emacs</i>, the entry barrier for Neovim/Lua is very low, almost as
 for Javascript, so we have very crappy <i>low effort</i> code everywhere.
 </p>
@@ -249,6 +253,51 @@ The real challenge is to give to your whole configuration the <i>right,
 modular structure</i> without too much of <i>unnecessary wrapping</i>.
 </p>
 
+<p>
+So, what is good about <code>Neovim</code>?
+</p>
+<ul class="org-ul">
+<li>built-in <i>LSP client</i> written in <i>Lua</i></li>
+<li>all the <i>LSP-servers</i> other people use with <code>VSCode</code></li>
+<li><code>tree-sitter</code> - the library and parsers</li>
+<li><i>text-objects</i> (absolutely crucial)</li>
+<li>completions (<code>nvim-cmp</code>)</li>
+<li>snippets (<code>LuaSnip</code>)</li>
+<li>a few really well-crafted plugins (<code>null_ls</code>, etc).</li>
+</ul>
+
+<p>
+Most of all, we want, at least in a theory, to <i>delegate</i> all the tedious tasks to a competent, determined, well-educated and pricniple-guided maintainers (both of the editor and of the plugins), with habitual attention to details and focus on just right interfaces and APIs.
+</p>
+
+<p>
+Yes, yes, I know lmao.
+</p>
+
+<p>
+Notice that LSP-clients and the <code>tree-sitter</code> are already parts of <code>Emacs.</code>
+</p>
+
+<p>
+Notice also that we absolutely DO NOT WANT any kind of &ldquo;modelines&rdquo; (at all), &ldquo;file
+explorers&rdquo;, &ldquo;telescopes&rdquo; and all the related bloat. <code>vi</code> should start as an <i>empty screen</i>.
+</p>
+
+<div id="outline-container-orga480eeb" class="outline-2">
+<h2 id="orga480eeb">nvim-treesitter-textobjects</h2>
+</div>
+<div id="outline-container-org8db5d8f" class="outline-2">
+<h2 id="org8db5d8f">targets.vim</h2>
+</div>
+<div id="outline-container-org02416ef" class="outline-2">
+<h2 id="org02416ef">Comment.nvim</h2>
+</div>
+<div id="outline-container-org3cb123d" class="outline-2">
+<h2 id="org3cb123d">indent-blankline.nvim</h2>
+</div>
+<div id="outline-container-orgfde1794" class="outline-2">
+<h2 id="orgfde1794">gitsigns.nvim</h2>
+</div>
 <div id="outline-container-org76b621c" class="outline-2">
 <h2 id="org76b621c">LuaSnip</h2>
 <div class="outline-text-2" id="text-org76b621c">
@@ -275,16 +324,6 @@ set up corresponding <i>LSP-servers</i>
 </p>
 </div>
 </div>
-<div id="outline-container-orgd2909bd" class="outline-2">
-<h2 id="orgd2909bd">neodev</h2>
-<div class="outline-text-2" id="text-orgd2909bd">
-<p>
-<code>folke/neodev.nvim</code> - a plugin for editing your vim <i>lua configs</i> or developing
-your own <i>lua plugins</i>. It leverages <code>sumneko-lua</code>, which is a <i>LSP-server</i>
-for <i>Lua</i>.
-</p>
-</div>
-</div>
 <div id="outline-container-orgb96ac99" class="outline-2">
 <h2 id="orgb96ac99">null-ls</h2>
 <div class="outline-text-2" id="text-orgb96ac99">
@@ -299,11 +338,21 @@ Yes, you could have more than one at the same buffer.
 </p>
 </div>
 </div>
+<div id="outline-container-orgd2909bd" class="outline-2">
+<h2 id="orgd2909bd">neodev</h2>
+<div class="outline-text-2" id="text-orgd2909bd">
+<p>
+<code>folke/neodev.nvim</code> - a plugin for editing your vim <i>lua configs</i> or developing
+your own <i>lua plugins</i>. It leverages <code>sumneko-lua</code>, which is a <i>LSP-server</i>
+for <i>Lua</i>.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-18 Tue 22:51</p>
+<p class="date">Created: 2023-04-19 Wed 16:22</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
