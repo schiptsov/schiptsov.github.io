@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-19 Wed 12:40 -->
+<!-- 2023-04-20 Thu 10:54 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Getting started in a principled way</title>
@@ -372,11 +372,27 @@ Emacs is a <i>Sotware Lisp Machine</i> (in the form of a program), which happen 
 </p>
 
 <p>
+To start <code>Emacs</code> <i>without</i> any pre-defined configuration type at the shell prompt (<code>bash</code>):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">emacs -q
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org16c167a" class="outline-3">
+<h3 id="org16c167a">Emacs is /self-documented</h3>
+<div class="outline-text-3" id="text-org16c167a">
+<p>
+The <code>Ctrl-h</code> invokes the <i>Help subsystem</i>, <code>k</code> tells it that you want to know abot what happens when you press a <i>key</i>. <code>a</code> is the key (you want to know about).
+</p>
+
+<p>
 <code>Ctrl-h k a</code>
 </p>
 
 <p>
-When you press, lets say, the <code>a</code> key on a keyboard, the following <i>Lisp code</i> will be executed. 
+When you press, lets say, the <code>a</code> key on a keyboard, the following <i>Lisp code</i> will be executed.
 </p>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp"><span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">self-insert-command</span> <span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #81A1C1;">'</span><span style="color: #8FBCBB;">a</span><span style="color: #81A1C1;">)</span>
@@ -385,6 +401,7 @@ When you press, lets say, the <code>a</code> key on a keyboard, the following <i
 <p>
 This means that every key-press (or a combination of keys) within a Emacs window invokes some function, and the whole thing is a giant Read-Eval-Print loop. Not bad, eh?
 </p>
+</div>
 </div>
 <div id="outline-container-org8e77d23" class="outline-3">
 <h3 id="org8e77d23">Youtube videos</h3>
@@ -410,6 +427,22 @@ Neovim is an open-source, global community-driven project, which extends the ori
 </p>
 
 <p>
+To start <code>Neovim</code> <i>without</i> any pre-defined configuration type at the shell prompt (<code>bash</code>):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">nvim --clean
+</pre>
+</div>
+
+<p>
+Withing <code>neovim</code> there is also a built-in <i>Help system</i> based on <i>plain-text</i> files.
+</p>
+
+<p>
+<code>:help &lt;Tab&gt;</code> - type the  <code>:</code> to enter into the <code>ex</code> command mode, then <code>help</code> (a command), then space and press the <code>Tab</code> key. It will show a huge list of <i>topics</i>, sorted in an alphabetical order.
+</p>
+
+<p>
 Here is an example configurations: <a href="https://github.com/VonHeikemen/nvim-starter%20">https://github.com/VonHeikemen/nvim-starter%20</a>. He uses <i>git branches</i>, so just navigate it on GitHub website.
 </p>
 
@@ -427,7 +460,7 @@ Beware, there is <i>a lot</i> what is going on - Language Servers and Completion
 <p>
 In Vim, editing commands have the following structure:
 </p>
-<pre class="example" id="orgf38643b">
+<pre class="example" id="orge47e7c2">
   &lt;number&gt;&lt;command&gt;&lt;'text object' | motion&gt;
 </pre>
 <p>
@@ -471,7 +504,7 @@ See also:
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-19 Wed 12:40</p>
+<p class="date">Created: 2023-04-20 Thu 10:54</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
