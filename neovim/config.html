@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-22 Sat 14:41 -->
+<!-- 2023-04-22 Sat 15:48 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Configuring Neovim with Lua</title>
@@ -297,7 +297,7 @@ Sadly, most of individual devs on  <code>github</code> never heard of these, so 
 <h2 id="org84fa6df">Coping with the mess</h2>
 <div class="outline-text-2" id="text-org84fa6df">
 <p>
-There are important things to realize.
+There are a few important things to realize.
 </p>
 </div>
 
@@ -362,6 +362,12 @@ There is a fundamental problem with &ldquo;declarative&rdquo; - the notion of an
 
 <p>
 One either uses <i>nesting</i> of expressions to establish an explicit order, or sticks to <i>imperative</i> configuration, which is the same as an imperative program.
+</p>
+
+<p>
+An unconfigured module is a just the same problem as a <i>declared but uninitialized</i>
+variable (some memory location) in an imperative language, and one cannot tell
+is a module has been properly configured or not.
 </p>
 
 <p>
@@ -452,7 +458,7 @@ The pioneers of our craft did <i>everything</i> this very way, and you can tell!
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-22 Sat 14:41</p>
+<p class="date">Created: 2023-04-22 Sat 15:48</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
