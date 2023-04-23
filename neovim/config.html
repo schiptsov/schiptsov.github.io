@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-22 Sat 15:48 -->
+<!-- 2023-04-23 Sun 18:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Configuring Neovim with Lua</title>
@@ -361,17 +361,52 @@ There is a fundamental problem with &ldquo;declarative&rdquo; - the notion of an
 </p>
 
 <p>
-One either uses <i>nesting</i> of expressions to establish an explicit order, or sticks to <i>imperative</i> configuration, which is the same as an imperative program.
+One either uses <i>nesting</i> of expressions to establish an explicit order, or sticks
+to <i>imperative</i> configuration, which is the same as an imperative program (with
+all the implied problems).
 </p>
 
 <p>
-An unconfigured module is a just the same problem as a <i>declared but uninitialized</i>
-variable (some memory location) in an imperative language, and one cannot tell
-is a module has been properly configured or not.
+An unconfigured module is a just the same problem as a <i>declared but
+uninitialized (yet)</i> variable (some memory location) in an imperative language,
+and one cannot tell is a module has been properly configured (initialized) or not.
 </p>
 
 <p>
-These things cannot be mixed. Seems like very few people understand this.
+To make everything almost &ldquo;intractable&rdquo;, modules can be loaded after
+<i>&ldquo;configuration&rdquo;</i> is supposedly done &#x2013; on (triggered by) particular <i>events</i>.
+</p>
+
+<p>
+In fact the individual configuration &ldquo;function&rdquo; is not called until the module is actually
+being loaded, so <i>other</i> modules which <i>assume</i> that their dependencies are already
+loaded and configured could be screwed.
+</p>
+
+<p>
+In short, declarative and <i>imperative</i> cannot be mixed, since the notion of
+<i>mutations in time</i> is <i>definitive</i> for an imperative code, and does not exist, even as
+a <i>concept</i>, in a purely declarative code. Seems like very few people understand
+this.
+</p>
+
+<p>
+So, do not assume any particular ordering and just use configs as part of an
+imaginary &ldquo;conceptual closure&rdquo; - the whole chain (a graph) will be &ldquo;triggered&rdquo;
+<i>eventually</i>. Yes, pure-functional thinking for actual imperative, mutable crap.
+</p>
+
+<p>
+And, yes, the order in which individual modules appear in a <i>Lua-based</i> config file
+matters, even if it <i>looks like declarative</i>, because it will be <i>interpreted</i> in a
+linear order and mutations will occur in that order.
+</p>
+
+<p>
+In theory the config, written in a declarative DSL should be interpreted by its
+own interpreter into an immutable graph of &ldquo;expressions&rdquo;, and then this graph
+shall be reduced by a &ldquo;configuration runtime&rdquo;, using <code>Lua</code> runtime. Yes, that would be a
+pure-functional DSL with an interpreter and a corresondig graph-reduction &ldquo;runtime&rdquo;.
 </p>
 </div>
 </div>
@@ -458,7 +493,7 @@ The pioneers of our craft did <i>everything</i> this very way, and you can tell!
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-22 Sat 15:48</p>
+<p class="date">Created: 2023-04-23 Sun 18:40</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
