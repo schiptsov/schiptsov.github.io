@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-04-26 Wed 12:34 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>There ARE facts.</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">There ARE facts.</h1>
+</header><p>
+Ultimately, all the mathematical techniques being used are of a &ldquo;fitting of a
+curve&rdquo;, or of a &ldquo;hyperplane&rdquo;, as they say, or, more generally - of a repeated
+(recurring) <i>pattern recognition</i>, using a form of <i>abstract /structural pattern-matching</i>.
+</p>
+
+<p>
+The pattern has to be &ldquo;real&rdquo; or existent (not imaginary) and to be actually
+presented in the training set.
+</p>
+
+<p>
+Given a real &ldquo;shape&rdquo; we &ldquo;learn&rdquo; an abstract mathematical structure which matches
+that shape &ldquo;perfectly&rdquo;, using the &ldquo;backprop&rdquo; (the systematic changing of the abstract
+mathematical structure until it matches <i>good-enough</i>, according to some metric).
+</p>
+
+<p>
+Both &ldquo;classification&rdquo; and &ldquo;pattern recognition&rdquo; are the instances of this
+generalized notion of &ldquo;supervised learning&rdquo;, which means that the examples are
+correctly labeled with the &ldquo;ground truth&rdquo; values.
+</p>
+
+<p>
+In this Universe the actual physical constraints of the shared environment
+corresponds to &ldquo;truth labeling&rdquo; and are the <i>ultimate causes</i> of all the <i>recurring
+patterns</i>, from the atomic level all the way up to human intelligence.
+</p>
+
+<p>
+To recognize a recurring pattern it has to be out there. Given nonsense, a network would &ldquo;learn&rdquo; to compute the nonsense.
+</p>
+
+<div id="outline-container-org0fdfcea" class="outline-2">
+<h2 id="org0fdfcea">Expressions in a graph</h2>
+<div class="outline-text-2" id="text-org0fdfcea">
+<p>
+An <i>acyclic graph without &ldquo;forks&rdquo;</i> (only &ldquo;joins&rdquo;) is a universal generalized
+pattern, which, ultimately, represent the causality, according to the fundamental
+<i>Causality Principle</i> (there is nothing random in the Universe).
+</p>
+
+<p>
+The &ldquo;forks&rdquo;, by the way, represent differnt potential possibilities and are
+<i>diffident abstract notions on a different level of abstraction</i>. Causality have
+no notion of Potentiality, but <i>potential outcomes</i>, like everything else, depends on
+the <i>possible Causes</i>.
+</p>
+
+<p>
+Mathematical expressions, which approximate pure mathematical functions (usually
+returning <i>probabilities</i>, which must already raise an alarm).
+</p>
+
+<p>
+Notably, a neural network can be a &ldquo;learned implementation&rdquo; for a pure mathematical
+function (same inputs - same outputs, always).
+</p>
+
+<p>
+The &ldquo;learning&rdquo; is accomplished by adjustment of the &ldquo;weights&rdquo; (coefficients)
+using the mathematical framework of <i>partial derivatives</i>.
+</p>
+
+<p>
+In theory, a sufficiently large and <i>properly-structured</i> network could, in
+principle, &ldquo;learn&rdquo; <i>to approximate</i> any pure function, provided it has been given
+enough of correctly labeled (the groud truth) training examples.
+</p>
+
+<p>
+This very mathematical notion is behind the &ldquo;without being explicitly programmed&rdquo; meme.
+</p>
+</div>
+</div>
+<div id="outline-container-org3137c86" class="outline-2">
+<h2 id="org3137c86">The shape or &ldquo;topology&rdquo;</h2>
+<div class="outline-text-2" id="text-org3137c86">
+<p>
+The shape or an &ldquo;architecture&rdquo; of a network matters, especially when we try to
+use the universal notion of &ldquo;feeding-forward&rdquo; and &ldquo;feed-back loops&rdquo;.
+</p>
+
+<p>
+They correspond to <i>cycles</i> on a graph, so it is not <i>acyclic</i> anymore.
+</p>
+
+<p>
+However, the crucial property can be &ldquo;restored&rdquo; by hiding (encapsulating)  all the
+&ldquo;cycles&rdquo; or &ldquo;loops&rdquo; within (inside) the nodes, so the whole graph is again
+&ldquo;joins only&rdquo;.
+</p>
+
+<p>
+It has to be <i>directional</i> just like the Causality itself (everything &ldquo;unfolds&rdquo;).
+The abstract notion of an <i>arrow</i> which captures a <i>direction</i> is, again, universal and not accidental.
+</p>
+
+<p>
+This, of course, corresponds to the emergent pattern in algorithmic
+<i>flow-charting</i> - one has to have &ldquo;linearity&rdquo; to have a proper composition, so,
+both &ldquo;conditionals&rdquo; and &ldquo;loops&rdquo; have a <i>single value</i> at its &ldquo;output&rdquo;.
+</p>
+
+<p>
+The graph-reduction technique for implementation of pure-functional languages got
+this universal notion just right.
+</p>
+
+<p>
+So, we could feed the results back and forward, as long is it inside a
+composeable &ldquo;black box&rdquo; abstraction (expression).
+</p>
+</div>
+</div>
+<div id="outline-container-org859df71" class="outline-2">
+<h2 id="org859df71">Statistical likelihood is what it captures</h2>
+<div class="outline-text-2" id="text-org859df71">
+<p>
+When one says that a neural network &ldquo;predicts&rdquo; something, it is already
+bullshit.
+</p>
+
+<p>
+Conditional probabilities do not &ldquo;predictions&rdquo;, they are <i>measures</i> of repeated
+observations. Any generalizations from these measures are arbitrary.
+</p>
+
+<p>
+Statistics in general is not a semantic knowledge, by definition. Period. And
+no, our minds are not thinking &ldquo;out of statistics&rdquo;. Or minds use &ldquo;structural
+networks&rdquo; with represent &ldquo;semantics&rdquo;, not Numbers to represent probabilities.
+</p>
+
+<p>
+This is how any current NNs are fundamentally different from what brain does.
+The brain is <i>structural, not numerical</i>. Mother Nature <i>does not count</i>.
+</p>
+
+<p>
+And no, <i>sampling of a probability distribution</i> does not constitute any &ldquo;semantic
+knowledge&rdquo; or any form of intelligence, except of being systematically (and
+measurably) <i>less wrong</i> in some <i>particular metric</i> than a pure &ldquo;random guess&rdquo;.
+</p>
+
+<p>
+This is approximately how our perception systems has been evolved, but
+perception alone, even pattern-recognition alone is not in itself an
+intelligence.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5686855" class="outline-2">
+<h2 id="org5686855">Perception, not intelligence.</h2>
+<div class="outline-text-2" id="text-org5686855">
+<p>
+Neural networks are [tools of] recognition and perception, not intelligence.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-04-26 Wed 12:34</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>
