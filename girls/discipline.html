@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-28 Fri 12:25 -->
+<!-- 2023-04-28 Fri 16:04 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Discipline</title>
@@ -342,7 +342,7 @@ Assertions (assert statements) are better than informal specifications in a <i>d
 </p>
 
 <p>
-More about the actual &ldquo;best practices&rdquo; <a href="https://cs3110.github.io/textbook/cover.html">https://cs3110.github.io/textbook/cover.html</a>. Just going thurogh this course will save you a lot of time and effort, because this course is about teaching the principles and programmign techniques, not attention seeking.
+More about the actual &ldquo;best practices&rdquo; <a href="https://cs3110.github.io/textbook/cover.html">https://cs3110.github.io/textbook/cover.html</a>. Just going through this course will save you a lot of time and effort, because this course is about teaching the principles and programming techniques, not attention seeking.
 </p>
 </div>
 </div>
@@ -465,13 +465,15 @@ There are two fundamental principles of proper testing.
 </div>
 </div>
 
-
 <div id="outline-container-orgb99fff8" class="outline-2">
 <h2 id="orgb99fff8">Automate everything (with tools and scripts)</h2>
 <div class="outline-text-2" id="text-orgb99fff8">
 <ul class="org-ul">
+<li>use <code>GNU autotools</code> or <code>meson</code></li>
 <li>use <code>make</code> (of course)</li>
-<li>use <code>pre-commit</code> with <i>linters</i></li>
+<li>use <code>pre-commit</code> with <i>linters</i> and code formatters</li>
+<li>use automatic builds (<code>git clone &amp;&amp; ./configure &amp;&amp; make test</code>)</li>
+<li>use <code>CMake</code> and <code>ninja</code> for C++</li>
 </ul>
 </div>
 </div>
@@ -479,7 +481,7 @@ There are two fundamental principles of proper testing.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-28 Fri 12:25</p>
+<p class="date">Created: 2023-04-28 Fri 16:04</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
