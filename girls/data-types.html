@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-28 Fri 16:04 -->
+<!-- 2023-04-28 Fri 17:02 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Data Types</title>
+<title>Data Abstractions</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -226,9 +226,27 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Data Types</h1>
+<h1 class="title">Data Abstractions</h1>
 </header><p>
-This is a subtle topic at the very core of programming.
+This is a <i>subtle</i> topic at the very core of all programming. Another one is
+<i>interpreters</i>, which are the <i>universal machines</i>.
+</p>
+
+<p>
+There is a &ldquo;molecular interpreter&rdquo; of RNA sequences (a set of <i>enzymes</i>, which are
+sets of particularly <i>folded /proteins</i>) in every single cell on the planet.
+</p>
+
+<p>
+And guess what? RNA is a linear sequence, with distinct &ldquo;start&rdquo; and &ldquo;stop&rdquo;
+markers, so it can be &ldquo;read&rdquo; (using what we call <i>structural pattern-matching</i>) in only one <i>direction</i>.
+</p>
+
+<p>
+The early LISP guys at Stanford were greatly inspired with these discoveries of their
+colleagues at MIT back then - seems like <i>all Life</i> is made out of <i>linear
+LIST-like structures &#x2013; both the data and the code!</i>, which can be thought off as
+a bunch of connected <i>arrows</i> (implies a <i>direction</i>, which establishes a particular <i>order</i>).
 </p>
 
 <p>
@@ -250,26 +268,27 @@ as soon as I have typed in the program.”</i>
 
 <p>
 Yes, algorithms follow the data structures, just as our minds follow <i>What Is</i> (at
-least they should to be less confused and infested with socailly constructed
+least they should, to be less confused and infested with socially constructed
 bullshit and memes).
 </p>
 
 <p>
 This, however, is only the beginning of the story. The most important thing is
 that we have to design just right <i>abstraction barriers</i> to separate our
-<i>abstractions</i> (the <i>use</i>) from their actual representations (/implementation
-details).
+<i>abstractions</i> (the <i>use</i>) from their actual representations (<i>implementation
+details</i>).
 </p>
 
 <p>
-It does not matter whether we use &ldquo;<i>classes</i> (which export abstract interfaces)
+It does not matter whether you are using &ldquo;<i>classes</i> (which define abstract interfaces)
 <i>and objects</i>&rdquo;, or &ldquo;<i>modules</i> (with export ADTs) and <i>values</i>&rdquo;. The underlying
-principle of partitioning with <i>abstraction barriers</i> (with &ldquo;a cell membrane&rdquo;) is the same.
+principle of <i>partitioning</i> with <i>abstraction barriers</i> (with &ldquo;gated&rdquo; cell membranes) is the same.
 </p>
 
 <p>
 It turns out that &ldquo;classes with inheritance&rdquo; are more rigid and &ldquo;artificial&rdquo; than
-&ldquo;composition of values&rdquo; and &ldquo;duck-typing&rdquo;, which is more &ldquo;natural&rdquo;.
+&ldquo;composition of values&rdquo; and &ldquo;duck-typing&rdquo;, which is more &ldquo;natural&rdquo; - like a
+Duck, you know!
 </p>
 
 <p>
@@ -282,24 +301,27 @@ subset).
 
 <p>
 So, smart people build their programs around <i>composition</i>, not inheritance. And yes,
-nesting is the second most important &ldquo;pattern&rdquo;. You should compose interfaces,
-<i>traits</i> or <i>type-classes</i>, which are ways to formally specify &ldquo;duck-typing&rdquo;.
+nesting is the second most important &ldquo;universal pattern&rdquo;. You should compose
+<i>interfaces</i> (a <i>minimal</i> one is a unary function), <i>traits</i> or <i>type-classes</i>, which
+are ways to formally specify that &ldquo;duck-typing&rdquo;.
 </p>
 
 <p>
 This is the first <i>subtlety</i>, which turns out to be fundamental and universal.
 &ldquo;<i>Socrates is a man</i>&rdquo; and other naive rigid classifications are not enough to
-properly describe the world.
+properly describe every aspect of the world.
 </p>
 
 <p>
 But, again, both OOP and FP <i>partition the universe of values</i>, both horizontally
-(with types, defined by abstract interfaces) and vertically (with layers of abstraction).
+(with types, defined by abstract interfaces) and vertically (with layers of
+abstractions, defined as functional DSLs).
 </p>
 
 <p>
-This helps you to actually <i>grow</i> your programs as layers of &ldquo;domain-specific
-languages&rdquo; or DSLs.
+This helps you to actually <i>grow</i> your programs as <i>layers</i> of &ldquo;domain-specific
+languages&rdquo;. The main principle for <i>this</i> is to interact only with the one level
+&ldquo;below&rdquo; and assume nothing about potential levels &ldquo;above&rdquo;.
 </p>
 
 <p>
@@ -333,7 +355,7 @@ Realizing <i>this</i> will make your life as a good programmer a lot happier.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-28 Fri 16:04</p>
+<p class="date">Created: 2023-04-28 Fri 17:02</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
