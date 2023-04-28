@@ -4,7 +4,7 @@
 <!-- 2023-04-28 Fri 10:18 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Discipline</title>
+<title>What to watch on YouTube</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -226,168 +226,13 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Discipline</h1>
-</header><p>
-For you personally or your small team, just to follow the proper, almost universal &ldquo;best practices&rdquo; (no bullshit here), this alone could bring <i>life-changing results</i> for your progamming abilities.
-</p>
-
-<div id="outline-container-org2b267e0" class="outline-2">
-<h2 id="org2b267e0">General principles</h2>
-<div class="outline-text-2" id="text-org2b267e0">
-<p>
-There are some facts: Commentaries in the code may be outdated and misleading. Reading a commentary does not mean that the code below is correct.
-</p>
-
-<p>
-Documentation is usually outdated and neglected. Everyone hates to write it, because it requires a different set of skills, and, in general, good writing is hard, especially when the precise use of a language is required.
-</p>
-
-<p>
-<i>Type-annotations</i> are always current (up to date). They are <i>formal</i> parts of an actual <i>informal</i> specification. They are mechanically checked for you every time you <i>compile</i> the code.
-</p>
-
-<p>
-So, the <i>ABC</i> principle &#x2013; <i>Always Be Compiled</i>. Never leave your code in the state when it does not compile without errors (or even warnings).
-</p>
-
-<p>
-Assertions (assert statements) are better than informal specifications in a <i>docstring</i>. They are being <i>validated</i> every time your code runs. This is qualitatively better than just naive assumptions.
-</p>
-
-<p>
-More about the actual &ldquo;best practices&rdquo; <a href="https://cs3110.github.io/textbook/cover.html">https://cs3110.github.io/textbook/cover.html</a>. Just going thurogh this course will save you a lot of time and effort, because this course is about teaching the principles and programmign techniques, not attention seeking.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org9f9c66c" class="outline-2">
-<h2 id="org9f9c66c">Simple rules</h2>
-<div class="outline-text-2" id="text-org9f9c66c">
-<p>
-There are simple <i>rules</i>, which just tells you what to do and why.
-</p>
-</div>
-<div id="outline-container-org800df2d" class="outline-3">
-<h3 id="org800df2d">Write everything down in <code>org-mode</code> files.</h3>
-<div class="outline-text-3" id="text-org800df2d">
-<p>
-Your mind will fail in so many subtle ways. Just write everything down.
-</p>
-
-<p>
-Org supports Math and LaTex blocks, it is really <i>the right</i> tool.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orga192b9f" class="outline-3">
-<h3 id="orga192b9f">Write down informal specifications</h3>
-<div class="outline-text-3" id="text-orga192b9f">
-<p>
-Sets and logic, just like <code>TLA+</code>.
-</p>
-
-<p>
-To have even an incomplete spec is way better than having no spec.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgab21c3e" class="outline-3">
-<h3 id="orgab21c3e">Start with the <i>stubs</i> of interfaces, and the <i>tests</i></h3>
-<div class="outline-text-3" id="text-orgab21c3e">
-<p>
-In the classic languages, such as LISPs, one is using a <i>REPL</i>, which is the way of defining and testing your <i>stubs</i> right away.
-</p>
-
-<p>
-This practice is so profound and &ldquo;natural&rdquo; that even whole notion of an <i>exploratory programming</i> came out of it &#x2013; this is when the problem is not even fully understood and properly formulated, so one have to <i>explore</i> the problem space, which basically means a systematic <i>search</i> by <i>trial-and-error</i> and a lot of <i>backtracking</i> and <i>restarts</i>.
-</p>
-
-<p>
-A proper testing frameworks requires you to write the test code in a separate files, which is OK. This implicitly forces you to use imports (from modules) and to define the stubs of <i>interfaces first</i>, which is absolutely the right thing to do, justified by more than one non-bullshit theory.
-</p>
-
-<p>
-The high-level process is &#x2013; <i>the Problem-Domain -&gt; extracted Concepts -&gt; Modules -&gt; abstract Interfaces -&gt; Stubs -&gt; Tests</i> before any code or even making any of representation and implementation decisions. This is the essence &#x2013; all the details must be systematically <i>abstracted away</i>, hidden behind proper <i>abstraction barriers</i>.
-</p>
-
-<p>
-<i>DDD and TTD</i> are not bullshit, these are based on how our <i>language-based human minds</i> &ldquo;work&rdquo;. Also watch the Gregor Kiczales course on YouTube.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgb3c6a9f" class="outline-3">
-<h3 id="orgb3c6a9f">Use all the tools available</h3>
-<div class="outline-text-3" id="text-orgb3c6a9f">
-<p>
-This is straight from the horse&rsquo;s mouth &#x2013; the John Carmak himself said so.
-</p>
-
-<ul class="org-ul">
-<li><i>advanced language support</i> for your editors (syntax, typing)</li>
-<li>uniform <i>code formatters</i> (everything must look familiar)</li>
-<li><i>static type checking</i> (even as an external tool, like Erlang does)</li>
-<li><i>Language Servers</i> (LSP-based modern tooling)</li>
-<li><i>static analyzers</i> (linters)</li>
-<li><i>unit and integration</i> testing frameworks</li>
+<h1 class="title">What to watch on YouTube</h1>
+</header><ul class="org-ul">
+<li>Brian Harvey <a href="https://archive.org/details/ucberkeley-webcast-PL3E89002AA9B9879E">https://archive.org/details/ucberkeley-webcast-PL3E89002AA9B9879E</a></li>
+<li>Norvig <a href="https://www.youtube.com/playlist?list=PLAwxTw4SYaPnJVtPvZZ5zXj_wRBjH0FxX">https://www.youtube.com/playlist?list=PLAwxTw4SYaPnJVtPvZZ5zXj_wRBjH0FxX</a></li>
+<li>Kiczales <a href="https://www.youtube.com/@systematicprogramdesign7962">https://www.youtube.com/@systematicprogramdesign7962</a></li>
+<li>Hutton <a href="https://www.youtube.com/@haskellhutt">https://www.youtube.com/@haskellhutt</a></li>
 </ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org2239f12" class="outline-2">
-<h2 id="org2239f12">Testing</h2>
-<div class="outline-text-2" id="text-org2239f12">
-<p>
-Every function or an interface has an informally stated &ldquo;contract&rdquo; about what is supposed to do.
-</p>
-
-<p>
-Specification is a precise formulation of such &ldquo;contract&rdquo;. It is (and must be!) completely independent from <i>how</i> it does what it is supposed to do. 
-</p>
-
-<p>
-The representation and implementation behind an interface must completely hidden behind the abstraction barrier, so it can be <i>changed</i> (for good) without breaking its &ldquo;contract&rdquo;.
-</p>
-
-<p>
-Once we have the specification (of a &ldquo;contract&rdquo;) we can test that everything works correctly (according to the spec).
-</p>
-
-<p>
-This is just an airplane self-test before a takeoff. I would not want to board a plane which is not undergoing a <i>complete self-test</i> before a takeoff. I guess you too.
-</p>
-
-<p>
-Automated testing is the same thing.
-</p>
-</div>
-<div id="outline-container-org8c242fd" class="outline-3">
-<h3 id="org8c242fd">The Principles of testing</h3>
-<div class="outline-text-3" id="text-org8c242fd">
-<p>
-There are two fundamental principles of proper testing.
-</p>
-<ul class="org-ul">
-<li>all &ldquo;corner case&rdquo; of the <i>specification</i> must be tested (black-box)</li>
-<li>every <i>path</i> through the code must be tested (glass-box)</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgb99fff8" class="outline-2">
-<h2 id="orgb99fff8">Automate everything (with tools and scripts)</h2>
-<div class="outline-text-2" id="text-orgb99fff8">
-<ul class="org-ul">
-<li>use make (of course)</li>
-<li>use pre-commit</li>
-</ul>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
