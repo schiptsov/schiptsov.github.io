@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-01 Mon 09:01 -->
+<!-- 2023-05-01 Mon 21:06 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Laptop</title>
@@ -229,8 +229,8 @@
 <h1 class="title">Laptop</h1>
 </header><p>
 There is a less known story about Intel processors. Back around 2010s Intel
-developed its co called Iris Xe <i>integrated graphics</i> exclusively to be use in
-MacBooks.
+developed its co called <code>Iris Xe</code> <i>integrated graphics</i> exclusively to be used in
+MacBooks. Nowadays, of course, it is no longer the case and the &ldquo;next gen&rdquo; intel graphics is available for everythone.
 </p>
 
 <p>
@@ -248,14 +248,26 @@ So, your laptop of choice should be <code>11th gen</code> <code>Lenovo</code> <i
 </p>
 
 <p>
-1080p is absolutely requred to have to pages of text (say, a <code>pdf</code> viewer and an
-editor) side by side with a comfortable <code>18</code> font. It could be <code>16</code> while you are
+<code>1080p</code> is absolutely requred to have <i>two pages of text</i> (say, a <code>pdf</code> viewer and an
+editor) <i>side by side</i> with a comfortable <code>16pt</code> font. It could be <code>14pt</code> font while you are still
 young.
 </p>
 
 <p>
+In fact, there is no way to fit two pages <i>80 characteds wide</i> onto a <code>1080p</code> screen with <code>16pt</code> font. You will end up with two <i>72 characters</i> wide windows, which is annoying.
+</p>
+
+<p>
+The best laptop resolution seems to be &ldquo;gamer&rsquo;s&rdquo; <code>1440p</code> for &ldquo;standard&rdquo; 15.6 or new 16 inch screens. However, there is no way to find a 1440p laptop without some useless, infeiror additional discrete GPU, like Nvidia MX or whatever.
+</p>
+
+<p>
+So, the trick is to replace the screen in an authorized service center, but it will, of course, cost some additional money (the price of the screen + service fees).
+</p>
+
+<p>
 You have to put an <code>M.2</code> storage SSD &ldquo;stick&rdquo; for a separate <code>/home</code> partition. The
-system could reside on a slower IDE SSD. The point is to have <code>/home</code> on a separate
+system could reside on a slower SATA SSD. The point is to have <code>/home</code> on a separate
 physical device.
 </p>
 
@@ -265,26 +277,25 @@ time.
 </p>
 
 <p>
-An <code>11th gen</code> CPU, even the <code>i3</code>, has AVX and SSE4.2 instruction sets, supported by
-all modern compilers (<code>gcc</code>, and <code>clang</code>), so you could suqueze maximum from your
+An <code>11th gen</code> CPU, even the <code>i3</code>, has AVX2 and SSE4.2 instruction sets, supported by
+all modern compilers (<code>gcc</code>, and <code>clang</code>), so you could squize maximum from your
 <code>i3</code> CPU and DDR4.
 </p>
 
 <p>
-The most important characteristics, by the way, are the size of CPU <i>caches</i> and
+The most important characteristics, by the way, are the size of CPU <i>caches per core</i> and
 how many &ldquo;channels&rdquo; the DDR memory bus uses. So, <code>11th gen</code> was the &ldquo;peak&rdquo;.
 </p>
 
 <p>
 12th and 13th introduced hybrid cores without any other improvements. There are
-CPUs with DDR5 support (which is good) but they are rare and still expensive.
+CPUs with DDR5 support (which is very good) but they are rare and still expensive.
 </p>
 
 <p>
-Having this modest setup one could make <i>FAST</i> a smooth MacBook-like experience using
-<i>Gentoo Linux</i>. It is possible to play 2160p movies with <code>mpv</code> and <code>libplacebo</code>, and
-your compelled with <code>-martch=native -mtune=native</code> Chromium browser will start
-within 2-4 times faster than on Windows 10.
+Having this modest setup one could make <i>FAST</i> and smooth MacBook-like experience using
+<i>Gentoo Linux</i>. It is possible to play <code>2160p</code> movies with <code>mpv, libva</code> and <code>libplacebo</code>, and
+your compelled with <code>-martch=native -mtune=native</code> Chromium browser will start 2-4 times faster than on Windows 10.
 </p>
 
 <p>
@@ -313,7 +324,7 @@ Everything is well-documented with step-by-step guides, written by some other gu
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-01 Mon 09:01</p>
+<p class="date">Created: 2023-05-01 Mon 21:06</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
