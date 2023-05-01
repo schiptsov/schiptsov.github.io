@@ -4,7 +4,7 @@
 <!-- 2023-05-01 Mon 09:01 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Some links to nice pages</title>
+<title>Laptop</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -226,24 +226,89 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Some links to nice pages</h1>
+<h1 class="title">Laptop</h1>
 </header><p>
-Usually, these are instances of a good writing and good thinking.
+There is a less known story about Intel processors. Back around 2010s Intel
+developed its co called Iris Xe <i>integrated graphics</i> exclusively to be use in
+MacBooks.
 </p>
-<ul class="org-ul">
-<li><a href="https://lock.cmpxchg8b.com/linux123.html">https://lock.cmpxchg8b.com/linux123.html</a></li>
-<li><a href="https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/">https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/</a></li>
-<li><a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html">http://nlp.seas.harvard.edu/2018/04/03/attention.html</a></li>
-<li><a href="https://e2eml.school/blog.html">https://e2eml.school/blog.html</a></li>
-</ul>
-<div id="outline-container-orgc552d79" class="outline-2">
-<h2 id="orgc552d79">Youtube and other videos</h2>
-<div class="outline-text-2" id="text-orgc552d79">
-<ul class="org-ul">
-<li><a href="https://www.youtube.com/channel/UC7dEjIUwSxSNcW4PqNRQW8w">https://www.youtube.com/channel/UC7dEjIUwSxSNcW4PqNRQW8w</a></li>
-</ul>
-</div>
-</div>
+
+<p>
+This, among other things, means that it is well-understood, stable
+implementation with a decent driver supports and so-called <i>Linux compatibility</i>.
+</p>
+
+<p>
+Up to <code>11th gen</code> everything just works.
+</p>
+
+<p>
+So, your laptop of choice should be <code>11th gen</code> <code>Lenovo</code> <i>IdeaPad</i> or <i>ThinkBook</i>, with
+14&ldquo; ot 15&rdquo; <code>1080p</code> IPS display.
+</p>
+
+<p>
+1080p is absolutely requred to have to pages of text (say, a <code>pdf</code> viewer and an
+editor) side by side with a comfortable <code>18</code> font. It could be <code>16</code> while you are
+young.
+</p>
+
+<p>
+You have to put an <code>M.2</code> storage SSD &ldquo;stick&rdquo; for a separate <code>/home</code> partition. The
+system could reside on a slower IDE SSD. The point is to have <code>/home</code> on a separate
+physical device.
+</p>
+
+<p>
+You need at least <i>8Gb</i> of <code>DDR4</code>, additional 8Gb DIMM could be installed at any
+time.
+</p>
+
+<p>
+An <code>11th gen</code> CPU, even the <code>i3</code>, has AVX and SSE4.2 instruction sets, supported by
+all modern compilers (<code>gcc</code>, and <code>clang</code>), so you could suqueze maximum from your
+<code>i3</code> CPU and DDR4.
+</p>
+
+<p>
+The most important characteristics, by the way, are the size of CPU <i>caches</i> and
+how many &ldquo;channels&rdquo; the DDR memory bus uses. So, <code>11th gen</code> was the &ldquo;peak&rdquo;.
+</p>
+
+<p>
+12th and 13th introduced hybrid cores without any other improvements. There are
+CPUs with DDR5 support (which is good) but they are rare and still expensive.
+</p>
+
+<p>
+Having this modest setup one could make <i>FAST</i> a smooth MacBook-like experience using
+<i>Gentoo Linux</i>. It is possible to play 2160p movies with <code>mpv</code> and <code>libplacebo</code>, and
+your compelled with <code>-martch=native -mtune=native</code> Chromium browser will start
+within 2-4 times faster than on Windows 10.
+</p>
+
+<p>
+It is also possible to run windows apps and even old classic games with <code>Wine</code>.
+Everything will run <i>way</i> faster than under MS Windows. For that you have to
+install a <code>multilib</code> version of an OS. Of course, 3D support will be very basic.
+</p>
+
+<p>
+So, with an entry-level <i>Lenovo</i> laptop with well-chosen CPU and memory you will
+have a pleasant <code>i3</code>, <code>Emacs</code>, Chromium, Firefox, <code>zathura</code> experience, plus any crazy
+things like running old Windows games at maximum speed (limited only by your
+hardware).
+</p>
+
+<p>
+And, of course, all the classic programming langauges are easily available from
+Gentoo repositories. The main point is that this will run incomparably better,
+(without Trojans an viruses) that MS Windows.
+</p>
+
+<p>
+Everything is well-documented with step-by-step guides, written by some other guys, just google it.
+</p>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>

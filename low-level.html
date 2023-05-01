@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-01 Mon 09:01 -->
+<!-- 2023-04-30 Sun 13:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Some links to nice pages</title>
+<title>Low Level</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -226,29 +226,156 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Some links to nice pages</h1>
+<h1 class="title">Low Level</h1>
 </header><p>
-Usually, these are instances of a good writing and good thinking.
+Lets settle once and for all some annoying bullshit.
+</p>
+
+<p>
+Lots of people are parroting some delusional lunatics about a supposed superiority, if not sacredness, of <i>pure C</i>. Ok, lets try to understand what the C programming language was at the time of it &ldquo;triumph&rdquo;.
+</p>
+
+<p>
+Back then people have programmed systems in an assembly language of a particular machine, which was more or less OK, given that <i>all</i> the codebases were <i>small</i>.
+</p>
+
+<p>
+An assembly langauge, however, offers you not much support for developing proper, non-leaking abstraction.
+</p>
+
+<p>
+Basically, all you have is a procedural abstraction in an purely <i>imperative</i>, <i>untyped</i> language.
+</p>
+
+<p>
+The most used <i>instruction</i> in all assembly languages is <code>MOV</code>. It literally moves a value between a register and a memory location (and vise versa).
+</p>
+
+<p>
+Everything is an <i>address</i> or an offset. An address itself is an <i>offset</i> from some <i>base</i> &ldquo;segment&rdquo;, so implicitly everything is a <i>mutable reference</i>.
+</p>
+
+<p>
+The basic <i>building block</i> is a <code>Procedure</code>, which is supported by hardware&rsquo;s &ldquo;<i>stack discipline&ldquo;</i>
 </p>
 <ul class="org-ul">
-<li><a href="https://lock.cmpxchg8b.com/linux123.html">https://lock.cmpxchg8b.com/linux123.html</a></li>
-<li><a href="https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/">https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/</a></li>
-<li><a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html">http://nlp.seas.harvard.edu/2018/04/03/attention.html</a></li>
-<li><a href="https://e2eml.school/blog.html">https://e2eml.school/blog.html</a></li>
+<li>a CPU uses the stack to store the <i>address</i> from where to &ldquo;resume&rdquo; execution, etc.</li>
 </ul>
-<div id="outline-container-orgc552d79" class="outline-2">
-<h2 id="orgc552d79">Youtube and other videos</h2>
-<div class="outline-text-2" id="text-orgc552d79">
-<ul class="org-ul">
-<li><a href="https://www.youtube.com/channel/UC7dEjIUwSxSNcW4PqNRQW8w">https://www.youtube.com/channel/UC7dEjIUwSxSNcW4PqNRQW8w</a></li>
-</ul>
+
+<p>
+No support for <i>modules</i> until very resent (masm or tasm), no other higher level constructs whatsoever.
+</p>
+
+<div id="outline-container-org13713c8" class="outline-2">
+<h2 id="org13713c8">C</h2>
+<div class="outline-text-2" id="text-org13713c8">
+<p>
+The main insight and &ldquo;the genius&rdquo; behind <code>C</code> (at the time) was this notion of being a &ldquo;thin, almost transparent&rdquo; layer of <i>proper higer-level abstractions</i> on top of an assembly (the machine code, to which it compiles).
+</p>
+
+<p>
+Of course, it used the machine calling conversions (which we now call an ABIs) and almost directly translated &ldquo;functions&rdquo; to procedures.  The separation of the <i>interface specifications</i> (of &ldquo;functions) into header files was a major innovation.
+</p>
+
+<p>
+No surprise that the notion of a <i>pointer type</i> is the central, and of a <i>typed /array</i>, as a continuous chunk of memory, so the <i>offsets</i> can be calculated easily.
+</p>
+
+<p>
+So, <code>C</code> cleverly generalized the common abstractions of an assembly language (and of machine architecture), and created sort of a <i>meta-language</i>, based on proper concepts, which a better support for <i>modularity</i>.
+</p>
+
+<p>
+It is important to note that at almost the same time a way better language - <code>CLU</code> at MIT - has been developed, but was destined to remain only an <i>academic language.</i>
+</p>
+
+<p>
+Now the main question is - do we really want to program at this level.
+</p>
+
+<p>
+The answer is &ldquo;NO&rdquo; for anyone who ever tried to study or <i>do</i> mathematics.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd76bcf7" class="outline-2">
+<h2 id="orgd76bcf7">C++</h2>
+<div class="outline-text-2" id="text-orgd76bcf7">
+<p>
+This still the only video you need: <a href="https://www.youtube.com/watch?v=kdlIlIIHCz0">https://www.youtube.com/watch?v=kdlIlIIHCz0</a>
+</p>
+
+<p>
+It shows you exactly the <i>promises</i> of what <code>C++</code> supposed to be &#x2013; a set of <i>zero-cost</i> (the biggest meme) higher-level abstractions on top of <code>C</code>, which compiles to the same &ldquo;<i>direct translations to machine code</i>&rdquo;  as plain <code>C</code> <i>would.</i>
+</p>
+
+<p>
+In reality, however, the nice parts literally ends here (end of this video) and the whole <i>fucking mess</i> of LHS and RHS semantics, lifetimes, aliasing problems, dangling references, &ldquo;moves semantics&rdquo;, has not been discussed.
+</p>
+
+<p>
+This is, perhaps, the biggest lesson in programming &#x2013; how nice, oversimplified theories (and naive world views) are different from actual realities.
+</p>
+
+<p>
+Another lesson is that smart people, like the guys at <i>Id Software</i>, are using exactly this, the smallest possible, idealized, subset of <code>C++.</code>
+</p>
+
+<p>
+Want to see the actual code? Well, look at all the Google&rsquo;s open-source (Chrome, Tensorflow), all the Intel&rsquo;s open-source libraries,  <code>Pytorch</code>, etc.
+</p>
+
+<p>
+Higher level and abstract types (classes) is what makes it <i>possible</i> to create and maintain such kind of projects &#x2013; of such complexity and size.
+</p>
+</div>
+</div>
+<div id="outline-container-orge112905" class="outline-2">
+<h2 id="orge112905">MTL</h2>
+<div class="outline-text-2" id="text-orge112905">
+<p>
+Have you ever tried to develop a &ldquo;stable&rdquo; and &ldquo;trusted&rdquo; math or scientific library? Use it to trade your own money? Run your medical devices? (and yet <i>they</i> run their medical devices on <code>C++98</code>)
+</p>
+
+<p>
+Do you want to re-implement from scratch, say, some parts of Intel&rsquo;s <i>MTL</i>? How about graphics? <i>Mesa</i>? No?
+</p>
+
+<p>
+To understand &ldquo;why no&rdquo; one has to understand some fundamental mathematical structures and how exactly they have been defined (generalized).
+</p>
+
+<p>
+It has been well-understood since the time of <code>FORTRAN II</code> that we have to program with high-level <i>abstractions</i> using high-level languages. <code>C</code>, no mater how clever it was, is not a suitable language.
+</p>
+
+<p>
+Almost all the decent PL research of <code>LISPs</code>, the  <code>ML</code> family, and of non-strict Functional languages will show you <i>why</i>.
+</p>
+
+<p>
+It even has been shown that &ldquo;laziness&rdquo; facilitate its own <i>abstraction techniques</i> based on <i>thunks</i> which leads to smaller code and better modularity.
+</p>
+</div>
+</div>
+<div id="outline-container-org76751e6" class="outline-2">
+<h2 id="org76751e6">Rust</h2>
+<div class="outline-text-2" id="text-org76751e6">
+<p>
+It tries to bring better, restricted semantics to imperative &ldquo;reference-based&rdquo; languages.
+</p>
+
+<p>
+The main innovations is bringing (lifting) the references to the type-system, and It solves a lot of problem by making sure that certain situations and states <i>will not happen</i>.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-01 Mon 09:01</p>
+<p class="date">Created: 2023-04-30 Sun 13:39</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
