@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-05-02 Tue 12:21 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Projects</h1>
+</header><p>
+The open-source software ecosystem is, perhaps, the most complex social system
+ever emerged. Financial markets seem like even more complex, but I have an
+intuition that they have just a few tricks repeated over and over again.
+</p>
+
+<p>
+The fundamental problem are: complexity and social dynamics (<i>The hell is other
+people</i>). Most of the time the &ldquo;<i>other people</i>&rdquo; create unnecessary complexity,
+unnecessary, redundant abstractions, meme-trends and even meme-technologies, and
+<i>low effort crap</i> in general.
+</p>
+
+<p>
+On the other hand, some (<i>very few</i>) create good stuff, like the Linux kernel or
+the GNU toolchain or the LLVM project or Firefox or Chromium or Pytorch or Mesa
+or OpenSSH. But these are <i>rarest exceptions</i>. Almost everything is a <i>low-effort
+crap</i>, junk-food of software.
+</p>
+
+<p>
+The great classic projects of the past have shown us that thinks could, in
+principle and <i>in actual reality</i>, can be done <i>way better</i>, qualitatively better,
+orders of magnitude better. Look what <code>Lotus 123 for DOS</code> is or <code>Open Genera</code>, or
+<code>MIT Scheme</code> or <code>SML/NJ</code>, or <code>GHC</code>. But to do <i>this</i> require a very differnt minds -
+disciplined, backed by good habits and trained in a classic education, which is
+basically concrete mathematics, logic and non-bullshit philosophy.
+</p>
+
+<p>
+Anyway, what can we do with out own &ldquo;projects&rdquo; within this open-source software
+ecosystem?
+</p>
+
+<p>
+Well, we have to understand it in a principle-guided way, its workings and its
+social dynamics and rely on the universal notions of <i>abstraction</i>, <i>partitioning</i> and
+<i>composition</i> which are at the code of everything.
+</p>
+
+<p>
+The proper <i>abstractions</i> (properly captured and adequately generalized concepts)
+are the foundation. We have absolutely to be grounded in reality, in <i>What Is</i>.
+Without this everything <b>will</b> go wrong in a way of this or that
+socially-constructed delusion, <i>self-deception</i>, <i>wishful thinning</i>, cognitive biases, etc.
+</p>
+
+<p>
+The mantra is: bullshit, bullshit everywhere. Socially constructed and
+maintained bullshit.
+</p>
+
+<p>
+So. How do I know that the particular version of <code>gcc</code> in my Gentoo system is
+good? I absolutely cannot and do not want to examine its implementation
+details - how well it does SSA, code generation, etc. I do not have enough
+mental capacity in the first place.
+</p>
+
+<p>
+The only thing I could do in this situation is to &ldquo;trust them&rdquo;, which is,
+basically, &ldquo;to believe&rdquo; instead of knowing, because it is so difficult and
+time-consuming to know. This is, of course, <i>unacceptable</i>. Let the idiots
+believe.
+</p>
+
+<p>
+A better approach is to understand the dynamics and to run experiments - to
+<i>text</i>. Yes, the Dijkstra meme &#x2013; any amount of testing, in principle, cannot
+guarantee the absence of problems, only show that there <i>are</i> problems. However,
+even sloppy experiments are better than a guess-work and &ldquo;trust&rdquo;.
+</p>
+
+<p>
+If I have compiled form sources both Chromium and Firefox (and all the
+dependencies) with this version of <code>clang++</code> and it works, then I could
+conclude that I have done at least <i>some</i> coverage-testing - the &ldquo;common paths&rdquo;
+through the code produced satisfactory results.
+</p>
+
+<p>
+So, I have applied several principles of a systematic testing - I have treated
+the software artifacts both as a <i>black-box abstraction</i> (details of something I
+do not want to even know), and to some extent a <i>glass-box</i> abstraction, where I
+can <i>test</i> the major &ldquo;paths&rdquo; through the code. This is better than nothing.
+</p>
+
+<p>
+The systematic testing, without knowing the implementation details is the way.
+</p>
+
+<p>
+Now lets think about the code.
+</p>
+
+<p>
+Yes, in an idealized world we want that the most competent and well-educated
+people have taken the responsibility of creating and maintaining the most
+complex, difficult and tedious parts of the systems, and just provide us a easy,
+<i>conceptually right</i> state-less high-level interface (like arithmetic).
+</p>
+
+<p>
+Not just that, we want them to improve the internals, which we do not
+understand, keeping the interfaces intact, so each new version will improve out
+experience, support new architectures and the latest optimization research,
+and take advantage of all the modern reach and emergent technologies.
+</p>
+
+<p>
+Well, the LLVM projects or GCC do exactly this, and Google just recompiled its
+code with a new version of <code>clang++</code> when it is ready. This is, however, the
+rarest wonderful miracle (and Google fucked itself in the past by sticling to
+the stale <code>g++</code>).
+</p>
+
+<p>
+In reality, however, maintainers could suddenly decide to re-implement
+everything using some fucking <i>async framework</i>, to drop the support of
+installation of local packages because some degen submitted a new PEP, to
+require fucking <i>snapd</i> or <i>flatpack</i> or any other redundant crap, and what not.
+</p>
+
+<p>
+What about our own code?
+</p>
+
+<p>
+In the ideal world of our naive imagination, we want to have just right concepts
+and corresponding abstractions being optimally implemented using a minimal, just
+right implementation (in Haskell or Ocaml), based on the formal specification,
+which has been checked by <code>TLA+</code>.
+</p>
+
+<p>
+Ok, at least we want to extract just the right, definitive implementations from the
+well-established projects, package them as shared libraries or loadable modules,
+wrap a high-level API around, and use it in our code.
+</p>
+
+<p>
+But what would happen when the project suddenly decided to change anything
+because of some new meme? Well, we have to watch out. Regular testing should
+break due to incompatibility and signal to us that we are fucked.
+</p>
+
+<p>
+This, by the way, is a reasonable strategy. This is exactly how we rely on
+<i>standard libraries</i>, such as <code>glibc</code> or <code>libstdc++</code>. These are the collections of
+specialized modules, arguably doing the right thing (which we cannot
+understand).
+</p>
+
+<p>
+I would argue, that at least <code>libc++</code> does the right thing, because so many
+businesses rely on it.
+</p>
+
+<p>
+You, however, are not a business, not even an organization, you are some lonely
+wolf of the steppes, what would you do?
+</p>
+
+<p>
+Well, you have to learn when to know (and what to know) and when to delegate
+(and what to delegate).
+</p>
+
+<p>
+It seems that you have to know the underlying principles and the underlying
+mathematics (and assumptions) and delegate all the implementations, just as you
+do with compilers or standard libraries.
+</p>
+
+<p>
+In some rare cases you might want <i>be sure</i> and to re-implement (by ripping off the
+other people&rsquo;s code) some critical parts, or at least repackage as a lib and
+vendor it as a decency.
+</p>
+
+<p>
+The canonical example is the <i>crapto</i> ecosystem. The &ldquo;design&rdquo; by an unqualified
+and often uneducated amateurs is carp, the code is crap, but it somehow works
+(just as PHP3 works).
+</p>
+
+<p>
+In this situation I really want to reuse the code and understand the principles, concepts
+and math to just do the right thing using crappy tools. Basically I want to send
+just right (well-formed and checked for correctness) messages and adequately and
+timely <i>react</i> to the relevant changes.
+</p>
+
+<p>
+So I could either extract sources from, say, <code>bitcoin</code> (reference implementation)
+and repackage as a set of small shared libraries (similar to what <code>abseil-cpp</code>
+does), or, even better, to have a <code>FFI</code> to high-level functions, for a high-level
+<i>functional language</i> or even a <i>command-line tool</i> (to be called from a script).
+</p>
+
+<p>
+This is the level of understanding one should have &#x2013; to know the underlying
+principles, proper concepts and math, and <i>therefore</i> to know what is relevant and
+what isn&rsquo;t, what to ignore and delegate and what to pay attention to.
+</p>
+
+<p>
+The only problem is that extraction and refinement of such knowledge takes time.
+Everything decent takes time, unfortunately.
+</p>
+
+<p>
+The principle, however, is solid - remain on the highest conceptual and
+mathematical level (sets and logic) and dissect the crap (along the abstraction
+barriers) into most relevant parts and interfaces.
+</p>
+
+<p>
+Not just that, one have to <i>zoom-through</i> the <i>layers of abstractions</i>, from the
+underlying concepts of the domain, to actual representations of the actual <i>data
+structures</i>, which are used in <i>protocols</i>.
+</p>
+
+<p>
+So, you still want to do this? For free?
+</p>
+
+<p>
+OK, the keywords are FFIs and <i>high-level declarative embedded DSLs</i> (which
+otherwise would require its own <i>interpreter</i>).
+</p>
+
+<p>
+But wait, isn&rsquo;t Common Lisp guys and then Haskell guys&#x2026;.? Yes.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-05-02 Tue 12:21</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>
