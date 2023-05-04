@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-04 Thu 15:53 -->
+<!-- 2023-05-04 Thu 17:01 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Algebra</title>
@@ -340,6 +340,35 @@ some axis.
 </div>
 </div>
 
+<div id="outline-container-org620cf9b" class="outline-2">
+<h2 id="org620cf9b">Vectors</h2>
+<div class="outline-text-2" id="text-org620cf9b">
+<p>
+Both a <i>row-vector</i> and a <i>column-vector</i> contain exactly the same information, and
+both <i>denote</i> is an ordered sequence.
+</p>
+
+<p>
+The choice of writing as a row or as a column is arbitrary and the operation of
+&ldquo;rotation&rdquo; (or transposition) has be defined on vectors. The order is preserved.
+</p>
+
+<p>
+People would say that a vector is only a <i>column-vector</i>, and a <i>row-vector</i> is a
+<i>1-by-n /matrix</i>, so the rules of matrix-vector multiplication apply.
+</p>
+
+<p>
+The subtlety is that the <i>dot-product</i> operation for two vectors are <i>commutative</i>,
+while the matrix-vector multiplication in general is not.
+</p>
+
+<p>
+When we begin to &ldquo;stake&rdquo; individual vectors into matrices, the distinction
+becomes important due to how <i>operations</i> on matrices are defined.
+</p>
+</div>
+</div>
 <div id="outline-container-org5fddd53" class="outline-2">
 <h2 id="org5fddd53">Linear transformation</h2>
 <div class="outline-text-2" id="text-org5fddd53">
@@ -438,14 +467,13 @@ an abstract counting and measuring &ldquo;device&rdquo;. An abstracted out &ldqu
 notches&rdquo;, of course.
 </p>
 
-
 <ul class="org-ul">
 <li><p>
 distances and lengths
 </p>
 
 <p>
-A vector has <i>length</i> and <i>direction</i>
+A vector has <i>length</i> (or a <i>magnitude</i>) and <i>direction</i>
 </p></li>
 </ul>
 
@@ -478,13 +506,24 @@ everything up.
 </p>
 
 <p>
+\(\begin{bmatrix} 1 \\ 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \\ 4 \end{bmatrix} = 1
+\times 3 + 2 \times 4\)
+</p>
+
+<p>
 The meaning of the whole operation is <i>scaling of one vector by
 another</i>. It is <i>commutative</i>, because both scalar-level operations involved are
 <i>commutative</i>, and, intuitively, due to the <i>symmetry</i>.
 </p>
 
 <p>
-The <i>geometric meaning</i> is a <i>projection</i> of two vectors onto a <i>number line</i>.
+The <i>geometric meaning</i> is a <i>projection</i> of two vectors onto a <i>number line</i> (that
+goes through one of them), and denotes the <i>distance</i> form the Origin.
+</p>
+
+<p>
+It does not matter which vector is being projected onto which, the resulting (scaled)
+<i>distance</i> will be the same.
 </p>
 
 <p>
@@ -550,7 +589,7 @@ In practice it is a form of <i>indexing</i>, conceptually related to sorting (or
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-04 Thu 15:53</p>
+<p class="date">Created: 2023-05-04 Thu 17:01</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
