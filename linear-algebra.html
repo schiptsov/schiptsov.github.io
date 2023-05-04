@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-04 Thu 15:18 -->
+<!-- 2023-05-04 Thu 15:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Algebra</title>
@@ -254,8 +254,8 @@ Here we will talk about captured (by the mind of an external observer) and prope
 <li>A <i>distance</i> (the universal notion, measured in arbitrary &ldquo;units&rdquo;)</li>
 <li>A <i>straight line</i> (the shortest distance between two dots, extended into &ldquo;infinity&rdquo;)</li>
 <li>A <i>projection</i> (the shadow of a stick, literally)</li>
-<li>A <i>perpendicular</i> (a vertical plant)</li>
-<li>An arbitrary <i>angle</i></li>
+<li>A <i>perpendicular</i> (a vertical plant, &ldquo;no shadow&rdquo;)</li>
+<li>An arbitrary <i>angle</i> (knowing the length of the stick and its shadow)</li>
 </ul>
 
 <div id="outline-container-org13cda1d" class="outline-2">
@@ -264,8 +264,9 @@ Here we will talk about captured (by the mind of an external observer) and prope
 <ul class="org-ul">
 <li>The Origin (I am, <i>zero distance</i>)</li>
 <li>The Number Line (of arbitrary but <i>evenly-spaced</i> dots)</li>
+<li>The <i>Right Triangle</i> (with a right angle and the unique properties)</li>
 <li>The Cartesian plane (of two perpendicular number lines or <i>axis</i>)</li>
-<li>Projection (a perpendicular to the axis, and distance from the Origin)</li>
+<li>Projection (a perpendicular to the axis, and the distance from the Origin)</li>
 <li><p>
 The Three Dimension space (three mutually-perpendicular <i>planes</i>)
 </p>
@@ -335,6 +336,17 @@ Coordinates (distances from the origin along the axis)
 Vectors, (which originate in the Origin)
 A <i>unit</i> vector (a pair of coordinates, with implicit \(0, 0\) of the Origin) along
 some axis.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5fddd53" class="outline-2">
+<h2 id="org5fddd53">Linear transformation</h2>
+<div class="outline-text-2" id="text-org5fddd53">
+<p>
+<i>Uniform</i> transformations, where each distance remains equal to every other.
+With <i>rotations</i> nothing changes, with <i>transformations</i> the change is uniform (for
+all dots).
 </p>
 </div>
 </div>
@@ -495,11 +507,50 @@ operation, and, just like function composition \(\circ\) is <i>not commutative</
 </p>
 </div>
 </div>
+
+<div id="outline-container-org07dd849" class="outline-2">
+<h2 id="org07dd849">Projection to a lower dimension</h2>
+<div class="outline-text-2" id="text-org07dd849">
+<p>
+It can be shown that any point in 2 coordinates can be projected to an arbitrary chosen
+<i>line</i> (going through the Origin) and any point in 3 coordinates onto an arbitrary
+chosen <i>plane</i> (and, in turn, onto a line).
+</p>
+
+<p>
+However, these operations are <i>irreversible</i> and imply <i>a loss of information</i>.
+</p>
+
+<p>
+Generalization to the &ldquo;higher dimensions&rdquo; is only numerically justified, again,
+on the same abstract assumptions as the <i>dot-product is zero</i> means <i>orthogonal</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0f03086" class="outline-2">
+<h2 id="org0f03086">The &ldquo;Positional encoding&rdquo;</h2>
+<div class="outline-text-2" id="text-org0f03086">
+<p>
+The notion of a distance after projection is what underlies the &ldquo;positional
+encoding&rdquo; of language model.
+</p>
+
+<p>
+Changing the distances <i>conceptually</i> &ldquo;clusters&rdquo; the words in a multi-dimensional
+hyper-space.
+</p>
+
+<p>
+In practice it is a form of <i>indexing</i>, conceptually related to sorting (ordering).
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-04 Thu 15:18</p>
+<p class="date">Created: 2023-05-04 Thu 15:50</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
