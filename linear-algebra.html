@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-05-04 Thu 15:18 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linear Algebra</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "%AUTONUMBER",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Linear Algebra</h1>
+</header><p>
+Here we will talk about captured (by the mind of an external observer) and properly generalized abstractions,
+(superimposed by the mind onto its perceptions).
+</p>
+<ul class="org-ul">
+<li>A <i>distance</i> (the universal notion, measured in arbitrary &ldquo;units&rdquo;)</li>
+<li>A <i>straight line</i> (the shortest distance between two dots, extended into &ldquo;infinity&rdquo;)</li>
+<li>A <i>projection</i> (the shadow of a stick, literally)</li>
+<li>A <i>perpendicular</i> (a vertical plant)</li>
+<li>An arbitrary <i>angle</i></li>
+</ul>
+
+<div id="outline-container-org13cda1d" class="outline-2">
+<h2 id="org13cda1d">Compound abstractions</h2>
+<div class="outline-text-2" id="text-org13cda1d">
+<ul class="org-ul">
+<li>The Origin (I am, <i>zero distance</i>)</li>
+<li>The Number Line (of arbitrary but <i>evenly-spaced</i> dots)</li>
+<li>The Cartesian plane (of two perpendicular number lines or <i>axis</i>)</li>
+<li>Projection (a perpendicular to the axis, and distance from the Origin)</li>
+<li><p>
+The Three Dimension space (three mutually-perpendicular <i>planes</i>)
+</p>
+
+<p>
+Notice that we cannot go beyond 3 without losing the fundamental notion of
+orthogonality (of being mutually perpendicular).
+</p></li>
+</ul>
+
+<p>
+This notion is <i>real</i>, it is due to it any <i>motion</i> is &ldquo;independent in each
+direction&rdquo;, or more precisely, anything moves independently in each (of 3 and
+only 3) &ldquo;dimension&rdquo;.
+</p>
+
+<p>
+No, <i>time</i> is a <i>derived abstraction</i> and is independent but <i>NOT /orthogonal</i> to <i>all 3</i> others.
+They must be clearly separated by an <i>abstraction barrier</i>, due to being at different
+levels (and different kinds) of abstraction.
+</p>
+
+<p>
+The ability of the mind to just add (superimpose) <i>a time-axis</i>, and project onto
+it <i>does not imply that this is how Things Are</i>. This is an abstract, mind-only methodology.
+</p>
+
+<p>
+Projections to an abstract evenly-spaced axis may be justified, but the orthogonality is
+only an assumption.
+</p>
+</div>
+</div>
+<div id="outline-container-org4355682" class="outline-2">
+<h2 id="org4355682">The Number line</h2>
+<div class="outline-text-2" id="text-org4355682">
+<p>
+The two <i>required properties</i>
+</p>
+<ul class="org-ul">
+<li>a straight line (the shortest distance and projections to infinity)</li>
+<li>evenly spaced &ldquo;dots&rdquo; of arbitrary (but the same) distance</li>
+<li>abstract imaginary operations of stretching or shrinking <i>uniformly</i> (every distance
+remains equal to <i>all</i> other)</li>
+</ul>
+</div>
+<div id="outline-container-orgdd1dd45" class="outline-3">
+<h3 id="orgdd1dd45">The origin</h3>
+<div class="outline-text-3" id="text-orgdd1dd45">
+<p>
+A distance from the origin (how far away)
+A unit (the distance of exactly <i>one-more-than-zero</i>)
+&ldquo;Count the dots&rdquo; (<i>name</i> the dots to get a Number).
+A &ldquo;Number of dots from the Origin&rdquo; (the <i>distance</i> in units).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6efa170" class="outline-2">
+<h2 id="org6efa170">A <i>perpendicular</i> and the <i>right angle</i></h2>
+<div class="outline-text-2" id="text-org6efa170">
+<p>
+The origin (can be placed arbitrary)
+Perpendicular or orthogonal axis - (no shadow, zero length projection)
+Two axis &ldquo;sweep&rdquo; a perfectly flat abstract <i>plane</i>
+Coordinates (distances from the origin along the axis)
+Vectors, (which originate in the Origin)
+A <i>unit</i> vector (a pair of coordinates, with implicit \(0, 0\) of the Origin) along
+some axis.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfdeb8df" class="outline-2">
+<h2 id="orgfdeb8df">a <i>dot-product</i> of <i>unit vectors</i> is zero.</h2>
+<div class="outline-text-2" id="text-orgfdeb8df">
+<p>
+This is because &ldquo;the other coordinates&rdquo; in a unit vector are exactly zeros
+(meaning <i>no projections</i>, which <i>is</i> the notion of being a perpendicular).
+</p>
+
+<p>
+The <i>pair-wise multiplied</i> weighted sum therefore is \(0\).
+</p>
+
+<p>
+This <i>abstract numerical notion</i> can be numerically generalized <i>beyond 3 dimensions</i>, but the connection to
+reality is lost.
+</p>
+
+<p>
+Based on this result they postulate that whenever the <i>dot-product</i> of vectors is
+zero, they are perpendicular to each other.
+</p>
+
+<p>
+This is, of course, bullshit.
+</p>
+
+<p>
+But we have <i>hyper-planes</i>, <i>hyper-cubes</i> and <i>hyper-spheres</i> to &ldquo;worship&rdquo; in sects.
+</p>
+
+<p>
+This is exactly what it means to have a too-general (or too abstract)
+abstraction.
+Just numerical operations (and their application) may not correspond to anything
+real (What Is).
+This is precisely what is wrong with modern model and statistics-based
+&ldquo;science&rdquo;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d36095" class="outline-2">
+<h2 id="org9d36095">Patterns</h2>
+<div class="outline-text-2" id="text-org9d36095">
+<p>
+There is a subtle universal pattern - a <i>weighted sum</i>, which, it seem,
+is underlying everything.
+</p>
+
+<p>
+Packaging into vectors is more general than just Cartesian Plane or a 3D space.
+</p>
+
+<p>
+This is where <i>abstraction barriers</i> or the notion of <i>typing</i> has to be employed.
+The operations are too general and the meaning is easily lost.
+</p>
+
+<p>
+We have \(2\) fundamental operations
+</p>
+<ul class="org-ul">
+<li>\(+\), in the most <i>universal</i> sense of <i>adding together</i></li>
+<li>\(*\), which is not <i>times</i> but <i>scaling</i> or <i>weighting</i></li>
+</ul>
+
+<p>
+Addition is &ldquo;for the notions of distances and lengths&rdquo;, Scaling is for &ldquo;the
+notions of angles and projections&rdquo;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0d6f86c" class="outline-2">
+<h2 id="org0d6f86c">Geometric and Numerical interpretations</h2>
+<div class="outline-text-2" id="text-org0d6f86c">
+</div>
+<div id="outline-container-org5ca3ad0" class="outline-3">
+<h3 id="org5ca3ad0">The abstract numeric line</h3>
+<div class="outline-text-3" id="text-org5ca3ad0">
+<p>
+An imaginary abstraction of a <i>straight line</i> composed of <i>evenly-spaced</i> (same distance or the same
+length of the intervals between) dots, <i>superimposed</i> by the mind as a &ldquo;scale&rdquo; -
+an abstract counting and measuring &ldquo;device&rdquo;. An abstracted out &ldquo;stick with
+notches&rdquo;, of course.
+</p>
+
+
+<ul class="org-ul">
+<li><p>
+distances and lengths
+</p>
+
+<p>
+A vector has <i>length</i> and <i>direction</i>
+</p></li>
+</ul>
+
+<p>
+At the level of <i>vectors</i> and <i>matrices</i> (which are &ldquo;stacked&rdquo; vectors)
+</p>
+<ul class="org-ul">
+<li>\(*\), a <i>dot-product</i>, which is a <i>positional-wise scaled weighted sum</i></li>
+<li>\(\times\),a <i>cross-product</i>, which is an &ldquo;<i>application</i>&rdquo; of one vector to another</li>
+</ul>
+
+<p>
+And for <i>vectors</i> we have a universal linear <i>structure</i>, in the sense that there
+has to be the same number of &ldquo;positions&rdquo; and they have to be in the same order,
+and, <i>to have any meaning</i>, must denote the same &ldquo;dimensions&rdquo;.
+</p>
+
+<p>
+All the operations on vectors (and matrices) are <i>positional</i>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org14ce303" class="outline-2">
+<h2 id="org14ce303">dot-product</h2>
+<div class="outline-text-2" id="text-org14ce303">
+<p>
+A <i>dot-product</i>, \(v1 \cdot v2\) is just <i>position-wise</i> multiplication (scaling) and then adding
+everything up.
+</p>
+
+<p>
+The meaning of the whole operation is <i>scaling of one vector by
+another</i>. It is <i>commutative</i>, because both scalar-level operations involved are
+<i>commutative</i>, and, intuitively, due to the <i>symmetry</i>.
+</p>
+
+<p>
+The <i>geometric meaning</i> is a <i>projection</i> of two vectors onto a <i>number line</i>.
+</p>
+
+<p>
+Numerically, this operation is a <i>dual</i> to matrix-vector multiplication - the same
+pair-wise weighted sum.
+</p>
+
+<p>
+\(\begin{bmatrix} y_{1} & y_{2} \end{bmatrix} \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge428c8f" class="outline-2">
+<h2 id="orge428c8f">cross-product</h2>
+<div class="outline-text-2" id="text-orge428c8f">
+<p>
+A <i>cross-product</i> \(A \times B\) is an <i>application</i> of one vector to another, which is a fundamentally different
+operation, and, just like function composition \(\circ\) is <i>not commutative</i>.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-05-04 Thu 15:18</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>
