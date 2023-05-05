@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-05 Fri 10:54 -->
+<!-- 2023-05-05 Fri 16:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Algebra</title>
@@ -637,13 +637,13 @@ So we are <i>scaling</i> the matrix \(A\) (by \(x\)) and collecting <i>weighted 
 <div class="outline-text-3" id="text-orgc2d0988">
 <p>
 Each additional <i>column</i> (to the <i>second matrix)</i> produces a <i>new column</i> in the result.
+\[\begin{bmatrix} a_{1 }& a_{2} & a_{3}\end{bmatrix}
+\cdot \begin{bmatrix} x_{11} & x_{12} \\ x_{21} & x_{22} \\ x_{31} & x_{32}\end{bmatrix}
+= \begin{bmatrix} DP_{1} & DP_{2}\end{bmatrix}\]
+Notice that this <i>operation</i> is <i>not</i> commutative and <i>column-oriented</i>.
 \[\begin{bmatrix} a_{11 }& a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23}\end{bmatrix}
 \cdot \begin{bmatrix} x_{11} & x_{12} \\ x_{21} & x_{22} \\ x_{31} & x_{32}\end{bmatrix}
-= \begin{bmatrix} DP_{1} & *\\ DP_{2} & *\end{bmatrix}\]
-Notice that this <i>operation</i> is <i>not</i> commutative and <i>column-oriented</i>.
-</p>
-
-<p>
+= \begin{bmatrix} DP_{11} & DP_{12}\\ DP_{21} & DP_{22}\end{bmatrix}\]
 So, again, we are scaling position-wise <i>by columns</i> and <i>collecting</i> weighted sums
 into a new &ldquo;collection of columns&rdquo;.
 </p>
@@ -699,7 +699,7 @@ In practice it is a form of <i>indexing</i>, conceptually related to sorting (or
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-05 Fri 10:54</p>
+<p class="date">Created: 2023-05-05 Fri 16:29</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
