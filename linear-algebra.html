@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-05 Fri 16:29 -->
+<!-- 2023-05-05 Fri 19:36 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Algebra</title>
@@ -247,14 +247,54 @@ MathJax = {
 <header>
 <h1 class="title">Linear Algebra</h1>
 </header><p>
-<i>Weighted sums</i> at the core.
+This is the subject which has implicit <i>structural typing</i>, which is a sort of
+a structural <i>dynamic-typing</i> (instead of having explicit <i>type-tags</i>).
+</p>
+
+<p>
+The structure of a single <i>column-vector</i> of can be <i>interpreted</i> as a <i>representation</i> of various <i>concepts</i>.
+</p>
+<ul class="org-ul">
+<li>just an <i>ordered /pair</i> of numbers</li>
+<li>a vector from the Origin on a <i>XY-/plane</i> - a magnitude (length) and a direction (angle).</li>
+<li>a single point on a <i>XY-/plane</i>.</li>
+</ul>
+
+<p>
+The issue here is that, while the rules of the linear algebra prevent us from
+applying operations to vectors of non-matching dimensions (dynamic typing) and
+enforce <i>component-wise</i> operations and isolation of the &ldquo;coordinates&rdquo;, it does
+not prevent from mixing and matching <i>conceptually unrelated representations</i>.
+</p>
+
+<p>
+Some &ldquo;abstract theoreticians&rdquo; pay no attention to the <i>abstraction barriers</i>,
+which must clearly separate the concepts into distinct <i>partitions</i>. Adding a &ldquo;point&rdquo; to a
+&ldquo;vector&rdquo; is a <i>bug</i>.
+</p>
+
+<div id="outline-container-org3c1005c" class="outline-2">
+<h2 id="org3c1005c"><i>Weighted sums</i> at the core.</h2>
+<div class="outline-text-2" id="text-org3c1005c">
+<p>
+A <i>linear combination</i> is <i>both</i> scaling and addition. So the <i>result</i> is a <i>weighted
+sum</i>.
+\[cv+dw\]
+Either or both \(c\) and \(d\) could be \(0\) or \(1\) as the <i>special cases</i>.
+</p>
+
+<p>
 A <i>polynomial</i> is the special case of a <i>weighted sum</i>.
 </p>
 
 <p>
 Matrices may represent coefficients of a polynomial or all the <i>coefficients</i> of a set of <i>linear of equations</i>.
 </p>
-
+</div>
+</div>
+<div id="outline-container-org1f6c781" class="outline-2">
+<h2 id="org1f6c781">Preliminary abstractions</h2>
+<div class="outline-text-2" id="text-org1f6c781">
 <p>
 Here we will talk about captured (by the mind of an external observer) and properly generalized abstractions,
 (superimposed by the mind onto its perceptions).
@@ -266,6 +306,8 @@ Here we will talk about captured (by the mind of an external observer) and prope
 <li>A <i>perpendicular</i> (a vertical plant, &ldquo;no shadow&rdquo;)</li>
 <li>An arbitrary <i>angle</i> (knowing the length of the stick and its shadow)</li>
 </ul>
+</div>
+</div>
 
 <div id="outline-container-org13cda1d" class="outline-2">
 <h2 id="org13cda1d">Compound abstractions</h2>
@@ -699,7 +741,7 @@ In practice it is a form of <i>indexing</i>, conceptually related to sorting (or
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-05 Fri 16:29</p>
+<p class="date">Created: 2023-05-05 Fri 19:36</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
