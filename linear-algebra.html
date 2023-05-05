@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-05 Fri 10:39 -->
+<!-- 2023-05-05 Fri 10:54 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Algebra</title>
@@ -247,6 +247,15 @@ MathJax = {
 <header>
 <h1 class="title">Linear Algebra</h1>
 </header><p>
+<i>Weighted sums</i> at the core.
+A <i>polynomial</i> is the special case of a <i>weighted sum</i>.
+</p>
+
+<p>
+Matrices may represent coefficients of a polynomial or all the <i>coefficients</i> of a set of <i>linear of equations</i>.
+</p>
+
+<p>
 Here we will talk about captured (by the mind of an external observer) and properly generalized abstractions,
 (superimposed by the mind onto its perceptions).
 </p>
@@ -615,7 +624,11 @@ vector \(x\).
 <i>Dot-product</i> (an <i>inner-product</i>)
 \[\begin{bmatrix} y_{1} & y_{2} & \cdots & y_{n} \end{bmatrix} \cdot \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n} \end{bmatrix} = \begin{bmatrix}y_{1} \\ y_{2} \\ \vdots \\ y_{n} \end{bmatrix} \cdot \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n} \end{bmatrix}\]
 Notice how there is only <i>the one way</i> to &ldquo;transpose&rdquo; an <i>1-by-n matrix</i> into a column-vector.
-\[\begin{bmatrix} a_{11 }& a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23}\end{bmatrix} \cdot \begin{bmatrix} x_{1} \\ x_{2} \\ x_{}_{3 }\end{bmatrix} = \begin{bmatrix} DP_{1} \\ DP_{2} \end{bmatrix}\]
+\[\begin{bmatrix} a_{11 }& a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23}\end{bmatrix}
+\cdot \begin{bmatrix} x_{1} \\ x_{2} \\ x_{}_{3 }\end{bmatrix} = \begin{bmatrix} DP_{1} \\ DP_{2}
+\end{bmatrix}\]
+So we are <i>scaling</i> the matrix \(A\) (by \(x\)) and collecting <i>weighted sums</i> into a new
+<i>column-vector</i> (\(b\)).
 </p>
 </div>
 </div>
@@ -628,6 +641,11 @@ Each additional <i>column</i> (to the <i>second matrix)</i> produces a <i>new co
 \cdot \begin{bmatrix} x_{11} & x_{12} \\ x_{21} & x_{22} \\ x_{31} & x_{32}\end{bmatrix}
 = \begin{bmatrix} DP_{1} & *\\ DP_{2} & *\end{bmatrix}\]
 Notice that this <i>operation</i> is <i>not</i> commutative and <i>column-oriented</i>.
+</p>
+
+<p>
+So, again, we are scaling position-wise <i>by columns</i> and <i>collecting</i> weighted sums
+into a new &ldquo;collection of columns&rdquo;.
 </p>
 </div>
 </div>
@@ -681,7 +699,7 @@ In practice it is a form of <i>indexing</i>, conceptually related to sorting (or
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-05 Fri 10:39</p>
+<p class="date">Created: 2023-05-05 Fri 10:54</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
