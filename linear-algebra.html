@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-04 Thu 17:05 -->
+<!-- 2023-05-04 Thu 21:35 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Algebra</title>
@@ -473,7 +473,7 @@ distances and lengths
 </p>
 
 <p>
-A vector has <i>length</i> (or a <i>magnitude</i>) and <i>direction</i>
+A vector has <i>length</i> (or a <i>magnitude</i>) and a <i>direction</i> or an <i>angle</i>.
 </p></li>
 </ul>
 
@@ -481,7 +481,7 @@ A vector has <i>length</i> (or a <i>magnitude</i>) and <i>direction</i>
 At the level of <i>vectors</i> and <i>matrices</i> (which are &ldquo;stacked&rdquo; vectors)
 </p>
 <ul class="org-ul">
-<li>\(*\), a <i>dot-product</i>, which is a <i>positional-wise scaled weighted sum</i></li>
+<li>\(\cdot\), a <i>dot-product</i>, which is a <i>positional-wise scaled weighted sum</i></li>
 <li>\(\times\),a <i>cross-product</i>, which is an &ldquo;<i>application</i>&rdquo; of one vector to another</li>
 </ul>
 
@@ -492,7 +492,8 @@ and, <i>to have any meaning</i>, must denote the same &ldquo;dimensions&rdquo;.
 </p>
 
 <p>
-All the operations on vectors (and matrices) are <i>positional</i>.
+All the operations on vectors (and matrices) are <i>positional</i>, so the dimensions
+must <i>match up</i>.
 </p>
 </div>
 </div>
@@ -591,11 +592,47 @@ In practice it is a form of <i>indexing</i>, conceptually related to sorting (or
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgbb7138a" class="outline-2">
+<h2 id="orgbb7138a">Matrices</h2>
+<div class="outline-text-2" id="text-orgbb7138a">
+<p>
+The tradition says that vectors are columns, or only <i>column-vectors</i> are vectors.
+What we call a <i>row-vector</i> is, according to tradition, an <i>1-by-n</i> matrix.
+When a matrix has \(m\) <i>rows</i>, each <i>column</i> is a <i>vector</i> in a <i>m-dimensional space</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd960e9" class="outline-2">
+<h2 id="orgbd960e9">Linear combination of column-vectors.</h2>
+<div class="outline-text-2" id="text-orgbd960e9">
+<p>
+The matrix-vector multiplication - \(Ax\) (scaling).
+\(\begin{mathbf}A\end{mathbf} = \begin{bmatrix} y_{1} &
+y_{2} & \ldots & y_{n}\end{bmatrix}, \begin{mathbf}x\end{mathbf} = \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n}\end{bmatrix}\)
+</p>
+
+<p>
+\(Ax\) is a <i>combination</i> of the <i>columns</i> of \(A\).
+</p>
+
+<p>
+The equation \(Ax = b\) is of a <i>combination</i> that produces \(b\). The solution is the
+vector \(x\).
+</p>
+
+<ul class="org-ul">
+<li>the direct solution: <i>forward elimination</i> and <i>back substitution</i> algorithm.</li>
+<li>the matrix solution: \(x = A^{-1}b\) (if \(A\) has an <i>inverse</i>).</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-04 Thu 17:05</p>
+<p class="date">Created: 2023-05-04 Thu 21:35</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
