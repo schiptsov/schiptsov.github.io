@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-06 Sat 13:37 -->
+<!-- 2023-05-06 Sat 19:01 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A high-level overview.</title>
@@ -322,8 +322,44 @@ uneducated, incompetent but over-zealous amateurs <i>right from the start</i>.
 </p>
 
 <p>
-Everything is <i>imperative, stateful</i> with lame <i>large imperative OO classes</i> in Python or
-Javascript on top of it. Even the benefits of OO has been thrown out of the window.
+The EVM and its bytecode is one big embarrassment. Contracts call each other&rsquo;s methods without any restrictions (imagine &ldquo;desinging&rdquo; an RPC system in such a way!).
+</p>
+
+<p>
+The code is &ldquo;imperative commands&rdquo; which modify the &ldquo;global state&rdquo;. So, the order is crucial and the code in NON-reenterable. The same fundamental problem as with early <code>C</code> library code.
+</p>
+
+<p>
+The classic attack exploited these properties. There are no fixes to this &ldquo;technical debt&rdquo;.
+</p>
+
+<p>
+<code>Solidity</code>, which is supposed to be a <i>high-level language</i> is another embarrassment of an imperative &ldquo;like an OO&rdquo; but not OO amateur language, which has &ldquo;methods&rdquo; and &ldquo;events&rdquo; but no well-defined OO-semantics.
+</p>
+
+<p>
+A contract is a sort of an &ldquo;Object&rdquo; (as in Java), but is not instantiated from a class &ldquo;template&rdquo;, but defined as a <i>set of methods</i> which access <i>both</i> its internal mutable state, and the global mutable state.
+</p>
+
+<p>
+Getters and setters, &ldquo;views&rdquo; as &ldquo;generated getters&rdquo;, &ldquo;events&rdquo; are just implicit method-class in disguise, and all the other great design choices.
+</p>
+
+<p>
+It uses some sort of static typing, but also a <i>duck-typing</i>, with no standard mechanism to define and type-check. An ERC-20 token is just a set of required (to be implemented) &ldquo;methods&rdquo; and &ldquo;events&rdquo;, but there is not way to typecheck these.
+</p>
+
+<p>
+At the &ldquo;client level&rdquo; everything is still <i>imperative, stateful</i> with lame <i>large imperative OO classes</i> in Python or
+Javascript on top of it. Even the small benefits of OOP has been thrown out of the window &#x2013; the code is badly structured.
+</p>
+
+<p>
+The &ldquo;provider&rdquo; exposes an imperative, stateful (with access to the global <i>mutable</i> state of the node) JSON-RPC API. REST APIs are supposed to be <i>stateless</i>.
+</p>
+
+<p>
+Of course, the &ldquo;client libraries&rdquo; (wrappers) (like <code>web3.py</code>) and nodes (like <code>geth</code>) are out of sync (as at the time of writing) and one has to know the exact versions which supposedly works together (the APIs are matched).
 </p>
 
 <p>
@@ -514,7 +550,7 @@ The obvious ones are to collect transaction fees, just like Uniswap did.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-06 Sat 13:37</p>
+<p class="date">Created: 2023-05-06 Sat 19:01</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
