@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-06 Sat 11:03 -->
+<!-- 2023-05-06 Sat 11:23 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Understanding Ethereum</title>
+<title>&lrm;</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -225,125 +225,11 @@
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
-<header>
-<h1 class="title">Understanding Ethereum</h1>
-</header>
-<div id="outline-container-orge17a027" class="outline-2">
-<h2 id="orge17a027">Preliminaries</h2>
-<div class="outline-text-2" id="text-orge17a027">
-<p>
-Ethereum was originally &ldquo;designed&rdquo; (spat out in a hurry) by a highly ambitious, but incompetent, unqualified and uneducated person &#x2013; just a wannabe wishful thinking and memes.
-</p>
-
-<p>
-No notion of doing things <i>the right way</i>, leave alone mathematical optimality and related conceptual minimalism has been employed &#x2013; just amateurish zeal and rush.
-</p>
-
-<p>
-The &ldquo;yellow paper&rdquo; was &ldquo;my answer&rdquo; to a poorly understood and hardly comprehended (which requires a mathematical and intellectual maturity to appreciate) the <i>Bitcoin white paper</i>.
-</p>
-
-<p>
-Almost every design decision was amateur and simply bad. After almost 15 years of community efforts, it stabilized, and all the major shortcomings were addressed and accepted.
-</p>
-
-<p>
-One more time &#x2013; as an amateur language <code>Solodity</code> was as bad as <code>PHP3</code> and the EVM was as bad as the PHP2.0 interpreter. Any <i>undergraduate /Programming Languages</i> student would hage done better.
-</p>
-
-<ul class="org-ul">
-<li>A set of <i>related concepts</i></li>
-<li>A set of <i>informal specifications</i></li>
-<li>The current <i>protocol</i> (both spec and implementations)</li>
-<li>Implementation details</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org16be733" class="outline-2">
-<h2 id="org16be733">Uniswap</h2>
-<div class="outline-text-2" id="text-org16be733">
-<p>
-This was (and still is) the &ldquo;killer-app&rdquo;, and <i>the</i> case study of how it was possible to actually, unillusory innovate and to bootstrap an &ldquo;auto-pilot running&rdquo; profitable business.
-</p>
-
-<p>
-It is absolutely astonishing with how <i>little code</i> and a few changes everything has been accomplished. Still seems to be too good to be true.
-</p>
-
-<p>
-The key to that accomplishmet was the good conceptual understanding of what is possible, and to focus on a simple product first (the <code>v1</code>).
-</p>
-
-<p>
-Conceptually it boils down to &ldquo;running user&rsquo;s transactions (swaps) for a fee inside a contract&rdquo;, called by a web-interface, just like a <code>cgi</code> script. Everything is (originally) minimal and open-source.
-</p>
-
-<p>
-The guy with this kind of clear thinking and an unpolluted by abstract bullshit mind deserves his riches. I am Jack&rsquo;s stinging envy.
-</p>
-
-<p>
-Again, just like calling a &ldquo;cgi-script&rdquo;, using the contract&rsquo;s address on the network. Technically &#x2013; by issuing (broadcasting) these calls to the network.
-</p>
-</div>
-</div>
-<div id="outline-container-org8b0a63c" class="outline-2">
-<h2 id="org8b0a63c">High-level overview</h2>
-<div class="outline-text-2" id="text-org8b0a63c">
-<p>
-Conceptually, a piece of code has an <i>address</i> in a network, and can be executed by a <i>node</i>, motivated by the reward of &ldquo;gas&rdquo; fees.
-</p>
-
-<p>
-An address in a network is conceptually similar to a <i>binding</i> within a library - it is a level of inderection and a <i>lookup and calling</i> mechanism. Nothing new here.
-</p>
-
-<p>
-Again, an <i>address</i> is a <i>binding</i> within the network.
-</p>
-
-<p>
-In reality a piece of a crappy imperative code, written in a crappy imperative language, compiled into some bytecode to be run by a crappy VM.
-</p>
-
-<p>
-The code has access to &ldquo;standardized&rdquo; imperative procedures, which perform network-specific tasks, such as requesting &ldquo;payments&rdquo; or sending &ldquo;money&rdquo;.
-</p>
-
-<p>
-This is just an API exposed by the implementation of the network.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org6da64d1" class="outline-2">
-<h2 id="org6da64d1">Concepts</h2>
-<div class="outline-text-2" id="text-org6da64d1">
-<p>
-The core concepts are:
-</p>
-<ul class="org-ul">
-<li>contracts (&ldquo;executables&rdquo;)</li>
-<li>tokens (which are contracts)</li>
-<li>addresses</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org59aeb63" class="outline-2">
-<h2 id="org59aeb63">Memes</h2>
-<div class="outline-text-2" id="text-org59aeb63">
-<ul class="org-ul">
-<li>EVM (an &ldquo;isolated&rdquo; virtual machine)</li>
-</ul>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-06 Sat 11:03</p>
+<p class="date">Created: 2023-05-06 Sat 11:23</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
