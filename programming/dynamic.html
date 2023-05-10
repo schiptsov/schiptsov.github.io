@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-10 Wed 10:28 -->
+<!-- 2023-05-10 Wed 10:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dynamic Typing</title>
@@ -243,7 +243,7 @@ This is crucial to have woring proper arithmetics, and a proper implementation o
 With dynamic typing one necessarily has
 </p>
 <ul class="org-ul">
-<li>type-checking at tuntime (implementation of a strong-typing)</li>
+<li>type-checking at runtime (implementation of a strong-typing)</li>
 <li>operator overloading (which does type-cheking)</li>
 <li>&ldquo;glassbox&rdquo; or code paths testing (the method of catching type errors)</li>
 </ul>
@@ -273,10 +273,19 @@ This is what an proper ADT (packaged as a distinct module) must be.
 </p>
 
 <p>
+Notice also that so-called <i>Duck-typing</i>, which is absolutely fundamental at a higher-level, is orthogonal to wether one uses runtime-checking or not.
+</p>
+
+<p>
+On the other hand <i>the Late Binding technique</i> is expecilally useful together with the <i>dynamic strucutural typing</i>, as in <code>Python 3</code>
+</p>
+
+<p>
 Dynamic typing also &ldquo;naturally&rdquo; facilitates the <i>layered DSLs</i> architecture.
 </p>
 <ul class="org-ul">
 <li>Smalltalk</li>
+<li>Scheme</li>
 <li>Common Lisp</li>
 <li>Octave (MATLAB)</li>
 <li>Clojure</li>
@@ -315,7 +324,7 @@ This can be thought of as a unique typing scheme, which goes beyond traditional 
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-10 Wed 10:28</p>
+<p class="date">Created: 2023-05-10 Wed 10:37</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
