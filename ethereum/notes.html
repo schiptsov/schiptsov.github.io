@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-11 Thu 14:54 -->
+<!-- 2023-05-11 Thu 15:01 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes about Ethereuim</title>
@@ -240,11 +240,11 @@ Considering the <i>distributed</i> aspect, <code>Erlang</code> had all the resea
 </p>
 
 <p>
-The &ldquo;solution&rdquo; of the halting proble as to limit the depth of recursion is as old as the notion of recursive procedures, so there is nothing new.
+The &ldquo;solution&rdquo; of the halting problem as to limit the depth of recursion is as old as the notion of recursive procedures, so there is nothing new.
 </p>
 
 <p>
-Notably, at almost the same time, another narcissitic guy <i>applied</i> most these solid principles, climbed on shoulders of the giants, and got almost everything right. His name is Rich Hikey.
+Notably, at almost the same time, another narcissistic guy <i>applied</i> most these solid principles, climbed on shoulders of the giants, and got almost everything right. His name is Rich Hikey.
 </p>
 
 <div id="outline-container-orga455b51" class="outline-2">
@@ -271,26 +271,26 @@ The view of a &ldquo;merkle-tree&rdquo; instead of the Turing&rsquo;s &ldquo;tap
 <h2 id="orgedb1588">The right principles</h2>
 <div class="outline-text-2" id="text-orgedb1588">
 <p>
-Now lets quickly state the &ldquo;right&rdquo; princoples which are &ldquo;naturally&rdquo; applicable in the context of a blockchain.
+Now lets quickly state the &ldquo;right&rdquo; principles which are &ldquo;naturally&rdquo; applicable in the context of a blockchain.
 </p>
 </div>
 <div id="outline-container-org0bbd953" class="outline-3">
 <h3 id="org0bbd953">Immutable data</h3>
 <div class="outline-text-3" id="text-org0bbd953">
 <p>
-Immutable data is the fundaental principle. The data which can be alrered or modified behind your back is not data at all.
+Immutable data is the fundamental principle. The data which can be altered (or modified) behind your back <i>is not</i> data at all. It is some temporal imperative <i>state/</i>, by defintion.
 </p>
 
 <p>
-All the research on <i>immutable data strucures</i> (<i>Okasaki</i>, and then actual implementations in  <code>Haskell</code>,  <code>Clojure</code> and <code>Scala 3</code>) show the obvious benefits, with the only downside (performance) being irrelevant in the context of a <i>blockchain</i>.
+All the research on <i>immutable data structures</i> (<i>Okasaki</i>, and then actual implementations in  <code>Haskell</code>,  <code>Clojure</code> and <code>Scala 3</code>) show the obvious benefits, with the only downside (performance) is irrelevant in the context of a <i>blockchain</i>.
 </p>
 
 <p>
-The innovative idea of <i>enforcing and validating immutability</i> using <i>tree-like strucures</i>, which incorporate (use) previous node&rsquo;s <i>content hashes</i> belongs to <i>Satoshi</i>, not <i>vitaliks</i>.
+The innovative idea of <i>enforcing and validating immutability</i> using <i>tree-like structures</i>, which incorporate (use) previous node&rsquo;s <i>content hashes</i> belongs to <i>Satoshi</i>, not <i>vitaliks</i>.
 </p>
 
 <p>
-Immutable &ldquo;ledgers&rdquo; (as <i>append-only files</i> or data strucures) has been around since 60s. The actual innovation was the &ldquo;nested hashes&rdquo; scheme.
+Immutable &ldquo;ledgers&rdquo; (as <i>append-only files</i> or data structures) has been around since 60s. The actual innovation was the &ldquo;nested cryptogtaphic hashes&rdquo; scheme.
 </p>
 </div>
 </div>
@@ -298,11 +298,11 @@ Immutable &ldquo;ledgers&rdquo; (as <i>append-only files</i> or data strucures) 
 <h3 id="orgabce865">Pure, declarative code</h3>
 <div class="outline-text-3" id="text-orgabce865">
 <p>
-This is what has been missed due to incompetence and ignorance. The &ldquo;Implemetation of Functional Languages&rdquo; of <i>Peyton Jones</i> has beeen published in <i>1987</i>, so it has to be the <i>G-Machine</i>, the result of decades of research, not some amateur bullshit.
+This is what has been missed due to incompetence and ignorance. The &ldquo;Implementation of Functional Languages&rdquo; of <i>Peyton Jones</i> has been published in <i>1987</i>, so it has to be the <i>G-Machine</i>, the result of decades of research, not some amateur bullshit.
 </p>
 
 <p>
-In principle, it is <i>not</i> the Turing Machine, but the <i>equivalent formulation</i> of the Lamda Calculus to be used as the <i>theoretical basis</i> for the whole thing. Same capabilities, with putity and universality of arithmetic of symbolic logic.
+In principle, it is <i>not</i> the Turing Machine, but the <i>equivalent formulation</i> of the Lamda Calculus to be used as the <i>theoretical basis</i> for the whole thing. Same capabilities, with purity and universality of arithmetic or symbolic logic.
 </p>
 </div>
 </div>
@@ -311,15 +311,15 @@ In principle, it is <i>not</i> the Turing Machine, but the <i>equivalent formula
 <h3 id="orgaffe0b7">Graph-reduction</h3>
 <div class="outline-text-3" id="text-orgaffe0b7">
 <p>
-The <i>graph-reduction</i> methodology as an <i>implementation</i> of the sintaclucally sugared (and extened with proper ADTs) <i>Simply Typed Lambda Calculus</i> was a major fundamental result at the time.
+The <i>graph-reduction</i> methodology as an <i>implementation</i> of the <i>syntactically sugared</i> (and extended with proper ADTs) <i>Simply Typed Lambda Calculus</i> was a major fundamental result at the time.
 </p>
 
 <p>
-This result is based on the general observation that almost everything is reducible to some kind of a directed, acyclic graph, both &ldquo;causality&rdquo; and &ldquo;potenciality&rdquo; views of the &ldquo;Underlying Reality&rdquo;.
+This result is based on the general observation that almost everything is reducible to some kind of a directed, acyclic graph, both &ldquo;causality&rdquo; and &ldquo;potentiality&rdquo; views of the &ldquo;Underlying Reality&rdquo;.
 </p>
 
 <p>
-Notice that with <i>implicit nesting of pure expressions</i>, which is how composition of expressions is &ldquo;implemeted&rdquo; (realized) and an <i>order of evaluation (precedence) is defined</i> in mathematics, whole classes of &ldquo;imprative problems&rdquo; do not arise at all.
+Notice that with <i>implicit nesting of pure expressions</i>, which is how composition of expressions is &ldquo;implemented&rdquo; (realized) and an <i>order of evaluation (precedence) is defined</i> in mathematics, whole classes of &ldquo;imperative problems&rdquo; do not arise at all.
 </p>
 </div>
 </div>
@@ -362,7 +362,7 @@ I am not sure, but it seems intuitively that another well-known implementation t
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-11 Thu 14:54</p>
+<p class="date">Created: 2023-05-11 Thu 15:01</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
