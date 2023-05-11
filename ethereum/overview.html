@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-06 Sat 19:01 -->
+<!-- 2023-05-11 Thu 17:30 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A high-level overview.</title>
@@ -496,7 +496,7 @@ Our primary concern is how to <i>call</i> the contract code correctly and safely
 <h3 id="org9dd4e0c">Addresses</h3>
 <div class="outline-text-3" id="text-org9dd4e0c">
 <p>
-Conceptually, Ethereum addresses are just like <code>Erlang</code> &ldquo;names&rdquo;, and the code must be pure with carefully designed prinitives, just understand and follow the best practices of developing robust distributed systems.
+Conceptually, Ethereum addresses are just like <code>Erlang</code> &ldquo;names&rdquo;, and the code must be pure with carefully designed primitives, just understand and follow the best practices of developing robust distributed systems.
 </p>
 
 <p>
@@ -532,6 +532,40 @@ components. This is also OK.
 </p>
 </div>
 </div>
+
+<div id="outline-container-org53fdf04" class="outline-3">
+<h3 id="org53fdf04">Transactions</h3>
+<div class="outline-text-3" id="text-org53fdf04">
+<p>
+This is a broadcasted &ldquo;message&rdquo;, which contain &ldquo;source&rdquo; (From:) and
+&ldquo;destination&rdquo; (To:) <i>addresses</i> and the optional &ldquo;amount&rdquo; and &ldquo;data&rdquo; fields.
+</p>
+
+<p>
+The &ldquo;amount&rdquo; is for <i>transfer</i> (kind of) transactions, the &ldquo;data&rdquo; is for calling
+the &ldquo;contract&rdquo; (specified by the &ldquo;destination&rdquo; address).
+</p>
+
+<p>
+When calling a contract the &ldquo;amount&rdquo; field can be used too, but it is better to avoid this practice.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0e587bb" class="outline-3">
+<h3 id="org0e587bb">Messages</h3>
+<div class="outline-text-3" id="text-org0e587bb">
+<p>
+There are &ldquo;internal transactions&rdquo;, <i>initiated by a contract</i>, which are called
+messages.
+</p>
+
+<p>
+Conceptually, every <i>transaction</i> is a &ldquo;signed&rdquo; <i>message</i> (from, to), and every
+message has to be some kind of a <i>transaction</i>.
+</p>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgb4ea9da" class="outline-2">
@@ -550,7 +584,7 @@ The obvious ones are to collect transaction fees, just like Uniswap did.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-06 Sat 19:01</p>
+<p class="date">Created: 2023-05-11 Thu 17:30</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
