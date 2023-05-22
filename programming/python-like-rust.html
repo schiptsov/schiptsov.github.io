@@ -4,7 +4,7 @@
 <!-- 2023-05-22 Mon 10:52 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Notes about Ethereuim</title>
+<title>Python Like Rust</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -226,157 +226,90 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Notes about Ethereuim</h1>
+<h1 class="title">Python Like Rust</h1>
 </header><p>
-Ethereum in its current state is a <i>failure</i> because the unqualified and uneducared narcissistic &ldquo;designers&rdquo; ignored almost every fundamental result produced in the &ldquo;Golden Age&rdquo; of so-called Computer Science (70s, 80s, 90s).
+Resently this <i>meme post</i> got top spots on both <code>HN</code> and <code>Lobsers</code>.
 </p>
 
 <p>
-First of all, it has to be declarative and pure-functional, to be evaluated with a pen and paper, just like <code>Haskell</code>. By the time <i>vitaliks</i> emerged everything about <i>Functional Programming</i> has been already researched and well-understood.
+<a href="https://kobzol.github.io/rust/python/2023/05/20/writing-python-like-its-rust.html">https://kobzol.github.io/rust/python/2023/05/20/writing-python-like-its-rust.html</a>
 </p>
 
 <p>
-Considering the <i>distributed</i> aspect, <code>Erlang</code> had all the research and development done in a principle-guided way, resulting in a <i>platform</i> for developing networked and decentralized systems. Again, knowing the fundamental principles helps to avoid embarrasment.
+Of course, HN is a dumbster fire for narcissits and imposers, and Lobser is gated community of unique snowflakes, but nevertheless&#x2026;
 </p>
 
 <p>
-The &ldquo;solution&rdquo; of the halting problem as to limit the depth of recursion is as old as the notion of recursive procedures, so there is nothing new.
+First of all, it should be <i>&#x2026;Write <span class="underline"><span class="underline"><span class="underline">_</span></span></span> like Scala 3</i> and the end of the story. Lets, however, elaborate a bit.
 </p>
 
 <p>
-Notably, at almost the same time, another narcissistic guy <i>applied</i> most these solid principles, climbed on shoulders of the giants, and got almost everything right. His name is Rich Hikey.
-</p>
-
-<div id="outline-container-orga455b51" class="outline-2">
-<h2 id="orga455b51">The state-machine metaphor</h2>
-<div class="outline-text-2" id="text-orga455b51">
-<p>
-The state-machine on top of an immutable ledger (which <i>represents</i> the state) metaphor is a <i>meme</i>. It is a classic example of the <i>past rationalization</i>, when afterthoughts are being presented as preliminaries.
+Both <i>Python 3</i> and <i>Scala 3</i> are way more refined languages (on its own, respectively) than Rust. Rust is still a PHPscure community effort, while <i>Scala 3</i> and to some extent <i>Python 3</i> incorporated a lot of good research and best practices (from the non-bullshit theoretical point of view).
 </p>
 
 <p>
-Notice that a <i>state-machine</i> is way too general concept and could be applied to everything, including an <i>interpreter</i> of the Lambda Calculus, which is good-enough to compute everything commutable.
+In particular, both sturcural dynamic typing of Python 3 and advancesd static typing of Scala 3 are both a state of the art in their realms. The type-decorations of Python and type-inference of Scala are the technologies to give to the programmer a choice for balancing expressiveness with clutter.
 </p>
 
 <p>
-This result has been demonstrated long ago and popularized in classic book <i>SICP</i>.
+It is already well-understood that dynamically (but <b>strongly</b> - this is absolutetly necessary) typed laguages are good for quick prototying and exploration of <i>small</i> projects (since &ldquo;On Lisp&rdquo;) and terrible for large ones which require constant updates (changes) and mainteneace. This nowadays is an undisputable fact.
 </p>
 
 <p>
-The view of a &ldquo;merkle-tree&rdquo; instead of the Turing&rsquo;s &ldquo;tape&rdquo; is a nothingburger, given that every list is, technically, a <i>generated tree/</i> or even a proper tree if we consider the implementation, which includes the &ldquo;spine&rdquo; of a list.
-</p>
-</div>
-</div>
-<div id="outline-container-orgedb1588" class="outline-2">
-<h2 id="orgedb1588">The right principles</h2>
-<div class="outline-text-2" id="text-orgedb1588">
-<p>
-Now lets quickly state the &ldquo;right&rdquo; principles which are &ldquo;naturally&rdquo; applicable in the context of a blockchain.
-</p>
-</div>
-<div id="outline-container-org0bbd953" class="outline-3">
-<h3 id="org0bbd953">Immutable data</h3>
-<div class="outline-text-3" id="text-org0bbd953">
-<p>
-Immutable data is the fundamental principle. The data which can be altered (or modified) behind your back <i>is not</i> data at all. It is some temporal imperative <i>state/</i>, by defintion.
+Another <i>fact</i> (does not matter how much you like it or not), is that (since <i>CLU</i>) it is well-understood that a properly designed language must be <i>mostly-functional</i> (must have a <i>pure subset</i> and related immutable collections) and must have better defaults and a minimalist (less verbose) syntax for it.
 </p>
 
 <p>
-All the research on <i>immutable data structures</i> (<i>Okasaki</i>, and then actual implementations in  <code>Haskell</code>,  <code>Clojure</code> and <code>Scala 3</code>) show the obvious benefits, with the only downside (performance) is irrelevant in the context of a <i>blockchain</i>.
+This is what <i>CLU pioneered</i> and then <i>Scala 3</i> has been done right.
 </p>
 
 <p>
-The innovative idea of <i>enforcing and validating immutability</i> using <i>tree-like structures</i>, which incorporate (use) previous node&rsquo;s <i>content hashes</i> belongs to <i>Satoshi</i>, not <i>vitaliks</i>.
+One could look at how clever are the rewrites of some basic Pythonic libraries done by <a href="http://www.lihaoyi.com/">http://www.lihaoyi.com/</a>, which shows that the current Scala 3 is almost as expressive (uncluttered) as Python 3.
 </p>
 
 <p>
-Immutable &ldquo;ledgers&rdquo; (as <i>append-only files</i> or data structures) has been around since 60s. The actual innovation was the &ldquo;nested cryptogtaphic hashes&rdquo; scheme.
-</p>
-</div>
-</div>
-<div id="outline-container-orgabce865" class="outline-3">
-<h3 id="orgabce865">Pure, declarative code</h3>
-<div class="outline-text-3" id="text-orgabce865">
-<p>
-This is what has been missed due to incompetence and ignorance. The &ldquo;Implementation of Functional Languages&rdquo; of <i>Peyton Jones</i> has been published in <i>1987</i>, so it has to be the <i>G-Machine</i>, the result of decades of research, not some amateur bullshit.
+The other way around is also the case.
 </p>
 
 <p>
-In principle, it is <i>not</i> the Turing Machine, but the <i>equivalent formulation</i> of the Lamda Calculus to be used as the <i>theoretical basis</i> for the whole thing. Same capabilities, with purity and universality of arithmetic or symbolic logic.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgaffe0b7" class="outline-3">
-<h3 id="orgaffe0b7">Graph-reduction</h3>
-<div class="outline-text-3" id="text-orgaffe0b7">
-<p>
-The <i>graph-reduction</i> methodology as an <i>implementation</i> of the <i>syntactically sugared</i> (and extended with proper ADTs) <i>Simply Typed Lambda Calculus</i> was a major fundamental result at the time.
+One has to realize that <i>Cython</i> is still and will be an <i>iterpreter</i>, and that even the overhyped meme-lang <code>Mojo</code> <i>will run /Cython</i> &ldquo;to ensure compatibility&rdquo;. Yes, it will call and use <i>this very runtime</i>. There is no other way.
 </p>
 
 <p>
-This result is based on the general observation that almost everything is reducible to some kind of a directed, acyclic graph, both &ldquo;causality&rdquo; and &ldquo;potentiality&rdquo; views of the &ldquo;Underlying Reality&rdquo;.
+A serious (less meme-infested) academic discussion could <i>begin</i> with the realization that Python&rsquo;s rutime is <i>an enterpreter</i>, and the typing is <i>structural</i> (whatever hangs out from an object). Most of the library code rely impliitly on these two facts.
 </p>
 
 <p>
-Notice that with <i>implicit nesting of pure expressions</i>, which is how composition of expressions is &ldquo;implemented&rdquo; (realized) and an <i>order of evaluation (precedence) is defined</i> in mathematics, whole classes of &ldquo;imperative problems&rdquo; do not arise at all.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orga26f00d" class="outline-3">
-<h3 id="orga26f00d">pattern-matching on Receive</h3>
-<div class="outline-text-3" id="text-orga26f00d">
-<p>
-As long as &ldquo;send&rdquo; and &ldquo;receive&rdquo; are &ldquo;expressions&rdquo; (need a <i>runtime support</i>) it is natural to &ldquo;pattern-match on receive&rdquo;, just as <code>Erlang</code> does. The semantics are well-understood and are similar to the classic, pure <i>match expression.</i>
+This, in turn, implies that type-decorations of <i>Python 3</i> will never become a <i>fully-featured</i> static typing system, and that this is a <i>non-goal</i>. The dynamic (and strucural) nature of Python is its strenght. Being an intepreter is the price to be paid for this dynamic nature.
 </p>
 
 <p>
-<i>receive</i> threated as a <i>match</i> expression is a major innovation of <code>Erlang.</code>
-</p>
-</div>
-</div>
-<div id="outline-container-org50e93be" class="outline-3">
-<h3 id="org50e93be">Monads</h3>
-<div class="outline-text-3" id="text-org50e93be">
-<p>
-<code>Monads</code>, as a generalization of an abstraction barrier, can be used to properly <i>implement</i> &ldquo;send&rdquo;, &ldquo;receive&rdquo; and other <i>primitives</i>. This will be just a specializarion (several, one for each kind of primitives) of the <i>I/O Monad</i>.
+And no, no bullshit arguments about the theoretial <i>Turing-equivalence</i> of languages will apply. Languages can be <i>vastly</i> different (like, lets say, Smalltalk or Python 3) and have their own unique, definitive features. The fact that Python 3 can run basic <i>CS 101</i> code is, of course, not the whole story.
 </p>
 
 <p>
-Again, this was a well-researched and well-understood topic way before <i>2013</i>.
-</p>
-</div>
-</div>
-<div id="outline-container-orga3e161d" class="outline-3">
-<h3 id="orga3e161d">Type-classes</h3>
-<div class="outline-text-3" id="text-orga3e161d">
-<p>
-The required set of interfaces (as per ERC-20) is excatly what the <i>universal</i> notion of a type-class captures.
+So, yes, it is absolutely good (and even necessary) to have ADTs, Algebraic Types, &ldquo;data-classes&rdquo; and <i>pattern-matching</i>. We (those who uderstands) have all this since <i>Standard ML/</i> and Scala got it all <i>by desing</i> since 1.0. There is literally nothing to talk abot.
 </p>
 
 <p>
-The type system of <code>Haskell</code> can check that all the required interfaces are present and that the &ldquo;set-subset&rdquo; relation is honored.
+The whole memepost could be reduced to just &ldquo;look, the modern python 3.11 finally got the support of all the nice things,  which has been researched and well-understood in 80s (Standard ML), and &rdquo;finalized&ldquo; in late 90s (by the time of the <i>Haskell-98 Report and emergence of Ocaml.</i>
 </p>
 
 <p>
-It is &ldquo;natural&rdquo; to add an additonal type-level &ldquo;constraint language&rdquo; to specify <i>pre-conditions</i> at a type-level (not code-level asserts or predicates) when one &ldquo;designs a high-level language&rdquo;.
+So, Python 3.11 got rudimentary <i>pattern-mathing expressions</i> and necessary type-decoratioins (and data-classes) for it. YAY!
 </p>
 
 <p>
-Notice that <code>Solidity</code> is as bad, incosistent and amateur (bordering &ldquo;retarded&rdquo;) as <code>PHP</code>.
+Notice, again, that the types are still strctural, and are checked by an ordinary python code and <i>runtime/</i>. There is no (and never will be) a classic <i>static typing discipline</i>, where the type of every value (or expression) is known (and checked) before the code runs. For that you have to give up what makes Python 3 unique and nice.
 </p>
-</div>
-</div>
-<div id="outline-container-orgd2350b0" class="outline-3">
-<h3 id="orgd2350b0">Combinators</h3>
-<div class="outline-text-3" id="text-orgd2350b0">
+
 <p>
-I am not sure, but it seems intuitively that another well-known implementation techinque, used with the pure-functional language <i>Miranda</i> would also be a fundamentally better choice (as good as Graph Reduction) than some imperative amateur toy VM.
+And, yes, the trade-offs are well-understood by <code>Racket</code> guys (on the dynamic side) and other &ldquo;applied theorists&rdquo;. <code>Haskell</code> and <code>ML</code> guys on the other hand, know (and well-understand) the limitations of having <i>every branch of a conditional expression to be of the same type</i> and of what follows from this (includuing homogeneous lists).
 </p>
-</div>
-</div>
-</div>
+
+<p>
+In short, you will become Haskell &#x2013; <i>Algebraic</i> Abstract Data Types and <i>Type-classes</i> only &#x2013; nothing dynamic or structural (examined at runtime). The Haskell guys are way ahead in undetrstanding of the limitations of a proper static typing.
+</p>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
