@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-23 Sun 18:40 -->
+<!-- 2023-05-26 Fri 14:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Configuring Neovim with Lua</title>
@@ -253,9 +253,9 @@ There is also lack of collaboration among developers. Common APIs has to be desi
 The classic examples of good design are the standard libraries of <code>Ocaml</code>, <code>Haskell</code>, and <code>Go</code>. But these are slowly (20 years) <i>evolve</i> within <i>competent</i> communities.
 </p>
 
-<div id="outline-container-org226c20a" class="outline-2">
-<h2 id="org226c20a">The ancient maxims of programming</h2>
-<div class="outline-text-2" id="text-org226c20a">
+<div id="outline-container-org43b6844" class="outline-2">
+<h2 id="org43b6844">The ancient maxims of programming</h2>
+<div class="outline-text-2" id="text-org43b6844">
 <p>
 One of the most important principle is that <i>one does not have to read the code (representation and implementation) to understand how it works</i>.
 </p>
@@ -293,17 +293,17 @@ Sadly, most of individual devs on  <code>github</code> never heard of these, so 
 </div>
 </div>
 
-<div id="outline-container-org84fa6df" class="outline-2">
-<h2 id="org84fa6df">Coping with the mess</h2>
-<div class="outline-text-2" id="text-org84fa6df">
+<div id="outline-container-org5ed62d0" class="outline-2">
+<h2 id="org5ed62d0">Coping with the mess</h2>
+<div class="outline-text-2" id="text-org5ed62d0">
 <p>
 There are a few important things to realize.
 </p>
 </div>
 
-<div id="outline-container-orgc8f2c16" class="outline-3">
-<h3 id="orgc8f2c16">Dependencies</h3>
-<div class="outline-text-3" id="text-orgc8f2c16">
+<div id="outline-container-org0f80b0c" class="outline-3">
+<h3 id="org0f80b0c">Dependencies</h3>
+<div class="outline-text-3" id="text-org0f80b0c">
 <p>
 All the <i>dependencies</i> of a module has to be installed before the module can be loaded and configured.
 </p>
@@ -313,9 +313,9 @@ The installing aspect refers to actually have a copy of the code on a disk, so i
 </p>
 </div>
 </div>
-<div id="outline-container-org2bea016" class="outline-3">
-<h3 id="org2bea016">Loading</h3>
-<div class="outline-text-3" id="text-org2bea016">
+<div id="outline-container-org0fb85e4" class="outline-3">
+<h3 id="org0fb85e4">Loading</h3>
+<div class="outline-text-3" id="text-org0fb85e4">
 <p>
 The module has to be loaded <i>after</i> all its dependencies were loaded and properly configured, otherwise the results are random.
 </p>
@@ -325,9 +325,9 @@ There are at least two types of configuration - before the actual loading and af
 </p>
 </div>
 </div>
-<div id="outline-container-org6c0f826" class="outline-3">
-<h3 id="org6c0f826">Calling</h3>
-<div class="outline-text-3" id="text-org6c0f826">
+<div id="outline-container-orge1dcc0d" class="outline-3">
+<h3 id="orge1dcc0d">Calling</h3>
+<div class="outline-text-3" id="text-orge1dcc0d">
 <p>
 To call a misconfigured module will return an arbitrary or even random results.
 </p>
@@ -337,9 +337,9 @@ This bring us to the notion of an <i>implicit ordering</i> in your configuration
 </p>
 </div>
 </div>
-<div id="outline-container-org4a70c8f" class="outline-3">
-<h3 id="org4a70c8f">Ordering</h3>
-<div class="outline-text-3" id="text-org4a70c8f">
+<div id="outline-container-org4ad2488" class="outline-3">
+<h3 id="org4ad2488">Ordering</h3>
+<div class="outline-text-3" id="text-org4ad2488">
 <p>
 There are at least two implicit <i>dependency graphs</i> - <i>what calls what</i> (dependencies) and <i>what loads prior to what</i>.
 </p>
@@ -353,9 +353,9 @@ Every time it can be a different subtle problem.
 </p>
 </div>
 </div>
-<div id="outline-container-org9916269" class="outline-3">
-<h3 id="org9916269">&ldquo;Declarative&rdquo; configuration</h3>
-<div class="outline-text-3" id="text-org9916269">
+<div id="outline-container-org497e152" class="outline-3">
+<h3 id="org497e152">&ldquo;Declarative&rdquo; configuration</h3>
+<div class="outline-text-3" id="text-org497e152">
 <p>
 There is a fundamental problem with &ldquo;declarative&rdquo; - the notion of an <i>actual ordering</i> of events has been lost.
 </p>
@@ -411,9 +411,9 @@ pure-functional DSL with an interpreter and a corresondig graph-reduction &ldquo
 </div>
 </div>
 </div>
-<div id="outline-container-org31e2559" class="outline-2">
-<h2 id="org31e2559">Delegating</h2>
-<div class="outline-text-2" id="text-org31e2559">
+<div id="outline-container-org438cb39" class="outline-2">
+<h2 id="org438cb39">Delegating</h2>
+<div class="outline-text-2" id="text-org438cb39">
 <p>
 Yes, <i>delegation</i> to some well-maintained <i>package</i> or a set of <i>libraries</i> is how, at least in the theory/ we should try to manage complexity and all the irrelevant details.
 </p>
@@ -440,9 +440,9 @@ So we have to watch out.
 </div>
 </div>
 
-<div id="outline-container-org853b77e" class="outline-2">
-<h2 id="org853b77e">Google</h2>
-<div class="outline-text-2" id="text-org853b77e">
+<div id="outline-container-org7b29b27" class="outline-2">
+<h2 id="org7b29b27">Google</h2>
+<div class="outline-text-2" id="text-org7b29b27">
 <p>
 It is well-known that Google is, arguably, is the most advanced and sophisticated programming shop in the whole world.
 </p>
@@ -465,9 +465,9 @@ You can be absolutely sure, that Boeing or NASA have the same fundamental princi
 </div>
 </div>
 
-<div id="outline-container-org9d70900" class="outline-2">
-<h2 id="org9d70900">Select carefully</h2>
-<div class="outline-text-2" id="text-org9d70900">
+<div id="outline-container-org546f366" class="outline-2">
+<h2 id="org546f366">Select carefully</h2>
+<div class="outline-text-2" id="text-org546f366">
 <p>
 This is what I am trying to talk about. This guy has his <code>Neovim</code> configuration done from the ground up, without <i>copy-pasting</i> from others (while almost every config on github is just <i>copy-pasting</i>).
 </p>
@@ -493,8 +493,8 @@ The pioneers of our craft did <i>everything</i> this very way, and you can tell!
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-23 Sun 18:40</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-05-26 Fri 14:19</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

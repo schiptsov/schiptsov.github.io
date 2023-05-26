@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-19 Wed 10:07 -->
+<!-- 2023-05-26 Fri 14:20 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sum-Types</title>
@@ -237,7 +237,7 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -248,9 +248,9 @@ MathJax = {
 <header>
 <h1 class="title">Sum-Types</h1>
 </header>
-<div id="outline-container-org3d93186" class="outline-2">
-<h2 id="org3d93186">Disjoint sum (union)</h2>
-<div class="outline-text-2" id="text-org3d93186">
+<div id="outline-container-org5945d14" class="outline-2">
+<h2 id="org5945d14">Disjoint sum (union)</h2>
+<div class="outline-text-2" id="text-org5945d14">
 <p>
 We add up (put together) elements, not multiply them.
 </p>
@@ -263,36 +263,36 @@ Sums (and sum-types) are &ldquo;linear&rdquo;, while products are build &ldquo;d
 We use the symbol <code>|</code> to emphasize <i>partitioning of a disjoint union</i>.
 </p>
 </div>
-<div id="outline-container-orgcb25f28" class="outline-3">
-<h3 id="orgcb25f28">Rotation</h3>
-<div class="outline-text-3" id="text-orgcb25f28">
+<div id="outline-container-org1e8cc09" class="outline-3">
+<h3 id="org1e8cc09">Rotation</h3>
+<div class="outline-text-3" id="text-org1e8cc09">
 <p>
 commutative (same notion)
 \[(a \mid b) \cong (b \mid a)\]
 </p>
 </div>
 </div>
-<div id="outline-container-orga67d62a" class="outline-3">
-<h3 id="orga67d62a">Nested pairs</h3>
-<div class="outline-text-3" id="text-orga67d62a">
+<div id="outline-container-orgdba7905" class="outline-3">
+<h3 id="orgdba7905">Nested pairs</h3>
+<div class="outline-text-3" id="text-orgdba7905">
 <p>
 isomorphic
 \[((a \mid b) \mid c) \cong (a \mid (b \mid c))\]
 </p>
 </div>
 </div>
-<div id="outline-container-orga3de504" class="outline-3">
-<h3 id="orga3de504">Disjoint sum</h3>
-<div class="outline-text-3" id="text-orga3de504">
+<div id="outline-container-org8523b31" class="outline-3">
+<h3 id="org8523b31">Disjoint sum</h3>
+<div class="outline-text-3" id="text-org8523b31">
 <p>
 Think of it as adding up without <i>morphing into one</i>.
 \[a \mid b \cong a + b\]
 </p>
 </div>
 </div>
-<div id="outline-container-org6167954" class="outline-3">
-<h3 id="org6167954">Unit</h3>
-<div class="outline-text-3" id="text-org6167954">
+<div id="outline-container-org2d017d8" class="outline-3">
+<h3 id="org2d017d8">Unit</h3>
+<div class="outline-text-3" id="text-org2d017d8">
 <p>
 \(\emptyset\) as a <i>unit</i> - adding nothing change nothing.
 Logically it is an <i>uninhabited</i> type <code>Void</code> - there are no instances (or
@@ -302,9 +302,9 @@ values) of a void.
 </div>
 </div>
 </div>
-<div id="outline-container-org5bc9978" class="outline-2">
-<h2 id="org5bc9978">partitions</h2>
-<div class="outline-text-2" id="text-org5bc9978">
+<div id="outline-container-org6dd7f91" class="outline-2">
+<h2 id="org6dd7f91">partitions</h2>
+<div class="outline-text-2" id="text-org6dd7f91">
 <p>
 These are <i>type-level</i> notions, not an instance (value) level.
 </p>
@@ -336,9 +336,9 @@ an n-tuple, made out of <i>Conses</i>, which are nested Pairs.
 </p>
 </div>
 </div>
-<div id="outline-container-org58036c2" class="outline-2">
-<h2 id="org58036c2">Pattern-matching</h2>
-<div class="outline-text-2" id="text-org58036c2">
+<div id="outline-container-orgfaa8ac0" class="outline-2">
+<h2 id="orgfaa8ac0">Pattern-matching</h2>
+<div class="outline-text-2" id="text-orgfaa8ac0">
 <p>
 &ldquo;Universal&rdquo; (everywhere) <i>pattern-matching</i> on sum-types of the ML-family of
  languages is the most important innovation in programming languages.
@@ -358,8 +358,8 @@ Languages without universal pattern-matching are simply inferior.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-19 Wed 10:07</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-05-26 Fri 14:20</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

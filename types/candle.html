@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-18 Tue 22:51 -->
+<!-- 2023-05-26 Fri 14:18 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Candle</title>
@@ -237,7 +237,7 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -251,16 +251,16 @@ MathJax = {
 We are building the <i>simplest possible</i> mathematical model.
 </p>
 
-<div id="outline-container-org9f1c17b" class="outline-2">
-<h2 id="org9f1c17b">A vector from physics</h2>
-<div class="outline-text-2" id="text-org9f1c17b">
+<div id="outline-container-orga00e5ad" class="outline-2">
+<h2 id="orga00e5ad">A vector from physics</h2>
+<div class="outline-text-2" id="text-orga00e5ad">
 <p>
 <i>Intuitions</i> from physics:
 </p>
 </div>
-<div id="outline-container-orgf9d30ac" class="outline-3">
-<h3 id="orgf9d30ac">Force</h3>
-<div class="outline-text-3" id="text-orgf9d30ac">
+<div id="outline-container-org4ba5647" class="outline-3">
+<h3 id="org4ba5647">Force</h3>
+<div class="outline-text-3" id="text-org4ba5647">
 <p>
 An abstract vector is defined as a <i>direction</i> and a <i>magnitude</i>.
 </p>
@@ -270,17 +270,17 @@ In the simplest model there are just two directions - up and down.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb47a668" class="outline-3">
-<h3 id="orgb47a668">Momentum</h3>
-<div class="outline-text-3" id="text-orgb47a668">
+<div id="outline-container-org86dfd0f" class="outline-3">
+<h3 id="org86dfd0f">Momentum</h3>
+<div class="outline-text-3" id="text-org86dfd0f">
 <p>
 A momentum is defined as a <i>difference</i> between <i>two</i> adjacent <i>vectors</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org608d3a7" class="outline-3">
-<h3 id="org608d3a7">Derivative</h3>
-<div class="outline-text-3" id="text-org608d3a7">
+<div id="outline-container-org5d7cc8b" class="outline-3">
+<h3 id="org5d7cc8b">Derivative</h3>
+<div class="outline-text-3" id="text-org5d7cc8b">
 <p>
 In the simplest model the \(x\) -change is always \(1\) , so the derivative \(\frac{dy}{dx}\)
 is just the <i>difference</i> in the \(y\) coordinate.
@@ -288,9 +288,9 @@ is just the <i>difference</i> in the \(y\) coordinate.
 </div>
 </div>
 </div>
-<div id="outline-container-org63b3782" class="outline-2">
-<h2 id="org63b3782">A product-type</h2>
-<div class="outline-text-2" id="text-org63b3782">
+<div id="outline-container-org58e9ba1" class="outline-2">
+<h2 id="org58e9ba1">A product-type</h2>
+<div class="outline-text-2" id="text-org58e9ba1">
 <p>
 A <code>Candle</code> is by definition a <i>record</i>. Conceptually - a <i>Set of labeled
   slots</i>. Each particular value corresponds to a &ldquo;point&rdquo; or a &ldquo;vector&rdquo;.
@@ -313,9 +313,9 @@ Of course, one could refactor quickly and safely because it is an ADT.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd4b40cc" class="outline-2">
-<h2 id="orgd4b40cc">Parameterized by an interval</h2>
-<div class="outline-text-2" id="text-orgd4b40cc">
+<div id="outline-container-org1c77c6d" class="outline-2">
+<h2 id="org1c77c6d">Parameterized by an interval</h2>
+<div class="outline-text-2" id="text-org1c77c6d">
 <p>
 Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized by its
 <i>size</i> - an <i>interval</i> between two <i>timestamps</i>).
@@ -323,9 +323,9 @@ Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized 
 </p>
 </div>
 </div>
-<div id="outline-container-org31a8b0e" class="outline-2">
-<h2 id="org31a8b0e">Deriving Eq, Ord</h2>
-<div class="outline-text-2" id="text-org31a8b0e">
+<div id="outline-container-org6efb04b" class="outline-2">
+<h2 id="org6efb04b">Deriving Eq, Ord</h2>
+<div class="outline-text-2" id="text-org6efb04b">
 <p>
 It will have implicit ordering by <i>timestamps</i>.
 </p>
@@ -342,9 +342,9 @@ This implies <code>min</code> and <code>max</code>  can be used directly on the 
 </div>
 </div>
 
-<div id="outline-container-org95b8746" class="outline-2">
-<h2 id="org95b8746">A Semigroup</h2>
-<div class="outline-text-2" id="text-org95b8746">
+<div id="outline-container-org7b2e997" class="outline-2">
+<h2 id="org7b2e997">A Semigroup</h2>
+<div class="outline-text-2" id="text-org7b2e997">
 <p>
 WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </p>
@@ -355,18 +355,18 @@ WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </div>
 </div>
 </div>
-<div id="outline-container-org3a90b42" class="outline-2">
-<h2 id="org3a90b42">An abstract Empty Candle</h2>
-<div class="outline-text-2" id="text-org3a90b42">
+<div id="outline-container-org618be43" class="outline-2">
+<h2 id="org618be43">An abstract Empty Candle</h2>
+<div class="outline-text-2" id="text-org618be43">
 <p>
 Non-existent, abstract <i>identity element</i> \(e\) for the <i>merging</i> operation.
 \[e\bigoplus x = x = x \bigoplus e\]
 </p>
 </div>
 </div>
-<div id="outline-container-org6635253" class="outline-2">
-<h2 id="org6635253">A Monoid</h2>
-<div class="outline-text-2" id="text-org6635253">
+<div id="outline-container-org53ea123" class="outline-2">
+<h2 id="org53ea123">A Monoid</h2>
+<div class="outline-text-2" id="text-org53ea123">
 <p>
 With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>instance of a Monoid</i>.
 </p>
@@ -378,9 +378,9 @@ With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>in
 </div>
 </div>
 </div>
-<div id="outline-container-orgf3f9f52" class="outline-2">
-<h2 id="orgf3f9f52">Not an  Endofunctor</h2>
-<div class="outline-text-2" id="text-orgf3f9f52">
+<div id="outline-container-org367a0f4" class="outline-2">
+<h2 id="org367a0f4">Not an  Endofunctor</h2>
+<div class="outline-text-2" id="text-org367a0f4">
 <p>
 Any <i>product type</i> looks like an implicit, <i>trivial Endofunctor</i>, provided that a <i>function</i>
 being  mapped over it &ldquo;knows&rdquo; how <i>not to break data consistency</i>.
@@ -415,8 +415,8 @@ an <i>Algebraic Data Type</i> (a product), but not a <i>Functor</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-18 Tue 22:51</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-05-26 Fri 14:18</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

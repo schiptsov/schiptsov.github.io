@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-18 Tue 22:51 -->
+<!-- 2023-05-26 Fri 14:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Incremental Development</title>
@@ -236,7 +236,7 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -295,9 +295,9 @@ have figured it out and wrote down right (no type-errors and all tests
 passed) it becomes &ldquo;eternal&rdquo; - correct and valid.
 </p>
 
-<div id="outline-container-orgc12a21f" class="outline-2">
-<h2 id="orgc12a21f">Gregor Kiczales</h2>
-<div class="outline-text-2" id="text-orgc12a21f">
+<div id="outline-container-org2f4f473" class="outline-2">
+<h2 id="org2f4f473">Gregor Kiczales</h2>
+<div class="outline-text-2" id="text-org2f4f473">
 <p>
 Gregor Kiczales has a whole course about <i>Systematic Program Design</i> on
 youtube (based on his MOOC). Just watch it, even if it a bit too
@@ -309,9 +309,9 @@ Really, this is one of the best and highest quality courses out there.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbee07c0" class="outline-2">
-<h2 id="orgbee07c0">Write the type-signatures first</h2>
-<div class="outline-text-2" id="text-orgbee07c0">
+<div id="outline-container-orgb18eff6" class="outline-2">
+<h2 id="orgb18eff6">Write the type-signatures first</h2>
+<div class="outline-text-2" id="text-orgb18eff6">
 <p>
 It should be one&rsquo;s habit to write a prototype of the <i>module-signature</i>
 (<code>.mli</code> in Ocaml) first. You will at once &ldquo;see&rdquo; how <i>consistent</i> and uniform
@@ -324,9 +324,9 @@ structs and functors). They are absolutely brilliant. This is what Haskell lacks
 </p>
 </div>
 </div>
-<div id="outline-container-orgdf7156e" class="outline-2">
-<h2 id="orgdf7156e">Second step - write a test-case</h2>
-<div class="outline-text-2" id="text-orgdf7156e">
+<div id="outline-container-org387a98a" class="outline-2">
+<h2 id="org387a98a">Second step - write a test-case</h2>
+<div class="outline-text-2" id="text-org387a98a">
 <p>
 Write a failing test case <i>first</i> and <i>then</i> implement the function to make the
 test pass. This is the crucial pont of whole TTD approach.
@@ -345,9 +345,9 @@ If a function has already known <i>preconditions</i> write test-cases which
 </p>
 </div>
 </div>
-<div id="outline-container-org71ae9c0" class="outline-2">
-<h2 id="org71ae9c0">REPL</h2>
-<div class="outline-text-2" id="text-org71ae9c0">
+<div id="outline-container-orgca18e03" class="outline-2">
+<h2 id="orgca18e03">REPL</h2>
+<div class="outline-text-2" id="text-orgca18e03">
 <p>
 A REPL is the tools of experimentation and <i>rapid prototyping</i> due to
 instant feedback and real quick setup (because <i>pure functions share
@@ -360,9 +360,9 @@ In a REPL you <i>try</i> the things to feel the &ldquo;use-side&rdquo; (the call
 </p>
 </div>
 </div>
-<div id="outline-container-org5141bac" class="outline-2">
-<h2 id="org5141bac">Tests as crude pseudo-specs</h2>
-<div class="outline-text-2" id="text-org5141bac">
+<div id="outline-container-org5d01ee6" class="outline-2">
+<h2 id="org5d01ee6">Tests as crude pseudo-specs</h2>
+<div class="outline-text-2" id="text-org5d01ee6">
 <p>
 Writing down <i>specifications</i> for interfaces (for every exported function) is
 crucial, but instead of writing them in commentaries, write them in <i>unit
@@ -389,9 +389,9 @@ their presence <i>early</i>.
 </ul>
 </div>
 </div>
-<div id="outline-container-org75a2b94" class="outline-2">
-<h2 id="org75a2b94">Formal specification</h2>
-<div class="outline-text-2" id="text-org75a2b94">
+<div id="outline-container-org6159996" class="outline-2">
+<h2 id="org6159996">Formal specification</h2>
+<div class="outline-text-2" id="text-org6159996">
 <p>
 The critical functions can be fully specified and veryfied using
 advanced tools, like <code>TLA+</code>, <code>Coq</code> or <code>Agda</code>.
@@ -412,8 +412,8 @@ export it in Haskell (automatically) or any other functional language (manually)
 <div id="postamble" class="status">
 <p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-18 Tue 22:51</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-05-26 Fri 14:19</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>
