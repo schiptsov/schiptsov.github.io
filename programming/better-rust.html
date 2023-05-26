@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-26 Fri 14:22 -->
+<!-- 2023-05-26 Fri 14:20 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Models</title>
+<title>A better Rust</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
-<meta name="description" content="Abstract models as they are." />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -227,150 +226,241 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Models</h1>
+<h1 class="title">A better Rust</h1>
 </header><p>
-<i>All models are wrong (over-simplification, over-generalization) but some
-are useful.</i>
+Google released a nicely worded (clarity and briefness) course about the basics of Rust
 </p>
 
 <p>
-A model is a oversimplified, seemingly &ldquo;logical&rdquo; conceptual framework
-<i>superimposed by the minds of an observer</i> onto vastly complex aspects of
-reality, too overwhelming with details and <i>dynamic</i> multiple causation
-for the mind to deal with.
+<a href="https://google.github.io/comprehensive-rust/">https://google.github.io/comprehensive-rust/</a>
 </p>
 
 <p>
-A model is, at best, a useful (usable) <i>approximation</i> to make imperfect
-judgments.
+There, I think, is something to add:
 </p>
 
 <p>
-<i>Linear</i> models (a straight line), <i>averages</i>, weights (coefficients) and
-<i>weighted /sums</i> are the most obvious examples.
+Rust is slowly incorporating the proper, <i>emergent</i> modern features from the better classic languages.
 </p>
 
 <p>
-It is crucial to realize that even the simplest models <i>lose information</i>
-and therefore increase a &ldquo;distance&rdquo; from what actually is, so the more
-complex and more abstract the model is the more it is &ldquo;removed&rdquo; from
-actual reality.
+At a higher level Rust adds stricter type-discipline for <i>references</i>, and lifts <i>lifetimes</i> into the type system.
 </p>
 
 <p>
-Yes, &ldquo;zooming out&rdquo; and taking a &ldquo;bird-eye view&rdquo; is a very useful
-tactics, but one must realize that this &ldquo;bigger picture&rdquo; is a results of
-&ldquo;aggregated effects&rdquo;, and is different from what is.
+Aside from <code>&amp;str</code>, the grow-able &ldquo;Buffer&rdquo; types are just proper <i>ADTs</i>, which is exactly the right thing.
+</p>
+<div id="outline-container-orga680779" class="outline-2">
+<h2 id="orga680779">Type inference</h2>
+<div class="outline-text-2" id="text-orga680779">
+<p>
+There are some <i>new principles</i>, which emerged in classic languages with a type-inference.
 </p>
 
 <p>
-The universal examples are clouds, galaxies and other <i>processes</i> observed
-from a distance. When one zooms in inside the cloud (of a galaxy) it
-disappears. Individual water droplets have no idea (so to speak) that
-they are inside a cloud or <i>related</i> to others.
+Types are inferred from <i>literals</i> and from the <i>context</i> (of <i>operators</i> being used).
 </p>
 
 <p>
-In other words, an observer might have deduced (inferred) <i>relations</i> that
-are not there.
-</p>
-
-<p>
-However, most of simple models, when applied to the right environments
-and processes, capturing the <i>real (actual, non-imaginary, non-abstract)
-metrics</i> provide a useful insights.
-</p>
-
-<p>
-The most useful examples are averages and  &ldquo;trend lines&rdquo; of complex
-weather patterns, which show (visualize) <i>recurring patterns</i> and hint on
-the causality. Just annual temperature and rainfall averages describe
-approximate conditions of a location.
-</p>
-
-<p>
-Recurring patterns <i>re-emerge</i> (never identical, never exactly the same)
-from <i>apparent chaos</i> due to recurring causal <i>conditions</i>. This is the main
-lemma of the law of causality.
-</p>
-
-<p>
-Notice that fitting the lines or simple curves to the data is always
-wrong because lines and curves does not capture the actual multiple
-causality and that the causal factors are in a constant flux.
-</p>
-
-<p>
-The old factors lose its &ldquo;weights&rdquo;, while new ones emerge, new
-<i>combinations</i> (arrangements) form, the whole system constantly
-evolves, adapts and even &ldquo;learns&rdquo; (the simplest learning is memory of
-what to avoid).
-</p>
-
-<p>
-So, do not take models for reality (you will end up disillusioned and
-failed). Models are just useful mental tools, and only the simplest
-models &ldquo;works&rdquo;. Complexity of modeling produces <i>sophisticated bullshit</i>.
-</p>
-
-<div id="outline-container-org110019f" class="outline-2">
-<h2 id="org110019f">Lists</h2>
-<div class="outline-text-2" id="text-org110019f">
-<p>
-Just <i>listing</i> (writing down) things produces the simplest (but imperfect)
-model. This is, of course, related to the most general notion of a <i>Set</i>.
-</p>
-
-<p>
-One might end up with an incomplete list (or a Set) so the model will be
-inevitably flawed, but in some cases, when what is left out is
-insignificant or almost irrelevant, is will be useful (better than
-having none).
-</p>
-
-<p>
-Attaching &ldquo;weights&rdquo; to the elements, and ordering them (according to the
-weights or other factors) produce abstractions like <i>priority queues</i>.
-</p>
-</div>
-</div>
-<div id="outline-container-org2a330d3" class="outline-2">
-<h2 id="org2a330d3">Distances</h2>
-<div class="outline-text-2" id="text-org2a330d3">
-<p>
-Analyzing &ldquo;weights&rdquo; produce the simple (the ones which only work)
-stats, based on <i>distances</i> from the mean or an actual measure.
-</p>
-
-<p>
-Notice that the notion of a distance is at the very core of physical
-reality.
-</p>
-
-<p>
-Proper statistics just capture patterns, never create any abstract
-bullshit. At least this is how it ought to be.
+This means one should take a greater care of writing literals and omit the type annotation clutter.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org95478f2" class="outline-2">
-<h2 id="org95478f2">Disappearing mount trails</h2>
-<div class="outline-text-2" id="text-org95478f2">
+<div id="outline-container-org4267710" class="outline-2">
+<h2 id="org4267710">Immutable References</h2>
+<div class="outline-text-2" id="text-org4267710">
 <p>
-Just like mountain trails which begin wide and bold tend diminish and
-eventually disappear at the heights where is literally <i>nothing</i>, but
-stones and air (and snow), so are the abstract bullshit theories.
+These are explicit variants of <i>immutable bindings</i> in classic functional languages. Old binding become &ldquo;invisible&rdquo; (but still valid) with shadowing.
 </p>
 
 <p>
-The &ldquo;lines of thoughts&rdquo;, which began bold and definitive tends to
-disappear at a higher and higher levels of abtraction where <i>there is
-literally nothing</i>.
+<i>Automatic dereferencing</i> makes the code less cluttered. Use it <i>consistently</i> everywhere.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74adf2f" class="outline-2">
+<h2 id="org74adf2f">Bindings</h2>
+<div class="outline-text-2" id="text-org74adf2f">
+<p>
+Unlike the classic functional languages, Rust has <i>assignment</i>, which <i>conceptually</i> is similar to <i>moving a value to a new location</i>.
 </p>
 
 <p>
-This is not just a beautiful metaphor. This is how things are.
+This is exactly what the <code>mov</code> CPU instructions do <i>semantically</i>.
+</p>
+
+<p>
+In Rust, however, the &ldquo;data&rdquo; (in memory) is <i>reused</i> as with <i>aliasing</i>, but the &ldquo;source&rdquo; becomes unaccessible (gets invalidated).
+</p>
+
+<p>
+In Rust there is always exactly one &ldquo;localtion&rdquo; (and a corresponding variable) for every value &#x2013; no aliasing bugs.
+</p>
+
+<p>
+Conceptually, a variable (location in memory) &ldquo;owns&rdquo; a value, and the compiler enforces the ownership rules.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge0a1739" class="outline-2">
+<h2 id="orge0a1739">Ownership</h2>
+<div class="outline-text-2" id="text-orge0a1739">
+<p>
+Every value is &ldquo;owned&rdquo; by exactly one vaeiable and is moved from one to another with an <i>assignemrny</i>.
+</p>
+
+<p>
+The type-system knows (and checks) &ldquo;who owns what&rdquo; (every value), abd for <i>how long</i> (lifetimes).
+</p>
+
+<p>
+The concept of an ownership is about <i>when</i> and <i>where</i> (by whom) deallocation will be performed.
+</p>
+
+<p>
+The notion of a <i>borrowing</i> (and moving) are about the <i>retaining</i> (or changing) of the &ldquo;ownership&rdquo;.
+</p>
+
+<p>
+The main principle is that a values becomes unaccessible once it &ldquo;mut-borrowed&rdquo; or &ldquo;moved&rdquo;  (a compile-time error).
+</p>
+
+<p>
+This is so-called &ldquo;resource safety&rdquo; - cannot access what one does not own <i>anymore</i> (gave it up).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org873a209" class="outline-2">
+<h2 id="org873a209">Borrowing</h2>
+<div class="outline-text-2" id="text-org873a209">
+<p>
+This is a <i>meme-word</i> for using <i>references</i> (both immutable and mutable).
+</p>
+
+<p>
+The ownership is being retained by the &ldquo;current owner&rdquo; or &ldquo;caller&rdquo; of a function which takes references.
+</p>
+
+<p>
+The point is that the actual values will be &ldquo;dropped&rdquo; at the end of the &ldquo;owner&rdquo; scope, and the references will become invalidated <i>then and there</i>.
+</p>
+
+<p>
+For function calls, however, references will never outlive the returns.
+</p>
+
+<p>
+Explicit taking of references with the <code>&amp;</code> operator will be tracked at the type-system level.
+</p>
+
+<p>
+The compiler imposes additional discipline by tracking all the referenes and their <i>lifetimes</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf09c392" class="outline-2">
+<h2 id="orgf09c392">Mutable references</h2>
+<div class="outline-text-2" id="text-orgf09c392">
+<p>
+At every moment in time (it is still an imperative language) there guaranteed (by static typing) to me <i>at most one mutable reference</i> to the data.
+</p>
+
+<p>
+OR any number of <i>immutable</i> references (which must never outlive the &ldquo;owner&rdquo; of a referenced value).
+</p>
+
+<p>
+When a mutable reference is being taken, all other references becomes <i>invalidated</i> by the compiler.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgde40693" class="outline-2">
+<h2 id="orgde40693">Lifetimes</h2>
+<div class="outline-text-2" id="text-orgde40693">
+<p>
+Rust tracks <i>ligetimes</i> of all values and references. This prevents &ldquo;use after free&rdquo; and &ldquo;dangling references&rdquo; at the type-system level.
+</p>
+
+<p>
+The compiler checks the <i>scoping rules</i> (for the current &ldquo;owner&rdquo;), so there will be no &ldquo;dangling references&rdquo;.
+</p>
+
+<p>
+It insures that there is <i>at most one mutable reference</i> at a time.
+</p>
+
+<p>
+It allows to <i>annotate lifetimes</i> of a value and its references (<i>to be the same</i>).
+</p>
+</div>
+</div>
+<div id="outline-container-orgd842a3f" class="outline-2">
+<h2 id="orgd842a3f">The Move Semantics by default</h2>
+<div class="outline-text-2" id="text-orgd842a3f">
+<p>
+Again, just like <code>mov</code> CPU instruction, values conceptually &ldquo;move&rdquo; with an assignment (<i>as if</i> to a new memory location - into a new variable).
+</p>
+
+<p>
+This is a necessary <i>imperative</i> notion. In fact only the <i>metadata</i> (pointer, len, capacity) gets updated, which is borrowed from the FP world.
+</p>
+
+<p>
+The &ldquo;source&rdquo; (of an assignemnt operator) becomes &ldquo;empty&rdquo;, and the &ldquo;target&rdquo; variable becomes the &ldquo;binding&rdquo;, and the <i>data is reused</i>, not copied.
+</p>
+
+<p>
+So, the assignment operator <i>moves</i> (conceptually &#x2013; rebinds) the value, not copies it, and the source becomes invalidated (the <i>transfer of ownership</i> thus occurred).
+</p>
+
+<p>
+Copy and Clone <i>traits</i> has to be explicitly <i>implemented</i> (good!). Scalars are just copied.
+</p>
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1; font-weight: bold;">#</span><span style="color: #81A1C1; font-weight: bold;">[</span><span style="color: #81A1C1; font-weight: bold;">derive</span><span style="color: #B48EAD; font-weight: bold;">(</span><span style="color: #81A1C1; font-weight: bold;">Copy, Clone, Debug</span><span style="color: #B48EAD; font-weight: bold;">)</span><span style="color: #81A1C1; font-weight: bold;">]</span>
+</pre>
+</div>
+<p>
+is really cool.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb6f5f33" class="outline-2">
+<h2 id="orgb6f5f33">Methods</h2>
+<div class="outline-text-2" id="text-orgb6f5f33">
+<p>
+This is the modularity aspect, when a value &ldquo;carries all its methods with it&rdquo;. According to <i>Joe Armstrong</i>, this is just a fundamentally wrong notion, but it seems OK as long as it just a syntactic sugar for calling a function with an implicit zrtoth argument (the self).
+</p>
+
+<p>
+Semantically, this is equivalent to a <i>proper ADT</i> with an implicit first parameter (self).
+</p>
+
+<p>
+This is what the early <code>C++</code> did with <i>structs</i> back then. This was a real <i>syntactic</i> innovation.
+</p>
+
+<p>
+Nowadays Rust generalizes this to most <i>user-defined</i> &ldquo;compound&rdquo; types via an <code>impl</code> block, which is an implicit <i>nested sub-mofule</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8364b47" class="outline-2">
+<h2 id="org8364b47">Traits</h2>
+<div class="outline-text-2" id="text-org8364b47">
+<p>
+Similar to <i>type-classes</i> &#x2013; a <i>composition</i> (a <i>product</i> of methods) instead of <i>inheritance</i> (a set-subset operation).
+</p>
+
+<p>
+Again, this is the right thing to do (not everything in the Universe breaks into peoper <i>non-overlapping nested categories</i>).
 </p>
 </div>
 </div>
@@ -378,7 +468,7 @@ This is not just a beautiful metaphor. This is how things are.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-26 Fri 14:22</p>
+<p class="date">Created: 2023-05-26 Fri 14:20</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
