@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-04-19 Wed 10:07 -->
+<!-- 2023-05-26 Fri 14:22 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algebraic abstractions</title>
@@ -237,7 +237,7 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -262,9 +262,9 @@ required set of type-signatures (an interface)</i> for all values in a <code>Set
 (and respects <i>corresponding laws</i> stated formally elsewhere).
 </p>
 
-<div id="outline-container-orgd4b4063" class="outline-2">
-<h2 id="orgd4b4063">Closure</h2>
-<div class="outline-text-2" id="text-orgd4b4063">
+<div id="outline-container-orgb7657be" class="outline-2">
+<h2 id="orgb7657be">Closure</h2>
+<div class="outline-text-2" id="text-orgb7657be">
 <p>
 \((S, \bigoplus)\), a Set <code>S</code> is <i>closed under an operation</i> \(\bigoplus\) <i>iff</i>
 \[\forall a, b \in S, a \bigoplus b \in S\]
@@ -282,9 +282,9 @@ Associativity is not required.
 </p>
 </div>
 </div>
-<div id="outline-container-org17a36da" class="outline-2">
-<h2 id="org17a36da">Semigroup</h2>
-<div class="outline-text-2" id="text-org17a36da">
+<div id="outline-container-org0b76124" class="outline-2">
+<h2 id="org0b76124">Semigroup</h2>
+<div class="outline-text-2" id="text-org0b76124">
 <p>
 \((S, \bigoplus)\), an <i>associative binary operation</i> \(\bigoplus\) with a <i>Closure</i> property. Closure is implicit and &ldquo;natural&rdquo; due to <i>multiple applications of the same operator</i>, such that
 \[\forall a, b, c \in S, (a \bigoplus b) \bigoplus c = a \bigoplus (b \bigoplus c)\]
@@ -302,9 +302,9 @@ An <i>order-independent</i> (in a chain) operation.
 </div>
 </div>
 
-<div id="outline-container-org1e7b1f1" class="outline-2">
-<h2 id="org1e7b1f1">Monoid</h2>
-<div class="outline-text-2" id="text-org1e7b1f1">
+<div id="outline-container-org8de4b9d" class="outline-2">
+<h2 id="org8de4b9d">Monoid</h2>
+<div class="outline-text-2" id="text-org8de4b9d">
 <p>
 \((S, \bigoplus, e)\), an <i>associative operation</i> which has an <i>identity element</i> <code>e</code> (value). Implicit <i>closure</i> or required by already being a Semigroup.
 \[x \bigoplus e = x = e \bigoplus x\]
@@ -325,9 +325,9 @@ An <i>identity-preserving</i> operation.
 </div>
 </div>
 
-<div id="outline-container-org2fe7471" class="outline-2">
-<h2 id="org2fe7471">Functor</h2>
-<div class="outline-text-2" id="text-org2fe7471">
+<div id="outline-container-orgf7c83c2" class="outline-2">
+<h2 id="orgf7c83c2">Functor</h2>
+<div class="outline-text-2" id="text-orgf7c83c2">
 <p>
 A homomorphism (of the same form). Just like a Closure, but for &ldquo;shapes&rdquo; (forms).
 </p>
@@ -355,9 +355,9 @@ Can be an <i>Endofunctor</i> - a <i>same-category</i> operation.
 </div>
 </div>
 
-<div id="outline-container-org43e2f77" class="outline-2">
-<h2 id="org43e2f77">Distributive</h2>
-<div class="outline-text-2" id="text-org43e2f77">
+<div id="outline-container-orgaab2dcb" class="outline-2">
+<h2 id="orgaab2dcb">Distributive</h2>
+<div class="outline-text-2" id="text-orgaab2dcb">
 <p>
 \(\bigotimes\) on \(S\) <i>distributes over</i> \(+\) on \(S\) if and only if
  \[\forall a, b, c \in S, a \bigotimes (b + c) = (a \bigotimes b) + (a
@@ -371,13 +371,13 @@ This is a property of a <i>pair of operations</i> \((S, (\bigotimes, \bigoplus))
 </div>
 </div>
 
-<div id="outline-container-org65f5f6a" class="outline-2">
-<h2 id="org65f5f6a">Instances</h2>
-<div class="outline-text-2" id="text-org65f5f6a">
+<div id="outline-container-org2ccfa4d" class="outline-2">
+<h2 id="org2ccfa4d">Instances</h2>
+<div class="outline-text-2" id="text-org2ccfa4d">
 </div>
-<div id="outline-container-org762b937" class="outline-3">
-<h3 id="org762b937">Tuples</h3>
-<div class="outline-text-3" id="text-org762b937">
+<div id="outline-container-orgcaa1562" class="outline-3">
+<h3 id="orgcaa1562">Tuples</h3>
+<div class="outline-text-3" id="text-orgcaa1562">
 <p>
 Distributive law (over a structure)
 </p>
@@ -423,9 +423,9 @@ An applicative is always a mess. Values merge with <code>(&lt;&gt;)</code> and a
 </div>
 </div>
 </div>
-<div id="outline-container-org4244d83" class="outline-3">
-<h3 id="org4244d83">Functions</h3>
-<div class="outline-text-3" id="text-org4244d83">
+<div id="outline-container-orge146b8e" class="outline-3">
+<h3 id="orge146b8e">Functions</h3>
+<div class="outline-text-3" id="text-orge146b8e">
 <p>
 A function is viewed as a &ldquo;container&rdquo; for its result.
 </p>
@@ -436,9 +436,9 @@ A function is viewed as a &ldquo;container&rdquo; for its result.
 </div>
 </div>
 </div>
-<div id="outline-container-org6f606d2" class="outline-3">
-<h3 id="org6f606d2">Maybe</h3>
-<div class="outline-text-3" id="text-org6f606d2">
+<div id="outline-container-orgc145290" class="outline-3">
+<h3 id="orgc145290">Maybe</h3>
+<div class="outline-text-3" id="text-orgc145290">
 <p>
 Distributive law (over a structure)
 </p>
@@ -472,9 +472,9 @@ It is not a recursive structure.
 </p>
 </div>
 </div>
-<div id="outline-container-org7328342" class="outline-3">
-<h3 id="org7328342">Lists</h3>
-<div class="outline-text-3" id="text-org7328342">
+<div id="outline-container-org9ab85e5" class="outline-3">
+<h3 id="org9ab85e5">Lists</h3>
+<div class="outline-text-3" id="text-org9ab85e5">
 <p>
 Concatenation is, indeed, associative, and the <i>empty list</i> is an
 orthogonal to it.
@@ -501,8 +501,8 @@ With <code>[]</code> it will form a <i>Monoid</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-04-19 Wed 10:07</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.90 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-05-26 Fri 14:22</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>
