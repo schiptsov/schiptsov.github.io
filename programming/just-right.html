@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-26 Fri 14:20 -->
+<!-- 2023-05-27 Sat 16:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Just right.</title>
@@ -315,11 +315,38 @@ Haskell is <i>way ahead</i> of everything (Erlang, Ocaml, etc) in doing things <
 </p>
 
 <p>
-The core language of the Coq proof assistant is a another example of principle-guided and a <i>minimal</i> language.
+The core language of the <i>Coq</i> proof assistant is a another example of
+principle-guided and a <i>minimal</i> language. It supports <i>Algebraic types</i> (but not
+GADTs) and <i>Inductive (recursive) types</i> and <i>Type-classes</i>, so literally <i>everything</i>
+(from Booleans and Naturals) can be defined &ldquo;as a library&rdquo;.
 </p>
 
 <p>
-Go added just right (based on decades of research) concurrency primitives to a procedural imperative language.
+<i>Agda</i> has similar features - almost everything in its <i>stdlib</i> is defined in terms
+of a minimal language.
+</p>
+
+<p>
+This proves (by example) that the required <i>foundation</i> (for all programming) is indeed tiny,
+complementary and the <i>necessary and sufficient</i> features are almost orthogonal to
+each other &#x2013; heavily syntactically sugared and much better typed <i>Lambda Calculus</i>.
+</p>
+
+<p>
+Types are not merely <i>Sets of Values defined in terms of a Set of Possible Operations</i>
+(this is the key point), they have been generalized to become <i>Sets of
+required Interfaces</i> (which add constraints  and <i>select subsets</i> of values), with
+implicit <i>union</i> and <i>intersection</i> operations (of other Sets of required Interfaces).
+</p>
+
+<p>
+Modern type-system can thus be thought off as just Sets of Constraints (required
+interfaces). The Duck-typing is a <i>universal</i> notion.
+</p>
+
+<p>
+In the imperative realm, <i>Go</i> added just right (based on decades of research)
+concurrency primitives to a procedural <i>non-OO</i> language.
 </p>
 
 <p>
@@ -341,7 +368,7 @@ The next decent language is, unironically, Rust (procedural and, unfortunately, 
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-26 Fri 14:20</p>
+<p class="date">Created: 2023-05-27 Sat 16:39</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
