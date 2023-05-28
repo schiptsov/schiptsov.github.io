@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-27 Sat 16:39 -->
+<!-- 2023-05-28 Sun 18:31 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Just right.</title>
@@ -272,11 +272,38 @@ This, of course. how ve define Natural and other kinds of Numbers.</li>
 <ul class="org-ul">
 <li><i>universal pattern-matching</i> (on data-constructors) <i>naturally emerged</i> out of it.</li>
 </ul></li>
-<li>hierarchical, layered strucure, common for all spoken <i>human languages</i>.
+<li>hierarchical, layered structure, common for all spoken <i>human languages</i>.
 <ul class="org-ul">
 <li>this is, of course, the Nesting, which is <i>truly universal</i>.</li>
 </ul></li>
 </ul>
+
+<p>
+Notice that proper ADTs (as in B. Liskov), <i>Algebraic Data Types</i>, Inductive Types
+and Type-classes (as in P. Wadler) are enough for everything (Ocaml&rsquo;s modules
+are extension of proper ADTs).
+</p>
+
+<ul class="org-ul">
+<li>every type must be a proper (non-leaking) ADT in the first place.</li>
+<li>it has to reside in its own module with &ldquo;export controls&rdquo;</li>
+<li>Ocaml modules got it exactly right. Haskell and Scala should implement them.</li>
+</ul>
+
+<p>
+At the &ldquo;algebra level&rdquo;
+</p>
+<ul class="org-ul">
+<li>every structured value can be defined as a <i>Product Type</i></li>
+<li>every variant is a <i>Sum Type</i></li>
+<li>every function is an <i>Exponent Type</i></li>
+<li><i>nesting</i> at all levels is required, so</li>
+<li><i>Product-of-Sums</i> and <i>Sum-of-Products</i> capture <i>everything</i></li>
+</ul>
+
+<p>
+Coq and Agda are minimal languages, with all core types defined in standard libraries.
+</p>
 
 <p>
 In short, OO was a mistake, especially <i>non-uniform OO</i> as in Java and C++. The main flaw is the <i>state</i>.
@@ -368,7 +395,7 @@ The next decent language is, unironically, Rust (procedural and, unfortunately, 
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-27 Sat 16:39</p>
+<p class="date">Created: 2023-05-28 Sun 18:31</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
