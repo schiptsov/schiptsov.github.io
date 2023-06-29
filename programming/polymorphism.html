@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-26 Fri 14:19 -->
+<!-- 2023-06-29 Thu 17:11 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Polymorphism</title>
@@ -248,16 +248,16 @@ MathJax = {
 <header>
 <h1 class="title">Polymorphism</h1>
 </header>
-<div id="outline-container-org68bd7a4" class="outline-2">
-<h2 id="org68bd7a4">ad-hoc</h2>
-<div class="outline-text-2" id="text-org68bd7a4">
+<div id="outline-container-org993f188" class="outline-2">
+<h2 id="org993f188">ad-hoc</h2>
+<div class="outline-text-2" id="text-org993f188">
 <p>
 This means syntactic level tricks, no support at type-level.
 </p>
 </div>
-<div id="outline-container-orgf46bf1d" class="outline-3">
-<h3 id="orgf46bf1d">Operator overloading</h3>
-<div class="outline-text-3" id="text-orgf46bf1d">
+<div id="outline-container-orge13ab57" class="outline-3">
+<h3 id="orge13ab57">Operator overloading</h3>
+<div class="outline-text-3" id="text-orge13ab57">
 <ul class="org-ul">
 <li>Syntactic sugar, as if a function is generic (desugars into
 specialized mono-typed by a compiler)</li>
@@ -265,9 +265,9 @@ specialized mono-typed by a compiler)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org240fa77" class="outline-3">
-<h3 id="org240fa77">Implicit coercions</h3>
-<div class="outline-text-3" id="text-org240fa77">
+<div id="outline-container-org447f9c6" class="outline-3">
+<h3 id="org447f9c6">Implicit coercions</h3>
+<div class="outline-text-3" id="text-org447f9c6">
 <ul class="org-ul">
 <li>coercion syscalls inserted by a compiler (a kludge)</li>
 </ul>
@@ -275,16 +275,16 @@ specialized mono-typed by a compiler)</li>
 </div>
 </div>
 
-<div id="outline-container-orgdcfa339" class="outline-2">
-<h2 id="orgdcfa339">Universal</h2>
-<div class="outline-text-2" id="text-orgdcfa339">
+<div id="outline-container-org962f08c" class="outline-2">
+<h2 id="org962f08c">Universal</h2>
+<div class="outline-text-2" id="text-org962f08c">
 <p>
 A polymorphic type-system (such as the Hidley-Milner).
 </p>
 </div>
-<div id="outline-container-orgbd915ce" class="outline-3">
-<h3 id="orgbd915ce">Parametric</h3>
-<div class="outline-text-3" id="text-orgbd915ce">
+<div id="outline-container-org1fec6e9" class="outline-3">
+<h3 id="org1fec6e9">Parametric</h3>
+<div class="outline-text-3" id="text-org1fec6e9">
 <p>
 Parameterized type-constructors (type-level application)
 </p>
@@ -294,9 +294,9 @@ Parameterized type-constructors (type-level application)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbbb5431" class="outline-3">
-<h3 id="orgbbb5431">Sub-typing</h3>
-<div class="outline-text-3" id="text-orgbbb5431">
+<div id="outline-container-org87e7828" class="outline-3">
+<h3 id="org87e7828">Sub-typing</h3>
+<div class="outline-text-3" id="text-org87e7828">
 <p>
 An actual <i>type-hierarchy</i> from general to specific (specialization)
 </p>
@@ -306,9 +306,9 @@ An actual <i>type-hierarchy</i> from general to specific (specialization)
 </ul>
 </div>
 </div>
-<div id="outline-container-orge8772d2" class="outline-3">
-<h3 id="orge8772d2">Type-classes</h3>
-<div class="outline-text-3" id="text-orge8772d2">
+<div id="outline-container-orgd05f28f" class="outline-3">
+<h3 id="orgd05f28f">Type-classes</h3>
+<div class="outline-text-3" id="text-orgd05f28f">
 <p>
 An extension of a Hindley-Milner sytem - partitioning by an interface (a <i>set of type-signatures</i>)
 </p>
@@ -320,9 +320,9 @@ An extension of a Hindley-Milner sytem - partitioning by an interface (a <i>set 
 </div>
 </div>
 
-<div id="outline-container-orgb895031" class="outline-2">
-<h2 id="orgb895031">forall</h2>
-<div class="outline-text-2" id="text-orgb895031">
+<div id="outline-container-org8813825" class="outline-2">
+<h2 id="org8813825">forall</h2>
+<div class="outline-text-2" id="text-org8813825">
 <p>
 It turns out that one <i>cannot</i> just say \(\forall x\) - this would imply everything
 what is in the whole Universe and lead to the <i>Russel paradox</i>.
@@ -384,9 +384,9 @@ We can explicitly <i>declare</i> a type-variable (Ocaml does not have type-class
 </div>
 </div>
 
-<div id="outline-container-org47ce20d" class="outline-2">
-<h2 id="org47ce20d">exists</h2>
-<div class="outline-text-2" id="text-org47ce20d">
+<div id="outline-container-orgcf67f4c" class="outline-2">
+<h2 id="orgcf67f4c">exists</h2>
+<div class="outline-text-2" id="text-orgcf67f4c">
 <p>
 The \(\exists\) quantifier corresponds to the notion that <i>there is</i> a <i>most
 general type</i> (a super-type) like <code>Object</code>.
@@ -397,8 +397,8 @@ general type</i> (a super-type) like <code>Object</code>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-26 Fri 14:19</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-06-29 Thu 17:11</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

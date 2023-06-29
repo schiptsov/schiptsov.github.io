@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-26 Fri 14:18 -->
+<!-- 2023-06-29 Thu 17:11 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A high-level overview.</title>
@@ -236,9 +236,9 @@ right understanding of underlying concepts and APIs.
 <p>
 Everything stinks.
 </p>
-<div id="outline-container-orgff394be" class="outline-2">
-<h2 id="orgff394be">TL;DR</h2>
-<div class="outline-text-2" id="text-orgff394be">
+<div id="outline-container-orgd64e46c" class="outline-2">
+<h2 id="orgd64e46c">TL;DR</h2>
+<div class="outline-text-2" id="text-orgd64e46c">
 <p>
 <i>Webshit interfaces</i> or <i>browser extensions</i> (<code>Metamask</code>) use <code>web3.js</code>, which
 <i>JSON-RPC-es</i> a <i>node</i> (<code>geth</code>), which &ldquo;talks to the network&rdquo; (by implementing the
@@ -264,9 +264,9 @@ The point of using <i>Python</i> is availability of a whole ecosystem of high-qu
 </div>
 </div>
 
-<div id="outline-container-orgd05828b" class="outline-2">
-<h2 id="orgd05828b">The current status</h2>
-<div class="outline-text-2" id="text-orgd05828b">
+<div id="outline-container-org8c03257" class="outline-2">
+<h2 id="org8c03257">The current status</h2>
+<div class="outline-text-2" id="text-org8c03257">
 <p>
 The ecosystem is already &ldquo;too big to fail&rdquo; (or &ldquo;have crossed the threshold of
 immortality&rdquo;), and just like PHP or Java will &ldquo;stagnate forever&rdquo;.
@@ -309,9 +309,9 @@ what not), ETH will be there too for a long, long time.
 </p>
 </div>
 </div>
-<div id="outline-container-org6b55ce3" class="outline-2">
-<h2 id="org6b55ce3">PHP all over again</h2>
-<div class="outline-text-2" id="text-org6b55ce3">
+<div id="outline-container-orgfa50366" class="outline-2">
+<h2 id="orgfa50366">PHP all over again</h2>
+<div class="outline-text-2" id="text-orgfa50366">
 <p>
 The history not repeats itself but spirals to a new level.
 </p>
@@ -388,9 +388,9 @@ And, of course, the worst possible kind of <code>JSON</code> everywhere.
 </p>
 </div>
 </div>
-<div id="outline-container-orge4b2481" class="outline-2">
-<h2 id="orge4b2481">Concepts</h2>
-<div class="outline-text-2" id="text-orge4b2481">
+<div id="outline-container-org208057a" class="outline-2">
+<h2 id="org208057a">Concepts</h2>
+<div class="outline-text-2" id="text-org208057a">
 <p>
 It could have been as clean and well-researched as <code>Erlang</code>, but these
 &ldquo;architects&rdquo; and &ldquo;developers&rdquo; never read a single book on the subject in their
@@ -402,9 +402,9 @@ Anyway, we have to extract <i>actual</i> (and useful for us) high-level concepts
 hiding all the ugly details and inconsistencies within.
 </p>
 </div>
-<div id="outline-container-orgbda8d36" class="outline-3">
-<h3 id="orgbda8d36">Contract</h3>
-<div class="outline-text-3" id="text-orgbda8d36">
+<div id="outline-container-org286c8d5" class="outline-3">
+<h3 id="org286c8d5">Contract</h3>
+<div class="outline-text-3" id="text-org286c8d5">
 <p>
 A contract in the sense of Solidity is a <i>code</i> (its procedures) and data (the state variables) that resides <i>at a specific address</i> on the Ethereum blockchain.
 </p>
@@ -451,9 +451,9 @@ meme multi-millionaire, and I am a literal <i>nobody</i>.
 </div>
 </div>
 
-<div id="outline-container-org90b7f01" class="outline-3">
-<h3 id="org90b7f01">Node</h3>
-<div class="outline-text-3" id="text-org90b7f01">
+<div id="outline-container-orgf09b40a" class="outline-3">
+<h3 id="orgf09b40a">Node</h3>
+<div class="outline-text-3" id="text-orgf09b40a">
 <p>
 Just like an <code>Erlang</code> node, but you know. These are imperative processes, which
 manage its stateful storage.
@@ -470,9 +470,9 @@ turn, &ldquo;talks to the network&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-org06a4909" class="outline-3">
-<h3 id="org06a4909">EVM</h3>
-<div class="outline-text-3" id="text-org06a4909">
+<div id="outline-container-orgb2cd93c" class="outline-3">
+<h3 id="orgb2cd93c">EVM</h3>
+<div class="outline-text-3" id="text-orgb2cd93c">
 <p>
 Sort of JVM, you know, but &ldquo;designed&rdquo; by literal degens. It is supposed to be
 <i>isolated</i> (totally sandboxed) but in fact it rely on the stateful storage.
@@ -492,9 +492,9 @@ Our primary concern is how to <i>call</i> the contract code correctly and safely
 </p>
 </div>
 </div>
-<div id="outline-container-orged9be7d" class="outline-3">
-<h3 id="orged9be7d">Addresses</h3>
-<div class="outline-text-3" id="text-orged9be7d">
+<div id="outline-container-org1e7637d" class="outline-3">
+<h3 id="org1e7637d">Addresses</h3>
+<div class="outline-text-3" id="text-org1e7637d">
 <p>
 Conceptually, Ethereum addresses are just like <code>Erlang</code> &ldquo;names&rdquo;, and the code must be pure with carefully designed primitives, just understand and follow the best practices of developing robust distributed systems.
 </p>
@@ -504,17 +504,17 @@ An address is a particular <i>cryptographic hash</i> of something unique.
 </p>
 </div>
 </div>
-<div id="outline-container-org5ebc8f7" class="outline-3">
-<h3 id="org5ebc8f7">Account</h3>
-<div class="outline-text-3" id="text-org5ebc8f7">
+<div id="outline-container-org040c546" class="outline-3">
+<h3 id="org040c546">Account</h3>
+<div class="outline-text-3" id="text-org040c546">
 <p>
 This is a wrapper around the unique <i>private key</i>, which is just a big prime.
 </p>
 </div>
 </div>
-<div id="outline-container-org0137491" class="outline-3">
-<h3 id="org0137491">Private Key</h3>
-<div class="outline-text-3" id="text-org0137491">
+<div id="outline-container-org75d2820" class="outline-3">
+<h3 id="org75d2820">Private Key</h3>
+<div class="outline-text-3" id="text-org75d2820">
 <p>
 Conceptually, everything rely on the well-understood <i>key-pairs</i> cryptography,
 which, in turns, rely on a pair of a huge <i>prime numbers</i>. This is OK, if we do
@@ -523,9 +523,9 @@ not look at the implementation details.
 </div>
 </div>
 
-<div id="outline-container-org84845e0" class="outline-3">
-<h3 id="org84845e0">Identities</h3>
-<div class="outline-text-3" id="text-org84845e0">
+<div id="outline-container-org4aa0d5b" class="outline-3">
+<h3 id="org4aa0d5b">Identities</h3>
+<div class="outline-text-3" id="text-org4aa0d5b">
 <p>
 From this we get <i>cryptographic hashes</i> as unique <i>identities</i> of various
 components. This is also OK.
@@ -533,9 +533,9 @@ components. This is also OK.
 </div>
 </div>
 
-<div id="outline-container-org6229680" class="outline-3">
-<h3 id="org6229680">Transactions</h3>
-<div class="outline-text-3" id="text-org6229680">
+<div id="outline-container-org9a02bbf" class="outline-3">
+<h3 id="org9a02bbf">Transactions</h3>
+<div class="outline-text-3" id="text-org9a02bbf">
 <p>
 This is a broadcasted &ldquo;message&rdquo;, which contain &ldquo;source&rdquo; (From:) and
 &ldquo;destination&rdquo; (To:) <i>addresses</i> and the optional &ldquo;amount&rdquo; and &ldquo;data&rdquo; fields.
@@ -552,9 +552,9 @@ When calling a contract the &ldquo;amount&rdquo; field can be used too, but it i
 </div>
 </div>
 
-<div id="outline-container-org25a07a9" class="outline-3">
-<h3 id="org25a07a9">Messages</h3>
-<div class="outline-text-3" id="text-org25a07a9">
+<div id="outline-container-org011ccfa" class="outline-3">
+<h3 id="org011ccfa">Messages</h3>
+<div class="outline-text-3" id="text-org011ccfa">
 <p>
 There are &ldquo;internal transactions&rdquo;, <i>initiated by a contract</i>, which are called
 messages.
@@ -568,9 +568,9 @@ message has to be some kind of a <i>transaction</i>.
 </div>
 </div>
 
-<div id="outline-container-orgb8f05ef" class="outline-2">
-<h2 id="orgb8f05ef">So, now what?</h2>
-<div class="outline-text-2" id="text-orgb8f05ef">
+<div id="outline-container-org1747e33" class="outline-2">
+<h2 id="org1747e33">So, now what?</h2>
+<div class="outline-text-2" id="text-org1747e33">
 <p>
 For last 10 years they have managed to put <i>ad-hook</i> fixes and make it usable. So, by just using current solutions (<code>geth</code> and <code>solc</code>) very carefully one can use the ecosystem for some simple tasks.
 </p>
@@ -584,8 +584,8 @@ The obvious ones are to collect transaction fees, just like Uniswap did.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-26 Fri 14:18</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-06-29 Thu 17:11</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

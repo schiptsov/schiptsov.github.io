@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-26 Fri 14:20 -->
+<!-- 2023-06-29 Thu 17:11 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming Languages</title>
@@ -258,9 +258,9 @@ research, which basically boils down to what Ocaml is.
 There are 7 major <i>levels</i> (or <i>contexts</i>) for <i>any</i> programming language:
 principles, syntax, semantics, idioms, modules, libraries, and tools.
 </p>
-<div id="outline-container-orgcc1e466" class="outline-2">
-<h2 id="orgcc1e466">Principles</h2>
-<div class="outline-text-2" id="text-orgcc1e466">
+<div id="outline-container-org4a06e2f" class="outline-2">
+<h2 id="org4a06e2f">Principles</h2>
+<div class="outline-text-2" id="text-org4a06e2f">
 <p>
 To understand principles is to understand <i>how and why</i> mathematics works
 (is).
@@ -307,9 +307,9 @@ principles and this is why math &ldquo;works&rdquo;.
 </p>
 </div>
 
-<div id="outline-container-org6647895" class="outline-3">
-<h3 id="org6647895">Uniformity</h3>
-<div class="outline-text-3" id="text-org6647895">
+<div id="outline-container-org9b38324" class="outline-3">
+<h3 id="org9b38324">Uniformity</h3>
+<div class="outline-text-3" id="text-org9b38324">
 <ul class="org-ul">
 <li>Has the <i>Simple-typed Lambda Calculus</i> at its core (LIPSs and ML descendants)</li>
 <li>Everything is an expression (not in Java, not in C++. Ocaml has <i>definitions</i>)</li>
@@ -384,9 +384,9 @@ studied the subject, but they are too proud of being &ldquo;special&rdquo; and &
 </div>
 </div>
 </div>
-<div id="outline-container-orgef9681c" class="outline-2">
-<h2 id="orgef9681c">Syntax</h2>
-<div class="outline-text-2" id="text-orgef9681c">
+<div id="outline-container-orga05667b" class="outline-2">
+<h2 id="orga05667b">Syntax</h2>
+<div class="outline-text-2" id="text-orga05667b">
 <p>
 Defined by a <i>set of rules</i>, which together specifying what constitutes a
 <i>well-formed expression</i>.
@@ -396,27 +396,27 @@ Defined by a <i>set of rules</i>, which together specifying what constitutes a
 <i>Syntax-checking</i> is, obviously, done before <i>type-checking</i> and <i>evaluation</i>.
 </p>
 </div>
-<div id="outline-container-org21e0d49" class="outline-3">
-<h3 id="org21e0d49">Type declarations</h3>
-<div class="outline-text-3" id="text-org21e0d49">
+<div id="outline-container-orgd0487e2" class="outline-3">
+<h3 id="orgd0487e2">Type declarations</h3>
+<div class="outline-text-3" id="text-orgd0487e2">
 <p>
 This is the syntax and the rules of how to define <i>new (user-defined) types</i> and
 especially <i>Algebraic Data Types</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org002993e" class="outline-3">
-<h3 id="org002993e">Pattern-matching</h3>
-<div class="outline-text-3" id="text-org002993e">
+<div id="outline-container-orgf509aa5" class="outline-3">
+<h3 id="orgf509aa5">Pattern-matching</h3>
+<div class="outline-text-3" id="text-orgf509aa5">
 <p>
 Pattern matching on <i>data-constructors</i> (of Algebraic Data Typesp)
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org2a43528" class="outline-2">
-<h2 id="org2a43528">Semantics</h2>
-<div class="outline-text-2" id="text-org2a43528">
+<div id="outline-container-org092f3c3" class="outline-2">
+<h2 id="org092f3c3">Semantics</h2>
+<div class="outline-text-2" id="text-org092f3c3">
 <p>
 Basically, semantics are sets of <i>precise rules</i> of how a compiler would
 &ldquo;understand&rdquo; (or an interpreter interpret) a particular kind of
@@ -424,9 +424,9 @@ expressions (this or that <i>syntactic form</i>).
 Your understanding must correspond to the compiler&rsquo;s.
 </p>
 </div>
-<div id="outline-container-org04447f3" class="outline-3">
-<h3 id="org04447f3">Dynamic semantics</h3>
-<div class="outline-text-3" id="text-org04447f3">
+<div id="outline-container-orge11d39f" class="outline-3">
+<h3 id="orge11d39f">Dynamic semantics</h3>
+<div class="outline-text-3" id="text-orge11d39f">
 <p>
 <i>Evaluation rules</i> - how a particular kind of expressions will be
 <i>evaluated at runtime</i>.
@@ -435,18 +435,18 @@ rules</i> (either <code>e2</code> or <code>e3</code>, depending on what whether 
 </p>
 </div>
 </div>
-<div id="outline-container-orgda17582" class="outline-3">
-<h3 id="orgda17582">Pattern-matching rules</h3>
-<div class="outline-text-3" id="text-orgda17582">
+<div id="outline-container-org017cafe" class="outline-3">
+<h3 id="org017cafe">Pattern-matching rules</h3>
+<div class="outline-text-3" id="text-org017cafe">
 <p>
 These can be singled out because they are complex and may or may not
 introduce local <i>scopes</i> and <i>new bindings</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org6dbe68c" class="outline-3">
-<h3 id="org6dbe68c">Static semantics</h3>
-<div class="outline-text-3" id="text-org6dbe68c">
+<div id="outline-container-org4275e87" class="outline-3">
+<h3 id="org4275e87">Static semantics</h3>
+<div class="outline-text-3" id="text-org4275e87">
 <p>
 <i>Typing rules</i> - how a particular kind of expressions will be <i>type-checked</i>
 by the compiler.
@@ -456,9 +456,9 @@ rules</i> (both clauses <code>e2</code> and <code>e3</code> has to be of <i>the 
 </div>
 </div>
 </div>
-<div id="outline-container-org35edd59" class="outline-2">
-<h2 id="org35edd59">Common idioms</h2>
-<div class="outline-text-2" id="text-org35edd59">
+<div id="outline-container-org74fed38" class="outline-2">
+<h2 id="org74fed38">Common idioms</h2>
+<div class="outline-text-2" id="text-org74fed38">
 <p>
 The same <i>computation</i> could be expressed in more than one way. The
 classic example is how some <i>imperative loops</i> could be expressed as
@@ -472,29 +472,29 @@ complexity.
 </div>
 </div>
 
-<div id="outline-container-org14ccad2" class="outline-2">
-<h2 id="org14ccad2">Modules</h2>
-<div class="outline-text-2" id="text-org14ccad2">
+<div id="outline-container-org0e8f0b4" class="outline-2">
+<h2 id="org0e8f0b4">Modules</h2>
+<div class="outline-text-2" id="text-org0e8f0b4">
 </div>
-<div id="outline-container-orgabb3a01" class="outline-3">
-<h3 id="orgabb3a01">Exports</h3>
-<div class="outline-text-3" id="text-orgabb3a01">
+<div id="outline-container-org248803a" class="outline-3">
+<h3 id="org248803a">Exports</h3>
+<div class="outline-text-3" id="text-org248803a">
 <p>
 We can choose which particular values to export and which to hide.
 </p>
 </div>
 </div>
-<div id="outline-container-org0b9c982" class="outline-3">
-<h3 id="org0b9c982">Imports</h3>
-<div class="outline-text-3" id="text-org0b9c982">
+<div id="outline-container-orgc7ca681" class="outline-3">
+<h3 id="orgc7ca681">Imports</h3>
+<div class="outline-text-3" id="text-orgc7ca681">
 <p>
 This is how we import values from a module (external or internal).
 </p>
 </div>
 </div>
-<div id="outline-container-orgdb02c7b" class="outline-3">
-<h3 id="orgdb02c7b">Functors</h3>
-<div class="outline-text-3" id="text-orgdb02c7b">
+<div id="outline-container-orgabaf067" class="outline-3">
+<h3 id="orgabaf067">Functors</h3>
+<div class="outline-text-3" id="text-orgabaf067">
 <p>
 This defines operations on whole modules which are available in
 <i>Standard ML</i>, <i>Ocaml</i> and <i>F#</i>.
@@ -502,46 +502,46 @@ This defines operations on whole modules which are available in
 </div>
 </div>
 </div>
-<div id="outline-container-org91c8ac1" class="outline-2">
-<h2 id="org91c8ac1">Libraries</h2>
-<div class="outline-text-2" id="text-org91c8ac1">
+<div id="outline-container-org253621f" class="outline-2">
+<h2 id="org253621f">Libraries</h2>
+<div class="outline-text-2" id="text-org253621f">
 </div>
-<div id="outline-container-org13d371f" class="outline-3">
-<h3 id="org13d371f">The Standard Library</h3>
+<div id="outline-container-org361a3be" class="outline-3">
+<h3 id="org361a3be">The Standard Library</h3>
 </div>
-<div id="outline-container-org9d7d9cf" class="outline-3">
-<h3 id="org9d7d9cf">3rd-party libraries</h3>
+<div id="outline-container-org5ab96ba" class="outline-3">
+<h3 id="org5ab96ba">3rd-party libraries</h3>
 </div>
-<div id="outline-container-org16c801e" class="outline-3">
-<h3 id="org16c801e">Internal libraries</h3>
+<div id="outline-container-org5135055" class="outline-3">
+<h3 id="org5135055">Internal libraries</h3>
 </div>
 </div>
-<div id="outline-container-org2482ad7" class="outline-2">
-<h2 id="org2482ad7">Tools</h2>
-<div class="outline-text-2" id="text-org2482ad7">
+<div id="outline-container-org8f6d762" class="outline-2">
+<h2 id="org8f6d762">Tools</h2>
+<div class="outline-text-2" id="text-org8f6d762">
 </div>
-<div id="outline-container-org8af6c1c" class="outline-3">
-<h3 id="org8af6c1c">Formatters</h3>
+<div id="outline-container-org735b8ab" class="outline-3">
+<h3 id="org735b8ab">Formatters</h3>
 </div>
-<div id="outline-container-org228c86a" class="outline-3">
-<h3 id="org228c86a">Linters</h3>
+<div id="outline-container-orgaff85b7" class="outline-3">
+<h3 id="orgaff85b7">Linters</h3>
 </div>
-<div id="outline-container-org4522779" class="outline-3">
-<h3 id="org4522779">Static analyzers</h3>
+<div id="outline-container-orge6e2cae" class="outline-3">
+<h3 id="orge6e2cae">Static analyzers</h3>
 </div>
-<div id="outline-container-org128de63" class="outline-3">
-<h3 id="org128de63">Interpreters or REPLs</h3>
+<div id="outline-container-org8e8e686" class="outline-3">
+<h3 id="org8e8e686">Interpreters or REPLs</h3>
 </div>
-<div id="outline-container-orge66d923" class="outline-3">
-<h3 id="orge66d923">Compilers</h3>
+<div id="outline-container-orgd7917aa" class="outline-3">
+<h3 id="orgd7917aa">Compilers</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-26 Fri 14:20</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-06-29 Thu 17:11</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-05-26 Fri 14:20 -->
+<!-- 2023-06-29 Thu 17:11 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A better Rust</title>
@@ -250,9 +250,9 @@ At a higher level Rust adds stricter type-discipline for <i>references</i>, and 
 <p>
 Aside from <code>&amp;str</code>, the grow-able &ldquo;Buffer&rdquo; types are just proper <i>ADTs</i>, which is exactly the right thing.
 </p>
-<div id="outline-container-orga680779" class="outline-2">
-<h2 id="orga680779">Type inference</h2>
-<div class="outline-text-2" id="text-orga680779">
+<div id="outline-container-orgb071d77" class="outline-2">
+<h2 id="orgb071d77">Type inference</h2>
+<div class="outline-text-2" id="text-orgb071d77">
 <p>
 There are some <i>new principles</i>, which emerged in classic languages with a type-inference.
 </p>
@@ -267,9 +267,9 @@ This means one should take a greater care of writing literals and omit the type 
 </div>
 </div>
 
-<div id="outline-container-org4267710" class="outline-2">
-<h2 id="org4267710">Immutable References</h2>
-<div class="outline-text-2" id="text-org4267710">
+<div id="outline-container-org6bf53f3" class="outline-2">
+<h2 id="org6bf53f3">Immutable References</h2>
+<div class="outline-text-2" id="text-org6bf53f3">
 <p>
 These are explicit variants of <i>immutable bindings</i> in classic functional languages. Old binding become &ldquo;invisible&rdquo; (but still valid) with shadowing.
 </p>
@@ -280,9 +280,9 @@ These are explicit variants of <i>immutable bindings</i> in classic functional l
 </div>
 </div>
 
-<div id="outline-container-org74adf2f" class="outline-2">
-<h2 id="org74adf2f">Bindings</h2>
-<div class="outline-text-2" id="text-org74adf2f">
+<div id="outline-container-orgb80c69c" class="outline-2">
+<h2 id="orgb80c69c">Bindings</h2>
+<div class="outline-text-2" id="text-orgb80c69c">
 <p>
 Unlike the classic functional languages, Rust has <i>assignment</i>, which <i>conceptually</i> is similar to <i>moving a value to a new location</i>.
 </p>
@@ -305,9 +305,9 @@ Conceptually, a variable (location in memory) &ldquo;owns&rdquo; a value, and th
 </div>
 </div>
 
-<div id="outline-container-orge0a1739" class="outline-2">
-<h2 id="orge0a1739">Ownership</h2>
-<div class="outline-text-2" id="text-orge0a1739">
+<div id="outline-container-orgb09d34e" class="outline-2">
+<h2 id="orgb09d34e">Ownership</h2>
+<div class="outline-text-2" id="text-orgb09d34e">
 <p>
 Every value is &ldquo;owned&rdquo; by exactly one vaeiable and is moved from one to another with an <i>assignemrny</i>.
 </p>
@@ -334,9 +334,9 @@ This is so-called &ldquo;resource safety&rdquo; - cannot access what one does no
 </div>
 </div>
 
-<div id="outline-container-org873a209" class="outline-2">
-<h2 id="org873a209">Borrowing</h2>
-<div class="outline-text-2" id="text-org873a209">
+<div id="outline-container-org678b8b3" class="outline-2">
+<h2 id="org678b8b3">Borrowing</h2>
+<div class="outline-text-2" id="text-org678b8b3">
 <p>
 This is a <i>meme-word</i> for using <i>references</i> (both immutable and mutable).
 </p>
@@ -363,9 +363,9 @@ The compiler imposes additional discipline by tracking all the referenes and the
 </div>
 </div>
 
-<div id="outline-container-orgf09c392" class="outline-2">
-<h2 id="orgf09c392">Mutable references</h2>
-<div class="outline-text-2" id="text-orgf09c392">
+<div id="outline-container-org676f3b6" class="outline-2">
+<h2 id="org676f3b6">Mutable references</h2>
+<div class="outline-text-2" id="text-org676f3b6">
 <p>
 At every moment in time (it is still an imperative language) there guaranteed (by static typing) to me <i>at most one mutable reference</i> to the data.
 </p>
@@ -380,9 +380,9 @@ When a mutable reference is being taken, all other references becomes <i>invalid
 </div>
 </div>
 
-<div id="outline-container-orgde40693" class="outline-2">
-<h2 id="orgde40693">Lifetimes</h2>
-<div class="outline-text-2" id="text-orgde40693">
+<div id="outline-container-orgc1e3e2e" class="outline-2">
+<h2 id="orgc1e3e2e">Lifetimes</h2>
+<div class="outline-text-2" id="text-orgc1e3e2e">
 <p>
 Rust tracks <i>ligetimes</i> of all values and references. This prevents &ldquo;use after free&rdquo; and &ldquo;dangling references&rdquo; at the type-system level.
 </p>
@@ -400,9 +400,9 @@ It allows to <i>annotate lifetimes</i> of a value and its references (<i>to be t
 </p>
 </div>
 </div>
-<div id="outline-container-orgd842a3f" class="outline-2">
-<h2 id="orgd842a3f">The Move Semantics by default</h2>
-<div class="outline-text-2" id="text-orgd842a3f">
+<div id="outline-container-orge1f80ad" class="outline-2">
+<h2 id="orge1f80ad">The Move Semantics by default</h2>
+<div class="outline-text-2" id="text-orge1f80ad">
 <p>
 Again, just like <code>mov</code> CPU instruction, values conceptually &ldquo;move&rdquo; with an assignment (<i>as if</i> to a new memory location - into a new variable).
 </p>
@@ -431,9 +431,9 @@ is really cool.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb6f5f33" class="outline-2">
-<h2 id="orgb6f5f33">Methods</h2>
-<div class="outline-text-2" id="text-orgb6f5f33">
+<div id="outline-container-org2d3aa84" class="outline-2">
+<h2 id="org2d3aa84">Methods</h2>
+<div class="outline-text-2" id="text-org2d3aa84">
 <p>
 This is the modularity aspect, when a value &ldquo;carries all its methods with it&rdquo;. According to <i>Joe Armstrong</i>, this is just a fundamentally wrong notion, but it seems OK as long as it just a syntactic sugar for calling a function with an implicit zrtoth argument (the self).
 </p>
@@ -452,9 +452,9 @@ Nowadays Rust generalizes this to most <i>user-defined</i> &ldquo;compound&rdquo
 </div>
 </div>
 
-<div id="outline-container-org8364b47" class="outline-2">
-<h2 id="org8364b47">Traits</h2>
-<div class="outline-text-2" id="text-org8364b47">
+<div id="outline-container-org5a16b79" class="outline-2">
+<h2 id="org5a16b79">Traits</h2>
+<div class="outline-text-2" id="text-org5a16b79">
 <p>
 Similar to <i>type-classes</i> &#x2013; a <i>composition</i> (a <i>product</i> of methods) instead of <i>inheritance</i> (a set-subset operation).
 </p>
@@ -468,8 +468,8 @@ Again, this is the right thing to do (not everything in the Universe breaks into
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-05-26 Fri 14:20</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.91 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-06-29 Thu 17:11</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
 </html>
