@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-30 Fri 19:14 -->
+<!-- 2023-06-30 Fri 19:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scheme</title>
@@ -252,7 +252,7 @@ Scheme has been inspired to be as minimal and <i>semantically clear</i> as human
 possible. In part it was a <i>reaction</i> to the mess and a <i>kitchen sink syndrome</i> of
 <code>Common Lisp</code> (which incorporates nearly 30 years of the <code>Lisp</code> tradition). It was
 also heavily influenced by the results of <i>Alonzo Church</i> and <i>Haskell Curry</i>, on
-the foundation of mathematics and <i>Lambda Calculus</i>.
+the foundation of mathematics and the <i>Lambda Calculus</i>.
 </p>
 
 <p>
@@ -505,11 +505,43 @@ Curried <code>'+</code> with an in-place invocation
 </div>
 </div>
 </div>
+<div id="outline-container-org624b0e1" class="outline-2">
+<h2 id="org624b0e1">Just right</h2>
+<div class="outline-text-2" id="text-org624b0e1">
+<p>
+When you have the right understanding, you inevitably do the right thing.
+</p>
+
+<p>
+Scheme is a uniform language, so everything is an expression, and thus nesting is
+arbitrary, so
+</p>
+
+<p>
+An <i>identity function</i> applied to itself returns itself
+</p>
+<div class="org-src-container">
+<pre class="src src-scheme">((<span style="color: #81A1C1;">lambda</span> x x) (<span style="color: #81A1C1;">lambda</span> x x))
+</pre>
+</div>
+<p>
+The <i>accumulator pattern</i> is expressed &ldquo;naturally&rdquo; (using an <i>explicit bindings</i> syntax)
+</p>
+<div class="org-src-container">
+<pre class="src src-scheme">(<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">factorail</span> (<span style="color: #81A1C1;">lambda</span> (x)
+<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">recur</span> (<span style="color: #81A1C1;">lambda</span> (n acc)
+<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (<span style="color: #81A1C1;">if</span> (zero? n) acc
+<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (recur (- n <span style="color: #B48EAD; font-weight: bold;">1</span>) (* n acc)))))
+<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> (recur x <span style="color: #B48EAD; font-weight: bold;">1</span>)))
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-06-30 Fri 19:14</p>
+<p class="date">Created: 2023-06-30 Fri 19:40</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
