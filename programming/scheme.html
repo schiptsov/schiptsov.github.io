@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-30 Fri 11:15 -->
+<!-- 2023-06-30 Fri 18:41 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Self-publishing</title>
+<title>Scheme</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="keywords" content="MIT Scheme, Lambda Calculus, Foundations" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -218,6 +219,25 @@
      }
 // @license-end
 </script>
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "%AUTONUMBER",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -226,121 +246,238 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Self-publishing</h1>
+<h1 class="title">Scheme</h1>
 </header><p>
-Although typography and publishing are vast subjects, the principle-guided approach would help there.
+Scheme has been inspired to be as minimal and <i>semantically clear</i> as humanly
+possible. In part it was a <i>reaction</i> to the mess and a <i>kitchen sink syndrome</i> of
+<code>Common Lisp</code> (which incorporates nearly 30 years of the <code>Lisp</code> tradition). It was
+also heavily influenced by the results of <i>Alonzo Church</i> and <i>Haskell Curry</i>, on
+the foundation of mathematics and <i>Lambda Calculus</i>.
 </p>
 
 <p>
-The main principle is that a text prepared for publishing has lots of <i>nested structure</i> and specialized sub-languages or DSLs.
+By the time of publication of the R5RS &ldquo;standard&rdquo;, everything has been &ldquo;solved&rdquo;
+and &ldquo;done&rdquo;. The unique masterpiece emerged.
 </p>
 
 <p>
-There are multiple layers in every published document, and each layer has its own nested structure.
+In the late 90s, the &ldquo;discovery&rdquo; of the &ldquo;Curry-Howard isomorphism&rdquo; independently
+showed that this was the right (and the <i>only</i>) direction. Here I will try my best
+to explain <i>why</i> this is so.
 </p>
 
+<div id="outline-container-orgf969505" class="outline-2">
+<h2 id="orgf969505">MIT Scheme</h2>
+<div class="outline-text-2" id="text-orgf969505">
+<p>
+The MIT Scheme is not just a particular implementation of the Scheme language,
+it is an actual embodiment (or actual manifestation) of the whole <i>Classic MIT
+Tradition</i>, which is a distinct, unique cultural phenomena - a mix of mathematics,
+biology, linguistics, electrical engineering, artificial intelligence and
+computer science, with the corresponding major labs and faculties.
+</p>
+
+<p>
+While Scheme itself was a programming language done right, The MIT Scheme is an
+implementation done right. It has a fast and clean runtime written in portable
+<code>C</code>, a <i>native code</i> compiler, which supports a couple of major platforms, a
+polished and principle-guided <i>standard library</i>, and <i>bindings</i> for most common
+<i>libraries</i>, including X11, PostgreSQL and what not. It has an <i>object system</i> as an
+embedded DSL, similar to CLOS.
+</p>
+
+<p>
+Back then MIT Scheme was in itself a lesson in a proper, principle-guided
+software design and implementation. Nowadays it is a <i>monument</i> (on par with
+Erlang/OTP, SML/NJ, GHC or Ocaml 4).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb298b0" class="outline-2">
+<h2 id="orgfb298b0">The Foundations</h2>
+<div class="outline-text-2" id="text-orgfb298b0">
+<p>
+The <i>right understanding</i> (and the proper knowledge) begins with very strange
+questions, which most people would never ask.
+</p>
+
+<p>
+Following the purely theoretical (but absolutely fundamental) result of Alonzo
+Church, that his <i>Lambda Calculus</i> is a <i>universal language</i> &#x2013; absolutely <i>minimal</i>
+but yet good enough <i>to compute any commutable mathematical function</i>, the
+question is &#x2013; <i>Why?</i> Why just these <i>three forms</i> are enough for everything. This
+is not an easy question to approach.
+</p>
+</div>
+
+<div id="outline-container-org434aabf" class="outline-3">
+<h3 id="org434aabf">Lambda Calculus</h3>
+<div class="outline-text-3" id="text-org434aabf">
+<p>
+In its canonical form the whole calculi consist of a set of <i>terms</i>, and a set of
+<i>reduction rules</i>.
+</p>
+
+<p>
+It has just 3 <i>syntactic forms</i>:
+</p>
 <ul class="org-ul">
-<li><i>headlines</i> and corresponding sections</li>
-<li><i>Quotations</i> and <i>examples</i> (to be rendered verbatim)</li>
-<li><code>LaTeX</code> blocks for mathematics (to be rendered with <code>MathJax</code>)</li>
-<li><i>source code</i> blocks in various programming languages.</li>
-<li>etc.</li>
+<li>a <i>variable binding</i> (a convenience for the Mind)</li>
+<li>a \[\Lambda\]-<i>abstraction</i> (a capture)</li>
+<li>an <i>application</i> (a single step)</li>
 </ul>
 
 <p>
-The main principle is that the <code>org-mode</code> format is the most <i>general</i> (or generalized), while <i>Markdown</i> is more specialized (or specific), and <i>LaTeX</i> is even &ldquo;low level&rdquo; (closer to <i>typograhy</i> level).
+and just 1 <i>reduction rule</i>:
+</p>
+<ul class="org-ul">
+<li>\[\beta\]-<i>reduction</i> (a uniform <i>substation</i> of a value for a <i>bound</i> variable)</li>
+</ul>
+
+<p>
+There are a few often overlooked subtleties here:
+</p>
+<ul class="org-ul">
+<li>there is an implicit <i>environment</i>, which remembers the <i>immutable bindings</i></li>
+<li>there is the <i>substitution model</i>, which is implicitly used in all mathematics</li>
+<li>there is an <i>interpreter</i> (which uses the <i>substitution model</i>), and this is you</li>
+<li>the process of <i>reduction</i> (simplification) stops when a <i>normal form</i> is reached</li>
+</ul>
+
+<p>
+<i>Currying</i> is an <i>extension</i> for <i>uniformly</i> implementing a multi-argument functions.
 </p>
 
 <p>
-This means that one has to write in the most general strucures and then specialize for publishing (without loss of any strucutre, it is actually augmenting or annotating an existing document structure).
-</p>
-
-<div id="outline-container-orgef002be" class="outline-2">
-<h2 id="orgef002be">Org-mode</h2>
-<div class="outline-text-2" id="text-orgef002be">
-<p>
-The <code>org-mode</code> of GNU Emacs supports all the required nesting and <i>block definitions</i> and <i>tagging</i>, along with the basic export (into commonly used formats) functionality.
-</p>
-
-<p>
-The <code>org-mode</code> <i>structured text</i> file format is an ideal <i>source</i> format, which can be <i>exported</i> or converted into other formats using <code>pandoc</code>.
-</p>
-
-<p>
-Notably, an <code>org-mode</code> file could be exported out of box into <code>pdf</code> and <code>djvu</code> formats, as well as plain <code>html</code>.
+<i>Partial application</i> &ldquo;naturally follows&rdquo;.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgcba593e" class="outline-2">
-<h2 id="orgcba593e">Pandoc</h2>
-<div class="outline-text-2" id="text-orgcba593e">
+<div id="outline-container-org0551e81" class="outline-3">
+<h3 id="org0551e81">The Universal Machine</h3>
+<div class="outline-text-3" id="text-org0551e81">
 <p>
-The <code>Pandoc</code> converter does the right thing &#x2013; it parses the source format (of a <i>structured text</i>) into a generalized AST first, and then from that AST it generates an output (the target format).
+The crucial part of the Classic MIT Culture is recognition (and subsequent
+studying) of an <i>interpreter</i> as a <i>Universal Machine</i>.
 </p>
+</div>
+</div>
+</div>
 
+<div id="outline-container-org94c20e1" class="outline-2">
+<h2 id="org94c20e1">Generalized patterns of What Is.</h2>
+<div class="outline-text-2" id="text-org94c20e1">
 <p>
-This is how one gets, say, <code>Markdown</code> or <code>rst</code>, from an <code>org-mode</code> file. Again, the main principle is that there is a common <i>structure</i> and <i>tagging</i>, and both are preserved (losslessly transformed) between various formats.
+Now <i>why</i>. The way to at least some answers is not toward abstract concepts, but
+towards molecular and biological processes from which some fundamental
+abstractions have been <i>captured</i> and properly <i>generalized</i>.
+</p>
+</div>
+
+<div id="outline-container-org4af03ea" class="outline-3">
+<h3 id="org4af03ea">An Environment</h3>
+<div class="outline-text-3" id="text-org4af03ea">
+<p>
+The <i>environment</i> is a membrane-separated distinct <i>partition</i> of a  single <i>cell</i>,
+which, in turn, has an <i>enclosing environment</i>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb98b86a" class="outline-2">
-<h2 id="orgb98b86a">Emacs</h2>
-<div class="outline-text-2" id="text-orgb98b86a">
+<div id="outline-container-org6225de4" class="outline-3">
+<h3 id="org6225de4">A Closure</h3>
+<div class="outline-text-3" id="text-org6225de4">
 <p>
-The <code>GNU Emacs</code> is a software implementation of a <i>Lisp Machine</i>, which happen to have an editor within it. It could compile and run all your code blocks, pretty-print all your mathematics and check your spelling and your code.
-</p>
-
-<p>
-There is objectively nothing better, provided you know how to use it and lots of external <i>packages</i>.
+This gives us both <i>nesting of environments</i> (and <i>nesting</i> in general) and a
+&ldquo;<i>closure</i>&rdquo; (a distinct <i>partition</i>) which &ldquo;captures&rdquo; (holds) all its &ldquo;stuff&rdquo;
+inside.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org59cc9ab" class="outline-2">
-<h2 id="org59cc9ab">The Web</h2>
-<div class="outline-text-2" id="text-org59cc9ab">
+<div id="outline-container-orgbd6cbf7" class="outline-3">
+<h3 id="orgbd6cbf7">A Universal Pattern</h3>
+<div class="outline-text-3" id="text-orgbd6cbf7">
 <p>
-Export to static <code>HTML</code> (and <code>CSS</code>) for a static web-site (just a directory) is the most basic option. It is, however, powerful-enough to render high-quality and aesthetically pleasant content.
-</p>
-
-<p>
-The <code>mdbook</code> of the Rust project is the tool of choice for self-published technical and programming books.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org0880be8" class="outline-2">
-<h2 id="org0880be8">Hugo</h2>
-<div class="outline-text-2" id="text-org0880be8">
-<p>
-Static site <i>generators</i>, such as <code>Hugo</code>, is an &ldquo;advanced&rdquo; option. It supports third-party themes and basic SEO, so a proper <i>delegation</i> (of mundane tasks) is going on.
-</p>
-
-<p>
-Fortunately, there is the <code>ox-hugo</code> package for GNU Emacs.
+These <i>closures</i> are not just physical, but also &ldquo;logical&rdquo; and &ldquo;mathematical&rdquo;
+patterns. It is, thus, a <i>Universal Pattern</i>, indeed, the most general and the
+most fundamental  one &#x2013; the pattern of <i>capturing</i> something distinct <i>within an
+environment</i>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4999d12" class="outline-2">
-<h2 id="org4999d12">Github Pages</h2>
-<div class="outline-text-2" id="text-org4999d12">
+<div id="outline-container-orgcced3ce" class="outline-3">
+<h3 id="orgcced3ce">At all levels</h3>
+<div class="outline-text-3" id="text-orgcced3ce">
 <p>
-It seems that the only remained <i>censorship-resistant</i> (or at least tolerable) free hosting is the Github Pages facility. It was originally designed for <code>Jekill</code>, but can host basically any <i>static html directory</i>.
+We have an environment of a shared (agreed upon) <i>concepts</i>, expressed in a shared
+(common) human language.
 </p>
 
 <p>
-This is where to publish your stuff.
+A <i>definition</i> captures the meaning. A <i>concept</i> captures a generalized <i>notion</i>, etc.
 </p>
+
+<p>
+Again, distinct &ldquo;closures&rdquo; (partitions) within some environment. It becomes an
+<i>environment</i> for its &ldquo;internals&rdquo;.
+</p>
+
+<p>
+The definitive property of a &ldquo;closure&rdquo; is that everything necessary (being used
+inside) is captured (held) within. Ideally, it has to be eternal (indestructible).
+</p>
+</div>
+</div>
+<div id="outline-container-org34e33ef" class="outline-3">
+<h3 id="org34e33ef">The Lambda-abstraction</h3>
+<div class="outline-text-3" id="text-org34e33ef">
+<p>
+And this is, of course, what <i>the Lambda-abstraction</i> corresponds to &#x2013; what
+<i>notion</i> it, as a minimal abstraction, <i>captures</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org54915e7" class="outline-3">
+<h3 id="org54915e7">A single step</h3>
+<div class="outline-text-3" id="text-org54915e7">
+<p>
+What <i>universal notion</i> the <i>application</i> of lambda terms (to one another) captures?
+It captures the notion of creating a  <i>process</i>, which performs at least one
+<i>single step</i>.
+</p>
+
+<p>
+Again, application implicitly creates a <i>process</i> which performs at least one
+<i>single step</i>. This is corresponds to an <i>enzyme</i> within a cell.
+</p>
+
+<p>
+Even more generally, to a simple chemical <i>reaction</i>, when a single <i>required
+condition</i> has been meet (a process notion).
+</p>
+
+<p>
+At the level of the Mind we have a single step of reasoning (deductive or
+inductive), and the process in implicit withing the brain.
+</p>
+
+<p>
+Cool, isn&rsquo;t it? This is <i>why</i> the Curry-Howard isomorphism is possible - there are
+the same fundamental notions being captured by &ldquo;different observers&rdquo;.
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-06-30 Fri 11:15</p>
+<p class="date">Created: 2023-06-30 Fri 18:41</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
