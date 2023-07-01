@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 09:50 -->
+<!-- 2023-07-01 Sat 11:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Whys</title>
@@ -541,11 +541,113 @@ molecular biology.
 </p>
 </div>
 </div>
+
+<div id="outline-container-orge307673" class="outline-2">
+<h2 id="orge307673">Higher-level patterns</h2>
+<div class="outline-text-2" id="text-orge307673">
+<p>
+There are the same universal patterns at any level. They has been captured and
+generalized without the right understanding.
+</p>
+</div>
+
+<div id="outline-container-org4e2e8aa" class="outline-3">
+<h3 id="org4e2e8aa">Function closures as cells or enzymes</h3>
+<div class="outline-text-3" id="text-org4e2e8aa">
+<p>
+At the &ldquo;most primitive&rdquo; level we have individual  <i>lambdas</i> &#x2013; the basic <i>means of
+abstraction</i>. They ought to behave as mathematical functions.
+</p>
+
+<p>
+Biological enzymes not accidentally, behave as pure functions.
+</p>
+
+<p>
+Functions have parameters, which act as the simplest interface (a &ldquo;pump&rdquo;).
+</p>
+</div>
+</div>
+<div id="outline-container-org9f0c44a" class="outline-3">
+<h3 id="org9f0c44a">ADTs as cells or enzymes</h3>
+<div class="outline-text-3" id="text-org9f0c44a">
+<p>
+A the level of <i>abstract interfaces</i> we have the very same <i>enzyme pattern</i>. The
+requirements that the interface has to be abstract, and the abstractions to be
+<i>non-leaking</i> (as by B. Liskov) are not arbitrary, but <i>necessary</i> and sufficient.
+</p>
+
+<p>
+Notice that <i>generalizing</i> of interfaces (types) is done by parameterization,
+which, again, is a universal pattern. Specialization is supplying the actual
+parameters, which is related to the Causality itself.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf2dfbc9" class="outline-3">
+<h3 id="orgf2dfbc9">Modules as cells or enzymes</h3>
+<div class="outline-text-3" id="text-orgf2dfbc9">
+<p>
+At the level of proper modules we have the same patterns - closures,
+parameterization and even <i>application</i> of one to another, as in SML or Ocaml.
+</p>
+</div>
+</div>
+<div id="outline-container-org637b21e" class="outline-3">
+<h3 id="org637b21e">The type level</h3>
+<div class="outline-text-3" id="text-org637b21e">
+<p>
+At the level of types we have, not surprisingly, the same &ldquo;building blocks&rdquo; of
+the Lambda Calculus all over again. Most type systems, however, do not allow
+<i>type-level lambdas</i> and its application because it is too general.
+</p>
+
+<p>
+It has been discovered that unrestricted applying anything to anything
+else is way &ldquo;too abstract&rdquo; and lead to paradoxes, so the Simple Typed Lambda
+Calculus has been created (and then the Hindley-Milter type system).
+</p>
+
+<p>
+In other words, restrictions (constraints) are necessary, which, again, molecular biology
+has shown us.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5a66e67" class="outline-2">
+<h2 id="org5a66e67">The message to take home</h2>
+<div class="outline-text-2" id="text-org5a66e67">
+<p>
+The &ldquo;building blocks&rdquo; The Simply Typed Lambda Calculus are universal
+abstractions, which, in turn, are properly captured emergent <i>universal
+patterns</i> in What Is.
+</p>
+
+<p>
+The languages which just augment, extend and syntactically sugar the Lambda
+Calculus (the pure subset of Scheme, Miranda, Haskell, Coq) are doing the right thing.
+</p>
+
+<p>
+<i>Haskell</i> managed to retain the purity of the Lambda Calculus and still can be
+evaluated using the <i>substitution model</i> (or with a pen and paper), so it has all
+the properties of pure logic or maths (which follow form ensuring unbroken
+the <i>Referential Transparency</i> property, which is an operational definition of
+&ldquo;purity&rdquo;).
+</p>
+
+<p>
+The actual message is that the proper abstractions can be traced back, through the
+captured recurring (reemerging) patterns, back to What Is.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 09:50</p>
+<p class="date">Created: 2023-07-01 Sat 11:07</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
