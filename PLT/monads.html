@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:38 -->
+<!-- 2023-07-01 Sat 20:03 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Monads</title>
@@ -237,11 +237,11 @@ As has been observed by Simon, the architecture of complexity is a <i>layered hi
 </p>
 
 <p>
-The weak analogy everyone uses is of an onion, but this analogy is indeed weak. It leaves out interrctions between layers and the fact that the layers are not the same, not even similar to each other.
+The weak analogy everyone uses is of an onion, but this analogy is indeed weak. It leaves out interactions between layers and the fact that the layers are not the same, not even similar to each other.
 </p>
 
 <p>
-The fundamental pattern is that there are layers - an actual <i>abstraction barriers</i> out there, and these abstraction barriers are penertrable for certain &ldquo;strucures&rdquo;, which may act as &ldquo;messages&rdquo; or required building blocks (&ldquo;parameters&rdquo;).
+The fundamental pattern is that there are layers - an actual <i>abstraction barriers</i> out there, and these abstraction barriers are penetrable for certain &ldquo;structures&rdquo;, which may act as &ldquo;messages&rdquo; or required building blocks (&ldquo;parameters&rdquo;).
 </p>
 
 <p>
@@ -256,6 +256,26 @@ Parameters of a function, an <i>abstract interface</i> of an ADT, a <i>required 
 The same pattern is everywhere. The confusing part is too many abstractions and wrong abstractions.
 </p>
 
+<div id="outline-container-org0dda91f" class="outline-2">
+<h2 id="org0dda91f">The cell membrane &ldquo;pattern&rdquo;</h2>
+<div class="outline-text-2" id="text-org0dda91f">
+<p>
+Another <i>emergent</i> &ldquo;high level&rdquo; pattern is that use of <i>Monads</i> for I/O &ldquo;naturally&rdquo; <i>partition</i> (and layer up) the code in a way that &ldquo;pushes I/O <i>to the outermost layer</i>, behind an absreaction barrier&rdquo;, as if to a &ldquo;cell membrane&rdquo;.
+</p>
+
+<p>
+This is a <i>system-level</i> (instead of a expression-level) pattern and it is about proper partitioning of the code base, both vertical (layers of DSLs) and horizontal (modules and libraries).
+</p>
+
+<p>
+Yes, a <i>good</i> program design (in Haskell) is very hard, but it pays off big, since a pure, declarative solution is the most pragmatic one. Just like with the math, once you properly capture the pattern it is &ldquo;ethereal&rdquo;.
+</p>
+
+<p>
+I will explain some details below.
+</p>
+</div>
+</div>
 <div id="outline-container-orgc6d7197" class="outline-2">
 <h2 id="orgc6d7197">The Kleisli arrow.</h2>
 <div class="outline-text-2" id="text-orgc6d7197">
@@ -332,7 +352,7 @@ Take your time.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:38</p>
+<p class="date">Created: 2023-07-01 Sat 20:03</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
