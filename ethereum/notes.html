@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-29 Thu 17:11 -->
+<!-- 2023-07-01 Sat 19:35 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes about Ethereuim</title>
@@ -247,9 +247,9 @@ The &ldquo;solution&rdquo; of the halting problem as to limit the depth of recur
 Notably, at almost the same time, another narcissistic guy <i>applied</i> most these solid principles, climbed on shoulders of the giants, and got almost everything right. His name is Rich Hikey.
 </p>
 
-<div id="outline-container-org9ff6399" class="outline-2">
-<h2 id="org9ff6399">The state-machine metaphor</h2>
-<div class="outline-text-2" id="text-org9ff6399">
+<div id="outline-container-org6f360ea" class="outline-2">
+<h2 id="org6f360ea">The state-machine metaphor</h2>
+<div class="outline-text-2" id="text-org6f360ea">
 <p>
 The state-machine on top of an immutable ledger (which <i>represents</i> the state) metaphor is a <i>meme</i>. It is a classic example of the <i>past rationalization</i>, when afterthoughts are being presented as preliminaries.
 </p>
@@ -267,16 +267,16 @@ The view of a &ldquo;merkle-tree&rdquo; instead of the Turing&rsquo;s &ldquo;tap
 </p>
 </div>
 </div>
-<div id="outline-container-orgc59e413" class="outline-2">
-<h2 id="orgc59e413">The right principles</h2>
-<div class="outline-text-2" id="text-orgc59e413">
+<div id="outline-container-org1b9b08d" class="outline-2">
+<h2 id="org1b9b08d">The right principles</h2>
+<div class="outline-text-2" id="text-org1b9b08d">
 <p>
 Now lets quickly state the &ldquo;right&rdquo; principles which are &ldquo;naturally&rdquo; applicable in the context of a blockchain.
 </p>
 </div>
-<div id="outline-container-orgd5d5750" class="outline-3">
-<h3 id="orgd5d5750">Immutable data</h3>
-<div class="outline-text-3" id="text-orgd5d5750">
+<div id="outline-container-org6512ac6" class="outline-3">
+<h3 id="org6512ac6">Immutable data</h3>
+<div class="outline-text-3" id="text-org6512ac6">
 <p>
 Immutable data is the fundamental principle. The data which can be altered (or modified) behind your back <i>is not</i> data at all. It is some temporal imperative <i>state/</i>, by defintion.
 </p>
@@ -294,9 +294,9 @@ Immutable &ldquo;ledgers&rdquo; (as <i>append-only files</i> or data structures)
 </p>
 </div>
 </div>
-<div id="outline-container-orgeac60ac" class="outline-3">
-<h3 id="orgeac60ac">Pure, declarative code</h3>
-<div class="outline-text-3" id="text-orgeac60ac">
+<div id="outline-container-orgbe9ee7f" class="outline-3">
+<h3 id="orgbe9ee7f">Pure, declarative code</h3>
+<div class="outline-text-3" id="text-orgbe9ee7f">
 <p>
 This is what has been missed due to incompetence and ignorance. The &ldquo;Implementation of Functional Languages&rdquo; of <i>Peyton Jones</i> has been published in <i>1987</i>, so it has to be the <i>G-Machine</i>, the result of decades of research, not some amateur bullshit.
 </p>
@@ -307,9 +307,9 @@ In principle, it is <i>not</i> the Turing Machine, but the <i>equivalent formula
 </div>
 </div>
 
-<div id="outline-container-org469369e" class="outline-3">
-<h3 id="org469369e">Graph-reduction</h3>
-<div class="outline-text-3" id="text-org469369e">
+<div id="outline-container-orgcdc8925" class="outline-3">
+<h3 id="orgcdc8925">Graph-reduction</h3>
+<div class="outline-text-3" id="text-orgcdc8925">
 <p>
 The <i>graph-reduction</i> methodology as an <i>implementation</i> of the <i>syntactically sugared</i> (and extended with proper ADTs) <i>Simply Typed Lambda Calculus</i> was a major fundamental result at the time.
 </p>
@@ -324,9 +324,9 @@ Notice that with <i>implicit nesting of pure expressions</i>, which is how compo
 </div>
 </div>
 
-<div id="outline-container-orgfee789a" class="outline-3">
-<h3 id="orgfee789a">pattern-matching on Receive</h3>
-<div class="outline-text-3" id="text-orgfee789a">
+<div id="outline-container-orgc067be8" class="outline-3">
+<h3 id="orgc067be8">pattern-matching on Receive</h3>
+<div class="outline-text-3" id="text-orgc067be8">
 <p>
 As long as &ldquo;send&rdquo; and &ldquo;receive&rdquo; are &ldquo;expressions&rdquo; (need a <i>runtime support</i>) it is natural to &ldquo;pattern-match on receive&rdquo;, just as <code>Erlang</code> does. The semantics are well-understood and are similar to the classic, pure <i>match expression.</i>
 </p>
@@ -336,9 +336,9 @@ As long as &ldquo;send&rdquo; and &ldquo;receive&rdquo; are &ldquo;expressions&r
 </p>
 </div>
 </div>
-<div id="outline-container-org6451384" class="outline-3">
-<h3 id="org6451384">Monads</h3>
-<div class="outline-text-3" id="text-org6451384">
+<div id="outline-container-orgb33809a" class="outline-3">
+<h3 id="orgb33809a">Monads</h3>
+<div class="outline-text-3" id="text-orgb33809a">
 <p>
 <code>Monads</code>, as a generalization of an abstraction barrier, can be used to properly <i>implement</i> &ldquo;send&rdquo;, &ldquo;receive&rdquo; and other <i>primitives</i>. This will be just a specializarion (several, one for each kind of primitives) of the <i>I/O Monad</i>.
 </p>
@@ -348,9 +348,9 @@ Again, this was a well-researched and well-understood topic way before <i>2013</
 </p>
 </div>
 </div>
-<div id="outline-container-orgcfceaaf" class="outline-3">
-<h3 id="orgcfceaaf">Type-classes</h3>
-<div class="outline-text-3" id="text-orgcfceaaf">
+<div id="outline-container-org6d55e69" class="outline-3">
+<h3 id="org6d55e69">Type-classes</h3>
+<div class="outline-text-3" id="text-org6d55e69">
 <p>
 The required set of interfaces (as per ERC-20) is excatly what the <i>universal</i> notion of a type-class captures.
 </p>
@@ -368,9 +368,9 @@ Notice that <code>Solidity</code> is as bad, incosistent and amateur (bordering 
 </p>
 </div>
 </div>
-<div id="outline-container-org773e1b8" class="outline-3">
-<h3 id="org773e1b8">Combinators</h3>
-<div class="outline-text-3" id="text-org773e1b8">
+<div id="outline-container-org47eef61" class="outline-3">
+<h3 id="org47eef61">Combinators</h3>
+<div class="outline-text-3" id="text-org47eef61">
 <p>
 I am not sure, but it seems intuitively that another well-known implementation techinque, used with the pure-functional language <i>Miranda</i> would also be a fundamentally better choice (as good as Graph Reduction) than some imperative amateur toy VM.
 </p>
@@ -381,7 +381,7 @@ I am not sure, but it seems intuitively that another well-known implementation t
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-06-29 Thu 17:11</p>
+<p class="date">Created: 2023-07-01 Sat 19:35</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>

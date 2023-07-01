@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-29 Thu 17:11 -->
+<!-- 2023-07-01 Sat 19:35 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Candle</title>
@@ -251,16 +251,16 @@ MathJax = {
 We are building the <i>simplest possible</i> mathematical model.
 </p>
 
-<div id="outline-container-org111d155" class="outline-2">
-<h2 id="org111d155">A vector from physics</h2>
-<div class="outline-text-2" id="text-org111d155">
+<div id="outline-container-org2739b59" class="outline-2">
+<h2 id="org2739b59">A vector from physics</h2>
+<div class="outline-text-2" id="text-org2739b59">
 <p>
 <i>Intuitions</i> from physics:
 </p>
 </div>
-<div id="outline-container-orga3021fa" class="outline-3">
-<h3 id="orga3021fa">Force</h3>
-<div class="outline-text-3" id="text-orga3021fa">
+<div id="outline-container-org7c79c79" class="outline-3">
+<h3 id="org7c79c79">Force</h3>
+<div class="outline-text-3" id="text-org7c79c79">
 <p>
 An abstract vector is defined as a <i>direction</i> and a <i>magnitude</i>.
 </p>
@@ -270,17 +270,17 @@ In the simplest model there are just two directions - up and down.
 </p>
 </div>
 </div>
-<div id="outline-container-orge8dda3a" class="outline-3">
-<h3 id="orge8dda3a">Momentum</h3>
-<div class="outline-text-3" id="text-orge8dda3a">
+<div id="outline-container-orga9ec327" class="outline-3">
+<h3 id="orga9ec327">Momentum</h3>
+<div class="outline-text-3" id="text-orga9ec327">
 <p>
 A momentum is defined as a <i>difference</i> between <i>two</i> adjacent <i>vectors</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd31ae33" class="outline-3">
-<h3 id="orgd31ae33">Derivative</h3>
-<div class="outline-text-3" id="text-orgd31ae33">
+<div id="outline-container-org8b241a8" class="outline-3">
+<h3 id="org8b241a8">Derivative</h3>
+<div class="outline-text-3" id="text-org8b241a8">
 <p>
 In the simplest model the \(x\) -change is always \(1\) , so the derivative \(\frac{dy}{dx}\)
 is just the <i>difference</i> in the \(y\) coordinate.
@@ -288,9 +288,9 @@ is just the <i>difference</i> in the \(y\) coordinate.
 </div>
 </div>
 </div>
-<div id="outline-container-orgb86396f" class="outline-2">
-<h2 id="orgb86396f">A product-type</h2>
-<div class="outline-text-2" id="text-orgb86396f">
+<div id="outline-container-org1b1a2b2" class="outline-2">
+<h2 id="org1b1a2b2">A product-type</h2>
+<div class="outline-text-2" id="text-org1b1a2b2">
 <p>
 A <code>Candle</code> is by definition a <i>record</i>. Conceptually - a <i>Set of labeled
   slots</i>. Each particular value corresponds to a &ldquo;point&rdquo; or a &ldquo;vector&rdquo;.
@@ -313,9 +313,9 @@ Of course, one could refactor quickly and safely because it is an ADT.
 </p>
 </div>
 </div>
-<div id="outline-container-org0c985a4" class="outline-2">
-<h2 id="org0c985a4">Parameterized by an interval</h2>
-<div class="outline-text-2" id="text-org0c985a4">
+<div id="outline-container-orgaa0ed43" class="outline-2">
+<h2 id="orgaa0ed43">Parameterized by an interval</h2>
+<div class="outline-text-2" id="text-orgaa0ed43">
 <p>
 Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized by its
 <i>size</i> - an <i>interval</i> between two <i>timestamps</i>).
@@ -323,9 +323,9 @@ Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized 
 </p>
 </div>
 </div>
-<div id="outline-container-org5fdb7e2" class="outline-2">
-<h2 id="org5fdb7e2">Deriving Eq, Ord</h2>
-<div class="outline-text-2" id="text-org5fdb7e2">
+<div id="outline-container-org873d4ce" class="outline-2">
+<h2 id="org873d4ce">Deriving Eq, Ord</h2>
+<div class="outline-text-2" id="text-org873d4ce">
 <p>
 It will have implicit ordering by <i>timestamps</i>.
 </p>
@@ -342,9 +342,9 @@ This implies <code>min</code> and <code>max</code>  can be used directly on the 
 </div>
 </div>
 
-<div id="outline-container-org46bf7d0" class="outline-2">
-<h2 id="org46bf7d0">A Semigroup</h2>
-<div class="outline-text-2" id="text-org46bf7d0">
+<div id="outline-container-org4690247" class="outline-2">
+<h2 id="org4690247">A Semigroup</h2>
+<div class="outline-text-2" id="text-org4690247">
 <p>
 WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </p>
@@ -355,18 +355,18 @@ WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </div>
 </div>
 </div>
-<div id="outline-container-org2966e44" class="outline-2">
-<h2 id="org2966e44">An abstract Empty Candle</h2>
-<div class="outline-text-2" id="text-org2966e44">
+<div id="outline-container-org6cefe7b" class="outline-2">
+<h2 id="org6cefe7b">An abstract Empty Candle</h2>
+<div class="outline-text-2" id="text-org6cefe7b">
 <p>
 Non-existent, abstract <i>identity element</i> \(e\) for the <i>merging</i> operation.
 \[e\bigoplus x = x = x \bigoplus e\]
 </p>
 </div>
 </div>
-<div id="outline-container-org2ab7fe7" class="outline-2">
-<h2 id="org2ab7fe7">A Monoid</h2>
-<div class="outline-text-2" id="text-org2ab7fe7">
+<div id="outline-container-orgd7396b4" class="outline-2">
+<h2 id="orgd7396b4">A Monoid</h2>
+<div class="outline-text-2" id="text-orgd7396b4">
 <p>
 With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>instance of a Monoid</i>.
 </p>
@@ -378,9 +378,9 @@ With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>in
 </div>
 </div>
 </div>
-<div id="outline-container-org01a9180" class="outline-2">
-<h2 id="org01a9180">Not an  Endofunctor</h2>
-<div class="outline-text-2" id="text-org01a9180">
+<div id="outline-container-org571af05" class="outline-2">
+<h2 id="org571af05">Not an  Endofunctor</h2>
+<div class="outline-text-2" id="text-org571af05">
 <p>
 Any <i>product type</i> looks like an implicit, <i>trivial Endofunctor</i>, provided that a <i>function</i>
 being  mapped over it &ldquo;knows&rdquo; how <i>not to break data consistency</i>.
@@ -415,7 +415,7 @@ an <i>Algebraic Data Type</i> (a product), but not a <i>Functor</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-06-29 Thu 17:11</p>
+<p class="date">Created: 2023-07-01 Sat 19:35</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>

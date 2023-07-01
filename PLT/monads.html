@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-07-01 Sat 19:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Short History of Programming</title>
+<title>Monads</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="keywords" content="Pure Functional, FP, Haskell, Monad, Monoid, Interface, Abstraction barrier" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -226,117 +227,112 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Short History of Programming</h1>
+<h1 class="title">Monads</h1>
 </header><p>
-It is remarkable that by the late 70s and early 80s almost every principle has been figured out and all the major problems has been identified, analyzed and &ldquo;solved&rdquo;.
-</p>
-
-<ul class="org-ul">
-<li>The &ldquo;Structured Programming&rdquo; book has been published in 1972.</li>
-<li>Jackson&rsquo;s &ldquo;Principles&rdquo; followed in 1975.</li>
-<li>Barbara Liskov&rsquo;s book appaared in the same year.</li>
-</ul>
-
-<p>
-By then <i>everything</i> high-level has been well-understood and basically &ldquo;solved&rdquo;.
+Good programming requires a lot of understanding.
 </p>
 
 <p>
-In the 80s another crucially important tradtion of MIT Scheme culminated in the first <i>standard</i>.
+As has been observed by Simon, the architecture of complexity is a <i>layered hierarchy</i> (or a hierarchy of layers).
 </p>
 
 <p>
-The <code>Standard ML</code> along with its ground-breaking <i>type-system</i> has been developed.
+The weak analogy everyone uses is of an onion, but this analogy is indeed weak. It leaves out interrctions between layers and the fact that the layers are not the same, not even similar to each other.
 </p>
 
 <p>
-<code>Smalltalk</code>, which was grossly misunderstood (it was uniformity and underlying message passing <i>using methods</i>  between objects), has been well-established.
+The fundamental pattern is that there are layers - an actual <i>abstraction barriers</i> out there, and these abstraction barriers are penertrable for certain &ldquo;strucures&rdquo;, which may act as &ldquo;messages&rdquo; or required building blocks (&ldquo;parameters&rdquo;).
 </p>
 
 <p>
-Perhaps even more remarkable was the unification attempt of <i>lazy languages</i> under the umbrella of <code>Haskell</code>.
+I would say that this is the most universal and the most important pattern, and it is captures and being used literally at all levels of abstraction in slightly different forms.
 </p>
 
 <p>
-The first edition of &ldquo;the Common Lisp, The Language&rdquo;.
+Parameters of a function, an <i>abstract interface</i> of an ADT, a <i>required set of interfaces</i> of a type-class or a trait, and a set of interfaces in a module signature (SML, Ocaml) are the same notion of a /cell membrane with its &ldquo;pumps&rdquo; and &ldquo;portals&rdquo;.
 </p>
 
 <p>
-<code>Erlang</code>- anothert <i>great</i> language - has been researched in the 90s.
+The same pattern is everywhere. The confusing part is too many abstractions and wrong abstractions.
+</p>
+
+<div id="outline-container-orgc6d7197" class="outline-2">
+<h2 id="orgc6d7197">The Kleisli arrow.</h2>
+<div class="outline-text-2" id="text-orgc6d7197">
+<p>
+Today I am not in the mood for going again through all the details and derivations. In short, a <i>Kleisli Arrow</i> is an abstraction which captures the notion of a function (morphism) which <i>lifts its result into a monad</i> or of <i>crossing an abstraction barrier</i>.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #88C0D0;">return</span> <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> m a
+</pre>
+</div>
+<p>
+There is a <i>composition operator</i> for such &ldquo;arrows&rdquo;, defined as &ldquo;fish&rdquo; <code>&lt;=&lt;</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">(<span style="color: #88C0D0;">&lt;=&lt;</span>) <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> (b <span style="color: #D8DEE9;">-&gt;</span> m c) <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> m c
+</pre>
+</div>
+<p>
+When we look at the types, leaving all the category theoretic bullshit aside, we may notice that we have seen this pattern before:
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">(<span style="color: #88C0D0;">.</span>) <span style="color: #D8DEE9;">::</span> (b <span style="color: #D8DEE9;">-&gt;</span> c) <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> c
+</pre>
+</div>
+<p>
+And the fundamental difference is in crossing the abstraction barrier (of some particular Monad).
 </p>
 
 <p>
-By the time of publishing of the first <i>Haskell Report</i> everything is already figured out.
+A Monad <i>in this context</i> is just a particular instance of the Monad <i>type-class</i>, which defines a <i>required interface</i> and specifies the <i>constraint</i> for also being an instance of a <i>Monoid</i>.
 </p>
 
 <p>
-The development of <code>Scala</code> in early 2000s has already been standing on the shoulders of the giants.
+The &ldquo;laws&rdquo; of both <i>Monad</i> and <i>Monoid</i> are informally stated elsewhere, and it is the duty of a programmer to make sure they hold.
 </p>
 
 <p>
-These were the great early traditions - Lisp, Smalltalk, ML, Prolog, Scheme and Erlang,. An imperative OO crap just fucked everything up and thrown the whole humanity into &ldquo;the dark ages of coding&rdquo;.
+Another fundamental property that all the composition operators (<code>&lt;=&lt;</code> and <code>&gt;&gt;=</code>) are <i>implemented</i> as <i>nested lambdas</i>, because there is literally <i>no other way</i>.
 </p>
 
 <p>
-It is easy to see that all these tradtions has been firmly grounded in math and logic, and the <i>discovery</i> of the Hindley-Milner isomorphism just &ldquo;confirmed&rdquo; the right understanding.
+The consequence is this <i>property</i> that there the composition operation is implicitly <i>properly serialized</i> and with no way to interfere with it, could be considered as technically <i>atomic</i>.
 </p>
 
 <p>
-Basically, the <i>worst possible</i> &ldquo;marriage&rdquo; happened between &ldquo;Algol and C&rdquo; traditon and &ldquo;naive&rdquo; (to say the least) imperative OO.
+The <i>Referential Transparency</i> property holds for both the arguments and the result of a <i>composition</i>. This is what keeps everything pure (only in Haskell).
 </p>
 
 <p>
-An entire OO <i>layers</i> has been developed <i>just right</i> - as strcut-based DSLs - for early lisp (Flawors) and for <code>Common Lisp</code> (CLOS) and for <code>Scheme</code>.
+Notice that once the values is &ldquo;lifted&rdquo; (crossed the abstraction barrier) there is absolutely no way to observe it, but it is possible to <i>declare</i> (specify declaratively) what to do with it <i>eventually</i>.
 </p>
 
 <p>
-<code>Ocaml</code> added &ldquo;objects and classes&rdquo; just as a <i>sort of</i> a DSL too (a language extension, to be precise).
+We have a reference to a <code>m a</code> and can only specify what to do with it, including case analysis and pattern-matching on a value we will never observe. Again, Haskell is a <i>declarative pure logic</i>, not some kind of an <i>imperative crap</i>.
 </p>
 
 <p>
-However, the process of exteding <code>C</code> with classes (from <code>Symula</code>) and then with <i>generics</i> was, and still is, a disaster. Fucking abominations such as <code>Java</code> has been &ldquo;bestoved upon us&rdquo; by brain-dead &ldquo;designers&rdquo;.
+Actually, all the Haskell code is a declarative description of what <i>eventually</i> shall be done with values (by the runtime), and the values themeselves are never available. They just <i>aren&rsquo;t out there</i>.
 </p>
 
 <p>
-It is important to undetstand is that adding classes to <code>C</code> was as bad as adding them to <code>PHP</code> &#x2013; the thing which cultured and educated people would not even mention at a table talk.
+This is a no bullshit result. Have some time to really understand and internalize it. The actual purity of Haskell code (until the <code>main</code> returns) is a vary big deal. It makes the Haskell code (technically) a <i>pure logic (or pure mathematics)</i>.
 </p>
 
 <p>
-What is the underlying pattern? Well, languages designed by the math wizards are great, languages designed by narcissistic math-illiterate, uneducared degens (just out of the &ldquo;drive&rdquo; and ambitions) are what we have today, <i>and you can tell.</i>
+Take your time.
 </p>
-
-<p>
-So, by now, the &ldquo;obvious&rdquo; choice is to stay with the right &ldquo;ancient&rdquo; traditions of <i>mostly-functional</i> languages such as <code>Ocaml</code> or <code>Scala 3</code> or even <code>Common Lisp</code>.
-</p>
-
-<p>
-<i>Pragmatic</i> math-wizards should stick to <code>Haskell</code>, which techincally has the exactly the same <i>properties</i> as pure math or logic (any haskell program is a pure expression).
-</p>
-
-<p>
-To get a premature enlightenment one has to realize that what Hoare, Liskov has been systematized &ldquo;works&rdquo; for Ladrin&rsquo;s functional languages, because the high-level principles of <i>proper structuring are /universal</i>.
-</p>
-
-<p>
-The module system of <code>Ocaml</code> (a culmination of its own), which is done <i>just right</i> can be incorporated into any language. Very few understand or care.
-</p>
-
-<p>
-Notice that this is the very short history of <i>discoveries</i> (which began with the <i>Set Abstraction</i> and Abstract Algebra and later with the Lambda Calculus) with contribution (about universality of <i>structuring</i>) from Molecular Biology. This is how one should view and undersrand what programming is <i>really</i>.
-</p>
-
-<p>
-At the highest and the most abstract level we (<i>good</i> programmers) just <i>strucure information</i>.
-</p>
-
-<p>
-Structures (&ldquo;abstract shapes of data&rdquo;) and relared <i>ADTs</i>  (packagesd into modues) are at the core of programming. Immutability and statelessness are another parts of the &ldquo;core&rdquo;.
-</p>
+</div>
+</div>
+<div id="outline-container-org34b481c" class="outline-2">
+<h2 id="org34b481c">Tracing the abstractions back to What Is.</h2>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
+<p class="date">Created: 2023-07-01 Sat 19:38</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
