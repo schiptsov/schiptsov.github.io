@@ -4,9 +4,9 @@
 <!-- 2023-07-01 Sat 09:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Scheme</title>
+<title>The Whys</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
-<meta name="keywords" content="MIT Scheme, Lambda Calculus, Foundations" />
+<meta name="keywords" content="Lambda Calculus, Foundations, Curry-Howard Isomorphism" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -219,6 +219,25 @@
      }
 // @license-end
 </script>
+<script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "%AUTONUMBER",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -227,117 +246,248 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Scheme</h1>
-</header><p>
-Scheme has been inspired to be as minimal and <i>semantically clear</i> as humanly
-possible. In part it was a <i>reaction</i> to the mess and a <i>kitchen sink syndrome</i> of
-<code>Common Lisp</code> (which incorporates nearly 30 years of the <code>Lisp</code> tradition). It was
-also heavily influenced by the results of <i>Alonzo Church</i> and <i>Haskell Curry</i>, on
-the foundation of mathematics and the <i>Lambda Calculus</i>.
+<h1 class="title">The Whys</h1>
+</header>
+<div id="outline-container-org8d83a4e" class="outline-2">
+<h2 id="org8d83a4e">The Foundations</h2>
+<div class="outline-text-2" id="text-org8d83a4e">
+<p>
+The <i>right understanding</i> (and the proper knowledge) begins with very strange
+questions, which most people would never ask.
 </p>
 
 <p>
-By the time of publication of the R5RS &ldquo;standard&rdquo;, everything has been &ldquo;solved&rdquo;
-and &ldquo;done riight&rdquo;. The unique masterpiece emerged.
+Following the purely theoretical (but absolutely fundamental) result of Alonzo
+Church, that his <i>Lambda Calculus</i> is a <i>universal language</i> &#x2013; absolutely <i>minimal</i>
+but yet good enough <i>to compute any commutable mathematical function</i>, the
+question is &#x2013; <i>Why?</i> Why just these <i>three forms</i> are enough for everything. This
+is not an easy question to approach.
+</p>
+</div>
+
+<div id="outline-container-org91728e8" class="outline-3">
+<h3 id="org91728e8">Lambda Calculus</h3>
+<div class="outline-text-3" id="text-org91728e8">
+<p>
+In its canonical form the whole calculi consist of a set of <i>terms</i>, and a set of
+<i>reduction rules</i>.
 </p>
 
 <p>
-In the late 90s, the &ldquo;discovery&rdquo; of the &ldquo;Curry-Howard isomorphism&rdquo; independently
-showed that this was the right (and the <i>only</i>) direction. Here I will try my best
-to explain <i>why</i> this is so in another post.
+It has just 3 <i>syntactic forms</i>:
+</p>
+<ul class="org-ul">
+<li>a <i>variable binding</i> (a convenience for the Mind)</li>
+<li>a \[\Lambda\]-<i>abstraction</i> (a capture)</li>
+<li>an <i>application</i> (a single step)</li>
+</ul>
+
+<p>
+and just 1 <i>reduction rule</i>:
+</p>
+<ul class="org-ul">
+<li>\[\beta\]-<i>reduction</i> (a uniform <i>substation</i> of a value for a <i>bound</i> variable)</li>
+</ul>
+
+<p>
+There are a few often overlooked subtleties here:
+</p>
+<ul class="org-ul">
+<li>there is an implicit <i>environment</i>, which remembers the <i>immutable bindings</i></li>
+<li>there is the <i>substitution model</i>, which is implicitly used in all mathematics</li>
+<li>there is an <i>interpreter</i> (which uses the <i>substitution model</i>), and this is you</li>
+<li>the process of <i>reduction</i> (simplification) stops when a <i>normal form</i> is reached</li>
+</ul>
+
+<p>
+<i>Currying</i> is an <i>extension</i> for <i>uniformly</i> implementing a multi-argument functions.
 </p>
 
 <p>
-Scheme is also proved by example that a language should be a small set of
-well-chosen <i>orthogonal</i> (does not step on its own feet) but <i>complementing each
-other</i> features. A proper <i>uniformity</i> (<i>everything is an expression</i>) is what
-enables complementary features (universal <i>nesting</i>, high-order procedures, etc).
-</p>
-
-<div id="outline-container-orgf969505" class="outline-2">
-<h2 id="orgf969505">MIT Scheme</h2>
-<div class="outline-text-2" id="text-orgf969505">
-<p>
-The MIT Scheme is not just a particular implementation of the Scheme language,
-it is an actual embodiment (or actual manifestation) of the whole <i>Classic MIT
-Tradition</i>, which is a distinct, unique cultural phenomena - a mix of mathematics,
-biology, linguistics, electrical engineering, artificial intelligence and
-computer science, with the corresponding major labs and faculties.
-</p>
-
-<p>
-While Scheme itself was a programming language done right, The MIT Scheme is an
-implementation done right. It has a fast and clean runtime written in portable
-<code>C</code>, a <i>native code</i> compiler, which supports a couple of major platforms, a
-polished and principle-guided <i>standard library</i>, and <i>bindings</i> for most common
-<i>libraries</i>, including X11, PostgreSQL and what not. It has an <i>object system</i> as an
-embedded DSL, similar to CLOS.
-</p>
-
-<p>
-Back then MIT Scheme was in itself a lesson in a proper, principle-guided
-software design and implementation. Nowadays it is a <i>monument</i> (on par with
-Erlang/OTP, SML/NJ, GHC or Ocaml 4).
+<i>Partial application</i> &ldquo;naturally follows&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd0b3247" class="outline-2">
-<h2 id="orgd0b3247">All you need is Lambda</h2>
-<div class="outline-text-2" id="text-orgd0b3247">
+
+<div id="outline-container-org4d3bb43" class="outline-3">
+<h3 id="org4d3bb43">The Universal Machine</h3>
+<div class="outline-text-3" id="text-org4d3bb43">
 <p>
-<code>let</code> special form as a <i>lambda with an in-place invocation</i>. Again, a <i>closure</i> is an
-implicit nested <i>frame of an environment</i> (for all its <i>bindings</i>).
+The crucial part of the Classic MIT Culture is recognition (and subsequent
+studying) of an <i>interpreter</i> as a <i>Universal Machine</i>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec1aef8" class="outline-2">
+<h2 id="orgec1aef8">Generalized patterns of What Is.</h2>
+<div class="outline-text-2" id="text-orgec1aef8">
+<p>
+Now <i>why</i>. The way to at least some answers is not toward abstract concepts, but
+towards molecular and biological processes from which some fundamental
+abstractions have been <i>captured</i> and properly <i>generalized</i>.
+</p>
+</div>
+
+<div id="outline-container-orgeffc653" class="outline-3">
+<h3 id="orgeffc653">An Environment</h3>
+<div class="outline-text-3" id="text-orgeffc653">
+<p>
+The <i>environment</i> is a membrane-separated distinct <i>partition</i> of a  single <i>cell</i>,
+which, in turn, has an <i>enclosing environment</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org29e6192" class="outline-3">
+<h3 id="org29e6192">A Closure</h3>
+<div class="outline-text-3" id="text-org29e6192">
+<p>
+This gives us both <i>nesting of environments</i> (and <i>nesting</i> in general) and a
+&ldquo;<i>closure</i>&rdquo; (a distinct <i>partition</i>) which &ldquo;captures&rdquo; (holds) all its &ldquo;stuff&rdquo;
+inside.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfc50a6d" class="outline-3">
+<h3 id="orgfc50a6d">A Universal Pattern</h3>
+<div class="outline-text-3" id="text-orgfc50a6d">
+<p>
+These <i>closures</i> are not just physical, but also &ldquo;logical&rdquo; and &ldquo;mathematical&rdquo;
+patterns. It is, thus, a <i>Universal Pattern</i>, indeed, the most general and the
+most fundamental  one &#x2013; the pattern of <i>capturing</i> something distinct <i>within an
+environment</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd32fbf8" class="outline-3">
+<h3 id="orgd32fbf8">At all levels</h3>
+<div class="outline-text-3" id="text-orgd32fbf8">
+<p>
+We have an environment of a shared (agreed upon) <i>concepts</i>, expressed in a shared
+(common) human language.
+</p>
+
+<p>
+A <i>definition</i> captures the meaning. A <i>concept</i> captures a generalized <i>notion</i>, etc.
+</p>
+
+<p>
+Again, distinct &ldquo;closures&rdquo; (partitions) within some environment. It becomes an
+<i>environment</i> for its &ldquo;internals&rdquo;.
+</p>
+
+<p>
+The definitive property of a &ldquo;closure&rdquo; is that everything necessary (being used
+inside) is captured (held) within. Ideally, it has to be eternal (indestructible).
+</p>
+</div>
+</div>
+<div id="outline-container-orgf2ddb0c" class="outline-3">
+<h3 id="orgf2ddb0c">The Lambda-abstraction</h3>
+<div class="outline-text-3" id="text-orgf2ddb0c">
+<p>
+And this is, of course, what <i>the Lambda-abstraction</i> corresponds to &#x2013; what
+<i>notion</i> it, as a minimal abstraction, <i>captures</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org02ed208" class="outline-3">
+<h3 id="org02ed208">A single step</h3>
+<div class="outline-text-3" id="text-org02ed208">
+<p>
+What <i>universal notion</i> the <i>application</i> of lambda terms (to one another) captures?
+It captures the notion of creating a  <i>process</i>, which performs at least one
+<i>single step</i>.
+</p>
+
+<p>
+Again, application implicitly creates a <i>process</i> which performs at least one
+<i>single step</i>. This is corresponds to an <i>enzyme</i> within a cell.
+</p>
+
+<p>
+Even more generally, to a simple chemical <i>reaction</i>, when a single <i>required
+condition</i> has been meet (a process notion).
+</p>
+
+<p>
+At the level of the Mind we have a single step of reasoning (deductive or
+inductive), and the process in implicit withing the brain.
+</p>
+
+<p>
+Cool, isn&rsquo;t it? This is <i>why</i> the Curry-Howard isomorphism is possible - there are
+the same fundamental notions being captured by &ldquo;different observers&rdquo;.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org62f8570" class="outline-2">
+<h2 id="org62f8570">An arrow between two dots</h2>
+</div>
+<div id="outline-container-org233312f" class="outline-2">
+<h2 id="org233312f">The pattern</h2>
+<div class="outline-text-2" id="text-org233312f">
+<p>
+<i>Currying</i>, when we look at <i>what it actually does</i> is just <i>lambdas return another
+lambdas</i> (which has to be called properly).
+</p>
+
+<p>
+There is a <i>curried</i> <code>'+</code> with an <i>in-place invocation</i>
 </p>
 <div class="org-src-container">
-<pre class="src src-scheme">((<span style="color: #81A1C1;">lambda</span> (x) (+ <span style="color: #B48EAD; font-weight: bold;">1</span> x)) <span style="color: #B48EAD; font-weight: bold;">2</span>)
+<pre class="src src-scheme">(((<span style="color: #81A1C1;">lambda</span> (x)
+<span style="background-color: #2E3440;"> </span>   (<span style="color: #81A1C1;">lambda</span> (y)
+<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> (+ x y)))
+<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD; font-weight: bold;">2</span>) <span style="color: #B48EAD; font-weight: bold;">3</span>)
+</pre>
+</div>
+
+<p>
+The <i>fundamental</i> part is that the only way to implement a <i>composition of
+functions</i> in a <i>Normal Order</i> (lazy) language is also via <i>nesting of lambdas</i>,
+which produces an <i>implicit order of evaluation</i> - the <i>inner lambda</i> will be first.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme">(<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">compose</span>
+<span style="background-color: #2E3440;"> </span> (<span style="color: #81A1C1;">lambda</span> (g)
+<span style="background-color: #2E3440;"> </span>   (<span style="color: #81A1C1;">lambda</span> (f)
+<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> (<span style="color: #81A1C1;">lambda</span> (x)
+<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (g (f x))))))
 </pre>
 </div>
 <p>
-which is <i>semantically</i> equivalent (the same function, a different form) to
+or in the another <i>classic language</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-scheme">(<span style="color: #81A1C1;">let</span> ((x <span style="color: #B48EAD; font-weight: bold;">2</span>)) (+ <span style="color: #B48EAD; font-weight: bold;">1</span> x))
+<pre class="src src-haskell">g <span style="color: #88C0D0;">.</span> f <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">\</span>x <span style="color: #D8DEE9;">-&gt;</span> g (f x)
 </pre>
 </div>
+
 <p>
-Curried <code>'+</code> with an in-place invocation
-</p>
-<div class="org-src-container">
-<pre class="src src-scheme">(((<span style="color: #81A1C1;">lambda</span> (x) (<span style="color: #81A1C1;">lambda</span> (y) (+ x y))) <span style="color: #B48EAD; font-weight: bold;">2</span>) <span style="color: #B48EAD; font-weight: bold;">3</span>)
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org624b0e1" class="outline-2">
-<h2 id="org624b0e1">Just right</h2>
-<div class="outline-text-2" id="text-org624b0e1">
-<p>
-When you have the right understanding, you inevitably do the right thing.
+The subtlety is, again, that in a <i>Normal Order</i> (as intended by God, or at least by
+Church, you know) <i>nesting of lambdas</i> is the only way to establish a sequential
+order &#x2013; so the evaluator (the interpreter), which follows the same fixed set of
+rules, will &ldquo;serialize&rdquo; without &ldquo;knowing about it&rdquo; or any explicit support for
+serialization.
 </p>
 
 <p>
-Scheme is a uniform language, so everything is an expression, and thus nesting is
-arbitrary, so
+This is not a coincidence. This subtle pattern is just <i>emerged</i> or <i>discovered</i> by us.
 </p>
 
 <p>
-An <i>identity function</i> applied to itself returns itself
+At a type level what we see is <i>chaining</i>, and it is not a coincidence that we
+see some <i>chained arrows</i> up there. This is the pattern.
 </p>
-<div class="org-src-container">
-<pre class="src src-scheme">((<span style="color: #81A1C1;">lambda</span> x x) (<span style="color: #81A1C1;">lambda</span> x x))
-</pre>
-</div>
-<p>
-The <i>accumulator pattern</i> is expressed &ldquo;naturally&rdquo; (using an <i>explicit bindings</i> syntax)
-</p>
-<div class="org-src-container">
-<pre class="src src-scheme">(<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">factorail</span> (<span style="color: #81A1C1;">lambda</span> (x)
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">recur</span> (<span style="color: #81A1C1;">lambda</span> (n acc)
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (<span style="color: #81A1C1;">if</span> (zero? n) acc
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (recur (- n <span style="color: #B48EAD; font-weight: bold;">1</span>) (* n acc)))))
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> (recur x <span style="color: #B48EAD; font-weight: bold;">1</span>)))
-</pre>
-</div>
 </div>
 </div>
 </div>
