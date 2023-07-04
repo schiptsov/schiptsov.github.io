@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-04 Tue 11:28 -->
+<!-- 2023-07-04 Tue 12:36 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Haskell Stack</title>
@@ -357,6 +357,17 @@ Anyway, here is how you do it (having the proper version of LLVM <i>early</i> in
 hadrian/build binary-dist
 </pre>
 </div>
+<p>
+Here the <code>--prefix</code> is irrelevant, it will be used when installing a <i>binary distribution</i>.
+</p>
+
+<p>
+This will produce a <i>binary distribution package</i>, which need to be configured and installed.
+</p>
+
+<p>
+If you are using some custom <code>CFLAGS</code> and <code>LDFLAGS</code> for <i>hardening</i>, make sure there is no <code>--as-needed</code> and other shady thihgs.
+</p>
 
 <p>
 in <code>%HOME/.bashrc</code>
@@ -402,11 +413,11 @@ There is a tool called <code>ghcup</code> <a href="https://www.haskell.org/ghcup
 </p>
 
 <p>
-With this you can get the <code>stack</code> <i>statically linked binary</i>, which you will use to bootstrap all the required tools.
+With this you can get the <code>cabal</code> and <code>stack</code> <i>statically linked binaries</i>, which you will use to bootstrap all the required tools.
 </p>
 
 <p>
-The point is to compile everything with your new GHC and the bundled libs.
+The point is to compile everything with your new GHC and the bundled libraries. It is not even possible to run <code>hls</code> any other way.
 </p>
 </div>
 </div>
@@ -494,7 +505,7 @@ At the time of writing shit does not even compile.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-04 Tue 11:28</p>
+<p class="date">Created: 2023-07-04 Tue 12:36</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
