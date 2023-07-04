@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-07-04 Tue 11:17 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Haskell Stack</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">The Haskell Stack</h1>
+</header><p>
+Fuck this shit.
+</p>
+
+<p>
+You need <code>ghc</code>. The sane people back then had just one requiredment - being available in the <code>$PATH</code>.
+</p>
+
+<p>
+<code>$PATH</code> is good, because it is a <i>List</i>. One could prepend elements to it, and this is the right thing to do.
+</p>
+
+<p>
+There is also <code>/opt</code>. This is the place to store your <i>semantically versioned</i> directories.
+</p>
+
+<p>
+You do
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">./configure --prefix=/opt/blah-blah-x.y.z &amp;&amp; <span style="color: #8FBCBB;">make</span> &amp;&amp; <span style="color: #8FBCBB;">make</span> install
+</pre>
+</div>
+<p>
+and then you do
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">cd</span> /opt
+<span style="color: #8FBCBB;">ln</span> -s /opt/blah-blah-x.y.z /opt/blah-blah
+</pre>
+</div>
+<p>
+And finally, when needed, you just
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">PATH</span>=/opt/blah-blah:$<span style="color: #D8DEE9;">PATH</span>
+</pre>
+</div>
+<p>
+no fucking <code>nix</code>, <code>snapd</code>, <code>flatpack</code> or whatevery fucking degeneracy these idiots are trying to force on you.
+</p>
+
+<p>
+Just plain directories and <code>$PATH</code> are still <i>good-enough</i>.
+</p>
+
+<p>
+Anyway.
+</p>
+
+<p>
+To build <i>GHC</i> you need the <i>LLVM</i> toolchain installed.
+</p>
+
+<p>
+The build system is using (assume) <code>ld.lld</code>, <code>ar</code> and <code>nm</code> from <i>LLVM</i>, not from GNU <code>binutils</code>, so you do this:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">PATH</span>=/usr/lib/llvm/15/bin:/usr/bin:$<span style="color: #D8DEE9;">PATH</span>
+</pre>
+</div>
+<p>
+This is only for <i>this terminal session</i>, of course.
+</p>
+
+<p>
+The <code>ghc</code> will use a <i>C preprocessor</i>. By default it will use <code>gcc</code>, but it is much better to reduce the number of dependencies.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CC</span>=clang
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CXX</span>=clang++
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">LD</span>=ld.lld
+</pre>
+</div>
+<p>
+so the <code>./configure</code> script from <code>ghc-x.y.z-src.tar.xz</code> will use these (from <code>/usr/lib/llvm/15/bin</code>).
+</p>
+
+<p>
+Now there is a problem &#x2013; you need to have these already installed (in the <code>$PATH</code>):
+</p>
+<ul class="org-ul">
+<li><code>ghc</code></li>
+<li><code>cabal</code> (from the cabal-install package)</li>
+<li><code>alex</code></li>
+<li><code>happy</code></li>
+</ul>
+
+<p>
+The GHC toolchain comes with the bundled <code>Cabal</code> library, but without <code>cabal-install</code> (fucking degenerates!)
+</p>
+
+<p>
+Modern versions of GHC require the <code>hadrian</code> package for building the GHC sources.
+</p>
+
+<p>
+This will be automatically downloaded and built using already installed <code>ghc</code> and <code>cabal</code>. Where will you get these?
+</p>
+
+<p>
+Oh, this is such a good question. Most of Linux distributions come with outdated versions of <code>ghc</code>, if at all. <code>Gentoo</code> still has <i>9.0.2</i>, which is too old.
+</p>
+
+<p>
+To build a modern GHC you need at least <i>9.2.x</i>. So, you might get the <i>binary distribution</i> from the GHC download page.
+</p>
+
+<p>
+But wait, the &ldquo;binary distribution&rdquo; needs GHC already installed. Surprise! It also needs the <i>LLVM</i> toolchain because it partially rebuilds and relinks itself.
+</p>
+
+<p>
+Anyway, here is how you do it (having the proper version of LLVM <i>early</i> in the <code>$PATH</code> is crucial):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">tar -xJf ghc-9.6.2-src.tar.xz
+<span style="color: #8FBCBB;">cd</span> ghc-9.6.2
+
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">PATH</span>=/usr/lib/llvm/15/bin:/usr/bin:$<span style="color: #D8DEE9;">PATH</span>
+
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CC</span>=clang
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">CXX</span>=clang++
+<span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">LD</span>=ld.lld
+
+./configure --prefix=/opt/ghc-9.6.2
+
+hadrian/build binary-dist
+</pre>
+</div>
+
+<p>
+in <code>%HOME/.bashrc</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #81A1C1;">export</span> <span style="color: #D8DEE9;">PATH</span>=/opt/ghc-9.6.2/bin:$<span style="color: #D8DEE9;">HOME</span>/.local/bin:/usr/local/bin:$<span style="color: #D8DEE9;">PATH</span>
+</pre>
+</div>
+
+<p>
+The <i>GHC compiler suite</i> comes with the bundled set of libs, <i>versioned with fucking hashes</i>. Just as in the <code>Cabal</code> example, you better to use these libs.
+</p>
+
+<div id="outline-container-org300be95" class="outline-2">
+<h2 id="org300be95">ghcup</h2>
+<div class="outline-text-2" id="text-org300be95">
+<p>
+There is a tool called <code>ghcup</code> <a href="https://www.haskell.org/ghcup/">https://www.haskell.org/ghcup/</a>
+</p>
+
+<p>
+With this you can get the <code>stack</code> <i>statically linked binary</i>, which you will use to bootstrap all the required tools.
+</p>
+
+<p>
+The point is to compile everything with your new GHC.
+</p>
+</div>
+</div>
+<div id="outline-container-orgef304ea" class="outline-2">
+<h2 id="orgef304ea">Stack</h2>
+<div class="outline-text-2" id="text-orgef304ea">
+<p>
+You need to check <a href="https://stackage.org">https://stackage.org</a> for the lastest version of the resolver for your GHC.
+</p>
+
+<p>
+in <code>$HOME/.stack/config.yaml</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-yaml"><span style="color: #D8DEE9;">system-ghc</span>: <span style="color: #81A1C1;">true</span>
+
+<span style="color: #D8DEE9;">allow-newer</span>: <span style="color: #81A1C1;">true</span>
+</pre>
+</div>
+<p>
+in <code>$HOME/.stack/global-project/stack.yaml</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-yaml"><span style="color: #D8DEE9;">compiler</span>: ghc-9.6.2
+<span style="color: #D8DEE9;">packages</span>: []
+<span style="color: #D8DEE9;">resolver</span>: nightly-2023-07-04
+
+<span style="color: #D8DEE9;">extra-deps</span>:
+- Cabal-3.10.1.0
+- Cabal-syntax-3.10.1.0
+- cabal-install-solver-3.10.1.0
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgebfc967" class="outline-2">
+<h2 id="orgebfc967">cabal-install</h2>
+<div class="outline-text-2" id="text-orgebfc967">
+<div class="org-src-container">
+<pre class="src src-bash">stack update
+
+stack install cabal-install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org037fa5a" class="outline-2">
+<h2 id="org037fa5a">stack</h2>
+<div class="outline-text-2" id="text-org037fa5a">
+<div class="org-src-container">
+<pre class="src src-bash">stack install stack
+</pre>
+</div>
+<p>
+This will give you lots of errors, so you have to add <code>extra deps</code> to the <code>global-project/stack.yaml</code> file.
+</p>
+</div>
+</div>
+<div id="outline-container-org0243df3" class="outline-2">
+<h2 id="org0243df3">basic tools</h2>
+<div class="outline-text-2" id="text-org0243df3">
+<div class="org-src-container">
+<pre class="src src-bash">stack install alex happy stylish-haskell fourmolu
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-07-04 Tue 11:17</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>
