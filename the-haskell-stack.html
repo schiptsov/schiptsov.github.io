@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-04 Tue 11:21 -->
+<!-- 2023-07-04 Tue 11:28 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Haskell Stack</title>
@@ -370,6 +370,30 @@ in <code>%HOME/.bashrc</code>
 The <i>GHC compiler suite</i> comes with the bundled set of libs, <i>versioned with fucking hashes</i>. Just as in the <code>Cabal</code> example, you better to use these libs.
 </p>
 
+<div id="outline-container-orge7c5592" class="outline-2">
+<h2 id="orge7c5592">Hashes for versioning</h2>
+<div class="outline-text-2" id="text-orge7c5592">
+<p>
+I cannot even properly express my boiling rage over this utter stupidity and degeneracy.
+</p>
+
+<p>
+Instead of maintaining stable APIs and basic semantic versioning, degens came up with this.
+</p>
+
+<p>
+OK, now you have <i>gigabytes</i> of crap sitting on your disk in varions places:
+</p>
+<ul class="org-ul">
+<li><code>.cabal/store</code></li>
+<li><code>.stack/snapshots</code></li>
+<li><code>.stack-work</code></li>
+</ul>
+<p>
+Try to build and install the <code>haskell-language-server</code>. You will see.
+</p>
+</div>
+</div>
 <div id="outline-container-org300be95" class="outline-2">
 <h2 id="org300be95">ghcup</h2>
 <div class="outline-text-2" id="text-org300be95">
@@ -382,7 +406,7 @@ With this you can get the <code>stack</code> <i>statically linked binary</i>, wh
 </p>
 
 <p>
-The point is to compile everything with your new GHC.
+The point is to compile everything with your new GHC and the bundled libs.
 </p>
 </div>
 </div>
@@ -470,7 +494,7 @@ At the time of writing shit does not even compile.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-04 Tue 11:21</p>
+<p class="date">Created: 2023-07-04 Tue 11:28</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
