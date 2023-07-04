@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-04 Tue 10:58 -->
+<!-- 2023-07-04 Tue 15:47 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Haskell</title>
@@ -247,8 +247,52 @@ MathJax = {
 </div><div id="content" class="content">
 <header>
 <h1 class="title">Haskell</h1>
-</header><p>
-When you write <code>Haskell</code> <i>expressions</i> (everything in Haskell is an expression) you are writing mathematics or terms of an advanced system of logic. Everything is <i>declarative</i> and <i>pure</i>.
+</header>
+<div id="outline-container-org2baf805" class="outline-2">
+<h2 id="org2baf805">The problems</h2>
+<div class="outline-text-2" id="text-org2baf805">
+<p>
+It is a bit strange to start with &ldquo;problems&rdquo; but lets make everything clear
+before we go.
+</p>
+
+<p>
+There are a few serious problems with the current manifestation of the Haskell
+<i>ecosystem</i> (the language itself is fine).
+</p>
+<ul class="org-ul">
+<li>Tremendous amount of low-effort written bullshit by unqualified narcissistic idiots.</li>
+<li>Unnecessary and redundant poor abstractions by unqualified narcissistic idiots.</li>
+<li>Lots and lots of stupid attention seeking uneducated Chuds trying to show off.</li>
+<li>Absolutely horrific, barely usable tools like <code>hls</code> as the direct consequence of
+the facts  listed above.</li>
+</ul>
+
+<p>
+This gives <code>Haskell</code> as an ecosystem, not as a language, rather bad reputation and
+this is, unfortunately, justified.
+</p>
+
+<p>
+The good news is that we do not have to use these redundant abstractions,
+over-&ldquo;designed&rdquo; libraries, and bloated, <i>low-effort</i> tools.
+</p>
+
+<p>
+Well, we have to use some necessary tools (<code>cabal</code>, <code>stack</code>, and even <code>hls</code>), just
+turning away and not really looking at how bad and crappy they actually are.
+</p>
+
+<p>
+The language itself is <i>beautiful</i> and nearly perfect.
+</p>
+</div>
+</div>
+<div id="outline-container-org21b9421" class="outline-2">
+<h2 id="org21b9421">Principles</h2>
+<div class="outline-text-2" id="text-org21b9421">
+<p>
+When you write <code>Haskell</code> <i>expressions</i> (everything in Haskell is an expression) you are writing mathematics or <i>terms of an advanced system of logic</i>. Everything is <i>declarative</i> and <i>pure</i>.
 </p>
 
 <p>
@@ -260,11 +304,11 @@ Suppose you are writing a very detailed instructions for your younger sister how
 </p>
 
 <p>
-The principle is that writing what to do (what has to be done) and actually doing it (cooking on a stove) are very differnt processes. Actually, they have nothing in common.
+The principle is that writing what to do (what has to be done) and actually doing it (cooking on a stove) are very different processes. Actually, they have nothing in common.
 </p>
 
 <p>
-When you write what has to be done <i>eventually</i>, you never see or touch the actual ingridients, like chicken meat, do not measure or change the temperature or add more salt.
+When you write what has to be done <i>eventually</i>, you never see or touch the actual ingredients, like chicken meat, do not measure or change the temperature or add more salt.
 </p>
 
 <p>
@@ -275,9 +319,15 @@ What you do is only <i>describing</i> with words how some one else, maybe you bu
 The ultimate difference is that instead of using plain English, you have to use this particular programming language, which <i>restricts</i> what can you say and has its own rules of grammar.
 </p>
 
-<div id="outline-container-org0b4099a" class="outline-2">
-<h2 id="org0b4099a">Teling  to a robot</h2>
-<div class="outline-text-2" id="text-org0b4099a">
+<p>
+Also you are speaking as a mathematician - always precise and always with a
+well-defined terms, using mathematical and logical expressions instead of imperative statements.
+</p>
+</div>
+</div>
+<div id="outline-container-org4482089" class="outline-2">
+<h2 id="org4482089">Telling to a robot</h2>
+<div class="outline-text-2" id="text-org4482089">
 <p>
 Imagine that you are telling what has to be done to a <i>robot</i>, to a <i>machine</i> (which is what an <i>interpreter</i> actually is).
 </p>
@@ -380,7 +430,7 @@ We <i>evaluate</i> these functions (and other expressions) using the <i>substitu
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-04 Tue 10:58</p>
+<p class="date">Created: 2023-07-04 Tue 15:47</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
