@@ -4,8 +4,9 @@
 <!-- 2023-07-06 Thu 10:10 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lessons</title>
+<title>The Big Picture</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="keywords" content="crypto, trading, binance, automation, python" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -226,118 +227,171 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Lessons</h1>
-</header>
-<div id="outline-container-org1ff14fd" class="outline-2">
-<h2 id="org1ff14fd">The obvious lessons</h2>
-<div class="outline-text-2" id="text-org1ff14fd">
-<p>
-The most important thing about exchanges (platforms and providers)
-</p>
-<ul class="org-ul">
-<li><i>liquidity</i> (daily volumes). non-liquid markets will have huge slippage</li>
-<li><i>commission</i> (it has to be the lowest). this is how much you just give away</li>
-<li><i>stop-loses</i> must actually work (lots of platforms cheat, like FTX did)</li>
-<li>the ability to <i>sell short</i> (absolutely crucial). this makes the market <i>liquid</i></li>
-<li>the ability to trade with <i>high leverage</i> (use other people&rsquo;s money)</li>
-</ul>
-
-<p>
-Leverage is absolutely necessary because one cannot risk one&rsquo;s own money, and
-they will liquidate you in order to prevent <i>any loss</i> of borrowed liquidity anyway.
+<h1 class="title">The Big Picture</h1>
+</header><p>
+Recently (but always too late) I saw this wonderful scam course on Udemy:
+<a href="https://www.udemy.com/course/cryptocurrency-algorithmic-trading-with-python-and-binance/">https://www.udemy.com/course/cryptocurrency-algorithmic-trading-with-python-and-binance/</a>
 </p>
 
 <p>
-Stop-loses help <i>minimize</i> (but never eliminate) the risk of sudden <i>liquidation</i>.
+The first question, of course, is <i>why don&rsquo;t you just run your code and become a millionarie</i>? Oh, you love teaching, I see.
 </p>
 
 <p>
-Risk-management is about <i>continuously</i> minimizing potential loses using simple
-techniques, like <i>trailing stop-loses</i>. All the advanced formulas in PhD level
-textbooks is an utter make-believe bullshit.
+The same question applies to all the authors of books like
+<a href="https://www.amazon.com/Understanding-Crypto-Fundamentals-Cryptoassets-Management/dp/1484293088">https://www.amazon.com/Understanding-Crypto-Fundamentals-Cryptoassets-Management/dp/1484293088</a>
 </p>
 
 <p>
-At least some <i>automation</i> is required. One cannot trade by hand, being subject to
-emotional swings, anxiety, fear and panic attacks.
+Why don&rsquo;t you just apply the &ldquo;wisdom&rdquo; you are selling?
 </p>
 
 <p>
-Begin with a written plan - an informal &ldquo;program&rdquo; (which timeline, precise entry and
-exit rules) and then try to automate it with some scripting (lots of Python
-libraries out there).
+Here is a non-bullshit, <i>less wrong</i> answer.
+</p>
+
+<p>
+Have you ever seen any of these boxing or Muay Thai teaching videos? Some very competent and well-versed guys explain slowly and methodically <i>what you do when a jab or a hook comes at you</i>!
+</p>
+
+<p>
+The best of them even use the notions from physics to justify their tactics, and of course, they telling you that only through practice and <i>automatic responces</i> (whithout thinking) one could master these techniques.
+</p>
+
+<p>
+How, why don&rsquo;t they just go into the ring and win a title?
+</p>
+
+<p>
+Well, it seems that there is some <i>gap</i> between the theory and &ldquo;teaching&rdquo; and the actual performance inside the ring.
+</p>
+
+<p>
+It seems like very different risk/reward ratios are involved and that it is not so straigforward as merely &ldquo;do what I said&rdquo;.
+</p>
+
+<p>
+The course that &ldquo;teaches&rdquo; you how to load data in <code>Pandas</code> and &ldquo;analyze&rdquo; it never mention that once you get the data it is already &ldquo;the past&rdquo;, and that the past performace is almost <i>unrelated</i>  to the current market conditions.
+(Well, the patterns on the charts obviosly it influence the decision making of individual players and thus contribute to the trend formations, but these are not the <i>primary</i> marker forces).
+</p>
+
+<p>
+So, the first thing to understand is that you are going to go inside the ring and meet the actual jabs abd hooks, while all the &ldquo;teachers&rdquo; and &ldquo;coaches&rdquo; would stay aside and watch you got bruised.
+</p>
+
+<p>
+This is the main point. Actual trading is fundamentally differnt from all the courses and all the books, which, at best, explain the underlying principles, social dynamics and show some useful techiques. That is all.
+</p>
+
+<p>
+Now it is time to realize that the chances and the efforts required to succeed in trading is, in principle, comparable with those required to win some title in boxing or Muay Thai, and for that you better have some <i>genetic advantage</i>.
+</p>
+
+<p>
+The only good news is that one could be really clever and use computer <i>automation</i> to prerform the mundate tasks, which has to be performed right on time and flawlessly.
+</p>
+
+<div id="outline-container-org60da51f" class="outline-2">
+<h2 id="org60da51f">Automation is the key.</h2>
+<div class="outline-text-2" id="text-org60da51f">
+<p>
+One could use ready-made commercial on-shelf tools or make one&rsquo;s own. Arguably, the second approach would make you an expert in <i>understanding (from the principles and the high-level concepts down to the lines of code)</i> of what you do.
+</p>
+
+<p>
+This, however, requires <i>substantial</i> investmet of time (and therefore money &#x2013; bills has to be paid) and actual, serious intellectual effort. Basically, you have to program your own <i>Trading Assistant</i> (avoiding all the current AI hype, bullshit and memes).
+</p>
+
+<p>
+This is an eqivalent to winning of a title.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3a54d5e" class="outline-2">
-<h2 id="org3a54d5e">Psychology is the key.</h2>
-<div class="outline-text-2" id="text-org3a54d5e">
+<div id="outline-container-orgc36754f" class="outline-2">
+<h2 id="orgc36754f">The deep pockets</h2>
+<div class="outline-text-2" id="text-orgc36754f">
 <p>
-<i>Emotional trading by hand</i> is the surest and quickest way to lose it all. No, you
-won&rsquo;t be that Muhammad Ali or Mike Tyson. You will whine and cry and lose all
-your account in no time.
+Just as it is techically impossible to feed oneself form an two acre plot of land, it is impossible to successfully trade with a small account.
 </p>
 
 <p>
-Actually, the retail platforms has been <i>designed and optimized</i> in such a way
-that you make lots of stupid mistakes, small and big, each one of which puts
-fees, commission and slippage money from your account to theirs. Confusing
-settings, &ldquo;slow&rdquo; menus, &ldquo;Please try again&rdquo;, and what not.
+The name of the game is to win more than you lose on average and to be prepared for a rare luck (<i>Fortune favours the prepared</i>). You also have to be prepared to sustain ocassional substantioal loss - a <i>scam wick</i>, a market manipulation, a sudden FOMO euphoria or a panic selling.
 </p>
 
 <p>
-It is <i>not</i> like you are that Rocky Balboa who could sustain lots of hard blows.
-This is an utterly wrong analogy. Just like with Rocky, receiving too may
-&ldquo;blows&rdquo; signals that you are an incompetent, unskilled <i>bum</i>.
+<i>&ldquo;But once in a while it is a dildo&rdquo;</i>.  You will be <i>liquidated</i> quite often and you have to have the funds so that you woun&rsquo;t be washed out of the market. There is no alternative to have a deep pockets.
 </p>
 
 <p>
-This is also not about <i>&ldquo;proving&rdquo; it</i> or <i>&ldquo;to show them&rdquo;</i>. This will result in loses
-one cannot afford. Just like in a traffic on a bike, you just do the right
-thing, without trying any crazy shit.
+There is another principle. To &ldquo;<i>get even</i>&rdquo; you have to win substantially more than you have lost, due to the fees, slippage and being <i>stopped out of a position</i> (forced to have a <i>shitty re-entry</i>, which will be stopped-out again).
+</p>
+
+<p>
+In other words, you have to have the ability to take the blows (all these jabs and hooks), quickly recover from them and <i>restart</i> again and again. This is how one wins a fight - by being able to sustain the blow, quickly recover and restart in hope to <i>get lucky</i> and hit it just right.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2e8b32b" class="outline-2">
-<h2 id="org2e8b32b">Write down the Plan</h2>
-<div class="outline-text-2" id="text-org2e8b32b">
+<div id="outline-container-orgb4d99be" class="outline-2">
+<h2 id="orgb4d99be">The Luck</h2>
+<div class="outline-text-2" id="text-orgb4d99be">
 <p>
-Do not even think about &ldquo;improvising&rdquo; (you are not Coltrane) and acting on a
-&ldquo;insight&rdquo; (on a whim). One has to be a <i>Man with a Plan</i>.
+This is the game of luck, and it favours the prepared, well-trained, properly skilled and personally experienced. the coaches and trainers will lose.
 </p>
 
 <p>
-Plan is not enough. Execution is where the actual difference emerges.
+Unskilled and unprepared will waste a <i>rare luck (a chance)</i> and this is <i>why</i> 90% of the new traders being washed away from the markets. Even pure luck is not enough in this game.
 </p>
 </div>
 </div>
-<div id="outline-container-orgcc9f682" class="outline-2">
-<h2 id="orgcc9f682">1-min charts</h2>
-<div class="outline-text-2" id="text-orgcc9f682">
+
+<div id="outline-container-orgfe149ff" class="outline-2">
+<h2 id="orgfe149ff">On bullshit</h2>
+<div class="outline-text-2" id="text-orgfe149ff">
 <p>
-It is, by definition, irrational to trade 1-min chart. All the patterns there are valid and &ldquo;real&rdquo;, but they are insignificant. It is considered to be a <i>pseudo-random noice</i>.
+<i>Bullshit, bullshit everywhere</i>. The most common kind of bullshit is due to <i>applying abstract concepts in inappropriate contexts</i>, especially from the probability theory and other abstract branches of mathematics.
 </p>
 
 <p>
-The only reason to trade 1-min chart is a <i>training practice</i>, but one has to accept inevitable but hopefullly affordable and <i>risk-managed</i> loses.
+Yes, there are the notions of a <i>volume, /speed</i> and <i>momentum</i>, and therefore some derived notions of a <i>slope (derivatives)</i>,  <i>pressure</i>, and what not, but the causaliy of these notions are different from &ldquo;stable&rdquo; and &ldquo;consistent with itself&rdquo; physical world.
 </p>
 
 <p>
-Even looking at <i>entry points</i> on 1-min is a flawed tactic - you will be <i>stopped out</i> (or even liquidated) most of the time. <i>When to entry</i> is a subtle art (it is always determined by the current market forces).
+What <i>causes</i> the movement of the price is differnt every time. There are, however, some <i>recurrent patterns</i> which eventually emerge again and again due to <i>similarities</i> of the actual causes. All the causes are <i>social</i>, after all.
+</p>
+
+<p>
+So, what we have is an immence, overwhelming, dynamic complexity. Not just that, markets are keep evolving with each and every change or <i>event</i>. It is a <i>evolving adaptive social phenomena</i>, which we could observe only &ldquo;looking backwards&rdquo; (as if sitting on the train in a backward seat).
+</p>
+
+<p>
+This is the fundamental principle - you only able to actually <i>observe</i> what just happened (the events which are already occured and their immediate consequences). These are the <i>properties of the environment</i> you are locked in.
 </p>
 </div>
 </div>
-<div id="outline-container-orgacefebd" class="outline-2">
-<h2 id="orgacefebd">Subtle lessons</h2>
-<div class="outline-text-2" id="text-orgacefebd">
+
+<div id="outline-container-orgaecc555" class="outline-2">
+<h2 id="orgaecc555">What to program.</h2>
+<div class="outline-text-2" id="text-orgaecc555">
 <p>
-Each market at a current phase has only one adequate strategy, which, at least
-in theory, matches what is actually going on <i>here and now</i>. Some markets are just
-manipulated/pump and dump/ vehicle for <i>market makers</i> (Chainlink), some are
-driven by current meme-narratives (interest rates, &ldquo;pivot&rdquo; and other bullshit).
-Some are just blatant, obvious scams, which have to be shorted at the top and fogtot.
+A <i>reactive</i> system (which reacts on emerging patterns and events), never <i>predective</i> (which trying to predict the future).
+</p>
+
+<p>
+Another fundamental principle is that <i>there is no way to do anything meaningful in a /discrete</i> but <i>partially observable</i>, stohastic environment, which keeps changing and evolving. This is not a typical <i>fully-observable</i> idealised environment of a board game or an oversimplified theoretical model.
+</p>
+
+<p>
+The only way, however, is to use an over-simplified, incomplete but less wrong model, as if <i>it adequately captures all the relevant aspects of the actual environment</i> (which is not and never will).
+</p>
+
+<p>
+<i>This</i> is what we have to program. A <i>model</i> and an <i>agent (an assiatant)</i> with acts on the model.
+</p>
+
+<p>
+Notice that all the <i>Deep Learning</i> algorithms would fail due to a non-stable, dynamic environment, as if the language you trying to understand keeps changing in the real time, including rules of the grammar. Sometimes a proper philosophy beats abstract bullshit.
 </p>
 </div>
 </div>
