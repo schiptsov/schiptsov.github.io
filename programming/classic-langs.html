@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-07-12 Wed 06:25 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Some Classic Languages</title>
@@ -227,7 +227,45 @@
 </div><div id="content" class="content">
 <header>
 <h1 class="title">Some Classic Languages</h1>
-</header>
+</header><p>
+The classic languages, which were created by math guys, and are <i>mostly-functional</i> have some &ldquo;just right&rdquo; properties.
+</p>
+
+<p>
+Mostly and pure functional languages rely on <i>symbol to a value bindings</i> as in mathematics, instead of the imperative notion of <i>a variable as a named location in memory</i>.
+</p>
+
+<p>
+In functional languages there is no notion at all of an <i>uninitialized variable</i>. All the <i>bindings</i> have values by definition. There is, in principle, no notion of a &ldquo;location&rdquo;. It is just a binding, as in math.
+</p>
+
+<p>
+Well-designed imperative languages, like <code>Go</code>, are trying to address this fundamenal issue by defining &ldquo;default values&rdquo; for every type, so when one creates a variable (a location in memery) it automatically gets (initialized with) the default value.
+</p>
+
+<p>
+All the structured types then automatically get the default values for all its &ldquo;primitive type&rdquo; members.
+</p>
+
+<p>
+Now consider the dynamically typed languages like <code>Lua</code> or, god forbid, <code>PHP</code>. In <code>Lua</code> in particular one <i>dynamically builds</i> various <i>data structures</i>, which consists of both &ldquo;variables&rdquo; and &ldquo;methods&rdquo;, and this is the actual manifistation of the true strenght of this programming paradigm (Python is even more famous example).
+</p>
+
+<p>
+What happens if you trying to access an undefined (yet) variable, which is the most common error in such languages? What will it be created? What value would it get? What would you do with that value? Are you expecting this particular value?
+</p>
+
+<p>
+Unit tests would catch such errors, but as we know from experience, the dynamic <i>structurally typed</i> code is the mos buggy and annoing (look at these Lua modules for <code>Neovim</code> - it is a fucking disaster).
+</p>
+
+<p>
+The Classic languages have not a single such issue, while languages made by narcissistic degenerates (Java, C++) cannot address these even with supposedly stratic typing. This is what the lack of mathematical maturity of the &ldquo;designers&rdquo; results in.
+</p>
+
+<p>
+The point is that programming languages have lots of subtleties, but it can be just &ldquo;done right&rdquo;, as augmented with types arithmeric and algebra, and, ideally, even remain <i>pure</i> as the major <i>principled</i> goal of  <code>Haskell</code>. Programming in these languages is writing <i>mathematics</i> instead of &ldquo;commands&rdquo;.
+</p>
 <div id="outline-container-org8fdf275" class="outline-2">
 <h2 id="org8fdf275">Steel Bank Common Lisp</h2>
 <div class="outline-text-2" id="text-org8fdf275">
@@ -333,7 +371,7 @@ Seems like <code>Pharo</code> is OK
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
+<p class="date">Created: 2023-07-12 Wed 06:25</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
 </div>
 </body>
