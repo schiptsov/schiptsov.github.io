@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-07-16 Sun 18:52 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The recurring patterns captured as a Monoid</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="keywords" content="Monoid map &quot;function composition&quot; chaining pattern-matching propagation &quot;error handling&quot; Erlang" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
+
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">The recurring patterns captured as a Monoid</h1>
+</header>
+<div id="outline-container-org496a749" class="outline-2">
+<h2 id="org496a749">The common patterns</h2>
+<div class="outline-text-2" id="text-org496a749">
+<p>
+There are <i>recurrent patterns</i>, which has been captured in familiar &ldquo;standard&rdquo;
+abstractions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4eca2e6" class="outline-2">
+<h2 id="org4eca2e6">Monoid</h2>
+<div class="outline-text-2" id="text-org4eca2e6">
+<p>
+A Set along with a <i>composition</i> operation, which has an identity element.
+</p>
+
+<ul class="org-ul">
+<li>addition, for <code>(+)</code> identity is <code>0</code></li>
+<li>concatenation, which is a specialization of <i>putting together</i>, identity is <code>""</code>.</li>
+<li>List, a fundamental <i>recursive sum-type</i>, identity is <code>[]</code></li>
+<li>Option, a specialization of empty/non-empty aspect of a <i>List</i>,  identity is <code>None</code></li>
+<li>Boolean logic, very subtle, identity is <code>False</code> (<i>false imply nothing</i>)</li>
+</ul>
+
+<p>
+The notion that some Boolean operations form a Monoid is very subtle, but it
+will emerge with <i>conditional expressions</i>.
+</p>
+
+<p>
+For <code>AND</code> we have <code>False</code> as the identity element (a single <code>False</code>).
+For <code>OR</code> it is <code>True</code> (at least one <code>True</code>)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org703ee49" class="outline-2">
+<h2 id="org703ee49">Nesting of pattern-matching</h2>
+<div class="outline-text-2" id="text-org703ee49">
+<p>
+It takes some effort to <i>disentangle</i> and clearly separate all the notions and
+&ldquo;patterns&rdquo; involved, but once it is done, everything is clear and self-evident.
+</p>
+
+<p>
+There are notions involved:
+</p>
+<ul class="org-ul">
+<li>the universal notion behind function composition is <i>nesting</i>.</li>
+<li>the universal notion of <i>pattern-matching on data-constructors</i> of sum-types</li>
+<li>one and only one branch will be evaluated</li>
+<li>sum-types (the data-constructors) can be <i>parameterized</i></li>
+</ul>
+
+<p>
+The main principle is this: <i>functions defined by clauses are composed branch-wise</i>.
+</p>
+
+<p>
+The &ldquo;natural&rdquo; pattern-matching on data-constructors (&ldquo;variants&rdquo; or <i>possible
+outcomes</i>) results in <i>functions defined with clauses</i> (like <code>abs</code> in mathematics).
+</p>
+
+<p>
+These <i>clauses</i> reflect the <i>&ldquo;structure&rdquo; of the type</i> and the commonalities will be
+noticed and abstracted out. Some clauses (or branches) will be common, or even
+<i>identical</i>.
+</p>
+
+<p>
+When <i>composed (or nested)</i> each branch will be composed with the corresponding
+one, and this &ldquo;branch-wise composition&rdquo; will form a distinct <i>&ldquo;path&rdquo;</i> within the whole
+&ldquo;composition&rdquo; (a chain of nested <code>map</code> or whatever).
+</p>
+
+<p>
+The clear view is this. Functions defined by <i>clauses</i> (or distinct branches of
+the <code>match</code> expression) can only be composed at the <i>corresponding branch</i> level,
+thus forming distinct <i>&ldquo;patches&rdquo;</i> within.
+</p>
+
+<p>
+Each &ldquo;path&rdquo; or a <i>composed branches</i> (<i>one and only one</i> of which will be evaluated)
+is its own level of abstraction <i>within composed functions defined by clauses</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0ce932a" class="outline-2">
+<h2 id="org0ce932a">A sum-type</h2>
+<div class="outline-text-2" id="text-org0ce932a">
+<p>
+Once your type has more than one <i>data-constructor</i> we <i>naturally pattern-match</i> on
+them, and all the functions or expressions would have the particular <i>form</i> of the
+type, which reflects (mimics) its &ldquo;structure&rdquo;.
+</p>
+
+<p>
+Any function would &ldquo;naturally&rdquo; have as many <i>clauses</i> as there are
+<i>data-constructors</i>. So would have a <code>match</code> expression.
+</p>
+
+<p>
+The <i>common pattern</i> is <i>captured</i> with pattern-matching &#x2013; for the case of the
+<i>identity element of a Monoid</i> the value <i>just propagates</i> &#x2013; being passed along
+&ldquo;untouched&rdquo;, and the <i>other branch</i> will not be <i>evaluated</i>.
+</p>
+
+<p>
+The mathematical notion is that the identity element of an operation do nothing
+(literally), this is why it just being passed along <i>within its branch</i>.
+</p>
+</div>
+<div id="outline-container-org02ab236" class="outline-3">
+<h3 id="org02ab236">Option</h3>
+<div class="outline-text-3" id="text-org02ab236">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #f5deb3; font-weight: bold;">type</span> <span style="color: #8FBCBB;">'a option</span> = <span style="color: #ECEFF4; background-color: #2E3440;">None</span> | <span style="color: #ECEFF4; background-color: #2E3440;">Some</span> <span style="color: #81A1C1;">of</span> 'a
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org51d56ef" class="outline-3">
+<h3 id="org51d56ef">Maybe</h3>
+<div class="outline-text-3" id="text-org51d56ef">
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Maybe</span> <span style="color: #D8DEE9;">::</span> <span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>
+<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Maybe</span> a <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Nothing</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Just</span> a
+</pre>
+</div>
+<p>
+The functions on these types have the common form which directly reflect (mimcs)
+the structure of the type. I will write them later.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9e84789" class="outline-2">
+<h2 id="org9e84789">&ldquo;Errors&rdquo; as just taking another branch</h2>
+<div class="outline-text-2" id="text-org9e84789">
+<p>
+There is a universal notion of a <i>condition</i>, captured by the <code>IF</code> <i>special form</i> &#x2013;
+with <i>at least two potential outcomes</i>, while <i>one and only one</i> branch (the actual
+next step) could be <i>actually taken</i>. The other branch will remain as an <i>ephemeral
+potentiality</i>, and will never be &ldquo;seen&rdquo; in the actual &ldquo;path&rdquo; (a <i>sequence of steps</i>) of a process.
+</p>
+
+<p>
+<i>Pattern-matching</i> on <i>data-constructors</i> of a <i>sum-type</i> (a <i>tagged-union of potential
+outcomes</i>) generalizes <code>IF</code> (the <i>short-circuiting conditional expression</i>).
+</p>
+
+<p>
+The fundamental property is, again, that <i>one and only one</i> branch will actually be
+taken (evaluated) and the others will &ldquo;disappear&rdquo;, as never existed, but as
+<i>ephemeral potentialities</i> or imaginary <i>possibilities</i>.
+</p>
+
+<p>
+Yes, we as humans are conditioned to thing in terms of a &ldquo;fork on the road&rdquo;, and
+where the <i>each way is no less real as the other</i>. This is how we miss the subtle fact
+that, <i>possiblel outcome</i> and an <i>actual outcome</i> (the <i>next step</i> being taken) live
+at very different levels of abstraction and must never be &ldquo;mixed&rdquo;.
+</p>
+
+<p>
+The clear separation between <i>potential</i> (or <i>possible</i>) and <i>actual</i> (taken) is the
+mark of mature thinking.
+</p>
+</div>
+
+<div id="outline-container-orgc333583" class="outline-3">
+<h3 id="orgc333583">Take another branch</h3>
+<div class="outline-text-3" id="text-orgc333583">
+<p>
+We should think of what we call an &ldquo;error&rdquo; as just a <i>signal</i> to take another
+branch (backtrack and restart).
+</p>
+
+<p>
+All the dramatic connotations must be removed. It is just a branch within a
+conditional expression.
+</p>
+
+<p>
+This branch, however, which usually leads to &ldquo;backtracking&rdquo; and to a &ldquo;restart&rdquo;
+must always be included in a &ldquo;plan&rdquo; or a <i>declarative program</i>.
+</p>
+
+<p>
+An error could be <i>signaled</i> in various ways, but the <i>handling</i> is uniform &#x2013; just
+take (evaluate) the corresponding branch.
+</p>
+
+<p>
+These exact notions are behind the <code>Erlang</code> uniform strategy of error handling.
+Understanding this is the beginning of &ldquo;wisdom&rdquo;.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org3ae67bc" class="outline-2">
+<h2 id="org3ae67bc">Nothing was returned</h2>
+<div class="outline-text-2" id="text-org3ae67bc">
+<p>
+So, when nothing (meaningful) was returned, we have to evaluate a <i>corresponding
+branch</i>, which must always be present.
+</p>
+
+<p>
+<code>None</code> or <code>Nohing</code> thus is an identity element of a <i>Monoid</i> of <i>composition (chain)
+of actions without an error occured, /yet</i>.
+</p>
+
+<p>
+Once the &ldquo;Nothing&rdquo; branch has been evaluated, it will just propagate along, and
+all the other branches (in a chain) will remain evaluated.
+</p>
+
+<p>
+Thus <i>no further steps will be taken by a process</i> along the &ldquo;happy&rdquo; path.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b76b72" class="outline-2">
+<h2 id="org6b76b72">Returning Nothing is backtracking</h2>
+<div class="outline-text-2" id="text-org6b76b72">
+<p>
+When we take the &ldquo;Nothing&rdquo; branch we simply backtrack (literally, through the
+call-stack) to a function where a restart (if any) could have occur.
+</p>
+
+<p>
+The genius Erlang guys have noticed and generalized this <i>universal pattern</i>
+with the <i>supervision hierarchies</i>. The process &ldquo;fail&rdquo; and the failure propagaget
+to the &ldquo;supervisor&rdquo; which <i>restart</i> a new process.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc049b7e" class="outline-2">
+<h2 id="orgc049b7e">Nested maps</h2>
+<div class="outline-text-2" id="text-orgc049b7e">
+<p>
+So, we <i>nest</i> (which is the same as <i>compose</i>) the <code>map</code> function over <code>Option</code> or <code>Maybe</code>
+types.
+</p>
+
+<p>
+This is how we <i>compose computations which may fail</i> at any step. They have the
+common &ldquo;fail branch&rdquo;, which is of &ldquo;Nothing&rdquo; (to return).
+</p>
+
+<p>
+<code>flatMap</code> composes <i>&ldquo;Kleisli arrows&rdquo;</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgad05666" class="outline-2">
+<h2 id="orgad05666">Combinators</h2>
+<div class="outline-text-2" id="text-orgad05666">
+<p>
+There is a small set of <i>combinators</i> that can be composed with <code>map</code> or <code>flatMap</code>.
+</p>
+
+<p>
+Some of these functions are <i>non-strict</i> (lazy) on its arguments, so they <i>short-circuit</i>, just
+like the <code>IF</code> <i>special form</i> does.
+</p>
+
+<p>
+The most familiar are <code>orElse</code> and <code>andThen</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-07-16 Sun 18:52</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+</div>
+</body>
+</html>
