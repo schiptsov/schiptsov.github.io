@@ -4,8 +4,8 @@
 <!-- 2023-07-22 Sat 20:57 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Archery</title>
-<meta name="author" content="&lt;lngnmn2@yahoo.com&gt;" />
+<title>Why Functional Programming</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -226,192 +226,192 @@
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Archery</h1>
+<h1 class="title">Why Functional Programming</h1>
 </header><p>
-The skill beats luck - <i>fortune favors the prepared</i>.
+This is sort of a tribute and a continuation for the pair of the <i>classic papers</i>.
+</p>
+
+<ul class="org-ul">
+<li><a href="https://web.cecs.pdx.edu/~apt/cs457_2005/hudak-jones.pdf">https://web.cecs.pdx.edu/~apt/cs457_2005/hudak-jones.pdf</a></li>
+<li><a href="https://www.cse.chalmers.se/~rjmh/Papers/whyfp.pdf">https://www.cse.chalmers.se/~rjmh/Papers/whyfp.pdf</a></li>
+</ul>
+
+<p>
+Since these have been published lots of things happened, notably
+</p>
+<ul class="org-ul">
+<li>actual (non-theoretical) success of <i>Erlang/OTP</i> in the telecom industry</li>
+<li>the use of <i>Ocaml</i> by &ldquo;Jane Street&rdquo; (market-making and automated trading)</li>
+<li><i>Tezos</i>, a blockchain in Ocaml</li>
+<li>the Twitter stack in Scala and the enterprise-grade <i>stream processing</i> tools</li>
+<li>evolution of <i>Clojure</i> from a hobby project to <i>Datomic</i> and deployed banking software.</li>
+<li>lots of <i>in-house</i> Haskell code by institutions like JP Morgan HSBC</li>
+</ul>
+
+<p>
+For us, however, the most illustrative and illuminating story would be of <i>Clojure</i>.
 </p>
 
 <p>
-Shooting is to <i>study the mind</i> (observation, introspection, control).
-through practice and experience (not reading or watching).
+This languages has been designed based on certain fundamental &ldquo;theoretical or
+ academic&rdquo; principles (similar to Haskell, which, as a miracle, still retains
+ its purity) and &ldquo;succeeded&rdquo; nevertheless (or, rather due to).
 </p>
 
 <p>
-The ancient <i>practice</i> of <i>knowing your self</i>.
+<a href="https://www.cse.msu.edu/~cse452/Readings/a12-hudak.pdf">https://www.cse.msu.edu/~cse452/Readings/a12-hudak.pdf</a>
 </p>
 
 <p>
-The ancient <i>exercise in self-discipline</i>, introspection and self-knowing (know thyself).
+The fundamental principles are:
+</p>
+<ul class="org-ul">
+<li>a <i>mostly-functional</i> dialect of Lisp, with</li>
+<li><i>immutability and persistence</i> of all the data</li>
+</ul>
+
+<p>
+Of course, almost everything has been &ldquo;borrowed&rdquo; from the Classic Languages
+(both LISP and ML &ldquo;families&rdquo;) of the Golden Age (70s, 80s, 90s) and based on
+almost <i>50 years or research</i> (since the first LISP paper).
 </p>
 
 <p>
-Each shot reveals <i>what you are</i> (to you).
+What we want to understand and realize (to have an &ldquo;a-ha moment&rdquo;) is that
+immutable and persistent data structures (as a principle &#x2013; nothing is mutable
+within Clojure and its core libraries) are good-enough for everything
+(performance-wise) and absolutely &ldquo;game-changing&rdquo; from the semantics and data
+integrity points of view.
 </p>
 
 <p>
-Each shot reveals you as a living Buddha or a <i>tense fool</i>.
+For the costs of a negligible overhead of implementations (everything is some kind of a
+<i>persistent tree</i> under the hood) we retain <i>the referential transparency property for
+the data bindings</i> (actual immutability and persistence).
 </p>
 
 <p>
-Hitting a target with an arrow is a small vehicle; attaining enlightenment with an arrow is a big vehicle.
+<a href="https://www.youtube.com/watch?v=wASCH_gPnDw">https://www.youtube.com/watch?v=wASCH_gPnDw</a>
+</p>
+
+<div id="outline-container-orgf97c60d" class="outline-2">
+<h2 id="orgf97c60d">Why not Erlang (this time)</h2>
+<div class="outline-text-2" id="text-orgf97c60d">
+<p>
+Erlang is exceptionally <i>well-researched</i> and <i>principle-guided</i> language (made by
+the people with scientific and mathematical backgrounds) but it is has a  <i>very
+clever, truly innovative and very complex</i> implementation.
 </p>
 
 <p>
-<i>Draw the Bow that has no form</i> (it is just a tool of self-discipline practice).
+It creates for the developers <i>an /illusion</i> of using a pure-functional language
+with <i>structural pattern-matching on receive</i>, while in reality only pure
+functional <i>interfaces</i> with a lot of <i>callbacks</i> has been exposed.
 </p>
 
 <p>
-<i>One shot is one life</i> (calm concentration, one-pointedness of perfect self-control).
+One writes the code in a &ldquo;functional language&rdquo; but only within a carefully
+designed environment according to a complex set rules (behaviors).
 </p>
 
 <p>
-The activity of a <i>non-verbal, &ldquo;animal&rdquo; mind within</i>, observed by the &ldquo;thinking in
-a language&rdquo; mind (introspection).
-</p>
-
-<p>
-Your body, empty mind (no-mind), <i>calm concentration</i> and the bow becomes a perfect <i>unity</i>.
-</p>
-
-<p>
-Each shot is <i>a new</i> (independent of the previous one and like a new day).
-</p>
-
-<p>
-<i>As if your life depends on it</i> (&ldquo;trying my best&rdquo;, full effort in any activity).
-</p>
-
-<p>
-<i>Without tension. Without mind. Without being busy</i>. Without being intoxicated.
-</p>
-
-<p>
-<i>Shoot with your &ldquo;belly&rdquo;</i> (body and the &ldquo;animal&rdquo; mind, not &ldquo;intellect&rdquo; full of
-concepts and causing tension).
-</p>
-
-<p>
-No concerns except <i>doing it right</i>.
-</p>
-
-<p>
-Empty mind (silent intellect) &#x2013; it is unnecessarily and <i>interferes</i> with a <i>good shot</i>.
-</p>
-
-<p>
-<i>No tension. No mind. No struggle</i> (the universal formula of &ldquo;just doing it&rdquo;).
-<i>An optimal (nothing more to remove) performance of the body-mind duo</i>.
-</p>
-
-<p>
-<i>Like a ripe fruit falls from a tree</i>. When ready (a release).
-</p>
-
-<p>
-<i>There is no perfect shot</i>. (or a program)
-</p>
-
-<p>
-Self-improvement is endless, never complete and <i>ultimately futile</i>.
-</p>
-
-<p>
-The &ldquo;arrogant rooster&rdquo; story. Anger and arrogance are weaknesses.
-</p>
-
-<p>
-<i>Do not be in a hurry</i>. (also true for programming)
-Do not shoot obsessively.
-<i>Do not compete with others</i>. (also true for programming)
-<i>Do shoot when you lack enthusiasm</i>.
-</p>
-
-<p>
-“When an archer misses the center of the target, he <i>reflects and seeks the cause</i> of the failure <i>within himself</i>.”
-</p>
-
-<p>
-Make every shot <i>anew</i>.
-Self-discipline is painful, hard work; shoot each shot <i>as if your life depended on it</i>.
-</p>
-
-<p>
-<i>Do your best</i> at each and everything. That is the key to success.
-<i>Learn (this) one thing well and you will learn how to master ten thousand things</i>.
-</p>
-
-<p>
-Aim at the target <i>with your belly</i> (let the body do it its way).
-</p>
-
-<p>
-Release the arrow <i>with no intent. /When it is ready</i>.
-</p>
-
-<p>
-Each shot reveals your self (to you) - it shows who you are, what you can do.
-Each shot must be <i>sincere</i> (beginner&rsquo;s mind).
-</p>
-
-<p>
-You and your bow must come together as one; that act is divine.
-This unity of instrument and oneself is divine.
-</p>
-
-<p>
-Everyone tries to shoot <i>naturally</i>, but nearly all practitioners have some kind of strategy, some kind of <i>shallow, artificial, calculating technical trick</i> that they rely on when they shoot.
-Technical tricks ultimately lead nowhere. Shoot without shooting.
-</p>
-
-<p>
-Confucius practiced the Way of the Bow to demonstrate how a cultured person acts. Confucius was not concerned with hitting the target one hundred times out of one hundred shots.
-He was demonstrating how one hundred shots can be one hundred perfections of self-control and character.
-</p>
-
-<p>
-With no target,
-With no arrow to draw,
-Shoot:
-Not in the middle,
-Not outside.
-(actual practice, experience and feedback, not other concerns)
-</p>
-
-<p>
-Even when troubled
-Maintain <i>the spirit
-Of the Bow and Arrow</i>
-And <i>it will heal</i>
-Your sickness!
-</p>
-
-<p>
-<i>Without tension</i>, without strain.
-</p>
-
-<p>
-<i>Non-thinking (empty mind) is where Buddha dwells. That is where we want to go</i>.
-</p>
-
-<p>
-Human beings always cling to things. Practice begins when you <i>stop clinging</i>.
-</p>
-
-<p>
-When the bow is fully drawn, <i>there is nothing more to add or nothing to remove</i>.
-</p>
-
-<p>
-As you draw the Bow, everything else goes. <i>The Buddha-nature assumes control</i>.
-The unity of the &ldquo;empty&rdquo; mind and the <i>non-tense</i> body <i>as intendend</i> by evolution.
-</p>
-
-<p>
-The local optimum of the body-mind (an &ldquo;animal mind&rdquo;, which is never wrong).
+So yes, Erlang is absolutely innovative, clever and is a true miracle of software
+engineering, but it is too complex for a definitive example.
 </p>
 </div>
+</div>
+<div id="outline-container-org3b2cd40" class="outline-2">
+<h2 id="org3b2cd40">The hows</h2>
+<div class="outline-text-2" id="text-org3b2cd40">
+<p>
+Clojure is a simple <i>dynamically typed</i> language, which means the compiler does
+almost nothing, but basic type-checking, so all the &ldquo;safety&rdquo; are at the level of
+code (not the types or a restrictive compiler) and &ldquo;at runtime&rdquo;.
+</p>
+
+<p>
+It also <i>delegates</i> (or actually just passes onto) the most difficult part - the
+runtime - to the JVM, which actually runs the code, does all the memory
+management and performs I/O.
+</p>
+
+<p>
+Clojure implements its <i>pure-functional data structures</i> (yes, as in the Okasaki
+book), using Java&rsquo;s &ldquo;primitives&rdquo;, which is both <i>smart and clever</i>.
+</p>
+
+<p>
+And it actually <i>just works</i>  &ldquo;in the cloud&rdquo; and in the banks.
+</p>
+
+<p>
+Again, the main lesson is that &ldquo;it just works&rdquo; <b>because</b> it was <i>principle-guided</i>
+and took <i>immutability (and persistence)</i> as a principle. Not a single value can
+be over-written, destructively updated, or changed, <i>in principle</i>.
+</p>
+</div>
+</div>
+<div id="outline-container-org5b5862b" class="outline-2">
+<h2 id="org5b5862b">The &ldquo;best textbook-like&rdquo; code</h2>
+<div class="outline-text-2" id="text-org5b5862b">
+<p>
+It seems that there is a particular style of writing code, which is so
+&ldquo;textbook-like&rdquo; as if it has been actually taken from a very principled and
+nuanced book (let&rsquo;s say by Richard Bird).
+</p>
+
+<p>
+Surprisingly, the Ocaml&rsquo;s <i>stdlib</i> is exactly like this, as if it has been taken
+from a very good textbook. It has been refined and polished into this state of
+aesthetic &ldquo;perfection&rdquo; (the &ldquo;aesthetic is never optional&rdquo; mantra).
+</p>
+
+<p>
+And yet, <a href="https://coq.inria.fr/">Coq</a> runs on top of this <i>stdlib</i> and runs just fine.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2896ffa" class="outline-2">
+<h2 id="org2896ffa">The &ldquo;hard way&rdquo;</h2>
+<div class="outline-text-2" id="text-org2896ffa">
+<p>
+Sometimes it is worth doing things &ldquo;the hard way&rdquo;.
+</p>
+
+<p>
+By this I mean to write everything down in a principle-guided way with careful
+attention to details, just like the standard libraries of the <i>classic languages</i>
+has been written, and use only these standard libraries (they have everything
+for compilers and proof-assistants and basic networking).
+</p>
+
+<p>
+By doing so one will spare oneself for the dependency hell, (of other people),
+&ldquo;tech dept&rdquo; (having a truly crappy code at the &ldquo;core&rdquo; of the project) and just
+to stay sane and emotionally stable (by not being exposed to some real fucking
+bullshit - they actually write Haskell as they used to write some J2EE).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb69e8c1" class="outline-2">
+<h2 id="orgb69e8c1">Standard Libraries</h2>
+<div class="outline-text-2" id="text-orgb69e8c1">
+<ul class="org-ul">
+<li>Ocaml stdlib</li>
+<li>&ldquo;Core&rdquo; by Jane Street.</li>
+<li>Haskell libs (the set of libraries bundled with GHC)</li>
+</ul>
+
+<p>
+I could argue that
+</p>
+</div>
+</div>
+</div>
 <div id="postamble" class="status">
-<p class="author">Author: &lt;lngnmn2@yahoo.com&gt;</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
 <p class="date">Created: 2023-07-22 Sat 20:57</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
