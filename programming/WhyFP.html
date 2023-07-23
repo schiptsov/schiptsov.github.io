@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-22 Sat 22:25 -->
+<!-- 2023-07-23 Sun 17:14 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Why Functional Programming</title>
@@ -320,6 +320,50 @@ engineering, but it is too complex for a definitive example.
 </p>
 </div>
 </div>
+<div id="outline-container-org7056ce0" class="outline-2">
+<h2 id="org7056ce0">Small tribute to Joe</h2>
+<div class="outline-text-2" id="text-org7056ce0">
+<p>
+<i>Erlang</i> is arguably one of the well- (or deep-) researched languages, on par with LISP and ML.
+</p>
+
+<p>
+Among other things, it clrarly formulated some fundamental priniples:
+</p>
+<ul class="org-ul">
+<li>values are immutable, so are all the <i>bindings</i></li>
+<li>so for any operation (function application) <i>new values</i> are <i>always</i> returned</li>
+<li>all the <i>actual parameter values</i> (of a function) remains immutable (eternal)</li>
+<li>a new value requires a new (fresh) binding, (without even <i>shadowing</i>)</li>
+<li>a  <i>structured</i> value never change its &ldquo;form&rdquo; (or shape), just like molecules</li>
+<li>a new <i>strucured value</i> requires a new (fresh) binding</li>
+<li>the parts it has been composed from remain immutable (eternal)</li>
+</ul>
+
+<p>
+This is why always returing a new value (or even think of a new <i>version</i>) of a List or a Map is &ldquo;natural&rdquo;.
+</p>
+
+<p>
+Imperative &ldquo;coders&rdquo; get utterly confused by this principle. They think in terms of <i>illusory identities</i> (imperative variables, which are names memory locations).
+</p>
+
+<p>
+A new <i>strucured value</i> is a new cobination (arrangement) of pre-existent (ideally &#x2013; eternal) immutale elements, so it &ldquo;naturally&rdquo; requires a new (fresh) binding.
+</p>
+
+<p>
+So it is always a fresh new binding, which is a <i>reference</i> to a just <i>appeared</i> (new) value.
+</p>
+<div class="org-src-container">
+<pre class="src src-erlang">X1 = <span style="color: #D8DEE9;">X</span> + <span style="color: #B48EAD; font-weight: bold;">1</span>.
+</pre>
+</div>
+<p>
+Functional Programmer&rsquo;s view, not incedentally, are closer to what we call &ldquo;reality&rdquo;
+</p>
+</div>
+</div>
 <div id="outline-container-org3b2cd40" class="outline-2">
 <h2 id="org3b2cd40">The hows</h2>
 <div class="outline-text-2" id="text-org3b2cd40">
@@ -433,6 +477,34 @@ might want to contribute or fix some bugs. It pays greatly.
 </p>
 </div>
 </div>
+<div id="outline-container-orgdf4e0ec" class="outline-2">
+<h2 id="orgdf4e0ec">Layers of DSLs</h2>
+<div class="outline-text-2" id="text-orgdf4e0ec">
+<p>
+The idea to partition the code into layers of <i>embedded &ldquo;functional&rdquo; DSLs</i>, each of which interracts only with the layer immediately below it, exports its own functions, and makes no assumptions about the layers above it, is still the most important one in all programming.
+</p>
+
+<p>
+It has been re-discovered and it re-emerged innumerable number of times, because it reflects the universal pattern which the process of a biological evolution has been &ldquo;discovered&rdquo;. Complex systems are <i>hierarchical and layered</i> with &ldquo;asynchronous message-passing&rdquo; between laywrs.
+</p>
+
+<p>
+Embedded DSLs are well-understood and emphasized with the LISP family of languages (due to &ldquo;more permissive&rdquo; <i>dynamic typing</i>). DSLs, however, could be easily defined with <i>Algebraic Types</i> and <i>pattern-matching on data constructors</i>. All the Classic Books have at least one DSL in them.
+</p>
+
+<p>
+This &ldquo;universal&rdquo; methodology has much deeper connections to reality. A well-designed DSL taps into a domain-experts knowledge which is &ldquo;included&rdquo; into the slang and jargon the experts use among themselves. It matches perfectly with DDD.
+</p>
+
+<p>
+There is also a deep connection with the notion of a Monoid and combinatorics. The best DSLs form a <i>Monoid</i> with respect to the composing operators, so everything composes to everything like within a <i>Ring</i>. There is a lot going on.
+</p>
+
+<p>
+Last but not least, aminoacids compose into proteins. They are not Monoids, but Monads (ironically), since each resulting strucure is a &ldquo;lifted&rdquo; one (has its own emergent electro-chemical properties which the individual parts do no possess). <i>Kleisli Arrows</i> could be &ldquo;seen&rdquo; there.
+</p>
+</div>
+</div>
 <div id="outline-container-orgb69e8c1" class="outline-2">
 <h2 id="orgb69e8c1">Standard Libraries</h2>
 <div class="outline-text-2" id="text-orgb69e8c1">
@@ -451,8 +523,8 @@ I could argue that
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-22 Sat 22:25</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-07-23 Sun 17:14</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.7)</p>
 </div>
 </body>
 </html>
