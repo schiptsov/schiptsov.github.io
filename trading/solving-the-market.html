@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-08 Tue 18:38 -->
+<!-- 2023-08-08 Tue 18:41 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Incremental Development</title>
-<meta name="author" content="Ln Gnmn &lt;lngnmn1@gmail.com&gt;" />
+<title>The Man Who Solved the Market and other bullshit.</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -225,38 +225,6 @@ font-family: 'Source Code Pro', monospace;
      }
 // @license-end
 </script>
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -265,174 +233,216 @@ font-family: 'Source Code Pro', monospace;
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Incremental Development</h1>
+<h1 class="title">The Man Who Solved the Market and other bullshit.</h1>
 </header><p>
-The point of programming techniques and methodologies is to <i>reduce
-cognitive load</i>, not to increase it with additional seemingly related
-concepts or tricks. We, humans, have very limited mental capacity so
-care should be taken not to overwhelm ourselves and others with
-unnecessary, redundant abstractions or irrelevant details.
+The main theme was &ldquo;we use advanced mathematical tools and we don&rsquo;t care why it moves&rdquo;.
 </p>
 
 <p>
-Things like <i>modules</i> and <i>namespaces</i>, when done right (small functions,
-small modules) tend to partition the problem domain into manageable
-pieces (building blocks) along with <i>conceptual boundaries</i> to make
-unrelated concepts <i>decoupled</i> from each other and to <i>share nothing</i>.
+This is the utter first bullshit in a row. Ignoring &ldquo;time in the
+market&rdquo; is ok if one just observes the ongoing processes (always after
+it happened). But understanding of what is going on requires the
+<i>whys</i>.
 </p>
 
 <p>
-With <i>Algebraic Data Types</i> (and <i>Abstract Data Types</i> in general) one
-doesn&rsquo;t have to write everything down <i>at once</i>. Write what you have
-already figured out, what you know so far.
+The Burry legend (when he foresav &ldquo;time the market&rdquo; and timed it too
+early) has been based upon <i>undestanding of the whys</i> and even
+constantly searching for better and new <i>whys</i>.
 </p>
 
 <p>
-<i>Partially specified</i> concepts will do. They reflect one&rsquo;s <i>partial
-knowledge</i> due to <i>imperfect information</i> or simply not being able to
-figure everything out as a whole <i>yet</i>.
+In short, the <i>whys</i> (social dynamics) lets one properly assess
+long-term &ldquo;timein the market&rdquo; (the &ldquo;tides&rdquo;), while just candles,
+moving averages and their derivatives allow sometimes &ldquo;timing the
+market&rdquo; successfuly.
 </p>
 
 <p>
-With a <i>sum-type</i> each new <i>variant</i> could be added and tested
-separately and independently (by explicit pattern-matching).
+The analogy to poker players, when one does not know the cards of the opponents but observes their mood swings (sentiments), thus having an imperfect and noisy <i>information</i> is a good one, but it is definitely not enough to be <i>consistently profitable</i>.
 </p>
 
 <p>
-Same goes for <i>records</i> (named or indexed product-types) as long as one is
-accessing by a name or a &ldquo;key&rdquo; (<i>get by getters and set by setters</i>, which
-is how one uses an Abstract Data Types in principle).
+So, the sentiments matter a lot, but they are not enough and it is
+unclear how to measure them correctly, except to have an access to all
+the positions on an exchange (FTX, SBF).
 </p>
 
 <p>
-This, by the way, is why <code>SELECT * FORM blah</code> is <i>lame</i> - one simply throws
-everything that is <i>principle-guided</i> out of the window.
+But, yes, if one could reliable <i>measure</i> the most relevant variables and observe the changes of the rate of change (second derivatives) then, yes, explanations of why are not required in this context.
 </p>
 
 <p>
-Just like in mathematics, in a pure-functional programming once you
-have figured it out and wrote down right (no type-errors and all tests
-passed) it becomes &ldquo;eternal&rdquo; - correct and valid.
-</p>
-
-<div id="outline-container-org64ad96d" class="outline-2">
-<h2 id="org64ad96d">Gregor Kiczales</h2>
-<div class="outline-text-2" id="text-org64ad96d">
-<p>
-Gregor Kiczales has a whole course about <i>Systematic Program Design</i> on
-youtube (based on his MOOC). Just watch it, even if it a bit too
-pedantic (which is actually good).
+The same thing applies to &ldquo;indicators&rdquo;, such as RSI and MACD. They capture and show the &ldquo;speed&rdquo; &ldquo;acceleration&rdquo;, &ldquo;pressure&rdquo; and &ldquo;momentum&rdquo; of market processes, but it does not (and cannot in principle) predict the next move. Even <i>conservation of a momentum</i> does not hold in the market.
 </p>
 
 <p>
-Really, this is one of the best and highest quality courses out there.
+Another principle is that observed  (calculated) correlations between variables are ephemeral, they come and go. What seem to be correlated this moment will not be so the next.
+</p>
+
+<p>
+The environment is dynamically changing behind your back and right around you while you are observing what is already happened.
+</p>
+
+<p>
+This fact implies that any model is already old the moment it is created.
+</p>
+
+<p>
+Models has to be constantly updated to reflect the constant change, which is an impossible task. One cannot do it consistently.
+</p>
+
+<div id="outline-container-org491a2fe" class="outline-2">
+<h2 id="org491a2fe">On bullshit</h2>
+<div class="outline-text-2" id="text-org491a2fe">
+<p>
+I do not talk &ldquo;abstract&rdquo;, only <i>properly generalized patterns (and
+corresponding mathematical abstractions, like Sets or Semigroups)</i>.
+</p>
+
+<p>
+There is a fundamental difference between an &ldquo;abstraction&rdquo; and a
+&ldquo;properly generalized pattern&rdquo;. The later can always be traced back to
+the actual underlying pattern - to <i>What Is</i>, while the former is
+usually just conceptual bullshit, like gods and angels.
+</p>
+
+<p>
+It is crucial in any &ldquo;modeling&rdquo; endevour that <i>all</i> your concepts can
+be traced back to &ldquo;reality&rdquo;. Otherwise it is just abstract bullshut,
+like Marxism or Freudian &ldquo;psychology&rdquo;.
+</p>
+
+<p>
+We have to really understand things like &ldquo;generalizing to multiple
+dimensions&rdquo; statements. This means that a certain methodology or
+functions can be used in novel, more abstract contexts, just like
+looking at the sign of a derivative to &ldquo;see&rdquo; the direction of a slope.
+</p>
+
+<p>
+What it yields &#x2013; what is the meaning of the results &#x2013; is the most
+impoetant question. It may be just a multimplication of birds by leafs
+on the trees and taking a partial derivative with respect to the leafs.
 </p>
 </div>
 </div>
-<div id="outline-container-org0cb88d7" class="outline-2">
-<h2 id="org0cb88d7">Write the type-signatures first</h2>
-<div class="outline-text-2" id="text-org0cb88d7">
-<p>
-It should be one&rsquo;s habit to write a prototype of the <i>module-signature</i>
-(<code>.mli</code> in Ocaml) first. You will at once &ldquo;see&rdquo; how <i>consistent</i> and uniform
-your naming and <i>parameters</i> are (the same order).
-</p>
 
-<p>
-I wish every language would have a support of Ocaml <i>modules</i> (sigs,
-structs and functors). They are absolutely brilliant. This is what Haskell lacks.
-</p>
-</div>
-</div>
-<div id="outline-container-org644bf49" class="outline-2">
-<h2 id="org644bf49">Second step - write a test-case</h2>
-<div class="outline-text-2" id="text-org644bf49">
-<p>
-Write a failing test case <i>first</i> and <i>then</i> implement the function to make the
-test pass. This is the crucial pont of whole TTD approach.
-</p>
-
-<p>
-Writing tests <i>before</i> the implementation allows on to focus on the
-<i>interface</i> (function signature) and the <i>call-site</i>, which are much more
-important considerations.
-</p>
-
-<p>
-If a function has already known <i>preconditions</i> write test-cases which
-<i>explicitly specify</i> them and catch the proper exceptions or fatal errors
-(failed assetions).
-</p>
-</div>
-</div>
-<div id="outline-container-org8fca728" class="outline-2">
-<h2 id="org8fca728">REPL</h2>
-<div class="outline-text-2" id="text-org8fca728">
-<p>
-A REPL is the tools of experimentation and <i>rapid prototyping</i> due to
-instant feedback and real quick setup (because <i>pure functions share
-nothing</i> and could be applied without setting of a context, in any
-order).
-</p>
-
-<p>
-In a REPL you <i>try</i> the things to feel the &ldquo;use-side&rdquo; (the call-site).
-</p>
-</div>
-</div>
-<div id="outline-container-org6f68ab9" class="outline-2">
-<h2 id="org6f68ab9">Tests as crude pseudo-specs</h2>
-<div class="outline-text-2" id="text-org6f68ab9">
-<p>
-Writing down <i>specifications</i> for interfaces (for every exported function) is
-crucial, but instead of writing them in commentaries, write them in <i>unit
-tests</i>, even <i>before the implementation</i> is figured out.
-</p>
-
-<p>
-Thus we will create poor man&rsquo;s <i>executable specifications</i>. Well, sort of.
-</p>
-
+<div id="outline-container-orgb72e559" class="outline-2">
+<h2 id="orgb72e559">What wasn&rsquo;t bullshit</h2>
+<div class="outline-text-2" id="text-orgb72e559">
 <ul class="org-ul">
-<li>do <i>defensive programming</i> and always <i>assert /preconditions</i>.</li>
-<li>specify and test the <i>invariants</i> first (with assertions and logic)</li>
-<li>\(\forall\) and can be emulated with explicit &ldquo;corner cases&rdquo; and a <i>quickcheck</i>
-generator</li>
+<li>Bell Labs style &ldquo;free&rdquo; teams staffed with talented guys of different specializations. Both imaginary military institution and trading firms allegedly succeeded due to this universal social arrangement.
+We cannot hire a top talent, so we have to read the books written by top talent.</li>
+
+<li>There is not so much information about the price and volume movements. Moving averages and trend-lines, along with support and resistance areas (edges or a current range) is basically all that is out there.
+What everyone does is trying to apply relevant mathematics to these &ldquo;emergent curves&rdquo;. There is not so much non-bullshit mathematics - slopes, second derivatives, partial derivatives, back-propagation, etc.</li>
+
 <li><p>
-\(\exists\) is just a <i>search</i>, which may require a <i>presorted</i> copy.
+The most &ldquo;stable&rdquo; strategies were based on reactions to anomalies (the classic &ldquo;buy the dip&rdquo; and &ldquo;short the blow off top&rdquo;). Anomalies frequently emerge as direct results of underlying social dynamics, which are a panic sell off and a FOMO euphoria.
 </p>
 
 <p>
-Remember that tests will never show the <i>absence of bugs</i>, but will show
-their presence <i>early</i>.
+So there are actual, real causality and the famous &ldquo;market cycle&rdquo; diagram, which maps major psychological states to a generalized pattern captures and approximates something real.
 </p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org72219f3" class="outline-2">
-<h2 id="org72219f3">Formal specification</h2>
-<div class="outline-text-2" id="text-org72219f3">
+
+<div id="outline-container-org64b0a23" class="outline-2">
+<h2 id="org64b0a23">The Fundamental principles</h2>
+<div class="outline-text-2" id="text-org64b0a23">
+<ul class="org-ul">
+<li>Nothing, in principle, will yield consistent, accurate predictions.</li>
+<li>No game-theoretic bullshit will be applicable to a stochastic environment.</li>
+<li>All &ldquo;estimated&rdquo; probabilities will be wrong, in principle.</li>
+</ul>
+
 <p>
-The critical functions can be fully specified and veryfied using
-advanced tools, like <code>TLA+</code>, <code>Coq</code> or <code>Agda</code>.
+Bad or wrong estimations is worse than no estimations at all (just being reactive instead of predictive).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org97b5096" class="outline-2">
+<h2 id="org97b5096">Data</h2>
+<div class="outline-text-2" id="text-org97b5096">
+<p>
+Having the accurate data is, of course, way better than having no data at all. But only price and volume (candles) is, not enough, because it is recording of events which already happened, in principle.
 </p>
 
 <p>
-This is, basically, just to write down all the underlying math
-explicitly.
+The key is to have the data which are measurements of different aspects of the market social phenomena, including &ldquo;open interest&rdquo;, &ldquo;long-short ratios&rdquo; and other sentiment assessment.
 </p>
 
 <p>
-It is also possible to <i>bottom-up bootstrap</i> a function in <code>Coq</code> and then
-export it in Haskell (automatically) or any other functional language (manually).
+Exchanges collect and monitor all this &ldquo;insider&rdquo; information about the positions and use it to trade against retail (FTX, SBF). This is the hint about what is relevant.
+</p>
+
+<p>
+And, of course, mass hysteria like shitcoin moves after Elon&rsquo;s twits cannot be predicted by have to be traded on &ldquo;regression to the mean principle&rdquo; (reacted on).
+</p>
+</div>
+</div>
+<div id="outline-container-org8c67405" class="outline-2">
+<h2 id="org8c67405">Measurements</h2>
+<div class="outline-text-2" id="text-org8c67405">
+<p>
+We need instruments - speedometers, pressure-meters and other &ldquo;peters&rdquo;. The resulting dashboard should be available to the algos.
+</p>
+
+<p>
+The classic &ldquo;indicators&rdquo; of the technical analysis are exactly that. They are the &ldquo;instruments&rdquo;.
+</p>
+
+<p>
+It has been showed innumerable times that they along are not enough to be consistently profitable and even to avoid loses (stop-loses are for that).
+</p>
+
+<p>
+So, neither data not &ldquo;indicators&rdquo; alone are enough.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org87c53aa" class="outline-2">
+<h2 id="org87c53aa">The Simplest strategies</h2>
+<div class="outline-text-2" id="text-org87c53aa">
+<p>
+Super-imposing a grossly oversimplified virews (&ldquo;models&rdquo;) onto vastly complex reality have worked since the beginning of time.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4d246c2" class="outline-2">
+<h2 id="org4d246c2">Back propagation-based Deep Reinforcement Learning</h2>
+<div class="outline-text-2" id="text-org4d246c2">
+<p>
+This too requires a stable environment, so gradual refinement of the weights could occur and the whole structure (network) &ldquo;converge&rdquo; to something.
+</p>
+
+<p>
+When the environment is changing the inputs will become &ldquo;random&rdquo; and the network would learn inconsistent nonsense or being trained on a noise.
+</p>
+
+<p>
+Small individual networks, however, could be trained to catch recurrent patterns on 3, 2 or even 1 candle, where the structure of the network could reflect all the possible variables and ratios among them.
+</p>
+
+<p>
+Then the &ldquo;consensus&rdquo; of the multiple specialized network may provide better measurement, detailed snapshot of the market.
+</p>
+
+<p>
+Again, the notion of not understanding why a model does this or that, what it &ldquo;sees&rdquo; is an ultimate dead-end, because models mostly &ldquo;hallucinate&rdquo;, just as LLMs do.
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-08-08 Tue 18:38</p>
+<p class="date">Created: 2023-08-08 Tue 18:41</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>

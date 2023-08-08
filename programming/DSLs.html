@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-08-08 Tue 18:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Domain Specific Languages</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -246,9 +253,9 @@ geometry, which is what a descriptive (or declarative) language is all
 about.
 </p>
 
-<div id="outline-container-org725916d" class="outline-2">
-<h2 id="org725916d">Describe what to do, not how to do</h2>
-<div class="outline-text-2" id="text-org725916d">
+<div id="outline-container-orgf7452a3" class="outline-2">
+<h2 id="orgf7452a3">Describe what to do, not how to do</h2>
+<div class="outline-text-2" id="text-orgf7452a3">
 <p>
 Ideally, we should be able to communicate to a program our intentions
 <i>without writing out all the particular details of how to do it
@@ -266,10 +273,10 @@ We should have been able to say something like.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">time<span style="color: #88C0D0;">-</span>frame <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Hourly</span>
-<span style="color: #88C0D0;">resistance</span> <span style="color: #D8DEE9;">=</span> 21k
-<span style="color: #88C0D0;">support</span> <span style="color: #D8DEE9;">=</span> 17k
-<span style="color: #88C0D0;">trend</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Down</span>
+<pre class="src src-haskell">time-frame = Hourly
+resistance = 21k
+support = 17k
+trend = Down
 </pre>
 </div>
 
@@ -280,9 +287,9 @@ able to infer by itself.
 </div>
 </div>
 
-<div id="outline-container-org93dc052" class="outline-2">
-<h2 id="org93dc052">an Embedded DSL</h2>
-<div class="outline-text-2" id="text-org93dc052">
+<div id="outline-container-org7ccd011" class="outline-2">
+<h2 id="org7ccd011">an Embedded DSL</h2>
+<div class="outline-text-2" id="text-org7ccd011">
 <p>
 Functional languages, such as Haskell, are particularly well-suited to
 develop <i>embedded DSLs</i> and to represent and manipulate <i>declarative
@@ -292,9 +299,9 @@ notation).
 </div>
 </div>
 
-<div id="outline-container-org37e2549" class="outline-2">
-<h2 id="org37e2549">an Interpreter</h2>
-<div class="outline-text-2" id="text-org37e2549">
+<div id="outline-container-orga209ee0" class="outline-2">
+<h2 id="orga209ee0">an Interpreter</h2>
+<div class="outline-text-2" id="text-orga209ee0">
 <p>
 A <i>state-of-the-art</i> system should have at least one <i>interpreter</i> of
 some <i>simple, declarative</i> embedded language within it.
@@ -305,8 +312,8 @@ some <i>simple, declarative</i> embedded language within it.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:39</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

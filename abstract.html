@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-13 Thu 09:17 -->
+<!-- 2023-08-08 Tue 18:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Abstract vs. General</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -272,9 +279,9 @@ It turns out we used to call very different processes by the same abstract term 
 At an intuitive level, we abstract away (or out) by introducing a new <i>type</i> and we <i>generalize</i> by factoring out commonalities and parameterizing with varying specifics.
 </p>
 
-<div id="outline-container-orge912707" class="outline-2">
-<h2 id="orge912707">B. Liskov</h2>
-<div class="outline-text-2" id="text-orge912707">
+<div id="outline-container-org1cdfc21" class="outline-2">
+<h2 id="org1cdfc21">B. Liskov</h2>
+<div class="outline-text-2" id="text-org1cdfc21">
 <p>
 What Barbra Liskov called &ldquo;procedural abstraction&rdquo; is the notion of hidding the implementation details and threating the procedure as a &ldquo;black box&rdquo;.
 </p>
@@ -304,9 +311,9 @@ In our terminology an <i>abstract data type</i> of a  Mathmatical Set is <i>defi
 </p>
 </div>
 </div>
-<div id="outline-container-org2e20b98" class="outline-2">
-<h2 id="org2e20b98">Look ma, no classes or objects</h2>
-<div class="outline-text-2" id="text-org2e20b98">
+<div id="outline-container-org870e204" class="outline-2">
+<h2 id="org870e204">Look ma, no classes or objects</h2>
+<div class="outline-text-2" id="text-org870e204">
 <p>
 Notice that no objects (with an &ldquo;encapsulared internal state&rdquo;) are required. Values and functions as &ldquo;black-box abstractions&rdquo;. Here it means that &ldquo;concrete&rdquo; details are deliberately <i>abstracted away.</i>
 </p>
@@ -320,8 +327,8 @@ The fact that values, types as constrained <i>subsets</i> of values, functions, 
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-13 Thu 09:17</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:38</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

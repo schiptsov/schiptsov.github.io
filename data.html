@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:38 -->
+<!-- 2023-08-08 Tue 18:42 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data and structures</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -220,24 +227,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "left",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'left',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -298,9 +318,9 @@ When there are <i>two</i> arrows in <i>both directions</i> (actually <code>4</co
 arrows) then this is <i>another common pattern</i> (an emergent abstract structure).
 </p>
 
-<div id="outline-container-org1615116" class="outline-2">
-<h2 id="org1615116">Cartesian product</h2>
-<div class="outline-text-2" id="text-org1615116">
+<div id="outline-container-orgf4389e5" class="outline-2">
+<h2 id="orgf4389e5">Cartesian product</h2>
+<div class="outline-text-2" id="text-orgf4389e5">
 <ul class="org-ul">
 <li>Arbitrary chosen &ldquo;Origin&rdquo; (this is a philosophically important principle)</li>
 <li>Axies are <i>equally-spaced</i> &ldquo;rulers&rdquo;, or abstractly - <i>Number Lines</i></li>
@@ -315,9 +335,9 @@ arrows) then this is <i>another common pattern</i> (an emergent abstract structu
 </div>
 </div>
 
-<div id="outline-container-orgbb294d3" class="outline-2">
-<h2 id="orgbb294d3">Abstract N-dimensional spaces</h2>
-<div class="outline-text-2" id="text-orgbb294d3">
+<div id="outline-container-org21c7d92" class="outline-2">
+<h2 id="org21c7d92">Abstract N-dimensional spaces</h2>
+<div class="outline-text-2" id="text-org21c7d92">
 <ul class="org-ul">
 <li>Dimensions are products of the mind and does not exist</li>
 <li>However it is useful to apply these abstractions <i>in a systematic way</i></li>
@@ -330,9 +350,9 @@ everything</li>
 </div>
 </div>
 
-<div id="outline-container-orgc18e166" class="outline-2">
-<h2 id="orgc18e166">Labeled Cartesian Product</h2>
-<div class="outline-text-2" id="text-orgc18e166">
+<div id="outline-container-org17bd2da" class="outline-2">
+<h2 id="org17bd2da">Labeled Cartesian Product</h2>
+<div class="outline-text-2" id="text-org17bd2da">
 <ul class="org-ul">
 <li>Once we label components of a <i>tuple</i> with symbols we get a <i>record</i></li>
 </ul>
@@ -345,9 +365,9 @@ everything</li>
 </div>
 </div>
 
-<div id="outline-container-org9fe3f71" class="outline-2">
-<h2 id="org9fe3f71">Generalized labeled Product Type</h2>
-<div class="outline-text-2" id="text-org9fe3f71">
+<div id="outline-container-org45d3b5d" class="outline-2">
+<h2 id="org45d3b5d">Generalized labeled Product Type</h2>
+<div class="outline-text-2" id="text-org45d3b5d">
 <p>
 When we say <code>{ name = "" }</code> we cover a linear (1D) space of <i>all people ever lived, who had a name</i>. Socrates is here, and George W. Bush.
 </p>
@@ -368,9 +388,9 @@ from the &ldquo;whole&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbfff459" class="outline-2">
-<h2 id="orgbfff459">Structure or a Table</h2>
-<div class="outline-text-2" id="text-orgbfff459">
+<div id="outline-container-orgc270318" class="outline-2">
+<h2 id="orgc270318">Structure or a Table</h2>
+<div class="outline-text-2" id="text-orgc270318">
 <ul class="org-ul">
 <li>By defining a <i>type</i> we <i>partition</i> the &ldquo;Universe of Discourse&rdquo;.</li>
 <li>When we specialize a <i>record</i>  we get a <i>table</i> (or a <i>structure</i>)
@@ -380,9 +400,9 @@ which is a <i>type</i> of its own <i>together with an actual implementation</i><
 </div>
 </div>
 
-<div id="outline-container-org622c8ef" class="outline-2">
-<h2 id="org622c8ef">A table is an Ordered Sequence of Rows</h2>
-<div class="outline-text-2" id="text-org622c8ef">
+<div id="outline-container-org15244e0" class="outline-2">
+<h2 id="org15244e0">A table is an Ordered Sequence of Rows</h2>
+<div class="outline-text-2" id="text-org15244e0">
 <ul class="org-ul">
 <li>It is a <i>representation</i> of an <i>abstract sub-space</i> (of a subset).</li>
 <li>Rows <i>represent</i> individual &ldquo;points&rdquo; in a sub-space.</li>
@@ -390,9 +410,9 @@ which is a <i>type</i> of its own <i>together with an actual implementation</i><
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfcbca78" class="outline-2">
-<h2 id="orgfcbca78">Product-types</h2>
-<div class="outline-text-2" id="text-orgfcbca78">
+<div id="outline-container-org8e92480" class="outline-2">
+<h2 id="org8e92480">Product-types</h2>
+<div class="outline-text-2" id="text-org8e92480">
 <p>
 And that is basically it. We <i>superimpose rulers</i>, group together &ldquo;coordinates&rdquo; or &ldquo;distances&rdquo; and <i>partition &ldquo;points&rdquo; into sub-spaces</i> using what we call <i>product types</i>.
 </p>
@@ -408,9 +428,9 @@ We also need <a href="sum-types.html">Sum-types</a> (<i>disjoint unions</i>) to 
 </div>
 </div>
 
-<div id="outline-container-org2f7e564" class="outline-2">
-<h2 id="org2f7e564">Relations</h2>
-<div class="outline-text-2" id="text-org2f7e564">
+<div id="outline-container-org25728be" class="outline-2">
+<h2 id="org25728be">Relations</h2>
+<div class="outline-text-2" id="text-org25728be">
 <p>
 An entity can be described as a set of its <i>attributes</i>.
 </p>
@@ -441,9 +461,9 @@ All rows (records) in a table from a Set, while each field ranges over a set of 
 </p>
 </div>
 </div>
-<div id="outline-container-org9324911" class="outline-2">
-<h2 id="org9324911">Schemas</h2>
-<div class="outline-text-2" id="text-org9324911">
+<div id="outline-container-org320a25f" class="outline-2">
+<h2 id="org320a25f">Schemas</h2>
+<div class="outline-text-2" id="text-org320a25f">
 <p>
 When we define a <i>schema</i> for a <i>table</i> we establish a higher-kinded
 <i>structural typing</i> for what is itself a <i>type</i> (a Set of all possible
@@ -455,9 +475,9 @@ Only tables <i>of the same kind</i>  (same structure) can be used \(\cup,\cap\) 
 </p>
 </div>
 </div>
-<div id="outline-container-org6db7844" class="outline-2">
-<h2 id="org6db7844">&ldquo;Select&rdquo;</h2>
-<div class="outline-text-2" id="text-org6db7844">
+<div id="outline-container-orgfafbff5" class="outline-2">
+<h2 id="orgfafbff5">&ldquo;Select&rdquo;</h2>
+<div class="outline-text-2" id="text-orgfafbff5">
 <p>
 Select corresponds to the notion of <i>&ldquo;such that&rdquo;</i> and <i>filtering</i>.
 </p>
@@ -477,8 +497,8 @@ Can be <i>nested</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:38</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:42</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:37 -->
+<!-- 2023-08-08 Tue 18:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Discipline</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -233,9 +240,9 @@ universal &ldquo;best practices&rdquo; (no bullshit here), this alone could brin
 <i>life-changing results</i> for your programming abilities.
 </p>
 
-<div id="outline-container-org9566c69" class="outline-2">
-<h2 id="org9566c69">Abstraction and modularity</h2>
-<div class="outline-text-2" id="text-org9566c69">
+<div id="outline-container-org4fc4a1b" class="outline-2">
+<h2 id="org4fc4a1b">Abstraction and modularity</h2>
+<div class="outline-text-2" id="text-org4fc4a1b">
 <p>
 <i>Abstraction</i> is what the Human Mind evolved to do in order to deal with
 the wast complexity of a hierarchical world. It is a mental technique to pay
@@ -318,9 +325,9 @@ blocks), or sub-process unfold within a single unfolding process</i>.
 </div>
 </div>
 
-<div id="outline-container-org331ee12" class="outline-2">
-<h2 id="org331ee12">General principles</h2>
-<div class="outline-text-2" id="text-org331ee12">
+<div id="outline-container-org53f0962" class="outline-2">
+<h2 id="org53f0962">General principles</h2>
+<div class="outline-text-2" id="text-org53f0962">
 <p>
 There are some facts: Commentaries in the code may be outdated and misleading. Reading a commentary does not mean that the code below is correct.
 </p>
@@ -347,16 +354,16 @@ More about the actual &ldquo;best practices&rdquo; <a href="https://cs3110.githu
 </div>
 </div>
 
-<div id="outline-container-org6a26c5c" class="outline-2">
-<h2 id="org6a26c5c">Simple rules</h2>
-<div class="outline-text-2" id="text-org6a26c5c">
+<div id="outline-container-org7e18bd3" class="outline-2">
+<h2 id="org7e18bd3">Simple rules</h2>
+<div class="outline-text-2" id="text-org7e18bd3">
 <p>
 There are simple <i>rules</i>, which just tells you what to do and why.
 </p>
 </div>
-<div id="outline-container-orgf15b2da" class="outline-3">
-<h3 id="orgf15b2da">Write everything down in <code>org-mode</code> files.</h3>
-<div class="outline-text-3" id="text-orgf15b2da">
+<div id="outline-container-orgb58e845" class="outline-3">
+<h3 id="orgb58e845">Write everything down in <code>org-mode</code> files.</h3>
+<div class="outline-text-3" id="text-orgb58e845">
 <p>
 Your mind will fail in so many subtle ways. Just write everything down.
 </p>
@@ -367,9 +374,9 @@ Org supports Math and LaTex blocks, it is really <i>the right</i> tool.
 </div>
 </div>
 
-<div id="outline-container-org9fd0351" class="outline-3">
-<h3 id="org9fd0351">Write down informal specifications</h3>
-<div class="outline-text-3" id="text-org9fd0351">
+<div id="outline-container-org6edf9de" class="outline-3">
+<h3 id="org6edf9de">Write down informal specifications</h3>
+<div class="outline-text-3" id="text-org6edf9de">
 <p>
 Sets and logic, just like <code>TLA+</code>.
 </p>
@@ -380,9 +387,9 @@ To have even an incomplete spec is way better than having no spec.
 </div>
 </div>
 
-<div id="outline-container-org3390e51" class="outline-3">
-<h3 id="org3390e51">Start with the <i>stubs</i> of interfaces, and the <i>tests</i></h3>
-<div class="outline-text-3" id="text-org3390e51">
+<div id="outline-container-org9e00e18" class="outline-3">
+<h3 id="org9e00e18">Start with the <i>stubs</i> of interfaces, and the <i>tests</i></h3>
+<div class="outline-text-3" id="text-org9e00e18">
 <p>
 In the classic languages, such as LISPs, one is using a <i>REPL</i>, which is the way of defining and testing your <i>stubs</i> right away.
 </p>
@@ -405,9 +412,9 @@ The high-level process is &#x2013; <i>the Problem-Domain -&gt; extracted Concept
 </div>
 </div>
 
-<div id="outline-container-org3cac2dd" class="outline-3">
-<h3 id="org3cac2dd">Use all the tools available</h3>
-<div class="outline-text-3" id="text-org3cac2dd">
+<div id="outline-container-org637b817" class="outline-3">
+<h3 id="org637b817">Use all the tools available</h3>
+<div class="outline-text-3" id="text-org637b817">
 <p>
 This is straight from the horse&rsquo;s mouth &#x2013; the John Carmak himself said so.
 </p>
@@ -424,9 +431,9 @@ This is straight from the horse&rsquo;s mouth &#x2013; the John Carmak himself s
 </div>
 </div>
 
-<div id="outline-container-orgd07160c" class="outline-2">
-<h2 id="orgd07160c">Testing</h2>
-<div class="outline-text-2" id="text-orgd07160c">
+<div id="outline-container-org7047b8a" class="outline-2">
+<h2 id="org7047b8a">Testing</h2>
+<div class="outline-text-2" id="text-org7047b8a">
 <p>
 Every function or an interface has an informally stated &ldquo;contract&rdquo; about what is supposed to do.
 </p>
@@ -451,9 +458,9 @@ This is just an airplane self-test before a takeoff. I would not want to board a
 Automated testing is the same thing.
 </p>
 </div>
-<div id="outline-container-org02de657" class="outline-3">
-<h3 id="org02de657">The Principles of testing</h3>
-<div class="outline-text-3" id="text-org02de657">
+<div id="outline-container-org2ba6f99" class="outline-3">
+<h3 id="org2ba6f99">The Principles of testing</h3>
+<div class="outline-text-3" id="text-org2ba6f99">
 <p>
 There are two fundamental principles of proper testing.
 </p>
@@ -465,9 +472,9 @@ There are two fundamental principles of proper testing.
 </div>
 </div>
 
-<div id="outline-container-org5e73eb8" class="outline-2">
-<h2 id="org5e73eb8">Automate everything (with tools and scripts)</h2>
-<div class="outline-text-2" id="text-org5e73eb8">
+<div id="outline-container-org898bf4e" class="outline-2">
+<h2 id="org898bf4e">Automate everything (with tools and scripts)</h2>
+<div class="outline-text-2" id="text-org898bf4e">
 <ul class="org-ul">
 <li>use <code>GNU autotools</code> or <code>meson</code></li>
 <li>use <code>make</code> (of course)</li>
@@ -481,8 +488,8 @@ There are two fundamental principles of proper testing.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:37</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:40</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

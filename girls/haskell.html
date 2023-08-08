@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-04 Tue 15:59 -->
+<!-- 2023-08-08 Tue 18:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Haskell</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -220,24 +227,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "right",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -248,9 +268,9 @@ MathJax = {
 <header>
 <h1 class="title">Haskell</h1>
 </header>
-<div id="outline-container-org2baf805" class="outline-2">
-<h2 id="org2baf805">The problems</h2>
-<div class="outline-text-2" id="text-org2baf805">
+<div id="outline-container-org69ab97a" class="outline-2">
+<h2 id="org69ab97a">The problems</h2>
+<div class="outline-text-2" id="text-org69ab97a">
 <p>
 It is a bit strange to start with &ldquo;problems&rdquo; but lets make everything clear
 before we go.
@@ -288,9 +308,9 @@ The language itself is <i>beautiful</i> and nearly perfect.
 </p>
 </div>
 </div>
-<div id="outline-container-org370146a" class="outline-2">
-<h2 id="org370146a">Books</h2>
-<div class="outline-text-2" id="text-org370146a">
+<div id="outline-container-org3db0735" class="outline-2">
+<h2 id="org3db0735">Books</h2>
+<div class="outline-text-2" id="text-org3db0735">
 <p>
 Because <code>Haskell</code> is so <i>subtle</i> and requires at least some <i>mathematical maturity</i>,
 there are lots of &ldquo;very bad&rdquo; books, &ldquo;just bad&rdquo; books and a <i>very few</i> good books about it.
@@ -309,9 +329,9 @@ Jones, Graham Hutton, Paul Hudak and Richard Bird.
 </p>
 </div>
 </div>
-<div id="outline-container-org21b9421" class="outline-2">
-<h2 id="org21b9421">Principles</h2>
-<div class="outline-text-2" id="text-org21b9421">
+<div id="outline-container-orgc7584fb" class="outline-2">
+<h2 id="orgc7584fb">Principles</h2>
+<div class="outline-text-2" id="text-orgc7584fb">
 <p>
 When you write <code>Haskell</code> <i>expressions</i> (everything in Haskell is an expression) you are writing mathematics or <i>terms of an advanced system of logic</i>. Everything is <i>declarative</i> and <i>pure</i>.
 </p>
@@ -346,9 +366,9 @@ well-defined terms, using mathematical and logical expressions instead of impera
 </p>
 </div>
 </div>
-<div id="outline-container-org4482089" class="outline-2">
-<h2 id="org4482089">Telling to a robot</h2>
-<div class="outline-text-2" id="text-org4482089">
+<div id="outline-container-org4481d37" class="outline-2">
+<h2 id="org4481d37">Telling to a robot</h2>
+<div class="outline-text-2" id="text-org4481d37">
 <p>
 Imagine that you are telling what has to be done to a <i>robot</i>, to a <i>machine</i> (which is what an <i>interpreter</i> actually is).
 </p>
@@ -397,7 +417,7 @@ Mathematical expressions <i>denote</i> either functions or numbers or <i>describ
 This expression, for example, denotes an <i>infix</i> function composition <i>operator</i>, which itself is just a <i>pure function</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">(g <span style="color: #D8DEE9;">.</span> f) <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">\</span>x <span style="color: #D8DEE9;">-&gt;</span> g (f x)
+<pre class="src src-haskell">(g . f) = \x -&gt; g (f x)
 </pre>
 </div>
 <p>
@@ -406,9 +426,9 @@ It says that the <code>(.)</code> operator is defined as follows. No more, no le
 </div>
 </div>
 
-<div id="outline-container-org23d7713" class="outline-2">
-<h2 id="org23d7713">Eventually</h2>
-<div class="outline-text-2" id="text-org23d7713">
+<div id="outline-container-org79dd321" class="outline-2">
+<h2 id="org79dd321">Eventually</h2>
+<div class="outline-text-2" id="text-org79dd321">
 <p>
 Ok, now how do we define what to be done with values, which we never actually observe, <i>eventually</i>?
 </p>
@@ -421,19 +441,19 @@ It is easy. We tell to the language rutime (which will <i>eventually</i> run our
 Again, we do not actually do, that would be an imperative crap, we are desctibing what has to be done <i>for each possible outcome</i> of a scrutiny. Beautiful, isnt it?
 </p>
 </div>
-<div id="outline-container-orgd538400" class="outline-3">
-<h3 id="orgd538400">Multiple clauses</h3>
+<div id="outline-container-org6c069f7" class="outline-3">
+<h3 id="org6c069f7">Multiple clauses</h3>
 </div>
-<div id="outline-container-org1c713b9" class="outline-3">
-<h3 id="org1c713b9">Case analysis</h3>
+<div id="outline-container-org5b88f4a" class="outline-3">
+<h3 id="org5b88f4a">Case analysis</h3>
 </div>
-<div id="outline-container-orgffbcf4b" class="outline-3">
-<h3 id="orgffbcf4b">Pattern-matching</h3>
+<div id="outline-container-org45daec2" class="outline-3">
+<h3 id="org45daec2">Pattern-matching</h3>
 </div>
 </div>
-<div id="outline-container-org95ee548" class="outline-2">
-<h2 id="org95ee548">Functions</h2>
-<div class="outline-text-2" id="text-org95ee548">
+<div id="outline-container-org35f4c94" class="outline-2">
+<h2 id="org35f4c94">Functions</h2>
+<div class="outline-text-2" id="text-org35f4c94">
 <p>
 We define functions using <i>equations</i> &#x2013; two expressions on each side of the <i>equal sign</i>. They both denote the same value and can be <i>substututed for each other</i>. This is the principle &#x2013; <i>substutution of an equal for an equal</i>.
 </p>
@@ -451,8 +471,8 @@ We <i>evaluate</i> these functions (and other expressions) using the <i>substitu
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-04 Tue 15:59</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:40</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

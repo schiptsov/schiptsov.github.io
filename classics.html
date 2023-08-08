@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-08-08 Tue 18:31 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Classic language in the classic environment</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Classic language in the classic environment</h1>
+</header>
+<div id="outline-container-org11f93ce" class="outline-2">
+<h2 id="org11f93ce">That scene from Rocky movie</h2>
+<div class="outline-text-2" id="text-org11f93ce">
+<p>
+Arguably the best scene in the classic Rocky (1976) movie, is when Mickey comes with an offer:
+</p>
+<blockquote>
+<p>
+..Well, what ya need is a manager. A manager, listen to me. I know, because I&rsquo;ve been in this racket for fifty years&#x2026;I&rsquo;ve seen it all, all of it.
+</p>
+</blockquote>
+<p>
+and then
+</p>
+<blockquote>
+<p>
+I got all this knowledge, I got it up here now, I wanna give it to you&#x2026;I wanna take care of ya, I wanna make sure that all this sh*t that happened to me doesn&rsquo;t happen to you&#x2026;
+</p>
+</blockquote>
+
+<p>
+Well, now I am that beaten up Mickey, the coach.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org72da918" class="outline-2">
+<h2 id="org72da918">The drill</h2>
+<div class="outline-text-2" id="text-org72da918">
+<p>
+Here we re-read the <i>classic books</i> (really) in the classic setting (the GNU Emacs environment).
+</p>
+
+<p>
+An important note: all the books are &ldquo;available&rdquo; from <i>libgen</i>. I won&rsquo;t teach here the details of how to download them, but I would strongly argue that this is indispensable for us, <i>third-worldlers</i>. No one here would order anything from Amazon, you know.
+</p>
+</div>
+
+<div id="outline-container-org9f67adc" class="outline-3">
+<h3 id="org9f67adc">The Pirsig&rsquo;s book and Ayn Rand</h3>
+<div class="outline-text-3" id="text-org9f67adc">
+<p>
+The <i>&ldquo;classical mindset&rdquo;</i>  has been popularized in the <i>modern classic</i> book &ldquo;Zen and the Art of Motorcycle Maintenance&rdquo; by Robert M. Pirsig. (<i>If you haven&rsquo;t read this book, you are on a wrong page (this page). Just stop right here and go and read the book</i>).
+</p>
+
+<p>
+The most important thing (of the &ldquo;good philosophy&rdquo; &#x2013; the Ayn Rand&rsquo;s term) is that there are &ldquo;reasons&rdquo; behind everything, since everything is within a single unfolding process, which we call Universe (and <i>this</i> is <i>why</i> contradictions do not exist, and one has to check one&rsquo;s premises).
+</p>
+
+<p>
+The Pirsig&rsquo;s book is trying to &ldquo;capture&rdquo; the same fundamental notion. So was Ayn Rand with her <i>Objectivism</i>, which can be reduced to The Buddha&rsquo;s <i>&ldquo;to see things as they  are&rdquo;</i>. These are not some random coincidences.
+</p>
+
+<p>
+There are, for example, some &ldquo;deep reasons&rdquo; <i>why</i> the mRNA (and the DNA) is a <i>linear sequence with explicit start and stop markers</i> and the early LISP guys intuitively &ldquo;got it&rdquo;.
+</p>
+
+<p>
+Anyway, all the classic books have to be read many times (definitely, more than once). The first reading is, of course, from start to finish, and then one uses <i>table of contents</i> for the individual topics.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgae3f1aa" class="outline-2">
+<h2 id="orgae3f1aa">CLU</h2>
+<div class="outline-text-2" id="text-orgae3f1aa">
+<p>
+We should have started with the CLU programming language by Barbara Liskov, but unfortunately, it is imperative and &ldquo;low&rdquo; level, the way all Algol-based languages are.
+</p>
+
+<p>
+There is the source code available for historians, but it cannot be compiled to anything executable and there is no editor support anyway.
+</p>
+
+<p>
+The big ideas introduced in the book are language-independent, or, to be precise - more general than any specific programming language, which means they are <i>universal</i>.
+</p>
+
+<p>
+All the classic language support Abstract Data Types in various ways, while SML and Ocaml, it seems, reached a local optimum.
+</p>
+</div>
+<div id="outline-container-org7e81a40" class="outline-3">
+<h3 id="org7e81a40">The book</h3>
+<div class="outline-text-3" id="text-org7e81a40">
+<p>
+Barbara Liskov, John V. Guttag, <i>Abstraction and specification in program development</i>.
+</p>
+
+<p>
+This is a <i>golden classic</i>, which basically explains the principles on which a serious programming is based upon in a clear language with remarkable clarity of a well-trained mind.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0b479a0" class="outline-2">
+<h2 id="org0b479a0">Emacs</h2>
+<div class="outline-text-2" id="text-org0b479a0">
+<p>
+The current version of GNU Emacs is a culmination of more than 40 years of continuous &ldquo;hacking&rdquo; by some of the smartest people on the planet, at least judging by an old-school mathematical and the classic EE and CS training (the MIT Scheme is another such manifestation, but it is much younger).
+</p>
+</div>
+<div id="outline-container-orgaed8d8c" class="outline-3">
+<h3 id="orgaed8d8c">The &ldquo;prog-mode&rdquo;</h3>
+<div class="outline-text-3" id="text-orgaed8d8c">
+<div class="org-src-container">
+<pre class="src src-elisp">
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbe39045" class="outline-3">
+<h3 id="orgbe39045">The books</h3>
+<div class="outline-text-3" id="text-orgbe39045">
+</div>
+<div id="outline-container-orgcd4881d" class="outline-4">
+<h4 id="orgcd4881d">Elliot, James;Rosenblatt, Bill;Cameron, Debra;Loy, Marc;Raymond, Eric, <i>Learning GNU Emacs</i>, 3rd edition.</h4>
+</div>
+<div id="outline-container-orgcaa5ce0" class="outline-4">
+<h4 id="orgcaa5ce0">Mickey Petersen, <i>Mastering Emacs</i>, 4th edition.</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdadd7f7" class="outline-2">
+<h2 id="orgdadd7f7">MIT Scheme</h2>
+<div class="outline-text-2" id="text-orgdadd7f7">
+</div>
+<div id="outline-container-orgea02d67" class="outline-3">
+<h3 id="orgea02d67">Installation</h3>
+<div class="outline-text-3" id="text-orgea02d67">
+<div class="org-src-container">
+<pre class="src src-bash">  emerge --ask mit-scheme
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgace8ca6" class="outline-3">
+<h3 id="orgace8ca6">Emacs configuration</h3>
+<div class="outline-text-3" id="text-orgace8ca6">
+<div class="org-src-container">
+<pre class="src src-elisp">  <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">require</span> <span style="color: #81A1C1;">'</span><span style="color: #81A1C1;">xscheme</span><span style="color: #81A1C1;">)</span>
+  <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">scheme-program-name</span> <span style="color: #A3BE8C;">"mit-scheme"</span><span style="color: #81A1C1;">)</span>
+  <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">setq</span> inferior-scheme-program <span style="color: #A3BE8C;">"mit-scheme"</span><span style="color: #81A1C1;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd4fb06d" class="outline-3">
+<h3 id="orgd4fb06d">The books</h3>
+<div class="outline-text-3" id="text-orgd4fb06d">
+</div>
+<div id="outline-container-orgf322b85" class="outline-4">
+<h4 id="orgf322b85">Gerald Jay Sussman, <i>Software Design for Flexibility: How to Avoid Programming Yourself into a Corner</i></h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org85b4781" class="outline-2">
+<h2 id="org85b4781">SML/NJ</h2>
+<div class="outline-text-2" id="text-org85b4781">
+</div>
+<div id="outline-container-org9e14563" class="outline-3">
+<h3 id="org9e14563">Installation</h3>
+<div class="outline-text-3" id="text-org9e14563">
+<div class="org-src-container">
+<pre class="src src-bash">  emerge --ask smlnj mlton
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc2eadcd" class="outline-3">
+<h3 id="orgc2eadcd">Emacs configuration</h3>
+<div class="outline-text-3" id="text-orgc2eadcd">
+<p>
+We do not have <i>snippets</i>, (which could be written easily), or an eternal code formatter (the ~sml-mode does basic indentation). The <i>REPL</i> assumes SML/NJ has been installed.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">  <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> sml-mode
+          <span style="color: #81A1C1;">:straight</span> t
+          <span style="color: #81A1C1;">:defer</span> t
+          <span style="color: #81A1C1;">:mode</span> <span style="color: #A3BE8C;">"\\.s</span><span style="color: #81A1C1; font-weight: bold;">\\</span><span style="color: #81A1C1; font-weight: bold;">(?:</span><span style="color: #A3BE8C;">ml</span><span style="color: #81A1C1; font-weight: bold;">\\</span><span style="color: #81A1C1; font-weight: bold;">|</span><span style="color: #A3BE8C;">ig</span><span style="color: #81A1C1; font-weight: bold;">\\</span><span style="color: #81A1C1; font-weight: bold;">)</span><span style="color: #A3BE8C;">\\'"</span><span style="color: #81A1C1;">)</span>
+
+   <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> company-mlton
+      <span style="color: #81A1C1;">:straight</span> <span style="color: #81A1C1;">'</span><span style="color: #B48EAD;">(</span>company-mlton <span style="color: #81A1C1;">:type</span> git <span style="color: #81A1C1;">:host</span> github <span style="color: #81A1C1;">:repo</span> <span style="color: #A3BE8C;">"MatthewFluet/company-mlton"</span><span style="color: #B48EAD;">)</span>
+      <span style="color: #81A1C1;">:defer</span> t
+      <span style="color: #81A1C1;">:after</span> company
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span>sml-mode . company-mlton-init<span style="color: #B48EAD;">)</span>
+      <span style="color: #81A1C1;">:config</span>
+      <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">add-to-list</span> <span style="color: #81A1C1;">'</span><span style="color: #D8DEE9;">company-backends</span> <span style="color: #81A1C1;">'</span><span style="color: #8FBCBB;">company-mlton-grouped-backend</span><span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4c4f2a6" class="outline-3">
+<h3 id="org4c4f2a6">The book</h3>
+<div class="outline-text-3" id="text-org4c4f2a6">
+<p>
+Lawrence C. Paulson, <i>ML for the Working Programmer, 2nd Edition</i>.
+</p>
+
+<p>
+This guy, by the way, is a sort of SPJ of the Standard ML world. He is author of the <i>Isabelle</i>, which is a generic proof assistant written in ML (using <code>mlton</code>).
+</p>
+
+<p>
+His textbook is a true classic, exceptional for clarity and a good style.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0bbe395" class="outline-2">
+<h2 id="org0bbe395">Common Lisp</h2>
+<div class="outline-text-2" id="text-org0bbe395">
+</div>
+<div id="outline-container-orge755406" class="outline-3">
+<h3 id="orge755406">Installation</h3>
+<div class="outline-text-3" id="text-orge755406">
+<div class="org-src-container">
+<pre class="src src-bash">  emerge --ask sbcl asdf
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org49e8775" class="outline-3">
+<h3 id="org49e8775">Emacs configuration</h3>
+<div class="outline-text-3" id="text-org49e8775">
+<p>
+One has to install <code>quicklisp</code> by hand, following the instructions on the website. 
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">  <span style="color: #81A1C1;">(</span><span style="color: #88C0D0;">straight-use-package</span> <span style="color: #81A1C1;">'</span><span style="color: #8FBCBB;">hippie-expand-slime</span><span style="color: #81A1C1;">)</span>
+
+  <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> slime
+    <span style="color: #81A1C1;">:straight</span> t
+    <span style="color: #81A1C1;">:defer</span> t
+    <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">lisp-mode</span> . slime-mode<span style="color: #B48EAD;">)</span>
+    <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span>inferior-lisp-mode . inferior-slime-mode<span style="color: #B48EAD;">)</span>
+    <span style="color: #81A1C1;">:init</span>
+    <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">eval-after-load</span> <span style="color: #A3BE8C;">"slime"</span>
+      <span style="color: #81A1C1;">'</span><span style="color: #A3BE8C;">(</span>progn
+         <span style="color: #5D80AE;">(</span><span style="color: #81A1C1;">setq</span> inferior-lisp-program <span style="color: #A3BE8C;">"sbcl"</span><span style="color: #5D80AE;">)</span>
+         <span style="color: #5D80AE;">(</span><span style="color: #81A1C1;">load</span> <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">expand-file-name</span> <span style="color: #A3BE8C;">"~/quicklisp/slime-helper.el"</span><span style="color: #81A1C1;">)</span><span style="color: #5D80AE;">)</span>
+         <span style="color: #5D80AE;">(</span><span style="color: #81A1C1;">setq</span> slime-lisp-implementations
+               <span style="color: #81A1C1;">'</span><span style="color: #81A1C1;">(</span><span style="color: #B48EAD;">(</span>sbcl <span style="color: #A3BE8C;">(</span><span style="color: #A3BE8C;">"/usr/bin/sbcl"</span><span style="color: #A3BE8C;">)</span><span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span><span style="color: #5D80AE;">)</span>
+         <span style="color: #5D80AE;">(</span>slime-setup <span style="color: #81A1C1;">'</span><span style="color: #81A1C1;">(</span>
+                        slime-asdf
+                        slime-autodoc
+                        slime-editing-commands
+                        slime-fancy-inspector
+                        slime-fontifying-fu
+                        slime-fuzzy
+                        slime-indentation
+                        slime-mdot-fu
+                        slime-package-fu
+                        slime-references
+                        slime-repl
+                        slime-sbcl-exts
+                        slime-scratch
+                        slime-xref-browser
+                        <span style="color: #81A1C1;">)</span><span style="color: #5D80AE;">)</span>
+         <span style="color: #5D80AE;">(</span>slime-autodoc-mode<span style="color: #5D80AE;">)</span>
+         <span style="color: #5D80AE;">(</span><span style="color: #81A1C1;">setq</span> slime-complete-symbol*-fancy t<span style="color: #5D80AE;">)</span>
+         <span style="color: #5D80AE;">(</span><span style="color: #81A1C1;">setq</span> slime-complete-symbol-function
+               <span style="color: #81A1C1;">'</span><span style="color: #8FBCBB;">slime-fuzzy-complete-symbol</span><span style="color: #5D80AE;">)</span><span style="color: #A3BE8C;">)</span><span style="color: #B48EAD;">)</span>
+    <span style="color: #81A1C1;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf0ac98f" class="outline-3">
+<h3 id="orgf0ac98f">The books</h3>
+<div class="outline-text-3" id="text-orgf0ac98f">
+</div>
+<div id="outline-container-org57c5c02" class="outline-4">
+<h4 id="org57c5c02">David S. Touretzky, <i>Common LISP: a gentle introduction to symbolic computation</i></h4>
+</div>
+<div id="outline-container-orgfd5872d" class="outline-4">
+<h4 id="orgfd5872d">Poul Graham, <i>On LISP: Advanced Techniques for Common LISP</i></h4>
+</div>
+<div id="outline-container-orga6bd3da" class="outline-4">
+<h4 id="orga6bd3da">Norvig</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org30237b6" class="outline-2">
+<h2 id="org30237b6">Miranda</h2>
+<div class="outline-text-2" id="text-org30237b6">
+<p>
+The Miranda language is available, and could even be compiled for x86-64 Linux. 
+</p>
+
+<p>
+Miranda™ source release version 2.066 of 31 January 2020 at <a href="http://miranda.org.uk/downloads">http://miranda.org.uk/downloads</a>
+</p>
+
+<p>
+There is no Emacs support available, but to write a <code>miranda-mode</code> is a good exercise and a worthy effort.
+</p>
+</div>
+<div id="outline-container-orgbbcb440" class="outline-3">
+<h3 id="orgbbcb440">Installation on Gentoo</h3>
+<div class="outline-text-3" id="text-orgbbcb440">
+<div class="org-src-container">
+<pre class="src src-bash">  tar -xzf ../Downloads/mira-2066-src.tgz
+  <span style="color: #8FBCBB;">cd</span> miranda
+  vi Makefile
+</pre>
+</div>
+<p>
+You need to add the <code>-fcommon</code> flag to the CFLAGS in the <code>Makefile</code> for a modern <code>gcc</code> compiler
+</p>
+<div class="org-src-container">
+<pre class="src src-makefile"> <span style="color: #D8DEE9;">CFLAGS</span> = -m64 -march=native -O3 -fcommon
+</pre>
+</div>
+<p>
+and, perhaps, change the installation paths to <code>/usr/local</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-makefile"><span style="color: #D8DEE9;">BIN</span>=usr/local/bin
+<span style="color: #D8DEE9;">LIB</span>=usr/local/lib
+<span style="color: #D8DEE9;">MAN</span>=usr/local/share/man/man1
+</pre>
+</div>
+<p>
+and then the usual
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">make</span> &amp;&amp; <span style="color: #8FBCBB;">sudo</span> <span style="color: #8FBCBB;">make</span> install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org86a0e2d" class="outline-3">
+<h3 id="org86a0e2d">The book</h3>
+<div class="outline-text-3" id="text-org86a0e2d">
+<p>
+Richard Bird &amp; Philip Wadler, <i>An Introduction to Functional Programming</i>, Prentice Hall 1988.
+</p>
+
+<p>
+This is another <i>golden classic</i>, which was <i>way ahead of its time</i>. Like all the other great books it is language-agnostic, meaning that it uses a particular language only to illustrate the general principles and universal notions.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0a25f69" class="outline-2">
+<h2 id="org0a25f69">Erlang</h2>
+<div class="outline-text-2" id="text-org0a25f69">
+</div>
+<div id="outline-container-org14560e5" class="outline-3">
+<h3 id="org14560e5">The book</h3>
+<div class="outline-text-3" id="text-org14560e5">
+<p>
+Joe Armstrong, <i>Programming Erlang: Software for a Concurrent World</i>, second edition.
+</p>
+
+<p>
+Everything written by Joe Armstrong is worth reading and <i>re-reading</i>. Understanding and appreciating <code>Erlang</code> is a whole separate topic in itself.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf786cb6" class="outline-2">
+<h2 id="orgf786cb6">Ocaml</h2>
+<div class="outline-text-2" id="text-orgf786cb6">
+</div>
+<div id="outline-container-org55abb6f" class="outline-3">
+<h3 id="org55abb6f">Installation</h3>
+<div class="outline-text-3" id="text-org55abb6f">
+<p>
+Fitrst we need the compiler (which in turn compiles the runtime with <code>gcc</code>).
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">  emerge --ask dev-lang/ocaml
+</pre>
+</div>
+<p>
+The Ocaml language has a lot of <i>legacy</i> tooling, which looks unusual but it is still remarkably good. One has to install <code>opam</code> in the <code>/usr/local/bin</code> (or <code>$HOME/.local/bin</code>):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">    <span style="color: #8FBCBB;">git</span> clone --depth=<span style="color: #B48EAD; font-weight: bold;">1</span> https://github.com/ocaml/opam
+    <span style="color: #8FBCBB;">cd</span> opam
+     ./configure --prefix /usr/local --with-0install-solver --with-vendored-deps
+     <span style="color: #8FBCBB;">make</span> -s all &amp;&amp; <span style="color: #8FBCBB;">sudo</span> <span style="color: #8FBCBB;">make</span> install
+</pre>
+</div>
+<p>
+Then we have to create and initialize (with a <i>switch</i>) a local <code>opam</code> environment.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">  opam init --bare
+  opam switch create 4.14.1
+</pre>
+</div>
+<p>
+The version should match the one of the installed <code>ocaml</code> compiler. In this case <code>opam</code> will not install a local copy of it.
+</p>
+
+<p>
+From now everything is easy because <code>opam</code> resolves all the dependencies.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">  opam install ocamlfind ocp-indent user-setup mernin tuareg utop ocamlformat
+  opam user-setup install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge902461" class="outline-3">
+<h3 id="orge902461">Emacs configuration</h3>
+<div class="outline-text-3" id="text-orge902461">
+<p>
+Then one has to configure Emacs with something like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">      <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> merlin
+      <span style="color: #81A1C1;">:straight</span> t
+      <span style="color: #81A1C1;">:defer</span> t
+      <span style="color: #81A1C1;">:after</span> company
+      <span style="color: #81A1C1;">:config</span>
+      <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">add-to-list</span> <span style="color: #81A1C1;">'</span><span style="color: #D8DEE9;">company-backends</span> <span style="color: #81A1C1;">'</span><span style="color: #8FBCBB;">merlin-company-backend</span><span style="color: #B48EAD;">)</span>
+      <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">merlin-completion-with-doc</span> t<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+
+    <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> tuareg
+      <span style="color: #81A1C1;">:straight</span> t
+      <span style="color: #81A1C1;">:defer</span> t
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span>tuareg-mode-local-vars . <span style="color: #D8DEE9;">merlin-mode</span><span style="color: #B48EAD;">)</span>
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span>tuareg-mode-local-vars . lsp<span style="color: #B48EAD;">)</span>
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span>tuareg-mode-local-vars . tree-sitter<span style="color: #B48EAD;">)</span>
+      <span style="color: #81A1C1;">:config</span>
+      <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">tuareg-prettify-symbols-full</span> t<span style="color: #B48EAD;">)</span>
+      <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">tuareg-opam-insinuate</span> t<span style="color: #B48EAD;">)</span>
+      <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">tuareg-opam-update-env</span> <span style="color: #A3BE8C;">(</span><span style="color: #88C0D0;">tuareg-opam-current-compiler</span><span style="color: #A3BE8C;">)</span><span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+
+    <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> flycheck-ocaml
+      <span style="color: #81A1C1;">:straight</span> t
+      <span style="color: #81A1C1;">:defer</span> t
+      <span style="color: #81A1C1;">:after</span> merlin
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">tuareg-mode</span> . flucheck-ocaml-setup<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+
+    <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> merlin-eldoc
+      <span style="color: #81A1C1;">:straight</span> t
+      <span style="color: #81A1C1;">:defer</span> t
+      <span style="color: #81A1C1;">:after</span> merlin
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #D8DEE9;">merlin-mode</span> . merlin-eldoc-setup<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+
+  <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> merlin-imenu
+      <span style="color: #81A1C1;">:defer</span> t
+      <span style="color: #81A1C1;">:after</span> merlin
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #D8DEE9;">merlin-mode</span> . merlin-use-merlin-imenu<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+
+    <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> ocamlformat
+      <span style="color: #81A1C1;">:straight</span> t
+      <span style="color: #81A1C1;">:commands</span> ocamlformat<span style="color: #81A1C1;">)</span>
+  
+    <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> ocp-indent
+      <span style="color: #81A1C1;">:straight</span> t
+      <span style="color: #81A1C1;">:defer</span> t
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">tuareg-mode</span> . ocp-setup-indent<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+
+    <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> merlin-iedit
+      <span style="color: #81A1C1;">:straight</span> t
+      <span style="color: #81A1C1;">:defer</span> t<span style="color: #81A1C1;">)</span>
+
+    <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package</span> utop
+      <span style="color: #81A1C1;">:straight</span> t
+      <span style="color: #81A1C1;">:defer</span> t
+      <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">tuareg-mode</span> . <span style="color: #D8DEE9;">utop-minor-mode</span><span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbf5f920" class="outline-3">
+<h3 id="orgbf5f920">The book</h3>
+<div class="outline-text-3" id="text-orgbf5f920">
+<p>
+<a href="https://cs3110.github.io/textbook/cover.html">OCaml Programming: Correct + Efficient + Beautiful</a>
+</p>
+
+<p>
+This is a most resent <i>SICP-level</i> textbook for the ML-family language. It champions an unusual classic mindset <i>clarity</i> and conciseness in wording and lacks bullshit.
+</p>
+
+<p>
+One has to just go through it, writing down every piece of code one sees, including those on videos. By just writing down other people&rsquo;s superior code one learns. 
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0152efe" class="outline-2">
+<h2 id="org0152efe">Haskell</h2>
+<div class="outline-text-2" id="text-org0152efe">
+</div>
+<div id="outline-container-orga5a0d94" class="outline-3">
+<h3 id="orga5a0d94">Simon Peyton Jones</h3>
+<div class="outline-text-3" id="text-orga5a0d94">
+<p>
+Simon L Peyton Jones, <i>The implementation of functional programming languages</i>
+</p>
+</div>
+</div>
+<div id="outline-container-org9887812" class="outline-3">
+<h3 id="org9887812">Richard Bird</h3>
+<div class="outline-text-3" id="text-org9887812">
+<p>
+Richard Bird, <i>Thinking Functionally with Haskell</i>
+</p>
+</div>
+</div>
+<div id="outline-container-org2cc6090" class="outline-3">
+<h3 id="org2cc6090">Graham Hutton</h3>
+<div class="outline-text-3" id="text-org2cc6090">
+<p>
+Graham Hutton, <i>Programming in Haskell</i>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org68e5481" class="outline-2">
+<h2 id="org68e5481">Scala</h2>
+</div>
+<div id="outline-container-org99de668" class="outline-2">
+<h2 id="org99de668">Clojure</h2>
+<div class="outline-text-2" id="text-org99de668">
+</div>
+<div id="outline-container-org558e847" class="outline-3">
+<h3 id="org558e847">The book</h3>
+<div class="outline-text-3" id="text-org558e847">
+<p>
+Michael Fogus, Chris Houser, <i>The Joy of Clojure: Thinking the Clojure Way</i>
+</p>
+
+<p>
+This is a difficult book to read due to intolerable narcissistic style, in which the authors literally scream at you &#x2013; just look how smart <i>we</i> are.
+</p>
+
+<p>
+There, however, the universal notions of principled immutability and persistence (of data structures) has been outlined, among the rubbish, and their implications explored.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-08-08 Tue 18:31</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
+</div>
+</body>
+</html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-08 Tue 18:38 -->
+<!-- 2023-08-08 Tue 18:41 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Incremental Development</title>
-<meta name="author" content="Ln Gnmn &lt;lngnmn1@gmail.com&gt;" />
+<title>Reading is hard</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -225,38 +225,6 @@ font-family: 'Source Code Pro', monospace;
      }
 // @license-end
 </script>
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -265,174 +233,87 @@ font-family: 'Source Code Pro', monospace;
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Incremental Development</h1>
+<h1 class="title">Reading is hard</h1>
 </header><p>
-The point of programming techniques and methodologies is to <i>reduce
-cognitive load</i>, not to increase it with additional seemingly related
-concepts or tricks. We, humans, have very limited mental capacity so
-care should be taken not to overwhelm ourselves and others with
-unnecessary, redundant abstractions or irrelevant details.
+I remember one of my early childhood experiences - when I tried to read a book which was not a kiddie book (a books for &ldquo;adults&rdquo; in the general sense) I got this very peciliar problem.
 </p>
 
 <p>
-Things like <i>modules</i> and <i>namespaces</i>, when done right (small functions,
-small modules) tend to partition the problem domain into manageable
-pieces (building blocks) along with <i>conceptual boundaries</i> to make
-unrelated concepts <i>decoupled</i> from each other and to <i>share nothing</i>.
+I already knew how to read individual words morpheme by morpheme from a page and to pronounce the result in my mind, but the problem was that I do not know this word (its meaning).
 </p>
 
 <p>
-With <i>Algebraic Data Types</i> (and <i>Abstract Data Types</i> in general) one
-doesn&rsquo;t have to write everything down <i>at once</i>. Write what you have
-already figured out, what you know so far.
+The same, of course, applies to a student of a foreign language - one might know how to &ldquo;load&rdquo; the world into one&rsquo;s mind, but has no definition or association to anything already known. The &ldquo;label&rdquo; has no associated meaning (socially agreed upon or just from a dictionary).
 </p>
 
 <p>
-<i>Partially specified</i> concepts will do. They reflect one&rsquo;s <i>partial
-knowledge</i> due to <i>imperfect information</i> or simply not being able to
-figure everything out as a whole <i>yet</i>.
+And this very problem arises even more acute when one tries to read some source code. The &ldquo;known&rdquo; vocabulary of the reserved keywords of a particular language tends to zero, compared with the all the possible language constructs, which are potentially infinite.  
 </p>
 
 <p>
-With a <i>sum-type</i> each new <i>variant</i> could be added and tested
-separately and independently (by explicit pattern-matching).
+The number of familiar common <i>idioms</i> is about a dozen, and the number of recognized  <i>syntactic sugars</i> and commonly used <i>&ldquo;design patterns&rdquo;</i> (at a higher level) is also about twenty at maximum.
 </p>
 
 <p>
-Same goes for <i>records</i> (named or indexed product-types) as long as one is
-accessing by a name or a &ldquo;key&rdquo; (<i>get by getters and set by setters</i>, which
-is how one uses an Abstract Data Types in principle).
+Everything else is on a page is <i>unknown</i> and even <i>unfamiliar</i>, and this is the real problem.
 </p>
 
 <p>
-This, by the way, is why <code>SELECT * FORM blah</code> is <i>lame</i> - one simply throws
-everything that is <i>principle-guided</i> out of the window.
+There is no shortcuts around knowing, understanding and becoming familiar <i>first</i>. This is why most of the beginners and amateurs fail - they got stuck (and eventually give up) because they are not familiar with, do not understand and do not know their problem domain well.
 </p>
 
 <p>
-Just like in mathematics, in a pure-functional programming once you
-have figured it out and wrote down right (no type-errors and all tests
-passed) it becomes &ldquo;eternal&rdquo; - correct and valid.
-</p>
-
-<div id="outline-container-org64ad96d" class="outline-2">
-<h2 id="org64ad96d">Gregor Kiczales</h2>
-<div class="outline-text-2" id="text-org64ad96d">
-<p>
-Gregor Kiczales has a whole course about <i>Systematic Program Design</i> on
-youtube (based on his MOOC). Just watch it, even if it a bit too
-pedantic (which is actually good).
+They know how to write the code (read) but do not know <i>what to write</i> and <i>why</i> (the meaning of words).
 </p>
 
 <p>
-Really, this is one of the best and highest quality courses out there.
-</p>
-</div>
-</div>
-<div id="outline-container-org0cb88d7" class="outline-2">
-<h2 id="org0cb88d7">Write the type-signatures first</h2>
-<div class="outline-text-2" id="text-org0cb88d7">
-<p>
-It should be one&rsquo;s habit to write a prototype of the <i>module-signature</i>
-(<code>.mli</code> in Ocaml) first. You will at once &ldquo;see&rdquo; how <i>consistent</i> and uniform
-your naming and <i>parameters</i> are (the same order).
+Now pay attention. This is <i>the</i> major cause of failures - <i>not knowing what to write and why</i>.
 </p>
 
 <p>
-I wish every language would have a support of Ocaml <i>modules</i> (sigs,
-structs and functors). They are absolutely brilliant. This is what Haskell lacks.
-</p>
-</div>
-</div>
-<div id="outline-container-org644bf49" class="outline-2">
-<h2 id="org644bf49">Second step - write a test-case</h2>
-<div class="outline-text-2" id="text-org644bf49">
-<p>
-Write a failing test case <i>first</i> and <i>then</i> implement the function to make the
-test pass. This is the crucial pont of whole TTD approach.
+I also remember the experience of being stuck and <i>overwhelmed</i> while watching some classic programming lectures from MIT, which were full of mathematical concepts.
 </p>
 
 <p>
-Writing tests <i>before</i> the implementation allows on to focus on the
-<i>interface</i> (function signature) and the <i>call-site</i>, which are much more
-important considerations.
+Just imagine, studying in a foreign (second) language, of an unfamiliar subject, with lots of cross-discipline references to unfamiliar concepts &#x2013; most of the words are <i>vague</i>, and there are even some <i>gaps</i> due to unfamiliar words of the foreign language. One has be overwhelmed, I guess.
 </p>
 
 <p>
-If a function has already known <i>preconditions</i> write test-cases which
-<i>explicitly specify</i> them and catch the proper exceptions or fatal errors
-(failed assetions).
-</p>
-</div>
-</div>
-<div id="outline-container-org8fca728" class="outline-2">
-<h2 id="org8fca728">REPL</h2>
-<div class="outline-text-2" id="text-org8fca728">
-<p>
-A REPL is the tools of experimentation and <i>rapid prototyping</i> due to
-instant feedback and real quick setup (because <i>pure functions share
-nothing</i> and could be applied without setting of a context, in any
-order).
+The solution? Watch it many times, until there are no gaps in understanding, and this is the only way through a programming project too. There must be no gaps in understanding of the particular problem domain before one could write any code (knowing the <i>whats</i> and the <i>whys</i> &#x2013; the captured principles which govern or describe the underlying causality).
 </p>
 
 <p>
-In a REPL you <i>try</i> the things to feel the &ldquo;use-side&rdquo; (the call-site).
-</p>
-</div>
-</div>
-<div id="outline-container-org6f68ab9" class="outline-2">
-<h2 id="org6f68ab9">Tests as crude pseudo-specs</h2>
-<div class="outline-text-2" id="text-org6f68ab9">
-<p>
-Writing down <i>specifications</i> for interfaces (for every exported function) is
-crucial, but instead of writing them in commentaries, write them in <i>unit
-tests</i>, even <i>before the implementation</i> is figured out.
+Yes, there are some &ldquo;agile&rdquo; methodologies, where one supposed to gradually refine one&rsquo;s knowledge and understanding. This, of course, is a way too general idea and it &ldquo;works&rdquo; only in a theory or in the minds of Chuds.
 </p>
 
 <p>
-Thus we will create poor man&rsquo;s <i>executable specifications</i>. Well, sort of.
-</p>
-
-<ul class="org-ul">
-<li>do <i>defensive programming</i> and always <i>assert /preconditions</i>.</li>
-<li>specify and test the <i>invariants</i> first (with assertions and logic)</li>
-<li>\(\forall\) and can be emulated with explicit &ldquo;corner cases&rdquo; and a <i>quickcheck</i>
-generator</li>
-<li><p>
-\(\exists\) is just a <i>search</i>, which may require a <i>presorted</i> copy.
+To know some domain one has to somehow extract and internalize the fundamental underlying principles first. If one is a complete newfag, there is no way to know what is <i>relevant</i> or even approximate &ldquo;weights&rdquo;, leave alone what is the most fundamental.
 </p>
 
 <p>
-Remember that tests will never show the <i>absence of bugs</i>, but will show
-their presence <i>early</i>.
-</p></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org72219f3" class="outline-2">
-<h2 id="org72219f3">Formal specification</h2>
-<div class="outline-text-2" id="text-org72219f3">
-<p>
-The critical functions can be fully specified and veryfied using
-advanced tools, like <code>TLA+</code>, <code>Coq</code> or <code>Agda</code>.
+I remember my early shitcoin trading experience &#x2013; tons of spoken and written bullshit, which <i>all</i> seem to be &ldquo;right&rdquo; and &ldquo;important&rdquo; in the beginning. It takes an actual expertise (acquired by all the pains of trial-and-error iterations) to call the bullshit. 
 </p>
 
 <p>
-This is, basically, just to write down all the underlying math
-explicitly.
+So, there is a well-known meme that a programmer spends only about <code>10%</code> of the time actually writing the code. This is absolutely true. Getting familiar, developing the right, your own understanding (not what the others are saying or writing in low-effort &ldquo;for profit&rdquo; crappy books) and eventually knowing the <i>whys</i> is the remaining <code>90%</code>.
 </p>
 
 <p>
-It is also possible to <i>bottom-up bootstrap</i> a function in <code>Coq</code> and then
-export it in Haskell (automatically) or any other functional language (manually).
+Next time when you would find yourself staring blankly at an empty page in a code editor, do realize that this is not a programming language or libraries problem, but the lack of the domain knowledge and lack of the right understanding (of the underlying causality, principles and <i>whys</i> and <i>hows</i>) in general.
 </p>
-</div>
-</div>
+
+<p>
+This, by the way, explains why the demand by employers for writing more than <i>10 lines of (fully-debugged, properly tested and committed) code per week</i> (yet another well-known meme) is unrealistic. Otherwise one would get a low-effort crap, poorly designed, not even close to an optimum.
+</p>
+
+<p>
+Remeber, that reading is hard, and good reading is <i>slow</i>, and require to pause, think and take notes. There are no royal road to good programming or math.
+</p>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-08-08 Tue 18:38</p>
+<p class="date">Created: 2023-08-08 Tue 18:41</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>

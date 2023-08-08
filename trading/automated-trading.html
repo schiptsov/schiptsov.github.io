@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-08 Tue 18:38 -->
+<!-- 2023-08-08 Tue 18:41 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Incremental Development</title>
-<meta name="author" content="Ln Gnmn &lt;lngnmn1@gmail.com&gt;" />
+<title>Writing a semi-automated trading system</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -225,38 +225,6 @@ font-family: 'Source Code Pro', monospace;
      }
 // @license-end
 </script>
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -265,174 +233,209 @@ font-family: 'Source Code Pro', monospace;
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Incremental Development</h1>
+<h1 class="title">Writing a semi-automated trading system</h1>
 </header><p>
-The point of programming techniques and methodologies is to <i>reduce
-cognitive load</i>, not to increase it with additional seemingly related
-concepts or tricks. We, humans, have very limited mental capacity so
-care should be taken not to overwhelm ourselves and others with
-unnecessary, redundant abstractions or irrelevant details.
+Writing a semi-automated trading system is easy - just ask John Carmack to write it down for you.
 </p>
 
 <p>
-Things like <i>modules</i> and <i>namespaces</i>, when done right (small functions,
-small modules) tend to partition the problem domain into manageable
-pieces (building blocks) along with <i>conceptual boundaries</i> to make
-unrelated concepts <i>decoupled</i> from each other and to <i>share nothing</i>.
+Before that Eric Evans has to extract the domain knowledge using his DDD approach, and then some top mathematician, or maybe Bartosz Milewski, would build a consistent model from it.
 </p>
 
 <p>
-With <i>Algebraic Data Types</i> (and <i>Abstract Data Types</i> in general) one
-doesn&rsquo;t have to write everything down <i>at once</i>. Write what you have
-already figured out, what you know so far.
+Maybe it is even better to rather ask Simon Peyton Jones to write a matching engine, so you will have it pure-functional, with the most important parts formally proven in Coq (and then translated into Haskell code).
 </p>
 
 <p>
-<i>Partially specified</i> concepts will do. They reflect one&rsquo;s <i>partial
-knowledge</i> due to <i>imperfect information</i> or simply not being able to
-figure everything out as a whole <i>yet</i>.
+Done.
 </p>
 
 <p>
-With a <i>sum-type</i> each new <i>variant</i> could be added and tested
-separately and independently (by explicit pattern-matching).
+So, you do do not have enough money to hire Carmack an Eveans? Then you have to do it all yourself. The only problem is you have to be an above average <i>trader with actual experience</i>, a domain analyst and model maker, a mathematician and a functional programmer at the same time, and a technical writer and a software tester too. 
 </p>
 
 <p>
-Same goes for <i>records</i> (named or indexed product-types) as long as one is
-accessing by a name or a &ldquo;key&rdquo; (<i>get by getters and set by setters</i>, which
-is how one uses an Abstract Data Types in principle).
+The <i>&ldquo;hire the top tallent to do things which you do not fully understand&rdquo;</i> meme, according to the tradition, goes, through Bell Labs and Los Alamos, all the way back to Henry Ford, but it seems that the ancient Indians knew it too.
 </p>
 
 <p>
-This, by the way, is why <code>SELECT * FORM blah</code> is <i>lame</i> - one simply throws
-everything that is <i>principle-guided</i> out of the window.
+So, lets do it all by yourself. What&rsquo;s the problem?
+</p>
+
+<div id="outline-container-orgea96834" class="outline-2">
+<h2 id="orgea96834">Understanding the domain</h2>
+<div class="outline-text-2" id="text-orgea96834">
+<p>
+You have to have some personal trading experience &#x2013; the more painful and full of stupid errors &#x2013; the better.
 </p>
 
 <p>
-Just like in mathematics, in a pure-functional programming once you
-have figured it out and wrote down right (no type-errors and all tests
-passed) it becomes &ldquo;eternal&rdquo; - correct and valid.
-</p>
-
-<div id="outline-container-org64ad96d" class="outline-2">
-<h2 id="org64ad96d">Gregor Kiczales</h2>
-<div class="outline-text-2" id="text-org64ad96d">
-<p>
-Gregor Kiczales has a whole course about <i>Systematic Program Design</i> on
-youtube (based on his MOOC). Just watch it, even if it a bit too
-pedantic (which is actually good).
+This will allow you to &ldquo;call bullshit&rdquo; and extract the principles and patterns in what you read in the books and on public forums, which all are full of shit to the brim.
 </p>
 
 <p>
-Really, this is one of the best and highest quality courses out there.
-</p>
-</div>
-</div>
-<div id="outline-container-org0cb88d7" class="outline-2">
-<h2 id="org0cb88d7">Write the type-signatures first</h2>
-<div class="outline-text-2" id="text-org0cb88d7">
-<p>
-It should be one&rsquo;s habit to write a prototype of the <i>module-signature</i>
-(<code>.mli</code> in Ocaml) first. You will at once &ldquo;see&rdquo; how <i>consistent</i> and uniform
-your naming and <i>parameters</i> are (the same order).
-</p>
-
-<p>
-I wish every language would have a support of Ocaml <i>modules</i> (sigs,
-structs and functors). They are absolutely brilliant. This is what Haskell lacks.
-</p>
-</div>
-</div>
-<div id="outline-container-org644bf49" class="outline-2">
-<h2 id="org644bf49">Second step - write a test-case</h2>
-<div class="outline-text-2" id="text-org644bf49">
-<p>
-Write a failing test case <i>first</i> and <i>then</i> implement the function to make the
-test pass. This is the crucial pont of whole TTD approach.
-</p>
-
-<p>
-Writing tests <i>before</i> the implementation allows on to focus on the
-<i>interface</i> (function signature) and the <i>call-site</i>, which are much more
-important considerations.
-</p>
-
-<p>
-If a function has already known <i>preconditions</i> write test-cases which
-<i>explicitly specify</i> them and catch the proper exceptions or fatal errors
-(failed assetions).
-</p>
-</div>
-</div>
-<div id="outline-container-org8fca728" class="outline-2">
-<h2 id="org8fca728">REPL</h2>
-<div class="outline-text-2" id="text-org8fca728">
-<p>
-A REPL is the tools of experimentation and <i>rapid prototyping</i> due to
-instant feedback and real quick setup (because <i>pure functions share
-nothing</i> and could be applied without setting of a context, in any
-order).
-</p>
-
-<p>
-In a REPL you <i>try</i> the things to feel the &ldquo;use-side&rdquo; (the call-site).
-</p>
-</div>
-</div>
-<div id="outline-container-org6f68ab9" class="outline-2">
-<h2 id="org6f68ab9">Tests as crude pseudo-specs</h2>
-<div class="outline-text-2" id="text-org6f68ab9">
-<p>
-Writing down <i>specifications</i> for interfaces (for every exported function) is
-crucial, but instead of writing them in commentaries, write them in <i>unit
-tests</i>, even <i>before the implementation</i> is figured out.
-</p>
-
-<p>
-Thus we will create poor man&rsquo;s <i>executable specifications</i>. Well, sort of.
+The main task is to extract the underlying principles (which describe the actual causality) from the commonly used idioms and metaphors (which codify the knowledge gained from experience of thousands of individuals).
 </p>
 
 <ul class="org-ul">
-<li>do <i>defensive programming</i> and always <i>assert /preconditions</i>.</li>
-<li>specify and test the <i>invariants</i> first (with assertions and logic)</li>
-<li>\(\forall\) and can be emulated with explicit &ldquo;corner cases&rdquo; and a <i>quickcheck</i>
-generator</li>
-<li><p>
-\(\exists\) is just a <i>search</i>, which may require a <i>presorted</i> copy.
-</p>
-
-<p>
-Remember that tests will never show the <i>absence of bugs</i>, but will show
-their presence <i>early</i>.
-</p></li>
+<li>&ldquo;buy the dip, to ze moon! 100k EOY&rdquo;</li>
+<li>&ldquo;fuck me, I have bought the top&rdquo;</li>
+<li>&ldquo;he sold the bottom, LMAO&rdquo;</li>
+<li>&ldquo;stoploses? never heard of &lsquo;em&rdquo;</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org72219f3" class="outline-2">
-<h2 id="org72219f3">Formal specification</h2>
-<div class="outline-text-2" id="text-org72219f3">
+
 <p>
-The critical functions can be fully specified and veryfied using
-advanced tools, like <code>TLA+</code>, <code>Coq</code> or <code>Agda</code>.
+These are examples of actual sentences which contain the knowledge. 
+</p>
+</div>
+
+<div id="outline-container-orge879c5e" class="outline-3">
+<h3 id="orge879c5e">The entities</h3>
+<div class="outline-text-3" id="text-orge879c5e">
+<p>
+One has to extract, identify and formally define (with a precise mathematical specification) every involved entity, including &ldquo;abstract concepts&rdquo;, which people actually mention and use.
 </p>
 
 <p>
-This is, basically, just to write down all the underlying math
-explicitly.
+These are, as in any <i>domain-specific language</i>, &ldquo;things&rdquo; and &ldquo;actions&rdquo; &#x2013; nouns and verbs, and there are deep hierarchies and layers of these.
 </p>
 
 <p>
-It is also possible to <i>bottom-up bootstrap</i> a function in <code>Coq</code> and then
-export it in Haskell (automatically) or any other functional language (manually).
+Communication with an exchange (placing <code>Orders</code>) is a sub-language (and a sub-domain) in itself, and goes from high-level &ldquo;buy&rdquo; and &ldquo;sell&rdquo; order down to the underlying HTTP headers and to the entire RESTful protocol which an exchange public API provides.
+</p>
+
+<p>
+The goal is to have a dictionary (a wiki) which defines all the used vocabulary, and zooms through the layers of complexity.
+</p>
+</div>
+</div>
+<div id="outline-container-orgae311de" class="outline-3">
+<h3 id="orgae311de">Partitioning</h3>
+<div class="outline-text-3" id="text-orgae311de">
+<p>
+Every domain (an abstract &ldquo;space&rdquo;) is implicitly partitioned into distinct &ldquo;compartments&rdquo;, reflecting the universal &ldquo;architecture of complexity&rdquo; &#x2013; a hierarchy of nested layers, partitioned by abstraction barriers.
+</p>
+
+<p>
+In trading your <code>Orders</code> (which may or may not be filled) and the resulting open <code>Positions</code> are in its own &ldquo;compartment&rdquo;, while your trading <code>Account</code> is in another.
+</p>
+
+<p>
+Everything related to the analysis if the <code>Candles</code> (market data) should live in its own separate subsystem, so is the communication API at a much lower level of abstraction.
+</p>
+
+<p>
+The key is to stay at he highest level of abstraction and to model everything &ldquo;just right&rdquo; at this conceptual level. This, basically, has an one-to-one correspondence with the actions a person performs and the reasoning behind them.
+</p>
+
+<p>
+The partitions will be &ldquo;natural&rdquo;, along the &ldquo;delegation&rdquo; boundaries (and person-to-person &ldquo;interfaces&rdquo;). One has to have a sketch (a picture) of the system with partitioned into distinct sub-systems.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org55224de" class="outline-2">
+<h2 id="org55224de">High-level prototyping</h2>
+<div class="outline-text-2" id="text-org55224de">
+<p>
+Good programming begins with an exploratory, rapid high-level prototyping (in an interactive high-level language like LISP). Two times high-level here is not an accident. The purpose is to check, validate (and correct) our naive assumptions and expectations <i>early</i>.
+</p>
+
+<p>
+There is a quote from a great person:
+#+BEGIN<sub>QUITE</sub>
+What makes a good programmer? It is a matter of efﬁciency over the entire
+production of a program. The key is to reduce wasted effort at each stage.
+</p>
+
+<p>
+Things that can help include thinking through your implementation before
+you start coding, coding in a way that eliminates errors before you test, doing
+rigorous testing so that errors are found early, and paying careful attention
+to modularity so that when errors are discovered, they can be corrected with
+minimal impact on the program as a whole.
+#+END<sub>QUOTE</sub>
+</p>
+</div>
+
+<div id="outline-container-org43a2d0f" class="outline-3">
+<h3 id="org43a2d0f">Modules</h3>
+<div class="outline-text-3" id="text-org43a2d0f">
+<p>
+Each entity (or a concept) has to have its own software module which <i>represents</i> and  <i>implements</i> it. This is where we go beyond abstract mathematics (of Sets and Relations) to the actual Programming.
+</p>
+
+<p>
+<i>Abstraction and Modularity</i> together is the true essence of programming.
+</p>
+
+<p>
+Abstraction means how we define (the behavior) and how we interact with (interfaces) our entities, NOT how we actually represent and implement them &#x2013; this is another, clearly separate topic.
+</p>
+</div>
+</div>
+<div id="outline-container-org43dcd5b" class="outline-3">
+<h3 id="org43dcd5b">Data Types</h3>
+<div class="outline-text-3" id="text-org43dcd5b">
+<p>
+At this level of abstraction each well-defined concept has to have its own algebraic data type (in a corresponding module).
+</p>
+
+<p>
+The key point is that <i>data-abstractions</i> must <i>non-leaking</i> &#x2013; completely opaque, &ldquo;black-box&rdquo; abstractions. Only the exported public interface (an API) is what is visible to the clients (at the &ldquo;use-site&rdquo;).
+</p>
+
+<p>
+Again, this is the most important point in all programming - to establish proper &ldquo;abstract&rdquo; public interfaces, so the code is being <i>partitioned</i> along with these well-defined, non-leaking <i>abstraction barriers</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae8894b" class="outline-3">
+<h3 id="orgae8894b">Implementations</h3>
+<div class="outline-text-3" id="text-orgae8894b">
+<p>
+There are, of course, a mesh of relations between individual types and whole hidden hierarchies at the &ldquo;implementation details&rdquo; level. 
+</p>
+
+<p>
+Once we have a set up proper <i>abstraction barriers</i> (by exporting public interfaces) we could have more than one representation for every data-abstraction and more than one corresponding implementation, which could be safely changed and updated <i>locally</i>, without affection, leave alone breaking, anything else in the rest of the system.
+</p>
+
+<p>
+This is the main principle of Modularity in programming, and this, of course, corresponds to ability to replace a faulty part of an assembly in our everyday life, or replacing a faulty protein in a cell biology.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org51b6a11" class="outline-2">
+<h2 id="org51b6a11">Testing of assumptions and expectations</h2>
+</div>
+<div id="outline-container-orge7a6bf2" class="outline-2">
+<h2 id="orge7a6bf2">Languages</h2>
+<div class="outline-text-2" id="text-orge7a6bf2">
+<p>
+Ideally, we have to use the pure functional language <code>Haskell</code> (and sometimes <code>Coq</code>), but very few people can write a proper, non-bullshit Haskell, like in the books of Richard Bird. 99% of public Haskell code is an utter crap by unqualified, attention-seeking Chuds.
+</p>
+
+<p>
+This is the most pragmatic decisions, because what we will obtain is a written down, <i>executable</i> rigorous formalism of our problem domain in a pure system of logic (System-F Omega).
+</p>
+
+<p>
+Think of writing an executable mathematics or logic &#x2013; things that people do with the modern proof-assistants.
+</p>
+
+<p>
+The efficiency concerns of <i>execution</i> (running) of the resulting formalism is absolutely irrelevant here. It will be good-enough to place <code>Orders</code> and to track the open <code>Positions</code>.
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Ln Gnmn &lt;lngnmn1@gmail.com&gt;</p>
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-08-08 Tue 18:38</p>
+<p class="date">Created: 2023-08-08 Tue 18:41</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>

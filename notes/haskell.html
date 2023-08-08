@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:35 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Haskell</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -219,24 +226,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "left",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'left',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -247,9 +267,9 @@ MathJax = {
 <header>
 <h1 class="title">Haskell</h1>
 </header>
-<div id="outline-container-org493fb88" class="outline-2">
-<h2 id="org493fb88">Eternal</h2>
-<div class="outline-text-2" id="text-org493fb88">
+<div id="outline-container-org6f478ed" class="outline-2">
+<h2 id="org6f478ed">Eternal</h2>
+<div class="outline-text-2" id="text-org6f478ed">
 <p>
 Mathematicians are usually not concerned with <i>representations</i> of their
 abstract &ldquo;objects&rdquo; or <i>actual implementations</i> of their declarative solutions.
@@ -279,9 +299,9 @@ optimum) ones it becomes <i>eternal</i> too.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfe914ac" class="outline-2">
-<h2 id="orgfe914ac">proper abstraction</h2>
-<div class="outline-text-2" id="text-orgfe914ac">
+<div id="outline-container-org5e9f490" class="outline-2">
+<h2 id="org5e9f490">proper abstraction</h2>
+<div class="outline-text-2" id="text-org5e9f490">
 <p>
 Just like numbers and arithmetic (in a <i>numeric-tower</i> languages, like
 Scheme), ignoring the details of representation,  value coercions or actual division or
@@ -299,9 +319,9 @@ other <i>infix operators</i> relay are.
 </p>
 </div>
 </div>
-<div id="outline-container-org1bcd772" class="outline-2">
-<h2 id="org1bcd772">deep nesting of modules</h2>
-<div class="outline-text-2" id="text-org1bcd772">
+<div id="outline-container-org1c34f52" class="outline-2">
+<h2 id="org1c34f52">deep nesting of modules</h2>
+<div class="outline-text-2" id="text-org1c34f52">
 <p>
 It is very good practice to have a &ldquo;ladder&rdquo; of nested modules which goes
 from higher to lowest <i>levels of abstraction</i>.
@@ -319,9 +339,9 @@ Only <i>high-level abstractions</i> should be used at the level of so-called
 </p>
 </div>
 </div>
-<div id="outline-container-org7ae3389" class="outline-2">
-<h2 id="org7ae3389">functional pipelines</h2>
-<div class="outline-text-2" id="text-org7ae3389">
+<div id="outline-container-org9cc6b7b" class="outline-2">
+<h2 id="org9cc6b7b">functional pipelines</h2>
+<div class="outline-text-2" id="text-org9cc6b7b">
 <p>
 The \(a \rightarrow m b\) type is naturally suitable for constructing functional
 pipelines, similar to hardware graphics pipelines.
@@ -332,9 +352,9 @@ Graphics is a canonical use-case for DSLs and pipelines (Huddak, Conal).
 </p>
 </div>
 </div>
-<div id="outline-container-orgade458d" class="outline-2">
-<h2 id="orgade458d">surgical gloves</h2>
-<div class="outline-text-2" id="text-orgade458d">
+<div id="outline-container-org1e4d1ac" class="outline-2">
+<h2 id="org1e4d1ac">surgical gloves</h2>
+<div class="outline-text-2" id="text-org1e4d1ac">
 <ul class="org-ul">
 <li>an <i>abstraction barrier</i> is like a surgical glove</li>
 <li>a <i>monadic interface</i> is a <i>&ldquo;pump&rdquo; on a cell membrane</i> (<code>a -&gt; m b</code>) and a
@@ -343,28 +363,28 @@ pipeline <i>outside the membrane</i> (metaphorically speaking).</li>
 </div>
 </div>
 
-<div id="outline-container-org1f61318" class="outline-2">
-<h2 id="org1f61318">Cardinality of a type</h2>
-<div class="outline-text-2" id="text-org1f61318">
+<div id="outline-container-org8b53caf" class="outline-2">
+<h2 id="org8b53caf">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-org8b53caf">
 <p>
 Associate a type with cardinality (just like of a Set)
 How many inhabitants (members) a type has.
 Ignore bottoms (they are relevant only in type-constraint solving)
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Void</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">0, no elements, just like The Empty Set</span>
+<pre class="src src-haskell">data Void -- 0, no elements, just like The Empty Set
 
-<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">()</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">()</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">exactly 1, exactly this - no new information</span>
+data () = () -- exactly 1, exactly this - no new information
 
-<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">True</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">False</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">just these 2. notice the |</span>
+data Bool = True | False -- just these 2. notice the |
 
-<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">(,)</span> a b <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">(,)</span> a b <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">a type-constructor, parametrized by a nd b</span>
+data (,) a b = (,) a b -- a type-constructor, parametrized by a nd b
 </pre>
 </div>
 </div>
-<div id="outline-container-org6fecc6a" class="outline-3">
-<h3 id="org6fecc6a">Shapes or forms</h3>
-<div class="outline-text-3" id="text-org6fecc6a">
+<div id="outline-container-org1277c6b" class="outline-3">
+<h3 id="org1277c6b">Shapes or forms</h3>
+<div class="outline-text-3" id="text-org1277c6b">
 <p>
 Notice that these types have distinct, unique <i>shapes</i>
 </p>
@@ -385,9 +405,9 @@ Notice that
 </div>
 </div>
 </div>
-<div id="outline-container-orgf5476c6" class="outline-2">
-<h2 id="orgf5476c6">Total</h2>
-<div class="outline-text-2" id="text-orgf5476c6">
+<div id="outline-container-org8d41dc5" class="outline-2">
+<h2 id="org8d41dc5">Total</h2>
+<div class="outline-text-2" id="text-org8d41dc5">
 <p>
 Knowing cardinalities of any two types (sets) we can know how many
 &ldquo;arrows&rdquo; (individual relations or distinct mappings) are there <i>in total</i>.
@@ -409,9 +429,9 @@ The notion of duality based on cardinality alone is wrong and misleading.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf92c9d4" class="outline-2">
-<h2 id="orgf92c9d4">Isomorphism</h2>
-<div class="outline-text-2" id="text-orgf92c9d4">
+<div id="outline-container-org9ff8df9" class="outline-2">
+<h2 id="org9ff8df9">Isomorphism</h2>
+<div class="outline-text-2" id="text-org9ff8df9">
 <p>
 Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
 This is a naive and too abstract to be useful assumption.
@@ -426,9 +446,9 @@ A fork is not isomorphic to a join in principle, but it is viewed by sectarians 
 </p>
 </div>
 
-<div id="outline-container-org620cccc" class="outline-3">
-<h3 id="org620cccc">Definition</h3>
-<div class="outline-text-3" id="text-org620cccc">
+<div id="outline-container-org9e15f8a" class="outline-3">
+<h3 id="org9e15f8a">Definition</h3>
+<div class="outline-text-3" id="text-org9e15f8a">
 <p>
 The formal definition is this
 </p>
@@ -465,9 +485,9 @@ on an imaginary <i>number line</i>.
 </div>
 </div>
 
-<div id="outline-container-orgc5914db" class="outline-3">
-<h3 id="orgc5914db">An ordered set of arrows</h3>
-<div class="outline-text-3" id="text-orgc5914db">
+<div id="outline-container-org6399173" class="outline-3">
+<h3 id="org6399173">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-org6399173">
 <p>
 Individual &ldquo;arrows&rdquo; (relations) between values has to have a particular order, and each &ldquo;arrow&rdquo; has to have a unique <i>inverse</i> &ldquo;arrow&rdquo;.
 </p>
@@ -482,9 +502,9 @@ Symmetries (rotations) could be formalized with such functions.
 </div>
 </div>
 
-<div id="outline-container-org6406a8d" class="outline-3">
-<h3 id="org6406a8d">n!</h3>
-<div class="outline-text-3" id="text-org6406a8d">
+<div id="outline-container-org21f3e57" class="outline-3">
+<h3 id="org21f3e57">n!</h3>
+<div class="outline-text-3" id="text-org21f3e57">
 <p>
 For any two types (sets) of the same cardinality n
 there are n! <i>unique</i> isomorphisms (pairs of arrows) between them.
@@ -492,9 +512,9 @@ there are n! <i>unique</i> isomorphisms (pairs of arrows) between them.
 </div>
 </div>
 
-<div id="outline-container-org10e9c95" class="outline-3">
-<h3 id="org10e9c95">Same cardinality does not imply the same shape</h3>
-<div class="outline-text-3" id="text-org10e9c95">
+<div id="outline-container-org59bbde1" class="outline-3">
+<h3 id="org59bbde1">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-org59bbde1">
 <p>
 Knowing that an isomorphism exists is enough.
 An isomorphism between types \(s\) and \(t\) is a proof that for all
@@ -532,9 +552,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i>.
 </div>
 </div>
 
-<div id="outline-container-orga4a212b" class="outline-3">
-<h3 id="orga4a212b">Monoidial</h3>
-<div class="outline-text-3" id="text-orga4a212b">
+<div id="outline-container-org204ad44" class="outline-3">
+<h3 id="org204ad44">Monoidial</h3>
+<div class="outline-text-3" id="text-org204ad44">
 <p>
 <code>()</code> is a Monoidal Identity element for product-types (no information).
 <code>Void</code> is an identity element for sum-types (Void has no members).
@@ -542,9 +562,9 @@ The <i>sum-</i> and <i>product-</i> types have different <i>shapes</i>.
 </div>
 </div>
 </div>
-<div id="outline-container-orgfa2f3e7" class="outline-2">
-<h2 id="orgfa2f3e7">Exponentials</h2>
-<div class="outline-text-2" id="text-orgfa2f3e7">
+<div id="outline-container-org7268305" class="outline-2">
+<h2 id="org7268305">Exponentials</h2>
+<div class="outline-text-2" id="text-org7268305">
 <p>
 The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
 </p>
@@ -556,9 +576,9 @@ so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
 </p>
 </div>
 </div>
-<div id="outline-container-org8f9bda1" class="outline-2">
-<h2 id="org8f9bda1">Stuff</h2>
-<div class="outline-text-2" id="text-org8f9bda1">
+<div id="outline-container-org35dec20" class="outline-2">
+<h2 id="org35dec20">Stuff</h2>
+<div class="outline-text-2" id="text-org35dec20">
 <p>
 described a system with equations that determine how its state evolves
 with time, where the state consists of the values of variables (a
@@ -849,8 +869,8 @@ f $ case x of
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

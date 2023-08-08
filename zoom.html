@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:38 -->
+<!-- 2023-08-08 Tue 18:42 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Zoom</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -220,24 +227,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "left",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'left',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -275,9 +295,9 @@ abstraction (such as Natural Numbers) could also be called principles.
 <p>
 Understanding of principles frees one from memorizing all the particular details.
 </p>
-<div id="outline-container-orgc8777b1" class="outline-2">
-<h2 id="orgc8777b1">A sequence of steps</h2>
-<div class="outline-text-2" id="text-orgc8777b1">
+<div id="outline-container-orgb7cbd93" class="outline-2">
+<h2 id="orgb7cbd93">A sequence of steps</h2>
+<div class="outline-text-2" id="text-orgb7cbd93">
 <p>
 It is not an arbitrary coincedence that we see connected <a href="arrows.html">arrows</a> almost
 everywhere as we are trying to <a href="model.html">model</a> (using mathematics as a language of
@@ -315,20 +335,20 @@ higher than that of <i>values</i>.
 Notice that these are just arrows at <i>the type level</i>
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">(<span style="color: #88C0D0;">.</span>) <span style="color: #D8DEE9;">::</span> (b <span style="color: #D8DEE9;">-&gt;</span> c) <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> c
-(<span style="color: #88C0D0;">&gt;=&gt;</span>) <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> (b <span style="color: #D8DEE9;">-&gt;</span> m c) <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> m c
+<pre class="src src-haskell">(.) :: (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+(&gt;=&gt;) :: Monad m =&gt; (a -&gt; m b) -&gt; (b -&gt; m c) -&gt; a -&gt; m c
 
-(<span style="color: #88C0D0;">&gt;&gt;</span>) <span style="color: #D8DEE9;">::</span> m a <span style="color: #D8DEE9;">-&gt;</span> m b <span style="color: #D8DEE9;">-&gt;</span> m b
-(<span style="color: #88C0D0;">&gt;&gt;=</span>) <span style="color: #D8DEE9;">::</span> m a <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> m b
+(&gt;&gt;) :: m a -&gt; m b -&gt; m b
+(&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b
 </pre>
 </div>
 <p>
 Arrows could denote not just steps but also <i>relations</i> between values.
 </p>
 </div>
-<div id="outline-container-org8e06d0d" class="outline-3">
-<h3 id="org8e06d0d">ANDs</h3>
-<div class="outline-text-3" id="text-org8e06d0d">
+<div id="outline-container-org1d588d2" class="outline-3">
+<h3 id="org1d588d2">ANDs</h3>
+<div class="outline-text-3" id="text-org1d588d2">
 <p>
 There are actually two <i>ANDs</i>, which are always confused and sometimes
 not even distinguished
@@ -354,9 +374,9 @@ is <i>the way it is</i>?
 </div>
 </div>
 
-<div id="outline-container-org634bdba" class="outline-3">
-<h3 id="org634bdba">The Category Theory</h3>
-<div class="outline-text-3" id="text-org634bdba">
+<div id="outline-container-org2d0a6b2" class="outline-3">
+<h3 id="org2d0a6b2">The Category Theory</h3>
+<div class="outline-text-3" id="text-org2d0a6b2">
 <p>
 Other people study functions and their <i>compositions</i> in terms of <i>dots and arrows</i>.
 </p>
@@ -403,9 +423,9 @@ When we reduce some part of a problem to something which is  <i>well-understood<
 </div>
 </div>
 
-<div id="outline-container-orgf54105b" class="outline-3">
-<h3 id="orgf54105b">Functional Programming</h3>
-<div class="outline-text-3" id="text-orgf54105b">
+<div id="outline-container-org5635723" class="outline-3">
+<h3 id="org5635723">Functional Programming</h3>
+<div class="outline-text-3" id="text-org5635723">
 <p>
 This, by the way, is the reason behind (and a connection to) the
 <i>functional programming paradigm</i>. There are well-understood pattens,
@@ -435,9 +455,9 @@ This is where you zoom to.
 </p>
 </div>
 </div>
-<div id="outline-container-org2cb45b5" class="outline-3">
-<h3 id="org2cb45b5">Discrete Math</h3>
-<div class="outline-text-3" id="text-org2cb45b5">
+<div id="outline-container-org5e0ad6f" class="outline-3">
+<h3 id="org5e0ad6f">Discrete Math</h3>
+<div class="outline-text-3" id="text-org5e0ad6f">
 <p>
 The good thing is that we need just <i>the very essence</i> of Discrete
 Math - the Set Theory, the Category Theory, the core of the Number
@@ -485,8 +505,8 @@ This, by the way, implies that all these <i>gigabytes</i> of frameworks are, pro
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:38</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:42</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

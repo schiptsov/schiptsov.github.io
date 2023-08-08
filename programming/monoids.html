@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-16 Sun 18:52 -->
+<!-- 2023-08-08 Tue 18:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The recurring patterns captured as a Monoid</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -229,9 +236,9 @@
 <header>
 <h1 class="title">The recurring patterns captured as a Monoid</h1>
 </header>
-<div id="outline-container-org496a749" class="outline-2">
-<h2 id="org496a749">The common patterns</h2>
-<div class="outline-text-2" id="text-org496a749">
+<div id="outline-container-org7577342" class="outline-2">
+<h2 id="org7577342">The common patterns</h2>
+<div class="outline-text-2" id="text-org7577342">
 <p>
 There are <i>recurrent patterns</i>, which has been captured in familiar &ldquo;standard&rdquo;
 abstractions.
@@ -239,9 +246,9 @@ abstractions.
 </div>
 </div>
 
-<div id="outline-container-org4eca2e6" class="outline-2">
-<h2 id="org4eca2e6">Monoid</h2>
-<div class="outline-text-2" id="text-org4eca2e6">
+<div id="outline-container-org0a49c6e" class="outline-2">
+<h2 id="org0a49c6e">Monoid</h2>
+<div class="outline-text-2" id="text-org0a49c6e">
 <p>
 A Set along with a <i>composition</i> operation, which has an identity element.
 </p>
@@ -266,9 +273,9 @@ For <code>OR</code> it is <code>True</code> (at least one <code>True</code>)
 </div>
 </div>
 
-<div id="outline-container-org703ee49" class="outline-2">
-<h2 id="org703ee49">Nesting of pattern-matching</h2>
-<div class="outline-text-2" id="text-org703ee49">
+<div id="outline-container-orga771cd4" class="outline-2">
+<h2 id="orga771cd4">Nesting of pattern-matching</h2>
+<div class="outline-text-2" id="text-orga771cd4">
 <p>
 It takes some effort to <i>disentangle</i> and clearly separate all the notions and
 &ldquo;patterns&rdquo; involved, but once it is done, everything is clear and self-evident.
@@ -318,9 +325,9 @@ is its own level of abstraction <i>within composed functions defined by clauses<
 </div>
 </div>
 
-<div id="outline-container-org0ce932a" class="outline-2">
-<h2 id="org0ce932a">A sum-type</h2>
-<div class="outline-text-2" id="text-org0ce932a">
+<div id="outline-container-orgb4e2f9a" class="outline-2">
+<h2 id="orgb4e2f9a">A sum-type</h2>
+<div class="outline-text-2" id="text-orgb4e2f9a">
 <p>
 Once your type has more than one <i>data-constructor</i> we <i>naturally pattern-match</i> on
 them, and all the functions or expressions would have the particular <i>form</i> of the
@@ -343,21 +350,21 @@ The mathematical notion is that the identity element of an operation do nothing
 (literally), this is why it just being passed along <i>within its branch</i>.
 </p>
 </div>
-<div id="outline-container-org02ab236" class="outline-3">
-<h3 id="org02ab236">Option</h3>
-<div class="outline-text-3" id="text-org02ab236">
+<div id="outline-container-orge495216" class="outline-3">
+<h3 id="orge495216">Option</h3>
+<div class="outline-text-3" id="text-orge495216">
 <div class="org-src-container">
 <pre class="src src-ocaml"><span style="color: #f5deb3; font-weight: bold;">type</span> <span style="color: #8FBCBB;">'a option</span> = <span style="color: #ECEFF4; background-color: #2E3440;">None</span> | <span style="color: #ECEFF4; background-color: #2E3440;">Some</span> <span style="color: #81A1C1;">of</span> 'a
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org51d56ef" class="outline-3">
-<h3 id="org51d56ef">Maybe</h3>
-<div class="outline-text-3" id="text-org51d56ef">
+<div id="outline-container-orgc84d53f" class="outline-3">
+<h3 id="orgc84d53f">Maybe</h3>
+<div class="outline-text-3" id="text-orgc84d53f">
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Maybe</span> <span style="color: #D8DEE9;">::</span> <span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>
-<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Maybe</span> a <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">Nothing</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">Just</span> a
+<pre class="src src-haskell">type Maybe :: * -&gt; *
+data Maybe a = Nothing | Just a
 </pre>
 </div>
 <p>
@@ -367,9 +374,9 @@ the structure of the type. I will write them later.
 </div>
 </div>
 </div>
-<div id="outline-container-org9e84789" class="outline-2">
-<h2 id="org9e84789">&ldquo;Errors&rdquo; as just taking another branch</h2>
-<div class="outline-text-2" id="text-org9e84789">
+<div id="outline-container-orga17f667" class="outline-2">
+<h2 id="orga17f667">&ldquo;Errors&rdquo; as just taking another branch</h2>
+<div class="outline-text-2" id="text-orga17f667">
 <p>
 There is a universal notion of a <i>condition</i>, captured by the <code>IF</code> <i>special form</i> &#x2013;
 with <i>at least two potential outcomes</i>, while <i>one and only one</i> branch (the actual
@@ -401,9 +408,9 @@ mark of mature thinking.
 </p>
 </div>
 
-<div id="outline-container-orgc333583" class="outline-3">
-<h3 id="orgc333583">Take another branch</h3>
-<div class="outline-text-3" id="text-orgc333583">
+<div id="outline-container-orgf8eb1bf" class="outline-3">
+<h3 id="orgf8eb1bf">Take another branch</h3>
+<div class="outline-text-3" id="text-orgf8eb1bf">
 <p>
 We should think of what we call an &ldquo;error&rdquo; as just a <i>signal</i> to take another
 branch (backtrack and restart).
@@ -431,9 +438,9 @@ Understanding this is the beginning of &ldquo;wisdom&rdquo;.
 </div>
 </div>
 </div>
-<div id="outline-container-org3ae67bc" class="outline-2">
-<h2 id="org3ae67bc">Nothing was returned</h2>
-<div class="outline-text-2" id="text-org3ae67bc">
+<div id="outline-container-org41af95e" class="outline-2">
+<h2 id="org41af95e">Nothing was returned</h2>
+<div class="outline-text-2" id="text-org41af95e">
 <p>
 So, when nothing (meaningful) was returned, we have to evaluate a <i>corresponding
 branch</i>, which must always be present.
@@ -455,9 +462,9 @@ Thus <i>no further steps will be taken by a process</i> along the &ldquo;happy&r
 </div>
 </div>
 
-<div id="outline-container-org6b76b72" class="outline-2">
-<h2 id="org6b76b72">Returning Nothing is backtracking</h2>
-<div class="outline-text-2" id="text-org6b76b72">
+<div id="outline-container-org2a9870d" class="outline-2">
+<h2 id="org2a9870d">Returning Nothing is backtracking</h2>
+<div class="outline-text-2" id="text-org2a9870d">
 <p>
 When we take the &ldquo;Nothing&rdquo; branch we simply backtrack (literally, through the
 call-stack) to a function where a restart (if any) could have occur.
@@ -470,9 +477,9 @@ to the &ldquo;supervisor&rdquo; which <i>restart</i> a new process.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc049b7e" class="outline-2">
-<h2 id="orgc049b7e">Nested maps</h2>
-<div class="outline-text-2" id="text-orgc049b7e">
+<div id="outline-container-org4aa95cf" class="outline-2">
+<h2 id="org4aa95cf">Nested maps</h2>
+<div class="outline-text-2" id="text-org4aa95cf">
 <p>
 So, we <i>nest</i> (which is the same as <i>compose</i>) the <code>map</code> function over <code>Option</code> or <code>Maybe</code>
 types.
@@ -488,9 +495,9 @@ common &ldquo;fail branch&rdquo;, which is of &ldquo;Nothing&rdquo; (to return).
 </p>
 </div>
 </div>
-<div id="outline-container-orgad05666" class="outline-2">
-<h2 id="orgad05666">Combinators</h2>
-<div class="outline-text-2" id="text-orgad05666">
+<div id="outline-container-org3303f43" class="outline-2">
+<h2 id="org3303f43">Combinators</h2>
+<div class="outline-text-2" id="text-org3303f43">
 <p>
 There is a small set of <i>combinators</i> that can be composed with <code>map</code> or <code>flatMap</code>.
 </p>
@@ -509,8 +516,8 @@ The most familiar are <code>orElse</code> and <code>andThen</code>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-16 Sun 18:52</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:39</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

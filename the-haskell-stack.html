@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-04 Tue 15:47 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Haskell Stack</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -386,9 +393,9 @@ in <code>%HOME/.bashrc</code>
 The <i>GHC compiler suite</i> comes with the bundled set of libs, <i>versioned with fucking hashes</i>. Just as in the <code>Cabal</code> example, you better to use these libs.
 </p>
 
-<div id="outline-container-orge7c5592" class="outline-2">
-<h2 id="orge7c5592">Hashes for versioning</h2>
-<div class="outline-text-2" id="text-orge7c5592">
+<div id="outline-container-org2a621f2" class="outline-2">
+<h2 id="org2a621f2">Hashes for versioning</h2>
+<div class="outline-text-2" id="text-org2a621f2">
 <p>
 I cannot even properly express my boiling rage over this utter stupidity and degeneracy.
 </p>
@@ -410,9 +417,9 @@ Try to build and install the <code>haskell-language-server</code>. You will see.
 </p>
 </div>
 </div>
-<div id="outline-container-org300be95" class="outline-2">
-<h2 id="org300be95">ghcup</h2>
-<div class="outline-text-2" id="text-org300be95">
+<div id="outline-container-org9ed3e10" class="outline-2">
+<h2 id="org9ed3e10">ghcup</h2>
+<div class="outline-text-2" id="text-org9ed3e10">
 <p>
 There is a tool called <code>ghcup</code> <a href="https://www.haskell.org/ghcup/">https://www.haskell.org/ghcup/</a>
 </p>
@@ -426,9 +433,9 @@ The point is to compile everything with your new GHC and the bundled libraries. 
 </p>
 </div>
 </div>
-<div id="outline-container-orgef304ea" class="outline-2">
-<h2 id="orgef304ea">Stack</h2>
-<div class="outline-text-2" id="text-orgef304ea">
+<div id="outline-container-org0b8636b" class="outline-2">
+<h2 id="org0b8636b">Stack</h2>
+<div class="outline-text-2" id="text-org0b8636b">
 <p>
 You need to check <a href="https://stackage.org">https://stackage.org</a> for the lastest version of the resolver for your GHC.
 </p>
@@ -437,20 +444,20 @@ You need to check <a href="https://stackage.org">https://stackage.org</a> for th
 in <code>$HOME/.stack/config.yaml</code>
 </p>
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #D8DEE9;">system-ghc</span>: <span style="color: #81A1C1;">true</span>
+<pre class="src src-yaml">system-ghc: true
 
-<span style="color: #D8DEE9;">allow-newer</span>: <span style="color: #81A1C1;">true</span>
+allow-newer: true
 </pre>
 </div>
 <p>
 in <code>$HOME/.stack/global-project/stack.yaml</code>
 </p>
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #D8DEE9;">compiler</span>: ghc-9.6.2
-<span style="color: #D8DEE9;">packages</span>: []
-<span style="color: #D8DEE9;">resolver</span>: nightly-2023-07-04
+<pre class="src src-yaml">compiler: ghc-9.6.2
+packages: []
+resolver: nightly-2023-07-04
 
-<span style="color: #D8DEE9;">extra-deps</span>:
+extra-deps:
 - Cabal-3.10.1.0
 - Cabal-syntax-3.10.1.0
 - cabal-install-solver-3.10.1.0
@@ -459,9 +466,9 @@ in <code>$HOME/.stack/global-project/stack.yaml</code>
 </div>
 </div>
 
-<div id="outline-container-orgebfc967" class="outline-2">
-<h2 id="orgebfc967">cabal-install</h2>
-<div class="outline-text-2" id="text-orgebfc967">
+<div id="outline-container-orgd85933a" class="outline-2">
+<h2 id="orgd85933a">cabal-install</h2>
+<div class="outline-text-2" id="text-orgd85933a">
 <div class="org-src-container">
 <pre class="src src-bash">stack update
 
@@ -470,9 +477,9 @@ stack install cabal-install
 </div>
 </div>
 </div>
-<div id="outline-container-org037fa5a" class="outline-2">
-<h2 id="org037fa5a">stack</h2>
-<div class="outline-text-2" id="text-org037fa5a">
+<div id="outline-container-org6b3e99f" class="outline-2">
+<h2 id="org6b3e99f">stack</h2>
+<div class="outline-text-2" id="text-org6b3e99f">
 <div class="org-src-container">
 <pre class="src src-bash">stack install stack
 </pre>
@@ -482,18 +489,18 @@ This will give you lots of errors, so you have to add <code>extra-deps</code> to
 </p>
 </div>
 </div>
-<div id="outline-container-org0243df3" class="outline-2">
-<h2 id="org0243df3">basic tools</h2>
-<div class="outline-text-2" id="text-org0243df3">
+<div id="outline-container-org7413fe1" class="outline-2">
+<h2 id="org7413fe1">basic tools</h2>
+<div class="outline-text-2" id="text-org7413fe1">
 <div class="org-src-container">
 <pre class="src src-bash">stack install alex happy stylish-haskell fourmolu
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd1a0c11" class="outline-2">
-<h2 id="orgd1a0c11">haskell-language-server</h2>
-<div class="outline-text-2" id="text-orgd1a0c11">
+<div id="outline-container-org9f39a53" class="outline-2">
+<h2 id="org9f39a53">haskell-language-server</h2>
+<div class="outline-text-2" id="text-org9f39a53">
 <p>
 This fucking abomination never compiles as intendend. Actually, this is a manifestation of what is wrong with the Haskell ecosystem and how everything is completely fucked by Chuds and narcissisitc idiots.
 </p>
@@ -510,8 +517,8 @@ At the time of writing shit does not even compile.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-04 Tue 15:47</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

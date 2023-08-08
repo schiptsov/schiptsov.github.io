@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-08-08 Tue 18:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Composition</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -233,7 +240,7 @@ Languages without parial application are cripled.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">factorial</span> <span style="color: #D8DEE9;">=</span> product <span style="color: #D8DEE9;">.</span> enumFromTo <span style="color: #B48EAD; font-weight: bold;">1</span>
+<pre class="src src-haskell">factorial = product . enumFromTo 1
 </pre>
 </div>
 
@@ -284,21 +291,21 @@ Once we could define a <code>foldr</code> we could define a <code>map</code>, an
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">length</span> <span style="color: #D8DEE9;">=</span> foldr count <span style="color: #B48EAD; font-weight: bold;">0</span>
-<span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span>  count <span style="color: #81A1C1;">_</span> n <span style="color: #D8DEE9;">=</span> n <span style="color: #D8DEE9;">+</span> <span style="color: #B48EAD; font-weight: bold;">1</span>
+<pre class="src src-haskell">length = foldr count 0
+where
+   count _ n = n + 1
 
-<span style="color: #81A1C1;">let</span> length <span style="color: #D8DEE9;">=</span> foldr (<span style="color: #D8DEE9;">\</span><span style="color: #81A1C1;">_</span> n <span style="color: #D8DEE9;">-&gt;</span> n<span style="color: #D8DEE9;">+</span><span style="color: #B48EAD; font-weight: bold;">1</span>) <span style="color: #B48EAD; font-weight: bold;">0</span>
+let length = foldr (\_ n -&gt; n+1) 0
 
-<span style="color: #81A1C1;">let</span> map f <span style="color: #D8DEE9;">=</span> foldr ((<span style="color: #8FBCBB;">:</span>) <span style="color: #D8DEE9;">.</span> f) <span style="color: #8FBCBB;">[]</span>
+let map f = foldr ((:) . f) []
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:38</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

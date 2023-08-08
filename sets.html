@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:35 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sets</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -220,24 +227,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "left",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'left',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -271,9 +291,9 @@ this particular axiomatic system&rdquo;</i>. It does not &ldquo;exist&rdquo; out
 The lack of a <i>type-discipline</i> messes everything up very quickly.
 </p>
 
-<div id="outline-container-org83ed85a" class="outline-2">
-<h2 id="org83ed85a">No ordering</h2>
-<div class="outline-text-2" id="text-org83ed85a">
+<div id="outline-container-orgcfc4b6e" class="outline-2">
+<h2 id="orgcfc4b6e">No ordering</h2>
+<div class="outline-text-2" id="text-orgcfc4b6e">
 <p>
 There is no notion of a <i>particular ordering</i> of elements, as in a heap
 inside a bag, and no notion of <i>duplicate</i> - each mentioning refers to
@@ -286,9 +306,9 @@ The only valid notion for elements <i>membership</i> \(x \in X\).
 </div>
 </div>
 
-<div id="outline-container-org60130fd" class="outline-2">
-<h2 id="org60130fd">Partitioning</h2>
-<div class="outline-text-2" id="text-org60130fd">
+<div id="outline-container-orgdd2c22d" class="outline-2">
+<h2 id="orgdd2c22d">Partitioning</h2>
+<div class="outline-text-2" id="text-orgdd2c22d">
 <p>
 There is the universal notion of <i>partitioning</i> of a Set based on some
 common <i>property</i> defined by a <i>predicate</i> on elements.
@@ -316,9 +336,9 @@ The <i>set comprehension notation</i> is well-established in Haskell.
 </div>
 </div>
 
-<div id="outline-container-orgb060604" class="outline-2">
-<h2 id="orgb060604">Typing</h2>
-<div class="outline-text-2" id="text-orgb060604">
+<div id="outline-container-orgcc871fc" class="outline-2">
+<h2 id="orgcc871fc">Typing</h2>
+<div class="outline-text-2" id="text-orgcc871fc">
 <p>
 In <i>Mathematics</i> a <i>Set</i> and its <i>Subset</i> are <i>the same kind of an
 object</i> (of the same <i>type</i>), and therefore <i>every set is a subset of
@@ -345,8 +365,8 @@ The <i>relation</i> \(\subset\) is of an <i>Subset</i> and a <i>Set</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

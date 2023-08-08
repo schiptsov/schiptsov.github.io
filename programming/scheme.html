@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-08-08 Tue 18:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scheme</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -254,9 +261,9 @@ other</i> features. A proper <i>uniformity</i> (<i>everything is an expression</
 enables complementary features (universal <i>nesting</i>, high-order procedures, etc).
 </p>
 
-<div id="outline-container-orgfbcb8ba" class="outline-2">
-<h2 id="orgfbcb8ba">MIT Scheme</h2>
-<div class="outline-text-2" id="text-orgfbcb8ba">
+<div id="outline-container-org58fab6e" class="outline-2">
+<h2 id="org58fab6e">MIT Scheme</h2>
+<div class="outline-text-2" id="text-org58fab6e">
 <p>
 The MIT Scheme is not just a particular implementation of the Scheme language,
 it is an actual embodiment (or actual manifestation) of the whole <i>Classic MIT
@@ -281,9 +288,9 @@ Erlang/OTP, SML/NJ, GHC or Ocaml 4).
 </p>
 </div>
 </div>
-<div id="outline-container-orgcc28663" class="outline-2">
-<h2 id="orgcc28663">All you need is Lambda</h2>
-<div class="outline-text-2" id="text-orgcc28663">
+<div id="outline-container-org1416ee5" class="outline-2">
+<h2 id="org1416ee5">All you need is Lambda</h2>
+<div class="outline-text-2" id="text-org1416ee5">
 <p>
 <code>let</code> special form as a <i>lambda with an in-place invocation</i>. Again, a <i>closure</i> is an
 implicit nested <i>frame of an environment</i> (for all its <i>bindings</i>).
@@ -308,9 +315,9 @@ Curried <code>'+</code> with an in-place invocation
 </div>
 </div>
 </div>
-<div id="outline-container-org76f90b6" class="outline-2">
-<h2 id="org76f90b6">Just right</h2>
-<div class="outline-text-2" id="text-org76f90b6">
+<div id="outline-container-org075e304" class="outline-2">
+<h2 id="org075e304">Just right</h2>
+<div class="outline-text-2" id="text-org075e304">
 <p>
 When you have the right understanding, you inevitably do the right thing.
 </p>
@@ -332,10 +339,10 @@ The <i>accumulator pattern</i> is expressed &ldquo;naturally&rdquo; (using an <i
 </p>
 <div class="org-src-container">
 <pre class="src src-scheme">(<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">factorail</span> (<span style="color: #81A1C1;">lambda</span> (x)
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">recur</span> (<span style="color: #81A1C1;">lambda</span> (n acc)
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (<span style="color: #81A1C1;">if</span> (zero? n) acc
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   (recur (- n <span style="color: #B48EAD; font-weight: bold;">1</span>) (* n acc)))))
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> (recur x <span style="color: #B48EAD; font-weight: bold;">1</span>)))
+                    (<span style="color: #81A1C1;">define</span> <span style="color: #88C0D0;">recur</span> (<span style="color: #81A1C1;">lambda</span> (n acc)
+                                    (<span style="color: #81A1C1;">if</span> (zero? n) acc
+                                        (recur (- n <span style="color: #B48EAD; font-weight: bold;">1</span>) (* n acc)))))
+                      (recur x <span style="color: #B48EAD; font-weight: bold;">1</span>)))
 </pre>
 </div>
 </div>
@@ -344,8 +351,8 @@ The <i>accumulator pattern</i> is expressed &ldquo;naturally&rdquo; (using an <i
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:38</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

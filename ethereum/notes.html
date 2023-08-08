@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:35 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes about Ethereuim</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -247,9 +254,9 @@ The &ldquo;solution&rdquo; of the halting problem as to limit the depth of recur
 Notably, at almost the same time, another narcissistic guy <i>applied</i> most these solid principles, climbed on shoulders of the giants, and got almost everything right. His name is Rich Hikey.
 </p>
 
-<div id="outline-container-org6f360ea" class="outline-2">
-<h2 id="org6f360ea">The state-machine metaphor</h2>
-<div class="outline-text-2" id="text-org6f360ea">
+<div id="outline-container-orgf1b10a0" class="outline-2">
+<h2 id="orgf1b10a0">The state-machine metaphor</h2>
+<div class="outline-text-2" id="text-orgf1b10a0">
 <p>
 The state-machine on top of an immutable ledger (which <i>represents</i> the state) metaphor is a <i>meme</i>. It is a classic example of the <i>past rationalization</i>, when afterthoughts are being presented as preliminaries.
 </p>
@@ -267,16 +274,16 @@ The view of a &ldquo;merkle-tree&rdquo; instead of the Turing&rsquo;s &ldquo;tap
 </p>
 </div>
 </div>
-<div id="outline-container-org1b9b08d" class="outline-2">
-<h2 id="org1b9b08d">The right principles</h2>
-<div class="outline-text-2" id="text-org1b9b08d">
+<div id="outline-container-org16e460c" class="outline-2">
+<h2 id="org16e460c">The right principles</h2>
+<div class="outline-text-2" id="text-org16e460c">
 <p>
 Now lets quickly state the &ldquo;right&rdquo; principles which are &ldquo;naturally&rdquo; applicable in the context of a blockchain.
 </p>
 </div>
-<div id="outline-container-org6512ac6" class="outline-3">
-<h3 id="org6512ac6">Immutable data</h3>
-<div class="outline-text-3" id="text-org6512ac6">
+<div id="outline-container-orge896843" class="outline-3">
+<h3 id="orge896843">Immutable data</h3>
+<div class="outline-text-3" id="text-orge896843">
 <p>
 Immutable data is the fundamental principle. The data which can be altered (or modified) behind your back <i>is not</i> data at all. It is some temporal imperative <i>state/</i>, by defintion.
 </p>
@@ -294,9 +301,9 @@ Immutable &ldquo;ledgers&rdquo; (as <i>append-only files</i> or data structures)
 </p>
 </div>
 </div>
-<div id="outline-container-orgbe9ee7f" class="outline-3">
-<h3 id="orgbe9ee7f">Pure, declarative code</h3>
-<div class="outline-text-3" id="text-orgbe9ee7f">
+<div id="outline-container-org583f1a3" class="outline-3">
+<h3 id="org583f1a3">Pure, declarative code</h3>
+<div class="outline-text-3" id="text-org583f1a3">
 <p>
 This is what has been missed due to incompetence and ignorance. The &ldquo;Implementation of Functional Languages&rdquo; of <i>Peyton Jones</i> has been published in <i>1987</i>, so it has to be the <i>G-Machine</i>, the result of decades of research, not some amateur bullshit.
 </p>
@@ -307,9 +314,9 @@ In principle, it is <i>not</i> the Turing Machine, but the <i>equivalent formula
 </div>
 </div>
 
-<div id="outline-container-orgcdc8925" class="outline-3">
-<h3 id="orgcdc8925">Graph-reduction</h3>
-<div class="outline-text-3" id="text-orgcdc8925">
+<div id="outline-container-orgabd9d91" class="outline-3">
+<h3 id="orgabd9d91">Graph-reduction</h3>
+<div class="outline-text-3" id="text-orgabd9d91">
 <p>
 The <i>graph-reduction</i> methodology as an <i>implementation</i> of the <i>syntactically sugared</i> (and extended with proper ADTs) <i>Simply Typed Lambda Calculus</i> was a major fundamental result at the time.
 </p>
@@ -324,9 +331,9 @@ Notice that with <i>implicit nesting of pure expressions</i>, which is how compo
 </div>
 </div>
 
-<div id="outline-container-orgc067be8" class="outline-3">
-<h3 id="orgc067be8">pattern-matching on Receive</h3>
-<div class="outline-text-3" id="text-orgc067be8">
+<div id="outline-container-org86e9c1c" class="outline-3">
+<h3 id="org86e9c1c">pattern-matching on Receive</h3>
+<div class="outline-text-3" id="text-org86e9c1c">
 <p>
 As long as &ldquo;send&rdquo; and &ldquo;receive&rdquo; are &ldquo;expressions&rdquo; (need a <i>runtime support</i>) it is natural to &ldquo;pattern-match on receive&rdquo;, just as <code>Erlang</code> does. The semantics are well-understood and are similar to the classic, pure <i>match expression.</i>
 </p>
@@ -336,9 +343,9 @@ As long as &ldquo;send&rdquo; and &ldquo;receive&rdquo; are &ldquo;expressions&r
 </p>
 </div>
 </div>
-<div id="outline-container-orgb33809a" class="outline-3">
-<h3 id="orgb33809a">Monads</h3>
-<div class="outline-text-3" id="text-orgb33809a">
+<div id="outline-container-org8ce13d8" class="outline-3">
+<h3 id="org8ce13d8">Monads</h3>
+<div class="outline-text-3" id="text-org8ce13d8">
 <p>
 <code>Monads</code>, as a generalization of an abstraction barrier, can be used to properly <i>implement</i> &ldquo;send&rdquo;, &ldquo;receive&rdquo; and other <i>primitives</i>. This will be just a specializarion (several, one for each kind of primitives) of the <i>I/O Monad</i>.
 </p>
@@ -348,9 +355,9 @@ Again, this was a well-researched and well-understood topic way before <i>2013</
 </p>
 </div>
 </div>
-<div id="outline-container-org6d55e69" class="outline-3">
-<h3 id="org6d55e69">Type-classes</h3>
-<div class="outline-text-3" id="text-org6d55e69">
+<div id="outline-container-orgc531041" class="outline-3">
+<h3 id="orgc531041">Type-classes</h3>
+<div class="outline-text-3" id="text-orgc531041">
 <p>
 The required set of interfaces (as per ERC-20) is excatly what the <i>universal</i> notion of a type-class captures.
 </p>
@@ -368,9 +375,9 @@ Notice that <code>Solidity</code> is as bad, incosistent and amateur (bordering 
 </p>
 </div>
 </div>
-<div id="outline-container-org47eef61" class="outline-3">
-<h3 id="org47eef61">Combinators</h3>
-<div class="outline-text-3" id="text-org47eef61">
+<div id="outline-container-org43b3357" class="outline-3">
+<h3 id="org43b3357">Combinators</h3>
+<div class="outline-text-3" id="text-org43b3357">
 <p>
 I am not sure, but it seems intuitively that another well-known implementation techinque, used with the pure-functional language <i>Miranda</i> would also be a fundamentally better choice (as good as Graph Reduction) than some imperative amateur toy VM.
 </p>
@@ -381,8 +388,8 @@ I am not sure, but it seems intuitively that another well-known implementation t
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

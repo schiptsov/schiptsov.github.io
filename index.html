@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-23 Sun 18:45 -->
+<!-- 2023-08-08 Tue 18:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org Notes</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -228,6 +235,14 @@
 <header>
 <h1 class="title">Org Notes</h1>
 </header><ul class="org-ul">
+<li><a href="security.html">Some security with gpg and Emacs.</a></li>
+<li><a href="org-mode.html">Org Mode</a></li>
+<li><a href="SK.html">Why S and K are enough.</a></li>
+<li><a href="abstractions.html">Abstraction barriers</a></li>
+<li><a href="classics.html">Classic language in the classic environment</a></li>
+<li><a href="reading.html">Reading is hard</a></li>
+<li><a href="Emacs.html">GNU Emacs</a></li>
+<li><a href="HN.html">Hacker News</a></li>
 <li><a href="abstract.html">Abstract vs. General</a></li>
 <li><a href="steppenwolf.html">Steppenwolf</a></li>
 <li><a href="the-haskell-stack.html">The Haskell Stack</a></li>
@@ -302,7 +317,6 @@
 <li><a href="arrows.html">Arrows</a></li>
 <li><a href="metaphysics.html">Metaphysics</a></li>
 <li><a href="IO.html">Haskell IO</a></li>
-<li><a href="HN.html">Hacker News</a></li>
 <li><a href="principles.html">Principles</a></li>
 <li><a href="concat-map.html">Map and Filter on Lists</a></li>
 <li><a href="methodology.html">Programming methodologies</a></li>
@@ -323,23 +337,58 @@
 <li><a href="engineering.html">Engineering (वेदान्त)</a></li>
 <li><a href="lua.html">lua</a></li>
 <li><a href="and.html">And</a></li>
-<li><a href="org-mode.html">Org Mode</a></li>
-<li>PLT
+<li>trading
 <ul class="org-ul">
-<li><a href="PLT/monads.html">Monads</a></li>
-<li><a href="PLT/the-whys.html">The Whys</a></li>
+<li><a href="trading/solving-the-market.html">The Man Who Solved the Market and other bullshit.</a></li>
+<li><a href="trading/automated-trading.html">Writing a semi-automated trading system</a></li>
+<li><a href="trading/FOMO.html">FOMO</a></li>
+<li><a href="trading/big-picture.html">The Big Picture</a></li>
+<li><a href="trading/vocabulary.html">Vocabulary</a></li>
+<li><a href="trading/lessons.html">Lessons</a></li>
+<li><a href="trading/exchanges.html">Exchanges</a></li>
+<li><a href="trading/social.html">Socially constructed</a></li>
+<li><a href="trading/patterns.html">Patterns</a></li>
+<li><a href="trading/quotes.html">Quotes</a></li>
+<li><a href="trading/psychology.html">Psychology</a></li>
+<li><a href="trading/bullshit.html">Bullshit, bullshit everywhere</a></li>
+<li><a href="trading/math.html">Math</a></li>
+<li><a href="trading/principles.html">Universal principles</a></li>
+<li><a href="trading/principles1.html">Universal principles</a></li>
+<li><a href="trading/heuristics.html">Heuristics</a></li>
+<li><a href="trading/automation.html">Automation</a></li>
+<li><a href="trading/exuberance.html">Irrational Exuberance</a></li>
+<li><a href="trading/indicators.html">Indicators</a></li>
+<li><a href="trading/memes.html">Memes</a></li>
+<li><a href="trading/charts.html">Charts</a></li>
+<li><a href="trading/factors.html">Major Factors</a></li>
+<li><a href="trading/overview.html">Overview</a></li>
+<li><a href="trading/crypto.html">Crypto</a></li>
+<li><a href="trading/stats.html">Simple statistics</a></li>
+<li><a href="trading/discipline.html">discipline</a></li>
+<li><a href="trading/technique.html">technique</a></li>
+<li><a href="trading/system.html">A Trading System</a></li>
+<li><a href="trading/unpredictable.html">Unpredictable</a></li>
+<li><a href="trading/human-errors.html">Human Errors</a></li>
+<li><a href="trading/probabilities.html">Probabilities</a></li>
+<li><a href="trading/facts.html">Facts</a></li>
+<li><a href="trading/modeling.html">Modeling</a></li>
+<li><a href="trading/into-unknown.html">Into Unknown</a></li>
+<li><a href="trading/money.html">Money Management</a></li>
+<li><a href="trading/events.html">events</a></li>
 </ul></li>
 <li>programming
 <ul class="org-ul">
+<li><a href="programming/psychology.html">Psychology</a></li>
 <li><a href="programming/WhyFP.html">Why Functional Programming</a></li>
-<li><a href="programming/monoids.html">The recurring pattern captured as a Monoid</a></li>
+<li><a href="programming/monoids.html">The recurring patterns captured as a Monoid</a></li>
+<li><a href="programming/rust.html">Rust</a></li>
+<li><a href="programming/classic-langs.html">Some Classic Languages</a></li>
 <li><a href="programming/scheme.html">Scheme</a></li>
 <li><a href="programming/just-right.html">Just right.</a></li>
 <li><a href="programming/better-rust.html">A better Rust</a></li>
 <li><a href="programming/python-like-rust.html">Python Like Rust</a></li>
 <li><a href="programming/hacks.html">Hacks</a></li>
 <li><a href="programming/dynamic.html">Dynamic Typing</a></li>
-<li><a href="programming/psychology.html">Psychology</a></li>
 <li><a href="programming/projects.html">Projects</a></li>
 <li><a href="programming/recursion.html">Recursion</a></li>
 <li><a href="programming/understanding_python.html">Understanding Modern Python</a></li>
@@ -350,10 +399,8 @@
 <li><a href="programming/liskov.html">Liskov&rsquo;s Abstract Data Types</a></li>
 <li><a href="programming/dijkstra.html">Dijkstra&rsquo; Notes On Structures Programming</a></li>
 <li><a href="programming/wadler.html">Wadler</a></li>
-<li><a href="programming/classic-langs.html">Some Classic Languages</a></li>
 <li><a href="programming/classics.html">Classics</a></li>
 <li><a href="programming/history.html">Short History of Programming</a></li>
-<li><a href="programming/rust.html">Rust</a></li>
 <li><a href="programming/was-a-mistake.html">It was a mistake</a></li>
 <li><a href="programming/understanding_rust.html">Understanding Rust</a></li>
 <li><a href="programming/high-level.html">High Level programming</a></li>
@@ -395,6 +442,25 @@
 <li><a href="programming/ADTs.html">ADTs</a></li>
 <li><a href="programming/abstractions.html">Minimal Abstraction building blocks</a></li>
 </ul></li>
+<li>AI
+<ul class="org-ul">
+<li><a href="AI/xai.html">xAI</a></li>
+<li><a href="AI/linear-algebra.html">Linear Algebra for AI</a></li>
+<li><a href="AI/zooming-through.html">Zooming through the conceptual layers</a></li>
+<li><a href="AI/facts.html">There ARE facts.</a></li>
+<li><a href="AI/just-a-sect.html">Just a sect.</a></li>
+<li><a href="AI/transformers1.html">Bullshit, bullshit everywhere</a></li>
+<li><a href="AI/transformers.html">Transformers</a></li>
+<li><a href="AI/GPT4-HN.html">GPT4 threads on HN</a></li>
+<li><a href="AI/GPTs.html">ChatGPTs</a></li>
+</ul></li>
+<li>discipline
+<ul class="org-ul">
+<li><a href="discipline/archery.html">Archery</a></li>
+<li><a href="discipline/learning1.html">On learning</a></li>
+<li><a href="discipline/motivation.html">Motivation alone is never enough</a></li>
+<li><a href="discipline/practice.html">A practice is learning by doing</a></li>
+</ul></li>
 <li>girls
 <ul class="org-ul">
 <li><a href="girls/haskell.html">Haskell</a></li>
@@ -407,6 +473,11 @@
 <li><a href="girls/youtube.html">What to watch on YouTube</a></li>
 <li><a href="girls/getting-started.html">Getting started in a principled way</a></li>
 <li><a href="girls/girls-to-code.html">Teaching Girls To Code</a></li>
+</ul></li>
+<li>PLT
+<ul class="org-ul">
+<li><a href="PLT/monads.html">Monads</a></li>
+<li><a href="PLT/the-whys.html">The Whys</a></li>
 </ul></li>
 <li>notes
 <ul class="org-ul">
@@ -442,55 +513,6 @@
 <li><a href="ethereum/cheatscheet.html">cheatscheet</a></li>
 <li><a href="ethereum/ethereum.html">Understanding Ethereum</a></li>
 </ul></li>
-<li>AI
-<ul class="org-ul">
-<li><a href="AI/xai.html">X.ai</a></li>
-<li><a href="AI/linear-algebra.html">Linear Algebra for AI</a></li>
-<li><a href="AI/zooming-through.html">Zooming through the conceptual layers</a></li>
-<li><a href="AI/facts.html">There ARE facts.</a></li>
-<li><a href="AI/just-a-sect.html">Just a sect.</a></li>
-<li><a href="AI/transformers1.html">Bullshit, bullshit everywhere</a></li>
-<li><a href="AI/transformers.html">Transformers</a></li>
-<li><a href="AI/GPT4-HN.html">GPT4 threads on HN</a></li>
-<li><a href="AI/GPTs.html">ChatGPTs</a></li>
-</ul></li>
-<li>trading
-<ul class="org-ul">
-<li><a href="trading/FOMO.html">FOMO</a></li>
-<li><a href="trading/big-picture.html">The Big Picture</a></li>
-<li><a href="trading/vocabulary.html">Vocabulary</a></li>
-<li><a href="trading/lessons.html">Lessons</a></li>
-<li><a href="trading/exchanges.html">Exchanges</a></li>
-<li><a href="trading/social.html">Socially constructed</a></li>
-<li><a href="trading/patterns.html">Patterns</a></li>
-<li><a href="trading/quotes.html">Quotes</a></li>
-<li><a href="trading/psychology.html">Psychology</a></li>
-<li><a href="trading/bullshit.html">Bullshit, bullshit everywhere</a></li>
-<li><a href="trading/math.html">Math</a></li>
-<li><a href="trading/principles.html">Universal principles</a></li>
-<li><a href="trading/principles1.html">Universal principles</a></li>
-<li><a href="trading/heuristics.html">Heuristics</a></li>
-<li><a href="trading/automation.html">Automation</a></li>
-<li><a href="trading/exuberance.html">Irrational Exuberance</a></li>
-<li><a href="trading/indicators.html">Indicators</a></li>
-<li><a href="trading/memes.html">Memes</a></li>
-<li><a href="trading/charts.html">Charts</a></li>
-<li><a href="trading/factors.html">Major Factors</a></li>
-<li><a href="trading/overview.html">Overview</a></li>
-<li><a href="trading/crypto.html">Crypto</a></li>
-<li><a href="trading/stats.html">Simple statistics</a></li>
-<li><a href="trading/discipline.html">discipline</a></li>
-<li><a href="trading/technique.html">technique</a></li>
-<li><a href="trading/system.html">A Trading System</a></li>
-<li><a href="trading/unpredictable.html">Unpredictable</a></li>
-<li><a href="trading/human-errors.html">Human Errors</a></li>
-<li><a href="trading/probabilities.html">Probabilities</a></li>
-<li><a href="trading/facts.html">Facts</a></li>
-<li><a href="trading/modeling.html">Modeling</a></li>
-<li><a href="trading/into-unknown.html">Into Unknown</a></li>
-<li><a href="trading/money.html">Money Management</a></li>
-<li><a href="trading/events.html">events</a></li>
-</ul></li>
 <li>neovim
 <ul class="org-ul">
 <li><a href="neovim/config.html">Configuring Neovim with Lua</a></li>
@@ -500,13 +522,6 @@
 <li>emacs
 <ul class="org-ul">
 <li><a href="emacs/emacs29.html">Emacs 29</a></li>
-</ul></li>
-<li>discipline
-<ul class="org-ul">
-<li><a href="discipline/learning1.html">On learning</a></li>
-<li><a href="discipline/archery.html">Archery</a></li>
-<li><a href="discipline/motivation.html">Motivation alone is never enough</a></li>
-<li><a href="discipline/practice.html">A practice is learning by doing</a></li>
 </ul></li>
 <li>types
 <ul class="org-ul">
@@ -518,8 +533,8 @@
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-23 Sun 18:45</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.7)</p>
+<p class="date">Created: 2023-08-08 Tue 18:50</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

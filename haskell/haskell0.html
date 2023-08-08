@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:29 -->
+<!-- 2023-08-08 Tue 18:31 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lambda Calculus augmented with an advanced type-system</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -219,24 +226,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "left",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'left',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -347,28 +367,28 @@ Both are just a <i>syntactic sugar</i> for <code>((lambda (x) (* x x)) 2)</code>
 <i>ADTs, /type-classes</i> and <i>modules</i> (with export restrictions). No ML modules, unfortunately.
 </p>
 
-<div id="outline-container-orgb9c1cf8" class="outline-2">
-<h2 id="orgb9c1cf8">Cardinality of a type</h2>
-<div class="outline-text-2" id="text-orgb9c1cf8">
+<div id="outline-container-org386ab1d" class="outline-2">
+<h2 id="org386ab1d">Cardinality of a type</h2>
+<div class="outline-text-2" id="text-org386ab1d">
 <p>
 Associate a type with cardinality (just like of a Set)
 How many inhabitants (members) a type has.
 Ignore bottoms (they are relevant only in type-constraint solving)
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Void</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">0, no elements, just like The Empty Set</span>
+<pre class="src src-haskell">data Void -- 0, no elements, just like The Empty Set
 
-<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">()</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">()</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">exactly 1, exactly this - no new information</span>
+data () = () -- exactly 1, exactly this - no new information
 
-<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">Bool</span> <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">True</span> <span style="color: #D8DEE9;">|</span> <span style="color: #8FBCBB;">False</span> <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">just these 2. notice the |</span>
+data Bool = True | False -- just these 2. notice the |
 
-<span style="color: #81A1C1;">data</span> <span style="color: #8FBCBB;">(,)</span> a b <span style="color: #D8DEE9;">=</span> <span style="color: #8FBCBB;">(,)</span> a b <span style="color: #6f7787;">-- </span><span style="color: #6f7787;">a type-constructor, parametrized by a nd b</span>
+data (,) a b = (,) a b -- a type-constructor, parametrized by a nd b
 </pre>
 </div>
 </div>
-<div id="outline-container-org2134f79" class="outline-3">
-<h3 id="org2134f79">Shapes or forms</h3>
-<div class="outline-text-3" id="text-org2134f79">
+<div id="outline-container-org262424b" class="outline-3">
+<h3 id="org262424b">Shapes or forms</h3>
+<div class="outline-text-3" id="text-org262424b">
 <p>
 Notice that these types have distinct, unique <i>shapes</i>
 </p>
@@ -389,9 +409,9 @@ Notice that
 </div>
 </div>
 </div>
-<div id="outline-container-org6c44613" class="outline-2">
-<h2 id="org6c44613">Total</h2>
-<div class="outline-text-2" id="text-org6c44613">
+<div id="outline-container-org4bd3376" class="outline-2">
+<h2 id="org4bd3376">Total</h2>
+<div class="outline-text-2" id="text-org4bd3376">
 <p>
 Knowing cardinalities of any two types (sets) we can know how many
 &ldquo;arrows&rdquo; (individual relations or distinct mappings) are there <i>in total</i>.
@@ -413,9 +433,9 @@ The notion of duality based on cardinality alone is wrong and misleading.
 </p>
 </div>
 </div>
-<div id="outline-container-org6a67ce0" class="outline-2">
-<h2 id="org6a67ce0">Isomorphism</h2>
-<div class="outline-text-2" id="text-org6a67ce0">
+<div id="outline-container-orgea10cf3" class="outline-2">
+<h2 id="orgea10cf3">Isomorphism</h2>
+<div class="outline-text-2" id="text-orgea10cf3">
 <p>
 Any two types of the same cardinality could be viewed as <i>isomorphic</i>.
 This is a naive and too abstract to be useful assumption.
@@ -430,9 +450,9 @@ A fork is not isomorphic to a join in principle, but it is viewed by sectarians 
 </p>
 </div>
 
-<div id="outline-container-orgb72fb19" class="outline-3">
-<h3 id="orgb72fb19">Definition</h3>
-<div class="outline-text-3" id="text-orgb72fb19">
+<div id="outline-container-orgc88df7c" class="outline-3">
+<h3 id="orgc88df7c">Definition</h3>
+<div class="outline-text-3" id="text-orgc88df7c">
 <p>
 The formal definition is this
 </p>
@@ -452,9 +472,9 @@ As long as cardinality is greater than 1 a particular <i>ordering</i> has to be 
 </div>
 </div>
 
-<div id="outline-container-org1b1e94f" class="outline-3">
-<h3 id="org1b1e94f">An ordered set of arrows</h3>
-<div class="outline-text-3" id="text-org1b1e94f">
+<div id="outline-container-orgca877cb" class="outline-3">
+<h3 id="orgca877cb">An ordered set of arrows</h3>
+<div class="outline-text-3" id="text-orgca877cb">
 <p>
 Individual &ldquo;arrows&rdquo; (relations) between values has to have a particular order, and each &ldquo;arrow&rdquo; has to have a unique <i>inverse</i> &ldquo;arrow&rdquo;.
 </p>
@@ -469,9 +489,9 @@ Symmetries (rotations) could be formalized with such functions.
 </div>
 </div>
 
-<div id="outline-container-org7281f79" class="outline-3">
-<h3 id="org7281f79">n!</h3>
-<div class="outline-text-3" id="text-org7281f79">
+<div id="outline-container-org163340b" class="outline-3">
+<h3 id="org163340b">n!</h3>
+<div class="outline-text-3" id="text-org163340b">
 <p>
 For any two types (sets) of the same cardinality n
 there are n! <i>unique</i> isomorphisms between them.
@@ -479,9 +499,9 @@ there are n! <i>unique</i> isomorphisms between them.
 </div>
 </div>
 
-<div id="outline-container-org7a8afad" class="outline-3">
-<h3 id="org7a8afad">Same cardinality does not imply the same shape</h3>
-<div class="outline-text-3" id="text-org7a8afad">
+<div id="outline-container-org2dd0f11" class="outline-3">
+<h3 id="org2dd0f11">Same cardinality does not imply the same shape</h3>
+<div class="outline-text-3" id="text-org2dd0f11">
 <p>
 Knowing that an isomorphism exists is enough.
 An isomorphism between types s and t is a proof that for all
@@ -512,9 +532,9 @@ The sum- and product- types have different <i>shapes</i>.
 </div>
 </div>
 
-<div id="outline-container-orge266520" class="outline-3">
-<h3 id="orge266520">Monoidial</h3>
-<div class="outline-text-3" id="text-orge266520">
+<div id="outline-container-org092200f" class="outline-3">
+<h3 id="org092200f">Monoidial</h3>
+<div class="outline-text-3" id="text-org092200f">
 <p>
 <code>()</code> is a Monoidal Identity element for product-types (no information).
 <code>Void</code> is an identity element for sum-types (Void has no members).
@@ -523,9 +543,9 @@ The sum- and product- types have different <i>shapes</i>.
 </div>
 </div>
 
-<div id="outline-container-org9e0ce9a" class="outline-2">
-<h2 id="org9e0ce9a">Exponentials</h2>
-<div class="outline-text-2" id="text-org9e0ce9a">
+<div id="outline-container-org4a63f7b" class="outline-2">
+<h2 id="org4a63f7b">Exponentials</h2>
+<div class="outline-text-2" id="text-org4a63f7b">
 <p>
 The type \(A \rightarrow B\) has cardinality \(B^{A}\) .
 </p>
@@ -538,9 +558,9 @@ so it is \(b \times b \times \dots \times b\) exactly \(a\) times.
 </div>
 </div>
 
-<div id="outline-container-org907ce6f" class="outline-2">
-<h2 id="org907ce6f">Stuff</h2>
-<div class="outline-text-2" id="text-org907ce6f">
+<div id="outline-container-orgb8686bf" class="outline-2">
+<h2 id="orgb8686bf">Stuff</h2>
+<div class="outline-text-2" id="text-orgb8686bf">
 <p>
 described a system with equations that determine how its state evolves
 with time, where the state consists of the values of variables (a
@@ -831,8 +851,8 @@ f $ case x of
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:29</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:31</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

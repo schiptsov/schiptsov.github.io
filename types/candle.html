@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:35 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Candle</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -220,24 +227,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "left",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'left',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -251,16 +271,16 @@ MathJax = {
 We are building the <i>simplest possible</i> mathematical model.
 </p>
 
-<div id="outline-container-org2739b59" class="outline-2">
-<h2 id="org2739b59">A vector from physics</h2>
-<div class="outline-text-2" id="text-org2739b59">
+<div id="outline-container-org55fadcb" class="outline-2">
+<h2 id="org55fadcb">A vector from physics</h2>
+<div class="outline-text-2" id="text-org55fadcb">
 <p>
 <i>Intuitions</i> from physics:
 </p>
 </div>
-<div id="outline-container-org7c79c79" class="outline-3">
-<h3 id="org7c79c79">Force</h3>
-<div class="outline-text-3" id="text-org7c79c79">
+<div id="outline-container-org88b00ec" class="outline-3">
+<h3 id="org88b00ec">Force</h3>
+<div class="outline-text-3" id="text-org88b00ec">
 <p>
 An abstract vector is defined as a <i>direction</i> and a <i>magnitude</i>.
 </p>
@@ -270,17 +290,17 @@ In the simplest model there are just two directions - up and down.
 </p>
 </div>
 </div>
-<div id="outline-container-orga9ec327" class="outline-3">
-<h3 id="orga9ec327">Momentum</h3>
-<div class="outline-text-3" id="text-orga9ec327">
+<div id="outline-container-orgd51a2ad" class="outline-3">
+<h3 id="orgd51a2ad">Momentum</h3>
+<div class="outline-text-3" id="text-orgd51a2ad">
 <p>
 A momentum is defined as a <i>difference</i> between <i>two</i> adjacent <i>vectors</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org8b241a8" class="outline-3">
-<h3 id="org8b241a8">Derivative</h3>
-<div class="outline-text-3" id="text-org8b241a8">
+<div id="outline-container-orgabcf0f4" class="outline-3">
+<h3 id="orgabcf0f4">Derivative</h3>
+<div class="outline-text-3" id="text-orgabcf0f4">
 <p>
 In the simplest model the \(x\) -change is always \(1\) , so the derivative \(\frac{dy}{dx}\)
 is just the <i>difference</i> in the \(y\) coordinate.
@@ -288,9 +308,9 @@ is just the <i>difference</i> in the \(y\) coordinate.
 </div>
 </div>
 </div>
-<div id="outline-container-org1b1a2b2" class="outline-2">
-<h2 id="org1b1a2b2">A product-type</h2>
-<div class="outline-text-2" id="text-org1b1a2b2">
+<div id="outline-container-orgcfc3b9d" class="outline-2">
+<h2 id="orgcfc3b9d">A product-type</h2>
+<div class="outline-text-2" id="text-orgcfc3b9d">
 <p>
 A <code>Candle</code> is by definition a <i>record</i>. Conceptually - a <i>Set of labeled
   slots</i>. Each particular value corresponds to a &ldquo;point&rdquo; or a &ldquo;vector&rdquo;.
@@ -313,9 +333,9 @@ Of course, one could refactor quickly and safely because it is an ADT.
 </p>
 </div>
 </div>
-<div id="outline-container-orgaa0ed43" class="outline-2">
-<h2 id="orgaa0ed43">Parameterized by an interval</h2>
-<div class="outline-text-2" id="text-orgaa0ed43">
+<div id="outline-container-orgee8c4d6" class="outline-2">
+<h2 id="orgee8c4d6">Parameterized by an interval</h2>
+<div class="outline-text-2" id="text-orgee8c4d6">
 <p>
 Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized by its
 <i>size</i> - an <i>interval</i> between two <i>timestamps</i>).
@@ -323,9 +343,9 @@ Ideally, a <code>Candle</code> has to be a <i>dependent type</i> (parameterized 
 </p>
 </div>
 </div>
-<div id="outline-container-org873d4ce" class="outline-2">
-<h2 id="org873d4ce">Deriving Eq, Ord</h2>
-<div class="outline-text-2" id="text-org873d4ce">
+<div id="outline-container-org79dbaf7" class="outline-2">
+<h2 id="org79dbaf7">Deriving Eq, Ord</h2>
+<div class="outline-text-2" id="text-org79dbaf7">
 <p>
 It will have implicit ordering by <i>timestamps</i>.
 </p>
@@ -342,45 +362,45 @@ This implies <code>min</code> and <code>max</code>  can be used directly on the 
 </div>
 </div>
 
-<div id="outline-container-org4690247" class="outline-2">
-<h2 id="org4690247">A Semigroup</h2>
-<div class="outline-text-2" id="text-org4690247">
+<div id="outline-container-org91dd999" class="outline-2">
+<h2 id="org91dd999">A Semigroup</h2>
+<div class="outline-text-2" id="text-org91dd999">
 <p>
 WIth respect to the <i>merging</i> operator \(\bigoplus\).
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Semigroup</span> <span style="color: #8FBCBB;">Candle</span> <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span> (<span style="color: #D8DEE9;">&lt;&gt;</span>) <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
+<pre class="src src-haskell">instance Semigroup Candle where
+  (&lt;&gt;) = ...
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org6cefe7b" class="outline-2">
-<h2 id="org6cefe7b">An abstract Empty Candle</h2>
-<div class="outline-text-2" id="text-org6cefe7b">
+<div id="outline-container-orgd11bb7c" class="outline-2">
+<h2 id="orgd11bb7c">An abstract Empty Candle</h2>
+<div class="outline-text-2" id="text-orgd11bb7c">
 <p>
 Non-existent, abstract <i>identity element</i> \(e\) for the <i>merging</i> operation.
 \[e\bigoplus x = x = x \bigoplus e\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgd7396b4" class="outline-2">
-<h2 id="orgd7396b4">A Monoid</h2>
-<div class="outline-text-2" id="text-orgd7396b4">
+<div id="outline-container-org907fb81" class="outline-2">
+<h2 id="org907fb81">A Monoid</h2>
+<div class="outline-text-2" id="text-org907fb81">
 <p>
 With the <i>identity element</i> \(e\) (an Empty Candle) we will define an <i>instance of a Monoid</i>.
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Monoid</span> <span style="color: #8FBCBB;">Candle</span> <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span> mempty <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
-<span style="background-color: #2E3440;"> </span> mappend <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">...</span>
+<pre class="src src-haskell">instance Monoid Candle where
+  mempty = ...
+  mappend = ...
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org571af05" class="outline-2">
-<h2 id="org571af05">Not an  Endofunctor</h2>
-<div class="outline-text-2" id="text-org571af05">
+<div id="outline-container-org1f2bc35" class="outline-2">
+<h2 id="org1f2bc35">Not an  Endofunctor</h2>
+<div class="outline-text-2" id="text-org1f2bc35">
 <p>
 Any <i>product type</i> looks like an implicit, <i>trivial Endofunctor</i>, provided that a <i>function</i>
 being  mapped over it &ldquo;knows&rdquo; how <i>not to break data consistency</i>.
@@ -390,8 +410,8 @@ being  mapped over it &ldquo;knows&rdquo; how <i>not to break data consistency</
 It is almost as if
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">instance</span> <span style="color: #8FBCBB;">Functor</span> <span style="color: #8FBCBB;">Candle</span> <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span> fmap <span style="color: #D8DEE9;">=</span> (<span style="color: #D8DEE9;">$</span>)
+<pre class="src src-haskell">instance Functor Candle where
+  fmap = ($)
 </pre>
 </div>
 <p>
@@ -415,8 +435,8 @@ an <i>Algebraic Data Type</i> (a product), but not a <i>Functor</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-08-08 Tue 18:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Erlang</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -321,9 +328,9 @@ results, but the problem is that its target platform (the runtime) is
 not designed for true asynchronity - it only <i>emulates</i> it using blocking
 and sharing primitives.
 </p>
-<div id="outline-container-orgb3e1137" class="outline-2">
-<h2 id="orgb3e1137">Why</h2>
-<div class="outline-text-2" id="text-orgb3e1137">
+<div id="outline-container-orgedf2961" class="outline-2">
+<h2 id="orgedf2961">Why</h2>
+<div class="outline-text-2" id="text-orgedf2961">
 <p>
 Conceptually, just like in a general purpose Functional language, functions from a
 <i>module</i> are being evaluated by the language&rsquo;s <i>runtime</i>. The runtime usually does
@@ -378,9 +385,9 @@ arguments. Arguments are used to <i>parameterize and specialize functions</i>.
 </div>
 </div>
 
-<div id="outline-container-org7d54a94" class="outline-2">
-<h2 id="org7d54a94">Websockets and framing in general</h2>
-<div class="outline-text-2" id="text-org7d54a94">
+<div id="outline-container-org3baa889" class="outline-2">
+<h2 id="org3baa889">Websockets and framing in general</h2>
+<div class="outline-text-2" id="text-org3baa889">
 <p>
 It seems, at least in theory, the <code>Erlang</code> is the best language for writing
 advanced client applications - it has the right implementation of &ldquo;core&rdquo;
@@ -412,9 +419,9 @@ uninterrupted effort, but food and money has to come from somewhere.
 </div>
 </div>
 
-<div id="outline-container-orgb2c545a" class="outline-2">
-<h2 id="orgb2c545a">SSL</h2>
-<div class="outline-text-2" id="text-orgb2c545a">
+<div id="outline-container-org5f0082d" class="outline-2">
+<h2 id="org5f0082d">SSL</h2>
+<div class="outline-text-2" id="text-org5f0082d">
 <p>
 Erlang OTP team have done a great job for maintaining the <code>ssl</code> library, but now
 there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/etc/ssl/certs/java/cacerts</code>
@@ -422,9 +429,9 @@ there must be an easy way to let it use <code>/etc/ssl/certs/</code> or <code>/e
 </div>
 </div>
 
-<div id="outline-container-org80fc959" class="outline-2">
-<h2 id="org80fc959">Tools</h2>
-<div class="outline-text-2" id="text-org80fc959">
+<div id="outline-container-org3154fcb" class="outline-2">
+<h2 id="org3154fcb">Tools</h2>
+<div class="outline-text-2" id="text-org3154fcb">
 <p>
 Use <i>Emacs</i> or <i>Vim</i>. Both have support for TAGS and well as modern tooling.
 </p>
@@ -444,24 +451,24 @@ Here is a basic configuration. It uses <i>Doom Emacs</i> macros
 <pre class="src src-elisp"><span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">add-load-path!</span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">car</span> <span style="color: #A3BE8C;">(</span><span style="color: #81A1C1;">file-expand-wildcards</span> <span style="color: #A3BE8C;">"/usr/lib64/erlang/lib/tools-*/emacs"</span><span style="color: #A3BE8C;">)</span><span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
 
 <span style="color: #81A1C1;">(</span><span style="color: #81A1C1;">use-package!</span> erlang
-<span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">erlang-mode</span> . lsp<span style="color: #B48EAD;">)</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">:config</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">erlang-root-dir</span> <span style="color: #A3BE8C;">"/usr/lib64/erlang"</span><span style="color: #B48EAD;">)</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> lsp-ui-doc-enable t<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
+  <span style="color: #81A1C1;">:hook</span> <span style="color: #B48EAD;">(</span><span style="color: #88C0D0;">erlang-mode</span> . lsp<span style="color: #B48EAD;">)</span>
+  <span style="color: #81A1C1;">:config</span>
+  <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> <span style="color: #D8DEE9;">erlang-root-dir</span> <span style="color: #A3BE8C;">"/usr/lib64/erlang"</span><span style="color: #B48EAD;">)</span>
+  <span style="color: #B48EAD;">(</span><span style="color: #81A1C1;">setq</span> lsp-ui-doc-enable t<span style="color: #B48EAD;">)</span><span style="color: #81A1C1;">)</span>
 </pre>
 </div>
 <p>
 And for <code>pre-commit</code>
 </p>
 <div class="org-src-container">
-<pre class="src src-yaml">- <span style="color: #D8DEE9;">repo</span>: local
-  <span style="color: #D8DEE9;">hooks</span>:
-      - <span style="color: #D8DEE9;">id</span>: erlfmt
-        <span style="color: #D8DEE9;">name</span>: erlfmt
-        <span style="color: #D8DEE9;">description</span>: Auto-formatter for Erlang code
-        <span style="color: #D8DEE9;">entry</span>: erlfmt
-        <span style="color: #D8DEE9;">language</span>: system
-        <span style="color: #D8DEE9;">files</span>: <span style="color: #A3BE8C;">"\\.erl$"</span>
+<pre class="src src-yaml">- repo: local
+  hooks:
+      - id: erlfmt
+        name: erlfmt
+        description: Auto-formatter for Erlang code
+        entry: erlfmt
+        language: system
+        files: "\\.erl$"
 </pre>
 </div>
 <p>
@@ -469,37 +476,37 @@ For <i>Neovim</i>, both <code>nvim-lspconfig</code> and <code>null_ls.nvim</code
 <code>erlfmt</code> respectively.
 </p>
 <div class="org-src-container">
-<pre class="src src-lua"><span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">servers</span> = {
-<span style="background-color: #2E3440;"> </span> erlangls = {},
+<pre class="src src-lua">local servers = {
+  erlangls = {},
 }
-<span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">lspconfig</span> = <span style="color: #81A1C1;">require</span> <span style="color: #A3BE8C;">'lspconfig'</span>
-<span style="color: #81A1C1;">for</span> <span style="color: #D8DEE9;">s</span> <span style="color: #81A1C1;">in</span> <span style="color: #81A1C1;">pairs</span>(servers) <span style="color: #81A1C1;">do</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">opts</span> = vim.tbl_deep_extend(<span style="color: #A3BE8C;">'force'</span>, options, servers[s] <span style="color: #81A1C1;">or</span> {})
-<span style="background-color: #2E3440;"> </span> lspconfig[s].setup(opts)
-<span style="color: #81A1C1;">end</span>
+local lspconfig = require 'lspconfig'
+for s in pairs(servers) do
+  local opts = vim.tbl_deep_extend('force', options, servers[s] or {})
+  lspconfig[s].setup(opts)
+end
 </pre>
 </div>
 <p>
 for <code>null_ls</code> that would be something like
 </p>
 <div class="org-src-container">
-<pre class="src src-lua"><span style="background-color: #2E3440;"> </span> <span style="color: #81A1C1;">local</span> <span style="color: #D8DEE9;">nls</span> = <span style="color: #81A1C1;">require</span> <span style="color: #A3BE8C;">'null-ls'</span>
-<span style="background-color: #2E3440;"> </span> nls.setup {
-<span style="background-color: #2E3440;"> </span>   sources = {
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> nls.builtins.formatting.erlfmt,
-<span style="background-color: #2E3440;"> </span>   <span style="background-color: #2E3440;"> </span> },
-<span style="background-color: #2E3440;"> </span>   root_dir = <span style="color: #81A1C1;">require</span>(<span style="color: #A3BE8C;">'null-ls.utils'</span>).root_pattern(<span style="color: #A3BE8C;">'.null-ls-root'</span>, <span style="color: #A3BE8C;">'.nvim.settings.json'</span>, <span style="color: #A3BE8C;">'.git'</span>),
-<span style="background-color: #2E3440;"> </span> }
+<pre class="src src-lua">  local nls = require 'null-ls'
+  nls.setup {
+    sources = {
+      nls.builtins.formatting.erlfmt,
+      },
+    root_dir = require('null-ls.utils').root_pattern('.null-ls-root', '.nvim.settings.json', '.git'),
+  }
 </pre>
 </div>
 <p>
 There are specialized plugins too:
 </p>
 <div class="org-src-container">
-<pre class="src src-lua">use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-tags'</span>, ft = <span style="color: #A3BE8C;">'erlang'</span> }
-use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-compiler'</span>, ft = <span style="color: #A3BE8C;">'erlang'</span> }
-use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-runtime'</span>, ft = <span style="color: #A3BE8C;">'erlang'</span> }
-use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-omnicomplete'</span>, ft = <span style="color: #A3BE8C;">'erlang'</span> }
+<pre class="src src-lua">use { 'vim-erlang/vim-erlang-tags', ft = 'erlang' }
+use { 'vim-erlang/vim-erlang-compiler', ft = 'erlang' }
+use { 'vim-erlang/vim-erlang-runtime', ft = 'erlang' }
+use { 'vim-erlang/vim-erlang-omnicomplete', ft = 'erlang' }
 </pre>
 </div>
 </div>
@@ -508,8 +515,8 @@ use { <span style="color: #A3BE8C;">'vim-erlang/vim-erlang-omnicomplete'</span>,
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:38</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

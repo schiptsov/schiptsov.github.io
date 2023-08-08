@@ -1,170 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 2022-10-04 Tue 16:18 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <title>Minimal Abstraction building blocks</title>
-  <meta name="author" content="&lt;schiptsov@gmail.com&gt;">
-  <meta name="description" content=
-  "Minimal abstractions for a Functional Programmer">
-  <meta name="generator" content="Org Mode">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Fira Sans"
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira Code"
-  rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='/css/main.css'>
-  <link crossorigin="anonymous" media="all" integrity=
-  "sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
-  rel="stylesheet" href=
-  "https://github.githubassets.com/assets/light-92c7d381038e.css">
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
+<!-- 2023-08-08 Tue 18:49 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abstraction barriers</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="description" content="Interfaces, interfaces everywhere." />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-  });
-  </script>
-  <script src=
-  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script>
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
 </head>
 <body>
-  <div id="org-div-home-and-up">
-    <a accesskey="h" href="">UP</a> | <a accesskey="H" href=
-    "index.html">HOME</a>
-  </div>
-  <div id="content" class="content">
-    <header>
-      <h1 class="title">Minimal Abstraction building blocks</h1>
-    </header>
-    <p>The lemma (by me): <i>Unordered abstractions are always
-    imaginary</i>.</p>
-    <p>Everything in biological reality <i>represented in a
-    particular order</i> (which may be a <i>symmetry</i>).</p>
-    <p><i>Reading</i> of a <i>symmetry</i> is relative, it depends
-    on location of an <i>external observer</i>.</p>
-    <p>Persistent (pure functional) data structures are <i>partial
-    functions</i> from a <i>Set</i> of inputs to a <i>Set</i> of
-    outputs.</p>
-    <div id="outline-container-orged3306b" class="outline-2">
-      <h2 id="orged3306b">an Ordered Pair</h2>
-      <div class="outline-text-2" id="text-orged3306b">
-        <p>\[(a,b)\] A <i>minimal abstraction</i> with corresponds
-        to several related <i>notions</i>.</p>
-        <ul class="org-ul">
-          <li><i>one more</i> than one (single) - the number
-          two</li>
-          <li>one <i>and also</i> (<i>together with</i>) another
-          one - a minimal <i>aggregate</i></li>
-        </ul>
-        <p>A <i>Pair</i> is necessarily <i>structually
-        different</i> from a single value. It is a <i>differnt
-        level of abstraction</i> - an <i>aggregate</i>.</p>
-        <p>Represented as</p>
-        <ul class="org-ul">
-          <li>a <i>Set of size 2</i> (unordered)</li>
-          <li>a <i>Tuple</i> (position-based ordering)</li>
-          <li>a <i>List of size 2</i> (position-based
-          ordering)</li>
-          <li>a <i>Record of 2 elements</i> (symbol-tagged)</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-org1f2a862" class="outline-2">
-      <h2 id="org1f2a862">an Arrow</h2>
-      <div class="outline-text-2" id="text-org1f2a862">
-        <p>\[\cdot \mapsto \cdot\] A mapping from one arbitrary
-        value to another (<i>arity</i> of 2)</p>
-        <p>Represented as</p>
-        <ul class="org-ul">
-          <li>an <i>Ordered Pair</i></li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-orgc41eccb" class="outline-2">
-      <h2 id="orgc41eccb">a Set</h2>
-      <div class="outline-text-2" id="text-orgc41eccb">
-        <p>a <i>formal definition</i> of a <i>mental concept</i> (a
-        mental category).</p>
-        <ul class="org-ul">
-          <li>no notion of an <i>order</i></li>
-          <li>no notion of a <i>duplicate</i> (multiple
-          <i>references to the same</i> element)</li>
-          <li>the notion of a <i>membership</i> based on the notion
-          of <i>equality</i></li>
-          <li>the notion of a <i>subset</i> (a <i>selection</i>).
-          may be <i>empty</i> (none) or <i>all</i></li>
-          <li>notion of <i>partitions</i> (non-overlapping
-          <i>subsets</i>) based on a certain <i>property</i> (a
-          <i>disjoint union</i> of non-overlapping
-          <i>subsets</i>)</li>
-        </ul>
-      </div>
-    </div>
-    <div id="outline-container-orgc684eb9" class="outline-2">
-      <h2 id="orgc684eb9">an aList</h2>
-      <div class="outline-text-2" id="text-orgc684eb9">
-        <p><code>[(a,b)]</code> An <i>association list</i> is a
-        List of <i>ordered pairs</i> (itself in some particular
-        order).</p>
-      </div>
-    </div>
-    <div id="outline-container-orgee35883" class="outline-2">
-      <h2 id="orgee35883">a Function</h2>
-      <div class="outline-text-2" id="text-orgee35883">
-        <p>\[A \rightarrow B\] A <i>Set of Arrows</i> from one
-        <i>Set</i> (called <i>domain</i>) to another (called
-        <i>codomain</i>).</p>
-        <p>A function, <i>as a whole</i>, is usually considered as
-        a <i>Set of Ordered Pairs</i> (values drawn from
-        corresponding <i>Sets</i>).</p>
-        <p>Is <i>image</i> is a subset of a <i>Cartesian
-        Product</i> (which is a set of <i>all possible Ordered
-        Pairs</i>). This, BTW, is where <i>structural typing</i>
-        kicks in.</p>
-      </div>
-    </div>
-    <div id="outline-container-org109eea0" class="outline-2">
-      <h2 id="org109eea0">Nesting</h2>
-      <div class="outline-text-2" id="text-org109eea0">
-        <p>\[f (g (x))\] <i>Nesting</i> is the most universal and
-        <i>subtle</i> notion.</p>
-        <p>It corresponds to use of parenthesis in mathematics for
-        <i>gouping (putting together)</i> and for establishing an
-        <i>explicit order of application</i> (of <i>nested</i>
-        operators).</p>
-        <p>The notion of an <i>associative operation</i> is based
-        on the notion of <i>nesting</i>.</p>
-      </div>
-    </div>
-    <div id="outline-container-orgca51415" class="outline-2">
-      <h2 id="orgca51415">a HashMap</h2>
-      <div class="outline-text-2" id="text-orgca51415">
-        <p>A set of <i>keys</i> mapped into a set of
-        <i>values</i>.</p>
-      </div>
-    </div>
-  </div>
-  <div id="postamble" class="status">
-    <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
-    <p class="email">Email: <a href=
-    "mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-    <p class="date">Created: 2022-10-04 Tue 16:18</p>
-  </div>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Abstraction barriers</h1>
+</header><p>
+AUTHOR: &lt;lngnmn2@yahoo.com&gt;
+</p>
+<p>
+First of all, <i>abstraction barriers</i> are very real (not merely abstract notions) and they are literally everywhere (at all levels, from molecular to social).
+</p>
+
+<p>
+The &ldquo;most real&rdquo; abstraction barrier is how what we call &ldquo;atoms&rdquo; are &ldquo;used&rdquo; by molecular (cell) biology. For cells atoms are is how ancient people used to conceptualize them - an atom is indivisible, indestructive, eternal, &ldquo;just is&rdquo;.
+</p>
+
+<p>
+More precisely, cell biology &ldquo;is not concerned&rdquo; with what atoms &ldquo;really are&rdquo; and use them as an abstraction, provided that there is no one to &ldquo;see this&rdquo;, aside from an &ldquo;higher level&rdquo; intelligent observer.
+</p>
+
+<p>
+The <i>behaviors which each atom exhibit</i> (in the observer&rsquo;s terminology &#x2013; the &ldquo;interfaces&rdquo; that &ldquo;atoms provide&rdquo;) are <i>&ldquo;stable enough&rdquo;</i> to build upon.
+</p>
+
+<p>
+So, a &ldquo;physical&rdquo; abstraction and an abstraction of the mind are similar (in principles), being this much distant from one another, and this is not a random coincidence. The mind of an intelligent observer captures and generalizes emergent common patterns, and abstraction barriers are one of the most common patterns out there.
+</p>
+
+<p>
+An <i>abstraction barrier</i>, as a metaphor, is a &ldquo;partition&rdquo; which has two sides. <i>Conceptually</i> (in principle) it has an &ldquo;observable behaviors&rdquo; (an &ldquo;interface&rdquo;) at one side, and hidden actual &ldquo;implementation&rdquo; at the other. The abstraction must be non-leaking to be a <i>proper</i> one. We tend to call them a &ldquo;black box abstraction&rdquo;.  
+</p>
+
+<p>
+The oldest and most prominent &ldquo;proper abstraction&rdquo; is how people interact and even &ldquo;communicate&rdquo; with the world of the dead since beginning of time.
+</p>
+
+<p>
+Again, this is a perfect &ldquo;impenetrable&rdquo; completely &ldquo;black box&rdquo; abstraction made out of words of a language and shared immaterial concepts, which no <i>implementation whatsoever</i> &#x2013; a pure abstract interface (set of observable behaviors), that every human culture produced.
+</p>
+
+<p>
+I have a Tibetan friend who used to interact with the spirits of the dead on burrial grounds (Tibetans have no cemeteries, but they &ldquo;know&rdquo; the locations where spirits are) using some special items (utensils) and &ldquo;words&rdquo; of power, which somehow &ldquo;reach&rdquo; the other world.
+</p>
+
+<p>
+He, literally, uses a public &ldquo;abstract interface&rdquo;, and never concerned himself about the implementation details. 
+</p>
+
+<p>
+So, in general, at a much higher (social) level, we have <i>language-based</i> &ldquo;abstract interfaces&rdquo;, (made out of words associated with make-believe concepts) while very few see and understand them as such.
+</p>
+
+<p>
+Again, as long as an abstraction is <i>non-leaking</i> it can be used. The barrier is penetrable (by the interface being used), but the implementation is completely hidden and can even be non-existent.
+</p>
+
+<p>
+Another example of abstraction is traditional Chinese &ldquo;medicine&rdquo;. It is based on a set of grossly oversimplified, (even bordering naive) abstract notions <i>superimposed</i> on the actual vastly complex reality of batteries, viruses and pathogens.
+</p>
+
+<p>
+They use the notions of an imbalance (the right in principle but too abstract) and of the opposites &ldquo;hot/cold&rdquo;, &ldquo;sweet/sour&rdquo;, etc, and an associated set of rules (oh look, we have an abstract interpreter here).
+</p>
+
+<p>
+Now, how and why this &ldquo;works&rdquo; to any extent? Because while the abstract interface being used is naive, the <i>way</i> it being superimposed and used &ldquo;maps to&rdquo; something real, namely attempts to restore the broken homeostasis by taking appropriate actions, which are usually to change what one intakes along with required behavioral changes.
+</p>
+
+<p>
+This is an actual example of how abstract interfaces actually work, without concerns of what is actually going on at the &ldquo;implementation side&rdquo;.
+</p>
+
+<p>
+Freudian &ldquo;psychology&rdquo; and Marxism are examples of whole abstract theories (that does not care about actual implementations), which are <i>the root of all evil</i> and the literal plague of the last century. Almost everyone is an abstract theorist nowadays, including these race and gender theories. Fucking imbeciles.
+</p>
+
+<p>
+Another canonical example is how the actual wiring of a CPU is completely separated by a few layers of abstraction barriers (both physical and informational) from the level of the code it executes. There is no way in principle to penetrate through these barriers ever.
+</p>
+
+<p>
+More generally, every generalized abstract interpreter implies (establishes and is based upon) such kind of a necessary abstraction barrier, which separates and hides the implementation.
+</p>
+
+<p>
+As the popular meme goes <i>&ldquo;Abstraction is the essence of programming&rdquo;</i>. Well, not just of programming, but of almost everything that is out there.
+</p>
+
+<p>
+Programming inevitable has to be based on this universal notion <i>because</i> it is everywhere in the actual reality.
+</p>
+
+<p>
+A hierarchy of layers upon layers as a universal &ldquo;architecture of complexity&rdquo; is built using &ldquo;penetrable partitions of barriers&rdquo;, which corresponds to cell membranes, organ&rsquo;s outer layers, etc, etc. In short, <i>interfaces, interfaces everywhere</i>.
+</p>
+
+<p>
+The word &ldquo;abstraction&rdquo; itself is grossly overloaded (with liberal arts and humanities bullshit) and causes a lot of confusion, but once we are able to trace the concepts back to What Is, everything becomes clear and &ldquo;clicks&rdquo;.
+</p>
+
+<p>
+One more time, &ldquo;abstraction barriers&rdquo; (non-leaking abstract interfaces and corresponding modules &#x2013; ADTs) is the essence of programming is because they are the essence of everything What Is at all level, from molecular to social.
+</p>
+
+<p>
+Think about it next time you open a code editor.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-08-08 Tue 18:49</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
+</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:35 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Mess We Are In</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -232,9 +239,9 @@ This is a sort of a tribute to Joe Armstrong.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #81A1C1; font-weight: bold;">#include</span> <span style="color: #81A1C1;">&lt;</span><span style="color: #A3BE8C;">iostream</span><span style="color: #81A1C1;">&gt;</span>
+<pre class="src src-cpp"><span style="color: #81A1C1; font-weight: bold;">#include</span> <span style="color: #A3BE8C;">&lt;iostream&gt;</span>
 
-<span style="color: #8FBCBB;">int</span> <span style="color: #88C0D0;">main</span><span style="color: #81A1C1;">()</span> <span style="color: #81A1C1;">{</span> <span style="color: #81A1C1;">std</span>::cout &lt;&lt; <span style="color: #A3BE8C;">"Hello, World!"</span> &lt;&lt; <span style="color: #81A1C1;">std</span>::endl; <span style="color: #81A1C1;">}</span>
+<span style="color: #8FBCBB;">int</span> <span style="color: #88C0D0;">main</span>() { <span style="color: #81A1C1;">std</span>::cout &lt;&lt; <span style="color: #A3BE8C;">"Hello, World!"</span> &lt;&lt; <span style="color: #81A1C1;">std</span>::endl; }
 </pre>
 </div>
 
@@ -248,7 +255,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="org0abb52a">
+<pre class="example" id="orga85172b">
 	linux-vdso.so.1 (0x00007ffc46ed5000)
 	libc++.so.1 =&gt; /usr/lib64/libc++.so.1 (0x00007fa8c2449000)
 	libc++abi.so.1 =&gt; /usr/lib64/libc++abi.so.1 (0x00007fa8c2405000)
@@ -267,7 +274,7 @@ This is a sort of a tribute to Joe Armstrong.
 </pre>
 </div>
 
-<pre class="example" id="orgee17a82">
+<pre class="example" id="org697a9ea">
 a.out:	file format elf64-x86-64
 
 Disassembly of section .text:
@@ -803,16 +810,16 @@ Only Erlang guys did everything right &#x2013; a principle-based research from t
 Shared concurrency for imperative code is a myth. Period.
 </p>
 
-<div id="outline-container-orgdba0ac0" class="outline-2">
-<h2 id="orgdba0ac0">The solutions</h2>
-<div class="outline-text-2" id="text-orgdba0ac0">
+<div id="outline-container-org41f5a79" class="outline-2">
+<h2 id="org41f5a79">The solutions</h2>
+<div class="outline-text-2" id="text-org41f5a79">
 <p>
 There are <i>mathematically-sound theoretical solutions</i>.
 </p>
 </div>
-<div id="outline-container-org22ba1f6" class="outline-3">
-<h3 id="org22ba1f6">Referential transparency</h3>
-<div class="outline-text-3" id="text-org22ba1f6">
+<div id="outline-container-org338ac95" class="outline-3">
+<h3 id="org338ac95">Referential transparency</h3>
+<div class="outline-text-3" id="text-org338ac95">
 <p>
 This is the fundamental property of all <i>binding</i>, both of symbols and <i>within the
 compound and structured data</i> - once <i>bound</i> everything stays forever - does not
@@ -837,9 +844,9 @@ This is the <i>ideal</i> which Haskell community zealously seek to attain.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc1c8f74" class="outline-3">
-<h3 id="orgc1c8f74">At most one mutable reference</h3>
-<div class="outline-text-3" id="text-orgc1c8f74">
+<div id="outline-container-org038ce1a" class="outline-3">
+<h3 id="org038ce1a">At most one mutable reference</h3>
+<div class="outline-text-3" id="text-org038ce1a">
 <p>
 This is another principal theoretical solution, which is <i>partial referential
 transparency</i> so to speak. The state has to be encapsulated into a <i>closure</i>, which
@@ -857,9 +864,9 @@ It is remarkable that an Abstract Data Type is the fundamental building block he
 </p>
 </div>
 </div>
-<div id="outline-container-org5cd4775" class="outline-3">
-<h3 id="org5cd4775">Generalized Abstraction barriers</h3>
-<div class="outline-text-3" id="text-org5cd4775">
+<div id="outline-container-orgd3069f2" class="outline-3">
+<h3 id="orgd3069f2">Generalized Abstraction barriers</h3>
+<div class="outline-text-3" id="text-orgd3069f2">
 <p>
 There are <i>emergent /standard idioms</i> to establish and maintain <i>actual abstraction
 barriers</i>.
@@ -895,9 +902,9 @@ one mutable reference</i>. In Haskell there is no mutation possible in principle
 </ul>
 </div>
 </div>
-<div id="outline-container-org36df48e" class="outline-3">
-<h3 id="org36df48e">Async</h3>
-<div class="outline-text-3" id="text-org36df48e">
+<div id="outline-container-orgf8cb62a" class="outline-3">
+<h3 id="orgf8cb62a">Async</h3>
+<div class="outline-text-3" id="text-orgf8cb62a">
 <p>
 The most adequate case for using a Monad (which is, again, just an ADT,  an
 instance of a standard <i>type-class</i>) is to separate pure functions form async
@@ -916,9 +923,9 @@ between pure mathematical functions and asynchronous procedures.
 </div>
 </div>
 
-<div id="outline-container-org697b08d" class="outline-3">
-<h3 id="org697b08d">A vertical arrow</h3>
-<div class="outline-text-3" id="text-org697b08d">
+<div id="outline-container-orga0c4b79" class="outline-3">
+<h3 id="orga0c4b79">A vertical arrow</h3>
+<div class="outline-text-3" id="text-orga0c4b79">
 <p>
 The fundamental principle is that values could be passed strictly in only one
 direction - <i>into an async context</i>, and never &ldquo;back&rdquo;, which has a deep relation
@@ -934,9 +941,9 @@ defined declaratively), but <i>behind its abstraction barrier</i>, using a disti
 </div>
 </div>
 
-<div id="outline-container-org4e7f6d5" class="outline-3">
-<h3 id="org4e7f6d5">And a horizontal arrow</h3>
-<div class="outline-text-3" id="text-org4e7f6d5">
+<div id="outline-container-orgff1b635" class="outline-3">
+<h3 id="orgff1b635">And a horizontal arrow</h3>
+<div class="outline-text-3" id="text-orgff1b635">
 <p>
 Think of introducing a <i>vertical arrow</i> for &ldquo;lifting of values&rdquo; (which will never
 &ldquo;come back&rdquo; to the pure realm which they have left - notice this <i>finest
@@ -951,9 +958,9 @@ barrier</i> (it is a Kleisli arrow after all) in only one direction, is &ldquo;i
 </p>
 </div>
 </div>
-<div id="outline-container-org87f93b2" class="outline-3">
-<h3 id="org87f93b2">an ADT for ADTs</h3>
-<div class="outline-text-3" id="text-org87f93b2">
+<div id="outline-container-org9c9ff3c" class="outline-3">
+<h3 id="org9c9ff3c">an ADT for ADTs</h3>
+<div class="outline-text-3" id="text-org9c9ff3c">
 <p>
 A Monad, as you see, is a &ldquo;lift&rdquo; (a <i>vertical error</i>) for values and &ldquo;composition&rdquo;
 (<i>specialized dot</i>) for computations in this particular <i>instance</i> or a context.
@@ -972,9 +979,9 @@ fundamental notion of <i>&ldquo;AND ALSO&rdquo;</i> (an instance of) quacks like
 </p>
 </div>
 </div>
-<div id="outline-container-org51d31a0" class="outline-3">
-<h3 id="org51d31a0">Comosition of type-classes</h3>
-<div class="outline-text-3" id="text-org51d31a0">
+<div id="outline-container-org1d74800" class="outline-3">
+<h3 id="org1d74800">Comosition of type-classes</h3>
+<div class="outline-text-3" id="text-org1d74800">
 <p>
 <i>Whole type-classes can be composed</i> (to form a new whole), using instantiation
 (implementing an interface within an ADT <i>module</i>) instead of some explicit
@@ -991,9 +998,9 @@ generalized form Molecular Biology and <i>What Is</i>.
 </div>
 </div>
 
-<div id="outline-container-org81a2834" class="outline-2">
-<h2 id="org81a2834">Erlang</h2>
-<div class="outline-text-2" id="text-org81a2834">
+<div id="outline-container-org5c056dc" class="outline-2">
+<h2 id="org5c056dc">Erlang</h2>
+<div class="outline-text-2" id="text-org5c056dc">
 <p>
 Erlang, being <i>dynamically but strongly</i>-typed language, reinforces abstraction
 barriers at interfaces (where else?). User-facing code is a pure-functional
@@ -1033,9 +1040,9 @@ is also a <i>proper design</i>.
 </p>
 </div>
 
-<div id="outline-container-orgf1490f7" class="outline-3">
-<h3 id="orgf1490f7">Behaviors</h3>
-<div class="outline-text-3" id="text-orgf1490f7">
+<div id="outline-container-org483e3ea" class="outline-3">
+<h3 id="org483e3ea">Behaviors</h3>
+<div class="outline-text-3" id="text-org483e3ea">
 <p>
 These building blocks (at the levels of libraries) can be thought off as
 <i>sets of mutually-recursive generic functions</i> (within a module), being
@@ -1081,8 +1088,8 @@ well as the principles everything is based upon. Erlang is a marvel of craftsman
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

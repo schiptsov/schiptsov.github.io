@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-23 Sun 17:14 -->
+<!-- 2023-08-08 Tue 18:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Why Functional Programming</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -294,9 +301,9 @@ the data bindings</i> (actual immutability and persistence).
 <a href="https://www.youtube.com/watch?v=wASCH_gPnDw">https://www.youtube.com/watch?v=wASCH_gPnDw</a>
 </p>
 
-<div id="outline-container-orgf97c60d" class="outline-2">
-<h2 id="orgf97c60d">Why not Erlang (this time)</h2>
-<div class="outline-text-2" id="text-orgf97c60d">
+<div id="outline-container-org882b19a" class="outline-2">
+<h2 id="org882b19a">Why not Erlang (this time)</h2>
+<div class="outline-text-2" id="text-org882b19a">
 <p>
 Erlang is exceptionally <i>well-researched</i> and <i>principle-guided</i> language (made by
 the people with scientific and mathematical backgrounds) but it is has a  <i>very
@@ -320,9 +327,9 @@ engineering, but it is too complex for a definitive example.
 </p>
 </div>
 </div>
-<div id="outline-container-org7056ce0" class="outline-2">
-<h2 id="org7056ce0">Small tribute to Joe</h2>
-<div class="outline-text-2" id="text-org7056ce0">
+<div id="outline-container-org8d18786" class="outline-2">
+<h2 id="org8d18786">Small tribute to Joe</h2>
+<div class="outline-text-2" id="text-org8d18786">
 <p>
 <i>Erlang</i> is arguably one of the well- (or deep-) researched languages, on par with LISP and ML.
 </p>
@@ -364,9 +371,9 @@ Functional Programmer&rsquo;s view, not incedentally, are closer to what we call
 </p>
 </div>
 </div>
-<div id="outline-container-org3b2cd40" class="outline-2">
-<h2 id="org3b2cd40">The hows</h2>
-<div class="outline-text-2" id="text-org3b2cd40">
+<div id="outline-container-org1a5e3eb" class="outline-2">
+<h2 id="org1a5e3eb">The hows</h2>
+<div class="outline-text-2" id="text-org1a5e3eb">
 <p>
 Clojure is a simple <i>dynamically typed</i> language, which means the compiler does
 almost nothing, but basic type-checking, so all the &ldquo;safety&rdquo; are at the level of
@@ -395,9 +402,9 @@ be over-written, destructively updated, or changed, <i>in principle</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org5b5862b" class="outline-2">
-<h2 id="org5b5862b">The &ldquo;best textbook-like&rdquo; code</h2>
-<div class="outline-text-2" id="text-org5b5862b">
+<div id="outline-container-org5d005ed" class="outline-2">
+<h2 id="org5d005ed">The &ldquo;best textbook-like&rdquo; code</h2>
+<div class="outline-text-2" id="text-org5d005ed">
 <p>
 It seems that there is a particular style of writing code, which is so
 &ldquo;textbook-like&rdquo; as if it has been actually taken from a very principled and
@@ -426,9 +433,9 @@ Coq, and Simon Peyton Jones, of course.
 </p>
 </div>
 </div>
-<div id="outline-container-org2896ffa" class="outline-2">
-<h2 id="org2896ffa">The &ldquo;hard way&rdquo;</h2>
-<div class="outline-text-2" id="text-org2896ffa">
+<div id="outline-container-org80853fc" class="outline-2">
+<h2 id="org80853fc">The &ldquo;hard way&rdquo;</h2>
+<div class="outline-text-2" id="text-org80853fc">
 <p>
 Sometimes it is worth doing things &ldquo;the hard way&rdquo;.
 </p>
@@ -449,9 +456,9 @@ bullshit - they actually write Haskell as they used to write some J2EE).
 </div>
 </div>
 
-<div id="outline-container-org2bba74d" class="outline-2">
-<h2 id="org2bba74d">How will it &ldquo;pay back&rdquo;?</h2>
-<div class="outline-text-2" id="text-org2bba74d">
+<div id="outline-container-org7e3233c" class="outline-2">
+<h2 id="org7e3233c">How will it &ldquo;pay back&rdquo;?</h2>
+<div class="outline-text-2" id="text-org7e3233c">
 <p>
 Doing thing &ldquo;just right&rdquo; (principle-guided with careful attention to details)
 requires a lot of education (<i>to know the whys</i>) and learning by doing (<i>to know
@@ -477,9 +484,9 @@ might want to contribute or fix some bugs. It pays greatly.
 </p>
 </div>
 </div>
-<div id="outline-container-orgdf4e0ec" class="outline-2">
-<h2 id="orgdf4e0ec">Layers of DSLs</h2>
-<div class="outline-text-2" id="text-orgdf4e0ec">
+<div id="outline-container-org68bfdf7" class="outline-2">
+<h2 id="org68bfdf7">Layers of DSLs</h2>
+<div class="outline-text-2" id="text-org68bfdf7">
 <p>
 The idea to partition the code into layers of <i>embedded &ldquo;functional&rdquo; DSLs</i>, each of which interracts only with the layer immediately below it, exports its own functions, and makes no assumptions about the layers above it, is still the most important one in all programming.
 </p>
@@ -505,9 +512,9 @@ Last but not least, aminoacids compose into proteins. They are not Monoids, but 
 </p>
 </div>
 </div>
-<div id="outline-container-orgb69e8c1" class="outline-2">
-<h2 id="orgb69e8c1">Standard Libraries</h2>
-<div class="outline-text-2" id="text-orgb69e8c1">
+<div id="outline-container-orgb98d058" class="outline-2">
+<h2 id="orgb98d058">Standard Libraries</h2>
+<div class="outline-text-2" id="text-orgb98d058">
 <ul class="org-ul">
 <li>Ocaml stdlib</li>
 <li>&ldquo;Core&rdquo; by Jane Street.</li>
@@ -523,8 +530,8 @@ I could argue that
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-23 Sun 17:14</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.7)</p>
+<p class="date">Created: 2023-08-08 Tue 18:39</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

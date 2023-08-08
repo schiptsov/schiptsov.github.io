@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:37 -->
+<!-- 2023-08-08 Tue 18:41 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Self-publishing</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -255,9 +262,9 @@ The main principle is that the <code>org-mode</code> format is the most <i>gener
 This means that one has to write in the most general strucures and then specialize for publishing (without loss of any strucutre, it is actually augmenting or annotating an existing document structure).
 </p>
 
-<div id="outline-container-org4eb13ad" class="outline-2">
-<h2 id="org4eb13ad">Org-mode</h2>
-<div class="outline-text-2" id="text-org4eb13ad">
+<div id="outline-container-org1692895" class="outline-2">
+<h2 id="org1692895">Org-mode</h2>
+<div class="outline-text-2" id="text-org1692895">
 <p>
 The <code>org-mode</code> of GNU Emacs supports all the required nesting and <i>block definitions</i> and <i>tagging</i>, along with the basic export (into commonly used formats) functionality.
 </p>
@@ -272,9 +279,9 @@ Notably, an <code>org-mode</code> file could be exported out of box into <code>p
 </div>
 </div>
 
-<div id="outline-container-orga0610eb" class="outline-2">
-<h2 id="orga0610eb">Pandoc</h2>
-<div class="outline-text-2" id="text-orga0610eb">
+<div id="outline-container-orge965e24" class="outline-2">
+<h2 id="orge965e24">Pandoc</h2>
+<div class="outline-text-2" id="text-orge965e24">
 <p>
 The <code>Pandoc</code> converter does the right thing &#x2013; it parses the source format (of a <i>structured text</i>) into a generalized AST first, and then from that AST it generates an output (the target format).
 </p>
@@ -285,9 +292,9 @@ This is how one gets, say, <code>Markdown</code> or <code>rst</code>, from an <c
 </div>
 </div>
 
-<div id="outline-container-orgb4ecd2c" class="outline-2">
-<h2 id="orgb4ecd2c">Emacs</h2>
-<div class="outline-text-2" id="text-orgb4ecd2c">
+<div id="outline-container-org6492e91" class="outline-2">
+<h2 id="org6492e91">Emacs</h2>
+<div class="outline-text-2" id="text-org6492e91">
 <p>
 The <code>GNU Emacs</code> is a software implementation of a <i>Lisp Machine</i>, which happen to have an editor within it. It could compile and run all your code blocks, pretty-print all your mathematics and check your spelling and your code.
 </p>
@@ -298,9 +305,9 @@ There is objectively nothing better, provided you know how to use it and lots of
 </div>
 </div>
 
-<div id="outline-container-orgfcc2a3c" class="outline-2">
-<h2 id="orgfcc2a3c">The Web</h2>
-<div class="outline-text-2" id="text-orgfcc2a3c">
+<div id="outline-container-org16b8f41" class="outline-2">
+<h2 id="org16b8f41">The Web</h2>
+<div class="outline-text-2" id="text-org16b8f41">
 <p>
 Export to static <code>HTML</code> (and <code>CSS</code>) for a static web-site (just a directory) is the most basic option. It is, however, powerful-enough to render high-quality and aesthetically pleasant content.
 </p>
@@ -311,9 +318,9 @@ The <code>mdbook</code> of the Rust project is the tool of choice for self-publi
 </div>
 </div>
 
-<div id="outline-container-org5c88276" class="outline-2">
-<h2 id="org5c88276">Hugo</h2>
-<div class="outline-text-2" id="text-org5c88276">
+<div id="outline-container-orgc41a66a" class="outline-2">
+<h2 id="orgc41a66a">Hugo</h2>
+<div class="outline-text-2" id="text-orgc41a66a">
 <p>
 Static site <i>generators</i>, such as <code>Hugo</code>, is an &ldquo;advanced&rdquo; option. It supports third-party themes and basic SEO, so a proper <i>delegation</i> (of mundane tasks) is going on.
 </p>
@@ -324,9 +331,9 @@ Fortunately, there is the <code>ox-hugo</code> package for GNU Emacs.
 </div>
 </div>
 
-<div id="outline-container-orge062148" class="outline-2">
-<h2 id="orge062148">Github Pages</h2>
-<div class="outline-text-2" id="text-orge062148">
+<div id="outline-container-org1ab8925" class="outline-2">
+<h2 id="org1ab8925">Github Pages</h2>
+<div class="outline-text-2" id="text-org1ab8925">
 <p>
 It seems that the only remained <i>censorship-resistant</i> (or at least tolerable) free hosting is the Github Pages facility. It was originally designed for <code>Jekill</code>, but can host basically any <i>static html directory</i>.
 </p>
@@ -340,8 +347,8 @@ This is where to publish your stuff.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:37</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:41</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:37 -->
+<!-- 2023-08-08 Tue 18:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Uniformity</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -231,9 +238,9 @@
 Decent languages are (and must be) as uniform as pure mathematics.
 </p>
 
-<div id="outline-container-org1d9659d" class="outline-2">
-<h2 id="org1d9659d">Everything is a value</h2>
-<div class="outline-text-2" id="text-org1d9659d">
+<div id="outline-container-orgb35e545" class="outline-2">
+<h2 id="orgb35e545">Everything is a value</h2>
+<div class="outline-text-2" id="text-orgb35e545">
 <p>
 Referencing (bindings) are uniform in decent languages - <i>everything is a value</i>.
 </p>
@@ -256,23 +263,23 @@ Languages of the ML-family have <i>let-bindings</i>, explicit and implicit. LISP
 bind functions in <i>let expressions</i> too.
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">let</span> double <span style="color: #D8DEE9;">=</span> <span style="color: #D8DEE9;">\</span>x <span style="color: #D8DEE9;">-&gt;</span> x <span style="color: #D8DEE9;">*</span> x
+<pre class="src src-haskell">let double = \x -&gt; x * x
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbae9f03" class="outline-2">
-<h2 id="orgbae9f03">Immutability</h2>
-<div class="outline-text-2" id="text-orgbae9f03">
+<div id="outline-container-org529e86d" class="outline-2">
+<h2 id="org529e86d">Immutability</h2>
+<div class="outline-text-2" id="text-org529e86d">
 <p>
 Nothing is over-written (destructively updated). New <i>bindings</i> are created (shadowing) and
 new values are linked instead.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb49e246" class="outline-2">
-<h2 id="orgb49e246">Referential transparency</h2>
-<div class="outline-text-2" id="text-orgb49e246">
+<div id="outline-container-org7f6c10b" class="outline-2">
+<h2 id="org7f6c10b">Referential transparency</h2>
+<div class="outline-text-2" id="text-org7f6c10b">
 <p>
 This is the fundamental property of arithmetic expressions, which leads to
 algebraic (equational) reasoning.
@@ -289,9 +296,9 @@ functions. Since early LISPs, the ML-family of languages and Scheme we strive fo
 </p>
 </div>
 </div>
-<div id="outline-container-org2fdab67" class="outline-2">
-<h2 id="org2fdab67">Pattern-matching everywhere</h2>
-<div class="outline-text-2" id="text-org2fdab67">
+<div id="outline-container-org4fc6c46" class="outline-2">
+<h2 id="org4fc6c46">Pattern-matching everywhere</h2>
+<div class="outline-text-2" id="text-org4fc6c46">
 <p>
 Just like in Erlang, everything on the <i>left-hand side</i> (including <i>function
 .arguments</i>) is a pattern.
@@ -317,9 +324,9 @@ Notice each individual clause is just a <i>partial function</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgee0dd03" class="outline-2">
-<h2 id="orgee0dd03">Erlang&rsquo;s receive</h2>
-<div class="outline-text-2" id="text-orgee0dd03">
+<div id="outline-container-orgefe1400" class="outline-2">
+<h2 id="orgefe1400">Erlang&rsquo;s receive</h2>
+<div class="outline-text-2" id="text-orgefe1400">
 <p>
 The <code>receive</code> <i>expression</i> in Erlang is just the same as generalized
 pattern-matching  <code>case</code> expression or a <i>multi-clause function</i>, defined using
@@ -336,9 +343,9 @@ This is the major innovation of Erlang.
 </p>
 </div>
 </div>
-<div id="outline-container-org7198122" class="outline-2">
-<h2 id="org7198122">List comprehensions</h2>
-<div class="outline-text-2" id="text-org7198122">
+<div id="outline-container-org39d0e74" class="outline-2">
+<h2 id="org39d0e74">List comprehensions</h2>
+<div class="outline-text-2" id="text-org39d0e74">
 <p>
 Haskell and Erlang have a generalized <i>list-comprehension</i> notation. Every
 comprehension is an <i>expression</i>, of course.
@@ -360,8 +367,8 @@ This, by the way, is a half of all programming.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:37</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:40</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:37 -->
+<!-- 2023-08-08 Tue 18:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Functional Programming</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -229,9 +236,9 @@
 <header>
 <h1 class="title">Functional Programming</h1>
 </header>
-<div id="outline-container-org18628ae" class="outline-2">
-<h2 id="org18628ae">High-level view</h2>
-<div class="outline-text-2" id="text-org18628ae">
+<div id="outline-container-org55b52b5" class="outline-2">
+<h2 id="org55b52b5">High-level view</h2>
+<div class="outline-text-2" id="text-org55b52b5">
 <p>
 A <i>program</i> (or just a single function) is a <i>precise specification</i> of a
 <i>process</i> detailed-enough to be executed by an abstract machine.
@@ -288,9 +295,9 @@ Functional Programming (as a pradigm).
 </p>
 </div>
 
-<div id="outline-container-org1d3831c" class="outline-3">
-<h3 id="org1d3831c">Structured programming - programming with</h3>
-<div class="outline-text-3" id="text-org1d3831c">
+<div id="outline-container-orgf2a7241" class="outline-3">
+<h3 id="orgf2a7241">Structured programming - programming with</h3>
+<div class="outline-text-3" id="text-orgf2a7241">
 <ul class="org-ul">
 <li>sequencing (<i>nesting</i> of expressions and function calls)</li>
 <li>branching (if, cond)</li>
@@ -302,9 +309,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </p>
 </div>
 </div>
-<div id="outline-container-orgd5ccc35" class="outline-3">
-<h3 id="orgd5ccc35">Functional (extended lambda calculus - system F (w))</h3>
-<div class="outline-text-3" id="text-orgd5ccc35">
+<div id="outline-container-org41e6b21" class="outline-3">
+<h3 id="org41e6b21">Functional (extended lambda calculus - system F (w))</h3>
+<div class="outline-text-3" id="text-org41e6b21">
 <ul class="org-ul">
 <li>everything is an <i>expression</i> (can be reduced to a <i>value</i>)</li>
 <li>mathematical functions (<i>closures</i>)</li>
@@ -313,9 +320,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc6ba594" class="outline-3">
-<h3 id="orgc6ba594">Modular (with abstract interfaces, algebraic types)</h3>
-<div class="outline-text-3" id="text-orgc6ba594">
+<div id="outline-container-orga8e9716" class="outline-3">
+<h3 id="orga8e9716">Modular (with abstract interfaces, algebraic types)</h3>
+<div class="outline-text-3" id="text-orga8e9716">
 <ul class="org-ul">
 <li>a separate module for every <i>major type</i> (loosely coupled)</li>
 <li>a stable <i>abstract interface</i> for each module (ADTs)</li>
@@ -324,9 +331,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdd72d3e" class="outline-3">
-<h3 id="orgdd72d3e">Algebraic types</h3>
-<div class="outline-text-3" id="text-orgdd72d3e">
+<div id="outline-container-org7919c56" class="outline-3">
+<h3 id="org7919c56">Algebraic types</h3>
+<div class="outline-text-3" id="text-org7919c56">
 <ul class="org-ul">
 <li><i>sum-types</i> and pattern-mating on them</li>
 <li><i>product-types</i> (records or &ldquo;structs&rdquo;)</li>
@@ -334,9 +341,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfa69ee9" class="outline-3">
-<h3 id="orgfa69ee9">Beautiful tools of the trade</h3>
-<div class="outline-text-3" id="text-orgfa69ee9">
+<div id="outline-container-orgacaec4d" class="outline-3">
+<h3 id="orgacaec4d">Beautiful tools of the trade</h3>
+<div class="outline-text-3" id="text-orgacaec4d">
 <ul class="org-ul">
 <li>currying</li>
 <li>partial application</li>
@@ -346,9 +353,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </ul>
 </div>
 </div>
-<div id="outline-container-org39a5237" class="outline-3">
-<h3 id="org39a5237">When there is nothing mode to remove</h3>
-<div class="outline-text-3" id="text-org39a5237">
+<div id="outline-container-org59d9ec3" class="outline-3">
+<h3 id="org59d9ec3">When there is nothing mode to remove</h3>
+<div class="outline-text-3" id="text-org59d9ec3">
 <ul class="org-ul">
 <li>types: capture the actual concepts or patterns</li>
 <li>functions: do just one thing but do it well (just right)</li>
@@ -357,9 +364,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </div>
 </div>
 
-<div id="outline-container-org2e26370" class="outline-3">
-<h3 id="org2e26370">Embeded DSLs</h3>
-<div class="outline-text-3" id="text-org2e26370">
+<div id="outline-container-orgb1e3846" class="outline-3">
+<h3 id="orgb1e3846">Embeded DSLs</h3>
+<div class="outline-text-3" id="text-orgb1e3846">
 <ul class="org-ul">
 <li>sets of <i>high-order functions</i> based on domain-specific ADTs</li>
 <li>this is the way to design rich <i>libraries</i></li>
@@ -367,9 +374,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </div>
 </div>
 
-<div id="outline-container-org0667e7b" class="outline-3">
-<h3 id="org0667e7b">Interfaces</h3>
-<div class="outline-text-3" id="text-org0667e7b">
+<div id="outline-container-org619a870" class="outline-3">
+<h3 id="org619a870">Interfaces</h3>
+<div class="outline-text-3" id="text-org619a870">
 <ul class="org-ul">
 <li>sets of type-signatures.</li>
 <li>simple, <i>consistent at a use-side</i></li>
@@ -377,9 +384,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </div>
 </div>
 
-<div id="outline-container-org12ca6d6" class="outline-3">
-<h3 id="org12ca6d6">Protocols</h3>
-<div class="outline-text-3" id="text-org12ca6d6">
+<div id="outline-container-org411d0f7" class="outline-3">
+<h3 id="org411d0f7">Protocols</h3>
+<div class="outline-text-3" id="text-org411d0f7">
 <ul class="org-ul">
 <li>sets of <i>rules</i> and related data types (this!)</li>
 <li>corresponds to the physical <i>constraints</i> of the environment</li>
@@ -388,9 +395,9 @@ And this is really <i>all</i> that is there (nothing more to take away).
 </div>
 </div>
 </div>
-<div id="outline-container-orgfa13d89" class="outline-2">
-<h2 id="orgfa13d89">Principles</h2>
-<div class="outline-text-2" id="text-orgfa13d89">
+<div id="outline-container-org17ec1c5" class="outline-2">
+<h2 id="org17ec1c5">Principles</h2>
+<div class="outline-text-2" id="text-org17ec1c5">
 <p>
 Design with <i>modules</i> and <i>interfaces</i> (higher level) which corresponds
 to the core parts of the <i>mathematical model</i> of the domain.
@@ -422,9 +429,9 @@ instances of common and standard <i>type-classes</i>.
 </ul>
 </div>
 </div>
-<div id="outline-container-org8ee647a" class="outline-2">
-<h2 id="org8ee647a">Design</h2>
-<div class="outline-text-2" id="text-org8ee647a">
+<div id="outline-container-org4be81c4" class="outline-2">
+<h2 id="org4be81c4">Design</h2>
+<div class="outline-text-2" id="text-org4be81c4">
 <p>
 Function <i>type-signatures</i> and <i>module-signatures</i> provide a lightweight
 tool for constructing a skeleton (a hierarchy of layers, layout) of your
@@ -432,9 +439,9 @@ tool for constructing a skeleton (a hierarchy of layers, layout) of your
 </p>
 </div>
 </div>
-<div id="outline-container-org95b47e0" class="outline-2">
-<h2 id="org95b47e0">Modules</h2>
-<div class="outline-text-2" id="text-org95b47e0">
+<div id="outline-container-org2ac58b7" class="outline-2">
+<h2 id="org2ac58b7">Modules</h2>
+<div class="outline-text-2" id="text-org2ac58b7">
 <p>
 Factor out the key functionality into a separate module with an explicit
 interface (signature).
@@ -459,8 +466,8 @@ the primary type of a given module should be called <code>t</code>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:37</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:40</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

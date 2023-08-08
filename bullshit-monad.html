@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:38 -->
+<!-- 2023-08-08 Tue 18:42 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bullshit Monad</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -252,9 +259,9 @@ There is literally 2/3 of fundamental Computer Science entangled in this &ldquo;
 <p>
 The <i>locus</i> (of programming) consist of:
 </p>
-<div id="outline-container-org8a7774c" class="outline-2">
-<h2 id="org8a7774c">Interfaces</h2>
-<div class="outline-text-2" id="text-org8a7774c">
+<div id="outline-container-org42c184f" class="outline-2">
+<h2 id="org42c184f">Interfaces</h2>
+<div class="outline-text-2" id="text-org42c184f">
 <p>
 A <i>minimal interface</i> is a single <i>typed lambda</i>. (We do not talk about <i>empty interfaces</i>).
 </p>
@@ -269,9 +276,9 @@ This is how to make DSLs out of lambdas.
 </p>
 </div>
 </div>
-<div id="outline-container-orgffce660" class="outline-2">
-<h2 id="orgffce660">Modules</h2>
-<div class="outline-text-2" id="text-orgffce660">
+<div id="outline-container-org24667e9" class="outline-2">
+<h2 id="org24667e9">Modules</h2>
+<div class="outline-text-2" id="text-org24667e9">
 <p>
 A <i>minimal module</i> is one that exports a single such <i>typed lambda</i>. This is rather
 orthogonal concept for structuring the code, but it can be taken to a higher
@@ -280,9 +287,9 @@ specialization or compose &ldquo;traits&rdquo;).
 </p>
 </div>
 </div>
-<div id="outline-container-orgef84bf6" class="outline-2">
-<h2 id="orgef84bf6">Just an ADT</h2>
-<div class="outline-text-2" id="text-orgef84bf6">
+<div id="outline-container-orgf31e9d1" class="outline-2">
+<h2 id="orgf31e9d1">Just an ADT</h2>
+<div class="outline-text-2" id="text-orgf31e9d1">
 <p>
 A minimal ADT is a <i>non-leaking</i> abstract type, defined only in terms of <i>exported
 interface</i> (a set of <i>operations</i>) and informally stated <i>relations</i> or &ldquo;laws&rdquo; among them.
@@ -301,9 +308,9 @@ Everything builds upon this <i>required principle</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org817ba80" class="outline-2">
-<h2 id="org817ba80">A &ldquo;class&rdquo; for Types (ADTs)</h2>
-<div class="outline-text-2" id="text-org817ba80">
+<div id="outline-container-org4ccc54a" class="outline-2">
+<h2 id="org4ccc54a">A &ldquo;class&rdquo; for Types (ADTs)</h2>
+<div class="outline-text-2" id="text-org4ccc54a">
 <p>
 This unfortunate, crappy OO terminology confuses everyone. A <i>type-class</i> defines
 a <i>shape</i> of a <i>Trait</i> via required set interfaces (and informally stated &ldquo;laws&rdquo; and
@@ -317,18 +324,18 @@ instance of it.
 </div>
 </div>
 
-<div id="outline-container-org1ef31d8" class="outline-2">
-<h2 id="org1ef31d8">And also an instance of a&#x2026;</h2>
-<div class="outline-text-2" id="text-org1ef31d8">
+<div id="outline-container-org6a33a14" class="outline-2">
+<h2 id="org6a33a14">And also an instance of a&#x2026;</h2>
+<div class="outline-text-2" id="text-org6a33a14">
 <p>
 This is the famous <i>Duck Typing</i> (walks like a duck and quacks like a duck). This literally means that an ADT <i>implements</i> another set of interfaces (and the
 required &ldquo;laws&rdquo; and invariants)
 </p>
 </div>
 </div>
-<div id="outline-container-org8845e3f" class="outline-2">
-<h2 id="org8845e3f">Universal patterns</h2>
-<div class="outline-text-2" id="text-org8845e3f">
+<div id="outline-container-orgf27825a" class="outline-2">
+<h2 id="orgf27825a">Universal patterns</h2>
+<div class="outline-text-2" id="text-orgf27825a">
 <p>
 The abstract concept itself is too general, so Monads have <i>specializations</i>, and
 <i>which particular Monad</i> is another question.
@@ -341,9 +348,9 @@ as a cell membrane (a partition).
 </p>
 </div>
 
-<div id="outline-container-org97f33b4" class="outline-3">
-<h3 id="org97f33b4">Passing a context along</h3>
-<div class="outline-text-3" id="text-org97f33b4">
+<div id="outline-container-org6c519c9" class="outline-3">
+<h3 id="org6c519c9">Passing a context along</h3>
+<div class="outline-text-3" id="text-org6c519c9">
 <p>
 A context could be passed explicitly as a <i>parameter</i> (<i>partially applied</i> or not)
 or implicitly as an <i>implicit parameter</i> (in languages which support implicits).
@@ -384,9 +391,9 @@ done <i>at runtime</i>.
 </div>
 </div>
 
-<div id="outline-container-orgd433b7e" class="outline-3">
-<h3 id="orgd433b7e">Nesting of pure functions</h3>
-<div class="outline-text-3" id="text-orgd433b7e">
+<div id="outline-container-org6ca8024" class="outline-3">
+<h3 id="org6ca8024">Nesting of pure functions</h3>
+<div class="outline-text-3" id="text-org6ca8024">
 <ul class="org-ul">
 <li>Nesting is how one defines (or establishes) an explicit <i>order of evaluation</i>.</li>
 </ul>
@@ -394,15 +401,15 @@ done <i>at runtime</i>.
 </div>
 </div>
 
-<div id="outline-container-org4e52c04" class="outline-2">
-<h2 id="org4e52c04">Abstraction barrier</h2>
+<div id="outline-container-org6711332" class="outline-2">
+<h2 id="org6711332">Abstraction barrier</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:38</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:42</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

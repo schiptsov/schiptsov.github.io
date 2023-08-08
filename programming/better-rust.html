@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:37 -->
+<!-- 2023-08-08 Tue 18:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>A better Rust</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -250,9 +257,9 @@ At a higher level Rust adds stricter type-discipline for <i>references</i>, and 
 <p>
 Aside from <code>&amp;str</code>, the grow-able &ldquo;Buffer&rdquo; types are just proper <i>ADTs</i>, which is exactly the right thing.
 </p>
-<div id="outline-container-org4ecfb53" class="outline-2">
-<h2 id="org4ecfb53">Type inference</h2>
-<div class="outline-text-2" id="text-org4ecfb53">
+<div id="outline-container-orgd9c2289" class="outline-2">
+<h2 id="orgd9c2289">Type inference</h2>
+<div class="outline-text-2" id="text-orgd9c2289">
 <p>
 There are some <i>new principles</i>, which emerged in classic languages with a type-inference.
 </p>
@@ -267,9 +274,9 @@ This means one should take a greater care of writing literals and omit the type 
 </div>
 </div>
 
-<div id="outline-container-orgcb7b162" class="outline-2">
-<h2 id="orgcb7b162">Immutable References</h2>
-<div class="outline-text-2" id="text-orgcb7b162">
+<div id="outline-container-org6490393" class="outline-2">
+<h2 id="org6490393">Immutable References</h2>
+<div class="outline-text-2" id="text-org6490393">
 <p>
 These are explicit variants of <i>immutable bindings</i> in classic functional languages. Old binding become &ldquo;invisible&rdquo; (but still valid) with shadowing.
 </p>
@@ -280,9 +287,9 @@ These are explicit variants of <i>immutable bindings</i> in classic functional l
 </div>
 </div>
 
-<div id="outline-container-orgd839b56" class="outline-2">
-<h2 id="orgd839b56">Bindings</h2>
-<div class="outline-text-2" id="text-orgd839b56">
+<div id="outline-container-orge712c4f" class="outline-2">
+<h2 id="orge712c4f">Bindings</h2>
+<div class="outline-text-2" id="text-orge712c4f">
 <p>
 Unlike the classic functional languages, Rust has <i>assignment</i>, which <i>conceptually</i> is similar to <i>moving a value to a new location</i>.
 </p>
@@ -305,9 +312,9 @@ Conceptually, a variable (location in memory) &ldquo;owns&rdquo; a value, and th
 </div>
 </div>
 
-<div id="outline-container-orgf152bce" class="outline-2">
-<h2 id="orgf152bce">Ownership</h2>
-<div class="outline-text-2" id="text-orgf152bce">
+<div id="outline-container-orgbbb832b" class="outline-2">
+<h2 id="orgbbb832b">Ownership</h2>
+<div class="outline-text-2" id="text-orgbbb832b">
 <p>
 Every value is &ldquo;owned&rdquo; by exactly one vaeiable and is moved from one to another with an <i>assignemrny</i>.
 </p>
@@ -334,9 +341,9 @@ This is so-called &ldquo;resource safety&rdquo; - cannot access what one does no
 </div>
 </div>
 
-<div id="outline-container-orgdb5e0b9" class="outline-2">
-<h2 id="orgdb5e0b9">Borrowing</h2>
-<div class="outline-text-2" id="text-orgdb5e0b9">
+<div id="outline-container-orgb906186" class="outline-2">
+<h2 id="orgb906186">Borrowing</h2>
+<div class="outline-text-2" id="text-orgb906186">
 <p>
 This is a <i>meme-word</i> for using <i>references</i> (both immutable and mutable).
 </p>
@@ -363,9 +370,9 @@ The compiler imposes additional discipline by tracking all the referenes and the
 </div>
 </div>
 
-<div id="outline-container-orgcf26146" class="outline-2">
-<h2 id="orgcf26146">Mutable references</h2>
-<div class="outline-text-2" id="text-orgcf26146">
+<div id="outline-container-orga3f2451" class="outline-2">
+<h2 id="orga3f2451">Mutable references</h2>
+<div class="outline-text-2" id="text-orga3f2451">
 <p>
 At every moment in time (it is still an imperative language) there guaranteed (by static typing) to me <i>at most one mutable reference</i> to the data.
 </p>
@@ -380,9 +387,9 @@ When a mutable reference is being taken, all other references becomes <i>invalid
 </div>
 </div>
 
-<div id="outline-container-org3c77bfe" class="outline-2">
-<h2 id="org3c77bfe">Lifetimes</h2>
-<div class="outline-text-2" id="text-org3c77bfe">
+<div id="outline-container-org5ec5f9e" class="outline-2">
+<h2 id="org5ec5f9e">Lifetimes</h2>
+<div class="outline-text-2" id="text-org5ec5f9e">
 <p>
 Rust tracks <i>ligetimes</i> of all values and references. This prevents &ldquo;use after free&rdquo; and &ldquo;dangling references&rdquo; at the type-system level.
 </p>
@@ -400,9 +407,9 @@ It allows to <i>annotate lifetimes</i> of a value and its references (<i>to be t
 </p>
 </div>
 </div>
-<div id="outline-container-org26c4ca7" class="outline-2">
-<h2 id="org26c4ca7">The Move Semantics by default</h2>
-<div class="outline-text-2" id="text-org26c4ca7">
+<div id="outline-container-orgb5e70ce" class="outline-2">
+<h2 id="orgb5e70ce">The Move Semantics by default</h2>
+<div class="outline-text-2" id="text-orgb5e70ce">
 <p>
 Again, just like <code>mov</code> CPU instruction, values conceptually &ldquo;move&rdquo; with an assignment (<i>as if</i> to a new memory location - into a new variable).
 </p>
@@ -431,9 +438,9 @@ is really cool.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb8bb5a4" class="outline-2">
-<h2 id="orgb8bb5a4">Methods</h2>
-<div class="outline-text-2" id="text-orgb8bb5a4">
+<div id="outline-container-orgbe353d8" class="outline-2">
+<h2 id="orgbe353d8">Methods</h2>
+<div class="outline-text-2" id="text-orgbe353d8">
 <p>
 This is the modularity aspect, when a value &ldquo;carries all its methods with it&rdquo;. According to <i>Joe Armstrong</i>, this is just a fundamentally wrong notion, but it seems OK as long as it just a syntactic sugar for calling a function with an implicit zrtoth argument (the self).
 </p>
@@ -452,9 +459,9 @@ Nowadays Rust generalizes this to most <i>user-defined</i> &ldquo;compound&rdquo
 </div>
 </div>
 
-<div id="outline-container-orgf6b7bdf" class="outline-2">
-<h2 id="orgf6b7bdf">Traits</h2>
-<div class="outline-text-2" id="text-orgf6b7bdf">
+<div id="outline-container-org143794f" class="outline-2">
+<h2 id="org143794f">Traits</h2>
+<div class="outline-text-2" id="text-org143794f">
 <p>
 Similar to <i>type-classes</i> &#x2013; a <i>composition</i> (a <i>product</i> of methods) instead of <i>inheritance</i> (a set-subset operation).
 </p>
@@ -468,8 +475,8 @@ Again, this is the right thing to do (not everything in the Universe breaks into
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:37</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:40</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

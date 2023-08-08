@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 20:03 -->
+<!-- 2023-08-08 Tue 18:42 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Monads</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -256,9 +263,9 @@ Parameters of a function, an <i>abstract interface</i> of an ADT, a <i>required 
 The same pattern is everywhere. The confusing part is too many abstractions and wrong abstractions.
 </p>
 
-<div id="outline-container-org0dda91f" class="outline-2">
-<h2 id="org0dda91f">The cell membrane &ldquo;pattern&rdquo;</h2>
-<div class="outline-text-2" id="text-org0dda91f">
+<div id="outline-container-org62b9ea4" class="outline-2">
+<h2 id="org62b9ea4">The cell membrane &ldquo;pattern&rdquo;</h2>
+<div class="outline-text-2" id="text-org62b9ea4">
 <p>
 Another <i>emergent</i> &ldquo;high level&rdquo; pattern is that use of <i>Monads</i> for I/O &ldquo;naturally&rdquo; <i>partition</i> (and layer up) the code in a way that &ldquo;pushes I/O <i>to the outermost layer</i>, behind an absreaction barrier&rdquo;, as if to a &ldquo;cell membrane&rdquo;.
 </p>
@@ -276,28 +283,28 @@ I will explain some details below.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc6d7197" class="outline-2">
-<h2 id="orgc6d7197">The Kleisli arrow.</h2>
-<div class="outline-text-2" id="text-orgc6d7197">
+<div id="outline-container-org705df41" class="outline-2">
+<h2 id="org705df41">The Kleisli arrow.</h2>
+<div class="outline-text-2" id="text-org705df41">
 <p>
 Today I am not in the mood for going again through all the details and derivations. In short, a <i>Kleisli Arrow</i> is an abstraction which captures the notion of a function (morphism) which <i>lifts its result into a monad</i> or of <i>crossing an abstraction barrier</i>.
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">return</span> <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> m a
+<pre class="src src-haskell">return :: Monad m =&gt; a -&gt; m a
 </pre>
 </div>
 <p>
 There is a <i>composition operator</i> for such &ldquo;arrows&rdquo;, defined as &ldquo;fish&rdquo; <code>&lt;=&lt;</code>
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">(<span style="color: #88C0D0;">&lt;=&lt;</span>) <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #D8DEE9;">=&gt;</span> (b <span style="color: #D8DEE9;">-&gt;</span> m c) <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> m b) <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> m c
+<pre class="src src-haskell">(&lt;=&lt;) :: Monad m =&gt; (b -&gt; m c) -&gt; (a -&gt; m b) -&gt; a -&gt; m c
 </pre>
 </div>
 <p>
 When we look at the types, leaving all the category theoretic bullshit aside, we may notice that we have seen this pattern before:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">(<span style="color: #88C0D0;">.</span>) <span style="color: #D8DEE9;">::</span> (b <span style="color: #D8DEE9;">-&gt;</span> c) <span style="color: #D8DEE9;">-&gt;</span> (a <span style="color: #D8DEE9;">-&gt;</span> b) <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> c
+<pre class="src src-haskell">(.) :: (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </pre>
 </div>
 <p>
@@ -345,15 +352,15 @@ Take your time.
 </p>
 </div>
 </div>
-<div id="outline-container-org34b481c" class="outline-2">
-<h2 id="org34b481c">Tracing the abstractions back to What Is.</h2>
+<div id="outline-container-org9d859fc" class="outline-2">
+<h2 id="org9d859fc">Tracing the abstractions back to What Is.</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 20:03</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:42</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

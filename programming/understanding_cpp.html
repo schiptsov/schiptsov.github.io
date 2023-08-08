@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-08-08 Tue 18:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Understanding C++</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -275,9 +282,9 @@ special mindset (to ignore and to feel nothing about all the verbose, redundant
 crap, inhuman syntax, and just to write down the fucking code).
 </p>
 
-<div id="outline-container-org9c54c2a" class="outline-2">
-<h2 id="org9c54c2a">Generalization over hardware abstractions</h2>
-<div class="outline-text-2" id="text-org9c54c2a">
+<div id="outline-container-orga031ae9" class="outline-2">
+<h2 id="orga031ae9">Generalization over hardware abstractions</h2>
+<div class="outline-text-2" id="text-orga031ae9">
 <p>
 The basic machine <i>model</i> of <code>C</code> and <code>C++</code> is based on an <i>abstraction</i> of a computer
 hardware architecture, rather than some form of <i>mathematics</i>. This explains so
@@ -358,9 +365,9 @@ extra argument).
 </div>
 </div>
 
-<div id="outline-container-orgfc08215" class="outline-2">
-<h2 id="orgfc08215">&ldquo;Just right&rdquo; mathematical abstractions</h2>
-<div class="outline-text-2" id="text-orgfc08215">
+<div id="outline-container-org694072f" class="outline-2">
+<h2 id="org694072f">&ldquo;Just right&rdquo; mathematical abstractions</h2>
+<div class="outline-text-2" id="text-org694072f">
 <p>
 A value is a <i>sequence</i> of bits interpreted according to a type (using a machine representation).
 </p>
@@ -432,9 +439,9 @@ machine abstractions. This is the key for the right understanding.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf25eded" class="outline-2">
-<h2 id="orgf25eded">Standard Libraries</h2>
-<div class="outline-text-2" id="text-orgf25eded">
+<div id="outline-container-org3c6a0c3" class="outline-2">
+<h2 id="org3c6a0c3">Standard Libraries</h2>
+<div class="outline-text-2" id="text-org3c6a0c3">
 <p>
 A standard library of any decent language is an idiomatic code to read. It also
 show how good the language is.
@@ -445,9 +452,9 @@ The <code>C++</code> standard library, including STL, is written in itself, and 
 </p>
 </div>
 </div>
-<div id="outline-container-org6703e6e" class="outline-2">
-<h2 id="org6703e6e">The -std=c++XX argument</h2>
-<div class="outline-text-2" id="text-org6703e6e">
+<div id="outline-container-orgad03144" class="outline-2">
+<h2 id="orgad03144">The -std=c++XX argument</h2>
+<div class="outline-text-2" id="text-orgad03144">
 <p>
 First of all, <i>strings</i> in C++11, C++14 and C++17 are not the same. An idiomatic
 C++ code will compile but won&rsquo;t link (due to the subtle differences in <i>mangling</i>).
@@ -481,8 +488,8 @@ flags &#x2013; the way Google does it.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:39</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

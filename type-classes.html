@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:38 -->
+<!-- 2023-08-08 Tue 18:42 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Type-Classes</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -220,24 +227,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "left",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'left',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -248,9 +268,9 @@ MathJax = {
 <header>
 <h1 class="title">Type-Classes</h1>
 </header>
-<div id="outline-container-orgb902afb" class="outline-2">
-<h2 id="orgb902afb">Philosophy</h2>
-<div class="outline-text-2" id="text-orgb902afb">
+<div id="outline-container-org22d0326" class="outline-2">
+<h2 id="org22d0326">Philosophy</h2>
+<div class="outline-text-2" id="text-org22d0326">
 <p>
 The Buddha emphasized <i>the right (adequate, close to what actually is -
 as a correct map of a certain territory) understanding</i> which is the
@@ -319,7 +339,7 @@ Such kind of <i>selection</i> (of &ldquo;objects&rdquo;) based on having a certa
 universal notion captured in a function:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">filter</span> p xs <span style="color: #D8DEE9;">=</span> [x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span> xs, p x]
+<pre class="src src-haskell">filter p xs = [x | x &lt;- xs, p x]
 </pre>
 </div>
 <p>
@@ -329,9 +349,9 @@ mathematics.
 </div>
 </div>
 
-<div id="outline-container-org0d4b701" class="outline-2">
-<h2 id="org0d4b701">Typing</h2>
-<div class="outline-text-2" id="text-org0d4b701">
+<div id="outline-container-org5bc7db7" class="outline-2">
+<h2 id="org5bc7db7">Typing</h2>
+<div class="outline-text-2" id="text-org5bc7db7">
 <p>
 It should be of no surprise that these <i>universal notions</i> are at the
 core of what we call type systems (or a type-discipline).
@@ -361,9 +381,9 @@ partitioning.
 </div>
 </div>
 
-<div id="outline-container-org15373fa" class="outline-2">
-<h2 id="org15373fa">Type-classes</h2>
-<div class="outline-text-2" id="text-org15373fa">
+<div id="outline-container-org6fc8785" class="outline-2">
+<h2 id="org6fc8785">Type-classes</h2>
+<div class="outline-text-2" id="text-org6fc8785">
 <p>
 A <i>type-class</i> is a notation for partitioning the imaginary <i>Universe of
 All Possible Types</i> (which are defined as just <i>Sets of Values</i>).
@@ -417,12 +437,12 @@ that <i>&ldquo;to be an <code>X</code> one has to be an <code>Y</code>&rdquo;</i
 So, when we see something like
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">class</span>  <span style="color: #8FBCBB;">Num</span> a  <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span>   (<span style="color: #D8DEE9;">+</span>), (<span style="color: #D8DEE9;">-</span>), (<span style="color: #D8DEE9;">*</span>)       <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-<span style="background-color: #2E3440;"> </span>   negate              <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-<span style="background-color: #2E3440;"> </span>   abs                 <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-<span style="background-color: #2E3440;"> </span>   signum              <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> a
-<span style="background-color: #2E3440;"> </span>   fromInteger         <span style="color: #D8DEE9;">::</span> <span style="color: #8FBCBB;">Integer</span> <span style="color: #D8DEE9;">-&gt;</span> a
+<pre class="src src-haskell">class  Num a  where
+    (+), (-), (*)       :: a -&gt; a -&gt; a
+    negate              :: a -&gt; a
+    abs                 :: a -&gt; a
+    signum              :: a -&gt; a
+    fromInteger         :: Integer -&gt; a
 </pre>
 </div>
 <p>
@@ -451,8 +471,8 @@ stupid.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:38</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:42</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

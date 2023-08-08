@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:35 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Low Level</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -266,9 +273,9 @@ The basic <i>building block</i> is a <code>Procedure</code>, which is supported 
 No support for <i>modules</i> until very resent (masm or tasm), no other higher level constructs whatsoever.
 </p>
 
-<div id="outline-container-org5a3bdca" class="outline-2">
-<h2 id="org5a3bdca">C</h2>
-<div class="outline-text-2" id="text-org5a3bdca">
+<div id="outline-container-org024d73b" class="outline-2">
+<h2 id="org024d73b">C</h2>
+<div class="outline-text-2" id="text-org024d73b">
 <p>
 The main insight and &ldquo;the genius&rdquo; behind <code>C</code> (at the time) was this notion of being a &ldquo;thin, almost transparent&rdquo; layer of <i>proper higer-level abstractions</i> on top of an assembly (the machine code, to which it compiles).
 </p>
@@ -299,9 +306,9 @@ The answer is &ldquo;NO&rdquo; for anyone who ever tried to study or <i>do</i> m
 </div>
 </div>
 
-<div id="outline-container-org2f2b724" class="outline-2">
-<h2 id="org2f2b724">C++</h2>
-<div class="outline-text-2" id="text-org2f2b724">
+<div id="outline-container-org68ad557" class="outline-2">
+<h2 id="org68ad557">C++</h2>
+<div class="outline-text-2" id="text-org68ad557">
 <p>
 This still the only video you need: <a href="https://www.youtube.com/watch?v=kdlIlIIHCz0">https://www.youtube.com/watch?v=kdlIlIIHCz0</a>
 </p>
@@ -331,9 +338,9 @@ Higher level and abstract types (classes) is what makes it <i>possible</i> to cr
 </p>
 </div>
 </div>
-<div id="outline-container-orge345941" class="outline-2">
-<h2 id="orge345941">MTL</h2>
-<div class="outline-text-2" id="text-orge345941">
+<div id="outline-container-orga6708f5" class="outline-2">
+<h2 id="orga6708f5">MTL</h2>
+<div class="outline-text-2" id="text-orga6708f5">
 <p>
 Have you ever tried to develop a &ldquo;stable&rdquo; and &ldquo;trusted&rdquo; math or scientific library? Use it to trade your own money? Run your medical devices? (and yet <i>they</i> run their medical devices on <code>C++98</code>)
 </p>
@@ -359,9 +366,9 @@ It even has been shown that &ldquo;laziness&rdquo; facilitate its own <i>abstrac
 </p>
 </div>
 </div>
-<div id="outline-container-org0a274a7" class="outline-2">
-<h2 id="org0a274a7">Rust</h2>
-<div class="outline-text-2" id="text-org0a274a7">
+<div id="outline-container-org2618181" class="outline-2">
+<h2 id="org2618181">Rust</h2>
+<div class="outline-text-2" id="text-org2618181">
 <p>
 It tries to bring better, restricted semantics to imperative &ldquo;reference-based&rdquo; languages.
 </p>
@@ -375,8 +382,8 @@ The main innovations is bringing (lifting) the references to the type-system, an
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

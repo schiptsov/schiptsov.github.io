@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:35 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ZIO</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -248,9 +255,9 @@ Recently <a href="https://www.youtube.com/@AndrejKarpathy">https://www.youtube.c
 So, what is going on there? Well, <i>a lot</i> at different levels simultaneously.
 </p>
 
-<div id="outline-container-org8c94bf1" class="outline-2">
-<h2 id="org8c94bf1">Turtles all the way down</h2>
-<div class="outline-text-2" id="text-org8c94bf1">
+<div id="outline-container-org780f958" class="outline-2">
+<h2 id="org780f958">Turtles all the way down</h2>
+<div class="outline-text-2" id="text-org780f958">
 <p>
 Lets begin from seemingly very far away. A human language has been evolved to
 communicate information about things in our shared environment. It is
@@ -423,9 +430,9 @@ running tons of imperative crap. So, definitely YES.
 </div>
 </div>
 
-<div id="outline-container-orgaa5b3c8" class="outline-2">
-<h2 id="orgaa5b3c8">Do not abstract for the sake of abstraction</h2>
-<div class="outline-text-2" id="text-orgaa5b3c8">
+<div id="outline-container-org4887ca2" class="outline-2">
+<h2 id="org4887ca2">Do not abstract for the sake of abstraction</h2>
+<div class="outline-text-2" id="text-org4887ca2">
 <p>
 Unnecessary, redundant abstractions is the root of all evil. Unlike <i>ZIO2</i>, which
 packages an <i>interpreter of a pure declarative language</i> (mini-Haskell, if you
@@ -459,9 +466,9 @@ type-classes and higher-kinded types, of course).
 </div>
 </div>
 
-<div id="outline-container-org6ecadf3" class="outline-2">
-<h2 id="org6ecadf3">Look, ma, ZIO!</h2>
-<div class="outline-text-2" id="text-org6ecadf3">
+<div id="outline-container-orga7eb113" class="outline-2">
+<h2 id="orga7eb113">Look, ma, ZIO!</h2>
+<div class="outline-text-2" id="text-orga7eb113">
 <p>
 When <i>capturing</i> of common and even universal patterns ends and  <i>over-abstraction
 and unnecessary wrapping</i> begins?
@@ -528,8 +535,8 @@ the <i>host language</i> (Scala).
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

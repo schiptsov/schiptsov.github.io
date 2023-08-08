@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:37 -->
+<!-- 2023-08-08 Tue 18:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Getting started in a principled way</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -364,9 +371,9 @@ Some day you might find something like
 <p>
 and your whole life will be changed forever. Ok, just kidding.
 </p>
-<div id="outline-container-orgcc60a5d" class="outline-2">
-<h2 id="orgcc60a5d">Emacs</h2>
-<div class="outline-text-2" id="text-orgcc60a5d">
+<div id="outline-container-org2770843" class="outline-2">
+<h2 id="org2770843">Emacs</h2>
+<div class="outline-text-2" id="text-org2770843">
 <p>
 Emacs is a <i>Sotware Lisp Machine</i> (in the form of a program), which happen to be used primarely to edit structured texts, including any program source code.
 </p>
@@ -380,9 +387,9 @@ To start <code>Emacs</code> <i>without</i> any pre-defined configuration type at
 </div>
 </div>
 
-<div id="outline-container-org25a3273" class="outline-3">
-<h3 id="org25a3273">Emacs is /self-documented</h3>
-<div class="outline-text-3" id="text-org25a3273">
+<div id="outline-container-orgcef21fb" class="outline-3">
+<h3 id="orgcef21fb">Emacs is /self-documented</h3>
+<div class="outline-text-3" id="text-orgcef21fb">
 <p>
 The <code>Ctrl-h</code> invokes the <i>Help subsystem</i>, <code>k</code> tells it that you want to know abot what happens when you press a <i>key</i>. <code>a</code> is the key (you want to know about).
 </p>
@@ -403,9 +410,9 @@ This means that every key-press (or a combination of keys) within a Emacs window
 </p>
 </div>
 </div>
-<div id="outline-container-org837fe92" class="outline-3">
-<h3 id="org837fe92">Youtube videos</h3>
-<div class="outline-text-3" id="text-org837fe92">
+<div id="outline-container-org8147ecd" class="outline-3">
+<h3 id="org8147ecd">Youtube videos</h3>
+<div class="outline-text-3" id="text-org8147ecd">
 <p>
 There are 4 playlists, from the basics by a &ldquo;teacher&rdquo; (Zamansky), to the most advanced wizardry by Prot.
 </p>
@@ -419,9 +426,9 @@ There are 4 playlists, from the basics by a &ldquo;teacher&rdquo; (Zamansky), to
 </div>
 </div>
 </div>
-<div id="outline-container-org080cda0" class="outline-2">
-<h2 id="org080cda0">Neovim</h2>
-<div class="outline-text-2" id="text-org080cda0">
+<div id="outline-container-org7873ca6" class="outline-2">
+<h2 id="org7873ca6">Neovim</h2>
+<div class="outline-text-2" id="text-org7873ca6">
 <p>
 Neovim is an open-source, global community-driven project, which extends the original classic <code>vi</code> (and later <code>Vim</code>, which is a particular implementation) editor. 
 </p>
@@ -454,13 +461,13 @@ Again, <i>never just copy-paste</i>, try to understand first, then write your ow
 Beware, there is <i>a lot</i> what is going on - Language Servers and Completion setup, plus additional modules. Ignore file &ldquo;explorers&rdquo; &#x2013; they are <i>unnecessary bloat</i>.
 </p>
 </div>
-<div id="outline-container-orga45ed29" class="outline-3">
-<h3 id="orga45ed29">The &ldquo;text objects&rdquo;</h3>
-<div class="outline-text-3" id="text-orga45ed29">
+<div id="outline-container-org0ecfbbc" class="outline-3">
+<h3 id="org0ecfbbc">The &ldquo;text objects&rdquo;</h3>
+<div class="outline-text-3" id="text-org0ecfbbc">
 <p>
 In Vim, editing commands have the following structure:
 </p>
-<pre class="example" id="orgc70e837">
+<pre class="example" id="orgfb23a71">
   &lt;number&gt;&lt;command&gt;&lt;'text object' | motion&gt;
 </pre>
 <p>
@@ -489,9 +496,9 @@ More: <a href="https://blog.carbonfive.com/vim-text-objects-the-definitive-guide
 </div>
 </div>
 </div>
-<div id="outline-container-org69b7568" class="outline-2">
-<h2 id="org69b7568">Learn more</h2>
-<div class="outline-text-2" id="text-org69b7568">
+<div id="outline-container-org3a06c3e" class="outline-2">
+<h2 id="org3a06c3e">Learn more</h2>
+<div class="outline-text-2" id="text-org3a06c3e">
 <p>
 See also:
 </p>
@@ -504,8 +511,8 @@ See also:
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:37</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:40</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

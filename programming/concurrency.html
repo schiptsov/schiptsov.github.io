@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-08-08 Tue 18:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Concurrency</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -257,9 +264,9 @@ Immutability is not an academic fancy, it is a universal principle, which
 makes Life Itself possible (every molecule of the same kind is as good
 as every other, and they are being <i>passing around</i> freely).
 </p>
-<div id="outline-container-org74099d3" class="outline-2">
-<h2 id="org74099d3">Concurrency vs. Parallelism</h2>
-<div class="outline-text-2" id="text-org74099d3">
+<div id="outline-container-org35556b9" class="outline-2">
+<h2 id="org35556b9">Concurrency vs. Parallelism</h2>
+<div class="outline-text-2" id="text-org35556b9">
 <p>
 <i>Concurrency</i> means some sort of <i>time-sharing /scheduling</i> or <i>cooperative multitasking</i> by
 some &ldquo;supervisor&rdquo; process.
@@ -284,9 +291,9 @@ code is pure functional.
 </div>
 </div>
 
-<div id="outline-container-org7eff1af" class="outline-2">
-<h2 id="org7eff1af">Asynchronous vs. Synchronous</h2>
-<div class="outline-text-2" id="text-org7eff1af">
+<div id="outline-container-org021138e" class="outline-2">
+<h2 id="org021138e">Asynchronous vs. Synchronous</h2>
+<div class="outline-text-2" id="text-org021138e">
 <p>
 A normal function (or a chain of deeply <i>nested</i> functions) has to <i>return</i>.
 </p>
@@ -313,9 +320,9 @@ To such asynchronous processes (or &ldquo;execution contexts&rdquo;) some additi
 (runtime-support).
 </p>
 </div>
-<div id="outline-container-org7f49b86" class="outline-3">
-<h3 id="org7f49b86">More than one</h3>
-<div class="outline-text-3" id="text-org7f49b86">
+<div id="outline-container-orgaf11516" class="outline-3">
+<h3 id="orgaf11516">More than one</h3>
+<div class="outline-text-3" id="text-orgaf11516">
 <p>
 This is not merely pure function composition (via nesting). Having more
 than one &ldquo;thread&rdquo; (or a routine) of execution <i>implies /coordination</i> and
@@ -323,9 +330,9 @@ than one &ldquo;thread&rdquo; (or a routine) of execution <i>implies /coordinati
 </p>
 </div>
 </div>
-<div id="outline-container-org820595b" class="outline-3">
-<h3 id="org820595b">Message passing</h3>
-<div class="outline-text-3" id="text-org820595b">
+<div id="outline-container-orgc7901ae" class="outline-3">
+<h3 id="orgc7901ae">Message passing</h3>
+<div class="outline-text-3" id="text-orgc7901ae">
 <p>
 The right thing to do is what Erlang did - spawn a process, get its
 &ldquo;address&rdquo;, and send it a message. It will eventually send you &ldquo;the
@@ -333,9 +340,9 @@ result&rdquo; back in a message (result will be delivered to your &ldquo;mailbox
 </p>
 </div>
 </div>
-<div id="outline-container-orga3388f2" class="outline-3">
-<h3 id="orga3388f2">Callbacks</h3>
-<div class="outline-text-3" id="text-orga3388f2">
+<div id="outline-container-orga5c516a" class="outline-3">
+<h3 id="orga5c516a">Callbacks</h3>
+<div class="outline-text-3" id="text-orga5c516a">
 <p>
 The most straightforward solution is to pass an additional parameter to
 the asynchronous &ldquo;function&rdquo; (an explicit callback) which will be callled instead of just
@@ -349,9 +356,9 @@ using the standard TCO.
 </p>
 </div>
 </div>
-<div id="outline-container-org1be11a5" class="outline-3">
-<h3 id="org1be11a5">Concurrent futures</h3>
-<div class="outline-text-3" id="text-org1be11a5">
+<div id="outline-container-org33f0eff" class="outline-3">
+<h3 id="org33f0eff">Concurrent futures</h3>
+<div class="outline-text-3" id="text-org33f0eff">
 <p>
 Futures do <i>not</i> signal completion but they can be called (polled) more than
 once.
@@ -379,9 +386,9 @@ Futures are similar to what OS <code>poll</code> or <code>select</code> calls do
 </div>
 </div>
 
-<div id="outline-container-orge62dde3" class="outline-2">
-<h2 id="orge62dde3">Non-blocking vs. Blocking</h2>
-<div class="outline-text-2" id="text-orge62dde3">
+<div id="outline-container-org7d2bb3b" class="outline-2">
+<h2 id="org7d2bb3b">Non-blocking vs. Blocking</h2>
+<div class="outline-text-2" id="text-org7d2bb3b">
 <p>
 The only way to achieve &ldquo;non-blocking&rdquo; is to have multiple &ldquo;execution
 contexts&rdquo;. There is no other way in principle.
@@ -408,9 +415,9 @@ another async function as a parameter, and then &ldquo;forgotten&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-org1bbfbec" class="outline-2">
-<h2 id="org1bbfbec">Problems</h2>
-<div class="outline-text-2" id="text-org1bbfbec">
+<div id="outline-container-org4450214" class="outline-2">
+<h2 id="org4450214">Problems</h2>
+<div class="outline-text-2" id="text-org4450214">
 <p>
 In pure a functional setting most problems <i>do not arise</i>.
 </p>
@@ -435,9 +442,9 @@ Imperative OO crap, however, is fundamentally broken beyond repair.
 </ul>
 </div>
 </div>
-<div id="outline-container-org849d02e" class="outline-2">
-<h2 id="org849d02e">Summary</h2>
-<div class="outline-text-2" id="text-org849d02e">
+<div id="outline-container-org5de89c2" class="outline-2">
+<h2 id="org5de89c2">Summary</h2>
+<div class="outline-text-2" id="text-org5de89c2">
 <p>
 To summarize, any form of <i>concurrency</i> requires multiple <i>execution context</i> (coroutines,
 fibers, threads, whatever) and <i>coordination and communication</i> between
@@ -465,9 +472,9 @@ Erlang is an exception.
 </p>
 </div>
 </div>
-<div id="outline-container-org7826042" class="outline-2">
-<h2 id="org7826042">Imperative calls and returns</h2>
-<div class="outline-text-2" id="text-org7826042">
+<div id="outline-container-org3629d3e" class="outline-2">
+<h2 id="org3629d3e">Imperative calls and returns</h2>
+<div class="outline-text-2" id="text-org3629d3e">
 <p>
 Again, asynchronity means starting another processes and delegating to them.
 </p>
@@ -501,8 +508,8 @@ message-passing for signalling. Not even callbacks.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:39</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

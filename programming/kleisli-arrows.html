@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-08-08 Tue 18:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kleisli Arrows</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -237,7 +244,7 @@ of a single <i>step</i> (of a process) or a individual completed
 Here <code>a</code> and <code>b</code> are of the same level of abstraction (usually a Set)
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">a <span style="color: #D8DEE9;">-&gt;</span> b
+<pre class="src src-haskell">a -&gt; b
 </pre>
 </div>
 
@@ -246,7 +253,7 @@ Here it <i>crosses an abstraction boundary</i> or a resulting value is <i>of a
 different kind of abstraction</i>.
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">a <span style="color: #D8DEE9;">-&gt;</span> m b
+<pre class="src src-haskell">a -&gt; m b
 </pre>
 </div>
 
@@ -254,7 +261,7 @@ different kind of abstraction</i>.
 This notion is, in turn, has been generalized as
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">pure</span> <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> f a
+<pre class="src src-haskell">pure :: a -&gt; f a
 </pre>
 </div>
 <p>
@@ -265,7 +272,7 @@ which captures a general notion of <i>placing into</i>.
 or even more generally
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">return</span> <span style="color: #D8DEE9;">::</span> a <span style="color: #D8DEE9;">-&gt;</span> m a
+<pre class="src src-haskell">return :: a -&gt; m a
 </pre>
 </div>
 
@@ -275,25 +282,25 @@ entities</i> to each other or <i>compose</i> them.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Applicative</span> <span style="color: #D8DEE9;">::</span> (<span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>) <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
-<span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Functor</span> f <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Applicative</span> f <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #D8DEE9;">...</span>
+<pre class="src src-haskell">type Applicative :: (* -&gt; *) -&gt; Constraint
+class Functor f =&gt; Applicative f where
+  ...
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #81A1C1;">type</span> <span style="color: #8FBCBB;">Monad</span> <span style="color: #D8DEE9;">::</span> (<span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>) <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #8FBCBB;">Constraint</span>
-<span style="color: #81A1C1;">class</span> <span style="color: #8FBCBB;">Applicative</span> m <span style="color: #D8DEE9;">=&gt;</span> <span style="color: #8FBCBB;">Monad</span> m <span style="color: #81A1C1;">where</span>
-<span style="background-color: #2E3440;"> </span> <span style="color: #D8DEE9;">...</span>
+<pre class="src src-haskell">type Monad :: (* -&gt; *) -&gt; Constraint
+class Applicative m =&gt; Monad m where
+  ...
 </pre>
 </div>
 
 <p>
 Notice the <i>arrows</i> (kinds).
 </p>
-<div id="outline-container-org980f79c" class="outline-2">
-<h2 id="org980f79c">Cheaters</h2>
-<div class="outline-text-2" id="text-org980f79c">
+<div id="outline-container-org449ddfe" class="outline-2">
+<h2 id="org449ddfe">Cheaters</h2>
+<div class="outline-text-2" id="text-org449ddfe">
 <p>
 We <i>cheat</i> and could &ldquo;extract&rdquo; values from different <i>contexts</i> (except IO),
 while we actually shouldn&rsquo;t.
@@ -314,8 +321,8 @@ level of Molecular biology or Life Itself (yes, I know, inside a star&#x2026;)
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:39</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

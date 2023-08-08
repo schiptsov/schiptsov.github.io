@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:35 -->
+<!-- 2023-08-08 Tue 18:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming methodologies</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -240,9 +247,9 @@ All the research on high-level programming methodologies could be summarized in 
 Ideally, one strives to have almost exactly <i>declarative mathematical notation at the use side</i>, like the list comprehensions of Haskell:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #88C0D0;">map</span> f xs <span style="color: #D8DEE9;">=</span> [f x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span> xs]
-<span style="color: #6f7787;">-- </span><span style="color: #6f7787;">or</span>
-<span style="color: #88C0D0;">filter</span> p xs <span style="color: #D8DEE9;">=</span> [x <span style="color: #D8DEE9;">|</span> x <span style="color: #D8DEE9;">&lt;-</span>xs, p x]
+<pre class="src src-haskell">map f xs = [f x | x &lt;- xs]
+-- or
+filter p xs = [x | x &lt;-xs, p x]
 </pre>
 </div>
 <p>
@@ -285,9 +292,9 @@ Imagine using better <a href="tools.html">tools</a> for the job. It is a well-kn
 So, FP (Milner, Wadler, Cardelli), modularity (ADTs of Lisov) and also the right tools together could guarantee, that one <i>at least would not fail miserably</i> and that even a partial solution would be <i>reusable</i> and worth time and effort spent.
 </p>
 
-<div id="outline-container-org29f093e" class="outline-2">
-<h2 id="org29f093e">C++</h2>
-<div class="outline-text-2" id="text-org29f093e">
+<div id="outline-container-org43e8c59" class="outline-2">
+<h2 id="org43e8c59">C++</h2>
+<div class="outline-text-2" id="text-org43e8c59">
 <p>
 While Java is <i>the</i> monument to human stupidity, C++ is a tribute to
 brain-dead over-&ldquo;engineering&rdquo; (imagine designing a language without
@@ -309,9 +316,9 @@ Modern C++ is such a <i>cathedral</i> of solidified crap. Compared to PHP or <co
 </div>
 </div>
 
-<div id="outline-container-org316e6b6" class="outline-2">
-<h2 id="org316e6b6">Old timers</h2>
-<div class="outline-text-2" id="text-org316e6b6">
+<div id="outline-container-org2912cf1" class="outline-2">
+<h2 id="org2912cf1">Old timers</h2>
+<div class="outline-text-2" id="text-org2912cf1">
 <p>
 Programmers from the golden era (80s and early 90s) which culminated
 with Haskell 98 report and now in a steady decline, used to have a solid
@@ -334,8 +341,8 @@ could consider Scala 3 as the last worth of the ML family.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:37</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

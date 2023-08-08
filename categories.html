@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:38 -->
+<!-- 2023-08-08 Tue 18:42 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Category theory</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -220,24 +227,37 @@
 // @license-end
 </script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "left",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'left',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'left',
+      displayIndent: '5em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -262,13 +282,13 @@ Indeed, everything that has been written by humans (except bullshit) is
 (or at least should be) verbalized observations of the same reality from
 different angles and distances (points of view).
 </p>
-<div id="outline-container-org15a015c" class="outline-2">
-<h2 id="org15a015c">Proper philosophy first</h2>
-<div class="outline-text-2" id="text-org15a015c">
+<div id="outline-container-org0e1186b" class="outline-2">
+<h2 id="org0e1186b">Proper philosophy first</h2>
+<div class="outline-text-2" id="text-org0e1186b">
 </div>
-<div id="outline-container-orgc4f31dc" class="outline-3">
-<h3 id="orgc4f31dc">Why arrows?</h3>
-<div class="outline-text-3" id="text-orgc4f31dc">
+<div id="outline-container-org23a38eb" class="outline-3">
+<h3 id="org23a38eb">Why arrows?</h3>
+<div class="outline-text-3" id="text-org23a38eb">
 <p>
 Because they imply a <i>direction</i> - an <i>order</i> for a ordered pair.
 </p>
@@ -279,9 +299,9 @@ Why directed? Because of the <i>Causality Principle</i>. Causality
 </p>
 </div>
 </div>
-<div id="outline-container-orgc72063c" class="outline-3">
-<h3 id="orgc72063c">A single &ldquo;step&rdquo;</h3>
-<div class="outline-text-3" id="text-orgc72063c">
+<div id="outline-container-org8419695" class="outline-3">
+<h3 id="org8419695">A single &ldquo;step&rdquo;</h3>
+<div class="outline-text-3" id="text-org8419695">
 <p>
 \[\cdot \rightarrow \cdot\]
 This is a minimal <i>directed graph</i> - an abstraction. which may
@@ -299,9 +319,9 @@ Is it really a minimal?
 </p>
 </div>
 </div>
-<div id="outline-container-orgf0fec6e" class="outline-3">
-<h3 id="orgf0fec6e">A single &ldquo;dot&rdquo;</h3>
-<div class="outline-text-3" id="text-orgf0fec6e">
+<div id="outline-container-orgf15e70e" class="outline-3">
+<h3 id="orgf15e70e">A single &ldquo;dot&rdquo;</h3>
+<div class="outline-text-3" id="text-orgf15e70e">
 <p>
 \[\rightarrow\cdot\]
 What this corresponds to? <i>From where</i> this arrow points <i>towards</i>
@@ -330,9 +350,9 @@ We cannot step from nothing. (Which is why <code>False</code> does not imply any
 </p>
 </div>
 </div>
-<div id="outline-container-org305a7a0" class="outline-3">
-<h3 id="org305a7a0">A set</h3>
-<div class="outline-text-3" id="text-org305a7a0">
+<div id="outline-container-org2001f5e" class="outline-3">
+<h3 id="org2001f5e">A set</h3>
+<div class="outline-text-3" id="text-org2001f5e">
 <p>
 One of the ways to define a <i>set</i> is to state explicitly all the elements.
 The notation for this is \(S = \{a,b,c,...,x\}\), and we define <i>alphabets</i>
@@ -352,9 +372,9 @@ from you</i> (towards what you know).
 </p>
 </div>
 </div>
-<div id="outline-container-orgf82cb5f" class="outline-3">
-<h3 id="orgf82cb5f">A next step</h3>
-<div class="outline-text-3" id="text-orgf82cb5f">
+<div id="outline-container-orga13f83e" class="outline-3">
+<h3 id="orga13f83e">A next step</h3>
+<div class="outline-text-3" id="text-orga13f83e">
 <p>
 A next step starts exactly where the previous ends. This is the essence
 of a composition (of functions, of implications, etc).
@@ -364,9 +384,9 @@ arrow and <i>domain</i> of the next. It has to be the same.
 </p>
 </div>
 </div>
-<div id="outline-container-org6b393e5" class="outline-3">
-<h3 id="org6b393e5">Any 3 dots are between 2 steps</h3>
-<div class="outline-text-3" id="text-org6b393e5">
+<div id="outline-container-orgd640acb" class="outline-3">
+<h3 id="orgd640acb">Any 3 dots are between 2 steps</h3>
+<div class="outline-text-3" id="text-orgd640acb">
 <p>
 There can be only &ldquo;this many&rdquo; directed arrows between any 3 dots.
 \[\cdot \rightarrow \cdot \rightarrow \cdot\]
@@ -380,9 +400,9 @@ This is a minimal algebraic structure.
 </p>
 </div>
 </div>
-<div id="outline-container-org35819ce" class="outline-3">
-<h3 id="org35819ce">Nothing more to consider</h3>
-<div class="outline-text-3" id="text-org35819ce">
+<div id="outline-container-orgce50ea7" class="outline-3">
+<h3 id="orgce50ea7">Nothing more to consider</h3>
+<div class="outline-text-3" id="text-orgce50ea7">
 <p>
 Just like it is with the <i>successor</i> function <code>(+1)</code>, the ability to
 take a <i>single step</i> \(\cdot \rightarrow \cdot\) is enough.
@@ -395,9 +415,9 @@ for everything</i>.
 </p>
 </div>
 
-<div id="outline-container-org40d76ec" class="outline-4">
-<h4 id="org40d76ec">Currying</h4>
-<div class="outline-text-4" id="text-org40d76ec">
+<div id="outline-container-org4fe8041" class="outline-4">
+<h4 id="org4fe8041">Currying</h4>
+<div class="outline-text-4" id="text-org4fe8041">
 <p>
 <i>Currying</i> is a technique to take one (and only one) argument to a
  function at a time <i>by returning a &ldquo;next step&rdquo; function</i> for a &ldquo;next
@@ -422,9 +442,9 @@ Now we &ldquo;compose&rdquo; these steps (or lambdas).
 </div>
 </div>
 </div>
-<div id="outline-container-org9cbf418" class="outline-3">
-<h3 id="org9cbf418">Composition</h3>
-<div class="outline-text-3" id="text-org9cbf418">
+<div id="outline-container-org56f9466" class="outline-3">
+<h3 id="org56f9466">Composition</h3>
+<div class="outline-text-3" id="text-org56f9466">
 <p>
 We describe &ldquo;steps&rdquo; as mappings \(x \mapsto x^{2}\), lets say, and give them
 <i>names</i>, like \(f\) and types, like \(f: N^{+} \rightarrow N^{+}\).
@@ -435,9 +455,9 @@ Now we compose these mappings (steps) with an operator \(\circ\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgefbbe40" class="outline-3">
-<h3 id="orgefbbe40">Associativity</h3>
-<div class="outline-text-3" id="text-orgefbbe40">
+<div id="outline-container-org2c15256" class="outline-3">
+<h3 id="org2c15256">Associativity</h3>
+<div class="outline-text-3" id="text-org2c15256">
 <p>
 Composition should have the <i>associative property</i>
 \[\forall f, g, h, (h \circ g) \circ f = h \circ (g \circ f)\]
@@ -460,27 +480,27 @@ matter in what order we <i>add up</i> or <i>put together</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb28b9a9" class="outline-3">
-<h3 id="orgb28b9a9">Identity</h3>
-<div class="outline-text-3" id="text-orgb28b9a9">
+<div id="outline-container-orgcad41eb" class="outline-3">
+<h3 id="orgcad41eb">Identity</h3>
+<div class="outline-text-3" id="text-orgcad41eb">
 <p>
 There has to be an <i>arrow</i> from any &ldquo;dot&rdquo; <i>to itself</i>, which corresponds to
 an <i>identity function</i> for a set (or an <i>identity element</i> for an operation).
 </p>
 </div>
 </div>
-<div id="outline-container-org368233d" class="outline-3">
-<h3 id="org368233d">What can be a &ldquo;dot&rdquo;</h3>
-<div class="outline-text-3" id="text-org368233d">
+<div id="outline-container-org53a76b1" class="outline-3">
+<h3 id="org53a76b1">What can be a &ldquo;dot&rdquo;</h3>
+<div class="outline-text-3" id="text-org53a76b1">
 <p>
 Usually, dots stand for <i>sets</i> or <i>types</i>, but it could be almost
 any &ldquo;collection&rdquo;, &ldquo;structure&rdquo; or a whole &ldquo;class&rdquo; of these.
 </p>
 </div>
 </div>
-<div id="outline-container-orge17ed22" class="outline-3">
-<h3 id="orge17ed22">What could be an &ldquo;arrow&rdquo;</h3>
-<div class="outline-text-3" id="text-orge17ed22">
+<div id="outline-container-orgc863d5b" class="outline-3">
+<h3 id="orgc863d5b">What could be an &ldquo;arrow&rdquo;</h3>
+<div class="outline-text-3" id="text-orgc863d5b">
 <p>
 A single function, a morphism (which is more general), a Functor (which
 is a particular class of morphisms), everything that takes a single step
@@ -494,9 +514,9 @@ transformation (mapping, or a function).
 </div>
 </div>
 </div>
-<div id="outline-container-org39b1ef2" class="outline-2">
-<h2 id="org39b1ef2">One more generalization</h2>
-<div class="outline-text-2" id="text-org39b1ef2">
+<div id="outline-container-org88a7bc9" class="outline-2">
+<h2 id="org88a7bc9">One more generalization</h2>
+<div class="outline-text-2" id="text-org88a7bc9">
 <p>
 A <i>category</i> is a higher level <i>generalization</i> from (and defined in
 terms of) the Set Theory.
@@ -530,10 +550,10 @@ There are also <i>&ldquo;individual arrows&rdquo;</i> which represent each <i>or
 And \(x \rightarrow x^2\) (\(N^{+} \rightarrow N^{+}\))can be viewed as (in a pseudo-code)
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">{ (<span style="color: #B48EAD; font-weight: bold;">1</span>, <span style="color: #B48EAD; font-weight: bold;">1</span>),
-<span style="background-color: #2E3440;"> </span> (<span style="color: #B48EAD; font-weight: bold;">2</span>, <span style="color: #B48EAD; font-weight: bold;">4</span>),
-<span style="background-color: #2E3440;"> </span> (<span style="color: #B48EAD; font-weight: bold;">3</span>, <span style="color: #B48EAD; font-weight: bold;">9</span>),
-<span style="color: #D8DEE9;">...</span>
+<pre class="src src-haskell">{ (1, 1),
+  (2, 4),
+  (3, 9),
+...
 }
 </pre>
 </div>
@@ -550,10 +570,10 @@ So, ordered pairs were generalized as <i>&ldquo;arrows&rdquo;</i> (which are con
 Thus we have something even more abstract, like
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="background-color: #2E3440;"> </span><span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>
-<span style="background-color: #2E3440;"> </span><span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>
-<span style="background-color: #2E3440;"> </span><span style="color: #D8DEE9;">*</span> <span style="color: #D8DEE9;">-&gt;</span> <span style="color: #D8DEE9;">*</span>
-<span style="background-color: #2E3440;"> </span><span style="color: #D8DEE9;">...</span>
+<pre class="src src-haskell"> * -&gt; *
+ * -&gt; *
+ * -&gt; *
+ ...
 </pre>
 </div>
 <p>
@@ -567,9 +587,9 @@ composition</i> of &ldquo;arrows&rdquo;.
 </p>
 </div>
 </div>
-<div id="outline-container-org012362a" class="outline-2">
-<h2 id="org012362a">Structure</h2>
-<div class="outline-text-2" id="text-org012362a">
+<div id="outline-container-org3f83f10" class="outline-2">
+<h2 id="org3f83f10">Structure</h2>
+<div class="outline-text-2" id="text-org3f83f10">
 <p>
 So, structurally, there are a &ldquo;collection&rdquo; (a set) of &ldquo;objects&rdquo; (&ldquo;dots&rdquo;) <i>together with</i> a &ldquo;collection&rdquo; (a set) of &ldquo;arrows&rdquo; (&ldquo;morphisms&rdquo;).
 \[(O, A,...)\]
@@ -594,18 +614,18 @@ corresponds to <i>sum-types</i> and <i>pattern-matching</i> on them).
 </p>
 </div>
 </div>
-<div id="outline-container-orgdfd7146" class="outline-2">
-<h2 id="orgdfd7146">Nesting</h2>
-<div class="outline-text-2" id="text-orgdfd7146">
+<div id="outline-container-org830ce11" class="outline-2">
+<h2 id="org830ce11">Nesting</h2>
+<div class="outline-text-2" id="text-org830ce11">
 <p>
 Just like sets, these abstract entities could be <i>nested</i>, given that
 they have <i>the same structure</i> of composed arrows.
 </p>
 </div>
 </div>
-<div id="outline-container-org3e9e8d8" class="outline-2">
-<h2 id="org3e9e8d8">All the individual arrows</h2>
-<div class="outline-text-2" id="text-org3e9e8d8">
+<div id="outline-container-orgf1f816f" class="outline-2">
+<h2 id="orgf1f816f">All the individual arrows</h2>
+<div class="outline-text-2" id="text-orgf1f816f">
 <p>
 Lets say we have augmented a set of values with an explicit set of <i>all</i>
  &ldquo;arrows&rdquo;, which means adding <i>more structure</i>.
@@ -631,9 +651,9 @@ Sadly, not all functions (morphisms) are <i>one-to-one</i>, so different
 </div>
 </div>
 
-<div id="outline-container-orgdad2b6e" class="outline-2">
-<h2 id="orgdad2b6e">Composition</h2>
-<div class="outline-text-2" id="text-orgdad2b6e">
+<div id="outline-container-org2531dc7" class="outline-2">
+<h2 id="org2531dc7">Composition</h2>
+<div class="outline-text-2" id="text-org2531dc7">
 <p>
 The <i>composition</i> operator \(\circ\) for <i>total functions</i> is defined as
 \(\forall f: A\rightarrow B, g: B\rightarrow C, c = g(f(a))| a\in A,c\in C\)
@@ -679,9 +699,9 @@ So, to form a <i>category</i> all the arrows must be composable (properly chain-
 </div>
 </div>
 
-<div id="outline-container-orgf0c09e4" class="outline-2">
-<h2 id="orgf0c09e4">Identity</h2>
-<div class="outline-text-2" id="text-orgf0c09e4">
+<div id="outline-container-orgbd90986" class="outline-2">
+<h2 id="orgbd90986">Identity</h2>
+<div class="outline-text-2" id="text-orgbd90986">
 <p>
 For every &ldquo;object&rdquo; (a &ldquo;dot&rdquo;) an &ldquo;identity morphism&rdquo; (an arrow to itself) is required.
 </p>
@@ -707,9 +727,9 @@ Just as with <i>identity values</i> (for an <i>associative operation</i>) these
 </div>
 </div>
 
-<div id="outline-container-org5327ff9" class="outline-2">
-<h2 id="org5327ff9">Structural patterns</h2>
-<div class="outline-text-2" id="text-org5327ff9">
+<div id="outline-container-org02c200d" class="outline-2">
+<h2 id="org02c200d">Structural patterns</h2>
+<div class="outline-text-2" id="text-org02c200d">
 <p>
 It is not enough to specify (list) every single individual arrow, we
 have to realize <i>which pattern</i> they form when being <i>composed</i>.
@@ -728,9 +748,9 @@ So, a set of dots, a set of arrows and a pattern (directed graph) the arrows fro
 </p>
 </div>
 </div>
-<div id="outline-container-org0a4afb7" class="outline-2">
-<h2 id="org0a4afb7">Homomorphisms</h2>
-<div class="outline-text-2" id="text-org0a4afb7">
+<div id="outline-container-orgeda0367" class="outline-2">
+<h2 id="orgeda0367">Homomorphisms</h2>
+<div class="outline-text-2" id="text-orgeda0367">
 <p>
 Some mappings of <i>structured objects (values)</i> are
 <i>structure-preserving</i>, some are not.
@@ -742,9 +762,9 @@ and here you have categories all the way down.
 </p>
 </div>
 </div>
-<div id="outline-container-org5c6dd7b" class="outline-2">
-<h2 id="org5c6dd7b">Monoids</h2>
-<div class="outline-text-2" id="text-org5c6dd7b">
+<div id="outline-container-orged10b07" class="outline-2">
+<h2 id="orged10b07">Monoids</h2>
+<div class="outline-text-2" id="text-orged10b07">
 <p>
 \[(S,\cdot,e)\]
 \[\forall x,y,z \in S, (x\cdot y)\cdot z = x\cdot (y\cdot z)\]
@@ -765,18 +785,18 @@ for example <code>(+0)</code> or <code>(*1)</code> or <code>(++ "")</code>
 </p>
 </div>
 </div>
-<div id="outline-container-orga4ec3e7" class="outline-2">
-<h2 id="orga4ec3e7">Isomorphism</h2>
-<div class="outline-text-2" id="text-orga4ec3e7">
+<div id="outline-container-orgc5a8c9d" class="outline-2">
+<h2 id="orgc5a8c9d">Isomorphism</h2>
+<div class="outline-text-2" id="text-orgc5a8c9d">
 <p>
 \(f: A\rightarrow B\) is an <i>isomorphism</i> \(\iff\)
 \[\]\[\exists g: B\rightarrow A \mid g\circ f = id_{A} \land f\circ g = id_{B} \]
 </p>
 </div>
 </div>
-<div id="outline-container-orge9f2889" class="outline-2">
-<h2 id="orge9f2889">Complications</h2>
-<div class="outline-text-2" id="text-orge9f2889">
+<div id="outline-container-orgbb91cea" class="outline-2">
+<h2 id="orgbb91cea">Complications</h2>
+<div class="outline-text-2" id="text-orgbb91cea">
 <p>
 \[\forall A,B \in Ob_{C},\exists Hom_{C}(A,B)\]
 \[Ob_{C}=\{A,B\}, Hom_{C}(A,A)=id_{A}, Hom_{C}(B,B)=id_{B}, Hom_{C}(A,B)=\emptyset, Hom_{C}(B,A)=\emptyset\]
@@ -789,8 +809,8 @@ No arrows between \(A\) and \(B\), which means they are <i>unrelated</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:38</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:42</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

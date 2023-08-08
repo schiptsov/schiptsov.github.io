@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-01 Sat 19:36 -->
+<!-- 2023-08-08 Tue 18:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Main Plugins</title>
@@ -191,12 +191,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -283,50 +290,50 @@ Notice also that we absolutely DO NOT WANT any kind of &ldquo;modelines&rdquo; (
 explorers&rdquo;, &ldquo;telescopes&rdquo; and all the related bloat. <code>vi</code> should start as an <i>empty screen</i>.
 </p>
 
-<div id="outline-container-orgdda4ca0" class="outline-2">
-<h2 id="orgdda4ca0">nvim-treesitter-textobjects</h2>
+<div id="outline-container-orgaf11eae" class="outline-2">
+<h2 id="orgaf11eae">nvim-treesitter-textobjects</h2>
 </div>
-<div id="outline-container-orgdcf0714" class="outline-2">
-<h2 id="orgdcf0714">targets.vim</h2>
+<div id="outline-container-orgdfac12a" class="outline-2">
+<h2 id="orgdfac12a">targets.vim</h2>
 </div>
-<div id="outline-container-org0624d9d" class="outline-2">
-<h2 id="org0624d9d">Comment.nvim</h2>
+<div id="outline-container-org9c44c4d" class="outline-2">
+<h2 id="org9c44c4d">Comment.nvim</h2>
 </div>
-<div id="outline-container-org098d6ff" class="outline-2">
-<h2 id="org098d6ff">indent-blankline.nvim</h2>
+<div id="outline-container-orgb2e5018" class="outline-2">
+<h2 id="orgb2e5018">indent-blankline.nvim</h2>
 </div>
-<div id="outline-container-orgbbf0b1a" class="outline-2">
-<h2 id="orgbbf0b1a">gitsigns.nvim</h2>
+<div id="outline-container-orgddfec44" class="outline-2">
+<h2 id="orgddfec44">gitsigns.nvim</h2>
 </div>
-<div id="outline-container-org4ba1d33" class="outline-2">
-<h2 id="org4ba1d33">LuaSnip</h2>
-<div class="outline-text-2" id="text-org4ba1d33">
+<div id="outline-container-org7dd6cf3" class="outline-2">
+<h2 id="org7dd6cf3">LuaSnip</h2>
+<div class="outline-text-2" id="text-org7dd6cf3">
 <p>
 <code>L3MON4D3/LuaSnip</code> - a snippet engine written in Lua. It has a <code>nvim-cmp</code>
 integration, since it is a <i>completion plugin</i> which offer to activate particular snippets.
 </p>
 </div>
 </div>
-<div id="outline-container-org390ed5d" class="outline-2">
-<h2 id="org390ed5d">nvim-cmp</h2>
-<div class="outline-text-2" id="text-org390ed5d">
+<div id="outline-container-org1bee559" class="outline-2">
+<h2 id="org1bee559">nvim-cmp</h2>
+<div class="outline-text-2" id="text-org1bee559">
 <p>
 <code>hrsh7th/nvim-cmp</code> - a <i>completion</i> plugin done right. It has its own <i>modules</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org8a0b1ca" class="outline-2">
-<h2 id="org8a0b1ca">nvim-lspconfig</h2>
-<div class="outline-text-2" id="text-org8a0b1ca">
+<div id="outline-container-org6037d6f" class="outline-2">
+<h2 id="org6037d6f">nvim-lspconfig</h2>
+<div class="outline-text-2" id="text-org6037d6f">
 <p>
 <code>neovim/nvim-lspconfig</code> - configures the builtin <i>LSP client</i> to properly
 set up corresponding <i>LSP-servers</i>
 </p>
 </div>
 </div>
-<div id="outline-container-org431c7ac" class="outline-2">
-<h2 id="org431c7ac">null-ls</h2>
-<div class="outline-text-2" id="text-org431c7ac">
+<div id="outline-container-org2f2d968" class="outline-2">
+<h2 id="org2f2d968">null-ls</h2>
+<div class="outline-text-2" id="text-org2f2d968">
 <p>
 <code>jose-elias-alvarez/null-ls.nvim</code> - this is a really good one. It wraps
 individual linters and formatters, similar to what ale <i>ALE</i> does, but
@@ -338,9 +345,9 @@ Yes, you could have more than one at the same buffer.
 </p>
 </div>
 </div>
-<div id="outline-container-org11771f4" class="outline-2">
-<h2 id="org11771f4">neodev</h2>
-<div class="outline-text-2" id="text-org11771f4">
+<div id="outline-container-org286ac51" class="outline-2">
+<h2 id="org286ac51">neodev</h2>
+<div class="outline-text-2" id="text-org286ac51">
 <p>
 <code>folke/neodev.nvim</code> - a plugin for editing your vim <i>lua configs</i> or developing
 your own <i>lua plugins</i>. It leverages <code>sumneko-lua</code>, which is a <i>LSP-server</i>
@@ -352,8 +359,8 @@ for <i>Lua</i>.
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-01 Sat 19:36</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:38</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>

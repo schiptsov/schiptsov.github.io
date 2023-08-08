@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-15 Sat 16:28 -->
+<!-- 2023-08-08 Tue 18:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rust</title>
@@ -192,12 +192,19 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Sans" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Fira Code" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel='stylesheet' type='text/css' href='/css/main.css'/>
 <script>
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -229,9 +236,9 @@
 <header>
 <h1 class="title">Rust</h1>
 </header>
-<div id="outline-container-org3df70fd" class="outline-2">
-<h2 id="org3df70fd">A meme language, which is OK</h2>
-<div class="outline-text-2" id="text-org3df70fd">
+<div id="outline-container-orgcc51a27" class="outline-2">
+<h2 id="orgcc51a27">A meme language, which is OK</h2>
+<div class="outline-text-2" id="text-orgcc51a27">
 <p>
 It has essentially the same <i>social momentum</i> like <code>Perl</code> and then <code>PHP</code> had, except
 much larger. Unlike <code>Javascript</code>, it is still a <i>niche</i> language, so more like a
@@ -243,9 +250,9 @@ This is not a joke. The social dynamic is very common &#x2013; to be identified 
 </p>
 </div>
 
-<div id="outline-container-org9756fc4" class="outline-3">
-<h3 id="org9756fc4">Over-excited amateur community</h3>
-<div class="outline-text-3" id="text-org9756fc4">
+<div id="outline-container-orgd75928f" class="outline-3">
+<h3 id="orgd75928f">Over-excited amateur community</h3>
+<div class="outline-text-3" id="text-orgd75928f">
 <p>
 One has to be an amateur to be excited about anything. Well, except high quality
 art and true craftsmanship in general.
@@ -269,9 +276,9 @@ at Mozilla has at least done a lot of (<code>C++</code>) programming beforehand.
 </p>
 </div>
 </div>
-<div id="outline-container-org6ab85fd" class="outline-3">
-<h3 id="org6ab85fd">Pragmatic</h3>
-<div class="outline-text-3" id="text-org6ab85fd">
+<div id="outline-container-orgba4835f" class="outline-3">
+<h3 id="orgba4835f">Pragmatic</h3>
+<div class="outline-text-3" id="text-orgba4835f">
 <p>
 Being reasonably high-level, with meaningful high-level syntactic forms (like <code>?</code>)
 it is a pragmatic language, indeed.
@@ -286,9 +293,9 @@ It is <i>in principle imperative</i>, so the order of statements matter (even mo
 </p>
 </div>
 </div>
-<div id="outline-container-org6efaf66" class="outline-3">
-<h3 id="org6efaf66">Free community docs</h3>
-<div class="outline-text-3" id="text-org6efaf66">
+<div id="outline-container-orgecf1471" class="outline-3">
+<h3 id="orgecf1471">Free community docs</h3>
+<div class="outline-text-3" id="text-orgecf1471">
 <p>
 By amateur zealots obsessed with US-specific gender issues
 </p>
@@ -306,18 +313,18 @@ Non-meme books (by qualified people)
 </ul>
 </div>
 </div>
-<div id="outline-container-orge9b2183" class="outline-3">
-<h3 id="orge9b2183">Books</h3>
-<div class="outline-text-3" id="text-orge9b2183">
+<div id="outline-container-orgd643d8b" class="outline-3">
+<h3 id="orgd643d8b">Books</h3>
+<div class="outline-text-3" id="text-orgd643d8b">
 <p>
 There are a few recent books on some <i>specifics</i>, so all the information is available.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org39b5f79" class="outline-2">
-<h2 id="org39b5f79">Principles</h2>
-<div class="outline-text-2" id="text-org39b5f79">
+<div id="outline-container-org33e7c26" class="outline-2">
+<h2 id="org33e7c26">Principles</h2>
+<div class="outline-text-2" id="text-org33e7c26">
 <p>
 The mind tends to abstract away (and out) and ignore the details, so should our
 <i>high-level</i> languages do.
@@ -340,11 +347,11 @@ The right thing to do is to have well-crafted <i>defaults</i>, and the clean syn
 </div>
 </div>
 
-<div id="outline-container-org726c738" class="outline-2">
-<h2 id="org726c738">C++</h2>
-<div class="outline-text-2" id="text-org726c738">
+<div id="outline-container-orgc390f7a" class="outline-2">
+<h2 id="orgc390f7a">C++</h2>
+<div class="outline-text-2" id="text-orgc390f7a">
 <p>
-Programs must be read like arithmetic, not some an_int_implemented_as_with_signals_overflow_in_this_way.static_method_invoked_by_a_constant_reference+(an_instance_of_an_integer_implemented_as&#x2026;.)
+Programs must be read like arithmetic, not some an<sub>int</sub><sub>implemented</sub><sub>as</sub><sub>with</sub><sub>signals</sub><sub>overflow</sub><sub>in</sub><sub>this</sub><sub>way.static</sub><sub>method</sub><sub>invoked</sub><sub>by</sub><sub>a</sub><sub>constant</sub><sub>reference</sub>+(an<sub>instance</sub><sub>of</sub><sub>an</sub><sub>integer</sub><sub>implemented</sub><sub>as</sub>&#x2026;.)
 </p>
 
 <p>
@@ -353,9 +360,9 @@ With all possible symbols thrown in.
 </div>
 </div>
 
-<div id="outline-container-orgab8699c" class="outline-2">
-<h2 id="orgab8699c">Ideas</h2>
-<div class="outline-text-2" id="text-orgab8699c">
+<div id="outline-container-org01f8b87" class="outline-2">
+<h2 id="org01f8b87">Ideas</h2>
+<div class="outline-text-2" id="text-org01f8b87">
 <p>
 By the way, always having an <i>implicit context</i> (as in Scala) is a universal
 notion (not just of a human language, but even animal&rsquo;s stress calls), and it
@@ -386,9 +393,9 @@ Something like <code>a#b</code> (like in CLU) instead of <code>a.b</code>
 </div>
 </div>
 
-<div id="outline-container-org8a87936" class="outline-2">
-<h2 id="org8a87936">Disclaimer</h2>
-<div class="outline-text-2" id="text-org8a87936">
+<div id="outline-container-org7117190" class="outline-2">
+<h2 id="org7117190">Disclaimer</h2>
+<div class="outline-text-2" id="text-org7117190">
 <p>
 Even if I rant about <code>Rust</code> a lot, it is only because I <i>do</i> know &ldquo;any better&rdquo; -
 Scheme, Common Lisp, SML, Elang, Ocaml, Haskell, Scala3, F#. It is important,
@@ -425,9 +432,9 @@ least we could push it to the retirement home, together with <code>Cobol</code> 
 </p>
 </div>
 </div>
-<div id="outline-container-org949d666" class="outline-2">
-<h2 id="org949d666">The rant</h2>
-<div class="outline-text-2" id="text-org949d666">
+<div id="outline-container-org913ac6d" class="outline-2">
+<h2 id="org913ac6d">The rant</h2>
+<div class="outline-text-2" id="text-org913ac6d">
 <p>
 I came up with some <i>enlightened</i> and precise definition of <i>why</i> some languages  feel
 so crappy, like PHP, which is, as we know, <i>the fractal of bad design</i>.
@@ -523,8 +530,8 @@ programming, and there were no problem with the syntax and semantics of the
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-07-15 Sat 16:28</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.0.92 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</p>
+<p class="date">Created: 2023-08-08 Tue 18:39</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
 </html>
