@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-08-08 Tue 18:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why S and K are enough.</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Why S and K are enough.</h1>
+</header><p>
+The word &ldquo;implies&rdquo; and corresponding arrows are grossly <i>overloaded</i> and have more than one subtle but distinct meanings.
+</p>
+
+<p>
+We will read and interpret the &ldquo;arrows&rdquo; (and the word &ldquo;implies&rdquo;) from different formalisms differently (as an implication in terms of necessity and sufficiency and as a single discrete step of causality).
+</p>
+
+<p>
+We will put the universal notion of an environment (and the corresponding &Gamma; abstraction) from obscurity to the center.
+</p>
+
+<p>
+We will threat &ldquo;arrows&rdquo; as <i>paths</i> of <i>a /single step</i>, and composition of functions (via <i>nesting</i>) as <i>composition of arrows</i>, or steps in longer paths (of causality).
+</p>
+
+<p>
+The notion of currying corresponds to <i>joins</i> (when multiple arrows come together).
+</p>
+
+<p>
+The notion of abstraction by parameterization (B. Liskov) is implicit in the notion of currying. We (and molecular biology) parameterize with whole discrete steps (arrows).
+</p>
+
+<p>
+So, the world &ldquo;implies&rdquo; and the notion of an arrow is convoluted and overloaded, which causes a mess and a profound confusion. Once we sort the arrows out everything will &ldquo;click&rdquo;.
+</p>
+
+<p>
+Indeed, stating what causes what (necessary and sufficient for a &ldquo;reaction&rdquo; or a &ldquo;transition&rdquo;) <i>in general</i> is subtly different from describing (stating) individual steps of causality, at least for us - programmers, who are concerned with representations and implementations.
+</p>
+
+<p>
+The &ldquo;arrows&rdquo; looks (are) the same in various related formalisms - different perspectives (views) of the same reality (mountain). They are trying to capture (aspects of) the same universal notions, after all.
+</p>
+
+<p>
+Some arrows out there are due to <i>currying</i>, which is implemented as (is) <i>nesting</i> and thus having an implicit particular <i>ordering</i> &ldquo;under the hood&rdquo;.
+</p>
+
+<p>
+<i>Causality (the processes) are ordered</i>, of course. The previous &ldquo;results&rdquo; or &ldquo;stable intermediate forms&rdquo; (including what is <i>necessary and sufficient</i>) has to be already present &ldquo;out there&rdquo; in the environment &#x2013; in &Gamma; or in the same <i>locality</i>.
+</p>
+
+<p>
+Composition as nesting captures another universal notion of a partitioned compartment - of a closure - of an enzyme or a whole cell.
+</p>
+
+<p>
+Closure is a more general notion, which includes a <i>statement of fact</i> while all the references to the elements of &Gamma; has been &ldquo;captured&rdquo; (the meaning is set immutable). The biological parallels are also obvious.
+</p>
+
+<p>
+The notion of an <i>environment</i> is required (necessary), just as &Gamma; is required for any system of logic (which tries to capture the universal notions of <i>What Is</i>).
+</p>
+
+<p>
+So, some arrows corresponds to the &ldquo;mappings&rdquo; or &ldquo;transitions&rdquo; of pure functions - <i>nested</i> &ldquo;single steps&rdquo; of causality, while others denote various meanings of an &ldquo;implication&rdquo;.
+</p>
+
+<div id="outline-container-org967e431" class="outline-2">
+<h2 id="org967e431">First of all</h2>
+<div class="outline-text-2" id="text-org967e431">
+<p>
+The &ldquo;famous&rdquo; (which makes me sick) &ldquo;False implies anything&rdquo; of the purists has only and only one meaning:
+</p>
+
+<p>
+The false result (statement) does not affect the whole environment (the contents of &Gamma;) or <i>What Is</i>. So the word <i>implies</i> has this (and only this) meaning in this context.
+</p>
+
+<p>
+Lets settle this once and for all.
+</p>
+</div>
+</div>
+<div id="outline-container-org6c8e736" class="outline-2">
+<h2 id="org6c8e736">S and K combinators (which are closed forms or closures)</h2>
+<div class="outline-text-2" id="text-org6c8e736">
+<p>
+This is what we have
+</p>
+<pre class="example" id="org555502f">
+s : ((A → (B → C)) → ((A → B) → (A → C))
+</pre>
+<p>
+This reads (in classic logic): <i>A implies B implies C, implies A implies B, implies A implies C.</i>
+</p>
+
+<p>
+The another (denotatonal) reading is this: <i>give me a function from <code>a</code> to <code>b</code>, and by already having a function from <code>b</code> to <code>c</code>, we will have a function from <code>a</code> to <code>c</code>.</i>
+</p>
+
+<p>
+This, is, of course, exactly corresponds to a <i>partial application of curried functions</i>, which is, again, a couple of <i>universal notions</i> being captured together.
+</p>
+
+<p>
+Partial application, obviously, corresponds to the universal notion of when not all what is <i>necessary and sufficient is present in the particular locality</i> - a partially filled enzyme, not meet required conditions of a reaction.
+</p>
+
+<p>
+So, in the notation above we got the <i>currying</i> itself backwards &#x2013; a function composition via nesting which is what currying <i>is</i> (how it is actually implemented, and this is the only possible way).
+</p>
+
+<p>
+And the &ldquo;forward&rdquo; reading is this: a <i>presence of A implies presence of (B -&gt; C) (nested in a curried form)</i> implies that, if there is a path (A -&gt; B), there is (already, always) a <i>path</i> from (A -&gt; C).
+</p>
+
+<p>
+The&ldquo;if&rdquo; there is not just an artifact of the English language usage, it hints on <i>necessity</i> (and sufficiency) and of that everything must be present in the environment (in the same locality).
+</p>
+
+<p>
+Conclusion on this one? We have captured the same universal notion within different formalisms, more than once at different levels (abstraction by parameterization).
+</p>
+
+<pre class="example" id="org54897f9">
+k : A → (B → A)
+</pre>
+<p>
+This is a <i>left-identity</i> (for a <i>curried function of arity 2 - a join of two arrows)</i>, so will eventually have a Monoid &#x2013; <i>the why</i> <code>S</code> and <code>K</code> are enough.
+</p>
+
+<p>
+The notion of a <i>Simigroup</i> captures jet another universal pattern (two arrows coming together and resulting in a &ldquo;starting point of a the next arrow of the same kind&rdquo;), and no, there is no identity elements or functions in <i>What Is</i>, but a lot of concatenations and &ldquo;coming togethe&rdquo;.
+</p>
+
+<p>
+Kleisli arrows, by the way, are another proper &ldquo;capturing&rdquo; of the notion of &ldquo;crossing an abstraction barrier&rdquo; or just a single step with a structurally kind of a result. Anyway.
+</p>
+</div>
+</div>
+<div id="outline-container-orge7ffbfb" class="outline-2">
+<h2 id="orge7ffbfb">S</h2>
+<div class="outline-text-2" id="text-orge7ffbfb">
+<p>
+Lets do familiar (less confusing) renaming of the type-variables and the terms first
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">s :: (a -&gt; b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+s = \f -&gt; \g -&gt; \h -&gt; f h (g h)
+</pre>
+</div>
+<p>
+We have removed the optional parenthesis due to the <i>associativeness</i>.
+</p>
+
+<p>
+What we see is a <i>function composition</i> of terms of different arity, which themselves (<code>f</code>) may be <i>curried</i>. So, yes, currying at different levels, or currying of currying.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">f :: a -&gt; b -&gt; c
+f = \a -&gt; \b -&gt; undefined
+</pre>
+</div>
+<p>
+<code>g</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">g :: a -&gt; b
+g = \a -&gt; undefined
+</pre>
+</div>
+<p>
+<code>h</code> is of arity zero, which corresponds to a <i>binding</i>, so it should be named <code>x</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">h :: a
+h = undefined
+</pre>
+</div>
+<p>
+One more time - what we have there is a <i>function composition</i>. Not just that, but <i>parameterized</i> by a necessary &ldquo;step&rdquo;.
+</p>
+
+<p>
+To see everything clearly we just have to partially apply <code>s</code> and examine the types. Eventually we will have just <code>a -&gt; c</code>, which everything already &ldquo;present&rdquo; (captured withing a <i>closure</i>).
+</p>
+
+<p>
+This is a universal <i>form</i>. Enzymes are like that. Or mathematical or logical statements (intermediate results).
+</p>
+</div>
+</div>
+<div id="outline-container-org405f84e" class="outline-2">
+<h2 id="org405f84e">K</h2>
+<div class="outline-text-2" id="text-org405f84e">
+<p>
+A <i>curried</i> function of arity 2.
+</p>
+<div class="org-src-container">
+<pre class="src src-haskell">k :: a -&gt; b -&gt; a
+k = \a -&gt; \_ -&gt; a
+</pre>
+</div>
+<p>
+which discards its second argument and is an <i>identity</i> on the first (the left-identity)
+</p>
+
+<p>
+An identity function is the most general in principle, so it takes functions (of any arity) as its arguments.
+</p>
+
+<p>
+<i>Identity</i> could be seen as a <i>constant</i> term, which is the name <code>k</code> <i>misleadingly</i> suggests.
+</p>
+
+<p>
+The usual reading of <code>A → (B → A)</code> in logic is:
+<i>A implies [there is some] (B &rarr; A) [which justified it]</i>.
+</p>
+
+<p>
+We could also read:
+<i>[the presence of] <code>A</code> implies [there was some] <code>(B \rightarrow A)</code> [which caused it].</i>
+</p>
+
+<p>
+Sometimes &ldquo;implies&rdquo; may have the meaning &ldquo;causes&rdquo;, which is subtly NOT the same as &ldquo;necessary and sufficient&rdquo;.
+</p>
+
+<p>
+The &ldquo;universal law&rdquo; (which different formalisms are trying to capture) is that necessary and sufficient <i>requirements</i> must be present in the environment, in the same locality (or in &Gamma;), so the Causality may advance another step (the Universe as a &ldquo;runtime&rdquo; evaluate another form).
+</p>
+
+<p>
+This is the <i>universal</i> notion properly captured in logic. The <i>Modus Ponens</i>
+is another universal notion (of a single step of Causality).
+</p>
+
+<p>
+Here, however, the implementation of <code>k</code>, which discards <code>b</code> has very different meaning and reading.
+</p>
+
+<p>
+First, the type should be written as <code>k :: a -&gt; (_ -&gt; a)</code> and the meaning is:
+<i>anything implies (or causes) <code>a</code>.</i>
+</p>
+
+<p>
+Looks very much like the <i>False implies everything</i> purist&rsquo;s bullshit.
+</p>
+
+<p>
+Another, proper reading is: <code>a</code> is just there, or <code>a</code> just is (there is <code>a</code>) [regardless of ~b~].
+</p>
+
+<p>
+So the arrow there is from (of) <i>currying</i>, not of an implication or of a single step (mapping).
+</p>
+
+<p>
+And the final reading is:
+<i>given an <code>a</code> and also [any] <code>b</code> there is (still) an <code>a</code> (and <code>b</code> is /unrelated)</i>.
+</p>
+
+<p>
+The notion of being unrelated is, of course, the most fundamental and &ldquo;the most&rdquo; universal. Most of <i>events</i> are unrelated (they <i>all</i>, of course, are related only in the <i>unwinding</i> of the causality - being the sub-processes of the same single Universe).
+</p>
+
+<p>
+In short, the shape of the Universe is a <i>directed /acyclic graph</i>, and the joins are not the cyles (due to one direction &ldquo;traffic&rdquo;).
+</p>
+
+<p>
+Forks are just abstract notions - they do not exist, only as hyipothetic potentialities - every &ldquo;step&rdquo; takes only one <i>path</i> and other &ldquo;possibilities&rdquo; do not exist, except for the mind of an external observer.
+</p>
+
+<p>
+This is exactly why no <i>conditionals</i> are required. Just nesting of steps is enough.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd92543a" class="outline-2">
+<h2 id="orgd92543a">Now why is <i>this particular form</i>?</h2>
+<div class="outline-text-2" id="text-orgd92543a">
+<p>
+Well, <code>g</code> is nested in <code>f</code>, which is the same notion as <code>g</code> is curried within <code>f</code> or that <code>f</code> is implicitly parameterized by <code>g</code>.
+</p>
+
+<p>
+On the other hand, <i>partial application</i> reveals more general <i>properties</i>.
+</p>
+
+<p>
+Just as partially applied <code>fmap</code> yields a function on a containers, partially applied <code>s</code> (to a binary combinaror) first yields a function on an unary combinator, and then, partially applied again, yields a function on a <i>value</i>.
+</p>
+
+<p>
+<code>k</code>, of course, has to be partially applied to <code>s</code>.
+</p>
+
+<p>
+Notice that any partially applied combinator (a closure) yields another <i>closure</i> (so the whole thing is a <i>Semigroup</i>), which is &ldquo;as good as <code>s</code> and <code>k</code> themselves&rdquo;. The arities, of course, has to match up.
+</p>
+
+<p>
+These <i>stable intermediate forms</i> are present in the local context (of the environment) and can be used freely. So  <code>s</code> and <code>k</code> are <i>not the only ones</i> out there. This is why the <i>Lambda Calculus</i> has <i>binding</i> and <i>the implicit environment</i>, just as any formal system of logic.
+</p>
+
+<p>
+So, the form of <code>s</code> is as it is because it can be <i>partially applied</i> (saturated) to yield intermediate results, which can be used freely.
+</p>
+
+<p>
+When <code>s</code> is partially applied to <code>k</code>, which a justification of <code>k</code>&rsquo;s its existence, the <i>resulting form</i> is a special case &#x2013; it acts as an <i>left-identity</i> inside of <code>s</code>, <i>discarding</i> the <code>(g h)</code>. So, there is a <i>Monoid</i> lurking within.
+</p>
+
+<p>
+Now the whole thing has the same properties as the Natural Numbers under addition and all the other Monoids. What is the <i>operation</i>? The composition of individual steps (of arrows) via nesting, of course.
+</p>
+
+<p>
+Now try to realize what exactly we (actually the guys who have discovered the sufficiency of <code>S</code> and <code>K</code>)  have just captured.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-08-08 Tue 18:40</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
+</div>
+</body>
+</html>
