@@ -4,7 +4,7 @@
 <!-- 2023-08-26 Sat 19:03 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Some security with gpg and Emacs.</title>
+<title>Assembling Boeings out of text files</title>
 <meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -233,81 +233,80 @@ font-family: 'Source Code Pro', monospace;
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Some security with gpg and Emacs.</h1>
-</header><ul class="org-ul">
-<li><a href="https://wikitest.gentoo.org/wiki/GnuPG">https://wikitest.gentoo.org/wiki/GnuPG</a></li>
-<li><a href="https://wiki.archlinux.org/title/GnuPG">https://wiki.archlinux.org/title/GnuPG</a></li>
-</ul>
-
-<p>
-We reuse <code>gnupg</code> for everything, which has a built-in support in <code>GNU Emacs</code>.
+<h1 class="title">Assembling Boeings out of text files</h1>
+</header><p>
+The Google Chrome browser has way more &ldquo;details&rdquo; and therefore complexity
+than a Bieing 787 (excluding nested complexity of the on-board computers).
+This puts into a perspective how complex modern software became.
 </p>
 
 <p>
-Notice that <code>pass</code> is also based on <code>gnupg</code>.
-</p>
-<div id="outline-container-org66553b8" class="outline-2">
-<h2 id="org66553b8">.authinfo</h2>
-<div class="outline-text-2" id="text-org66553b8">
-<p>
-Has to be <code>chmod 0600 .authinfo</code>
+Notice that just like an aircraft, the Chrome browser is a product built by a
+corporation which organizes labor of thousands or people, while no one
+understands the whole in its entirety, not even approximately.
 </p>
 
 <p>
-The <code>.authinfo</code> file (which is a &ldquo;standard&rdquo;) could also be encrypted as <code>~/.authinfo.gpg</code> 
+This, if you think about it for a while, has a lot of implications, including
+that in requires a whole industry to produce software and that one has to be
+part of this industry, a sub-contractor at least, to make a living.
 </p>
 
-<pre class="example" id="org680ebc9">
-# -*- epa-file-encrypt-to: ("lngnmn2@yahoo.com") -*-
-machine HOST login NAME password VALUE port NUMBER
-</pre>
-</div>
-</div>
-<div id="outline-container-org124a930" class="outline-2">
-<h2 id="org124a930">GnuPG</h2>
-<div class="outline-text-2" id="text-org124a930">
 <p>
-Install the binaries
+Eventually, like everything else, it boils down to taking your small cut when
+other people are willing to spend because of what they want for some reasons.
+The <i>demand</i> (the want) is what drives everything in a society.
 </p>
-<div class="org-src-container">
-<pre class="src src-bash">  emerge --ask app-crypt/gnupg pinentry pass
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>Create and use a <i>subkey</i> for everything.</li>
-<li>use <code>eval $(gpg-agent)</code></li>
-<li>Backup the whole <code>/.gnupg/</code> directory.</li>
-<li>Encrypt the archive using <code>openssl</code></li>
-<li>Can be integrated with <i>dired</i>, which I don&rsquo;t use.</li>
-</ul>
 
 <p>
-This is how one uses a &ldquo;transparent&rdquo; encryption within <i>GNU Emacs</i>.
+A <i>burnout</i> everyone is talking about nowadays is just burden of the amount of
+complexity and seemingly irrelevant details one has to be aware of in order to
+understand and understand in order to make a decision.
 </p>
-<div class="org-src-container">
-<pre class="src src-elisp">  # -*- mode:org<span style="color: #6f7787;">; </span><span style="color: #6f7787;">epa-file-encrypt-to: ("me@mydomain.com") -*-</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org473b8c2" class="outline-2">
-<h2 id="org473b8c2">OpenSSL</h2>
-<div class="outline-text-2" id="text-org473b8c2">
-<p>
-The simplest encryption using <i>OpenSSL</i>.
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">  openssl enc -aes-256-cbc -a -d -in data.txt -out aaa
-</pre>
-</div>
 
 <p>
-GNU Emacs/ support an encryption scheme based on <i>file extensions</i>.
-There are <i>third-party</i> packages (such as <code>crypt-plus-plus</code>) available.
+What started 70s and 80s as systems which could, with lots of effort, be
+understood in its entirety became a fucking mess which <i>requires</i> huge
+organizations to manage and maintain it.
 </p>
-</div>
-</div>
+
+<p>
+This, after some thinking, implies that only a niche programming in a
+well-designed, <i>very</i> high-level languages (Ideally - almost perfect DSLs like
+MATLAB) is the only viable option for an old-school &ldquo;garage mechanics&rdquo;.
+</p>
+
+<p>
+I absolutely do not want to have anything to do with modern &ldquo;coding&rdquo; in Java
+or C++, leave alone doing <i>webshit</i>, with all its &ldquo;stacks&rdquo; and frameworks. This
+means out of industry and out of money flows.
+</p>
+
+<p>
+My things are <code>Erlang</code> and <code>Haskell</code>, <code>Ocaml</code> and <code>Scala 3</code>, even <code>F#</code>.
+</p>
+
+<p>
+The main problem is that I have no idea <i>what to program</i>. Yes, it <i>seems</i>, that one
+should program &ldquo;trading systems&rdquo;, but once you do some <i>actual research</i> you will
+realize that there is nothing much to program, because all the theoretical
+bullshit is just theoretical bullshit - predictions are impossible in principle.
+</p>
+
+<p>
+So, it should be a simplest <i>reactive</i> system (instead of a predictive one) that
+works (and only simplest systems works reliably), and a such system is
+&ldquo;automation&rdquo;, which is the only viable use for small software.
+</p>
+
+<p>
+I know <i>what, why and how</i>, but the very process of <i>accumulating this knowledge</i>
+has burned me out, and  I have literally no desire to actually do it anymore.
+</p>
+
+<p>
+Even if <code>Scala 3</code> is beautiful and <code>Erlang</code> is a miracle.
+</p>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
