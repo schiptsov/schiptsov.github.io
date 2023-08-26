@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-08-26 Sat 19:01 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LLMS For Coding</title>
+<meta name="author" content="&lt;schiptsov@gmail.com&gt;" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&display=swap" rel="stylesheet">
+<style>
+font-family: 'Noto Serif', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Source Code Pro', monospace;
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">LLMS For Coding</h1>
+</header><p>
+Today <a href="https://news.ycombinator.com/">https://news.ycombinator.com/</a> is glowing bright with AI memes and buzzwords like a Christmas tree. Everyone is there, including billion dollar corporations announcing a &ldquo;CodeLama-34b&rdquo; which is <i>&ldquo;designed for general code synthesis and understanding.&rdquo;</i>
+</p>
+
+<p>
+First of all, I personaly do not want to rely in any part of my life on any &ldquo;synthesized&rdquo; (and &ldquo;understood&rdquo; software, and demand an explicit opt-out. Yes, yes, I know.
+</p>
+
+<p>
+If I have any understanding of these subjects at all, this is a bubble and <i>irrational exuberance</i>. Lets try to unpack &ldquo;the whys&rdquo;.
+</p>
+
+<p>
+Aside from memes and million dollar investments, there are actual data structures and algorithms under the hood, which are complex and convoluted. Nevertheless, at a higher level of abstractions we could see what is going on without talking too much bullshit.
+</p>
+
+<p>
+First, there are a few thing to acknowledge.
+</p>
+
+<p>
+When <i>n-grams</i> or even <i>bit-sequences</i> are used for training from the start, we are discarding any semantics of the underlying language and switching to a &ldquo;meaningless&rdquo; <i>information processing</i>./
+</p>
+
+<p>
+This is a strong claim but it is correct (not wrong). The actual nodes of the wast trees will contain short <i>bit sequences</i>, and the links and weights will <i>capture</i> not the semantics of standard idioms of a language, as we would wish to, or even generalized algorithmic patterns (to reflect the underlying linear, sequential and table-like structures), but the overall &ldquo;multi-dimensional shape&rdquo; of the whole training set.
+</p>
+
+<p>
+Please, read this again, this is an important <i>principle</i>. From the very start of the training process they choice a wrong (too low) level of underlying abstraction.
+</p>
+
+<p>
+The resulting model &ldquo;works&rdquo; or people claim it does, but its size and resources required to run it are simply ridiculous. The number of &ldquo;neurons&rdquo; is a signal (heuristic) that the whole approach is just wrong. There has to be a better way.
+</p>
+
+<p>
+From a PLT perspective, training a model on a junk code from the internet or even github is just nonsees. The last 60 years of PLT research by smart people gave us a few fundamental results, which can be grossly oversimplified to &ldquo;each language has its own uses and standard idioms&rdquo;.
+</p>
+
+<p>
+One more step back. In the 70s and 80s they tried to teach programming <i>systematically</i>, by illustrating the underlying universal principles with <i>discovered</i> and refined common idioms. The idea was to teach a student &ldquo;just right things&rdquo; from the start.
+</p>
+
+<p>
+They indeed gradually introduced the common &ldquo;shapes&rdquo; of the data and standard idioms and algorithms to deal with each particular shape (sequences, trees, tables). Things like sorting of linear sequences were distinct subtopics but there were common patterns too.
+</p>
+
+<p>
+The code they used to teach was simplified but idiomatic, and very few actual projects has been written in this &ldquo;teaching style&rdquo; which everyone could understand. The classic MIT books are well-known for their high-level clear and idiomatic code in <code>Scheme</code> .
+</p>
+
+<p>
+Another great tradition if of <code>Standard ML</code> and lately <code>Ocaml</code>, which also write very careful, idiomatic code in their standard libraries.
+</p>
+
+<p>
+With <code>Haskell</code> only <i>GHC</i> and its dependencies are well-written (including the <code>base</code>), and most of public <code>Haskell</code> code is an unimaginable crap of over-abstraction and redundancy (which is supposed to be cleverness).
+</p>
+
+<p>
+Now please pay attention.
+</p>
+
+<p>
+Training on very principle-guided, idiomatic, <i>consistent</i> and clean codebases, with careful attention to detail, should yield an order of magnitude better performance for any uses in <i>the same codebase</i>.
+</p>
+
+<p>
+So, take, lets say, <code>MIT Scheme</code> and its libraries, <code>Ocaml</code> compiler and its libraries (NOT the crap from Jane Street, or take it <i>separately</i>), or take whole GHC. I think <code>Scala 3</code> compiler and libs are also very well-written.
+</p>
+
+<p>
+Which any of these one can, theoretically at least, do what they did with &ldquo;Handwritten digits&rdquo; back in the 1989 (33 years ago, <code>@karpathy</code> hi there) &#x2013; have an actual <i>proof</i> (in code) that their <i>concepts</i> work (and that the level of abstraction is just right).
+</p>
+
+<p>
+Here I claim that all the current model will fail to capture the underlying fundamental and significant differences (form a non-bullshit PLT perspective) and will show the same crappy mediocre performance.
+</p>
+
+<p>
+The humans, however, trained in the classic MIT style has <i>consistently</i> shown an orders of magnitude better performance in serious programming (not some modern <i>webshit</i>).
+</p>
+
+<p>
+The result will show that the level of abstraction of bits is wrong, and the rat-race of training larger and larger models is futile.
+</p>
+
+<p>
+One more thing. When &ldquo;generating&rdquo; is considered, the <i>algorithmic technique</i> used rely on <i>probability distributions</i> and on &ldquo;some&rdquo; randomness.
+</p>
+
+<p>
+This is the &ldquo;generalizing to not seen before examples&rdquo; meme, which is the greatest.
+</p>
+
+<p>
+There is the thing - it is ok to do <i>pattern-recognition</i> and <i>classification</i> this way, because it is indeed <i>discarding insignificant differences as a noise</i>, and ML does it exceptionally well.
+</p>
+
+<p>
+But, as it is  with the &ldquo;make more of Shakespire&rdquo; demonstration, one will always get what he asked for - just more bullshit. I do not want to read <i>that</i> Shakespire. Neither I want to rely on <i>that</i> code.
+</p>
+
+<p>
+Again, this is serious. From an algorithmic perspective, the way one generate or synthesize <i>guarantees that, in principle, only look-alike bullshit will be produced</i>. Why? Because, again, what was captured (or learned) were <i>probability distributions of bit patterns</i>, not the underlying semantics or even universal shapes of the data, which are out there.
+</p>
+
+<p>
+One last time. There <i>are</i> patterns everywhere out there, at all levels - the data structures, algorithms (the <i>data-dominates</i> principle) and the standard idioms of languages. There are even distinct and well-understood patterns <i>at the type-level</i> (ADTs, GADTs, etc).
+</p>
+
+<p>
+They can in principle be &ldquo;recognized&rdquo; and then &ldquo;used&rdquo;, but we do not see anything of this sort. And the reasons are stated above. After spending merely 20 years of my life I recognize, know and use the most common ones LMAO.
+</p>
+
+<p>
+To summarize, <i>information processing</i> or <i>indexing</i> at the level of bits will never yield any &ldquo;knowledge&rdquo; or &ldquo;intelligence&rdquo; in principle. It isn&rsquo;t there. The huge networks (models) capture &ldquo;snapshots of all the noise&rdquo;.
+</p>
+
+<p>
+Last but not least, one cannot train a model of <code>4chan</code>. It will become a literal shizo (due to exposure to inconsistent, self-contradictory bullshit and abysmally horrific code snippets).
+There is still an acute shortage of actually good code, expecially compared to 70s and 80s.
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
+<p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
+<p class="date">Created: 2023-08-26 Sat 19:01</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
+</div>
+</body>
+</html>
