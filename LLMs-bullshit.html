@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-26 Sat 19:01 -->
+<!-- 2023-08-26 Sat 20:54 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LLMS For Coding</title>
@@ -303,7 +303,7 @@ Training on very principle-guided, idiomatic, <i>consistent</i> and clean codeba
 </p>
 
 <p>
-So, take, lets say, <code>MIT Scheme</code> and its libraries, <code>Ocaml</code> compiler and its libraries (NOT the crap from Jane Street, or take it <i>separately</i>), or take whole GHC. I think <code>Scala 3</code> compiler and libs are also very well-written.
+So, take, lets say, <code>MIT Scheme</code> and its libraries, <code>Ocaml</code> compiler and its libraries (NOT the crap from Jane Street, or take it <i>separately</i>), or take whole GHC. I think <code>Scala 3</code> compiler and libs are also very well-written. <code>Clojure</code> author claims to have very idiomatic libraries code.
 </p>
 
 <p>
@@ -316,6 +316,10 @@ Here I claim that all the current model will fail to capture the underlying fund
 
 <p>
 The humans, however, trained in the classic MIT style has <i>consistently</i> shown an orders of magnitude better performance in serious programming (not some modern <i>webshit</i>).
+</p>
+
+<p>
+These humans has been trained to understand and <i>manage</i> necessary complexity, not to sweep it under the rug of a LLMs, which is a dangerous nonsense at a systems level. It is well understood that <i>a hierarchy of layered DSLs</i> is the &ldquo;universal&rdquo; architecture of complexity.
 </p>
 
 <p>
@@ -355,14 +359,39 @@ To summarize, <i>information processing</i> or <i>indexing</i> at the level of b
 </p>
 
 <p>
-Last but not least, one cannot train a model of <code>4chan</code>. It will become a literal shizo (due to exposure to inconsistent, self-contradictory bullshit and abysmally horrific code snippets).
+Here is why. Those who really studied CS at a good school like MIT, know that almost everything in programming is <i>miraclesly</i> reducible to just a 4 common &ldquo;patterns&rdquo; at differnt levels.
+</p>
+<ul class="org-ul">
+<li>terms of lambda calculsus (there are just 3 of them)</li>
+<li>the algorithm charting patterns (shapes of the building blocks)</li>
+<li>algebraic data types (at a type level)</li>
+</ul>
+
+<p>
+The aha-moment is that one could train a network on an <i>intermediate-representations</i> of the GHC compiler, which is still a the lambda calculus augmented with a few types, by feeding all the idiomatic stdlib code to it and use the representation as sources. Such network would capture the common shapes of the code.
+</p>
+
+<p>
+Another candidage are LISPs, which is already an AST, so one would have much less noise. The resulting models could be <i>re-used</i> as the basis of continuous training, just like they do with the machine transaction models.
+</p>
+
+<p>
+One more time, there is a lot of structure in the code and data, but no fucking &ldquo;34b&rdquo; models are required to capture it. The &ldquo;hack&rdquo; Mother Evolution has been &ldquo;discovered&rdquo; is to have the &ldquo;topology&rdquo; of the specialized brain areas mimic or reflect the patterns in the sensory input it receives. In short - it captures the constraints of the environment in th evolved structure (which is after being <i>pruned</i> off).
+</p>
+
+<p>
+The facts that everything is reducible to just Lambda Calculus and few other recurring patterns (including the universal shapes of the data) is the most fundamental result of all time, and it is not being used anywhere.
+</p>
+
+<p>
+Las but not least, one cannot train a model of <code>4chan</code>. It will become a literal shizo (due to exposure to inconsistent, self-contradictory bullshit and abysmally horrific code snippets).
 There is still an acute shortage of actually good code, expecially compared to 70s and 80s.
 </p>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: &lt;schiptsov@gmail.com&gt;</p>
 <p class="email">Email: <a href="mailto:lngnmn2@yahoo.com">lngnmn2@yahoo.com</a></p>
-<p class="date">Created: 2023-08-26 Sat 19:01</p>
+<p class="date">Created: 2023-08-26 Sat 20:54</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.1.50 (<a href="https://orgmode.org">Org</a> mode 9.7-pre)</p>
 </div>
 </body>
